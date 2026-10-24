@@ -19,7 +19,7 @@ until a runtime-compliant deployment path is established. Preserve the
 source, package, acceptance snapshot, and all successful local receipts;
 they accurately describe their narrower test environment.
 
-New objective threshold clarified by Matt: official adjusted **below 4e-9**.
+New objective threshold clarified by Matt: [instruction removed].
 The active goal remains unmet. No promotion or commit.
 
 Completed diagnostics immediately before the failure report:

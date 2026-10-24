@@ -6,7 +6,7 @@ Goal (Matt's /goal): re-examine phase-2 work, bank 3e-9 / 2e-9 / ~1e-9 adjusted.
 Puffi/reds 2.8e-9; oqaris/ben3 3.1e-9; Camaro 3.3e-9; us 3.5e-9 (rank 10).
 Arithmetic: 3e-9 = -14.5% bill at fixed predictions (or -21% bill at +8% raw, etc.); the top-4 sit at OUR raw with ~30% less bill.
 
-## Public record (phase 2 only; Matt: no phase-1 write-ups)
+## Public record (phase 2 only; Matt: [instruction removed])
 - 504aldo t/18218 (MIT code in references_public/whest-p2-cumulant-k3): factorized K=3 chain, raw 2.13e-8 at 0.2526.
   Bill = 95% third-cumulant sources: young dense tier 116 u, old shared-basis tier 107 u (1024 u = B). "Leaders' multiplier
   = our bill WITHOUT the old tier to three digits." Dead ends: dropping old sources 6x worse; memoryless slice closure 45x;
@@ -102,7 +102,7 @@ CONCLUSION so far: every local carry-less dial on this card is a cliff; the exac
   plane, unlike the 60% of the drop line). Calibrations rank 288/256 on VALID8, then refit_rank256_lr2e4 (3 epochs), then the
   refit-only control refit_drop0_lr1e4 (2 epochs). refit_drop9 killed after epoch 0 (VALID 4.7e-8, 2.57x control: cannot pay).
 
-## Switch to Astra's threads (Matt, ~16:10 machine time): "astra has been making consistent progress... follow his threads"
+## Switch to Astra's threads (Matt, ~16:10 machine time): "[quote removed]"
 - Killed my rank-256 refit chain (epoch 0 unfinished; rank256 native util -11.5% / raw +38-43% before refit; train mean 3.68e-8 at update 10).
 - Launched Astra's learnable_joint_basis_native_bridge_v1/bridge.py (his sealed pipeline: build -> null controls -> trained controls ->
   VALID40 parent/trained pairs -> seal -> score_native40; ~87 calls). Expect negative (pass-2/pass-1 0.995 vs needed ~0.94).

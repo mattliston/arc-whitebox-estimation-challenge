@@ -15,7 +15,7 @@ Recorded measurement:
     
     - Plane-chain fault split (T-75..T-77, one-step certificates with truth POST planes from mc_post_planes_mps.py): the EMISSION is right once E[φ³] carries the same Edgeworth corrections as the other moments (FOURTH_R3FIX=1: K31post corr 0.33 → 0.998; = teammate A's T-49 g24fix); the PUSH is the fault: the plane-supported push drops the post tensor's (2,1,1)/(1,1,1,1) classes → K22 25-32% missing, K31 ~95% missing, k4 28-37% (the k4 table's source). The missing part is uncorrelated with the pushed planes (not a rescale), 52-65% rank-8. In-card plane ladder (r35 host): engine K22 alone 3.10e-8, +truth K31 2.47e-8, truth both 2.08e-8 — K22 and K31 accuracy worth ~0.6-0.8e-8 each.
     
-    **Why:** explains the 69% learned correction physically (Matt: "derive everything"), and reframes N0.1: the leftover after the operator is the (k3, v) accumulated residual GIVEN correct planes — the engine's own 6% third-order transport error is the next mechanism to name.
+    **Why:** explains the 69% learned correction physically ([instruction removed]), and reframes N0.1: the leftover after the operator is the (k3, v) accumulated residual GIVEN correct planes — the engine's own 6% third-order transport error is the next mechanism to name.
     
     **How to apply:** judge every candidate by the perpendicular judge BEFORE any refit; a derived plane chain is the no-learning replacement of the operator (worth ~engine-class 3.3-3.8e-8 F2J-off), not a board gain; the road to 1e-8 = planes + k3-given-planes (engine truncations: second-order Edgeworth, fourth-order insertions, (2,1,1) feed) + v. Related: [[plane-feed-mechanism-live]], [[operator-span-redundancy-law]], [[card-kurtosis-cap-defect]], [[closure-coadaptation-basin-law]].
 

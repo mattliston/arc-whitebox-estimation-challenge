@@ -6,7 +6,7 @@ Heavy jobs require available memory above their own measured peak plus reserve a
 
 Recorded measurement:
 
-    - 2026-09-24 21:50 lead: MACHINE RULE (all agents, effective now; binding constraint = MEMORY, Matt: "use the machine, just don't OOM it"). Before ANY heavy launch (card worker, refit, VALID40, MPS), including auto-launchers:
+    - 2026-09-24 21:50 lead: MACHINE RULE (all agents, effective now; binding constraint = MEMORY, Matt: "[quote removed]"). Before ANY heavy launch (card worker, refit, VALID40, MPS), including auto-launchers:
       (1) count heavy python processes on the box (RSS > 3 GB, all agents): launch only if fewer than 4 are running;
       (2) require free+inactive >= (the job's own peak RSS + 4 GB) AND memory_pressure free >= 35%;
       (3) MPS: one job at a time (the engineer holds it for E-68(c) now).

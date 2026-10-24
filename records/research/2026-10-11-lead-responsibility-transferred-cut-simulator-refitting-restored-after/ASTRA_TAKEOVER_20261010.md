@@ -7,7 +7,7 @@ Written 2026-10-10 ~23:20 UTC by the outgoing lead (Claude Opus). Read this file
 
 ## 1. Goal
 
-Matt: "it's extremely important that we win this competition". Aim for FIRST place in Phase 2. The deadline is
+Matt: "[quote removed]". Aim for FIRST place in Phase 2. The deadline is
 **2026-10-17 23:59 UTC**. Matt thinks a further ~-9% is reachable at our recent pace (-5% S42 -> S45 in 13 hours).
 
 ## 2. Board (2026-10-10 ~22:00 UTC)
@@ -162,7 +162,7 @@ The memory of all prior work is in `/Users/matt/.claude/projects/-Users-matt-arc
 ## 11. Plan to the close
 
 1. Each day: one or two verified gains, fired as a pair (safe + twin) when the untouched judge holds.
-   - Matt approved firing improvements of "a couple of percent".
+   - Matt approved firing improvements of "[quote removed]".
    - In this final week I also fired verified gains of -0.6..-2.6% that improve our place or the designated pair.
 2. Keep the best pair graded at all times. Designate it when the interface opens, or rely on the default of the two best public scores.
 3. In the last 24 hours, stop changing physics; only re-qualify and fire what is verified.
