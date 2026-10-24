@@ -1,0 +1,52 @@
+{
+ "source": "fable_covhunter_v1/gnjoint_j05ep0_on.json (learned-ON joint GN fit on the j05 epoch-0 card, VALID16 -2.23% 13/16) = s6bcard_jfitON1.FIT",
+ "torch_reference": "fable_covhunter_v1/s6bcard_jfitON1.py (STAR=lr32 for S18) on s6bcard_joint.py; per-net VALID40 targets in s18_revalidate_n40.json rows[*].fit_s18",
+ "native_base": "fable_fire_v1/fire_candS18/candS18_S17_lrq1r32_mem.py (live loop _predict_binary)",
+ "changes": [
+  {
+   "dial": "X1",
+   "value": 0.5308918270970678,
+   "native": "_BD_J1_PHYS = 0.5 -> value (module literal, line ~6367)"
+  },
+  {
+   "dial": "X0,X2,X3",
+   "value": [
+    0.0008298924162001187,
+    0.20924729592278657,
+    -0.1173526402020965
+   ],
+   "native": "_bd_update: after fnp.put(D, st[\"diag\"], 0.0) and BEFORE the orthogonalizing fnp.subtract, form raw = X0*D[0] + X2*D[2] + X3*D[3] (float64, diagonal already zero); after change = fnp.sum(D, axis=0) add change = change + raw, then fill_diagonal as now. Torch reference: the unorthogonalized direction j times X_j, added on top of the learned c_j*orth(dir_j) (s6bcard_joint.make_bd)."
+  },
+  {
+   "dial": "K31 row factor c0, c1 (pair map only)",
+   "value": [
+    0.7026110527329645,
+    1.1230804063883197
+   ],
+   "native": "_K31R_TABLE layers 1..14 -> (c0, c1) for the PAIR MAP use (_k31_row_scale at line ~914). IMPORTANT: _gn_dcov (line ~3849) must KEEP (0.85, 0.5) for its k31 knob term (the torch gn3 knob captured c0, c1 = .85/.5 at configure time); e.g. a second table _K31R_TABLE_GN."
+  },
+  {
+   "dial": "k4 bands (pair map + final only)",
+   "value": {
+    "L1_7": 0.9914374263037713,
+    "L8_11": 0.9518799990980005,
+    "L12_15": 0.9540390389423499
+   },
+   "native": "live loop line ~3280 k4 = radial*vv*vv: pass k4*band(l) to pair_map (lines ~3290/3292) ONLY; _gn_dcov (line ~3294) keeps the UNSCALED k4; k22 and radial unchanged. Final layer line ~3228 nonlinear_scalar(mu, v, k3, radial*v*v): multiply that k4 by the L12_15 value."
+  },
+  {
+   "dial": "b scale",
+   "value": 1.0508288007945212,
+   "native": "live loop after the _BFIX_GAMMA line (~3327): b = b * value (every layer that updates b)"
+  },
+  {
+   "dial": "lam scales (carried per layer, newborn at birth)",
+   "value": {
+    "s_carry": 1.004248449059205,
+    "s_new": 0.9924920858839599
+   },
+   "native": "live loop line ~3381 lam = concatenate([lam, _e2_asel, -_e2_asel]) -> concatenate([lam*s_carry, _e2_asel*s_new, -_e2_asel*s_new]) (float32; layers 0..14; torch applies it to the state passed to the next layer, so nothing later in the same layer may read the scaled lam; the old-tier core is NOT rescaled, it picks up the scaled lam at the next join as in torch)"
+  }
+ ],
+ "unchanged": "everything else (GNN, edges, knobs v3 except the K31 split above, L15 row cut, low-rank star S18, join schedule)"
+}

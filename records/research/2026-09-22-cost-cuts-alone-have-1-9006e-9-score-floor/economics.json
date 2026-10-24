@@ -1,0 +1,95 @@
+{
+  "bank": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/official_best_331824.json",
+    "bytes": 3577,
+    "sha256": "cad6cd8a32b98ad38f5673cb4bbc8d06d655d1ead66dbec4617b0d2f02ef6b9f"
+  },
+  "formula": "mean_i(E_i * max(0.1, F_i / 2**41))",
+  "baseline": {
+    "adjusted": 3.5070948899311718e-09,
+    "raw": 1.9005926183979227e-08,
+    "budget": 2199023255552,
+    "floor_flops": 219902325555.2,
+    "flops": {
+      "minimum": 381024555148.0,
+      "mean": 402385992444.34,
+      "maximum": 425364436419.0
+    },
+    "mean_multiplier": 0.1829839640978844,
+    "error_weighted_effective_multiplier": 0.18452638697962676
+  },
+  "unchanged_predictions_at_floor": 1.900592618397923e-09,
+  "uniform_error_reduction_at_unchanged_cost_for_1e9": 0.7148637172974737,
+  "raw_error_reduction_at_floor_for_1e9": 0.4738483195610137,
+  "uniform_cost_reduction_at_unchanged_predictions_for_3e9": 0.1445911518924211,
+  "first_floor_at_uniform_cost_factor": 0.5771342623043918,
+  "all_floor_at_uniform_cost_factor": 0.5169739327680604,
+  "illustrative_53pct_error_and_40pct_cost_reduction": 9.890007589605904e-10,
+  "illustrative_bank_predictions_at_88pct_cost": 3.086243503139431e-09,
+  "extra_cost_break_even_at_mean_bill": [
+    {
+      "extra_flops": 9404000000,
+      "required_fractional_raw_improvement": 0.02283688329621342
+    },
+    {
+      "extra_flops": 45000000000,
+      "required_fractional_raw_improvement": 0.10058428462218454
+    },
+    {
+      "extra_flops": 100000000000,
+      "required_fractional_raw_improvement": 0.19905013576006325
+    }
+  ],
+  "hypothetical_common_multiplier_table": [
+    {
+      "multiplier": 0.18452638697962676,
+      "raw_required_by_adjusted_goal": {
+        "3e-09": 1.6257837424255344e-08,
+        "2e-09": 1.0838558282836897e-08,
+        "1e-09": 5.419279141418449e-09
+      }
+    },
+    {
+      "multiplier": 0.16,
+      "raw_required_by_adjusted_goal": {
+        "3e-09": 1.875e-08,
+        "2e-09": 1.2500000000000001e-08,
+        "1e-09": 6.2500000000000005e-09
+      }
+    },
+    {
+      "multiplier": 0.14,
+      "raw_required_by_adjusted_goal": {
+        "3e-09": 2.1428571428571426e-08,
+        "2e-09": 1.4285714285714286e-08,
+        "1e-09": 7.142857142857143e-09
+      }
+    },
+    {
+      "multiplier": 0.12,
+      "raw_required_by_adjusted_goal": {
+        "3e-09": 2.5000000000000002e-08,
+        "2e-09": 1.6666666666666667e-08,
+        "1e-09": 8.333333333333334e-09
+      }
+    },
+    {
+      "multiplier": 0.1,
+      "raw_required_by_adjusted_goal": {
+        "3e-09": 3e-08,
+        "2e-09": 2e-08,
+        "1e-09": 1e-08
+      }
+    }
+  ],
+  "unchanged_predictions_equalized_to_current_mean_bill": {
+    "hypothetical_score": 3.477779714496296e-09,
+    "actual_score_minus_hypothetical": 2.931517543487591e-11,
+    "fractional_improvement": 0.008358820150272932,
+    "scope": "Exact aggregate identity because all existing and equalized bills are above the floor; no algorithm for equalizing bills is supplied."
+  },
+  "current_bill_max_min_ratio": 1.1163701411678761,
+  "full_1024_W5_hit_saving_already_in_bank": 37710848,
+  "full_1024_W5_creator_copy_already_charged": 17210368,
+  "hypothesis_scope": "Uniform-change and common-multiplier scenarios are not measured candidate results. Added readout cost is rounded. Exact future scores require all actual per-network losses and complete bills."
+}

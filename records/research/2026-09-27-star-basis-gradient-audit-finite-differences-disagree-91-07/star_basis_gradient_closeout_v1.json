@@ -1,0 +1,270 @@
+{
+  "asof_utc": "2026-09-27T01:59:35.954670+00:00",
+  "status": "Closed: fixed whole-model derivative qualification is inconclusive",
+  "result": {
+    "rank": 35,
+    "protocol_sha256": "1d6aff76e3733e2f888289b76b57f32a32a2c8b5cffade4fdb57ebacf6ac0b9c",
+    "manifest": {
+      "rank": 35,
+      "protocol_sha256": "1d6aff76e3733e2f888289b76b57f32a32a2c8b5cffade4fdb57ebacf6ac0b9c",
+      "script_sha256": "4628dcf31644ee9f813b95cbeb190cce0cac0548fd09806716a5aead16d6988f",
+      "card_sha256": "81f9cfcd2e6f5998bfb12083ffec06ed6e5efe0f6aec4d25e41e3d161463ca8d",
+      "checkpoint_sha256": "b612cbaade16350151a310b3b3dbba681acf4ecc4640f7a27bb680dd8a610513",
+      "dials_sha256": "e881c6da752d60845d583ef98e916fd21f809d98d6d416959ec8e450b0621992",
+      "weights_sha256": "14563b956b4e326aee081263077c0dd1dcb86037a0b7870dc58a5e33865f47f2",
+      "torch": "2.7.0",
+      "torch_threads": 1,
+      "targets_accessed": false,
+      "runtime": "/Users/matt/anaconda3/bin/python"
+    },
+    "metrics": {
+      "primal_max_abs": 0.0,
+      "finite_difference_relative_disagreement": 0.9106791180782822,
+      "full_relative_error": 0.9619244487588527,
+      "frozen_relative_error": 1.027060844929484,
+      "tangent_relative_change": 1.110956285088632,
+      "full_rms": 0.00011345495647351392,
+      "frozen_rms": 0.00017381956110910083,
+      "fd_h_rms": 0.00032372683767574435,
+      "fd_half_rms": 0.0004122069650387048,
+      "min_relative_spectral_gap": 0.003547582309693098
+    },
+    "gates": {
+      "finite": true,
+      "resources": true,
+      "identical_branch": false,
+      "primal_equivalence": true,
+      "fd_agreement": false,
+      "full_fd_agreement": false,
+      "frozen_error_twice_full": false,
+      "material_tangent_change": true
+    },
+    "passed": false,
+    "branch_changes": {
+      "frozen": {
+        "row_calls": [],
+        "star_calls": []
+      },
+      "full": {
+        "row_calls": [],
+        "star_calls": []
+      },
+      "plus_h": {
+        "row_calls": [
+          37,
+          38
+        ],
+        "star_calls": [
+          8,
+          11
+        ]
+      },
+      "minus_h": {
+        "row_calls": [
+          25,
+          26,
+          33
+        ],
+        "star_calls": [
+          4,
+          7
+        ]
+      },
+      "plus_half": {
+        "row_calls": [
+          37,
+          38
+        ],
+        "star_calls": [
+          11
+        ]
+      },
+      "minus_half": {
+        "row_calls": [
+          25,
+          26,
+          33
+        ],
+        "star_calls": [
+          4
+        ]
+      }
+    },
+    "guard": {
+      "pid": 87061,
+      "command": [
+        "/Users/matt/anaconda3/bin/python",
+        "probe_star_basis_gradient_v2.py",
+        "35",
+        "star_basis_gradient_r35_v2"
+      ],
+      "initial_swap_bytes": 2361655296.0,
+      "rss_trigger_bytes": 7500000000,
+      "poll_sleep_s": 0.05,
+      "max_rss_bytes": 5207932928,
+      "max_swap_growth_bytes": 0,
+      "completed": true,
+      "error": null,
+      "samples": 840,
+      "maximum_sample_interval_s": 0.09395875036716461,
+      "minimum_sample_interval_s": 0.06747458409518003,
+      "exit_code": 0,
+      "remaining_rows": [],
+      "elapsed_s": 62.981638125143945,
+      "whole_group_retired": true
+    },
+    "per_layer": [
+      {
+        "layer": 0,
+        "full_rms": 0.0,
+        "frozen_rms": 0.0,
+        "fd_half_rms": 0.0,
+        "full_relative_error": 0.0,
+        "fd_relative_disagreement": 0.0
+      },
+      {
+        "layer": 1,
+        "full_rms": 0.0,
+        "frozen_rms": 0.0,
+        "fd_half_rms": 0.0,
+        "full_relative_error": 0.0,
+        "fd_relative_disagreement": 0.0
+      },
+      {
+        "layer": 2,
+        "full_rms": 5.22247130928384e-06,
+        "frozen_rms": 5.044381678791382e-06,
+        "fd_half_rms": 5.317095330508739e-06,
+        "full_relative_error": 0.1564211190958597,
+        "fd_relative_disagreement": 0.16307846412750793
+      },
+      {
+        "layer": 3,
+        "full_rms": 1.0403670541532957e-05,
+        "frozen_rms": 1.0929754440804109e-05,
+        "fd_half_rms": 2.508645421941107e-05,
+        "full_relative_error": 0.9195634684052401,
+        "fd_relative_disagreement": 0.7989737706329183
+      },
+      {
+        "layer": 4,
+        "full_rms": 1.720022003408816e-05,
+        "frozen_rms": 2.0643924856672626e-05,
+        "fd_half_rms": 3.8030021185038716e-05,
+        "full_relative_error": 0.873503613617411,
+        "fd_relative_disagreement": 0.7881529277227313
+      },
+      {
+        "layer": 5,
+        "full_rms": 2.3276508876933503e-05,
+        "frozen_rms": 3.169434780222962e-05,
+        "fd_half_rms": 0.0002741592733853824,
+        "full_relative_error": 0.9967232440124625,
+        "fd_relative_disagreement": 0.506799495155094
+      },
+      {
+        "layer": 6,
+        "full_rms": 2.926754446810793e-05,
+        "frozen_rms": 4.1882709734948265e-05,
+        "fd_half_rms": 0.0003129567019762152,
+        "full_relative_error": 0.9993217803167774,
+        "fd_relative_disagreement": 0.510612008096454
+      },
+      {
+        "layer": 7,
+        "full_rms": 3.6719710000600764e-05,
+        "frozen_rms": 5.502528021067953e-05,
+        "fd_half_rms": 0.00034025243194263713,
+        "full_relative_error": 0.9990852646532038,
+        "fd_relative_disagreement": 0.5116242749744471
+      },
+      {
+        "layer": 8,
+        "full_rms": 4.5247036765682914e-05,
+        "frozen_rms": 6.820141233531183e-05,
+        "fd_half_rms": 0.00035910313153912393,
+        "full_relative_error": 0.9988058845189909,
+        "fd_relative_disagreement": 0.6659309356903683
+      },
+      {
+        "layer": 9,
+        "full_rms": 4.923735577601194e-05,
+        "frozen_rms": 7.657903337661473e-05,
+        "fd_half_rms": 0.00033848302343273274,
+        "full_relative_error": 0.9969221538360254,
+        "fd_relative_disagreement": 0.7549600086838887
+      },
+      {
+        "layer": 10,
+        "full_rms": 6.098431157875283e-05,
+        "frozen_rms": 9.787847943685019e-05,
+        "fd_half_rms": 0.00033848685879972484,
+        "full_relative_error": 0.9876889985664582,
+        "fd_relative_disagreement": 0.7797199979437883
+      },
+      {
+        "layer": 11,
+        "full_rms": 6.884629073750968e-05,
+        "frozen_rms": 0.00011161573422894723,
+        "fd_half_rms": 0.000341781023612128,
+        "full_relative_error": 0.9747465294708226,
+        "fd_relative_disagreement": 0.8170092805823512
+      },
+      {
+        "layer": 12,
+        "full_rms": 8.250250262523867e-05,
+        "frozen_rms": 0.00012841611019189403,
+        "fd_half_rms": 0.0003803370053979867,
+        "full_relative_error": 0.9699142562729204,
+        "fd_relative_disagreement": 0.8016908794274867
+      },
+      {
+        "layer": 13,
+        "full_rms": 9.39341395025089e-05,
+        "frozen_rms": 0.0001460670296005224,
+        "fd_half_rms": 0.00041181739968843467,
+        "full_relative_error": 0.972743374331407,
+        "fd_relative_disagreement": 0.8475877784801025
+      },
+      {
+        "layer": 14,
+        "full_rms": 0.00010641917003520084,
+        "frozen_rms": 0.0001666623024009716,
+        "fd_half_rms": 0.0004148159898232827,
+        "full_relative_error": 0.9691417798410906,
+        "fd_relative_disagreement": 0.9203919426365139
+      },
+      {
+        "layer": 15,
+        "full_rms": 0.00011345495647351392,
+        "frozen_rms": 0.00017381956110910083,
+        "fd_half_rms": 0.0004122069650387048,
+        "full_relative_error": 0.9619244487588527,
+        "fd_relative_disagreement": 0.9106791180782822
+      }
+    ],
+    "targets_accessed": false,
+    "optimizer_steps": 0,
+    "valid_accessed": false,
+    "source_hashes": {
+      "frozen.json": "9e3005b1fb97fe3ad3af962d0b79310a36393db2e394710aa926a95596a7640e",
+      "minus_h.npz": "a5b5f327491139c0615bb2708264d26e1a128917cb56d7ffedee452f7796d0d1",
+      "plus_half.npz": "e794ba75bf76b1eb24de32884b5be601e280676e9c1398b712279e520f3eb0c2",
+      "full.json": "f5a052207df64f7ff3cacb9972d8a75a1450d5e37590e159c89fa2f55709ba7c",
+      "plus_h.json": "b376e68c70ef2191e9f495e3c0855d821df18e3141b1e687d67064e1231a3806",
+      "minus_half.json": "e1c31cf251a2e5aba4202cc1da720665855af08b9d514c9344620450540efec9",
+      "minus_h.json": "9d65f80a1a962f038ba81ef955d84021fc923bf68793461040605c92a6dd240d",
+      "plus_half.json": "3d2d6e51cc676e1744eee5d34858f83e7d09c196de08888622655a4e0349d791",
+      "manifest.json": "dc88f4dc1d960c47464079e9f8cc40eafbdba33cc57cfe995b768becaaab2a2e",
+      "frozen.npz": "93593c9d63f1ba78b7f68664bebde3af4e6e0741eb73a507fd50b2cee2b814e7",
+      "minus_half.npz": "2783277d6048e0ecee0e565e1c9928a462318c2b9c5d3a6c5d4dbb853912649b",
+      "plus_h.npz": "25f0f929a8267fd3d42bf71f10c05775bdfaaaf57dfa1ee856347869ea2a7daf",
+      "completion.json": "9974e714555918a1e2e6b40fe7b564fc3033fe5ff62883a62d53dde1f51e9916",
+      "full.npz": "05bd68150ad055b81b7bfeb082d3cf0232ad370568547011c82c5efdc566b775"
+    }
+  },
+  "decision": "No TRAIN100 replication, different epsilon/direction, optimizer, fitting, VALID or candidate follows this failed gate.",
+  "interpretation": "Holding the basis fixed materially changes this Torch-card X1 tangent, with identical frozen/full primal predictions. However the prescribed finite differences change both row/column branches and disagree substantially, so this does not certify the full tangent or establish a useful training update.",
+  "memory_repair": "First attempt stopped at 7.531GB RSS with no added swap, group retired. V2 adds garbage collection/storage pressure relief between layers and corrects selector logging; completed at 5.208GB sampled RSS (5.270GB process high-water mark). No model arithmetic, direction or thresholds changed.",
+  "scope": "Named research Torch card with unscaled terminal k4; not a complete S31 forward mirror or native-gradient qualification. No targets were read by the diagnostic."
+}

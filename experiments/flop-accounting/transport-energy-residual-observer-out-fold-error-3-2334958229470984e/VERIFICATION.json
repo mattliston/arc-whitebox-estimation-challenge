@@ -1,0 +1,72 @@
+{
+  "schema": "public-full688-transport-energy-coherence-cv-verification-v1",
+  "status": "PASS",
+  "scope": "Artifact-level hash, split, coverage, aggregation, gate, exact-energy-observable, and cost verification",
+  "bindings": {
+    "preregistration_sha256": "78fcc69103c54bc5ab60d02a20ed1f647ab7bb422c343693ee40d2d06ae06684",
+    "program_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "run_manifest_sha256": "0294e5151d92678fbf8cf52025e9e6766bc322bb0299dc73a1f9e2170c6842bd",
+    "seal_sha256": "5268aade178286f4034bd26c7a64308ee8f98f6ba65c9bb2158496a53388211b",
+    "cv_results_sha256": "70a0917258a2d656ab9593a67b3a04483af153d8ef59162be9570a6a62b9b5b4",
+    "verifier_sha256": "b97a3ae29d9eec0b2298aaddf659c4e63d3265b5151860e49da4ead060674f69"
+  },
+  "fold_receipts": [
+    {
+      "fold": 0,
+      "result_sha256": "d96aa4e7357c07f2cbf9000f8dbfa223528e9ce39771867c6f557556f83861a6",
+      "model_sha256": "5bf8a65a7a73ffc4ce06fa493c4e720ff0d3f06edb3f1186e7adf6bcf26396a2"
+    },
+    {
+      "fold": 1,
+      "result_sha256": "750355ee7dc1d1c515154af392c4061d5e9cc5569f8cb92bd95d9be82346ae92",
+      "model_sha256": "c26dbe6cd37ef96c268d6dc144d25d15793ea69b8dae135b6844c6809c21ec26"
+    },
+    {
+      "fold": 2,
+      "result_sha256": "e77916590b63f77590d21709ff89d5ac0e034dad73d4da3db50051fc0687279d",
+      "model_sha256": "8c1d4abf025b62e29391c2f59302ba204a83779f6eb11d2f11328295a23c8759"
+    },
+    {
+      "fold": 3,
+      "result_sha256": "5a8208f7c691216b65e5e3a90553ac5ea335bdd29ac4083cc36deddd59cb94e0",
+      "model_sha256": "760e70dd32b16f36fe2809f6bbe52669ec5dd0293b909995fdb743ce8e737cc3"
+    }
+  ],
+  "checks": {
+    "validation_networks_exactly_once": 688,
+    "fold_validation_sets_disjoint": true,
+    "each_training_set_is_validation_complement": true,
+    "all_fold_rollouts_finite": true,
+    "all_fold_training_traces_finite": true,
+    "all_11_data_derived_tails_repaired": true,
+    "exact_signed_transport_bound": true,
+    "exact_nonnegative_energy_observable_bound": true,
+    "deployment_truth_inputs": 0,
+    "observer_selection_targets_opened": 0,
+    "weighted_layer_aggregation_recomputed": true,
+    "decision_gate_recomputed": true,
+    "cost_arithmetic_recomputed": true
+  },
+  "metrics": {
+    "oof_host_final_mse": 9.115992600417403e-8,
+    "oof_autonomous_final_mse": 3.2334958229470984e-8,
+    "autonomous_ratio_to_host": 0.35470584111696657,
+    "improvement_fraction_vs_p2r0f2d": 0.01924561769374095,
+    "improvement_fraction_vs_p2r0f2i": 0.0804817213562623,
+    "miss_fraction_vs_mean_gate": 0.0897270914513989,
+    "maximum_per_network_final_mse": 3.408533352646559e-7,
+    "maximum_ratio_to_gate": 3.408533352646559
+  },
+  "decision_gate": {
+    "finite_all_autonomous_rollouts": true,
+    "mean_below_2_9672528546945005e_8": false,
+    "maximum_per_network_below_1e_7": false,
+    "conjunctive_pass": false
+  },
+  "cost": {
+    "host_plus_correction_upper_estimate": 2128029115325,
+    "phase2_budget": 2200000000000,
+    "headroom_under_upper_estimate": 71970884675,
+    "literal_meter_not_run_because_accuracy_gate_failed": true
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "owned-l3-l3square-fold0-independent-runner-audit-v1",
+  "auditor_role": "h4_reverse_adjoint",
+  "status": "PASS_STATIC_CONTROL_PLANE__NO_TARGET_CACHE_ROW_OR_EXECUTION",
+  "date": "2026-08-31",
+  "bindings": {
+    "runner_sha256": "a6c891cd19b62e1d48280308d4607fefd2a9f8d6d2eaf4a0277dc230c5af6cc5",
+    "feature_adapter_sha256": "5c85616fdd102986cae4b97309d1ddedee5564d3c490b0ebf198fe7ac56fbda7",
+    "preregistration_sha256": "b3d7197b0410f93096fa32d8c018f0e4037bc710e1d5de5da43f84e220b9c624",
+    "release_sha256": "16715386a00d64347a20d1d4e85ecf5410d2c4d86abe79179c6dab78d3ec622b",
+    "claim_contract_sha256": "09cb93a6381b3ecc80196529f5fca055be0bf148c8ce6448226da1946f2de11a",
+    "static_verification_sha256": "c0a3c18d81872e6c216bb5eaa4cc36deff716ddb5b1fdcf5c288d292059e779a",
+    "parent_runner_sha256": "e5028cfe8cd088abc6f4997d9995f2c6b1ba65afd1ee280e763856578a6390ba",
+    "parent_result_sha256": "87624c36e90e3db7e5592ff8eb56acf5696a37d9ad0f2dd7ed656394301f98b4",
+    "parent_integrity_sha256": "73a73b492469c861f68fbc7170c30c75225a72651ec0d45c913ee21ce73f1a5e",
+    "frozen_generator_sha256": "5f4ed4a777f5ab80141bc2e3d1ced73b973f7a60b9f694dd330ca461b545c086",
+    "frozen_implementation_sha256": "ac8be2bb247e505f37919823e988c8622058bf45385bd0faa5cdc223610f9666",
+    "direct_result_sha256": "e1ed27d0882dddb09698da78d167f7e34096ce44742b210b64792a3d20babd7f",
+    "direct_h4_terminal_audit_sha256": "5c7d15bc158db599f638d0ee512d4dac435aac7c04d1f5793ac590f82d9e0349",
+    "direct_cubic_terminal_audit_sha256": "b527b9c24bc4a74c3da0ee6259bbfe100b7d1a2696c454d548cec876610bd0da",
+    "independent_generator_audit_sha256": "49813236452e98d92e8e71ba8c76b984d615f1a2db20f86b3f3221610fc7ee56",
+    "signed_cache_summary_sha256": "fbe6656b064847ee5895f87e4333ff4753bb5339b0bd78d8353371d6bbf0aa9d",
+    "abs_sq_cache_summary_sha256": "180e2f3458f64552583877dec80c8558e61bf0bebda7676f0921df9db823e9e9"
+  },
+  "checks": {
+    "field_typing": "PASS: mean channels use gate_l*(W_l.T@dmu)/sigma_l; variance channels are incoming preactivation (W_l^2).T@dv/sigma_l^2 with no unproved gate squared",
+    "architecture": "PASS: exact 82-parent inputs plus four, 86->256->256->256 with six scalar heads and 155398 trainable parameters",
+    "paired_zero_control": "PASS: both arms retain identical local22 and parent60; source_zero zeros only normalized new4; initialization, fold, row order, node samples, q_rms, optimizer, scheduler, and epochs are paired",
+    "fold_j_q_supervision": "PASS: fold0 516/172, native fold-J payload, layers10-15 delta-q, fit-only q-rms, 256 fixed nodes, 13 epochs, no endpoint checkpoint selection",
+    "parent_gap_gate": "PASS: frozen eight-percent denominator is parent82-to-exact-q; source_on must also beat source_zero in endpoint and local-q loss; isolated zero-to-oracle recovery is diagnostic only",
+    "target_free_rank_gate": "PASS: preclaim Schur diagnostic conditions normalized new4 on constant plus exact local22 plus normalized parent60, and a rank/finiteness falsifier writes an exclusive durable pretarget closure",
+    "chronology": "PASS: release and both independent audits are validated before any cache manifest/row or target-bundle byte access; 1376 cache rows are rehashed and all features remain in RAM before the durable claim; the target bundle is byte-hashed preclaim only for integrity and semantic targets are decoded only after claim",
+    "release_scope": "PASS: observer_fit and exact target columns only; one fold0 paired sentinel; retry, ablation, remaining folds, all-data fit, names, scores, network, estimator, package, integration, meter, board, and submission are false",
+    "one_shot_stop_law": "PASS: O_EXCL plus file/directory fsync claim; pretarget semantic falsifiers and postclaim failures write separate exclusive terminal artifacts; pass only HOLDs for separate remaining-fold authority",
+    "static_resource_contract": {
+      "new_four_field_fallback_arithmetic_per_network": 56850432,
+      "new_four_field_fallback_gemm_equivalents_per_network": 0.0264859779555447,
+      "new_four_field_fallback_explicit_peak_bytes_per_network": 4358144,
+      "in_memory_parent60_bytes": 1014497280,
+      "in_memory_new4_bytes": 67633152,
+      "paired_training_updates_per_arm": 1677,
+      "paired_training_sampled_node_layer_examples_per_arm": 10303488,
+      "hard_process_rss_gate_bytes": 8589934592
+    }
+  },
+  "access": {
+    "target_values_opened_or_decoded": 0,
+    "target_blind_cache_rows_opened": 0,
+    "cache_manifest_files_hashed_read_only": 2,
+    "training_or_scoring_runs": 0,
+    "derived_feature_caches_created": 0,
+    "estimator_calls": 0
+  },
+  "decision": "PASS_STATIC_INTERLOCK__RUNNER_MAY_ONLY_PREFLIGHT_OR_EXECUTE_UNDER_THE_BOUND_RELEASE_AFTER_THE_CUBIC_AUDIT_ALSO_PASSES"
+}

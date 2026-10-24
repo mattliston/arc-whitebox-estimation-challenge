@@ -1,0 +1,100 @@
+{
+  "protocol": "Cut-refit promotion vs S46, v1",
+  "written_utc_from_date_u": "2026-10-11T00:10:38Z",
+  "status": "Statistical protocol fixed before final judging; candidate has not been selected/frozen by this document",
+  "baseline": {
+    "name": "S46 jmIv",
+    "torch_label": "a_0mIJv",
+    "safe_submission": 335259,
+    "twin_submission": 335261,
+    "note": "Freeze exact baseline request, parameters, simulator configuration and source hashes beside candidate hashes. Simulated S46 and candidate must share identical certified arithmetic; original S46 replay can be retained as a secondary bridge."
+  },
+  "before_opening_final": {
+    "seeds": [
+      7100168,
+      7100169,
+      7100170,
+      7100171,
+      7100172,
+      7100173,
+      7100174,
+      7100175,
+      7100176,
+      7100177,
+      7100178,
+      7100179,
+      7100180,
+      7100181,
+      7100182,
+      7100183,
+      7100184,
+      7100185,
+      7100186,
+      7100187,
+      7100188,
+      7100189,
+      7100190,
+      7100191,
+      7100192,
+      7100193,
+      7100194,
+      7100195,
+      7100196,
+      7100197,
+      7100198,
+      7100199
+    ],
+    "required_seal": [
+      "Exact candidate parameters, head tables, dials and all source SHA256 hashes",
+      "Exact baseline hashes and certified common simulator configuration",
+      "Protocol version/hash and sorted32-seed manifest",
+      "Evidence that candidate and all choices were fixed on training/sizing136-151/acceptance152-167 before any final labels or results were inspected"
+    ],
+    "single_primary_candidate": true,
+    "prohibition": "No model, dial, feature, amplitude, sign, checkpoint, seed subset or gate tuning from partial/final judge results; no optional early success stop."
+  },
+  "paired_evaluation": {
+    "all_networks": 32,
+    "truth": "Existing shared64,094,208-sample final-layer reference for each seed; same truth/weights for both candidates",
+    "per_seed_record": [
+      "seed and deterministic weights hash",
+      "truth path/hash,N and final-layer truth-noise estimate",
+      "baseline/candidate labels and immutable source/parameter hashes",
+      "run status and error if any",
+      "baseline and candidate final-layer MSE in float64 scoring",
+      "candidate/base MSE ratio and signed paired MSE difference",
+      "baseline/candidate prediction hashes and prediction artifacts if available",
+      "runtime/resource diagnostics; these do not replace native release measurements"
+    ],
+    "primary_ratio": "R = sum(candidate_mse_i) / sum(baseline_mse_i), all32 with equal network weight. This matches the pooled final-error objective for equal billing.",
+    "uncertainty": "Paired network bootstrap:100000 resamples of32 network indices with replacement, preserving baseline/candidate pairing; NumPy PCG64 seed2026101101; recompute ratio of sums in each resample; percentile two-sided95% interval at2.5 and97.5 percent, quantile method linear. Network is resampling unit, not neuron. Preserve script/hash and bootstrap settings.",
+    "torch_accuracy_pass": "All32 complete valid pairs; observed R<1 and upper97.5% bootstrap endpoint<1. No arbitrary minimum percent gain.",
+    "secondary_metrics": [
+      "Noise-subtracted pooled ratio, subtracting the same estimated truth variance from each member of each pair; report diagnostic only",
+      "Mean paired log-ratio and its network SE",
+      "Win count, full per-seed values, worst regressions",
+      "Arithmetic mean paired MSE difference with its uncertainty as a diagnostic"
+    ],
+    "note": "Shared MC noise cancels bias of paired MSE difference, but inflates the denominator and can attenuate percent gains. Keep raw pooled ratio primary; do not switch metrics after seeing results."
+  },
+  "native_stage": {
+    "required_after_torch_pass": [
+      "Build exact same frozen physics/learned candidate as native safe+twin",
+      "Per-layer parity on651/378 with the certified simulation and unchanged baseline bridge",
+      "Paired native comparison against S46 using the established ten-network panel; measure final error, per-network flops, adjusted score and prediction drift",
+      "Evaluate score_i = mse_i * max(0.1, flops_i / 2**41) before pooling; do not substitute product of mean MSE and mean utilization",
+      "Complete the applicable release gate stages and exact archive/source/hash checks for both files"
+    ],
+    "promotion": "Torch pass is accuracy evidence, not permission to fire by itself. Native bill changes and parity drift must leave a verified net adjusted improvement. If added bill consumes the confidence-supported raw margin or native parity materially contradicts it, hold the unchanged candidate for additional qualification; do not tune it on final32. More native evaluation of the identical frozen pair is verification, not a new fit.",
+    "same_bill_case": "Show measured/source evidence for unchanged bill rather than assuming learned-weight changes cannot affect data-dependent work.",
+    "native_uncertainty": "Report paired native adjusted changes and uncertainty. A small ten-network panel need not independently reproduce95% significance already established by32 generated networks, but it must support parity/cost transfer. Material contradictions require resolution before fire."
+  },
+  "failure_handling": {
+    "no_exclusions": "Do not silently drop malformed, missing or failed networks. No substitute seeds.",
+    "incomplete": "Missing pairs mean incomplete, not pass; poll knownlive job or resume only after confirmed terminal/missing handle.",
+    "transient_infrastructure_failure": "May retry same unchanged pair/seed only for documented infrastructure failure, preserving prior failure records. Never retry or choose the best valid stochastic outcome.",
+    "candidate_numeric_or_resource_failure": "Fail promotion and preserve all artifacts. A changed candidate is a new experiment and needs a new untouched final block.",
+    "inconclusive_or_failed_statistics": "Do not tune or keep adding seeds to this result until it passes. Archive full verdict; continue new training/physics on nonfinal data and reserve a fresh final block for a changed candidate."
+  },
+  "authorization": "Implements root instruction before sealed final32 is opened. No evaluation, truth label read, new seed use, external write or candidate promotion performed."
+}

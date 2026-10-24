@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_G3_MECHANISM_FROZEN",
+    "label": "G3 supply mechanism: parity + frozen-positive",
+    "kind": "phase2_g19b_subproblem",
+    "status": "closed_measured",
+    "priority": 2,
+    "summary": "The first new raw mechanism since the certified chain: resolvent post-state + certified Wick assembly minus the engine on matched stats; per-layer corr 0.16-0.26 = exact parity with the chain's own per-layer windows; 3-layer stack +1.1% raw in-sample (r35), +0.6% with FROZEN gammas on r100. Value-hump law (solo L4 +0.5/L5 +0.3/L8 +0.2/L11 ~0/L2 null); identification a/M-split degeneracy decoded (4th-order pressure steers it; a-share steerable 0.11<->0.65).",
+    "terminal_criterion": "Closed as a proven mechanism (frozen-transfer positive on the second net); its exploitation continues in the two live children of the parent.",
+    "evidence": [
+      {
+        "claim": "land_stack/land_r100 outputs; G3_ENGINE_DELTA jsons; memory g3-resolvent-supply-frozen-positive.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/G3_ENGINE_DELTA_rank*_L*.json + experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "Found a correction that genuinely helps on a network it has never seen — a few percent of raw accuracy today — by computing what the estimator misses from closed formulas instead of fitting, which is why it survives the transfer test that killed twelve predecessors."
+  }
+}

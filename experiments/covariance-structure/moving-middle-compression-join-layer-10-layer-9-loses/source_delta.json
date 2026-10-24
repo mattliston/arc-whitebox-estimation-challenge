@@ -1,0 +1,39 @@
+{
+  "candidate_sha256": "649f26649f73b96e0385eb2f7f739000d8e454a857afd8979aaa7ee75bdfb81c",
+  "parent_sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+  "compiled": true,
+  "whole_source_inverse_exact": true,
+  "replacements": [
+    {
+      "before": "_SLR_MATERIALIZE_LAYERS = (10,)",
+      "after": "_SLR_MATERIALIZE_LAYERS = (9,)",
+      "count": 1
+    },
+    {
+      "before": "_JOIN_SCHEDULE = {7: (0, 2), 10: (3, 5), 13: (6, 8)}",
+      "after": "_JOIN_SCHEDULE = {7: (0, 2), 9: (3, 5), 13: (6, 8)}",
+      "count": 1
+    },
+    {
+      "before": "_R320_RULE = {7: 384, 10: 320, 13: 384}",
+      "after": "_R320_RULE = {7: 384, 9: 320, 13: 384}",
+      "count": 1
+    },
+    {
+      "before": "_LCR_LAYERS = (10, 11, 12, 13, 14)",
+      "after": "_LCR_LAYERS = (9, 10, 11, 12, 13, 14)",
+      "count": 1
+    },
+    {
+      "before": "joins[-1]['layer'] == 10 and state['rank'] == 320",
+      "after": "joins[-1]['layer'] == 9 and state['rank'] == 320",
+      "count": 1
+    },
+    {
+      "before": "_UVP_CUR[0] not in (10, 11, 12, 13, 14, 15)",
+      "after": "_UVP_CUR[0] not in (9, 10, 11, 12, 13, 14, 15)",
+      "count": 1
+    }
+  ],
+  "numerical_jobs": false
+}

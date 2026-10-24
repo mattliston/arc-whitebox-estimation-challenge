@@ -1,0 +1,43 @@
+{
+  "scope": "Small real-RPC witness for input cleanup before versus after budget close.\n\nHarness diagnosis only; three tiny arrays per arm and no estimator execution.\nThe paid operation and its closed bill are the same in both arms.\n",
+  "passed": true,
+  "records": [
+    {
+      "mode": "outside",
+      "bills": [
+        3072,
+        3072,
+        3072
+      ],
+      "stores": [
+        {
+          "current": 6,
+          "peak": 6,
+          "puts": 6,
+          "frees": 0,
+          "clears": 0
+        }
+      ],
+      "peak_handles": 6
+    },
+    {
+      "mode": "inside",
+      "bills": [
+        3072,
+        3072,
+        3072
+      ],
+      "stores": [
+        {
+          "current": 0,
+          "peak": 2,
+          "puts": 6,
+          "frees": 6,
+          "clears": 0
+        }
+      ],
+      "peak_handles": 2
+    }
+  ],
+  "finding": "Deleting remote inputs after budget close loses their deferred free on the next budget_open. Deleting them before the final in-session summary preserves the bill and frees the buffers."
+}

@@ -1,0 +1,33 @@
+{
+  "status": "CLOSED_NO_HALF_PERCENT_LEVER",
+  "source_sha256": "da7e6687cc7956ba7d2d5ba432129d7bc848885ecade6b2329301f51dc65e47a",
+  "models": 0,
+  "production_changes": 0,
+  "source_findings": {
+    "Cpre": "Active _psdb_sym_upper/_psdm_sym_upper already compute upper rectangles plus 128-row diagonal blocks and mirror lower blocks. Last layer computes only covariance diagonal.",
+    "initial_Gram": "_resident_gram512 already computes three 512x512 blocks and mirrors the fourth.",
+    "join_core": "Current Nystrom core uses one solve followed by (core+core.T)/2, not a symmetric full product.",
+    "feature_Grams": "GOP2 and W3 form only 16x16 output Grams.",
+    "C_times_W": "First sandwich product C@W is generally not symmetric, so cannot mirror it."
+  },
+  "initial_Gram_best_saved_flops": 58946592,
+  "initial_Gram_extra_requests": 722,
+  "sandwich_14layer_max_saved_flops": 219114560,
+  "sandwich_14layer_extra_requests": 2408,
+  "combined_saved_flops_upper": 278061152,
+  "combined_bill_pct_upper_at_warm100_bill": 0.11418838802653652,
+  "combined_extra_requests": 3130,
+  "prior_closures": [
+    "TEAM_LOG1517: symmetry census; residentGram4x4 about.04% on older source.",
+    "TEAM_LOG1285: dead-cut tiles .0088% for +5869 charged operations.",
+    "TEAM_LOG4180: Cholesky sandwich fails PD on4/14 captured layers."
+  ],
+  "limits": [
+    "Metadata-only pricing; no numerical parity or runtime claim for hypothetical refinements.",
+    "Combined bound gives all14 layers the maximum inner1024 saving; real dead-cut sizes reduce it.",
+    "Hypothetical new block keys/families are registered only in the isolated tariff harness; setup costs excluded.",
+    "Finer mirroring changes some FP32 rounding; not an exact-byte patch.",
+    "Source and known saved cost census show no missing large symmetric kernel; this is not a theorem excluding all alternative matrix algorithms."
+  ],
+  "next_action": "Idle pending platform evidence or a distinct parent task."
+}

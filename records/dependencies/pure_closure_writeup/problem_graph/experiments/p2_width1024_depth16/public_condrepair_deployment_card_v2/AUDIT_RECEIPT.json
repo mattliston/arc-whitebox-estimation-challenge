@@ -1,0 +1,65 @@
+{
+  "schema": "public-condrepair-deployment-card-v2-audit-v1",
+  "node": "P2R0F2W2",
+  "status": "PASS_INDEPENDENT_PRELAUNCH_AUDIT",
+  "auditor": "independent-subagent-no-design-stake",
+  "audit_date": "2026-08-25",
+  "audited_file_sha256": {
+    "preregistration": "a6e60ab2519065560e748c0047c56450811821dd29323867da704f8226268d7d",
+    "meter_program": "6572047a9dff97ca9e1db018a537b1a148cf2f04768e9a4ccfad902617d136ba"
+  },
+  "census_mean_flops_saved_verified": 297442914902.7132,
+  "checks": [
+    {
+      "name": "inheritance_integrity_hashes",
+      "result": "PASS",
+      "evidence": "all six inherited_artifacts pins match on-disk sha256: estimator 24ed2325 (= W2 meter SOURCE_SHA256 literal = P2R0F2W AUDIT_RECEIPT audited estimator sha, so byte-identical to the W-audited source), census_result 3445f224, shard0 4bf3467e, shard1 031c3fac, w_closure 7e667300, w_audit 974e36ea; CENSUS_RESULT.json internally re-pins both shard hashes and the estimator sha."
+    },
+    {
+      "name": "w_closure_failure_accuracy",
+      "result": "PASS",
+      "evidence": "recomputed from raw shards: minimum flops_saved 206167895046 uniquely at rank 66; exactly seven rows under 2.6e11 (ranks 66, 150, 317, 485, 534, 575, 588); max delta_final_rms 2.0483057457808487e-08; all W totals under 2^41 - the frozen per-row-floor conjunct is the only failed gate, exactly as W_CLOSURE and CENSUS_RESULT record. Its MECHANISM prose is wrong (see minor note 1), but no gate or run consumes that prose."
+    },
+    {
+      "name": "census_gates_recomputed_from_raw_shards",
+      "result": "PASS",
+      "evidence": "129 rows, 129 unique ranks, no duplicates, no counter resets; all_finite TRUE (finite flag true on every row and every numeric field finite); every_row_flops_saved >= -1e10 TRUE (min +206167895046); census mean flops_saved = 38370136022450/129 = 297442914902.713 >= 2.6e11 TRUE (+14.4% margin); max delta_final_rms 2.0483057457808487e-08 <= 1e-7 TRUE; w_flops < 2^41 TRUE every row (max 1904679005710 vs 2199023255552)."
+    },
+    {
+      "name": "census_target_free_no_selection_channel",
+      "result": "PASS",
+      "evidence": "field union across all 129 rows is exactly {base_flops, delta_final_rms, delta_max_abs, fallbacks_cum, finite, flops_saved, is_hard, is_tail, rank, skips_cum, w_flops, wall_seconds}: meters, roster flags, and W-vs-base output deltas (both our own estimators). No truth/target/board metric exists anywhere in the census, so re-gating the frozen census cannot select on target; CENSUS_RESULT targets_read = 0."
+    },
+    {
+      "name": "meter_identical_semantics_vs_h7b",
+      "result": "PASS",
+      "evidence": "line-level diff vs run_workspace_v4_meter.py: single persistent module.Estimator() instantiated once before the loop; CALL_ORDER (35, 279, 35); per-call flops.BudgetContext(flop_budget=2**41, wall_time_limit_s=120, quiet=True, namespaced); THREADS=2 threadpool_limits; gates flops<=2^41, wall<120 s, residual<0.4 s, RSS<8 GiB, float32 (16,1024), finite; aggregate conjunctive_pass requires all three per-call conjunctives AND byte-exact repeat of call 1 by call 3 (same array_sha256 including dtype+shape); identical array_sha256/resident_bytes/np.float32 coercion; atomic single-shot result write; RuntimeError on fail."
+    },
+    {
+      "name": "meter_fixture_pins_match_h7b_manifest",
+      "result": "PASS",
+      "evidence": "FIXTURES literals equal METER_RUN_MANIFEST.json declarations byte-for-byte for both ranks: 35 -> rows/observer_fit/0035/row_manifest.json sha 5067b577 + weights sha 14563b95; 279 -> rows/observer_fit/0279/row_manifest.json sha 96850100 + weights sha 46b1e740; same feature store path, same derive_estimator_seed(row[mlp_seed]) construction, MLP.validate() called."
+    },
+    {
+      "name": "meter_differences_all_declared_or_inert",
+      "result": "PASS",
+      "evidence": "only differences: SOURCE = the inherited W2 estimator (declared); no flops_exact/output_exact_byte_parity pinned literals - outputs pinned by this first sealed run (declared), replaced by flops_saved_vs_banked_by_call against exactly the banked H7B per-call flops 2132366833051/2123756968456/2132363680256 (declared); W2 seal fields estimator_sha256/preregistration_sha256/meter_program_sha256 with source, prereg, and self hashes asserted before any run (declared); W2 receipt schema/binding names (declared). Inert remainder: H7B's redundant fixture identity re-checks (role/mlp_id/dtype/shape/manifest.json hash) are subsumed by the byte-pinning hashes; MLP name, module name, and namespace strings differ but the estimator reads only mlp.width/depth/weights - zero grep hits for .name or seed in 8540 lines, so they cannot affect output or flops; per-trial print is compacted (logging only); H7B's aggregate all(values) truthiness wart is replaced by an explicit equivalent conjunction. No undeclared behavioral difference."
+    },
+    {
+      "name": "submission_firewall",
+      "result": "PASS",
+      "evidence": "package contains exactly PREREGISTRATION.json + run_w2_meter.py (+ this receipt). Meter imports only hashlib/importlib/json/os/sys/time/pathlib/resource/flopscope/numpy/threadpoolctl/whestbench - no socket/urllib/requests/subprocess; only write is METER_RESULT.json inside the package via tmp+replace, refuses to run if it exists. Estimator imports only flopscope, flopscope.numpy, whestbench BaseEstimator/MLP; zero os/open/pathlib/exec/eval hits. Prereg: node ends at BANK_READY, submission requires fresh recorded user authority; firewalls targets_read 0, observer selection and public name joins disallowed."
+    }
+  ],
+  "material_defects_found": 0,
+  "minor_notes": [
+    "W_CLOSURE.json's mechanism prose is factually wrong and PREREGISTRATION.json's inheritance_law echoes it: it attributes the seven low rows to 'Cholesky fallbacks' with a law 'exactly 275.6e9 minus 23.6e9 per fallback', but fallbacks_cum = 0 on every one of the 129 rows in both shards (zero Cholesky fallbacks in the whole census). The true, exact law recomputed from the shards is flops_saved = per_row_skips x 22907543894 (verified exact on all 129 rows; skip histogram 9:1, 10:1, 11:5, 12:36, 13:35, 14:51; 14 skips = max 320705614516; rank 66 = 9 skips = 206167895046, with zero fallbacks, not three). Non-material: every W2 gate is a numeric threshold over the hash-frozen census and evaluates TRUE as recomputed here; no gate, threshold arithmetic, or meter behavior consumes the prose; and the corrected thresholds remain sound under the true mechanism (a hypothetical 0-skip row saves 0, still above the -1e10 floor). The frozen files must not be edited; this receipt is the correction of record.",
+    "The W2 meter does not re-verify the feature-store manifest.json hash (H7B did, to resolve fixture paths); W2 pins the two row-manifest paths as literals and hash-verifies row manifests and weights directly, which is an equivalent guarantee for the fixtures actually used.",
+    "PREREGISTRATION_SEAL.json does not exist yet; the meter asserts estimator/prereg/self hashes against it before running, so it must be written at seal time with preregistration_sha256 a6e60ab2 and meter_program_sha256 6572047a for the audited files to be the ones run.",
+    "H7B's aggregate conjunctive_pass = all(aggregate.values()) included the float maximum_residual_wall_seconds (latent wart: a 0.0 max residual would spuriously fail); W2's explicit all_three AND repeat conjunction is gate-equivalent and saner - residual gating is already inside each per-call conjunctive.",
+    "The package_law's archive-construction step (estimator.py + manifest.json archive, package validation, BANK_READY receipt) has no program in the package yet; this audit covers the two files present, and BANK_READY artifacts should bind to the hashes recorded here."
+  ],
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0
+}

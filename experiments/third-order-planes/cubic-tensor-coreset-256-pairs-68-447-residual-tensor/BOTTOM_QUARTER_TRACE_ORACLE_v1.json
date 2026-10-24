@@ -1,0 +1,24 @@
+{
+  "status": "FIXED_OMITTED_TENSOR_TRACE_PROJECTION_ONLY",
+  "source_sha256": "337d08dfb9e270eeac7a67faed47cb5d24e5752b2ae2907e0aa506892261247d",
+  "parent_oracle_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_read_pair_coreset_audit_v1/BOTTOM_QUARTER_PAIR_PRUNING_ORACLE_v1.json",
+  "parent_oracle_sha256": "247ed0f54ab25d9bbfebad720ebcc7817c6d00072d3d7ee0fa072153b27ef7dd",
+  "rank": 320,
+  "dropped_pairs": 1472,
+  "trace_vector_squared_norm": 0.5504864587304779,
+  "omitted_tensor_squared_norm": 0.5307117534195217,
+  "trace_projection_squared_norm": 0.005128755826681471,
+  "omitted_energy_fraction_removable": 0.009663919808889643,
+  "corrected_relative_squared_tensor_error": 0.013882208696672454,
+  "corrected_relative_frobenius_error": 0.11782278513374421,
+  "formula": "v=sum_drop lambda*(||fplus||\u00b2fplus-||fminus||\u00b2fminus); ||Tiso||\u00b2=3||v||\u00b2/(r+2)",
+  "read_action": "[2u(u dot v)+||u||\u00b2v]/(r+2)",
+  "actual_models": 0,
+  "elapsed_seconds": 0.25036529265344143,
+  "caveats": [
+    "Effective Fu256/Fv320 historical native651 orthonormal join frame, not current output/truth.",
+    "Omitted tensor norm uses prior exact paired cubic-Gram identity evaluated with F32 dot products; trace vector uses F64 accumulation.",
+    "Trace compensation applies raw cubic old-read term only. Folded fm*(qP+xqPswap) remains separately changed by pair pruning.",
+    "TRACE321 changed carried join basis/rank; this test leaves carry intact and changes only the pruned read, so it is not the same mechanism."
+  ]
+}

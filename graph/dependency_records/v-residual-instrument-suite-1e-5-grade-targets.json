@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_G3_INSTRUMENT_SUITE",
+    "label": "V-residual instrument suite (1e-5-grade targets)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "closed_measured",
+    "priority": 3,
+    "summary": "The supervised target system for the variance channel: R-fields (truth-post-cov minus closure on card state) banked per layer for both nets at shared-draw 1e-5 truth; oracle depth curve priced (full v-channel = raw 1.25-1.46e-8; +4-6 pts/layer beyond L4); value metric = pushed-v; W-conventions nailed; truth pre-planes located (mps_planes l>=2); K21-Frobenius shown to be a null instrument at N=4e5.",
+    "terminal_criterion": "Closed when every supply candidate can be graded in minutes against exact targets on both nets (done).",
+    "evidence": [
+      {
+        "claim": "vresid_field_rank{0035,0100}.npz + oracle arms dvhat_rank*_shorc*.npz + the depth-curve entry.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/VRESID_FIELD_rank*.json + experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "Measured exactly what the deployed estimator gets wrong about variance at every layer, on both test networks, precisely enough to grade any proposed fix in minutes — and priced what fixing each layer is worth, so effort goes where the points are."
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "train": [
+    35,
+    36,
+    38,
+    40,
+    41,
+    43,
+    44,
+    45,
+    46,
+    47,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58
+  ],
+  "valid": [
+    37,
+    39,
+    42,
+    48
+  ],
+  "records": [
+    {
+      "rank": 37,
+      "parent_raw": 2.128118095377153e-08,
+      "control_raw": 2.1454218694792167e-08,
+      "sources_raw": 2.1349876515207158e-08,
+      "sources_to_parent": 1.0032279957388104,
+      "sources_to_control": 0.9951365192520231,
+      "control_numpy_mps_max": 2.9103830456733704e-11,
+      "sources_numpy_mps_max": 4.3655745685100555e-11
+    },
+    {
+      "rank": 39,
+      "parent_raw": 1.7861628910077238e-08,
+      "control_raw": 1.793871732180711e-08,
+      "sources_raw": 1.8228250677623906e-08,
+      "sources_to_parent": 1.0205256625469263,
+      "sources_to_control": 1.0161401370355965,
+      "control_numpy_mps_max": 2.9103830456733704e-11,
+      "sources_numpy_mps_max": 2.9103830456733704e-11
+    },
+    {
+      "rank": 42,
+      "parent_raw": 2.3224433216557637e-08,
+      "control_raw": 2.329136044042251e-08,
+      "sources_raw": 2.3333239331303234e-08,
+      "sources_to_parent": 1.0046849847198003,
+      "sources_to_control": 1.001798043999527,
+      "control_numpy_mps_max": 2.9103830456733704e-11,
+      "sources_numpy_mps_max": 2.9103830456733704e-11
+    },
+    {
+      "rank": 48,
+      "parent_raw": 2.2439381373937166e-08,
+      "control_raw": 2.243655682999643e-08,
+      "sources_raw": 2.2521855632001396e-08,
+      "sources_to_parent": 1.003675424767281,
+      "sources_to_control": 1.0038017777260246,
+      "control_numpy_mps_max": 2.9103830456733704e-11,
+      "sources_numpy_mps_max": 2.3646862246096134e-11
+    }
+  ],
+  "histories": {
+    "control": {
+      "initial_valid_mse": 2.1201994826469672e-08,
+      "epochs": [
+        {
+          "arm": "control",
+          "epoch": 10,
+          "train_mse": 2.2626746698506395e-08,
+          "valid_mse": 2.1278452777551138e-08,
+          "wall_s": 0.9960298538208008
+        },
+        {
+          "arm": "control",
+          "epoch": 20,
+          "train_mse": 2.2557642864740046e-08,
+          "valid_mse": 2.126807885360904e-08,
+          "wall_s": 1.0603110790252686
+        },
+        {
+          "arm": "control",
+          "epoch": 30,
+          "train_mse": 2.252173736394525e-08,
+          "valid_mse": 2.127572074073214e-08,
+          "wall_s": 1.1235430240631104
+        },
+        {
+          "arm": "control",
+          "epoch": 40,
+          "train_mse": 2.2509276220716856e-08,
+          "valid_mse": 2.1280619932895206e-08,
+          "wall_s": 1.1898198127746582
+        }
+      ]
+    },
+    "sources": {
+      "initial_valid_mse": 2.1201994826469672e-08,
+      "epochs": [
+        {
+          "arm": "sources",
+          "epoch": 10,
+          "train_mse": 2.246217611912016e-08,
+          "valid_mse": 2.128670928414067e-08,
+          "wall_s": 1.4073169231414795
+        },
+        {
+          "arm": "sources",
+          "epoch": 20,
+          "train_mse": 2.230416029647131e-08,
+          "valid_mse": 2.132107113084203e-08,
+          "wall_s": 1.5279591083526611
+        },
+        {
+          "arm": "sources",
+          "epoch": 30,
+          "train_mse": 2.2229244223126443e-08,
+          "valid_mse": 2.1342989597883388e-08,
+          "wall_s": 1.5924427509307861
+        },
+        {
+          "arm": "sources",
+          "epoch": 40,
+          "train_mse": 2.2201078309080913e-08,
+          "valid_mse": 2.1358761870260423e-08,
+          "wall_s": 1.6560628414154053
+        }
+      ]
+    }
+  },
+  "payloads": {
+    "control": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/payload_final_cohort_source_control_pilot_v1.npz",
+      "sha256": "30c80d7a6b974d352ed2117283aa67d4b76d7c1ab30e5b4c58b5a97de9d13d1c"
+    },
+    "sources": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/payload_final_cohort_source_sources_pilot_v1.npz",
+      "sha256": "41e4854710684429e8ce254662f8123da506fbc9322e23a9d6c1e6e037841c8a"
+    }
+  },
+  "pooled_sources_to_parent": 1.0073885466592234,
+  "pooled_sources_to_control": 1.0036697102655237,
+  "parent_wins": 0,
+  "expansion_gate": false,
+  "wall_s": 1.6944167613983154,
+  "peak_rss_bytes": 476495872,
+  "source_sha256": "520dced992c187d801928acdbcdfc1f17cef13408c00ee73da83c6b938b8b013",
+  "qualification": "One fixed40-epoch matched final-only Q pilot on20/4 current on-policy nets, original1e9 truths. Inputs and P prefix byte-exact before targets,32 signed-pair cohort/star/trace channels versus same-size zero-input control. Independent NumPy final head with original dynamic prefix, clipped outputs. No fit expansion,14-net adjusted score, bill, candidate or official result."
+}

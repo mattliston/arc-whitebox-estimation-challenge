@@ -1,0 +1,529 @@
+{
+ "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_bill_v1/post935_compute_v1/fusion_candidate_v2/candidate_95c_fusion_HELD_v2.py",
+ "sha256": "abc2cf863d475ba744da4fd30e75aea84333c8ab300266d15bafda4ae121519c",
+ "ranks": [
+  35,
+  200
+ ],
+ "setup": {
+  "import_s": 0.18156504072248936,
+  "setup_s": 2.5296570006757975,
+  "requests": 14642,
+  "pb_log": [
+   [
+    "constants",
+    0.076
+   ],
+   [
+    "ksplit",
+    26,
+    0.339
+   ],
+   [
+    "wall guard",
+    128,
+    1.49
+   ],
+   [
+    "first_load_views",
+    125,
+    1.49
+   ],
+   [
+    "lvfuse",
+    0,
+    1.49
+   ],
+   [
+    "psdb_fused",
+    9,
+    1.575
+   ],
+   [
+    "pair_block_indices",
+    1,
+    1.575
+   ],
+   [
+    "read7_lazy",
+    0,
+    1.575
+   ],
+   [
+    "yr7_lazy",
+    0,
+    1.575
+   ],
+   [
+    "sm40_fixed_views",
+    5,
+    1.652
+   ],
+   [
+    "sm40_hot_views",
+    9,
+    1.71
+   ],
+   [
+    "r7_firstread_views",
+    3,
+    1.741
+   ],
+   [
+    "peel_fixed_views",
+    11,
+    1.866
+   ],
+   [
+    "peel_full_topology",
+    0,
+    2.052
+   ],
+   [
+    "smallsm12_fixed_views",
+    12,
+    2.294
+   ],
+   [
+    "generic_charged_views",
+    129,
+    90,
+    2.444
+   ],
+   [
+    "mainread_io_reshapes",
+    64,
+    2.471
+   ],
+   [
+    "bound",
+    232,
+    3.332
+   ]
+  ],
+  "defined": true,
+  "kernel_s": 0.480375353,
+  "kernel_cycles": 1894218592,
+  "server_cycles": 5446179433,
+  "server_instructions": 16989090082,
+  "client": {
+   "user_s": 0.5438922916666666,
+   "system_s": 0.2646371666666667,
+   "p_user_s": 0.5438472916666667,
+   "p_system_s": 0.2644727916666667,
+   "cycles": 2758700738,
+   "instructions": 7118204038,
+   "p_cycles": 2758219524,
+   "p_instructions": 7117974487,
+   "runnable_s": 0.8911922083333333,
+   "footprint": 100663920,
+   "footprint_max": 232358512,
+   "resident": 248840192,
+   "pageins": 45
+  },
+  "handles": 46207,
+  "puts": 46347,
+  "put_bytes": {
+   "<f4": 854758291368,
+   "<f8": 51030920,
+   "<i4": 6703456,
+   "<i8": 180480
+  },
+  "comms": [
+   14753,
+   214412528,
+   1436473,
+   3462265
+  ],
+  "comms_work": [
+   44271,
+   523062973,
+   1736956160
+  ],
+  "slowdown": 1.0,
+  "phases": [
+   [
+    "constants",
+    0.076,
+    0.09652308374643326,
+    360
+   ],
+   [
+    "ksplit",
+    26,
+    0.10425137542188168,
+    412
+   ],
+   [
+    "wall guard",
+    128,
+    0.9139296673238277,
+    5876
+   ],
+   [
+    "first_load_views",
+    125,
+    0.9140130411833525,
+    5876
+   ],
+   [
+    "(binding phase ends)",
+    null,
+    0.9140165001153946,
+    5876
+   ],
+   [
+    "lvfuse",
+    0,
+    0.9141268339008093,
+    5876
+   ],
+   [
+    "psdb_fused",
+    9,
+    0.966024124994874,
+    6282
+   ],
+   [
+    "pair_block_indices",
+    1,
+    0.9660319592803717,
+    6282
+   ],
+   [
+    "read7_lazy",
+    0,
+    0.9660330004990101,
+    6282
+   ],
+   [
+    "yr7_lazy",
+    0,
+    0.9660352915525436,
+    6282
+   ],
+   [
+    "sm40_fixed_views",
+    5,
+    1.019941583275795,
+    6649
+   ],
+   [
+    "sm40_hot_views",
+    9,
+    1.0529026668518782,
+    6921
+   ],
+   [
+    "r7_firstread_views",
+    3,
+    1.0735685843974352,
+    7068
+   ],
+   [
+    "peel_fixed_views",
+    11,
+    1.1661871671676636,
+    7664
+   ],
+   [
+    "peel_full_topology",
+    0,
+    1.341629957780242,
+    8547
+   ],
+   [
+    "smallsm12_fixed_views",
+    12,
+    1.5812429580837488,
+    9695
+   ],
+   [
+    "generic_charged_views",
+    129,
+    1.7011670004576445,
+    10411
+   ],
+   [
+    "mainread_io_reshapes",
+    64,
+    1.7201513331383467,
+    10539
+   ],
+   [
+    "bound",
+    232,
+    2.5060459580272436,
+    14627
+   ]
+  ],
+  "keys_total": 649,
+  "marks": null,
+  "failed": false,
+  "keys_bound": 128,
+  "deferred_fused": 0,
+  "binding_requests": 5876,
+  "pace_s_per_request": 0.0002105263157894737,
+  "platform_requests": 19000,
+  "binding_trace": [
+   412,
+   452,
+   498,
+   546,
+   604,
+   646,
+   688,
+   730,
+   780,
+   830,
+   880,
+   928,
+   986,
+   1028,
+   1076,
+   1134,
+   1176,
+   1218,
+   1268,
+   1310,
+   1352,
+   1392,
+   1442,
+   1482,
+   1522,
+   1572,
+   1622,
+   1668,
+   1708,
+   1748,
+   1798,
+   1848,
+   1888,
+   1930,
+   1972,
+   2014,
+   2064,
+   2106,
+   2156,
+   2198,
+   2240,
+   2282,
+   2322,
+   2364,
+   2414,
+   2454,
+   2504,
+   2546,
+   2586,
+   2610,
+   2650,
+   2692,
+   2742,
+   2782,
+   2824,
+   2866,
+   2924,
+   2966,
+   3014,
+   3064,
+   3106,
+   3148,
+   3198,
+   3248,
+   3298,
+   3338,
+   3388,
+   3428,
+   3468,
+   3518,
+   3560,
+   3610,
+   3650,
+   3680,
+   3720,
+   3760,
+   3810,
+   3860,
+   3910,
+   3950,
+   3950,
+   3990,
+   4032,
+   4072,
+   4112,
+   4112,
+   4154,
+   4194,
+   4236,
+   4276,
+   4326,
+   4376,
+   4426,
+   4484,
+   4524,
+   4572,
+   4602,
+   4652,
+   4694,
+   4728,
+   4770,
+   4810,
+   4850,
+   4892,
+   4932,
+   4982,
+   5032,
+   5082,
+   5124,
+   5166,
+   5208,
+   5250,
+   5300,
+   5358,
+   5358,
+   5406,
+   5452,
+   5492,
+   5520,
+   5554,
+   5588,
+   5616,
+   5646,
+   5674,
+   5716,
+   5744,
+   5784,
+   5826,
+   5876,
+   5876
+  ],
+  "residual_instructions": 1295708005,
+  "actual_coverage": {
+   "bound": 182,
+   "fused": 182,
+   "finished": 182
+  },
+  "smx_stats": {
+   "binds": 1,
+   "calls": 0
+  },
+  "compile_stats": {
+   "compiled": 60,
+   "existing": 0,
+   "missing": 0,
+   "capacity_skipped": 0,
+   "prepared": 46
+  },
+  "mrp_stats": {
+   "views": 9,
+   "programs": 9
+  },
+  "finish160_stats": {
+   "finished": 0,
+   "missing": 32
+  },
+  "smx_bound": true,
+  "cache_counts": {
+   "peel._sm40_frames": 11,
+   "peel._sm40_cache": 69,
+   "peel._sm40_io_cache": 10,
+   "peel._sm40_outer_cache": 20,
+   "peel._sm40_group_cache": 46,
+   "peel._sm40_padding_grid": 6,
+   "peel._sm40_padding_cache": 7,
+   "peel.padding_grid.sm12_e1_L5P40": 6,
+   "peel.padding_dest.sm12_e1_L5P40": 7,
+   "peel.padding_grid.sm12_e0_L5P40": 4,
+   "peel.padding_dest.sm12_e0_L5P40": 5,
+   "peel.padding_grid.oct18u_L6P10_5_5_29": 2,
+   "peel.padding_dest.oct18u_L6P10_5_5_29": 7,
+   "peel.padding_grid.oct18u_L6P20_5_5_21": 4,
+   "peel.padding_dest.oct18u_L6P20_5_5_21": 11,
+   "peel.padding_grid.o18shared_L5P40_4_10_32": 1,
+   "peel.padding_dest.o18shared_L5P40_4_10_32": 1,
+   "peel.padding_grid.o18shared_L5P40_4_9_29": 1,
+   "peel.padding_dest.o18shared_L5P40_4_9_29": 1,
+   "peel.padding_grid.o18shared_L5P40_8_32_4": 1,
+   "peel.padding_dest.o18shared_L5P40_8_32_4": 1,
+   "peel.padding_grid.o18union_L5P20_9_9_44": 1,
+   "peel.padding_dest.o18union_L5P20_9_9_44": 1,
+   "peel.padding_grid.o18union_L5P40_9_9_41": 3,
+   "peel.padding_dest.o18union_L5P40_9_9_41": 5,
+   "peel.padding_grid.o18layout_L6P20_5_5_16": 1,
+   "peel.padding_dest.o18layout_L6P20_5_5_16": 4,
+   "peel.padding_grid.o18layout_L6P20_5_5_17": 1,
+   "peel.padding_dest.o18layout_L6P20_5_5_17": 10,
+   "read._sm40_frames": 5,
+   "read._sm40_cache": 63,
+   "read._sm40_io_cache": 64,
+   "read._sm40_outer_cache": 29,
+   "read._sm40_group_cache": 13,
+   "read._sm40_padding_grid": 29,
+   "read._sm40_padding_cache": 43,
+   "_IPT_A": 54,
+   "_IPT_A.fused": 54,
+   "_IPT_A.finished": 54,
+   "_IPT_B": 72,
+   "_IPT_B.fused": 72,
+   "_IPT_B.finished": 72,
+   "_IPT_C": 56,
+   "_IPT_C.fused": 56,
+   "_IPT_C.finished": 56
+  },
+  "alias_hold_lifetime": {
+   "created": 2,
+   "live": 0,
+   "calls": [],
+   "held": [],
+   "setup_stats": {
+    "view_calls": 6845,
+    "held_groups": 6845
+   },
+   "flush_shape": [
+    0
+   ]
+  },
+  "gc_state": {
+   "frozen_objects": 169960,
+   "enabled": true,
+   "threshold": [
+    700,
+    10,
+    10
+   ],
+   "count": [
+    314,
+    0,
+    0
+   ],
+   "stats": [
+    {
+     "collections": 209,
+     "collected": 50,
+     "uncollectable": 0
+    },
+    {
+     "collections": 18,
+     "collected": 386,
+     "uncollectable": 0
+    },
+    {
+     "collections": 2,
+     "collected": 46236,
+     "uncollectable": 0
+    }
+   ],
+   "source_stats": {
+    "setups": 1,
+    "collected": 46236,
+    "frozen_objects": 169962
+   }
+  }
+ },
+ "client_flopscope": "0.12.3",
+ "python": "3.10.20 (main, Jun 11 2026, 03:55:32) [Clang 22.1.3 ]",
+ "sites": false,
+ "short_setup": true,
+ "setup_slowdown": 1.0,
+ "profiled": false
+}

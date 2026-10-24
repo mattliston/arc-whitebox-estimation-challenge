@@ -1,0 +1,61 @@
+{
+  "schema": "phase2-estimator-integration-baseline-v1",
+  "status": "PINNED_GRADED_BASELINE",
+  "challenge": "arc-white-box-estimation-challenge-2026",
+  "round": {
+    "dataset_revision": "v2-phase2",
+    "width": 1024,
+    "depth": 16,
+    "flop_budget_per_mlp": 2199023255552,
+    "lambda_flops_per_second": 0.0,
+    "wall_time_limit_seconds": 120.0,
+    "residual_wall_time_limit_seconds": 0.4,
+    "rss_limit_bytes": 8589934592,
+    "score_multiplier_floor": 0.1
+  },
+  "baseline": {
+    "name": "D11 exact D4 arena",
+    "estimator_path": "../p2r0c1d11_cp3_arena_depth4_full_estimator_v1/estimator.py",
+    "estimator_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "archive_path": "../p2r0c1d11_cp3_arena_depth4_full_estimator_v1/submissions/q24-d4-arena-6aedce54.tar.gz",
+    "archive_sha256": "b0c296c0cb0973452c7b0f0f25f802fee20c964dd6bc19613bbadea7d85d9747",
+    "submission_id": 328622,
+    "adjusted_score": 1.783621478716186e-08,
+    "raw_mse": 2.9409071835573285e-08,
+    "board_multiplier_ratio": 0.6064868312364463,
+    "completed_mlps": 50,
+    "failed_mlps": 0
+  },
+  "local_public_roles": {
+    "observer_fit": {
+      "rows": 688,
+      "purpose": "development/refit and complete-old OOF scoring"
+    },
+    "observer_selection": {
+      "rows": 88,
+      "purpose": "held-out public selection confirmation"
+    },
+    "observer_audit": {
+      "rows": 100,
+      "targets_locally_withheld": true
+    },
+    "observer_lockbox": {
+      "rows": 100,
+      "targets_locally_withheld": true
+    }
+  },
+  "release_hurdles": {
+    "raw_mse_strictly_below": 1e-08,
+    "baseline_raw_mse_strictly_below": 2.9409071835573285e-08,
+    "fit_and_selection_must_both_pass_raw_goal": true,
+    "resource_limits_must_all_pass": true,
+    "candidate_hash_must_match_every_receipt": true,
+    "live_adjusted_leader_must_be_supplied_at_release_time": true
+  },
+  "score_law": {
+    "raw": "numpy_2.4.6_float64_mean(per_network_final_layer_mse)",
+    "per_network_multiplier": "max(0.1, flops / 2**41)",
+    "adjusted": "numpy_2.4.6_float64_mean(per_network_final_layer_mse * per_network_multiplier)",
+    "mean_times_mean_forbidden": true
+  }
+}

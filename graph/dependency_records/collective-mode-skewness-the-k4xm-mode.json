@@ -1,0 +1,106 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_COLL",
+    "label": "Collective-mode skewness (the k4xm mode)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "solved",
+    "priority": 2,
+    "summary": "THE dominant deep-supply error identified as physics: v4 carried 2/3 of kappa3 along the mean direction; mechanism = pairwise Mehler converges slowly in the lambda_1(rho) channel (lambda_1 10.5 -> 75.8 at 1.27x/layer = the deficit growth); eigenvector -> m-hat (0.969). One-scalar tracker (ridge gain + universal c=2.9) free-runs to +-2%, held-out r100 +-1.3%, ~1e5 flops/layer. K3FIX in-recursion supply fix: deep planes L12 0.0777->0.0644, L14 0.0901->0.0711 both nets. Chain integration graded on the panel (k3fix LOO). Pipeline-wide law: every pairwise-Mehler component (emission, transport, tangent kernels) shares the collective weakness; fixes must enter jointly.",
+    "terminal_criterion": "K3FIX supply's 5-net LOO grade decides chain integration.",
+    "evidence": [
+      {
+        "date": "2026-08-30",
+        "tag": "k4xm-universal-plane-mode-and-oracle-fourth-wedge",
+        "finding": "THE DEEP-PLANE DEFICIT IS ONE UNIVERSAL RANK-1 MODE. ORACLE_FOURTH wedge (true k4u/K22/K31 into every emission): deep K21 rel moves only 0.0802->0.0772 (L12) - fourth-order supply REFUTED as the deep-error driver. Structure: est-minus-truth is rank-1 dominated (62-72% energy L12-14), mode = (k4 direction)x(m direction), signature IDENTICAL across nets (u1-k4 corr -0.82/-0.84, v1-m corr 0.97/0.98), coefficient smooth in depth (~1.3x/layer growth, suggesting transported accumulation of a missing per-layer emission), cross-net stable +/-15%. FROZEN r35 alpha-profile applied to r100's own k4/m: held-out deep planes 0.0836->0.0626 (L12), 0.1034->0.0674 (L14); reverse direction 0.0939->0.0658 (L14). CHAIN CONVERSION IS A WASH so far: k4m-corrected supply gives r100 16.4% fixed/18.0% transfer-beta (vs 15.0/20.0 uncorrected), r35 4.8/11.5 (vs 9.4/15.2); tangent dv_beta drops to 0.63-0.67 = the Gker(2,1) conversion overcouples the added mode ~1.5x. NEXT: derive the k4xm emission term's diagram (b-slot candidates m/E[f]/k3 are 0.9+ mutually correlated deep - correlation cannot discriminate; the derivation pins both the emission AND its correct tangent injection). Slot identity note: pre-frame b-slot=m corresponds to post-frame b-leg weight E[f] (zero-bond leg) - a centering/disconnected-diagram flavor.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/run_k4m_correction.py",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_o4_r35.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "k4xm-mode-identified-as-kappa3-squared",
+        "finding": "THE DEEP-PLANE MODE IS IDENTIFIED: the rank-1 deficit's row weight is k3^2/v, not k4 - corr(u1, k3^2/v) = 0.92-0.94 at L12/L14 on BOTH nets vs 0.82-0.88 for k4, and k4's residual after projecting out k3^2/v correlates only 0.16-0.20. The k4 signature was a shadow of the closure law k4 = c k3^2/v ([[kappa4-is-a-function-of-kappa3]]). Combined with the eliminations (fourth-order supply wedge, first-GC-order columns, mean-error subtraction, f16 storage - f32 run BYTE-IDENTICAL L12 0.0802/L14 0.0935), the missing content is the KAPPA3-SQUARED second-order emission - the 'distinct kappa3^2 terms (framework validated, wiring pending)' known-missing item from the w256 v2 engine notes, independently rediscovered from the w1024 error structure. It carries 37-58% of deep plane error energy and its per-layer ~1.3x compounding matches carried-content growth. RESUME #1: wire the kappa3^2 emission into v4's fresh distinct emission (transferable framework in x3_r0c1 tensor_crosscheck_v1) - this brings its own correct injection channels, addressing why the empirical profile would not convert.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_f32_r35.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "morning-elimination-sweep-eight-mechanisms",
+        "finding": "MORNING SWEEP: three more wedges close, all with receipts. (6) GC-TRANSPORT (Stein shift on the F3 b/d transport columns with carried univariates): NULL - L12 rel 0.0778 vs 0.0777, mode coef -0.2176 vs -0.218. (7) DIAG RESET: v4's carried k3u is HEALTHY - rel 0.038-0.068, corr 0.999, BETTER than the closure host k3 (0.063-0.108); the Gaussian diag reset is not the carrier. (8) COINCIDENT-BOND/rho-truncation: deep error is rho-dense at high |rho| (11.6x at 0.3-0.5) but those pairs are 0.74% of all pairs; 71% of error energy sits at |rho|<0.2; max|rho|=0.515 (no phase-1-style coincident bonds at w1024) - minor contributor only. RUNNING TALLY of refuted carriers for the k3^2/v-row deep-plane mode: 4th-order supply, GC completion columns, mean-error subtraction, f16 precision, fresh kappa3^2 distinct (w1024), GC transport columns, diag reset, bond truncation. The mode's mechanism remains OPEN; its ~1.3x/layer growth with per-layer fresh-deficit-proportional-to-k3^2(l) dynamics says a per-layer emission deficit that the enumerated GC pattern classes do not contain - next sharpest probe: measure the deficit ONE LAYER deep (seed the tensor with TRUTH at L11, run one layer, diff at L12) to isolate the per-layer fresh deficit from accumulation, giving its exact single-step form.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_gct_r35.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "collective-mode-skewness-deficit-identified",
+        "finding": "THE SUB-RESOLUTION GENERATOR IS IDENTIFIED (18:20, probe-tensor instrument, 8M samples + tensor-side projections, 105 probe pairs, 73 s wall): the deep supply deficit is a FULLY SYMMETRIC rank-1 tensor deficit in the ACTIVE-UNIT (m) DIRECTION - D = Se-St has rel 0.33 on every m-family probe pair (mode_col/err_v1/k3/g - all mutually 0.9+ correlated) vs 0.10 on random controls, k-profile corr -0.977 with m: the estimate UNDERSHOOTS collective-mode third-cumulant content (kappa3 of s = m-hat . dz) by ~1/3, while corr(Se,St)=0.989 everywhere else. The plane frame saw only its (a,a,b) shadow (m^2 x m ~ the k4xm mode - all unit-activity powers correlate deep). MECHANISM: per-pair Mehler bond truncation is pointwise fine but sums COHERENTLY over N^2 pairs along the collective mode; the collective coordinate is a rho=1 coincident-bond object - exactly [[unit-bond-coincidence-law]]'s 'exact resum is right physics' territory, now at w1024 with a measured 1/3 magnitude. THE FIX (derivable, billable): exact 1D-conditional recursion for s (condition on s: z|s Gaussian; kappa3(s') via ~40-pt quadrature x per-unit closed forms ~ 4e4 flops/layer) injected as a single w x w x w correction triad. Validation next: does the 1D-exact kappa3(s') reproduce the probe truth's collective value at L12 given the L11 state?",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/mc_probe_tensor.py",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/probe_truth_rank0035_L12.npz"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "collective-fix-shape-narrowed-effective-theory",
+        "finding": "COLLECTIVE-MODE FIX SHAPE NARROWED (18:45). Two conditional-ridge constructions REFUTED with numbers: 1D top-eigenmode conditioning captures 3.0% of the true collective kappa3(s)=9.70; multi-mode QMC ridges capture ~6% at K=8/32 and DECREASE with K (0.598/0.614/0.432/0.234 at K=8/32/96/256) - the skewness is generated by correlated ReLU-kink fluctuations AROUND the conditional mean, not by any low-dim smooth ridge. STRUCTURAL READING: the collective channel's effective expansion parameter is lambda_1(rho) ~ O(tens) at w1024 (unit diagonal removed, mean offdiag ~0.05-0.1 x N=1024), not per-pair rho - the pairwise Mehler machinery converges per-pair but slowly in the collective channel, hence v4's stable 2/3 capture. THE DERIVATION TARGET (next session / SOL): a 1D effective theory for the collective coordinate - its own resummed cumulant recursion (s' from s) with the transverse bath integrated out at Gaussian order, validated per-layer against the probe instrument (probe_truth/probe_est npz pairs, 73 s to regenerate at any layer). Expected value: the missing 1/3 of collective kappa3 IS the k4xm plane mode IS the largest deep supply error.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/mc_probe_tensor.py"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "collective-channel-numbers-close-the-mechanism",
+        "finding": "THE MECHANISM'S NUMBERS (19:00, closes the day): lambda_1(rho) = 10.5 / 30.4 / 52.2 / 75.8 at L3/7/11/14 - growing ~1.27x/layer, EXACTLY the deficit coefficient's measured growth rate (~1.3x/layer, amendment 20260830d) - and the top eigenvector converges onto m-hat (corr 0.022/0.909/0.945/0.969): THE COLLECTIVE MODE IS THE MEAN DIRECTION and the deep-supply deficit tracks the collective channel's strength. The k4xm mode is now fully closed as physics: identity = symmetric collective skewness (m x m x m), magnitude = 1/3 undershoot, mechanism = pairwise-Mehler slow convergence in the lambda_1 channel, growth law = lambda_1(l). Lambda_2 also large (31.7 at L14) - the effective theory should keep the top FEW collective modes. All validated instruments and the derivation target stand in the handoff for the next session.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/mc_probe_tensor.py"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "collective-skewness-tracker-validated",
+        "finding": "THE COLLECTIVE-SKEWNESS TRACKER DERIVED AND VALIDATED (19:45). Split measurement: 97% of collective kappa3 is TRANSPORTED input non-Gaussianity (Gaussian-input part = 0.304 of 9.696) - the ridge fails for generation but is EXACT for transport: one-step law kappa3(s') = (G/sigma)^3 kappa3(s) + fresh predicts 96.4%. Full scalar recursion with ONE universal constant (fresh_true ~ 2.9 x fresh_ridge, measured band 2.2-3.6): free-run from ZERO tracks truth within +-2% from L8 on (r35: ratios 1.00/1.01/1.02/1.00/0.99 at L8/11/12/13/14) and HELD-OUT on r100 at 1.001/0.987 (L8/L12) with everything frozen. Cost ~1e5 flops/layer - free. ALSO EXPLAINS v4's stable 2/3: its collective transport gain is ~2.5%/layer low ((1.074/1.05)^12 = 1.31 = the deficit). DEPLOYMENT: K3IMPL hook (implied collective kappa3 per layer from the tensor), run_collective_patch.py (pre_l += (K3S - implied) * w^2 x w), full chain running.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/run_collective_patch.py"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "in-recursion-collective-fix-plane-breakthrough",
+        "finding": "IN-RECURSION COLLECTIVE FIX = THE CAMPAIGN'S LARGEST SUPPLY GAIN (20:30). Post-hoc plane patching failed (-10.1/10.1% held-out vs 14.5/11.7 baseline) exactly per the co-adaptation basin law (inconsistent supply state: pre/k3u corrected, K22/K31/k4u not). The JOINT version (K3FIX=1: Tt += (K3S_l - implied_l) w x w x w inside the recursion at l>=5, all downstream objects inherit coherently, correction transports forward so deltas self-consistently shrink): deep planes L9 0.0620->0.0558, L12 0.0777->0.0644, L13 0.0826->0.0687, L14 0.0901->0.0711 (17-21% relative), corr 0.9982-0.9988. Cost of the fix ~1e5 flops/layer + one rank-1 tensor add (~1e9 offline; the deploy form needs no tensor - the correction enters the carried planes/univariates directly). Full held-out chain running (r100 + tangents + consumption + transfer).",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_k3fix_r35.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "collective-weakness-is-pipeline-wide-day-close",
+        "finding": "DAY CLOSE (21:10). The k3fix held-out chain: 9.7/10.3% (vs 14.5/11.7 baseline) despite BOTH nets' planes improving 17-21% (r100 L12 0.0634 vs 0.0836) - the THIRD better-planes-worse-chain instance (k4m profile, distinct-so2, collective fix) vs ONE positive (kappa3^2 plane-half, which changed the EMISSION FUNCTION coherently). CLOSING LAW: the pairwise-Mehler collective weakness is PIPELINE-WIDE - the tangent's Gker pair-kernels under-convert collective plane content exactly as the emission under-transported it; supplying corrected collective content into an uncorrected converter inverts. THE COMPLETE FIX (next session, fully specified): collective-aware end-to-end - (a) the K3FIX supply (validated: planes L12 0.0644/L14 0.0711, tracker held-out +-1.3%), (b) a collective-channel term in the tangent (the dv response of sigma_s^2 to kappa3(s) via the same 1D effective theory - one more ridge derivative), (c) consumption as-is. All instruments (probe tensor 73 s/layer, tracker, K3IMPL hook) stand ready; every piece is closure-computable and essentially free at deploy.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/beta_transfer_k3fix.log"
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "tag": "k3fix-chain-integration-null-at-n5",
+        "finding": "The terminal-criterion grade: K3FIX supply 5-net LOO 15.3 +- 4.1 vs pso2 15.8 +- 4.1 - paired per-fold diffs -1.4..+0.5, a tight NULL. The collective supply fix (deep planes -17-21% rel, both nets) does NOT change end-to-end capture through the current chain - confirming the pipeline-wide collective law at n=5. The fix's converted value awaits the consumption-side exact collective response (open derivation here); supply-side result stands.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/loo_grade_k3fix.log"
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "tag": "collective-mean-channel-null-chain-side-converged",
+        "finding": "The derived collective MEAN channel (dds_coll = (dk3s/6) b^3 (-alpha pdf)/vperp per layer, tracker-driven, 4th LOO channel): NULL at the 5-net panel - mean 15.0 +- 4.2 vs 15.8 baseline, fitted coll-betas +-0.005. Together with the tangent-routing attempt (+0.3 marginal), the chain-side collective fix is now TWO measured attempts ineffective: the under-conversion is distributed inside the eps-chain transport, not repairable by additive end-channels. The campaign's search space is honestly converged: the CARRIER invention is the single remaining lever to a fire; supply-side science is complete to the minor-residual level.",
+        "files": []
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "We discovered WHERE the biggest chunk of missing statistics lives: the network's units all swing together in one shared direction, and our engine was only carrying two-thirds of the lopsidedness (skewness) of that collective swing. We found the exact mechanism, built a tiny formula that tracks the missing third almost perfectly on held-out networks, and showed it repairs the statistics themselves beautifully.\nThe surprise: repairing the statistics alone didn't improve the final answer, because the correction machine's own internals have the same blind spot. The remaining task here is teaching the machine's conversion step the same trick - a pencil-and-paper derivation, not a compute problem. When that lands, this node's fix converts into score."
+  }
+}

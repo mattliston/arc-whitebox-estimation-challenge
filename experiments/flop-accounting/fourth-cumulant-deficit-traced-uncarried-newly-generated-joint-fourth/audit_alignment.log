@@ -1,0 +1,10 @@
+# alignment + scale audit (this review), 32M truth, host index i vs truth pre index i+1
+r0035: host_v[i] vs truth_v[i+1]: 0.0002 0.0005 0.0009 0.0017 0.0026 0.0029 (i=1,4,7,10,13,14) | vs truth_v[i]: 0.27 0.19 0.21 0.22 0.24 0.26
+r0035: k3 rel err [i+1]: 0.035 0.060 0.073 0.099 0.111 0.114 | k4 rel err [i+1]: 0.130 0.308 0.441 0.542 0.621 0.634 | k4 noise floor 8M-vs-32M: 0.093 0.054 0.038 0.032 0.028 0.027
+r0100: host_v[i] vs truth_v[i+1]: 0.0003 0.0005 0.0011 0.0017 0.0025 0.0027 | k3: 0.039 0.056 0.076 0.093 0.104 0.101 | k4: 0.129 0.279 0.413 0.502 0.578 0.598
+card = s x truth (best s), r35 k4: L1 0.991 L3 0.841 L5 0.706 L7 0.612 L9 0.539 L11 0.467 L13 0.417 L15 0.376; r100 k4: 0.992 0.860 0.738 0.641 0.565 0.510 0.444 0.412
+card k3 scale r35: 0.996 0.991 0.975 0.964 0.951 0.933 0.934 0.930; residual after rescale k4 0.12-0.29, k3 0.04-0.10
+nesting: L16 post-mean rel diff 8M vs 32M = 9.04e-5 (r35), 8.70e-5 (r100); nested expectation 9.11e-5 / 8.44e-5; independent expectation 1.18e-4 / 1.09e-4 -> P32M contains P8M
+two-vertex law k4 ~ c k3^2/v (truth): corr 0.28..0.87 (L2..L15), best-c rel err 0.81..0.57 -> does not hold at 1024x16
+final-read sensitivity (last pre layer, card m kept): post-mean change rms k4 8.7e-5 / k3 6.9e-5 / v 7.1e-5 / all 1.2e-4 vs deployed F2J-on residual rms 2.1e-4 (r35); r100 8.0e-5 / 6.9e-5 / 6.5e-5 / 1.15e-4 vs 2.2e-4
+CP4 cap: estimator_cap.py _CP4_CAP=2048; _cp4_reset keeps top-energy (lambda^2 ||u||^8) 2048 terms and subtracts the dropped terms' planes incl. the diagonal -> carried k4 = k4_target - dropped diagonal

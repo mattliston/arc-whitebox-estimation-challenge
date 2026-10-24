@@ -1,0 +1,114 @@
+{
+  "schema": "fb-ec4-32-accuracy-frontier-variant-matrix-v1",
+  "status": "TARGET_FREE_DESIGN_ONLY__NO_EXECUTION_OR_SCORE_AUTHORITY",
+  "production_geometry": {
+    "width": 1024,
+    "depth": 16,
+    "flop_budget": 2199023255552
+  },
+  "reference": {
+    "id": "A0_FULL",
+    "parent": "eventual_final_byte_frozen_v3",
+    "components": {
+      "cp3_cap16384": true,
+      "h3_coordinate_star": true,
+      "h4_plus_alpha_pairing": true,
+      "cp4_history_cap2048": true,
+      "spectral_diagonal_preserving_psd": true,
+      "edgeworth_l3": true,
+      "edgeworth_l4": true,
+      "edgeworth_half_l3_squared": true,
+      "pair_q": 32
+    }
+  },
+  "priority_variants": [
+    {
+      "priority": 1,
+      "id": "A1_NO_CP4",
+      "parent": "A0_FULL",
+      "single_scientific_change": "remove the complete CP4 history carrier and let H4+alpha absorb the full corrected quartic reset",
+      "pair_moments": ["M11", "M21", "M31", "M22"],
+      "isolates": "complete CP4 carrier and tensor-completion history, including dense-ray retention, birth, top-energy truncation, and stored-float32 rounding",
+      "exact_dominant_kernel_delta_flops": -233997074432,
+      "declared_cp4_source_projection_delta_flops": -234507794432,
+      "literal_whole_estimator_meter_delta": null
+    },
+    {
+      "priority": 2,
+      "id": "A2_THIRD_ONLY",
+      "parent": "A1_NO_CP4",
+      "single_scientific_change": "remove coherent H4+alpha and every L4 consumer term while retaining half L3 squared",
+      "pair_moments": ["M11", "M21"],
+      "isolates": "coherent H4+alpha transport plus its matching L4 read",
+      "exact_dominant_kernel_delta_flops": -280718274560,
+      "delta_partition": {
+        "h4_gemms": -182446981120,
+        "q32_pair_einsums_four_moments_to_two": -97860116480,
+        "h1_gaussian_pair_einsums_three_to_one": -411176960
+      },
+      "literal_whole_estimator_meter_delta": null
+    },
+    {
+      "priority": 3,
+      "id": "A3_CP3_ONLY",
+      "parent": "A2_THIRD_ONLY",
+      "single_scientific_change": "remove the complete H3 residual tensor; CP3 remains the sole third-cumulant state",
+      "pair_moments": ["M11"],
+      "isolates": "H3 reset-complete K21 and coordinate-star continuation",
+      "exact_dominant_kernel_delta_flops": -171482445824,
+      "delta_partition": {
+        "h3_gemms": -122346799104,
+        "q32_pair_einsums_two_moments_to_one": -48930058240,
+        "h1_gaussian_pair_einsums_one_to_zero": -205588480
+      },
+      "literal_whole_estimator_meter_delta": null
+    },
+    {
+      "priority": 4,
+      "id": "A4_NO_L3SQ",
+      "parent": "unique_best_of_A0_through_A3",
+      "conditional": true,
+      "single_scientific_change": "remove all univariate K3-squared terms and the seven total-order-six pair channels",
+      "isolates": "one-half L3 squared",
+      "exact_q32_pair_einsum_delta_flops": -80590684160,
+      "literal_whole_estimator_meter_delta": null
+    }
+  ],
+  "target_free_diagnostics": [
+    {
+      "id": "D_Q24_Q32",
+      "change": "Q32 to Q24 only; retain Q38 coefficient construction and all 17 derivative channels",
+      "exact_pair_einsum_delta_flops": -48082370560,
+      "score_arm_gate": "final prediction-disagreement MSE > 0.01 * min(selected final raw MSE, 1e-8), or a changed moment-feasibility verdict"
+    },
+    {
+      "id": "D_PSD_INTERVENTION",
+      "change": "observe raw-to-spectral repair; if material, compare once with the fixed coherent correlation-ridge law",
+      "no_psd_off_arm": true,
+      "spectral_eigh_plus_reconstruction_flops": 330683121664,
+      "literal_ridge_comparator_meter_delta": null
+    },
+    {
+      "id": "D_CP3_ANCHOR",
+      "change": "reuse frozen Gaussian/Hermite and cap-16384 CP3 evidence; open one same-host Gaussian arm only on the preregistered inconsistency gate",
+      "historical_final_raw_mse": {
+        "hermite_order4": 0.000003849300358689406,
+        "cap16384_marginal_cp3": 0.0000035989996088739297,
+        "cap16384_recursive_mean_carry": 0.0000009340196551564291
+      }
+    }
+  ],
+  "prohibitions": [
+    "sampling",
+    "fitting",
+    "target-conditioned construction",
+    "K31-only deletion",
+    "raw3_or_raw4_clipping",
+    "global_correlation_shrink_as_an_ablation",
+    "CP4_cap_sweep",
+    "Q_sweep",
+    "PSD_floor_sweep",
+    "depth_coefficients",
+    "board_submission_before_local_promotion_and_independent_audit"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "p2r0f2r-pilot-closure-v1",
+  "status": "PASS_CLOSED",
+  "node": "P2R0F2R",
+  "scope": "Terminal closure of the native-frame source-uncertainty pilot; read-only synthesis of the two pilot receipts",
+  "bindings": {
+    "r_pilot_result_sha256": "40e29efcbf073e5222aa18162cc6f11a9d7a5849dc3929be628f672ae344d3fc",
+    "j_native_pilot_result_sha256": "7ecdc3438ddd4934853134ef0002b517e8111a2ecbf3a0e9abdafd0efb7e89a7",
+    "generation_receipt_sha256": "d6729e20d6851c09d834f9bbaa1cd52a709ce01e64aa87b029ecb15c4555faf8",
+    "seal_sha256": "ca594801ad8439dc89e29c813bf9f9e63e00dce55530a7724c9f8e6ad7c4088c",
+    "audit_receipt_sha256": "befcbe948aff2ea8f2024ffd26ae14ff01370e72a3161ce27698e15a8c91f727"
+  },
+  "paired_protected_40": {
+    "identical_split_and_batch_order": true,
+    "j_native_final_mse": 3.107235383605394e-08,
+    "r_final_mse": 3.1266471361078166e-08,
+    "fractional_change": 0.006247274540205128,
+    "r_ratio_to_host": 0.35052174467941655,
+    "j_ratio_to_host": 0.3483455344905993,
+    "both_win_40_of_40_vs_host": true,
+    "r_maximum_network": 4.004550104523242e-08,
+    "j_maximum_network": 4.093294327260766e-08,
+    "layerwise_r_over_j_mse_ratio": [
+      1.0,
+      1.0,
+      0.9982456451444358,
+      0.999199567561286,
+      0.9980409657277345,
+      0.997456039161295,
+      0.99782886891571,
+      0.9957452893033424,
+      0.9971538006808454,
+      1.0038262921880372,
+      1.0024174331843827,
+      1.002978129702469,
+      1.0024609199903842,
+      1.0084052327587987,
+      1.0016495027074557,
+      1.0062472745402051
+    ]
+  },
+  "decision": {
+    "validity_gate_conjunctive_pass": true,
+    "scaling_rule_licensed": false,
+    "verdict": "The ten native source-uncertainty channels regress the paired pilot by 0.6247%; the Q24 host's own approximation-quality observables carry no autonomous residual signal. The frame ambiguity left by the Q closure is resolved: the observer plateau is not wrong-frame channels."
+  },
+  "family_synthesis": {
+    "arms": {
+      "M_future_raw_adjoint_context": -8.355853461528007e-05,
+      "N_rank16_covariance": 0.001044049152851051,
+      "P_fullrank_nonlinear_roundtrip": 0.0001065581334419799,
+      "Q_dev_frame_source_channels": 0.0010471304557400007,
+      "R_native_frame_source_channels_pilot": -0.006247274540205128
+    },
+    "teacher_forced_capacity": 8.207963477637236e-09,
+    "conclusion": "Five materially different arms spanning operator classes and information supply in both frames bracket the residual-observer program at its information ceiling (~3.23e-8 development OOF; ~3.11e-8 native pilot). The missing autonomous state is not a function of any lawful host observable; it is the accumulated interaction between the host's approximation and the specific network, visible only against truth. Reaching raw 1e-8 therefore requires improving the host itself.",
+    "licensed_successor": "One design-only host-error-mechanism localization node: read-only attribution of the host's error against truth onto host mechanisms and the newly exported source-uncertainty maps, selecting exactly one targeted host improvement for its own preregistered node."
+  },
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0
+}

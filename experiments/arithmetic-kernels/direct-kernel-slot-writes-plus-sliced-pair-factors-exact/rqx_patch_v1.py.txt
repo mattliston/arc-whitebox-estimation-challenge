@@ -1,0 +1,105 @@
+
+# BEGIN OPUS-WALL RQX v1 (2026-10-16): exact request diet by identity-checked caches of VIEWS (basic slices) that the source
+# re-slices from the SAME live object with the SAME key. A cached view aliases exactly the memory a fresh one would, so every
+# value read or written through it is unchanged: no arithmetic, operand, order, dtype or op type changes (billing-safe).
+# Sites: the QL loaders' persistent quad-side copy destinations, the XSG scatter's inverse column view, and the GOP2 message
+# weight views (pure consumers, no identity-keyed caches downstream). Caches are bounded per site and cleared every prediction.
+_RQX_ON = True
+_RQX_CAPS = dict(qa=8, qb=8, g2=2, xi=8)
+_RQX_C = {t: {} for t in _RQX_CAPS}
+_RQX_STATS = dict(hits=0, misses=0)
+
+
+def _rqx(tag, owner, key, make):
+    c = _RQX_C[tag]
+    k = (id(owner), key)
+    got = c.get(k)
+    if got is not None and got[0] is owner:
+        _RQX_STATS['hits'] += 1
+        return got[1]
+    value = make()
+    if len(c) >= _RQX_CAPS[tag]:
+        c.pop(next(iter(c)))
+    c[k] = (owner, value)
+    _RQX_STATS['misses'] += 1
+    return value
+
+
+def _rs_load_a(a, X, slot, L, m, k):
+    if (not _ASTRA_QL_ON or str(a.dtype) != 'float32'
+            or len(a.shape) != 2 or tuple(a.shape) != (m, k)):
+        return _ASTRA_QL_PARENT_A(a, X, slot, L, m, k)
+    h = _BH_HOLD.append
+    u = 1 << L
+    Ar = fnp.reshape(a, (2,) * L + (m // u,) + (2,) * L + (k // u,))
+    quad = slot[1] if slot[1] is not None else _l3_quad(slot, 0, L)
+    a21 = Ar[(1,) + (slice(None),) * L + (0,)]
+    a22 = Ar[(1,) + (slice(None),) * L + (1,)]
+    top_in = Ar[0]
+    top_out = _rqx('qa', quad, 0, lambda: quad[0]) if _RQX_ON else quad[0]
+    h((Ar, a21, a22, top_in, top_out))
+    h(fnp.copyto(top_out, top_in))
+    h(fnp.copyto(X[6], a22))
+    h(fnp.add(a21, a22, out=X[4]))
+    _ASTRA_QL_STATS['a'] += 1
+    _ASTRA_QL_STATS['saved_copy_elements'] += m * k // 4
+
+
+def _rs_load_b(b, Y, slot, L, k, n):
+    if (not _ASTRA_QL_ON or str(b.dtype) != 'float32'
+            or len(b.shape) != 2 or tuple(b.shape) != (k, n)):
+        return _ASTRA_QL_PARENT_B(b, Y, slot, L, k, n)
+    h = _BH_HOLD.append
+    u = 1 << L
+    Br = fnp.reshape(b, (2,) * L + (k // u,) + (2,) * L + (n // u,))
+    quad = slot[1] if slot[1] is not None else _l3_quad(slot, 1, L)
+    b12 = Br[(0,) + (slice(None),) * L + (1,)]
+    b22 = Br[(1,) + (slice(None),) * L + (1,)]
+    left = (slice(None),) * (L + 1) + (0,)
+    left_in = Br[left]
+    left_out = _rqx('qb', quad, L, lambda: quad[left]) if _RQX_ON else quad[left]
+    h((Br, b12, b22, left_in, left_out))
+    h(fnp.copyto(left_out, left_in))
+    h(fnp.copyto(Y[3], b22))
+    h(fnp.subtract(b22, b12, out=Y[1]))
+    _ASTRA_QL_STATS['b'] += 1
+    _ASTRA_QL_STATS['saved_copy_elements'] += k * n // 4
+
+
+def _xsg_rows(site, A, idx):
+    m, width = int(A.shape[0]), int(A.shape[1])
+    k = int(idx.shape[0])
+    if not (_XSG_ON is True or (_XSG_ON and site in _XSG_ON)) or str(A.dtype) != 'float32' or len(idx.shape) != 1 or k > m or (4 * k - m) * width <= 2 * m + 6 * k:
+        _XSG_STATS['plain'] += 1
+        return A[idx]
+    inverse = _xsg_inverse(idx, m)
+    answer = fnp.zeros((k + 1, width), dtype=A.dtype)
+    column = _rqx('xi', inverse, 0, lambda: inverse[:, None]) if _RQX_ON else inverse[:, None]
+    fnp.put_along_axis(answer, column, A, axis=0)
+    _XSG_STATS['rows'] += 1
+    return answer[:k]
+
+
+def _gop2_message_product(T,X):
+    n=int(X.shape[1]);assert X.shape==(3,n,16)
+    out=fnp.empty((3,n,16),dtype=fnp.float32)
+    # Original W/W3 products with their original per-item operand layouts.
+    X02, X1 = _rqd_get('GOP2_SRC_VIEWS_R1', X, lambda: (X[0:3:2], X[1:2]))
+    T02, T1 = _rqx('g2', T, 0, lambda: (T[0:3:2], T[1:2])) if _RQX_ON else (T[0:3:2], T[1:2])
+    fnp.matmul(T02,X02,out=out[0:3:2])
+    fnp.copyto(out[1:2],_gop2_contract(T1,X1))
+    _GOP2_STATS['message_misses']+=1
+    return out
+
+
+_RQX_PARENT_PREDICT = Estimator.predict
+def _rqx_predict(self, *args, **kwargs):
+    for c in _RQX_C.values():
+        c.clear()
+    try:
+        return _RQX_PARENT_PREDICT(self, *args, **kwargs)
+    finally:
+        for c in _RQX_C.values():
+            c.clear()
+Estimator.predict = _rqx_predict
+# END OPUS-WALL RQX v1

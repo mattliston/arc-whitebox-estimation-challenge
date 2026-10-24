@@ -1,0 +1,54 @@
+{
+  "status": "RQX_v1_MEASURED_EXACT_PATCH",
+  "lane": "opus-wall",
+  "patch": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_req_diet_v1/rqx_patch_v1.py.txt",
+    "sha256": "a2a142e4f39e8aa2b30f3afe3f1339c7b70c520753c7c748820a1fa7ffadfc59",
+    "apply": "append LAST to the stacked source (after compactB and Full384); overrides _rs_load_a/_rs_load_b (QL), _xsg_rows, _gop2_message_product and wraps Estimator.predict; the four overridden final bodies are byte-identical in 2b108, compactB 9288d12b and Full384 e33563bc",
+    "billing_safety": "no arithmetic added or changed; view caches only (no out=/dtype=/signature=/einsum changes)"
+  },
+  "test_candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_req_diet_v1/cand_RQX_v1.py",
+    "sha256": "3b981990cfa72a245301ad985f158f52c2a7ba546392e858a14f05d9cd7fe2c2",
+    "base": "2b108"
+  },
+  "boundary": {
+    "35": {
+      "requests": 48246,
+      "ref_requests": 48425,
+      "delta": -179,
+      "free_trips": 4913,
+      "ref_free_trips": 4792,
+      "flops": 241093101084,
+      "ref_flops": 241093101084,
+      "peak_handles": 42296,
+      "ref_peak_handles": 42267
+    },
+    "100": {
+      "requests": 45971,
+      "ref_requests": 46170,
+      "delta": -199,
+      "free_trips": 4662,
+      "ref_free_trips": 4587,
+      "flops": 241545730448,
+      "ref_flops": 241545730448,
+      "peak_handles": 45880,
+      "ref_peak_handles": 45851
+    }
+  },
+  "predictions": "byte-identical on ranks 35 and 100 vs two 2b108 references (run_G0_v1, sites_2b108_v1)",
+  "levers": {
+    "flopscope_floor": "bare fnp call = 43.2-43.5K residual instructions (synthetic A/C/D); 2b108 45.2K => our Python ~4.5%; scalar vs 0-d operand identical; per-request cost is fixed, only COUNT moves residual",
+    "gc_freeze": "byte-identical; residual 0.338->0.337 (r35), 0.375->0.358 (r100): within window noise; 0-2 full collections per prediction",
+    "exact_view_caching": "a56 probe: same-object/same-key view repeats 388 warm/367 cold; v1 takes 199/179; remainder ~190 over ~12 sites (<=26 each), several feed identity-keyed product caches (unsafe)",
+    "in_statement_dedup": "2-3 real sites, negligible",
+    "tree_to_plain": "flopscope bills matmul 2mkn; >=0.9-1.5 MFLOP bill per request removed (2,000 req ~ +1-1.3% bill): closed",
+    "cold_network": "first network +2,255 vs warm: ~1,380 unfused per-level tree arithmetic of keys bound during predict + ~1,300 binding views; a setup-budget trade, not exact-free"
+  },
+  "evidence": {
+    "sites": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_req_diet_v1/sites_2b108_v1",
+    "profile": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_req_diet_v1/profile_2b108_v1",
+    "probe": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_req_diet_v1/probe_repeat_2b108_v1.txt",
+    "products": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_req_diet_v1/mmp_2b108_v1.json"
+  }
+}

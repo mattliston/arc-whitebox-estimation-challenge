@@ -1,0 +1,315 @@
+{
+  "schema": "p2r0g6-native-j-physical-local-oracle-and-unsnapped-kerdock-replay-v1",
+  "status": "ORACLE_PASS__UNSNAPPED_KERDOCK_FAIL__ONLY_MOMENT_NORMALIZED_SUCCESSOR_OPEN",
+  "created_at_local": "2026-08-26",
+  "objective": {
+    "adjusted_score_strictly_below": 7.7e-9,
+    "raw_mse_preferred_strictly_below": 1e-8,
+    "cap1024_projected_raw_ceiling_from_root_cost_frontier": 8.38996e-9
+  },
+  "authority_and_scope": {
+    "role": "observer_fit",
+    "authority": "P2R0H2A observer-fit target authority plus explicit root authorization for a read-only frozen-native-J teacher/local-innovation diagnostic",
+    "observer_selection_targets_opened": 0,
+    "public_name_joins": 0,
+    "board_or_deployment_targets_opened": 0,
+    "submissions": 0,
+    "new_sample_or_mlp_path_runs_by_this_diagnostic": 0,
+    "canonical_graph_edits": 0,
+    "note": "The exact-MUB rank-0 tape was produced independently by the Phase-1 adapter. This receipt only replays frozen observer artifacts and that immutable tape."
+  },
+  "bindings": {
+    "native_j_source": {
+      "path": "../public_full688_transport_energy_coherence_cv_v1/run_experiment.py",
+      "sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810"
+    },
+    "native_j_pilot_model": {
+      "path": "../public_q24_native_transport_energy_pilot_v1/PILOT_MODEL.pt",
+      "sha256": "76daf05e69022df67eb546b7099c47a3a1538c849fe3c8512c9c8dfe1ce0cdf9"
+    },
+    "native_j_final_model": {
+      "path": "../public_q24_native_transport_energy_final_v1/FINAL_MODEL.pt",
+      "sha256": "21ad1dede3373c90d2694158b6599c4c172d7181c72634a6ec8e362449b7d1f8"
+    },
+    "observer_fit_target_bundle_sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7",
+    "pilot_native_row_aggregate_sha256": "0a74a7ed6e3379bbbe85bf8e336eb433b4bd125b39daf17eece496db68fa37f5",
+    "rank0_native_host": {
+      "path": "../public_q24_native_transport_energy_final_v1/runs/native_rows_remaining_v1/row_0000/host.npy",
+      "sha256": "8244d697ff80d3ad0ac0f11d742c57fb5f9d8eecded0bd60c5f2c96a8e40cadc"
+    },
+    "rank0_weights_sha256": "399488100ef907d6a76fa27e911285809bf5d53405bc59290c84396a7e4c8c97",
+    "rank0_exact_mub_tape": {
+      "path": "../public_phase1_kerdock_hidden_snap_v1/runs/row_0000/KERDOCK_TAPE.npz",
+      "sha256": "218dc21edc4677f382e37679204c76e27277265db9c66cc710d647531965671c"
+    },
+    "rank0_exact_mub_diagnostics": {
+      "path": "../public_phase1_kerdock_hidden_snap_v1/runs/row_0000/DIAGNOSTIC_ARRAYS.npz",
+      "sha256": "d4691f774ea885467123600fc47ef2155ca71b8f99f90cb3af103694a5d03749"
+    }
+  },
+  "native_j_teacher_diagnostic": {
+    "checkpoint": "native_j_pilot_model",
+    "validation_role_ranks": [
+      37, 39, 42, 48, 59, 63, 66, 67, 71, 73,
+      75, 79, 93, 101, 122, 130, 132, 135, 139, 145,
+      146, 149, 150, 151, 155, 159, 163, 169, 173, 175,
+      181, 192, 198, 199, 204, 219, 224, 227, 233, 234
+    ],
+    "networks": 40,
+    "autonomous_replay_final_mse": 3.107235383605394e-8,
+    "frozen_receipt_autonomous_final_mse": 3.107235383605394e-8,
+    "autonomous_replay_absolute_difference": 0.0,
+    "primary_only_teacher_final_mse": 1.0764481541815743e-8,
+    "primary_only_teacher_layer_mse": [
+      6.843148122812059e-10,
+      6.028304614658365e-10,
+      8.957480685933969e-10,
+      2.542439295646769e-9,
+      4.048093147007319e-9,
+      5.791558167512141e-9,
+      6.766859789948963e-9,
+      7.202778674416786e-9,
+      7.465717677597816e-9,
+      7.526406760194879e-9,
+      7.245280435373613e-9,
+      7.310348665571083e-9,
+      7.487859986020455e-9,
+      7.783595086729287e-9,
+      8.19026185481941e-9,
+      1.0764481541815743e-8
+    ],
+    "teacher_semantics": "At each corrected layer after the first, exposure=0 replaces only the preceding primary state channel 0 by the true Q24 host residual. Auxiliary state channels 1:3, their energy observables, dynamic gains, and mixing remain autonomous.",
+    "conclusion": "The bank-compatible J checkpoint does not inherit the old scalar checkpoint's 8.207963e-9 teacher ceiling. Primary-state snapping alone cannot beat either raw 1e-8 or the cap1024 adjusted-score raw ceiling."
+  },
+  "physical_local_innovation_interface": {
+    "indexing": "zero-based hidden layers l=0..15; corrected layers start at l=2",
+    "truth_error": "e_l = target_mean_l - host_mean_l",
+    "bank_primary": "A_l = frozen native-J autonomous reported primary correction",
+    "host_gate": "Phi_l = native Q24 raw20[l,:,5]",
+    "truth_local": "q_l = e_l - Phi_l * (e_(l-1) @ W_l), with q_2=e_2",
+    "bank_local": "qJ_l = A_l - Phi_l * (A_(l-1) @ W_l), with qJ_2=A_2",
+    "sample_block_error": "e^b_l = Q_b[h_l] - host_mean_l",
+    "sample_block_local": "q^b_l = e^b_l - Phi_l * (e^b_(l-1) @ W_l), with q^b_2=e^b_2",
+    "suffix_assimilation": "Set r_9=A_9. For l=10..15, r_l=Phi_l*(r_(l-1)@W_l)+qJ_l+beta_l*(mean_b(q^b_l)-qJ_l).",
+    "endpoint_laws": [
+      "beta=0 reconstructs the bank primary A exactly by induction.",
+      "beta=1 on every layer 2..15 reconstructs the sampled endpoint residual, up to float32 roundoff.",
+      "beta=1 only on l=10..15 leaves the l=9 bank-state error and transports it through the six physical suffix gates; it does not force endpoint truth."
+    ],
+    "auxiliary_state_handling": "The four-state J model is run autonomously once. Its auxiliary channels affect A, hence qJ, but are not separately replaced or propagated by the physical scalar assimilation."
+  },
+  "physical_local_oracle_40": {
+    "bank_final_mse": 3.107235383605394e-8,
+    "all_q_2_to_15_exact_max_abs_reconstruction_error": 2.7939677238464355e-9,
+    "single_exact_q_final_mse": {
+      "2": 3.100043724972332e-8,
+      "3": 3.103860366049979e-8,
+      "4": 3.078340230323585e-8,
+      "5": 3.052926478046435e-8,
+      "6": 3.0421027602828846e-8,
+      "7": 2.994263529772691e-8,
+      "8": 2.931103721371422e-8,
+      "9": 2.9540555147102352e-8,
+      "10": 2.8798401815770116e-8,
+      "11": 2.792478173994629e-8,
+      "12": 2.7352680180068157e-8,
+      "13": 2.66390386236586e-8,
+      "14": 2.575027967807136e-8,
+      "15": 2.4995440323484064e-8
+    },
+    "prefix_exact_q_2_to_l_final_mse": {
+      "2": 3.100043724972332e-8,
+      "3": 3.0971887537859815e-8,
+      "4": 3.0692312886766e-8,
+      "5": 3.0138347108621576e-8,
+      "6": 2.9499953021460345e-8,
+      "7": 2.8411491575302485e-8,
+      "8": 2.6821945785988533e-8,
+      "9": 2.5114742666775175e-8,
+      "10": 2.265316461683709e-8,
+      "11": 1.9379294556010848e-8,
+      "12": 1.561645721020099e-8,
+      "13": 1.1370992321974644e-8,
+      "14": 6.068341878991148e-9,
+      "15": 1.674673257629396e-19
+    },
+    "suffix_exact_q_l_to_15_final_mse": {
+      "2": 1.674673257629396e-19,
+      "3": 6.027181652743082e-11,
+      "4": 1.9052111807845425e-10,
+      "5": 4.815412813973121e-10,
+      "6": 9.966232607553278e-10,
+      "7": 1.75847285607275e-9,
+      "8": 2.9151577314678925e-9,
+      "9": 4.550604933977959e-9,
+      "10": 6.315099529558099e-9,
+      "11": 8.537063172550421e-9,
+      "12": 1.1325014295434878e-8,
+      "13": 1.4957074706460673e-8,
+      "14": 1.9564631723237012e-8,
+      "15": 2.4995440323484064e-8
+    },
+    "per_layer_local_q_minus_qJ_mse": {
+      "2": 8.957480685933969e-10,
+      "3": 1.294343080405225e-9,
+      "4": 2.2238388364514037e-9,
+      "5": 3.016444289457447e-9,
+      "6": 3.4929687656887436e-9,
+      "7": 4.011926436798108e-9,
+      "8": 4.380814214105276e-9,
+      "9": 4.724540496473589e-9,
+      "10": 4.943317939687495e-9,
+      "11": 5.2047399740178475e-9,
+      "12": 5.5494274979631525e-9,
+      "13": 5.788652346161188e-9,
+      "14": 6.0741317687577325e-9,
+      "15": 6.068341723033198e-9
+    },
+    "per_layer_endpoint_contribution_mse": {
+      "2": 6.027190471224462e-11,
+      "3": 1.2504892266077553e-10,
+      "4": 2.816433928279399e-10,
+      "5": 5.259588354664148e-10,
+      "6": 7.489171377474951e-10,
+      "7": 1.1154277756823343e-9,
+      "8": 1.4636768370693138e-9,
+      "9": 1.9398993028072186e-9,
+      "10": 2.409590040916969e-9,
+      "11": 2.914248944902575e-9,
+      "12": 3.6752243145547257e-9,
+      "13": 4.419706457737781e-9,
+      "14": 5.411384792261882e-9,
+      "15": 6.068341723033198e-9
+    },
+    "conclusion": "No single local defect is sufficient. The smallest tested contiguous exact suffix that clearly beats the cap1024 raw ceiling is l=10..15, six late local innovations."
+  },
+  "suffix_10_to_15_shrink_and_noise_envelope_40": {
+    "bank_mse_A": 3.107235383605394e-8,
+    "bank_error_dot_exact_endpoint_correction_D": -2.4935998482979952e-8,
+    "exact_endpoint_correction_energy_C": 2.511474265946406e-8,
+    "quadratic": "M(beta,nu)=A+2*beta*D+beta^2*(C+nu), where nu is independent zero-mean endpoint measurement-noise MSE",
+    "exact_beta_1_mse": 6.315099529558099e-9,
+    "noise_free_optimal_beta": 0.9928828983474871,
+    "noise_free_optimal_mse": 6.313827389084267e-9,
+    "noise_free_beta_interval_beating_cap1024": [
+      0.7053661296823928,
+      1.2803996670125812
+    ],
+    "maximum_independent_endpoint_noise_mse_at_beta_1": 2.074860470441901e-9,
+    "maximum_independent_endpoint_noise_rms_at_beta_1": 4.5550636334105155e-5,
+    "maximum_independent_endpoint_noise_mse_with_optimal_beta": 2.2987669038349116e-9,
+    "maximum_independent_endpoint_noise_rms_with_optimal_beta": 4.794545759334154e-5,
+    "beta_at_optimal_noise_ceiling": 0.9096244472237917,
+    "maximum_noise_to_signal_energy_ratio_with_optimal_beta": 0.09153057767719792,
+    "minimum_signal_to_noise_energy_ratio_with_optimal_beta": 10.925310703563053,
+    "expected_optimal_mse_by_endpoint_noise_mse": {
+      "0": 6.313827389084267e-9,
+      "1e-10": 6.4120180657901315e-9,
+      "5e-10": 6.797114041152624e-9,
+      "1e-9": 7.261894416579828e-9,
+      "2e-9": 8.140031440357314e-9,
+      "3e-9": 8.95570038221679e-9,
+      "5e-9": 1.0424526047036918e-8,
+      "1e-8": 1.3364577180154377e-8
+    }
+  },
+  "rank0_unsnapped_exact_mub_replay": {
+    "role_rank": 0,
+    "mlp_id": 383,
+    "model": "native_j_final_model",
+    "sample_design": "two disjoint 8-basis exact real-MUB blocks with antipodes; 16,384 paths per block, 32,768 total",
+    "bank_final_mse": 2.8568305835202457e-8,
+    "exact_suffix_10_to_15_oracle_final_mse": 5.362326477213171e-9,
+    "sample_block_beta_1_final_mse": [
+      1.0291492948094112e-6,
+      1.0788562784029977e-6
+    ],
+    "sample_combined_beta_1_final_mse": 5.345911095615962e-7,
+    "endpoint": {
+      "true_suffix_correction_mse": 2.4097371211643133e-8,
+      "combined_sample_correction_mse": 5.345550675393322e-7,
+      "combined_measurement_error_mse_vs_true_correction": 5.239040924920926e-7,
+      "combined_measurement_error_rms": 7.238121942134524e-4,
+      "combined_measurement_correlation_with_true_correction": 0.15299998888501065,
+      "split_cross_signal_proxy_P": 1.5143390494723738e-8,
+      "split_noise_proxy_R": 5.194116770446084e-7,
+      "split_beta": 0.028328962560268872,
+      "truth_optimal_beta": 0.026687862060945814,
+      "truth_optimal_beta_final_mse": 2.8187573274739345e-8,
+      "measurement_mse_over_beta_1_allowance": 252.50087895332655,
+      "measurement_rms_over_beta_1_allowance": 15.8902762390503
+    },
+    "per_layer_measurement": [
+      {
+        "layer_zero_based": 10,
+        "layer_one_based": 11,
+        "true_q_minus_qJ_mse": 4.831861148282122e-9,
+        "combined_measurement_error_mse": 1.6335292277196476e-7,
+        "split_noise_mse": 1.8915654160039763e-7,
+        "correlation_with_true_q_minus_qJ": 0.14757863078210168
+      },
+      {
+        "layer_zero_based": 11,
+        "layer_one_based": 12,
+        "true_q_minus_qJ_mse": 4.3430612700158394e-9,
+        "combined_measurement_error_mse": 1.3436054142732425e-7,
+        "split_noise_mse": 1.7819613186117563e-7,
+        "correlation_with_true_q_minus_qJ": 0.15129414251617274
+      },
+      {
+        "layer_zero_based": 12,
+        "layer_one_based": 13,
+        "true_q_minus_qJ_mse": 5.606605018213261e-9,
+        "combined_measurement_error_mse": 1.4506316135606992e-7,
+        "split_noise_mse": 1.4053935377099403e-7,
+        "correlation_with_true_q_minus_qJ": 0.1087588546595739
+      },
+      {
+        "layer_zero_based": 13,
+        "layer_one_based": 14,
+        "true_q_minus_qJ_mse": 5.532090204408003e-9,
+        "combined_measurement_error_mse": 1.2646269691090587e-7,
+        "split_noise_mse": 1.2535868145267292e-7,
+        "correlation_with_true_q_minus_qJ": 0.25593874772053576
+      },
+      {
+        "layer_zero_based": 14,
+        "layer_one_based": 15,
+        "true_q_minus_qJ_mse": 5.7929236024991705e-9,
+        "combined_measurement_error_mse": 1.1209749896408094e-7,
+        "split_noise_mse": 1.105706328934665e-7,
+        "correlation_with_true_q_minus_qJ": 0.28322131631287306
+      },
+      {
+        "layer_zero_based": 15,
+        "layer_one_based": 16,
+        "true_q_minus_qJ_mse": 6.202778273032288e-9,
+        "combined_measurement_error_mse": 7.533809702510197e-8,
+        "split_noise_mse": 9.93197491086282e-8,
+        "correlation_with_true_q_minus_qJ": 0.22183327082189908
+      }
+    ],
+    "decision": "REJECT_UNSNAPPED_N32768_FORM. Split shrinkage correctly collapses toward the bank but cannot approach the score target; the actual endpoint measurement error is more than 252 times the allowed MSE."
+  },
+  "resource_envelope": {
+    "exact_mub_full_depth_winograd_core_flops": 486330178560,
+    "exact_mub_core_plus_paired_mean_readout_flops": 487403920384,
+    "exact_mub_core_plus_paired_mean_and_gate_readout_flops": 488477662208,
+    "cp4_cap1024_static_saving_flops": 81756130304,
+    "phase2_budget": 2199023255552,
+    "cost_note": "The local q readout uses means already present in the propagated tape and only six width-1024 physical recurrence steps. Final promotion still requires an integrated literal meter and the exact per-row adjusted-score law; the 8.38996e-9 ceiling is the current root-owned conservative frontier value."
+  },
+  "only_open_successor": {
+    "name": "per-layer host-moment-normalized exact-MUB non-Gaussian local residual",
+    "material_difference": "Before every ReLU, recenter each block's preactivation cloud to the analytic host preactivation mean and coordinate-rescale its centered empirical variance to the host variance. The cloud then estimates the standardized degree-3-and-higher non-Gaussian local residual instead of spending its variance on degree-1/2 fluctuations already represented by the host.",
+    "exact_phase1_authority": "Keep the exact Gaussian h1 mean snap and exact layer-2 arc-cos preactivation-variance snap. At later layers the host moments are approximations, so the normalization is a biased self-normalized surrogate rather than an exact-mean control variate.",
+    "fatal_rank0_gate": {
+      "combined_suffix_10_to_15_endpoint_measurement_error_mse_strictly_below": 2.074860470441901e-9,
+      "combined_endpoint_measurement_correlation_with_true_correction_strictly_above": 0.7,
+      "split_block_noise_mse_strictly_below": 2.2987669038349116e-9,
+      "note": "Actual truth error is required because split disagreement cannot detect common host-lock or degree-4-and-higher cubature bias."
+    },
+    "stop_law": "Run one rank-0 discriminator only. If any fatal gate fails, close this moment-normalized spelling without a second normalization, basis, beta, or host arm. If all pass, freeze a disjoint multi-rank observer-fit gate before integration or submission."
+  },
+  "graph_ready_conclusion": "The teacher localizer does identify a narrow missing object: the last six physical local innovations q_10:q_15. Their exact oracle is sufficient, unlike any single state or final-only correction. The faithful unsnapped N=32768 exact-MUB estimator is decisively too noisy. One genuinely distinct leaf survives: host-mean/variance-normalized sampling of only the non-Gaussian local residual, under the frozen rank-0 endpoint error gate above."
+}

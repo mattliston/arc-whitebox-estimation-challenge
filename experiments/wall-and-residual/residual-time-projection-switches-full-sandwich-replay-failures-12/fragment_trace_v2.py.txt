@@ -1,0 +1,38 @@
+
+
+# BEGIN OPUS-GOVERNOR TEST TRACE v2 (test copies only, never in a release file): at each layer start and at the end of predict,
+# [layer, requests so far (boundary client's counter), live residual s, live wall s, process time s, governor on].
+import json as _gt_json
+import sys as _gt_sys
+import time as _gt_time
+_GT_PATH = '__GT_PATH__'
+_GT_ROWS = []
+_GT_PARENT_BEGIN = _w5_port_begin
+_GT_PARENT_PREDICT = Estimator.predict
+
+
+def _gt_point(layer):
+    ctx = flops._budget._active_context
+    count = _gt_sys.modules['__main__'].count
+    _GT_ROWS.append([layer, count['requests'], ctx.residual_wall_time_s, ctx.wall_time_s, _gt_time.process_time(), _GOV['on'],
+                     dict(_gt_sys.modules['__main__'].by_func)])
+
+
+def _w5_port_begin(scope, network, layer, weight, previous):
+    _gt_point(layer)
+    return _GT_PARENT_BEGIN(scope, network, layer, weight, previous)
+
+
+def _gt_predict(self, *args, **kwargs):
+    del _GT_ROWS[:]
+    _gt_point(-1)
+    try:
+        return _GT_PARENT_PREDICT(self, *args, **kwargs)
+    finally:
+        _gt_point(16)
+        with open(_GT_PATH, 'a') as f:
+            f.write(_gt_json.dumps(dict(gov=_GOV, actions=list(_GOV_ACTIONS), force=_GOV_FORCE, rows=_GT_ROWS)) + '\n')
+
+
+Estimator.predict = _gt_predict
+# END OPUS-GOVERNOR TEST TRACE v2

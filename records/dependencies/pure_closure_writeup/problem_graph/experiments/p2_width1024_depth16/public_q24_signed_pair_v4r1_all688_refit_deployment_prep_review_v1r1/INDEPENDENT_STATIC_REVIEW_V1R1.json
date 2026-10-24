@@ -1,0 +1,256 @@
+{
+  "access_accounting": {
+    "bank_or_staging_payload_bytes_opened": 0,
+    "board_or_score_payload_bytes_opened": 0,
+    "estimator_executions": 0,
+    "future_oof_output_payload_bytes_opened": 0,
+    "mps_executions": 0,
+    "numerical_training_or_scoring_runs": 0,
+    "package_builds": 0,
+    "public_row_or_weight_payload_bytes_opened": 0,
+    "submission_or_network_actions": 0,
+    "target_payload_bytes_opened": 0
+  },
+  "authorization": {
+    "H_receipt": false,
+    "bank_ready": false,
+    "board": false,
+    "estimator": false,
+    "mps": false,
+    "network": false,
+    "output_access_or_seal": false,
+    "package": false,
+    "refit": false,
+    "submission": false,
+    "target": false
+  },
+  "canonical_accepting_witnesses": [
+    {
+      "accepted_canonical_receipt_sha256": "4c8959cdc57e288c03728561c6af6d7133d18e1306956459ed53f3fb05d020a4",
+      "field": "fold_order",
+      "mutation": [
+        false,
+        true,
+        2,
+        3
+      ],
+      "witness": "bool_alias_for_integer_fold_labels"
+    },
+    {
+      "accepted_canonical_receipt_sha256": "36645df90baa95d2afb5d0a89d8282864483b8f609ada4b4d9bf7963bde4073a",
+      "field": "fold_order",
+      "mutation": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "witness": "float_alias_for_integer_fold_labels"
+    },
+    {
+      "accepted_canonical_receipt_sha256": "fe014ed38fc528d23f43da95d02d90b51ece8eadb3dff91b4c36a7daf1bb93b2",
+      "field": "candidate_H",
+      "mutation": [
+        16.0,
+        64.0,
+        256.0
+      ],
+      "witness": "float_alias_for_integer_H_values"
+    },
+    {
+      "accepted_canonical_receipt_sha256": "080411e93e21a90b069531df3362b1af4adc42328abc1e5e623d48e696fd573e",
+      "field": "observation_count_per_H",
+      "mutation": 2064.0,
+      "witness": "float_alias_for_integer_count"
+    },
+    {
+      "accepted_canonical_receipt_sha256": "a1383b94bedf93c2dfe55d890e9b414a5236da18ac5e385bf9c5dce609692cc0",
+      "field": "role_rank_exact_multiplicity_per_H",
+      "mutation": 3.0,
+      "witness": "float_alias_for_integer_multiplicity"
+    },
+    {
+      "accepted_canonical_receipt_sha256": "de1283fee4a51481245a6f3fa9ad586f7ce3515d31775083dd433496c2fbd6bd",
+      "field": "selected_H",
+      "mutation": 16.0,
+      "witness": "float_alias_for_integer_selected_H"
+    },
+    {
+      "accepted_canonical_receipt_sha256": "ef3c699c3f8e1c57dc0636632f6cf95aa201672a51e739874bd5fb56fbab4f31",
+      "field": "pooled_pair_on_mse.16",
+      "mutation": true,
+      "synthetic_reducer_value": 1.0,
+      "witness": "bool_alias_for_float_MSE"
+    },
+    {
+      "accepted_canonical_receipt_sha256": "8b48b7f55a232f76a4a3ab0b276bbf3b75d8194a4063bf76e9d47ac1f0b85042",
+      "field": "pooled_pair_on_mse.16",
+      "mutation": 1,
+      "synthetic_reducer_value": 1.0,
+      "witness": "integer_alias_for_float_MSE"
+    }
+  ],
+  "cross_interpreter_replay": {
+    "cpython_3_11_5_anaconda_freeze_byte_identical": true,
+    "cpython_3_11_5_anaconda_static_byte_identical": true,
+    "cpython_3_11_5_data_gate_freeze_byte_identical": true,
+    "cpython_3_11_5_data_gate_static_byte_identical": true,
+    "cpython_3_13_3_freeze_byte_identical": true,
+    "cpython_3_13_3_static_byte_identical": true,
+    "cpython_3_9_6_freeze_byte_identical": true,
+    "cpython_3_9_6_static_byte_identical": true,
+    "freeze_stdout_sha256": "db04e4c032c570a26cfe7fc2c84dfed05565f3220e9164ace42ed2e2c671ab23",
+    "static_stdout_sha256": "a7ab1c3b18d80b2e7fd41fbd1f1c51ff17141877c3990e98595af53e3d330464",
+    "verifier_replay_is_insufficient_for_GO_due_to_uncovered_accepting_witnesses": true
+  },
+  "date": "2026-08-27",
+  "decision": "STRICTLY_TYPE_AND_RESEAL_THE_COMPLETE_H_RECEIPT_SCHEMA_BEFORE_ANY_FUTURE_CHILD",
+  "issued_by": "independent_reviewer",
+  "issued_utc": "2026-08-28T04:19:50Z",
+  "material_hold_blockers": [
+    {
+      "finding": "The V1R1 rank-hash map repair is present and hash-equal to the immutable reducer, but scaffold and materialized-receipt validators use Python numeric equality without first enforcing exact JSON scalar types. Python considers False equal to 0, True equal to 1 and 1.0, and integral floats equal to integers. Consequently multiple byte-distinct canonical receipts with booleans, integers, or floats in the wrong schema roles pass validation. The selections mapping also accepts bool/float aliases for integer fold keys.",
+      "id": "nonexact_bool_int_float_aliases_accepted_by_receipt_contract",
+      "locations": [
+        "deployment_contract_v1r1.py:195",
+        "deployment_contract_v1r1.py:197",
+        "deployment_contract_v1r1.py:199",
+        "deployment_contract_v1r1.py:201",
+        "deployment_contract_v1r1.py:240",
+        "deployment_contract_v1r1.py:363",
+        "deployment_contract_v1r1.py:365",
+        "deployment_contract_v1r1.py:367",
+        "deployment_contract_v1r1.py:369",
+        "deployment_contract_v1r1.py:386",
+        "deployment_contract_v1r1.py:388"
+      ],
+      "severity": "FAIL_CLOSED_CANONICAL_SCHEMA_TYPE_CONFUSION"
+    }
+  ],
+  "package_component_count": 13,
+  "package_root_inventory_count": 15,
+  "passes_preserved_for_strict_type_successor": {
+    "all_future_roots_null_and_all_live_authority_false": true,
+    "canonical_selection_source_hash_binding": true,
+    "complete_V1_science_and_deployment_findings_unchanged": true,
+    "cross_runtime_static_and_freeze_replay_exact": true,
+    "exact_per_H_rank_hash_field_added_to_H_scaffold": true,
+    "four_outer_model_ensemble_diagnostic_hold": true,
+    "immutable_V1_and_durable_HOLD_bound": true,
+    "MPS_hold": true,
+    "production_materializer_delegates_to_immutable_V1_reducer_and_pins_CPython_3_11_5": true,
+    "rank_and_value_hashes_equal_immutable_reducer_output": true,
+    "rank_vector_independently_reconstructed_as_2064_little_endian_int32_values_per_H": true,
+    "refit_and_export_overlays_carry_null_value_rank_and_selection_hash_maps": true,
+    "thirteen_frozen_rank_hash_and_canonical_byte_adversarial_fixtures_rejected": true
+  },
+  "precise_repair_contract": {
+    "negative_fixtures_required": [
+      "candidate_H rejects any bool, float, string, missing, duplicate, reordered, or extra item",
+      "fold_order rejects bool and float aliases as well as missing, duplicate, reordered, or extra folds",
+      "observation_count_per_H rejects bool, float, string, and any integer other than 2064",
+      "role_rank_exact_multiplicity_per_H rejects bool, float, string, and any integer other than 3",
+      "selected_H rejects bool, float, string, null after materialization, and integers outside 16,64,256",
+      "tie_tolerance rejects bool, int, string, nonfinite, and every float other than exact binary64 0.0025",
+      "every pooled_pair_on_mse value rejects bool, int, string, null, NaN, positive or negative infinity, and negative float",
+      "selections mapping rejects bool and float aliases for fold keys before any set comparison or lookup",
+      "the same strict integer-list, integer-scalar, and float-scalar aliases are rejected by scaffold validation",
+      "all eight canonical accepting witnesses listed in this HOLD are converted into rejecting canonical-byte fixtures",
+      "all thirteen existing V1R1 adversarial fixtures remain rejecting"
+    ],
+    "strict_float_rule": "type(value) is float and math.isfinite(value) and value >= 0.0 before exact equality to the reducer value",
+    "strict_integer_list_rule": "type(value) is list, exact length, every element type(value) is int, then exact ordered equality",
+    "strict_integer_rule": "type(value) is int, which excludes bool, before range or exact-value comparison",
+    "strict_selection_mapping_rule": "type(selections) is dict, length four, every key type(key) is int, and exact keys 0,1,2,3 before lookup",
+    "successor_rule": "do not mutate V1R1; create a new frozen successor that binds this HOLD, recompute all dependent hashes and receipts, and request fresh independent review"
+  },
+  "requested_checklist_findings": [
+    {
+      "id": 1,
+      "verdict": "PASS_STATIC",
+      "finding": "The immutable V1 tuple and durable HOLD are byte-bound; V1R1 is a narrow successor and grants no live authority."
+    },
+    {
+      "id": 2,
+      "verdict": "PASS_RANK_HASH_MAP_ONLY__OVERALL_HOLD",
+      "finding": "Both scaffold and materialized contracts contain the exact three-key rank-hash map with strict null/SHA values, but other materialized scalar fields are not exact-type validated."
+    },
+    {
+      "id": 3,
+      "verdict": "PASS_STATIC_AND_INDEPENDENT_SYNTHETIC",
+      "finding": "Each per-H rank hash is derived from 2,064 little-endian signed-int32 ranks in frozen fold/stored order with exact multiplicity three; reordered rows are rejected."
+    },
+    {
+      "id": 4,
+      "verdict": "PASS_REDUCER_AND_HASH_EQUALITY__HOLD_RECEIPT_TYPES",
+      "finding": "The production materializer delegates to immutable V1 and pins CPython 3.11.5; different well-formed hashes reject, but numeric equality permits byte-distinct schema aliases."
+    },
+    {
+      "id": 5,
+      "verdict": "PASS_STATIC",
+      "finding": "All four canonical source-selection hashes are bound and a mutation rejects."
+    },
+    {
+      "id": 6,
+      "verdict": "PASS_STATIC",
+      "finding": "Refit-anchor and model/export overlays carry exact null value-vector, rank-vector, and four-selection maps and remain non-authoritative."
+    },
+    {
+      "id": 7,
+      "verdict": "HOLD_INCOMPLETE_ADVERSARIAL_SCHEMA_COVERAGE",
+      "finding": "The requested thirteen fixtures reject, but fresh canonical bool/int/float alias fixtures pass and were absent from the frozen verification."
+    },
+    {
+      "id": 8,
+      "verdict": "PASS_STATIC",
+      "finding": "Every future output/review/H/refit/export/parity/meter/archive/BANK_READY/submission root is null and every live authority flag is false."
+    },
+    {
+      "id": 9,
+      "verdict": "PASS_STATIC_PRESERVED",
+      "finding": "The V1 target-clean evidence, model inventory, uniform host, pooled-H numerical law, single CPU refit, no postfit held-score claim, parity, resource, archive, and submission findings are unchanged."
+    },
+    {
+      "id": 10,
+      "verdict": "PASS_STATIC",
+      "finding": "The four-outer ensemble remains DIAGNOSTIC_HOLD_ONLY and MPS remains unauthorized."
+    },
+    {
+      "id": 11,
+      "verdict": "PASS_CURRENT_NULL_BOUNDARY",
+      "finding": "No live OOF seal/review issuer exists here; runtime-local schema invention and bypass remain forbidden."
+    },
+    {
+      "id": 12,
+      "verdict": "PASS_REPLAY__INSUFFICIENT_FOR_GO",
+      "finding": "Static and freeze replays are byte-exact across four interpreter installations with zero protected access, but do not cover the accepted type-confusion witnesses."
+    }
+  ],
+  "review_id": "q24-signed-pair-v4r1-all688-refit-deployment-prep-review-v1r1-hold-exact-types",
+  "review_scope": "read-only static source, schema, hash, AST, and synthetic canonical-byte review; no future or protected numerical payload access",
+  "reviewed_artifact_sha256": {
+    "FREEZE_RECEIPT_V1R1.json": "48257823500065ae05f1bf2a72f938c3555a934204ff2f40c74e55a938628be0",
+    "FREEZE_VERIFICATION_V1R1.json": "db04e4c032c570a26cfe7fc2c84dfed05565f3220e9164ace42ed2e2c671ab23",
+    "H_SELECTION_RECEIPT_CONTRACT_V1R1.json": "755e23fd6a7864fd00ee1735cbb1f6815fb582093de9e61c202033710236b209",
+    "H_SELECTION_RECEIPT_SCAFFOLD_V1R1.json": "eab1fcbbc40900e22ceee208a113949292c8b8ad30c66393f9987d1836df4857",
+    "INDEPENDENT_REVIEW_REQUEST_V1R1.md": "65495221f16b0a3a3f781a5d445c4b8aa4c5f970a356b9a06398b53c0e324ba9",
+    "PACKAGE_MANIFEST_V1R1.json": "a8eb82d519184839b3e97290cfed2970142278174f8151f7f141e02c72415e6d",
+    "README.md": "95e4fdfc508d22c07b68680ade1a2e155fb861fc2c319a30ae57d91c3048e71d",
+    "REFIT_AUTHORITY_SCAFFOLDS_V1R1.json": "635d04cd85b280230ef13d93a4441ebf48229ac15bd8a37ebb58e0e337271dfd",
+    "REFIT_MODEL_EXPORT_SCAFFOLD_V1R1.json": "0d67087217166a71c8912adeea2ff35580e2521dcf20a516e9e86aebdb7d83f1",
+    "RUNBOOK_V1R1.md": "13e0226fa6348bbff3be29ee08499eadddce858fb9b640a43b3cbb8bdf7b9a62",
+    "STATIC_VERIFICATION_V1R1.json": "a7ab1c3b18d80b2e7fd41fbd1f1c51ff17141877c3990e98595af53e3d330464",
+    "V1_HOLD_SUCCESSOR_BINDING.json": "fbc1180a942f23e2695ada5f9689da6c531d2ac72b6d0b44a3b4757fa6be1d86",
+    "deployment_contract_v1r1.py": "cc3bf2839ae4a3bcd471519f0fe27641c24a9643f78bceeea5e34376aa999ab8",
+    "verify_freeze_v1r1.py": "87805812d3eac4323519aa58fc356bc6bcf3f32d02672bb3605ceca05271a31d",
+    "verify_static_v1r1.py": "05abe36d5aa8810a2bef0780960f4516c7142634be00cb0809ba341a0830798d"
+  },
+  "reviewer_different_from_package_author": true,
+  "schema": "public-q24-signed-pair-v4r1-all688-refit-deployment-independent-static-review-v1r1",
+  "selection_mapping_alias_witness": {
+    "accepted_input_keys_repr": "[False, True, 2.0, 3.0]",
+    "accepted_output_canonical_receipt_sha256": "990eb97b6f2204266f42c5bcbc107f2e3aabfdcfe5cd2d569940bc20524ca371",
+    "finding": "bool and float mapping keys alias integer fold keys before set comparison and lookup"
+  },
+  "status": "HOLD_FROZEN_POOLED_H_RANK_HASH_SCHEMA_REPAIR__NONEXACT_NUMERIC_TYPES_ACCEPTED"
+}

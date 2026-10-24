@@ -1,0 +1,177 @@
+{
+  "status": "CONDITIONAL_ESTIMATE_NOT_BANKED",
+  "version": "v3",
+  "models": 0,
+  "confirmed_bank": {
+    "submission": 336412,
+    "official_public_score": 1.4759020254247964e-09,
+    "all_public_complete": true,
+    "hidden_failures": [
+      93
+    ],
+    "source_sha256": "46e9315d1a3e563cf669f27ec499be487ca7a437ee942b7be44ea1fad682ad9f"
+  },
+  "clean_anchor": {
+    "submission": 336342,
+    "score": 1.480205182599705e-09,
+    "completed": 100,
+    "failed": 0
+  },
+  "target": {
+    "user_acceptable": 1.4615e-09,
+    "oliver_reference": 1.4605996e-09
+  },
+  "science_source_sha256": "48c126c61f8d4f571768529d9d6610d8e732de24107fce75d9422e3d417a9700",
+  "P40_source_sha256": "c5cea015024a86c5215fca69d34b74ff0125efd96ab38ebef72773ff756b4972",
+  "inputs": {
+    "science": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_s2tr_fullstack_v1/FIXED16_SCIENCE_v1.json",
+      "sha256": "67ab9743b5981a1dcdc55338a79ae5f2b8aeceb42899a92f765984f2ce7da4c2"
+    },
+    "small": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_smallsm_residual_v1/FIXED8_RESULT_v1.json",
+      "sha256": "ea959e9133c4c0699ccce42e9eb75383060ce3a6778a493c647b866bbde614f9"
+    },
+    "tariff": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_actual16_tariff_v1/ACTUAL16_WARM_TARIFF_v1.json",
+      "sha256": "bdaa27fe13b46112b9e69038a2c0ef0d1d8219a76fd1d5ffab88e1fce0d7512e"
+    },
+    "exclusion": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_actual16_tariff_v1/PUSH736_EXCLUSION_COST_v1.json",
+      "sha256": "7259d273c2fc06721d85e9c07cfeadecc4b233f3c459b2facc9644bcb982bc1d"
+    },
+    "bank": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_s2tr_root_fire_v1/grade_v2/ROOT_PUBLIC_GRADE_v1.json",
+      "sha256": "428ebecc96cbb75d5afc870cd1dae35c13be5004d0627aac41ae2c7e1ce33fd1"
+    }
+  },
+  "fullstack16_raw_mean_pct": -0.16246991021998808,
+  "fullstack16_raw_se_pct": 0.13764966475817242,
+  "P40_fixed8_raw_mean_pct": -0.19850493483977855,
+  "P40_fixed8_raw_se_pct": 0.07079854492551008,
+  "warm_bill_saving16_mean_pct_after_exclusion": 0.562725256407548,
+  "bad_push_exclusion": {
+    "shape": [
+      736,
+      768,
+      6400
+    ],
+    "ranks": [
+      35
+    ],
+    "cap_debit_preserved_required": true,
+    "gain_lost_per_occurrence": 209483044,
+    "mean16_bill_saving_lost_pp": 0.0053527667348010665,
+    "final35_update": {
+      "rank": 35,
+      "U": 1.1077714674730228e-08,
+      "cap_debit_preserved": true,
+      "excluded_shape_debit": 99,
+      "cap_debit_source": "Final _pushsm_mm calls _peel_take before exact _PEEL_PARENT_PUSH fallback; cost table retains99.",
+      "candidate_sha256": "8b3d7ea74bd7af0c860266368585bf26ba73661460d6e3ce667b8dd76d4cdc89",
+      "candidate_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/candidate_s2tr_peel_release_v11.py",
+      "prediction_path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/boundary_v11/pred_35.bin",
+      "prediction_sha256": "0f13990dae8ac42b0a3657c3600242652db8b8d877c36c535d99b214f755e453",
+      "flops": 244382388888,
+      "actual_routes": {
+        "push": 2,
+        "read": 3,
+        "binds": 1,
+        "push_shapes": [
+          [
+            1024,
+            992,
+            8128
+          ],
+          [
+            1024,
+            960,
+            9984
+          ]
+        ],
+        "read_shapes": [
+          [
+            1024,
+            4096,
+            960,
+            0
+          ],
+          [
+            992,
+            6144,
+            928,
+            0
+          ],
+          [
+            736,
+            8768,
+            768,
+            384
+          ]
+        ]
+      },
+      "P40_routes": 2,
+      "all_values_finite": true
+    },
+    "accuracy_update_pending": false,
+    "delta_U": 3.3026271365870374e-13,
+    "raw_delta_pp_over_actual16": 0.00018517090516960416
+  },
+  "projections": [
+    {
+      "bound": "lower_bill_gain",
+      "P40_mean_bill_gain_pct": 0.1087839560147381,
+      "mean_product_score": 1.4607157926749153e-09,
+      "paired_raw_mean_score": 1.460716331413433e-09,
+      "same_network_weighted_score": 1.4605879214697623e-09,
+      "weighted_P40_transfer_factor": 0.9971199242143279
+    },
+    {
+      "bound": "upper_bill_gain",
+      "P40_mean_bill_gain_pct": 0.11318483558052223,
+      "mean_product_score": 1.4606514383248734e-09,
+      "paired_raw_mean_score": 1.4606519770396559e-09,
+      "same_network_weighted_score": 1.4605155226604946e-09,
+      "weighted_P40_transfer_factor": 0.997070498631827
+    }
+  ],
+  "aggregation_envelope": {
+    "lower": 1.4605155226604946e-09,
+    "upper": 1.460716331413433e-09,
+    "point_paired_mean_midbill": 1.4606841542265443e-09,
+    "conservative_bill_endpoint_vs_user_pct": -0.05362084068196715,
+    "conservative_bill_endpoint_vs_oliver_pct": 0.00799202008769928,
+    "additional_bill_factor_room_at_conservative_endpoint": 0.0005364960805283037,
+    "interpretation": "Conditional on unchanged saved48c geometry, measured mean accuracy and transfer of fixed8. Envelope spans bill roster ambiguity and three aggregations; not an accuracy confidence interval, guarantee or banked score."
+  },
+  "multiplication_audit": {
+    "raw_mean_product_minus_paired_add_pp": -3.6748869636227255e-05,
+    "base_weighted_minus_mean_product_pp": -0.027642636284397337,
+    "material_issues": [
+      "Historic peel replay overstated actual16 savings by0.247986percentage points; replaced with actual accepted routes.",
+      "P40 fixed8 effect must transfer to the target population; eight-network SE and full16 SE exceed the threshold margin. No combined confidence interval claimed.",
+      "Score weights U times compute; product of separately averaged components loses covariance and weighting. Same-network weighted calculation supplied.",
+      "Exclusion accuracy occurs on rank35 only in actual16. Apply delta once at1/16 frequency; inserting it into P40 mean8 and extrapolating doubles this contribution.",
+      "Cold control bills normalize warm operation savings. Missing same-rank warm denominators and cold first-model setup charge are not silently treated as exact.",
+      "Only cap-debit-preserving exclusion supports this route replay. Releasing99budget units could admit later routes and invalidates the simple209483044F subtraction."
+    ]
+  },
+  "conditional_geometry_proof": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_actual16_tariff_v1/P40_RECOVERY_v1.json",
+    "sha256": "d6ea8152505b21769a40efa753a16e6406f0008fd84742eb21e70907d9a1a570",
+    "mean_P40_gain_pct_bounds": [
+      0.1087839560147381,
+      0.11318483558052223
+    ],
+    "limitations": [
+      "Inferred fixed8 bounds are conditional on unchanged saved48c read geometry, which was not logged in P40 boundary files. Do not relabel exact P40 telemetry.",
+      "Join Y/Fj give paired complementary calls; independent first-old read at layers7..9 gives one call. Other old-bank calls are either rank384 inner/reconstruction or UVP split widths and cannot match fixed12.",
+      "Full actual16 old-inner rosters were not logged; seven later boundary files have no RTT read geometry. No exact16 P40 population bill from current files."
+    ],
+    "mechanism": "L7\u20139 old inner widths are6144 with row counts saved by RTT. L10/L13 joining widths are twice sums of saved birth row counts. A listed join contributes paired Y and Fj shapes; actual P40 route counts limit admissible join choices. Five ranks unique;150/200/259 ambiguous."
+  },
+  "excluded_changes": [
+    "No L4 or L5 expansion pilot included. L4 closed adverse.",
+    "No v12/v13 runtime repair cost or DM2/LB2 credits included; add measured final-runtime delta separately."
+  ]
+}

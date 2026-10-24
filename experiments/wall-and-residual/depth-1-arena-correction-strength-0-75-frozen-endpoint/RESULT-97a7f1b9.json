@@ -1,0 +1,70 @@
+{
+  "alpha_grid": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25
+  ],
+  "alpha_law": "theta(alpha)=epoch6+alpha*(continued_epoch9-epoch6)",
+  "bindings": {
+    "interpolated_checkpoint_sha256": "fc65528720c7e1378ed7011b7b201f4086217a544b092de208ea1064656d9ef5",
+    "left_checkpoint_sha256": "76daf05e69022df67eb546b7099c47a3a1538c849fe3c8512c9c8dfe1ce0cdf9",
+    "program_sha256": "1dc75f64134572f8fa390c26a9012eb091981bae3894aa1a47c40f1737d15b7a",
+    "q_head_sha256": "5fb57a510d933940f19ddd5ab11650c3a966c2039c6bd12f73988457c2ce91b8",
+    "right_checkpoint_sha256": "ac89001f9c9ad39f11bf887c13bf43ee57c95922b6dab037d7d6b59d81a17f68"
+  },
+  "board_submissions": 0,
+  "deployability": {
+    "native_j_incremental_flops": 0,
+    "q_head_retrained": false,
+    "state_schema_unchanged": true
+  },
+  "inner32": [
+    {
+      "alpha": 0.0,
+      "inner_autonomous_final_mse": 3.1881282701362315e-08
+    },
+    {
+      "alpha": 0.25,
+      "inner_autonomous_final_mse": 3.18327717331763e-08
+    },
+    {
+      "alpha": 0.5,
+      "inner_autonomous_final_mse": 3.180601836933528e-08
+    },
+    {
+      "alpha": 0.75,
+      "inner_autonomous_final_mse": 3.1801928730127656e-08
+    },
+    {
+      "alpha": 1.0,
+      "inner_autonomous_final_mse": 3.182137577853422e-08
+    },
+    {
+      "alpha": 1.25,
+      "inner_autonomous_final_mse": 3.186529587984994e-08
+    }
+  ],
+  "observer_fit_only": true,
+  "observer_selection_targets_opened": 0,
+  "protected_once": {
+    "alpha1_continued_j_final_mse": 3.095364057782614e-08,
+    "alpha1_continued_j_plus_q_head_final_mse": 3.0624667296826326e-08,
+    "selected_interpolation_native_j_final_mse": 3.094854644159207e-08,
+    "selected_interpolation_plus_frozen_q_head": {
+      "baseline_final_mse": 3.094854644159207e-08,
+      "candidate_final_mse": 3.061465197605418e-08,
+      "exact_q10_q15_oracle_final_mse": 6.338145956530053e-09,
+      "teacher_local_q_mse": 5.43113689742588e-09
+    }
+  },
+  "schema": "q24-native-j-checkpoint-interpolation-control-v1",
+  "selection": {
+    "metric": "native-J-only autonomous final MSE",
+    "selected_alpha": 0.75,
+    "selected_inner_autonomous_final_mse": 3.1801928730127656e-08
+  },
+  "status": "complete"
+}

@@ -1,0 +1,18 @@
+
+
+# [opus-lead] EARLY CAPACITY ARM: dead-side row cut z 4.0 (instead of 3.0902) at layers 1-6 (more rows kept in the early pushes).
+_EDC_Z = 4.0
+_EDC_LAYERS = frozenset(range(1, 7))
+_EDC_PARENT_PUSH = _deadcut_push
+
+
+def _deadcut_push(layer, w32, p, previous, newborn, lam, state, a):
+    global _DEADCUT_Z
+    if layer not in _EDC_LAYERS:
+        return _EDC_PARENT_PUSH(layer, w32, p, previous, newborn, lam, state, a)
+    saved = _DEADCUT_Z
+    _DEADCUT_Z = _EDC_Z
+    try:
+        return _EDC_PARENT_PUSH(layer, w32, p, previous, newborn, lam, state, a)
+    finally:
+        _DEADCUT_Z = saved

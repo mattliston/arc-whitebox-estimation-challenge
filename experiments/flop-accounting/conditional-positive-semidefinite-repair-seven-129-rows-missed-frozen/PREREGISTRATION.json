@@ -1,0 +1,42 @@
+{
+  "schema": "public-condrepair-deployment-card-preregistration-v1",
+  "node": "P2R0F2W",
+  "status": "frozen-before-any-w-metrics",
+  "question": "Does the Cholesky-certified conditional PSD repair, applied to the exact banked H7B deployment estimator, preserve its scientific outputs at the fp-noise scale while reducing metered FLOPs by about 275e9 per row, yielding a BANK_READY card with projected adjusted score about 2.483e-8?",
+  "authority": {
+    "v_attribution": "public_host_compute_value_attribution_v1/V_ATTRIBUTION_RECEIPT.json",
+    "graph_gate": "P2_CONDREPAIR_DEPLOYMENT_GATE (P2R0F2V solved; P2R0H7B solved)",
+    "banked_parent_estimator_sha256": "2fd2d40d4e30cc32269afb0113e244ee76c0a51005bce166c7625510f66a8a76",
+    "banked_board_result": "submission 328326, raw 2.9409640056599073e-8, adjusted 2.847207506864414e-8"
+  },
+  "source_delta": {
+    "single_change": "In _repair_covariance's correlation-gauge arm only: subtract _PSD_EIGEN_FLOOR times the identity into the temporary arena, attempt one fnp.linalg.cholesky; on success rescale the symmetrized correlation by the diagonal scale and return (the eigh round trip is a numerical identity there); on any exception fall through to the exact original eigh path unchanged. The near-floor arm (min variance <= 2e-30) is untouched byte-for-byte, as is every other line.",
+    "w_estimator_sha256": "24ed2325e4db0c0287a222189a986c2d6462f80832c717827c27b783a6655ee2",
+    "j_weights_and_bindings": "unchanged from the banked artifact"
+  },
+  "dq_policy_statement": "This is algorithmic redundancy elimination inside our own estimator: a certified-identity computation is skipped and the exact path remains the fallback. No custom kernels, no op-pricing arbitrage, no cheaper-forward billing structure; the method is the same mathematics computed without redundant work, and it is disclosed as such.",
+  "validation_law": {
+    "ab_census_roster": "All 11 data-derived tails [55,71,106,317,339,458,485,507,540,575,602], the four hard rows [201,310,599,643], and every sixth rank from 0 through 687 excluding duplicates; deterministic, about 128 rows.",
+    "ab_census_measurements": "Per row, run the banked H7B estimator and the W estimator under identical BudgetContexts: record both flops_used, output finiteness, the per-layer output delta RMS, and the W repair-path census (certified skips versus eigh fallbacks) via a read-only counting wrapper in the census runner only.",
+    "ab_gates": {
+      "mode": "all",
+      "all_finite": true,
+      "flops_saved_per_row_at_least": 260000000000,
+      "max_output_delta_final_rms_at_most": 1e-7,
+      "w_flops_below_2pow41_every_row": true,
+      "floor_arm_rows_take_floor_arm_unchanged": true
+    },
+    "meter_law": "The exact H7B three-call persistent-worker literal meter protocol (call order 35, 279, 35) with gates: every call finite float32[16,1024], flops below 2^41, wall below 120 s, residual wall below 0.4 s, RSS below 8 GiB, and byte-exact repeat of call 1 by call 3; output hashes are pinned at the first sealed meter run.",
+    "package_law": "Exactly the banked H7B package construction: an archive containing estimator.py and manifest.json only, with recorded hashes, followed by a PACKAGE_VALIDATION check and a BANK_READY receipt."
+  },
+  "adjusted_projection": {
+    "banked_raw": 2.9409640056599073e-8,
+    "banked_mean_flops": 2129495827254,
+    "projected_flops_saved": 274890526728,
+    "projection_note": "Projected adjusted score about 2.483e-8 assuming raw unchanged at the measured 1.9e-5 relative delta scale; the board grade is the only authority for the realized number."
+  },
+  "submission_firewall": "This node ends at BANK_READY. Submission requires fresh recorded user authority; none exists at freeze time and nothing in this preregistration creates it.",
+  "resources": {"workers": 2, "threads_per_worker": 2, "nice_level": 10, "maximum_rss_bytes": 8589934592, "estimated_census_wall_minutes": 55},
+  "firewalls": {"observer_selection_targets_allowed": false, "public_name_join_allowed": false, "targets_read": 0, "post_metric_retuning": false},
+  "one_arm_law": {"arms": 1, "no_variant_sweep": true, "close_on_any_failed_conjunct": true}
+}

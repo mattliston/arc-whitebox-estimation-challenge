@@ -1,0 +1,147 @@
+{
+  "schema": "q24-cs2-board-promotion-target-free-change-size-gate-result-v1",
+  "status": "REJECT_BOARD_PROMOTION_CHANGE_SIZE_GATE__COMPARATOR_SOURCE_STABILITY_PASS__LITERAL_METER_TECHNICAL_ONLY",
+  "sealed_at_utc": "2026-08-24T13:17:18Z",
+  "bindings": {
+    "promotion_preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "e837715025dfd314afa296681a619ffae5e3b2829956342e9a9ed8c28e0a6d88",
+      "created_at_utc": "2026-08-24T13:10:56Z"
+    },
+    "promotion_scaffold": {
+      "path": "PROMOTION_MANIFEST.json",
+      "sha256": "c7f6d470c30b45afbf407845a6dcbb322591dee53bafc2602098f033805ed981"
+    },
+    "candidate_estimator": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2/estimator.py",
+      "sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779"
+    },
+    "source_hold": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2/SOURCE_HOLD_V2.json",
+      "sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c"
+    },
+    "independent_strict_audit": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2/INDEPENDENT_STRICT_AUDIT_CS2.json",
+      "sha256": "cba8bfbb437f32aa377ca72da74b9504894e6380429e2acf0e5a059d7ef8afcb"
+    },
+    "comparator_preregister": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2/PREREGISTER_FULLWIDTH_COMPARATOR_AND_METER_V1.json",
+      "sha256": "e06a68a92a139c670b0fe2fcb38615e96fa8d96a0019b3eef58bc2e995d36dd0"
+    },
+    "comparator_release": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2/ROOT_FULLWIDTH_COMPARATOR_RELEASE_SCAFFOLD_V1.json",
+      "sha256": "c5dc4408c69ac6eac36b05f139a54407366d23ccfcc1330c73f5f3e4ba98b3ab"
+    },
+    "comparator_one_use_claim": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2/runs/fullwidth_official_he_seeds20260824_20260826_v1/CLAIM.json",
+      "sha256": "9d74f6f1bd3b65d7b8fe8579208dfbea93e459b6fa3c57e13bc35d4b1a0c1bcd",
+      "created_at_utc": "2026-08-24T13:12:36.895701+00:00"
+    },
+    "comparator_receipt": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2/runs/fullwidth_official_he_seeds20260824_20260826_v1/receipt.json",
+      "sha256": "151de92da658f15de016b256c74cb00255bd1d4aea8c4d8ef3934bab10665645",
+      "status_exact": "PASS_TARGET_FREE_FULLWIDTH_STABILITY__LITERAL_METER_AND_ACCURACY_HOLD",
+      "created_at_utc": "2026-08-24T13:15:06.554040+00:00"
+    }
+  },
+  "preregistration_order": {
+    "promotion_gate_predates_one_use_claim": true,
+    "promotion_gate_predates_comparator_receipt": true,
+    "seconds_from_promotion_gate_seal_to_claim": 100.895701,
+    "seconds_from_promotion_gate_seal_to_receipt": 250.55404,
+    "future_result_inspected_before_gate_seal": false
+  },
+  "comparator_scope": {
+    "width": 1024,
+    "depth": 16,
+    "seeds_exact_in_order": [20260824, 20260825, 20260826],
+    "dataset_rows_accessed": 0,
+    "target_values_accessed": 0,
+    "truth_computed": false,
+    "packages": 0,
+    "submissions": 0
+  },
+  "source_stability_result": {
+    "comparator_status": "PASS_TARGET_FREE_FULLWIDTH_STABILITY__LITERAL_METER_AND_ACCURACY_HOLD",
+    "fullwidth_comparator_pass": true,
+    "parent_contracts_all_three": true,
+    "child_contracts_all_three": true,
+    "parent_finite_regression_count": 0,
+    "invalid_unit_reset_activation_count": 51,
+    "at_least_one_activation": true,
+    "all_rows_within_parent_output_scale": true,
+    "zero_activation_rows_have_raw_byte_parity": true,
+    "carrier_violation_totals": {
+      "pairing_alpha_violation_count": 0,
+      "connected_star_incident_nonzero_count": 0,
+      "cp_carrier_incident_nonzero_count": 0,
+      "combined_carrier_incident_nonzero_count": 0,
+      "aggregate_violation_count": 0
+    }
+  },
+  "board_specific_change_size_gate": {
+    "metric": "per-seed final-layer parent-versus-CS2 disagreement MSE",
+    "operator": "<=",
+    "threshold": 1e-8,
+    "equality_passes": true,
+    "all_three_required": true,
+    "rows": [
+      {
+        "seed": 20260824,
+        "mse": 4.0925566476689264e-8,
+        "threshold_multiple": 4.092556647668926,
+        "finite": true,
+        "passes": false
+      },
+      {
+        "seed": 20260825,
+        "mse": 6.451118991829646e-8,
+        "threshold_multiple": 6.451118991829646,
+        "finite": true,
+        "passes": false
+      },
+      {
+        "seed": 20260826,
+        "mse": 8.449135636469015e-8,
+        "threshold_multiple": 8.449135636469015,
+        "finite": true,
+        "passes": false
+      }
+    ],
+    "pass_count": 0,
+    "failure_count": 3,
+    "maximum_mse": 8.449135636469015e-8,
+    "maximum_threshold_multiple": 8.449135636469015,
+    "registered_gate_pass": false
+  },
+  "verdict": {
+    "source_stability_comparator": "PASS",
+    "board_specific_change_size_gate": "FAIL_ALL_THREE_FIXED_SEEDS",
+    "exploratory_board_promotion": "REJECTED_BEFORE_PACKAGE",
+    "package_authorized": false,
+    "submission_authorized": false,
+    "board_attempts_consumed": 0,
+    "same_source_retry_or_threshold_tuning": false,
+    "literal_meter": "MAY_PROCEED_ONLY_AS_SEPARATELY_AUTHORIZED_TECHNICAL_RESOURCE_CHARACTERIZATION__CANNOT_RESCUE_BOARD_PROMOTION"
+  },
+  "interpretation": {
+    "supported": "CS2 is carrier-coherent and target-free stable on the fixed comparator panel, but its change from the manual-rho parent exceeds the preregistered board target scale on every official-width seed.",
+    "not_supported": [
+      "raw-MSE improvement",
+      "cause of Q24 public-tail errors",
+      "a claim that the comparator disagreement equals board error",
+      "package or submission readiness",
+      "a tuned relaxation of the frozen 1e-8 gate"
+    ]
+  },
+  "negative_controls": {
+    "target_or_dataset_values_accessed_by_promotion_namespace": 0,
+    "public_rows_or_scores_used_to_set_gate": 0,
+    "network_accesses_by_promotion_namespace": 0,
+    "credential_accesses_by_promotion_namespace": 0,
+    "packages_created": 0,
+    "submissions_created": 0,
+    "estimator_mutations": 0,
+    "canonical_graph_mutations": 0
+  }
+}

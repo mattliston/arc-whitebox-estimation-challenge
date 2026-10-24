@@ -1,0 +1,41 @@
+{
+  "schema": "public-cp1536-scalar-transport-rff-cv-run-manifest-v2",
+  "status": "authorized_not_started_after_mechanical_repair",
+  "node": "P2R0C1D1",
+  "run_id": "cp1536_scalar_transport_rff_cv_688_v2",
+  "supersedes_execution_only": "RUN_MANIFEST.json",
+  "science_is_frozen_by": {
+    "preregistration_sha256": "03278bbb334055c92fe57f2ff649829b17a180232728eb6b729995344ca8881a",
+    "v1_program_sha256": "955b24cfebaf59fae21b4b87fb9e17883b9f1b4ec9719a2a1d49922960111f57",
+    "v1_seal_sha256": "1c92039cddb5029e807c666e13ba6fbbb63b60678759b0596180e49ebe50c777"
+  },
+  "mechanical_repair": {
+    "amendment_sha256": "dbfc64b51abb0f5a65d0eab4b031c7bbe6f107335c1aa90ae33b3697f19c50d6",
+    "wrapper_sha256": "ee931dc8dc4494d9a45c1ace747d305c14256455015640e627af13d0265da356",
+    "seal_sha256": "8072b25ec8faa8c4dd8d1ecb9cb7758a0b3b651404d51aeb67d2f58ddd7a486c"
+  },
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "/Users/matt/anaconda3/bin/python3",
+    "-B",
+    "run_experiment_v2.py"
+  ],
+  "allowed_target_role": "observer_fit ranks 0:687 only",
+  "forbidden": [
+    "observer_selection",
+    "private/sealed roles",
+    "Q24 trajectories",
+    "public-board name joins"
+  ],
+  "resource_cap": {
+    "threads": 2,
+    "maximum_rss_bytes": 8589934592,
+    "maximum_storage_bytes": 1073741824,
+    "nice": 10
+  },
+  "preserved_failed_namespace": "cache/",
+  "fresh_namespace": "cache_v2/",
+  "result": "CV_RESULTS_V2.json"
+}

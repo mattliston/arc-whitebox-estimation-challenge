@@ -1,0 +1,38 @@
+{
+  "schema": "public-host-error-localization-preregistration-v1",
+  "node": "P2R0F2S",
+  "status": "frozen-before-any-s-metrics",
+  "question": "Where, and through which mechanism, does the Q24 host lose its 9.12e-8: which layers and units carry the error, where is it born rather than propagated, and which of the newly exported source-uncertainty observables predict its birth sites?",
+  "scope": "Read-only analysis. No host source is modified, no model is trained, no gradient is taken, no meter runs, no deployment claim is made. Truth is the lawful observer_fit target set already used by every closed development experiment.",
+  "authority": {
+    "r_pilot_closure": "public_native_r10_source_uncertainty_pilot_v1/R_PILOT_CLOSURE.json",
+    "graph_gate": "P2_HOST_ERROR_LOCALIZATION_DESIGN_GATE (P2R0F2R, P2R0F2Q, P2R0F2P closed_measured)"
+  },
+  "data": {
+    "development_frame": {
+      "rows": 688,
+      "host_error": "public_full688_dynamic_multistate_residual_cv_v1/cache/patched_error.npy (truth minus Q24 host, [688,16,1024])",
+      "uncertainty_channels": "public_aug7_source_observable_tape_v1 rows (7 channels; note these describe the cp1792 development host, retained as a cross-frame comparison only)"
+    },
+    "native_frame": {
+      "rows": 200,
+      "host": "public_q24_native_transport_energy_pilot_v1/runs/native_rows_v1 host.npy",
+      "targets": "data_gate/sealed_role_target_bundle/observer_fit.parquet rows 35..234 (lawful, previously opened by the pilot protocol)",
+      "uncertainty_channels": "public_native_r10_source_uncertainty_pilot_v1 rows (10 channels describing the actual Q24 host)"
+    },
+    "observer_selection": "forbidden",
+    "public_name_join": "forbidden"
+  },
+  "frozen_metrics": [
+    {"id": "M1", "name": "layer_error_profile", "definition": "Per-layer host MSE and its increment Delta_l = mse_l - mse_(l-1) over each frame's population; fractional share of final-layer MSE reached by each layer."},
+    {"id": "M2", "name": "unit_concentration", "definition": "Per-frame, per-layer Gini-style concentration: fraction of the layer's squared error carried by the top 1% and top 10% of units, plus cross-row persistence (Pearson correlation of per-unit squared-error profiles between disjoint row halves split by even/odd role rank)."},
+    {"id": "M3", "name": "birth_attribution", "definition": "Per layer, regress e_l on the exact linear propagation of e_(l-1): fit the scalar a_l minimizing ||e_l - a_l * Phi_l (e_(l-1) @ W_l)||^2 over units and rows per frame (Phi_l = native/dev tape channel 5 gate), and report the born fraction b_l = ||e_l - a_l * Phi_l (e_(l-1) @ W_l)||^2 / ||e_l||^2. Weights come from the sealed feature store; this is descriptive attribution, not a model claim."},
+    {"id": "M4", "name": "mechanism_correlation", "definition": "For each uncertainty channel c and layer l: Pearson correlation over units and rows between |channel value| and (i) the local squared error e_l^2 and (ii) the born-error square from M3; reported per layer and pooled over layers 2..15, in each frame."},
+    {"id": "M5", "name": "row_level_prediction", "definition": "Per frame: Pearson correlation over rows between final-layer host MSE and each channel's row-mean absolute magnitude, plus the same for the M3 born-error total."},
+    {"id": "M6", "name": "hard_row_mechanics", "definition": "For the four development hard rows (201, 310, 599, 643): their layer profiles, unit concentration, and channel magnitudes versus population medians."}
+  ],
+  "conclusion_rule": "The dominant mechanism claim must cite the largest pooled M4(ii) correlation with at least 0.15 absolute magnitude and consistency of sign across at least 10 of 14 corrected layers; if no channel reaches that bar, the receipt must state that no exported observable localizes the born error and the proposal must be justified from M1-M3 structure alone.",
+  "proposal_rule": "Exactly one graph-ready targeted host-improvement proposal, design-only, with a mechanism, an implementation sketch in host source terms, a conservative cost statement against the 65-66e9 FLOP headroom under 2^41, and explicit conformance to the closed cap-ladder (no rank raises), partial-fix (bit-exact or joint-retune or clean-slate), and co-adaptation laws.",
+  "resources": {"processes": 1, "nice_level": 10, "threads": 2, "maximum_rss_bytes": 8589934592, "estimated_wall_minutes": 20},
+  "firewalls": {"observer_selection_targets_opened": 0, "public_name_joins": 0, "network_access": 0, "host_source_modifications": 0, "models_trained": 0}
+}

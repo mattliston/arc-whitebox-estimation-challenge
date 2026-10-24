@@ -1,0 +1,41 @@
+Prospective gain policy: reviewed source, held execution
+
+The user-directed minimum-gain removal was registered by root in ACTIVATION_v1.json.
+Historical completed decisions remain immutable. A previously rejected subthreshold
+arm can only continue under a distinct new experiment with newly prescribed
+independent fresh/OOS data; its old outcome is never relabeled.
+
+T151/T152
+  v10 keeps the fixed requests, per-dial alternatives/ties, arithmetic, native gates,
+  admission, workers, atomic outputs and boundary-drain behavior from v9.
+  New decisions: physicist/t151_confirm_astra_v10.txt and t152_confirm_astra_v10.txt.
+  Root takes over in a new session after old guards finish and old controller exits.
+  root-only run command (expand O):
+    env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 BLIS_NUM_THREADS=1 /Users/matt/anaconda3/bin/python -B O/lead/tools/t151_supervisor_astra_v10.py run --session O/lead/runs/t151_resume_astra_v10_20261013 --workers 1 --old-supervisor-retired --resume-stop
+  Every selected arm still requires full fixed confirmation16, negative OOS mean,
+  negative all32 paired mean, native D>=0.5 and measured native net<0 before stacking.
+
+K4L metric
+  Use table_v2.py smoke|screen|confirm and prepare_confirm_v2.py.
+  Same frozen physics/requests/launch profile; protocol_manifest_v2.json pins helpers.
+  New decision: screen_decision_negative_v1.json. Old files remain untouched.
+  Do not use old table_v1.py for prospective selection. Launch remains root-owned.
+
+Weighted fit
+  Root reviews PREREG_DRAFT_v4.json and registers it as PREREG_v2.json with status
+  registered_by_root_before_evaluations. Its new manifest and gain-policy hashes
+  must match. The proposal remains held until a separate root slot grant.
+  Use prepare_weightfit_v3.py smoke|screen|confirm; it stages only, never launches.
+  Use table_weightfit_v3.py smoke|screen|confirm for grading.
+  Only after root allocation: launch_weightfit_v2.py PHASE --workers 1|2 --root-slot-grant.
+  Native fixed screen cost fraction: 1261596/257354920614 = 4.902163894865781e-6.
+  Screen and all32 require mean(log MSE ratio)+log1p(cost_fraction)<0;
+  fixed confirmation16 raw mean must be <0. Exact zero is rejected.
+  Native D>=0.5 and actual measured MSE change + bill change <0 still required;
+  fixed toy/source cost is a screen penalty, never a replacement for measurement.
+  New decision: screen_decision_negative_v1.json. Original rules/decisions retained.
+
+No model evaluations, requests, decisions, STOP changes, or launches were made by
+this source-only update. Source tests use synthetic values only and demonstrate
+that incomplete registered pools cannot trigger scientific result reads or choices.
+Checks: SUPERVISOR_SOURCE_CHECK_v1.json and HELD_PROTOCOL_SOURCE_CHECK_v1.json.

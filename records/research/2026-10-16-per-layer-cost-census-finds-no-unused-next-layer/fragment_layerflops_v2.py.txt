@@ -1,0 +1,59 @@
+
+
+# BEGIN OPUS-LEAD PER-LAYER FLOP DIAGNOSTIC v2 (v1 + op breakdown of layers >= $OPUS_LF_FROM) (2026-10-16; DIAGNOSTIC ONLY): records the budget's flops_used at every
+# _w5_port_begin (layer start) and at predict end; one JSON line per predict to $OPUS_LF_OUT. Arithmetic unchanged.
+import json as _lf_json
+import os as _lf_os
+_LF_LOG = []
+_LF_IDX = [None]
+_LF_PARENT_BEGIN = _w5_port_begin
+
+
+def _lf_flops():
+    try:
+        from flopscope import _budget as _b
+        ctx = _b.get_active_budget() if hasattr(_b, 'get_active_budget') else getattr(_b, '_active_context', None)
+        return int(ctx.flops_used)
+    except Exception:
+        return None
+
+
+def _w5_port_begin(scope, network, layer, weight, previous):
+    _LF_LOG.append((int(layer), _lf_flops()))
+    if int(layer) == int(_lf_os.environ.get('OPUS_LF_FROM', '15')) and _LF_IDX[0] is None:
+        try:
+            from flopscope import _budget as _b
+            _LF_IDX[0] = len(_b.get_active_budget()._op_log)
+        except Exception:
+            pass
+    return _LF_PARENT_BEGIN(scope, network, layer, weight, previous)
+
+
+_LF_PREDICT = Estimator.predict
+
+
+def _lf_predict(self, *args, **kwargs):
+    del _LF_LOG[:]
+    _LF_IDX[0] = None
+    try:
+        return _LF_PREDICT(self, *args, **kwargs)
+    finally:
+        _LF_LOG.append(('end', _lf_flops()))
+        try:
+            from flopscope import _budget as _b
+            ops = _b.get_active_budget()._op_log[_LF_IDX[0]:] if _LF_IDX[0] is not None else []
+            agg = {}
+            for r in ops:
+                k = r.op_name + ' ' + str(r.shapes)[:120]
+                a = agg.setdefault(k, [0, 0]); a[0] += 1; a[1] += int(r.flop_cost)
+            _LF_LOG.append(('ops', sorted(agg.items(), key=lambda kv: -kv[1][1])[:60]))
+        except Exception as e:
+            _LF_LOG.append(('ops_error', repr(e)))
+        path = _lf_os.environ.get('OPUS_LF_OUT')
+        if path:
+            with open(path, 'a') as f:
+                f.write(_lf_json.dumps(_LF_LOG) + '\n')
+
+
+Estimator.predict = _lf_predict
+# END OPUS-LEAD PER-LAYER FLOP DIAGNOSTIC v2

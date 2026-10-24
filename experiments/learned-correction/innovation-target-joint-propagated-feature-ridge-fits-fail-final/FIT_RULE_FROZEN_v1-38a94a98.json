@@ -1,0 +1,130 @@
+{
+  "status": "FROZEN_BEFORE_INNOVATION_FIT",
+  "approved": true,
+  "reviewed_by": "root",
+  "executed_by": "compute_hunt",
+  "authority": "Root explicitly approved one fixed TRAIN32 CPU blocked innovation fit; no native grant.",
+  "train_ranks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "folds": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      12,
+      13,
+      14,
+      15
+    ],
+    [
+      16,
+      17,
+      18,
+      19
+    ],
+    [
+      20,
+      21,
+      22,
+      23
+    ],
+    [
+      24,
+      25,
+      26,
+      27
+    ],
+    [
+      28,
+      29,
+      30,
+      31
+    ]
+  ],
+  "layers": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "ridge": 10.0,
+  "shrink": 0.5,
+  "feature_order": "physical30 then returnedstate64; same fold-train scaling/popstd floor1e-6 and unpenalized intercept",
+  "objective": "Same relative-MSE ridge: weight sigma^2 / TRAIN-network baseline MSE at that layer, normalize mean1.",
+  "error": "truth minus captured unrounded actual postclamp baseline mean; output MSE uses baseline F32 predictions",
+  "target": "L7 e7/sigma7; L8..14 (e_l - gate_l*(W[l].T@e_(l-1)))/sigma_l; FULL previous error, no shrink inside target",
+  "shrink_derivation": "J*(s*e_prev)+s*(e_l-J*e_prev)=s*e_l",
+  "heldout_prediction": "d7=.5*sigma7*h7; d_l=gate_l*(W[l].T@d_prev)+.5*sigma_l*h_l; d15=gate15*(W[15].T@d14). No true holdout errors enter shifts.",
+  "evaluation": "Final max(raw_final+d15,0).astype(float32) versus existing truth; intermediate recurrence remains linearized, intermediate clamp only for diagnostic scoring.",
+  "promotion": "Mean final logMSE ratio <= -.003 AND >=6/8 folds strictly negative; forecast only, root native review required",
+  "gate15": "Exact QR terminal capture physical feature5; no Gaussian recomputation",
+  "jacobian_limitation": "Analytic fixed-variance gate Jacobian excludes learned-head and covariance/cumulant response",
+  "zero_baseline": true,
+  "no_grid": true,
+  "no_model_calls": true,
+  "no_data_generation": true,
+  "no_all32_fit": true,
+  "local_retirement": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/ROOT_CAPTURE_RETIREMENT_v1.json",
+  "terminal_retirement": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_terminal_linear_refit_v1/ROOT_CAPTURE_RETIREMENT_v1.json",
+  "capture_protocol": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/CAPTURE_PROTOCOL_REGISTERED_v1.json",
+  "unchanged_ridge_source": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/fit_local_blocked_ridge_HELD_v1.py",
+  "input_pins": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/ROOT_CAPTURE_RETIREMENT_v1.json": "286b71c11e09a12b145dc376cb5f7af7c71ba367b8d94bc5fe69975ed3e3c6a7",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_terminal_linear_refit_v1/ROOT_CAPTURE_RETIREMENT_v1.json": "94dbc42175d4e7349217f6a3c37134ad83f454654fed4a17e1f58e27b6d6fde6",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/CAPTURE_PROTOCOL_REGISTERED_v1.json": "2899fc5880cb77034a1108ab5c188c5aa5f77ec7bb2a82966c946d47f5dde8d3",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/fit_local_blocked_ridge_HELD_v1.py": "88d91dbff08751de8e754cec7caadd0aabb93402faec0d2b76d350ac1e9043d1",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/FIT_RULE_FROZEN_v2.json": "fab1626abe724908a27830aaba1c35ace3dc4d5318eedc06fafb8ec764a7d525"
+  },
+  "fit_script_sha256": "0a665bc047d5c727ce121b76b5c151c5c858fd51f7254b655eb61309e2b61b09"
+}

@@ -1,0 +1,160 @@
+{
+  "schema": "p2r0f2m-bidirectional-adjoint-smoother-design-receipt-v1",
+  "status": "frozen-design-only-no-training-launched",
+  "node": "P2R0F2M",
+  "question": "Can a target-free learned full-width backward-adjoint state expose future closure evidence to J's forward recurrent cell and close the autonomous residual-observability gap?",
+  "incumbent": {
+    "node": "P2R0F2J",
+    "oof_final_mse": 3.2334958229470984e-8,
+    "maximum_per_network_final_mse": 3.408533352646559e-7,
+    "hard_role_ranks": [201, 310, 599, 643],
+    "k_closed_oof_final_mse": 3.2444190155738505e-8,
+    "base_choice": "Use J, not K. K's pooled full-Gram child regressed the OOF mean and did not solve the hard rows."
+  },
+  "bounded_diagnostic": {
+    "panel": "observer_fit role ranks 0:63 plus [201,310,599,643]",
+    "target_use": "Only score spatial alignment after each target-free J replay and target-free Jacobian basis is complete.",
+    "ordinary_top8_residual_fraction": 0.07089252709366987,
+    "ordinary_fixed_random8_fraction": 0.007522932334740611,
+    "ordinary_enrichment": 9.42352316081469,
+    "hard_top8_residual_fraction": 0.02230591716737437,
+    "hard_fixed_random8_fraction": 0.0059161432346015175,
+    "hard_enrichment": 3.770347721960925,
+    "scalar_top_gain_hard_to_ordinary": 0.9870341158069202,
+    "scalar_top_gain_corr_log_j_mse": 0.033407053330044054,
+    "oracle_endpoint_pullback_norm_hard_to_ordinary": 1.5860372703697083,
+    "oracle_endpoint_pullback_norm_corr_log_j_mse": 0.7640547941053287,
+    "interpretation": "Reject scalar gain and fixed low-rank correction. Spatial adjoint coordinates contain residual structure, but the persistent hard rows require a full-width learned backward state. The oracle pullback is capacity evidence only and is never a deployment input or performance estimate."
+  },
+  "architecture": {
+    "name": "J forward recurrence conditioned by a four-channel learned backward-adjoint smoother",
+    "width": 1024,
+    "depth": 16,
+    "first_corrected_layer": 2,
+    "forward_base": "Exact frozen P2R0F2J four-channel signed transport-energy/coherence recurrence.",
+    "backward_channels": 4,
+    "backward_order": "Compute the complete backward scan L15 down to L2 before the J forward scan.",
+    "backward_adjoint_message": "a_15,c=0; for l<15, a_l,c = W_(l+1) @ (Phi_(l+1) * b_(l+1,c)). This is the exact adjoint of the row-vector physical transport s_l=Phi_l*(s_(l-1)@W_l).",
+    "backward_local_input": "Native target-free raw20 at layer l, four a_l,c/R_l, and four a_l,c/(sigma_l*R_l), for 28 inputs.",
+    "backward_trunk": "Shared Linear(28,64)-SiLU-Linear(64,64)-SiLU.",
+    "backward_heads": "Layer-specific four-source and four-gain heads; gain=1+0.25*tanh(head+delta_l), mix=I+0.12*tanh(mix_delta_l).",
+    "backward_update": "b_l = (gain_l*a_l)@mix_l + sigma_l*R_l*source_l.",
+    "forward_intervention": "Concatenate four b_l,c/R_l and four b_l,c/(sigma_l*R_l) to J's existing 36 local inputs, giving a 44-input H96 J forward cell. The complete backward scan therefore changes forward sources/gains before their errors accumulate to L15.",
+    "reported_correction": "J forward channel zero; there is no output-only fusion head.",
+    "deployment_target_inputs": 0,
+    "network_identity_inputs": 0,
+    "parameters": {
+      "j_base": 25600,
+      "backward_trunk": 6016,
+      "backward_layer_heads": 7280,
+      "backward_gain_delta": 56,
+      "backward_mix_delta": 224,
+      "forward_input_expansion": 768,
+      "added": 14344,
+      "total": 39944
+    },
+    "material_difference": "Unlike scalar damping, W-power scores, Gram pooling, fixed-mode projection, or state-independent Duhamel, M learns state-dependent sources in an exact full-width adjoint recurrence and exposes that future-conditioned spatial state inside J's causal forward recurrence."
+  },
+  "training": {
+    "role": "observer_fit",
+    "networks": 688,
+    "folds": 4,
+    "fold_assignment": "Identical to D/I/J/K: blake2s32(1753358438:mlp_id) modulo 4.",
+    "host_rule": "Identical repaired-host rule and eleven data-derived repairs used by J/K.",
+    "model_seed": 1753358438,
+    "threads_per_fold": 2,
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "schedule": "CosineAnnealingLR over every batch of all six epochs.",
+    "weight_decay": 0.00002,
+    "gradient_clip_norm": 5.0,
+    "forward_primary_state_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "backward_exposure": "Always autonomous; no target residual is ever supplied to the backward scan.",
+    "loss": "J's fit-fold-normalized corrected-layer rollout plus equal final focus; extend the existing 2e-5 normalized auxiliary-state penalty to all four backward states, retain the 5e-4 near-identity gain/mix penalty.",
+    "checkpoint": "Fixed final epoch 6 in every fold; no checkpoint selection."
+  },
+  "decision_gate": {
+    "mode": "all",
+    "finite_full_rollout": true,
+    "oof_final_mse_strictly_below": 2.9672528546945005e-8,
+    "maximum_per_network_final_mse_strictly_below": 1.0e-7,
+    "stretch_metric_recorded_separately": "OOF final MSE strictly below 1e-8.",
+    "pass": "Only after all unchanged conjuncts pass, meter and prepare a separately frozen native-Q24 transfer.",
+    "fail": "Close this exact bidirectional spelling measured; do not tune from OOF rows."
+  },
+  "cost_contract": {
+    "width": 1024,
+    "corrected_layers": 14,
+    "backward_transitions": 13,
+    "dense_vector_matrix_flops": 2096128,
+    "backward_adjoint_transport_formula": "13*4*(2*1024^2-1024)",
+    "backward_adjoint_transport": 108998656,
+    "backward_cell_per_unit_formula": "((2*28-1)*64+(2*64-1)*64+(2*64-1)*8)+64*(2*64+8)+2048+4*(2*4-1)+128",
+    "backward_cell_per_unit": 23572,
+    "backward_cells_formula": "14*1024*23572",
+    "backward_cells": 337928192,
+    "j_forward_input_expansion_per_unit_formula": "((2*44-1)-(2*36-1))*96",
+    "j_forward_input_expansion_per_unit": 1536,
+    "j_forward_input_expansion_formula": "14*1024*1536",
+    "j_forward_input_expansion": 22020096,
+    "added_correction_upper": 468946944,
+    "j_correction_upper": 1051656192,
+    "m_correction_upper": 1520603136,
+    "old_measured_host_flops": 2126977459133,
+    "old_measured_host_plus_m_upper": 2128498062269,
+    "native_q24_host_tape_meter_flops": 2131692137721,
+    "native_q24_host_tape_plus_m_upper": 2133212740857,
+    "phase2_budget_2pow41": 2199023255552,
+    "native_q24_headroom": 65810514695,
+    "cp16384_structural_host_without_k_correction": 620447502338,
+    "cp16384_structural_host_plus_m_upper": 621968105474,
+    "exact_constant_cost_ceiling": 680076108324,
+    "headroom_under_exact_constant_cost_ceiling": 58108002850,
+    "authority": "Conservative source-structure upper estimate; literal flopscope meter is held until the accuracy gate passes."
+  },
+  "native_q24_caveat": {
+    "compatible_inputs": "The metered native-Q24 tape contract already emits live raw20, sigma, Gaussian gate Phi, and the estimator receives all weights. M needs no CP-only field meaning.",
+    "accuracy_status": "Unproved. CP1792 diagnostic values are capacity-only and are never parity targets or deployment values.",
+    "required_next_step": "After an observer-fit OOF accuracy pass, freeze and run native-Q24 transfer before any deployment claim."
+  },
+  "source_evidence": [
+    {
+      "path": "../public_full688_transport_energy_coherence_cv_v1/CV_RESULTS.json",
+      "sha256": "70a0917258a2d656ab9593a67b3a04483af153d8ef59162be9570a6a62b9b5b4"
+    },
+    {
+      "path": "../public_full688_transport_energy_coherence_cv_v1/run_experiment.py",
+      "sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810"
+    },
+    {
+      "path": "../public_full688_dynamic_multistate_residual_cv_v1/cache/patched_error.npy",
+      "sha256": "1414515cfbb098e731e4f00d3f4ba7a310f17ac96e886846cd08aaaa0a679ca1"
+    },
+    {
+      "path": "../public_full688_full_gram_pooled_context_cv_v1/CV_RESULTS.json",
+      "sha256": "2a8a569599f3d9b8d0efe373a659367447dc652a0e24e9785a8d72db52abcd44"
+    },
+    {
+      "path": "../public_q24_native_transport_energy_pilot_v1/PILOT_PREREGISTRATION.json",
+      "sha256": "e4cb4f92c9f4dbcf45a58c2a929cfe08d7d29cf08542855d7c24b1d8afb37c5a"
+    },
+    {
+      "path": "../public_q24_native_transport_energy_pilot_v1/METER_PREREGISTRATION.json",
+      "sha256": "1eb6196d2de3ad7a20fa038e02083bcf084d78a5dc64b39b6bf6c0cdd771d87b"
+    },
+    {
+      "path": "../learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/candidate_manifest.json",
+      "sha256": "880b7578e97de3b2a20e2f4ef68dbd1c9d1d24c9e3705b5bab04e0600afca716"
+    }
+  ],
+  "data_governance": {
+    "observer_fit_only": true,
+    "observer_selection_opened": 0,
+    "board_or_name_join": false,
+    "training_launched": false,
+    "graph_edited": false
+  }
+}

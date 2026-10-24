@@ -1,0 +1,77 @@
+{
+ "tag": "lowreslr2_20261016_opus_v1",
+ "source": "lead/runs/opus_lowres_v1/cand_lowres_LR2_v3.py",
+ "source_sha8": "9ef4b5e5",
+ "utc": "2026-10-16T14:54:08Z",
+ "what": "S2tr 46e9315d -> dm2 -> lazybind v2 -> two-strip (rounding-level) -> SAFE prebind patch v2 -> five-full (rounding-level) -> prune r005 (rounding-level) -> DC35 (physics) -> QL/compute off (identical); no governor, no pushSM, no read grid (u64 build_lowres_v3)",
+ "base": "336412 (S2tr) 1.475902e-9",
+ "count_gates_v2": {
+  "passed": true,
+  "normal_first": 41911,
+  "normal_warm": 40744,
+  "slow_first": 42304,
+  "slow_warm": 40945,
+  "worst_wall_s": 92.1,
+  "mean_wall_s": 85.3,
+  "setup_s": 4.442,
+  "slow_setup_s": 4.585,
+  "residual_median_proj": 0.3169,
+  "residual_max_proj": 0.3756,
+  "p_fail_pct": {
+   "pre": {
+    "any": 0.4,
+    "public": 0.4
+   },
+   "post": {
+    "any": 16.7,
+    "public": 10.7
+   }
+  }
+ },
+ "bill_vs_s2tr_pct": {
+  "boundary_first": 1.561,
+  "boundary_warm": 1.455,
+  "boundary_public_mix": 1.466,
+  "warm_judge_first": 1.63,
+  "warm_judge_warm": 1.67,
+  "note": "public mix = 0.1 first + 0.9 warm; warm_judge = u64 seeds 7103248/7103256 vs LRB (+0.10% LRB->S2tr)"
+ },
+ "mse_vs_s2tr_pct": {
+  "expected": -0.234,
+  "source": "DC35 24-seed xMSE -0.234% (SE .13; u64); two-strip/five-full/r005 rounding-level (0 expected, ~0.5%/network draw, ~0.07% on the 50-net mean); dm2/lazybind/QL/compute identical"
+ },
+ "projection_vs_336412_pct": {
+  "boundary_bill": 1.228,
+  "warm_judge_bill": 1.422
+ },
+ "projected_public": {
+  "boundary_bill": 1.494028592913874e-09,
+  "warm_judge_bill": 1.496891032582712e-09
+ },
+ "alternative_LR1b": {
+  "sha8": "f4177c46",
+  "passed": true,
+  "normal": [
+   40837,
+   40695
+  ],
+  "slow": [
+   41247,
+   40896
+  ],
+  "worst_wall_s": 87.9,
+  "bill_public_mix_pct": 1.806,
+  "p_fail_pct": {
+   "pre": {
+    "any": 0.4,
+    "public": 0.4
+   },
+   "post": {
+    "any": 15.2,
+    "public": 9.4
+   }
+  },
+  "projection_vs_336412_pct": 1.567
+ },
+ "note": "static safe build fitting the reset gates; NOT a board improvement in expectation (+1.2% vs 336412); lead fires on user approval"
+}

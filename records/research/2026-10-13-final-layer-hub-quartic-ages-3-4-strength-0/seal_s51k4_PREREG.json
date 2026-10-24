@@ -1,0 +1,24 @@
+{
+ "tag": "s51k4",
+ "utc": "2026-10-13T03:28:23Z",
+ "base": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/s51k3tw_x/candidate.py",
+ "base_sha256": "6bc5dc3eba0caa0481247d9c83ee118995f39f5105651dd66763c88c3fe3b44f",
+ "stack": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/s51k4tw_x/candidate.py",
+ "stack_sha256": "6b7ce38e248e29e0286e96ad910d7b88846ea1c97e26f8242b377810c8761288",
+ "stack_parts": "s51k3tw_x + scout-native fragment_k4lf_v1.py (_K4LF = (0.5, 0.5): K4L's cohorts aged 3 and 4 in the final layer's k4 only = scout-card's K13 k4lf34h, n = 24 torch -0.247% raw, 6.3 se)",
+ "seeds": [
+  7190016,
+  7190017,
+  7190018,
+  7190019,
+  7190020,
+  7190021,
+  7190022,
+  7190023
+ ],
+ "allocation": "seal_judge_v1.py alloc s51k4 8 (seal_alloc_v1.jsonl)",
+ "runner": "O/scout_native/run_cert_v2.py, PB_ALL=1, guard v3, BLAS threads 1",
+ "score": "per network log(final MSE stack / base) + log(flops stack / flops base) from the same runs (bill x MSE)",
+ "rule": "8 networks: FIRE iff mean < 0; 0 <= mean < +1 se -> 8 more (seal_judge alloc s51k4x 8), then FIRE iff the 16-network mean < 0; else NO FIRE",
+ "note": "lead 02:3xZ: card item (sealed path); the fire path only after s51k3 is fired"
+}

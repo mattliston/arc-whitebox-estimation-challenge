@@ -1,0 +1,54 @@
+{
+  "parent": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gop2_current_release_v1/safe_source_held_v1/candidate.py",
+  "parent_sha256": "f0434f89e493d1530840d7239325261d254bf14bcce85a1ba18ae57f7394d04e",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_k4l_input_skew_birth_v1/candidate_ksb_HELD_v2.py",
+  "candidate_sha256": "61d6e7436b3348e35ae59c8596612442e3a1fdefd3df602d65843c524324c915",
+  "fragment_sha256": "32796313f026930d3e28f9b360bee480573646f33af6cd9d08a58361fe193983",
+  "symbolic_generator_sha256": "c61363f9af59b72853e2444a188a7a13eaeeb2468f756e6c9251175acaeae9bc",
+  "symbolic_four_derivatives_exact": true,
+  "density": "phi(z)*(1+eta*H3(z)/6)",
+  "eta": "pre_k3/sigma^3",
+  "mean_derivative": "-a*p/6",
+  "host_subtractions": [
+    "0",
+    "a*p**2/3",
+    "-2*a*p*(g - 1)*(a*g + p)",
+    "2*a*p*(6*a**3*g**3 - 6*a**3*g**2 + a**3*g + 18*a**2*g**2*p - 12*a**2*g*p + a**2*p - 6*a*g**2 + 18*a*g*p**2 + 3*a*g - 6*a*p**2 - 6*g*p + 6*p**3 + 2*p)/3"
+  ],
+  "fixed_derivatives": [
+    "p*(a**4 + 3*a**2 + 12)/6",
+    "(a**4*g*p + a**3*p**2 + a**2*g*p + a**2*p - 6*a*g**2 + 6*a*g + 3*a*p**2 - 10*g*p + 11*p)/3",
+    "(2*a**4*g**2*p - a**4*g*p + 4*a**3*g*p**2 - a**3*p**2 + 4*a**2*g**2*p - 3*a**2*g*p + 2*a**2*p**3 - 6*a*g**2 + 8*a*g*p**2 + 6*a*g - 2*a*p**2 - 10*g*p + 4*p**3 + 8*p)/2",
+    "2*(2*a**2*g**2*p - a**2*g*p - 2*a*g**2 + 4*a*g*p**2 + 2*a*g - a*p**2 - 3*g*p + 2*p**3 + 2*p)"
+  ],
+  "source_delta": "one call before coefB polynomial; appended scope/helper only",
+  "layers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "no_input_fourth_transport": "Input k4(z)=0 at first order in eta; linear-gate transport creates no fourth cumulant.",
+  "scope": "New 1D local quartic birth conversion only; not full mixed cross-unit K31",
+  "radial_double_counting": "Existing K4L sensitivity-weighted radial subtraction remains unchanged.",
+  "host_double_counting": "Subtract dS_parent/dhost times delta_host/sigma=-a*pdf*eta/6; no repeated mean correction.",
+  "cost": {
+    "additional_arithmetic_upper_planning_flops": 3670016,
+    "basis_and_major_matrix_products_unchanged": true,
+    "whole_native_bill_required": true,
+    "not_a_whole_bill_bound": true
+  },
+  "research_target_percent": 0.5,
+  "gain_unknown": true,
+  "no_models_called": true
+}

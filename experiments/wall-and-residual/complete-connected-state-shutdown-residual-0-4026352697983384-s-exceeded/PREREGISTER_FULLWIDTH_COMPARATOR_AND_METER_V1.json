@@ -1,0 +1,147 @@
+{
+  "schema": "q24-cs2-target-free-fullwidth-comparator-and-meter-preregister-v1",
+  "status": "PREREGISTERED_BEFORE_FULLWIDTH_OR_METER_EXECUTION__STRICT_AUDIT_NULL_HOLD",
+  "created_at_utc": "2026-08-24T12:53:00Z",
+  "bindings": {
+    "candidate_estimator": {
+      "path": "estimator.py",
+      "bytes": 72277,
+      "sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779"
+    },
+    "source_hold": {
+      "path": "SOURCE_HOLD_V2.json",
+      "sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c"
+    },
+    "parent_estimator": {
+      "path": "../fullbudget_k21_k4_closure_q24_manual_rho_v1/estimator.py",
+      "sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00"
+    },
+    "parent_literal_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_q24_manual_rho_v1_7d0c9e30_n1_s8_seed20260824/receipt.json",
+      "sha256": "4ad5d4bb8e70a3f57ef7559f5dceffe0d92fc7b77626088cff87431bdbf18160"
+    },
+    "independent_strict_audit": {
+      "path": null,
+      "sha256": null,
+      "status_exact": null
+    }
+  },
+  "fullwidth_comparator": {
+    "width": 1024,
+    "depth": 16,
+    "seeds_exact_in_order": [
+      20260824,
+      20260825,
+      20260826
+    ],
+    "seed_sweep": false,
+    "fixture_law": {
+      "seed_tree": "numpy.random.SeedSequence(seed).spawn(3)",
+      "weights_stream": 0,
+      "estimator_seed_stream": 2,
+      "weight_generation": "numpy default_rng(weights_stream).standard_normal((1024,1024)) in float64, multiply by sqrt(2/1024), cast float32",
+      "mlp_seed_generation": "int(streams[2].generate_state(1)[0])",
+      "targets_or_truth": "neither read nor computed",
+      "dataset": "not accepted and not opened"
+    },
+    "execution": {
+      "one_use": true,
+      "parent_then_child_per_seed": true,
+      "production_entrypoint": "Estimator().predict(mlp, 2**41)",
+      "separate_flopscope_budget_context_per_arm": true,
+      "flop_budget_per_arm": 2199023255552,
+      "wall_time_limit_s_per_arm": 120.0,
+      "fixed_output": "runs/fullwidth_official_he_seeds20260824_20260826_v1/receipt.json",
+      "output_namespace_must_be_absent": true,
+      "durable_claim_before_fixture_generation": "runs/fullwidth_official_he_seeds20260824_20260826_v1/CLAIM.json",
+      "claim_creation": "create the fixed namespace exclusively, write CLAIM.json with O_CREAT|O_EXCL, fsync claim and directory, then and only then generate the first width-1024 fixture",
+      "crash_law": "any surviving fixed namespace or claim consumes the one-use release and forbids retry"
+    },
+    "telemetry_frozen": {
+      "per_arm": [
+        "completion or exact exception",
+        "FlopScope weighted FLOPs and operation-call count",
+        "direct-context wall seconds",
+        "output shape, dtype, finiteness, and SHA-256"
+      ],
+      "child_shutdown": [
+        "certificate reset count",
+        "affected reset count",
+        "invalid unit-reset activation count",
+        "invalid-incident plane defined exactly as invalid_i OR invalid_j, equivalently NOT(valid_i AND valid_j)",
+        "pairing-alpha nonzero count on affected resets",
+        "invalid-incident connected-star nonzero count",
+        "invalid-incident CP-carrier nonzero count",
+        "invalid-incident combined-carrier nonzero count"
+      ],
+      "comparison": [
+        "all-layer and final-layer disagreement MSE/RMS/maxabs",
+        "parent all-layer RMS/maxabs",
+        "raw-byte parity"
+      ]
+    },
+    "pass_requires": [
+      "all three parent arms complete with finite float32 [16,1024] outputs",
+      "all three child arms complete with finite float32 [16,1024] outputs",
+      "at least one invalid unit-reset activation over the fixed three-seed panel",
+      "every pairing-alpha, connected-star, CP-carrier, and combined-carrier violation count is zero",
+      "every seed with zero shutdown activations has raw-byte parent-child output parity",
+      "for every seed, all-layer RMS(child-parent) <= all-layer RMS(parent), with exact-zero disagreement required when parent scale is zero",
+      "for every seed, maxabs(child-parent) <= maxabs(parent), with exact-zero disagreement required when parent scale is zero"
+    ],
+    "failure_law": "any exception, nonfinite/wrong output contract, absent panel activation, carrier violation, no-activation parity failure, or parent-scale failure closes this exact source spelling without threshold or seed tuning",
+    "resource_claim_boundary": "comparator telemetry is supporting stability evidence only; the separately released uninstrumented literal meter is sole resource authority"
+  },
+  "literal_meter": {
+    "seed_exact": 20260824,
+    "width": 1024,
+    "depth": 16,
+    "n_mlps": 1,
+    "n_samples": 8,
+    "max_threads": 4,
+    "flop_budget": 2199023255552,
+    "wall_time_limit_s": 120.0,
+    "residual_wall_time_limit_s": 0.4,
+    "memory_limit_bytes": 8589934592,
+    "external_process_timeout_s": 300.0,
+    "projected_flops": 2131652533303,
+    "projected_headroom_flops": 67370722249,
+    "projected_utilization_percent": 96.93633425299595,
+    "projected_calls": 9504,
+    "one_use": true,
+    "fixed_label": "fb_ec4_q24_cs2_v2_4efb2c40_n1_s8_seed20260824",
+    "release_preconditions": [
+      "independent strict source audit is an exact-byte PASS bound to candidate and source HOLD",
+      "fixed three-seed fullwidth comparator receipt passes every preregistered gate",
+      "candidate estimator and every prior binding still rehash exactly",
+      "literal meter output namespace is absent"
+    ],
+    "accuracy_authority": "none"
+  },
+  "access_boundary": {
+    "dataset_arguments": 0,
+    "dataset_rows": 0,
+    "public_target_values": 0,
+    "private_target_values": 0,
+    "truth_computations_in_comparator": 0,
+    "fits": 0,
+    "samples_used_by_estimator": 0,
+    "packages": 0,
+    "submissions": 0,
+    "graph_edits": 0
+  },
+  "authority": {
+    "current": "NO_EXECUTION_AUTHORITY_WHILE_STRICT_AUDIT_BINDING_IS_NULL",
+    "fullwidth_requires": "a separately populated root one-use comparator release",
+    "meter_requires": "a separately populated root one-use literal-meter release after comparator PASS",
+    "forbidden": [
+      "candidate or parent source mutation",
+      "target or truth access for scientific selection",
+      "seed or order search",
+      "threshold tuning",
+      "package creation",
+      "submission",
+      "raw-MSE or accuracy promotion"
+    ]
+  }
+}

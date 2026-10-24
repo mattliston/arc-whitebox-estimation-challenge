@@ -1,0 +1,36 @@
+{
+  "created": "2026-09-30T16:18:03.526880+00:00",
+  "scope": "One fixed native2 accuracy trial from RRPI; no fit, sweep or parameter change.",
+  "hypothesis": "Avoid subtracting independently rounded weighted FP32 cubes by factoring each signed cohort pair before FP32 reduction. Same real moment of actual stored legs; does not recover lost upstream factor precision.",
+  "formula": "sum_pairs lambda_plus*(t-s)*(t*t+t*s+s*s)",
+  "coefficient_invariant": "Each cohort stores [a,-a] from same FP32 a. Every carry scale is identical across both halves. Metadata preserves complete original signed roster.",
+  "dedup": "CPsum64 only changed reduction; old polarization changed plane read while preserving scalar diagonal; stored newborn diagonal changed postbirth target. All failed and remain closed.",
+  "source": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cp_diagonal_factored_v1/candidate.py",
+    "sha256": "e542208d63b4e89435abe6a9fec768e0eec262480f95429702fe52ea6803c057",
+    "bytes": 978873
+  },
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "primitive_gate": "Same actual helper extracted, exact zero pairs and exact small-integer fixtures; normalized error <=2e-6 and cancellation-heavy RMS error <=0.25*old against FP64 reference.",
+  "pricing": "Hidden old extra two full products+sum=3K; new factor eight half products/adds plus sum=4.5K, extra1.5K scalar ops plus paid gathers. Under conservative K<=30720 and n<=1024, 15*1.5*n*K <708M FLOPs (<0.27% of263B), before gather charges. Actual complete bill decisive.",
+  "gates": {
+    "native2_raw_pct_max": -0.1,
+    "native2_adjusted_pct_max": -0.1,
+    "wins_min": 1,
+    "max_regression_pct": 1.0,
+    "native8_raw_pct_max": -0.1,
+    "native8_adjusted_pct_max": -0.1,
+    "wins_min8": 6,
+    "ci_upper_max": 0.0,
+    "additional6_gain_required": true,
+    "bank40_pct_max": -1.0
+  },
+  "parity_layers": [
+    0
+  ],
+  "further_stages": "Native2 only admitted after primitive PASS. If N2 passes, own boundary then additional6. Full40 only if combined projected>=1% vsS35. Failure closes this fixed scalar factored trial without precision/layer/strength variants."
+}

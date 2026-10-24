@@ -1,0 +1,54 @@
+{
+  "schema": "p2r0f3a-birth-rate-requirement-v1",
+  "node": "P2R0F3A",
+  "status": "DESIGN_ANCHOR_READ_ONLY",
+  "bindings": {
+    "s_localization_sha256": "6e3d8f1d10ea9b771c8ac18564ef61324e32521203c954d42aa5b7740be9ea43",
+    "x_pilot_result_sha256": "46bc18744842a0c90df9695f2098b36e7a18542dba7c902bbb23db6b10667e39"
+  },
+  "requirement": {
+    "current_lambda3_host_final": 8.030968799749751e-08,
+    "target_host_final": 3e-08,
+    "uniform_born_reduction_needed": 2.676989599916584,
+    "base_host_born_mse_by_layer": [
+      0.0,
+      1.921885996053754e-10,
+      6.333863307966628e-10,
+      1.954561511652653e-09,
+      3.7187152452013965e-09,
+      5.505638049547127e-09,
+      7.148088855648517e-09,
+      8.726865166766566e-09,
+      1.0005039670386225e-08,
+      1.112794732325804e-08,
+      1.2215678643810347e-08,
+      1.3012457956370418e-08,
+      1.379950582953066e-08,
+      1.4278550995725305e-08,
+      1.4997312404490167e-08,
+      1.497475161732746e-08
+    ],
+    "propagation_gain_by_layer": [
+      0.0,
+      1.00042692188578,
+      1.0081509431619295,
+      1.0132971963140662,
+      1.027218587325546,
+      1.0358851924210202,
+      1.0361447400465633,
+      1.0369763111584127,
+      1.0373127228873147,
+      1.0366808347187058,
+      1.035428324557404,
+      1.0334264842474943,
+      1.0324282566012633,
+      1.0313564601541183,
+      1.0280767517438418,
+      1.0276092140256536
+    ],
+    "geometric_mean_squared_gain": 1.0567163278443912,
+    "reading": "Because the endpoint is ~83% accumulated propagation of mid-depth births at near-unity gains, a host reaching 3e-8 must cut the per-layer BIRTH rate by about 2.7x roughly uniformly across layers 3..15; no single-layer fix suffices (S: no layer contributes more than 10.6% of the final MSE). The lambda-cubed shell achieved about 1.11x of this uniformly; the kink carrier must supply the remaining ~2.4x, i.e. represent the pair-structure the lambda shell still linearizes.",
+    "carrier_translation_note": "In the original frame the survivor object was a layerwise-local mixed factor/chaos state with up to Q factors in each of 20 Hermite orders. The Phase-2 Q24 host already carries 25 Mehler orders bivariately; its measured birth marker is the quartic residual star (+0.335). The Phase-2 kink-carrier question is therefore: a compressed representation of the star-marked pair structure that the current CP4-plus-pairing decomposition truncates, priced within the roughly 110e9 FLOPs still free under the conditional-repair budget."
+  },
+  "targets_read": 0
+}

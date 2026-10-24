@@ -1,0 +1,289 @@
+{
+  "status": "PASS",
+  "candidate_sha256": "605e2f3433d8d750b747ed3e358a0ceb5b056dde16e9e68929ec11f43bed3ac1",
+  "cases": [
+    {
+      "backend": "numpy",
+      "packed": false,
+      "repeat": 0,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "numpy",
+      "packed": false,
+      "repeat": 1,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "numpy",
+      "packed": false,
+      "repeat": 2,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "numpy",
+      "packed": false,
+      "repeat": 3,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "numpy",
+      "packed": true,
+      "repeat": 0,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "numpy",
+      "packed": true,
+      "repeat": 1,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "numpy",
+      "packed": true,
+      "repeat": 2,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "numpy",
+      "packed": true,
+      "repeat": 3,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "packed": false,
+      "repeat": 0,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "packed": false,
+      "repeat": 1,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "packed": false,
+      "repeat": 2,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "packed": false,
+      "repeat": 3,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "packed": true,
+      "repeat": 0,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "packed": true,
+      "repeat": 1,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "packed": true,
+      "repeat": 2,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "packed": true,
+      "repeat": 3,
+      "all_output_bytes_exact": true,
+      "flops_exact": true,
+      "arena_alias": true,
+      "input_bytes_unchanged": true
+    }
+  ],
+  "prices": [
+    {
+      "packed": false,
+      "phase": "cold_predict",
+      "parent": {
+        "calls": {
+          "backend:unstack": 15,
+          "backend:asarray": 3,
+          "backend:reshape": 1,
+          "explicit_getitem": 325,
+          "backend:divide": 98,
+          "backend:add": 126,
+          "backend:multiply": 168,
+          "backend:sum": 28
+        },
+        "rpc_proxy": 764,
+        "flops": 36970,
+        "charged_ops": 467
+      },
+      "repair": {
+        "calls": {
+          "backend:unstack": 2,
+          "backend:asarray": 3,
+          "backend:reshape": 1,
+          "explicit_getitem": 50,
+          "backend:divide": 98,
+          "backend:add": 126,
+          "backend:multiply": 168,
+          "backend:sum": 28
+        },
+        "rpc_proxy": 476,
+        "flops": 36970,
+        "charged_ops": 454
+      },
+      "saved_rpc_proxy": 288
+    },
+    {
+      "packed": false,
+      "phase": "warm_predict",
+      "parent": {
+        "calls": {
+          "explicit_getitem": 322,
+          "backend:divide": 98,
+          "backend:add": 126,
+          "backend:multiply": 168,
+          "backend:sum": 28,
+          "backend:unstack": 14
+        },
+        "rpc_proxy": 756,
+        "flops": 36960,
+        "charged_ops": 462
+      },
+      "repair": {
+        "calls": {
+          "backend:divide": 98,
+          "backend:add": 126,
+          "backend:multiply": 168,
+          "explicit_getitem": 28,
+          "backend:sum": 28
+        },
+        "rpc_proxy": 448,
+        "flops": 36960,
+        "charged_ops": 448
+      },
+      "saved_rpc_proxy": 308
+    },
+    {
+      "packed": true,
+      "phase": "cold_predict",
+      "parent": {
+        "calls": {
+          "backend:unstack": 15,
+          "backend:asarray": 3,
+          "backend:reshape": 1,
+          "explicit_getitem": 325,
+          "backend:divide": 98,
+          "backend:add": 126,
+          "backend:multiply": 168,
+          "backend:sum": 28
+        },
+        "rpc_proxy": 764,
+        "flops": 221770,
+        "charged_ops": 467
+      },
+      "repair": {
+        "calls": {
+          "backend:unstack": 2,
+          "backend:asarray": 3,
+          "backend:reshape": 1,
+          "explicit_getitem": 180,
+          "backend:divide": 98,
+          "backend:add": 126,
+          "backend:multiply": 168,
+          "backend:sum": 28
+        },
+        "rpc_proxy": 606,
+        "flops": 221770,
+        "charged_ops": 454
+      },
+      "saved_rpc_proxy": 158
+    },
+    {
+      "packed": true,
+      "phase": "warm_predict",
+      "parent": {
+        "calls": {
+          "explicit_getitem": 322,
+          "backend:divide": 98,
+          "backend:add": 126,
+          "backend:multiply": 168,
+          "backend:sum": 28,
+          "backend:unstack": 14
+        },
+        "rpc_proxy": 756,
+        "flops": 221760,
+        "charged_ops": 462
+      },
+      "repair": {
+        "calls": {
+          "explicit_getitem": 168,
+          "backend:divide": 98,
+          "backend:add": 126,
+          "backend:multiply": 168,
+          "backend:sum": 28
+        },
+        "rpc_proxy": 588,
+        "flops": 221760,
+        "charged_ops": 448
+      },
+      "saved_rpc_proxy": 168
+    }
+  ],
+  "cold_saved_rpc_proxy": 446,
+  "warm_saved_rpc_proxy": 476,
+  "rpc_scope": "Actual local FNP backend calls plus basic-index calls. Native IPC/free effects remain for boundary verification.",
+  "full_source_import": true,
+  "source_inverse_exact": true,
+  "all_arithmetic_flops_exact": true,
+  "models": 0
+}

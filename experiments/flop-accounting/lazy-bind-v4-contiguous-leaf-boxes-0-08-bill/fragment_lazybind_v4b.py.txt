@@ -1,0 +1,116 @@
+
+
+# BEGIN [opus-lazybind] BOX VIEWS v4b (2026-10-16; v4b = v4 with A / B families only, tight-row boxes (leaf row >= 75% of the box row) and narrow B boxes; append LAST on S3 6921feaa; needs v2's fragment). v2 boxes a depth-6 A / B key that
+# setup did not bind only when its leaf fits ONE box per side ((16, 48) / (16, 64)); the rest (A leaves like (9, 85), B (71, 12), every C
+# tree) are still bound inside predict by reshaping their arena region, plus a level-1 reshape and (A / B) a quadrant reshape, billed
+# at numel each (8-net native session: ~0.19% of every network's bill). v4 adds a MENU of further boxes per side (same region, other
+# leaf aspects (R, C), R * C within the region's per-leaf room), each made ON DEMAND the first time a key needs it (billed once per
+# process: its tree, level-1 and quadrant reshapes), then every later key whose leaf fits a made box gets its tree / level-1 /
+# quadrant views as free slices of it (same elements, a strided leaf), as v2 does. C trees (kind 2) are boxed too: their level-1 view
+# takes C's own (j, i) pair swap, and their pair views (_l3o_pairs) come from that level-1 view by index and transpose as before.
+# Keys v2's box covers stay on v2's path; setup-bound keys stay packed; u/v leg B trees (256 / 384 rows) stay as they were.
+_LB4_ON = True
+_LB4_MENU = {0: ((8, 96), (9, 85), (10, 76), (12, 64), (16, 48), (24, 32)),
+             1: ((170, 6), (128, 8), (93, 11), (85, 12), (78, 13), (73, 14), (68, 15), (64, 16), (48, 21), (32, 32))}
+_LB4_EFF = 0.75                                             # a key is boxed only if its leaf row is >= 75% of the box's (inner runs stay long)
+_LB4_BOXES = {}                                             # kind -> [box dict], made on demand in this process
+_LB4_OF = {}                                                # id(view) -> (view, kind, r, c, box)
+_LB4_OF_CAP = 4096
+_LB4_STATS = dict(made=0, tree=0, level1=0, quad=0)
+_LB4_PARENT_VIEW = _ipt_view                                # v2's box-aware view
+_LB4_PARENT_LV1 = _lvf_rs_level1                            # v2's
+_LB4_PARENT_QUAD = _l3_quad                                 # v2's
+_PB_CACHES = tuple(_PB_CACHES) + ('_LB4_BOXES', '_LB4_OF')
+
+
+def _lb4_note(view, kind, r, c, box):
+    if len(_LB4_OF) >= _LB4_OF_CAP:
+        _LB4_OF.pop(next(iter(_LB4_OF)))
+    _LB4_OF[id(view)] = (view, kind, r, c, box)
+
+
+def _lb4_make(kind, R, C):
+    arena = _SCRATCH[0]
+    L = 6
+    nr = L - 1
+    region = _IPT_REGION[L]
+    start = (0, region[0], region[0] + region[1])[kind]
+    T = _LB_PARENT_VIEW(arena, start, (7,) * L + (R, C))
+    data = slice(0, 7, 2) if kind == 0 else slice(0, 4)
+    V1 = fnp.reshape(T[(data,) * nr], (2, 2) * nr + (7, R, C))
+    box = dict(arena=arena, start=start, R=R, C=C, T=T, V1=V1, quad=None, keep=())
+    if kind != 2:
+        base = list(range(2 * nr)) + list(range(2 * nr, 2 * nr + 3))
+        G = fnp.transpose(V1, [base[x] for x in _rs_nat_perm(L, 0)])
+        D = G[0:7:2] if kind == 0 else G[0:4]
+        Q = fnp.reshape(D, (2, 2) + tuple(int(x) for x in G.shape[1:]))
+        box['quad'] = fnp.transpose(Q, [0] + list(range(2, L + 2)) + [1] + list(range(L + 2, 2 * L + 2)))
+        box['keep'] = (G, D, Q)
+    _LB4_BOXES.setdefault(kind, []).append(box)
+    _LB4_STATS['made'] += 1
+    return box
+
+
+def _lb4_pick(kind, r, c):
+    made = [box for box in _LB4_BOXES.get(kind, ()) if r <= box['R'] and c <= box['C'] and c >= _LB4_EFF * box['C']]
+    if made:
+        return min(made, key=lambda box: (box['C'], box['R']))
+    room = _IPT_REGION[6][kind] // 7 ** 6
+    fits = [(C, R * C, R) for R, C in _LB4_MENU.get(kind, ()) if r <= R and c <= C and c >= _LB4_EFF * C and R * C <= room]
+    if not fits:
+        return None
+    C, _area, R = min(fits)
+    return _lb4_make(kind, R, C)
+
+
+def _ipt_view(arena, start, shape):
+    if (_LB4_ON and _SCRATCH is not None and arena is _SCRATCH[0] and len(shape) == 8 and tuple(shape[:6]) == (7,) * 6
+            and not _LB_SETUP[0]):
+        region = _IPT_REGION[6]
+        kind = 0 if start == 0 else 1 if start == region[0] else 2 if start == region[0] + region[1] else None
+        r, c = int(shape[6]), int(shape[7])
+        v2 = _LB_BOX.get(kind) if kind is not None else None
+        if (kind is not None and _LB_IN_SIDE[0] == (kind, 6, 64 * r, 64 * c)
+                and (kind, 6, 64 * r, 64 * c) not in _LB_SETUP_KEYS
+                and not (kind == 1 and 64 * r in (256, 384))
+                and not (v2 is not None and v2['arena'] is arena and v2['start'] == start and r <= v2['R'] and c <= v2['C'])):
+            box = _lb4_pick(kind, r, c)
+            if box is not None and box['arena'] is arena and box['start'] == start:
+                view = box['T'][..., :r, :c]
+                _BH_HOLD.append(view)
+                _lb4_note(view, kind, r, c, box)
+                _LB4_STATS['tree'] += 1
+                return view
+    return _LB4_PARENT_VIEW(arena, start, shape)
+
+
+def _lvf_rs_level1(kind, L, T, tail):
+    got = _LB4_OF.get(id(T))
+    if got is None or got[0] is not T or L != 6 or len(tail) != 2 or got[1] != kind or (got[2], got[3]) != (int(tail[0]), int(tail[1])):
+        return _LB4_PARENT_LV1(kind, L, T, tail)
+    _view, _kind, r, c, box = got
+    V1 = box['V1'][..., :r, :c]
+    nr = L - 1
+    swap = [x for p in range(nr) for x in (2 * p + 1, 2 * p)] if kind == 2 else list(range(2 * nr))
+    base = swap + list(range(2 * nr, 2 * nr + 1 + len(tail)))
+    Vn = fnp.transpose(V1, [base[x] for x in _rs_nat_perm(L, 0)])
+    groups = [Vn]
+    _lb4_note(Vn, kind, r, c, box)
+    _LB4_STATS['level1'] += 1
+    return [(fnp.unstack(G, axis=0), [G, None]) for G in groups], groups
+
+
+def _l3_quad(slot, kind, L):
+    G = slot[0]
+    got = _LB4_OF.get(id(G)) if G is not None else None
+    if got is None or got[0] is not G or L != 6 or got[1] != kind or kind == 2 or got[4]['quad'] is None:
+        return _LB4_PARENT_QUAD(slot, kind, L)
+    _view, _kind, r, c, box = got
+    f = slice(None)
+    quad = box['quad'][(f,) * L + (slice(0, r),) + (f,) * L + (slice(0, c),)]
+    _BH_HOLD.append(G)
+    slot[0] = None; slot[1] = quad
+    _L3_STATS['quads'] += 1
+    _LB4_STATS['quad'] += 1
+    return quad
+# END [opus-lazybind] BOX VIEWS v4

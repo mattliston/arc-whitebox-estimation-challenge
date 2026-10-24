@@ -1,0 +1,76 @@
+# Phase-2 cross review (teammate E, 2026-09-02): bug audit of the instruments, inventory of what bears on in-card (v, k3, k4) accuracy, and the cross-connections not yet run
+
+Frame for every number below: net 35 / net 100 (the two nets with independent truths); "card" = the deployed D11/Q24 lineage as tapped in `public_g19_attribution_v1/states_rank*.npz` (host_m/v/k3/k4, host index i = truth pre index i+1); "32M truth" = `mps_truth_rank*_P32M.npz` (same seed law as the 8M draw, so it CONTAINS the 8M draw); "independent" = the 0x5A5A… seed law (`*_indep4M.npz`; the `*_indep32M.npz` being generated contains the 4M). Relative errors are ‖card − truth‖/‖truth‖ over the 1024 units of one layer.
+
+## (a) Bug audit — verdicts
+
+| instrument | what could have faked a "limit" | verdict | evidence (this review) |
+|---|---|---|---|
+| `consumption_betas.py` layer conventions | host index vs truth index off-by-one | **no bug**: host_v[i] matches truth_v[i+1] to 0.02–0.3% at every layer on both nets; the wrong pairing (host[i] vs truth[i]) is 19–28% off | alignment check, this dir's `audit_alignment.log` (numbers in §b table) |
+| `consumption_betas.py` noise correction `(Σresid² − Σse²)/1024` with a 4M scoring draw | noise term ≈ 40% of the raw sum → biased or unstable cuts | **unbiased, ±2–3 points**: se² is the scoring draw's own per-unit variance/P; the fluctuation of Σ(noise) is √(2·1024)·se² ≈ 1.7% of the raw sum ≈ 2.8% of the corrected MSE. The 32M independent draw (running) cuts this 8×. Not a source of false limits. | arithmetic on `mc_se` |
+| `consumption_betas.py` frame itself (first-order φ∘W mean transport of independent per-layer injections; ablations `only_k` at fixed β; `joint_at_opt` in-sample lstsq) | linearization cannot represent the joint nonlinear payoff of (v, k3, k4) | **frame limitation, not a bug**: with 32M supply truth and independent scoring the frame reaches 74/43% at in-sample optimal betas while in-card forcing of the same states reaches ~100% on both nets (T-43). Every "ceiling" from this instrument (37–68%) is a property of the frame. Keep as a screen only. | T-40/T-42/T-43 |
+| `consumption_betas.py` mean channel (BM) and MAPERR | the mean is an accumulated state → re-transporting it double-counts | **frame artifact as diagnosed** (opt β ≈ 1/13–1/27); MAPERR null (−0.1/−5.6). Both are diagnostics, not supplies. | T-42 |
+| same-sample scoring (8M per-layer truth = 8M scoring truth) | truth-derived supplies matched the target's noise | **real, now fixed** (T-36): v-state oracle 47.4 → 12.4 (4M indep) → 30.7 (32M supply) → ~34 extrapolated; k3 arm 30.1; joint 73.5 → 49.9 → 64.8. Engine-derived supplies were unbiased. | G21 §8, T-40 |
+| nesting of the truth draws | P32M vs P8M treated as independent | **P32M CONTAINS P8M** (same PCG64DXSM seed law, sequential stream): the L16 post-mean difference between them (9.0e-5 rel) equals the nested expectation (9.1e-5), not the independent one (1.18e-4). Likewise `indep32M` contains `indep4M`. Never pair a supply and a scoring draw from the same seed law. | this review |
+| `run_tangent_v2.py` | what the linearization keeps | keeps D = ∂M11/∂cov (Mehler t≤8) transport of the covariance error and first-order plane-injection kernels G(2,1)/G(2,2)/G(3,1) + a diagonal k3/k4 injection; no second-order terms. Consistent with the frame limitation above; `_rk*/_blk*/_perm*` are plane caps in this file (T-14). No index bug found (uses the same host/truth pairing). | code read |
+| `run_tensor_recursion_v4.py` DEPLOY_FRAME | host feeding off by one | feeds `ST["host_*"][l−1]` at engine layer l = the same (host i ↔ truth i+1) pairing. KILL_TENSOR/RECON_K/TUCKER_B wedges zero/truncate carried content and then push: they break the plane/distinct cancellation (T-15/T-19) — the "tensor wall" they produced was an artifact of the wedge, already retracted. | code read + T-19 |
+| `estimator_retro.py` RETRO_FORCE | a forced final read trivially matches the target | **meaningful**: forcing replaces the PRE state of each layer (m; C; v as the diagonal of C; k3 as the diagonal of pre_k21 only — off-diagonal K21 stays the card's; k4 = pre_k4 only) before the card's own maps; at the final read only the states named in RETRO_FORCE are replaced and the card's own m_16 is kept unless "m" is forced. So the {v,k3,k4} arm tests whether the card's mean chain is right given right univariate states — it is (noise floor) — and {m} adds nothing. | code read (`_retro_force_pre`, final-read block :1976) |
+| `run_c1_adjoint_rank.py` | the "compression" | t0-chain adjoint; a screen inside the retired linear frame. No bug; no longer on the value path. | — |
+
+Net: no coding bug produced a false limit. Two frame faults did (same-sample scoring; the first-order consumption), both now identified and fenced. The one instrument that is frame-free (in-card forcing) says the card is essentially exact given right per-layer (v, k3, k4).
+
+## (b) What the card actually gets wrong, per layer (32M truth; both nets agree to ≤0.03 in every scale factor)
+
+| layer | v rel err | k3 rel err (card = s·truth, s) | **k4 rel err (s)** | k4 truth noise floor (8M vs 32M) |
+|---|---|---|---|---|
+| L2 (i=1) | 0.02% | 3.5% (0.996) | 13% (0.99) | 9.3% |
+| L5 | 0.05% | 6.0% (0.975) | 31% (0.71) | 5.4% |
+| L8 | 0.09% | 7.3% (0.964) | 44% (0.61) | 3.8% |
+| L11 | 0.17% | 9.9% (0.933) | 54% (0.47) | 3.2% |
+| L14 | 0.26% | 11.1% (0.934) | 62% (0.42) | 2.8% |
+| L15 | 0.29% | 11.4% (0.930) | 63% (0.38) | 2.7% |
+(after removing the best scale, the k4 residual is 12–29%, k3 4–10%; r100 identical within 0.03)
+
+**The card's kurtosis is the grossly wrong state**, and the error is a systematic, depth-growing under-scaling that is the SAME on both nets. Mechanism, from `estimator_cap.py:1071-1130` (`_cp4_reset`): the CP4 carrier appends one exact diagonal birth per unit per layer (birth_lambda = k4_target − inherited diagonal), then when its rank exceeds `_CP4_CAP = 2048` it keeps the top-energy 2048 terms (energy = λ²‖u‖⁸) and SUBTRACTS the dropped terms' planes, diagonal included. Births are unit vectors (‖u‖ = 1, tiny energy) so they are dropped first; the cap binds from layer 3 (3 × 1024 candidates > 2048), and from then on the carried per-unit k4 = k4_target − (dropped diagonal), i.e. the card silently discards a growing fraction of its own kurtosis: 16% at L3, 29% at L5, 39% at L8, 53% at L11, 62% at L15. This is exactly the measured scale curve. The final-read k4 = `_push_quartic_diagonal(...) + _cp4_read_diagonal(...)` inherits the loss.
+
+Final-read sensitivity (replace one state of the last pre layer by truth, card m kept): post-mean change rms k4 8.7e-5 / k3 6.9e-5 / v 7.1e-5, all three 1.2e-4, against a deployed F2J-on residual rms 2.1e-4 — each state alone moves the answer by ~40% of the residual at the final read, and the three do not add linearly (T-43: v alone 18% of the host error, v+k3+k4 ~100%).
+
+The phase-1 two-vertex law k4 ∝ k3²/v does NOT hold at 1024×16 (corr 0.21–0.93 rising with depth, best-c error 52–81% at every layer): k4 cannot be derived from k3 here; it must be carried.
+
+## (c) Inventory — phase-2 results that bear on in-card (v, k3, k4) accuracy
+
+| lane / object | what it measured | frame | trustworthy under independent scoring? | trustworthy for IN-CARD consumption? |
+|---|---|---|---|---|
+| D11/Q24/EC4 closure (card) | v 0.02–0.3%, k3 3.5–11%, k4 13–63% (this review) | states vs 32M truth | yes (state-level, no scoring) | yes |
+| CP3 carrier, cap 16384 (non-binding) + star/residual push `_push_cubic` | k3 under-scale 0.93 at depth; residual distinct entries dropped after one push (T-28) | states / engine | yes | yes |
+| CP4 carrier, cap 2048 (`_cp4_reset`) | **k4 loses 16→62% of its diagonal to the cap** (this review) | code + states | yes | yes — the binding mechanism |
+| cap ladder (`CAP_SCREEN_*`, CP3 cap) | raw explodes below 16384 (8192: +351%) | same-sample scoring | direction robust | yes (in-card) |
+| engine (`run_tensor_recursion_v4.py`, deploy frame) | k3u 3.7–6.8% (vs card 6–11%), planes ~7%; v-arm 8.5 / 12.5, k3-arm 14.7 / −7.9 through the linear frame | independent scoring, linear frame | supplies unbiased; VALUE numbers are linear-frame | not deployable (1024³ push); its k3u is a state candidate |
+| cum4 (2,1,1) feed (G23 §8-9, certified ¼λ) | card k3 error at L8-14 down ~15% on both nets; +21% util | states + linear frame + host MSE | state-level yes | yes (in-card; F2J-on needs refit) |
+| residual carry windows (G20) | host −7.9% / −5.0% (L1-6); deep carry harmful; rows/rank dead | host MSE, independent | yes | yes (+17% util) |
+| teacher forcing (G23 §13) | v+k3+k4 forced → noise floor both nets; v alone 18%; m, C add nothing | in-card, independent | **yes — the frame-free anchor** | yes |
+| learned operator F2J + `run_joint_refit.py` (160/40, 25,600 params, 6 epochs, torch) | −69% of raw on the deployed host; over-corrects a k3/k4-corrected host (+65/+164%); still −21% on a v-corrected host | host MSE | yes | yes; refit on MPS is minutes once tapes exist |
+| tracker / card assimilation (λ 0.75) | standalone ≈ 0 through the linear frame | linear frame, same-sample | no (frame) | untested in-card |
+| hub carrier v2 | plane-read-aware compressed source, q 0.62→0.75 target | same-sample plane corr | no | untested in-card |
+| K3S / `coll` channel | collective k3 through the linear frame | linear frame | no | untested |
+| coincidence resummation (G23 §3-5) | one-step regeneration 22–27% off even with truth inputs; born words ≥3 = 0.3% of k3 | states | yes | closed |
+| D's feature probes (G22) | engine v/k3 supplies raise held-out R² of state errors 11→44% / 34→66%; priced 11/18/23% | linear frame pricing, same-sample | R² yes; prices no (frame) | the features are in-card candidates |
+| pre-Fable p2r0f*/p2r0g*, `public_k5_probe`, `public_recursive_tangent_innovation`, `public_full688_backward_adjoint_state_cv` | k5 diagonal emission + W⁵ push (columns 25–50× too small); saved-array learned residual screens (ExtraTrees); learned backward-adjoint state CV | same-sample, learned | no | k5 probe: derived but tiny; the rest learned |
+| SOL lanes (`LANE_h4_reverse_adjoint`, matrix-polynomial, cubic-vertex, shared-Waring, chaos hierarchy); `OUTBOX_CODEX.md` | pure mathematics; the OUTBOX's last entries are phase-1 (2026-08-09) | derivation | n/a | none has an in-card k4 mechanism; the H4 reverse-adjoint is an endpoint-scalar theorem, not a carried-state fix |
+| phase-1 TT24 fused carrier | exact-plane TT carrier, source-blind action gates fail 17–38% | phase-1 world | n/a | not for the whole tensor; possible carrier for a difference object |
+
+## (d) Cross-connections not yet run, ranked (all in-card, A's `RETRO_FORCE` harness, F2J off unless stated, independent scoring, r35 then r100)
+
+1. **Price the three states separately and by depth window** — T-43 forced them jointly. Arms: {k4 only}, {k3 only}, {v only}(done: 18%), {k3,k4}, and window forcing of {v,k3,k4} at L1-6 / L7-12 / L13-16 only. Decides which state and which depth carries the payoff; the final-read sensitivity above says each of the three moves the answer by ~40% of the residual at the last layer alone. (A's accuracy ladder covers noise levels; this covers WHICH.) Cost: ~10 card runs.
+2. **The k4 cap fix (derived, zero or near-zero bill)** — the card knows exactly what it drops (`dropped_planes[0]`). Carry the dropped DIAGONAL forward as a per-unit "orphan k4" vector with the diagonal-only push k4_pre,i += Σ_j W_ji⁴·κ4post_j (exact for the diagonal part of a dropped term; 1024² per layer) and add it back at every k4 read. First test (cheaper still): force k4 = card_k4 / s_l with the universal scale s_l from this review (0.99, 0.84, 0.71, 0.61, 0.54, 0.47, 0.42, 0.38 at L1/3/5/7/9/11/13/15, both nets) on r100 — if a frozen per-layer gain recovers most of the k4 arm, the orphan carry (which derives the gain in-card) is the mechanism. Cost: 2 card runs; then the orphan implementation ~half a day.
+3. **CP4 cap ladder** — `_CP4_CAP` 2048 → 4096 → 8192 in the retro copy: k4 scale vs depth, host MSE, bill (the CP4 push scales with rank; the census says the card's bill is ~1.3e12, CP4 at 2048 a minority of it). If 4096 halves the k4 loss at +5–10% util, price it against F2J-on after refit. Cost: 2 runs.
+4. **k3 accuracy via the two supplies that exist in-card** — the cum4 (2,1,1) feed (k3 error −15% at L8-14, +21% util) and the early-window residual carry (k3 error −15% at L3-8, +17% util) have never been run TOGETHER, nor together with the k4 fix (2). The joint nonlinearity (T-43) means their payoff must be measured jointly, in-card, F2J off. Cost: 3 runs.
+5. **F2J refit on the corrected host, on MPS** — every corrected host above breaks the deployed payload (+65..+164%); the refit protocol is frozen (`run_joint_refit.py`, torch: device change to MPS; tapes from the numpy card, 2.5 h two-at-a-time). Add the corrected states (v, k3, k4 deltas vs the base card) as tape features (D's probes: held-out R² 11→44% / 34→66%). Run once the in-card fixes (2)-(4) exist; it is the step that turns a host gain into a board gain.
+6. **Engine k3u as an in-card state via the gate-only CP carry** — B's gate-only ablation kept 3/4 of the engine's value and A's window-6 carry is exactly that carry; extend the engine to lmax 16 (free; k3u missing at L14-15 where the card's k3 error peaks) and force k3 = engine k3u in the card (state-level, not through the linear frame) to price engine-class k3 in-card. Cost: 1 engine run + 2 card runs.
+7. **Screens only (do not price with them):** the adjoint (C1) and the tracker/assimilation machinery can rank candidate supplies cheaply, but any number they produce is linear-frame and must be confirmed in-card.
+
+Closed by this review's evidence and not worth re-running: deriving k4 from k3 (two-vertex law fails at 1024), the coincidence resummation, whole-tensor rank/row compression, the mean channel.
+
+## (e) Plain words for Matt
+
+No coding bug produced the "limits"; two measurement frames did — scoring against the same random draw that supplied the "perfect" inputs, and consuming corrections through a first-order add-on instead of the estimator's own recursion — and both are now fenced by the one frame-free test, which says the estimator would be essentially exact if its per-layer variances, skews and kurtoses were right. This review found the biggest concrete defect behind that: the estimator's kurtosis carrier is capped at rank 2048 and, from layer 3 on, silently throws away the kurtosis it just created when it prunes, so by the last layers the estimator carries only 38–42% of the true per-neuron kurtosis, identically on both test networks, while its variances are right to 0.3% and its skews to 7–11%. The estimator knows exactly what it drops, so the fix is derived and nearly free: carry the dropped diagonal forward as a per-neuron vector, or raise the cap. The first decisive tests are two card runs each: force the kurtosis alone, force it with a per-layer gain that undoes the pruning loss, and raise the cap — then combine with the two existing skew fixes and refit the learned operator on the GPU, since every corrected estimator breaks the current payload.

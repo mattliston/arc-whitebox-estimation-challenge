@@ -1,0 +1,74 @@
+{
+  "schema": "s34-late-birthfloor05-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "change": "One post-mean selected,births assignment: select(_e2_gate_min,.05 if l>=12 else gate_floor). The terminal branch exits before selection, so this affects L12-14 only.",
+  "rationale": "Restrict newborn pairs in near-linear/dead response tails below5%; their modeled repeated-index plane remains in the recomputed residual star. Three late birth lifetimes may save more work than L14 alone.",
+  "birth_layers": [
+    12,
+    13,
+    14
+  ],
+  "birth_floor": 0.05,
+  "original_floor": 0.01,
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "alive_and_response_selection_unchanged": true,
+  "means_computed_before_selection": true,
+  "selected_and_mask_remain_paired": true,
+  "born_and_bd_delta_share_new_mask": true,
+  "cp_diagonal_and_residual_star_recomputed": true,
+  "newborn_signed_pairs_and_cohort_width_match": true,
+  "compensation_limit": "Current modeled K21 plane/diagonal compensation only. Rank32 star projection at future layers does not preserve the complete tensor or future predictions.",
+  "prior_evidence": [
+    {
+      "source": "fable_analyst_v1/RESULT.md:534",
+      "change": "Birth floor .02 atL1-4",
+      "raw_pct": 1.4,
+      "relationship": "Earlier layers and smaller floor; related negative, not this endpoint."
+    },
+    {
+      "source": "fable_analyst_v1/RESULT.md:1312",
+      "change": "Birth expansion .002 atL12-14",
+      "raw_pct": -0.17,
+      "bill_forecast_pct": 0.4,
+      "relationship": "Opposite direction; weak economics."
+    },
+    {
+      "source": "hill_climb_birth_plus32_v1/train16_result.json",
+      "change": "Add32births atL1-10 onS32",
+      "adjusted_pct": 1.04622,
+      "relationship": "Distinct expansion failed; remains closed."
+    }
+  ],
+  "distinction": "This changes newborn columns after the mean, not response rows used to read K21.",
+  "no_additional_floor_or_window_sweep": true,
+  "scope": "native2_only",
+  "roster": [
+    35,
+    100
+  ],
+  "setup_and_arena_unchanged": true,
+  "existing_native_gates_unchanged": true,
+  "broad_qualified": false,
+  "serving_qualified": false,
+  "submitted": false,
+  "model_executed": false
+}

@@ -1,0 +1,40 @@
+{
+  "status": "WEAK_NETWORK_DIAGNOSTIC_COMPLETE_NO_DISTINCT_MECHANISM",
+  "lane": "opus-weak",
+  "no_model_calls": true,
+  "data": "261 local seeds with native certs (all versions; production b709/2b108/204880a5 preferred) + MC truths; 48 production seeds with predictions for birth analysis; final-layer MSE only for ranking",
+  "truth_noise": {
+    "noise_free_over_local_final_MSE": 0.742,
+    "noise_share_range": [
+      0.138,
+      0.359
+    ],
+    "estimator": "U=mean((yhat-A)(yhat-B)) over the two independent MC halves",
+    "implication": "local paired MSE log-ratios understate true relative MSE change by ~x0.74; bill unaffected"
+  },
+  "hypothesis_low_fanin_dead_units": "REJECTED in sign: more dead units -> LOWER noise-free error (dead15 r=-0.27, dead8 -0.25); effective fan-in PR and error-amplification gain do not predict (|r|<=0.08 gain)",
+  "structure_R2": {
+    "scale_only": 0.088,
+    "plus_near_dead_L12_15": 0.196,
+    "all32_L8_15": 0.283
+  },
+  "birth_noise_free_share": {
+    "L0_7": 0.075,
+    "L8": 0.032,
+    "L9": 0.063,
+    "L10": 0.075,
+    "L11": 0.094,
+    "L12": 0.118,
+    "L13": 0.149,
+    "L14": 0.18,
+    "L15": 0.216,
+    "weak_vs_strong": "same profile within +-0.04 per layer"
+  },
+  "final_error_shape": {
+    "common_bias_share": 0.012,
+    "global_scale_share": 0.031,
+    "share_in_t_gt_1_units": 0.714
+  },
+  "late_born_by_threshold": "L12-15 born energy: |t|<0.5 ~43% from ~12% of units; |t|<1 ~70% from ~24% of units; t>2 ~2%; dead ~2-3%",
+  "conclusion": "Weak networks are uniformly worse: generic late-born near-threshold closure error (per-unit variance/cumulants at L12-15), scaled by the count of marginal units; no network-specific gate/dial target. Oracle step not built (features do not identify a distinct mechanism); generic late variance/k4 oracles are already on record."
+}

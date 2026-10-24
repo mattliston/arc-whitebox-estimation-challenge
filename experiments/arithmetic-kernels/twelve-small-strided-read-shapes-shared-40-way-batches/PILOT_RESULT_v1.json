@@ -1,0 +1,201 @@
+{
+  "candidate_sha256": "c5cea015024a86c5215fca69d34b74ff0125efd96ab38ebef72773ff756b4972",
+  "parent_sha256": "4db7d20097ab511b37a348a6cd0d4ab91964d3e27c599e8976c724a4fa3d6ff1",
+  "fixed_ranks": [
+    35,
+    150
+  ],
+  "selection": "Fixed shape/cost-only twelve-shape rule; no target fitting or pilot tuning.",
+  "guard": {
+    "guard_version": 3,
+    "pid": 90180,
+    "command": [
+      "--",
+      ".venv/bin/python",
+      "-B",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_smallsm_residual_v1/boundary_run_v1.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_smallsm_residual_v1/candidate_s2tr_peel_sm12_v1.py",
+      "35,150",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_smallsm_residual_v1/boundary_35_150_v1",
+      "--short-setup"
+    ],
+    "initial_swap_bytes": 5798499450.88,
+    "footprint_trigger_bytes": 7500000000,
+    "rss_backstop_bytes": 10000000000,
+    "poll_sleep_s": 1.0,
+    "max_rss_bytes": 8619196416,
+    "swap_rule": "retire if swap growth > 256 MiB and memory_pressure free < 35%, or swap growth > 1 GiB",
+    "pressure_samples": 18,
+    "min_pressure_free_pct": 75,
+    "max_footprint_bytes": 3411943440,
+    "max_swap_growth_bytes": 0,
+    "completed": true,
+    "error": null,
+    "samples": 87,
+    "maximum_sample_interval_s": 1.0312732104212046,
+    "minimum_sample_interval_s": 1.0184855815023184,
+    "monitor_failure_rule": "5 consecutive failed readings spanning >= 30 s",
+    "failed_readings": 0,
+    "tolerated_failures": [],
+    "exit_code": 0,
+    "remaining_rows": [],
+    "elapsed_s": 88.19035920873284,
+    "whole_group_retired": true
+  },
+  "setup": {
+    "setup_s": 2.939614249393344,
+    "requests": 19100,
+    "pb_log": [
+      [
+        "constants",
+        0.104
+      ],
+      [
+        "ksplit",
+        26,
+        0.368
+      ],
+      [
+        "wall guard",
+        355,
+        2.804
+      ],
+      [
+        "first_load_views",
+        128,
+        2.804
+      ],
+      [
+        "lvfuse",
+        0,
+        2.804
+      ],
+      [
+        "psdb_fused",
+        9,
+        2.89
+      ],
+      [
+        "pair_block_indices",
+        1,
+        2.89
+      ],
+      [
+        "read7_lazy",
+        0,
+        2.89
+      ],
+      [
+        "yr7_lazy",
+        0,
+        2.89
+      ],
+      [
+        "sm40_fixed_views",
+        5,
+        2.976
+      ],
+      [
+        "sm40_hot_views",
+        9,
+        3.034
+      ],
+      [
+        "r7_firstread_views",
+        3,
+        3.068
+      ],
+      [
+        "peel_fixed_views",
+        11,
+        3.348
+      ],
+      [
+        "peel_full_topology",
+        106,
+        4.118
+      ],
+      [
+        "smallsm12_fixed_views",
+        12,
+        4.27
+      ],
+      [
+        "bound",
+        395,
+        4.271
+      ]
+    ],
+    "actual_coverage": {
+      "bound": 355,
+      "fused": 128,
+      "finished": 128
+    },
+    "residual_instructions": 922665652
+  },
+  "rows": [
+    {
+      "rank": 35,
+      "U": 1.107738441201657e-08,
+      "control_U": 1.111568866786693e-08,
+      "raw_delta_pct": -0.34459633581759297,
+      "control_source_sha256": "48c126c61f8d4f571768529d9d6610d8e732de24107fce75d9422e3d417a9700",
+      "routes": 2,
+      "final_changed_values": 899,
+      "final_maxabs": 8.344650268554688e-06,
+      "all_values_finite": true,
+      "flops": 244099670132,
+      "control_cold_flops": 244157314739,
+      "bill_vs_cold_pct": -0.02360961704613862,
+      "bill_vs_cold_caveat": "Boundary second prediction is warm; native control is a fresh process. Do not treat this as incremental warm saving.",
+      "requests": 48775,
+      "residual_instructions": 2194916070,
+      "wall_s": 41.569970125332475,
+      "kernel_s": 34.429883401,
+      "kernel_instructions": 475452332974,
+      "server_instructions": 501738668076,
+      "server_footprint_max": 3204862992,
+      "matched_v7_boundary": {
+        "control_directory": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/boundary_v7",
+        "U": 1.111568866786693e-08,
+        "all16384_changed": 6513,
+        "all16384_maxabs": 8.344650268554688e-06,
+        "raw_delta_pct": -0.34459633581759297,
+        "bill_delta_pct": -0.03567879405644847,
+        "adjusted_delta_pct": -0.3801521820570586,
+        "request_delta": -9,
+        "residual_instructions_delta_pct": -0.06415011395751735,
+        "kernel_instructions_delta_pct": 0.7145268509271441,
+        "server_instructions_delta_pct": 0.7151253660390822,
+        "wall_delta_pct": -6.548464969701618,
+        "wall_caveat": "Different runs and concurrent load; instruction counts are the more useful runtime comparison.",
+        "scope_caveat": "Optional candidate also fixes batchIO operand-cache reset and reduces prebind budget 3.05 to 2.8; measured total difference is not kernel-only."
+      }
+    },
+    {
+      "rank": 150,
+      "U": 1.4730805731869261e-08,
+      "control_U": 1.4755311159343473e-08,
+      "raw_delta_pct": -0.16607868996848518,
+      "control_source_sha256": "48c126c61f8d4f571768529d9d6610d8e732de24107fce75d9422e3d417a9700",
+      "routes": 4,
+      "final_changed_values": 896,
+      "final_maxabs": 1.1324882507324219e-05,
+      "all_values_finite": true,
+      "flops": 240768372139,
+      "control_cold_flops": 242587139892,
+      "bill_vs_cold_pct": -0.7497379101834123,
+      "bill_vs_cold_caveat": "Boundary second prediction is warm; native control is a fresh process. Do not treat this as incremental warm saving.",
+      "requests": 47021,
+      "residual_instructions": 2105525699,
+      "wall_s": 42.68852879293263,
+      "kernel_s": 35.686614864999996,
+      "kernel_instructions": 485173828842,
+      "server_instructions": 511614041124,
+      "server_footprint_max": 3437861104
+    }
+  ],
+  "pair_mean_raw_delta_pct": -0.2553375128930391,
+  "historical_metadata_warm_mean_bill_saving_pct": 0.1626702610755,
+  "interpretation": "Two fixed pilots favorable; no population accuracy claim. STORE35 is the only same-rank v7 actual boundary cost control. Cold setup/bind cost amortization prevents inferring the long-run bill from this pair alone. Kernel instructions rise about 0.7% on35 despite saved billed work. No further model launched."
+}

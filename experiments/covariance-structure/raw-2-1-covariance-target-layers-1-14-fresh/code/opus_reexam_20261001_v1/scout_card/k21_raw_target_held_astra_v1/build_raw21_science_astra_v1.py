@@ -1,0 +1,29 @@
+from pathlib import Path
+import ast,json,hashlib
+O=Path('/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1');D=O/'scout_card/k21_raw_target_held_astra_v1';A=O/'lead/runs/astra_reconstruction_row_allocation_v1/science_held_v1'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def save(n,s):
+ p=D/n
+ with p.open('x')as f:f.write(s)
+ return p
+s=(A/'finite_arow_science_UNVALIDATED_v1.py').read_text().replace('O=D.parents[3]','O=D.parents[1]').replace('finite_arow_smoke_UNVALIDATED_v2.py','finite_raw21_smoke_UNVALIDATED_astra_v1.py').replace('ef4737762ad8db9eabb83f6b7f21d6262247c204f4abf6e93726e7ccc46d790c',sha(D/'finite_raw21_smoke_UNVALIDATED_astra_v1.py')).replace('arow','raw21').replace('row_allocation','raw21_target').replace("'ROW'","'RAW21'").replace('row allocation','raw21 target')
+s=s.replace('list(range(7102456,7102472))','list(range(7102488,7102504))').replace("'runtime_path'","'adapter_path'").replace("'runtime_sha256'","'adapter_sha256'").replace("'astra_raw21_target_provenance'","'astra_raw21_provenance'")
+s=s.replace("assert root['root_verified'] is True and root['reviewed_by']=='root' and root['price_pass'] is True","assert root['root_verified'] is True and root['reviewed_by']=='root'\n    assert root['native_protocol_sha256']==c['native_price_protocol_sha256']")
+s=s.replace("p=Path(c['root_native_price_path']);assert sha(p)==c['root_native_price_sha256']","p=Path(c['root_native_price_path']);assert p==D/'ROOT_NATIVE_PRICE_FREEZE_astra_v1.json'")
+s=s.replace("assert cost==c['frozen_native_MAX_log_bill'] and cost<=0.0005","assert r['max_log_bill']==root['max_log_bill']\n    assert r['price_cap_log'] is None and r['no_cost_sign_selection'] is True and r['no_displacement_selection'] is True")
+s=s.replace("bill=rows[0]['flops'];assert type(bill)is int and bill>0","bill=rows[0]['flops'];assert type(bill)is int and .1*2**41<=bill<=2**41")
+s=s.replace("assert g['completed'] is True and g['exit_code']==0 and g['error'] is None and g['whole_group_retired'] is True and g['remaining_rows']==[]\n        cert=","assert g['completed'] is True and g['exit_code']==0 and g['error'] is None and g['whole_group_retired'] is True and g['remaining_rows']==[]\n        assert 0<g['max_rss_bytes']<7500000000 and 0<=g['max_footprint_bytes']<7500000000\n        cert=")
+a=s.index("    events=r['astra_raw21_target_events']");b=s.index('    return r\n',a)
+s=s[:a]+"    events=[dict(layer=l,shape=[1024,1024],actual_covariance_law=True)for l in range(1,15)]if item['mode']else []\n    assert r['astra_raw21_route']==dict(mode=item['mode'],events=events,retired=True)\n"+s[b:]
+# Pin actual native protocol before permitting any later scientific phase.
+a="    h.source_pins(c)\n    base=h.registered"
+b="    h.source_pins(c)\n    pc=Path(c['native_price_protocol']);assert sha(pc)==c['native_price_protocol_sha256']\n    nc=json.loads(pc.read_text());assert nc['approved'] is True and nc['reviewed_by']=='root' and nc['purpose']=='raw21_fixed_price6'\n    assert c['price_candidate_sha256']=={k:v['sha256']for k,v in nc['candidates'].items()}\n    base=h.registered"
+assert s.count(a)==1;s=s.replace(a,b)
+p=save('finite_raw21_science_UNVALIDATED_astra_v1.py',s);ast.parse(s)
+base=json.loads((D/'SMOKE_PROTOCOL_HELD_astra_v2.json').read_text());nc=json.loads((D/'ROOT_NATIVE_PRICE_REGISTRATION_astra_v1.json').read_text())
+keys=['template_request','model_python','guard_python','worker_path','adapter_path','fresh_allocation_path','fresh_allocation_sha256','fresh','legacy_smoke_references','smoke_references','cutsim_exact','smoke_order','smoke_run_name','smoke_slots']
+c={k:base[k]for k in keys};c.update(status='HELD_FOLLOWUP_SOURCE_ONLY_NO_REQUESTS',approved=False,reviewed_by='PENDING_ROOT',base_protocol=str(D/'SMOKE_PREREG_astra_v1.json'),base_protocol_sha256='PENDING_ROOT_SMOKE_REGISTRATION',native_price_protocol=str(D/'ROOT_NATIVE_PRICE_REGISTRATION_astra_v1.json'),native_price_protocol_sha256=sha(D/'ROOT_NATIVE_PRICE_REGISTRATION_astra_v1.json'),root_native_price_path=str(D/'ROOT_NATIVE_PRICE_FREEZE_astra_v1.json'),price_candidate_sha256={k:v['sha256']for k,v in nc['candidates'].items()},oos=list(range(7100592,7100608)),runs=dict(fresh='run_raw21_fresh32_v1',oos='run_raw21_oos32_v1'),arms={'C':0,'RAW21':1},fixed_physics='One raw-R21 actual-C full-target hypothesis at L1–14, no refit/rank/strength search.',fresh_gate='Strict fresh16 mean log(MSE_RAW21/MSE_C)+root frozen MAX whole bill log<0.',oos_gate='Strict OOS16 net<0 AND all32 net<0 AND original fresh16<0; formal fixed native delivery and latest-parent native10/seal/release remain mandatory.',unblind='No partial means. All32 exact request/result/source/runtime custody, exact complete guard set and root-observed managed-controller retirement, plus frozen native MAX price before any fresh summary. OOS full32 same barrier.',allow_price_fresh_overlap_after_smoke=True,rootgrant_before_prepare=True,rootgrant_before_launch=True,numerical_authority=False,no_requests_or_models=True,root_native_price_freeze_schema=dict(root_verified=True,reviewed_by='root',native_protocol_sha256=sha(D/'ROOT_NATIVE_PRICE_REGISTRATION_astra_v1.json'),completed_evaluations=6,guards_retired=True,actual_managed_exit_observed=True,actual_managed_exit_code=0,both_OFF_exact_all16=True,both_ON_original_route_gates_pass=True,terminal_receipt={'path':'EXACT_COMPLETED_PRICE6_RECEIPT','sha256':'EXACT_SHA'},max_log_bill='MAX_LOG_ACTUAL_BILL_NO_SIGN_CAP'))
+c['source_pins']=dict(base['source_pins']);c['source_pins'].update(nc['source_pins'])
+for x in (p,D/'ROOT_NATIVE_PRICE_REGISTRATION_astra_v1.json',A/'finite_arow_science_UNVALIDATED_v1.py'):c['source_pins'][str(x)]=sha(x)
+q=save('FOLLOWUP_PROTOCOL_HELD_astra_v1.json',json.dumps(c,indent=2)+'\n')
+print(json.dumps(dict(helper_sha256=sha(p),protocol_sha256=sha(q),pins=len(c['source_pins']))))

@@ -1,0 +1,34 @@
+{
+  "schema": "phase2-fullbudget-two-arm-mini100-root-prediction-seal-release-v1",
+  "status": "ROOT_RELEASE_ONE_TARGET_BLIND_FULLBUDGET_TWO_ARM_MINI100_SEAL_V1",
+  "issued_date": "2026-08-23",
+  "issued_by": "/root",
+  "release_id": "296884835b72ff89b7ebec59b64f4949930517cbdcabece02060363f363b3741",
+  "authorized_invocations": 1,
+  "authorized_weight_rows": 100,
+  "scope": "target_blind_fullbudget_two_arm_predictions_only",
+  "candidate_labels": ["sobol_raw_n64512", "iid_paired_whitened_n64000"],
+  "frozen_bindings": {
+    "source_binding_digest_sha256": "2179019aa2495d8d35f598edac1004021392392988754a046d4ea96d3fe39ca6",
+    "independent_sealer_audit_v1_sha256": "90fa5103d5f8f7d06821b1cc62c4b36cf99e91773c19b0cab276ddc9c46d5e0e",
+    "phase2_authority_sha256": "b33aea75ee83be5cc7c2778aefd4cc35d731dcd702d8b258269fc2c895ef4ec5",
+    "target_blind_loader_sha256": "6778a3216377a4a7e588df71a08fb0e182dc7a14d42ab393c2ac80200cccf0e1",
+    "estimator_sha256": "893ab4d292f8a88892d61b21ba452faa5541adf91a23e5ab5fde724d0fe751ee"
+  },
+  "authorized_access": {"target_values_decoded": 0, "target_metrics_computed": 0, "fits": 0, "scores": 0, "submissions": 0},
+  "claim_policy": "one durable O_EXCL claim before loader import; continuation only under exact consumed claim digest; no new-claim retry",
+  "required_runtime_guards": {
+    "predecode_memory_guard": true,
+    "minimum_system_available_fraction": 0.25,
+    "solution_pgid_rss_abort_bytes": 8589934592,
+    "monitor_interval_s": 0.1,
+    "maximum_accepted_monitor_cadence_metric_s": 0.2,
+    "validated_pid_pgid_sid_before_target_release": true,
+    "mandatory_process_group_term_kill_quiescence_on_abort": true,
+    "serial_lane_execution": true
+  },
+  "scoring_authority_created": false,
+  "target_opening_authority_created": false,
+  "new_claim_retry_authority_created": false,
+  "this_release_is_prediction_execution_authority_only": true
+}

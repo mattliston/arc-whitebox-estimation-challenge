@@ -1,0 +1,188 @@
+
+
+# BEGIN OPUS-PUSHSM FRAGMENT pushsm_v1 (2026-10-16; append LAST on GOV v4g 805c3598)
+# The young-bank push's inherited product wp @ p_old (m live rows, k live inputs, n > 1024 columns) through ONE Smirnov <3,3,6;40>
+# top level (the certified signed executable 0) over inner depth-5 alt-basis trees, where _PUSHSM_RULE says it saves flops at a
+# bounded server cost (native (m, k) grid of flops and process cycles, OpenBLAS 1 thread, at n = 3072 / 5120 / 7168 / 9216: routed
+# when the flop saving is >= 2% and the cycles fall or the saving is >= 400 MF per extra G cycles). Same real arithmetic, rounding-
+# level change. The family's views are bound lazily at the first routed product of each worker (no setup change); its outer stacks
+# and padding are their own arrays; the circuits' node scratch and the trees use the kernel arena, which holds nothing between kernel
+# calls (as for the Smirnov read). Every side, C included, is cropped to the product. _PUSHSM_ON joins the governor's EXACT set.
+_PUSHSM_ON = True
+_PUSHSM_FORCE = False        # tests only: route every product the family fits
+_PUSHSM_RECORD = {'name': 'signed_executable_0', 'shape': [3, 3, 6], 'prepared': {'L': ({0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}, (((1, 'add', None), ((9, (6, 7)), (10, (0, 2)), (11, (4, 5)), (14, (0, 1)), (26, (7, 8)))), ((1, 'sub', None), ((12, (6, 7)), (22, (0, 1)))), ((2, 'sub', None), ((13, (4, 9)), (15, (10, 11)), (21, (9, 14)))), ((2, 'add', None), ((23, (12, 22)), (24, (9, 14)), (27, (11, 26)))), ((3, 'sub', None), ((16, (5, 13)), (19, (12, 15)))), ((3, 'add', None), ((18, (12, 15)), (25, (3, 13)), (57, (21, 24)))), ((4, 'sub', None), ((17, (10, 16)), (29, (18, 23)))), ((4, 'add', None), ((20, (10, 16)), (33, (18, 27)), (58, (25, 57)))), ((5, 'add', None), ((28, (17, 20)), (31, (17, 21)), (35, (19, 29)), (37, (21, 29)), (60, (20, 25)))), ((5, 'sub', None), ((34, (20, 24)), (36, (17, 25)), (39, (24, 29)), (49, (20, 33)))), ((6, 'add', None), ((30, (19, 28)), (41, (24, 31)), (43, (31, 35)), (48, (19, 36)), (56, (25, 37)), (59, (34, 35)))), ((6, 'sub', None), ((42, (23, 34)), (44, (27, 39)), (45, (18, 36)), (47, (21, 34)), (50, (23, 31)), (53, (28, 33)), (55, (18, 28)))), ((7, 'sub', None), ((32, (23, 30)), (46, (30, 33)), (51, (33, 41)))), ((8, 'add', None), ((38, (24, 32)),)), ((8, 'sub', None), ((40, (21, 32)),)), ((9, 'sub', None), ((52, (27, 40)),)), ((9, 'add', None), ((54, (25, 38)),))), (59, 17, 30, 39, 47, 18, 43, 38, 50, 19, 20, 40, 55, 41, 37, 42, 53, 33, 44, 52, 21, 23, 24, 35, 58, 45, 48, 25, 51, 27, 46, 49, 32, 31, 34, 29, 56, 60, 54, 36), Counter({21: 5, 24: 5, 25: 5, 20: 4, 18: 4, 23: 4, 33: 4, 7: 3, 0: 3, 9: 3, 10: 3, 12: 3, 17: 3, 19: 3, 28: 3, 27: 3, 29: 3, 31: 3, 34: 3, 6: 2, 4: 2, 5: 2, 1: 2, 11: 2, 13: 2, 16: 2, 15: 2, 14: 2, 30: 2, 32: 2, 35: 2, 36: 2, 2: 1, 22: 1, 3: 1, 8: 1, 26: 1, 39: 1, 41: 1, 40: 1, 38: 1, 37: 1, 57: 1})), 'R': ({0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17}, (((1, 'scale', 8.0), ((18, (0,)), (20, (6,)), (22, (10,)), (24, (4,)), (31, (16,)), (33, (12,)))), ((1, 'add', None), ((28, (9, 13)), (30, (3, 8)), (39, (7, 17)))), ((1, 'sub', None), ((43, (8, 14)), (50, (9, 13)))), ((2, 'add', None), ((19, (14, 18)), (25, (5, 24)), (29, (8, 20)), (32, (1, 31)), (47, (2, 31)), (53, (20, 39)), (54, (5, 43)))), ((2, 'sub', None), ((21, (15, 20)), (23, (17, 22)), (34, (9, 33)), (36, (7, 22)), (38, (3, 18)))), ((3, 'sub', None), ((26, (1, 23)), (27, (11, 19)), (41, (23, 34)), (45, (21, 30)), (46, (2, 38)), (48, (11, 32)), (56, (5, 53)), (60, (29, 36)), (63, (24, 54)))), ((3, 'add', None), ((42, (14, 25)), (49, (29, 36)), (51, (28, 47)), (52, (2, 38)), (64, (21, 30)))), ((4, 'add', None), ((35, (21, 26)), (55, (19, 48)), (59, (18, 51)), (61, (1, 41)), (65, (8, 42)))), ((4, 'sub', None), ((37, (24, 27)), (62, (26, 34)), (66, (27, 32)))), ((5, 'sub', None), ((40, (25, 35)), (58, (37, 50)), (68, (56, 59)), (69, (45, 66)), (71, (55, 64)), (73, (62, 65)), (74, (61, 63)))), ((5, 'add', None), ((44, (28, 37)), (57, (25, 35)), (67, (56, 59)), (70, (55, 64)), (72, (45, 66)), (75, (62, 65)), (76, (61, 63)))), ((6, 'add', None), ((77, (58, 60)), (79, (40, 52)), (81, (44, 49)), (83, (46, 57)), (89, (71, 74)), (92, (67, 76)), (108, (72, 73)))), ((6, 'sub', None), ((78, (58, 60)), (80, (46, 57)), (82, (44, 49)), (84, (40, 52)), (94, (68, 75)), (117, (69, 74)), (121, (70, 76)))), ((7, 'add', None), ((85, (69, 79)), (86, (75, 80)), (109, (81, 108)), (110, (71, 92)))), ((7, 'sub', None), ((93, (75, 83)), (95, (84, 89)), (105, (72, 89)), (112, (71, 80)), (114, (71, 84)), (116, (69, 92)), (118, (82, 117)), (123, (72, 94)))), ((8, 'add', None), ((87, (73, 85)), (96, (69, 93)), (99, (73, 95)), (106, (86, 105)), (127, (67, 93)))), ((8, 'sub', None), ((88, (77, 86)), (104, (78, 85)), (113, (68, 112)))), ((9, 'sub', None), ((90, (78, 87)), (98, (82, 88)), (102, (87, 92)), (107, (88, 99)))), ((9, 'add', None), ((97, (72, 96)), (122, (87, 121)), (124, (70, 99)), (126, (88, 89)))), ((10, 'sub', None), ((91, (70, 90)), (103, (68, 97)), (111, (98, 110)), (119, (90, 94)), (125, (67, 98)), (128, (76, 97)))), ((11, 'add', None), ((100, (81, 91)),)), ((11, 'sub', None), ((115, (91, 114)), (120, (81, 119)))), ((12, 'add', None), ((101, (68, 100)),))), (116, 88, 91, 123, 126, 104, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 107, 115, 103, 127, 77, 78, 113, 102, 106, 79, 122, 80, 118, 109, 101, 125, 81, 82, 111, 120, 83, 84, 128, 124), Counter({8: 4, 69: 4, 71: 4, 68: 4, 72: 4, 14: 3, 18: 3, 20: 3, 5: 3, 24: 3, 1: 3, 9: 3, 21: 3, 25: 3, 2: 3, 75: 3, 73: 3, 87: 3, 70: 3, 67: 3, 76: 3, 89: 3, 88: 3, 81: 3, 92: 3, 17: 2, 22: 2, 23: 2, 11: 2, 19: 2, 13: 2, 3: 2, 31: 2, 26: 2, 7: 2, 27: 2, 35: 2, 34: 2, 28: 2, 37: 2, 30: 2, 38: 2, 32: 2, 29: 2, 36: 2, 56: 2, 59: 2, 45: 2, 66: 2, 55: 2, 64: 2, 62: 2, 65: 2, 61: 2, 63: 2, 58: 2, 60: 2, 40: 2, 52: 2, 46: 2, 57: 2, 44: 2, 49: 2, 80: 2, 85: 2, 86: 2, 74: 2, 78: 2, 90: 2, 84: 2, 93: 2, 82: 2, 91: 2, 97: 2, 99: 2, 98: 2, 94: 2, 0: 1, 6: 1, 15: 1, 10: 1, 4: 1, 16: 1, 12: 1, 33: 1, 47: 1, 39: 1, 43: 1, 48: 1, 53: 1, 50: 1, 51: 1, 41: 1, 54: 1, 42: 1, 79: 1, 77: 1, 83: 1, 96: 1, 95: 1, 100: 1, 105: 1, 108: 1, 110: 1, 112: 1, 114: 1, 117: 1, 119: 1, 121: 1})), 'P': ({0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 38: 38, 39: 39}, (((1, 'sub', None), ((40, (27, 31)), (44, (25, 29)), (45, (14, 27)), (52, (3, 13)), (55, (16, 31)), (61, (33, 36)), (63, (32, 38)), (67, (24, 28)), (73, (11, 38)), (81, (9, 35)), (91, (6, 36)), (94, (5, 21)))), ((1, 'add', None), ((41, (35, 39)), (42, (18, 29)), (47, (16, 20)), (49, (0, 12)), (59, (34, 37)), (71, (17, 21)), (77, (10, 31)), (84, (8, 36)), (87, (7, 38)), (97, (4, 37)), (102, (2, 21)))), ((2, 'sub', None), ((43, (3, 42)), (46, (20, 45)), (48, (23, 47)), (53, (24, 52)), (62, (41, 61)), (78, (37, 77)), (82, (26, 81)), (88, (15, 87)), (103, (26, 102)), (105, (1, 41)))), ((2, 'add', None), ((50, (25, 49)), (65, (30, 40)), (68, (44, 67)), (74, (0, 73)), (85, (25, 84)), (92, (23, 91)), (95, (35, 94)), (98, (16, 97)))), ((3, 'sub', None), ((51, (23, 50)), (66, (26, 65)), (70, (19, 48)), (89, (18, 88)), (96, (43, 95)), (99, (12, 98)))), ((3, 'add', None), ((54, (41, 53)), (56, (46, 55)), (75, (44, 74)), (86, (43, 85)), (106, (46, 105)))), ((4, 'add', None), ((57, (15, 51)), (58, (18, 54)), (60, (51, 59)), (100, (29, 99)), (111, (66, 70)))), ((4, 'sub', None), ((64, (51, 63)), (69, (22, 54)), (76, (48, 75)), (83, (56, 82)), (90, (40, 89)), (93, (56, 92)), (112, (66, 70)))), ((5, 'sub', None), ((72, (58, 71)), (101, (24, 100)), (108, (62, 64)), (110, (60, 69)), (117, (83, 86)), (119, (90, 93)))), ((5, 'add', None), ((79, (57, 78)), (104, (57, 103)), (107, (62, 64)), (109, (60, 69)), (118, (83, 86)), (120, (90, 93)))), ((6, 'sub', None), ((80, (58, 79)), (114, (68, 72)), (122, (96, 101)), (124, (104, 106)))), ((6, 'add', None), ((113, (68, 72)), (121, (96, 101)), (123, (104, 106)), (125, (62, 117)), (128, (64, 109)), (164, (108, 109)))), ((7, 'sub', None), ((115, (76, 80)), (131, (119, 122)), (132, (112, 114)), (135, (107, 124)), (136, (120, 121)), (141, (111, 113)), (145, (117, 123)))), ((7, 'add', None), ((116, (76, 80)), (126, (108, 123)), (127, (111, 113)), (130, (119, 122)), (133, (112, 114)), (152, (120, 121)))), ((8, 'sub', None), ((129, (115, 128)), (138, (124, 132)), (139, (109, 135)), (144, (110, 126)), (148, (124, 131)), (154, (116, 118)))), ((8, 'add', None), ((134, (116, 118)), (137, (109, 135)), (146, (115, 145)), (149, (107, 131)), (151, (133, 136)), (153, (132, 152)), (159, (127, 130)), (161, (110, 126)))), ((9, 'add', None), ((140, (134, 139)), (142, (134, 141)), (147, (127, 146)), (157, (125, 129)), (160, (137, 159)))), ((9, 'sub', None), ((150, (110, 149)), (155, (132, 154)), (156, (125, 129)), (162, (153, 161)))), ((9, 'scale', 0.015625), ((168, (144,)), (174, (137,)), (184, (138,)))), ((9, 'scale', 0.125), ((175, (148,)), (176, (134,)), (183, (151,)))), ((9, 'scale', -0.125), ((177, (153,)),)), ((10, 'add', None), ((143, (131, 142)), (166, (133, 156)), (167, (130, 156)))), ((10, 'sub', None), ((158, (136, 157)), (163, (123, 155)), (165, (155, 164)))), ((10, 'scale', 0.125), ((170, (162,)), (173, (150,)), (182, (160,)))), ((10, 'scale', -0.125), ((171, (140,)), (185, (147,)))), ((11, 'scale', 0.125), ((169, (165,)),)), ((11, 'scale', -0.015625), ((172, (158,)), (178, (167,)))), ((11, 'scale', -0.125), ((179, (163,)), (181, (166,)))), ((11, 'scale', 0.015625), ((180, (143,)),))), (168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185), Counter({109: 4, 31: 3, 35: 3, 18: 3, 29: 3, 25: 3, 16: 3, 23: 3, 24: 3, 41: 3, 51: 3, 37: 3, 36: 3, 38: 3, 26: 3, 21: 3, 62: 3, 64: 3, 123: 3, 124: 3, 132: 3, 134: 3, 131: 3, 110: 3, 27: 2, 3: 2, 20: 2, 0: 2, 12: 2, 46: 2, 15: 2, 54: 2, 40: 2, 44: 2, 48: 2, 58: 2, 57: 2, 56: 2, 43: 2, 60: 2, 69: 2, 66: 2, 70: 2, 68: 2, 72: 2, 76: 2, 80: 2, 83: 2, 86: 2, 90: 2, 93: 2, 96: 2, 101: 2, 104: 2, 106: 2, 117: 2, 108: 2, 111: 2, 113: 2, 115: 2, 119: 2, 122: 2, 112: 2, 114: 2, 116: 2, 118: 2, 107: 2, 120: 2, 121: 2, 135: 2, 126: 2, 127: 2, 133: 2, 136: 2, 125: 2, 129: 2, 130: 2, 137: 2, 153: 2, 155: 2, 156: 2, 39: 1, 42: 1, 14: 1, 45: 1, 47: 1, 49: 1, 50: 1, 13: 1, 52: 1, 53: 1, 55: 1, 34: 1, 59: 1, 33: 1, 61: 1, 32: 1, 63: 1, 30: 1, 65: 1, 28: 1, 67: 1, 22: 1, 19: 1, 17: 1, 71: 1, 11: 1, 73: 1, 74: 1, 75: 1, 10: 1, 77: 1, 78: 1, 79: 1, 9: 1, 81: 1, 82: 1, 8: 1, 84: 1, 85: 1, 7: 1, 87: 1, 88: 1, 89: 1, 6: 1, 91: 1, 92: 1, 5: 1, 94: 1, 95: 1, 4: 1, 97: 1, 98: 1, 99: 1, 100: 1, 2: 1, 102: 1, 103: 1, 1: 1, 105: 1, 128: 1, 139: 1, 141: 1, 142: 1, 145: 1, 146: 1, 149: 1, 152: 1, 154: 1, 157: 1, 159: 1, 161: 1, 164: 1, 144: 1, 165: 1, 162: 1, 140: 1, 158: 1, 150: 1, 148: 1, 167: 1, 163: 1, 143: 1, 166: 1, 160: 1, 151: 1, 138: 1, 147: 1}))}}
+_PUSHSM_FAMILY = ('push_L5', 5, 10, 11, 11, 64)
+_PUSHSM_RULE = {}
+_PUSHSM_STATS = dict(routed=0, binds=0)
+_GOV_EXACT_OFF['_PUSHSM_ON'] = False
+_GOV_EXACT_SAVED['_PUSHSM_ON'] = True
+
+
+class _PushSmEnvironment:
+    pass
+
+
+_PUSHSM_ENV = _PushSmEnvironment()
+_PUSHSM_ENV.fnp = fnp
+_PUSHSM_ENV._IPT_REGION = _IPT_REGION
+_PUSHSM_ENV._BH_HOLD = _BH_HOLD
+_PUSHSM_ENV._TR_LAST = _TR_LAST
+_PUSHSM_ENV._SCRATCH = None
+_PUSHSM_ENV._rs_nat_perm = _rs_nat_perm
+_PUSHSM_ENV._rs_basis_views = _rs_basis_views
+_PUSHSM_ENV._sm40_owner = None
+
+
+class _PushSmKernel(_AstraSm40Kernel):
+    def group_views(self, kind, shape):
+        # exact-size node scratch at the kernel arena's start (the read's base caps a circuit at 125 nodes; P here has 146)
+        key = (kind, tuple(shape))
+        cache = self.M._sm40_group_cache
+        if key not in cache:
+            groups = self.circuits[kind][1]
+            sizes = [len(nodes) for _, nodes in groups]
+            total = sum(sizes)
+            rows, cols = int(shape[0]), int(shape[1])
+            allnodes = fnp.reshape(self.M._SCRATCH[0][:total * rows * cols], (total, rows, cols))
+            cuts = []
+            at = 0
+            for size in sizes[:-1]:
+                at += size
+                cuts.append(at)
+            cache[key] = (tuple(fnp.split(allnodes, cuts, axis=0)), tuple(fnp.unstack(allnodes, axis=0)))
+        return cache[key]
+
+    def side(self, kind, L, P, rows, cols):
+        key = (kind, L, P, rows, cols)
+        cache = self.M._sm40_cache
+        if key in cache:
+            return cache[key]
+        frame = self.M._sm40_frames[self.family[0]]['sides'][kind]
+        T, chunks, G, basis, levels = _astra_sm40_slice_side(fnp, frame, P, rows, cols)
+        ops = []
+        if kind == 0:
+            for j in range(1, L + 1):
+                X = chunks[j]
+                V = G if j == 1 else levels[j]
+                ops.extend(((fnp.subtract, X[4], X[0], X[5]), (fnp.subtract, V[2:7:4], X[5], V[3:0:-2])))
+        elif kind == 1:
+            for j in range(1, L + 1):
+                Y = chunks[j]
+                V = G if j == 1 else levels[j]
+                ops.extend(((fnp.add, Y[1], Y[0], Y[5]), (fnp.subtract, V[5:2:-2], V[2:6:3], V[6:3:-2])))
+        else:
+            for j in range(L, 1, -1):
+                Z = chunks[j]
+                V = levels[j]
+                ops.extend(((fnp.add, Z[0], V[5:1:-3], V[5:None:-5]), (fnp.add, Z[5], Z[4], Z[5]), (fnp.add, Z[5], V[3:0:-2], V[2:4]),
+                            (fnp.add, Z[4], Z[6], Z[1])))
+        value = (T, chunks, G, basis, ops)
+        cache[key] = value
+        return value
+
+    def __call__(self, a, b, L, P, old=None):
+        M = self.M
+        m, k, n = int(a.shape[0]), int(a.shape[1]), int(b.shape[1])
+        ar, ak, an = self.record['shape']
+        u = 1 << L
+        cm, ck, cn = _rc_math.ceil(m / ar / u) * u, _rc_math.ceil(k / ak / u) * u, _rc_math.ceil(n / an / u) * u
+        self.family = _PUSHSM_FAMILY
+        P = self.family[2]
+        assert old is None and tuple(b.shape) == (k, n) and L == self.family[1]
+        assert cm // u <= self.family[3] and ck // u <= self.family[4] and cn // u <= self.family[5]
+        assert M._sm40_owner is M._SCRATCH[0]
+        M._TR_LAST[0] = None
+        self.cache.clear()
+        self.stats = dict(temp_live=0, temp_peak=0, leaf_bytes=0)
+        aa, bb, av, bv, pad_dest = _astra_sm40_padding_views(M, m, k, n, 0, cm, ck, cn, ar, ak, an)
+        for zero in pad_dest[4]:
+            fnp.copyto(zero, 0)
+        fnp.copyto(pad_dest[0], a)
+        fnp.copyto(pad_dest[1], b)
+        outerkey = (L, cm, ck, cn, P)
+        if outerkey not in M._sm40_outer_cache:
+            LA = M._sm40_outer['A'][:, :cm, :ck]
+            RB = M._sm40_outer['B'][:, :ck, :cn]
+            PC = M._sm40_outer['C'][:, :cm, :cn]
+            pc = tuple(fnp.unstack(PC, axis=0))
+            cuts = list(range(P, 40, P))
+            parts = tuple(zip(fnp.split(LA, cuts, axis=0), fnp.split(RB, cuts, axis=0), fnp.split(PC, cuts, axis=0)))
+            M._sm40_outer_cache[outerkey] = (LA, RB, PC, pc, parts)
+        LA, RB, PC, pc, parts = M._sm40_outer_cache[outerkey]
+        _astra_sm40_linear_grouped(fnp, self.circuits['L'], av, (cm, ck), self.stats, out=LA, prepared=self.group_views('L', (cm, ck)))
+        _astra_sm40_linear_grouped(fnp, self.circuits['R'], bv, (ck, cn), self.stats, out=RB, prepared=self.group_views('R', (ck, cn)))
+        try:
+            for index, (A, B, C) in enumerate(parts):
+                self.bb_batch(A, B, C, L, (outerkey, index))
+        except BaseException:
+            M._sm40_cache.clear()
+            raise
+        finally:
+            self.cache.clear()
+            M._BH_HOLD.clear()
+            M._TR_LAST[0] = None
+        packed = _astra_sm40_linear_grouped(fnp, self.circuits['P'], pc, (cm, cn), self.stats, prepared=self.group_views('P', (cm, cn)))
+        out = fnp.reshape(fnp.transpose(fnp.reshape(packed, (ar, an, cm, cn)), (0, 2, 1, 3)), (ar * cm, an * cn))
+        return fnp.copy(out[:m, :n]) if tuple(out.shape) != (m, n) else out
+
+
+_PUSHSM_KERNEL = _PushSmKernel(_PUSHSM_ENV, _PUSHSM_RECORD)
+
+
+def _pushsm_bind():
+    env, arena, f = _PUSHSM_ENV, _SCRATCH[0], _PUSHSM_FAMILY
+    L = f[1]
+    mr, mk, mc = f[3] << L, f[4] << L, f[5] << L
+    env._sm40_owner = None
+    env._sm40_cache, env._sm40_io_cache, env._sm40_outer_cache, env._sm40_group_cache = {}, {}, {}, {}
+    env._sm40_padding_grid, env._sm40_padding_cache = {}, {}
+    env._sm40_frames = {f[0]: _astra_sm40_bind_family(fnp, env, arena, f)}
+    env._sm40_outer = dict(A=fnp.empty((40, mr, mk), dtype=fnp.float32), B=fnp.empty((40, mk, mc), dtype=fnp.float32),
+                           C=fnp.empty((40, mr, mc), dtype=fnp.float32))
+    env._sm40_padding = (fnp.empty((3 * mr, 3 * mk), dtype=fnp.float32), fnp.empty((3 * mk, 6 * mc), dtype=fnp.float32))
+    env._sm40_outer_bytes = 40 * (mr * mk + mk * mc + mr * mc) * 4
+    env._sm40_extra_leaf_bytes = 0
+    env._SCRATCH = _SCRATCH
+    env._sm40_owner = arena
+    _PUSHSM_STATS['binds'] += 1
+
+
+def _pushsm_route(m, k, n):
+    f = _PUSHSM_FAMILY
+    if not _PUSHSM_ON or n <= 1024 or -(-m // 96) > f[3] or -(-k // 96) > f[4] or -(-n // 192) > f[5]:
+        return False
+    if _PUSHSM_FORCE:
+        return True
+    bits = _PUSHSM_RULE.get((m, k), 0)
+    return bool(bits >> (0 if n < 4096 else 1 if n < 6144 else 2 if n < 8192 else 3) & 1)
+
+
+def _pushsm_mm(a, b):
+    if not (_AB_ON and _WINOGRAD and _SCRATCH is not None and len(a.shape) == len(b.shape) == 2
+            and str(a.dtype) == str(b.dtype) == 'float32' and _pushsm_route(int(a.shape[0]), int(a.shape[1]), int(b.shape[1]))):
+        return _mm(a, b)
+    if _PUSHSM_ENV._sm40_owner is not _SCRATCH[0]:
+        _pushsm_bind()
+    _PUSHSM_STATS['routed'] += 1
+    return _PUSHSM_KERNEL(a, b, _PUSHSM_FAMILY[1], _PUSHSM_FAMILY[2])
+
+
+def _astra_bcc_newborn_impl(w,p,previous,newborn):
+    # = the parent with the inherited product through _pushsm_mm
+    _e2_H = _E2Hold()   # E2: temporaries of this call, released together (one hidden free trip)
+    wp = _e2_H(_xsg_rows(5154, w, previous)).T   # opus-engineer a62 XSG: gather by scatter
+    if newborn is None:
+        return _mm(wp, _e2_H(p))
+    old_columns,selected,base,t,s = newborn
+    inherited = _pushsm_mm(wp, _e2_H(p[:, :old_columns]))
+    common = _w5_port_call(_W5_PORT_SCOPE,w,previous,'newborn_common',_mm,wp,_xsg_rows(5159, base, previous))   # opus-engineer a62 XSG
+    _PHYS_HANDLES['newborn_common'] = common
+    directions = _e2_H(_xsg_rows(5161, w, selected)).T   # opus-engineer a62 XSG
+    rows, births = int(common.shape[0]), int(common.shape[1])
+    answer = fnp.empty((rows, int(old_columns) + 2 * births), dtype=fnp.float32)
+    _e2_H(fnp.copyto(answer[:, :int(old_columns)], inherited))
+    _e2_H(fnp.add(common, _e2_H(directions * t), out=answer[:, int(old_columns):int(old_columns) + births]))
+    _e2_H(fnp.add(common, _e2_H(directions * s), out=answer[:, int(old_columns) + births:]))
+    _ASTRA_BCC_STATS['newborn_elements'] += 2 * rows * births
+    return answer
+# END OPUS-PUSHSM FRAGMENT pushsm_v1

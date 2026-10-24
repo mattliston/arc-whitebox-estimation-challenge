@@ -1,0 +1,63 @@
+{
+  "schema": "public-k22-carrier-native-pilot-preregistration-v1",
+  "node": "P2R0F3A",
+  "status": "frozen-before-any-pilot-metrics",
+  "question": "Does the K22-residual second-star carrier (rank 4), riding the conditional-repair card, reduce the host's raw final-layer error on the protected native roster - and is the removed component one the frozen observer could already reconstruct?",
+  "hypothesis": "The transport-fidelity probe proved the deployed quartic star push is exact on its carried family while the K22-residual channel (computed and discarded at every reset) is transported at exactly zero; the S localization tied born error to fourth-order pair structure (+0.335). The target-free eight-row A/B measured final-output movement of 0.24-0.52 of the total error scale (median 0.32) at mean 209.7e9 added FLOPs, fitting the repair-funded budget on every row. Direction is the open question this pilot decides.",
+  "authority": {
+    "transport_fidelity": "public_joint_redesign_study_v1/STAR_TRANSPORT_FIDELITY_PROBE_v2.json",
+    "carrier_billing": "public_joint_redesign_study_v1/F3A_K22_CARRIER_BILLING.json",
+    "ab_probe": "public_k22_carrier_ab_probe_v1/AB_K22R_PROBE.json",
+    "parity_gate_of_record": "rank-0 carrier is bit-exact and FLOP-equal to the W3 base (AB_K22R_PROBE.json parity_gate)"
+  },
+  "arms": {
+    "base": {
+      "source": "public_condrepair_deployment_card_v3/estimator.py",
+      "sha256": "e4d250563279a8c99dceb72bd71428855bd798d651730fca9c57d6577aa6f62d"
+    },
+    "k22r4": {
+      "source": "public_k22_carrier_ab_probe_v1/estimator_k22r.py",
+      "sha256": "702e971c410ed688355af93c075aa0e13b38cc6462d0864c6c663ba51b4bb593",
+      "note": "The base estimator plus exactly the seven audited K22-carrier replacements at K22R_RANK=4; no other change."
+    },
+    "amendment_log": [
+      "v1 (sha 0ecbbd49...) FAILED the independent pre-data audit: the k31 channel emitted exactly twice the true transported entry (ordered-sum double count). Amended before any generation or truth access: both 6.0 coefficients on the k31 expression corrected to 3.0, rebuilt to sha 702e971c..., re-screened by the target-free A/B, and re-audited. No pilot metric existed at amendment time."
+    ],
+    "paired": "Both arms run fresh on identical rows; every difference in the comparison is the carrier."
+  },
+  "stage1_generation": {
+    "roster": "ranks 35..234 (the frozen native pilot roster), both arms",
+    "output": "rows/{base,k22r4}/row_NNNN/{host.npy,raw20.npy,sigma.npy,result.json} in this package; existing stores never written",
+    "validation": "per row and arm: host [16,1024] finite nonnegative, raw20 [16,1024,20] finite, sigma [16,1024] finite positive, flops_used <= 2^41, wall under 300 s local; no parity expectation between arms",
+    "workers": 2,
+    "threads_per_worker": 2,
+    "nice_level": 10
+  },
+  "stage2_scoring": {
+    "truth": "data_gate sealed observer_fit targets, rows 35..234 only, opened only after complete stage-1 coverage of BOTH arms",
+    "primary": "paired raw final-layer MSE: mean over the 200 rows of mean((host[15] - truth[15])^2), base versus k22r4, plus per-row win count and the paired relative delta",
+    "secondary_diagnostic": "refit-J corrected MSE on each arm's tape under exactly the frozen J-native transfer protocol (same 200-roster, same protected split, exact J architecture 25,600 parameters, model_seed 1753362478, shuffle stream 40, six epochs, fixed final checkpoint); diagnostic only, never gating",
+    "no_retune": "No knob, rank, or emission variant is adjusted on any outcome; the r4 spelling closes as measured."
+  },
+  "decision_gates": {
+    "mode": "all-for-validity",
+    "coverage": "400/400 row receipts with valid schema",
+    "finite": "every host/raw20/sigma finite per the stage-1 validation",
+    "budget": "every flops_used <= 2^41",
+    "achievability": "The eight-row A/B already ran both arms on the harder public rows with every gate satisfied."
+  },
+  "licensing_rules": {
+    "raw_improvement_at_least_10pct": "License the combined deployment-card build (residual-diet plus conditional repair plus carrier) as the next board candidate under the standing bank-quality bar (next fire ideally adjusted below 2e-8).",
+    "raw_improvement_0_to_10pct": "License rank/emission iteration only through a new frozen preregistration.",
+    "raw_worse": "Close the r4 spelling measured; the fifth-order diagonal carrier becomes the prime candidate.",
+    "corrected_absorption_note": "If raw improves but refit-J corrected does not, record the additive-invariant confirmation; the deployment goal is raw at full budget, so the raw verdict governs the card decision."
+  },
+  "firewalls": {
+    "observer_selection_targets_allowed": false,
+    "public_name_join_allowed": false,
+    "targets_opened_only_in_stage2_after_full_coverage": true,
+    "post_metric_retuning": false,
+    "submission": "nothing in this package touches the board"
+  },
+  "resources": {"maximum_rss_bytes": 8589934592, "estimated_generation_wall_minutes": 170}
+}

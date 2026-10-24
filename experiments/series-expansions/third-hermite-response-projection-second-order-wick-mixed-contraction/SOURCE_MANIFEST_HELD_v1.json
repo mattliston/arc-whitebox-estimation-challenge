@@ -1,0 +1,37 @@
+{
+  "source_only": true,
+  "model_calls": 0,
+  "exact_parent_prefix": true,
+  "inverse_core_text_exact": true,
+  "fixed_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "strength": 1.0,
+  "formula": "extra31=outer(12*mu/(n*||m_prev||\u00b2), W.T@[g_alive * CPprev.T@(d*g_alive*(B.T@m_prev) scattered at selected hubs)] * original_lam_carry); diagonal0",
+  "approximations": [
+    "Wick contraction2 only; contraction1 is zero because active BD hub diagonals are zero; contraction3 omitted.",
+    "Gate-only outgoing carry; F4-shift/join-compression residuals omitted.",
+    "Paid CPprev includes original response masking, NP fold/restored forms and diagonal, rather than a new full bank tensor reconstruction."
+  ],
+  "distinct_from_bk3": "bk3 is collective b times specific third plane; this is projected cubic fresh-weight Wick2 using BD common-leg/previous mean contraction.",
+  "cost": "Three matvecs + outer/scalars per layer; arithmetic at max1024 hubs ~7*n\u00b2*13=95,420,416 FLOPs plus scalar/extra31 delivery overhead; measured whole bill decides.",
+  "pins": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gop2_current_release_v1/safe_source_held_v1/candidate.py": "f0434f89e493d1530840d7239325261d254bf14bcce85a1ba18ae57f7394d04e",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mx1_wick2_v1/CORE_DIFF_v1.txt": "d7005549766e45a65355a02e5b1099e05175857a278322f0e98f759794d3aeed",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mx1_wick2_v1/candidate_mxw2_GOPf043_HELD_v1.py": "311fdc000f5dc61c0bb021c7a85bf0115eeb677375ef8d25e3a935c47f50b2b8",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mx1_wick2_v1/kernel_HELD_v1.py": "7843bb3383355347b61146767b9c02ba2e2f86b10ffb3d651edd21beabf06950",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mx1_wick2_v1/fragment_mxw2_HELD_v1.py": "d01a395ccfe0ee41f29a66f763ebd74ff16a762e069fafdafb72aa32be0365dc"
+  }
+}

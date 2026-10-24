@@ -1,0 +1,21 @@
+{
+  "schema": "combo-bd-j1-projection-elision-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_read7_scan_v1/candidate.py",
+    "sha256": "2212448b123d4be2dadf9c4c8642b49ad1cb3e073a1cc49684e4fc083a19c14f",
+    "bytes": 972032
+  },
+  "scope": "native2_only",
+  "mechanism": "When BD j1 is physical its computed projection is multiplied by zero. Skip that projection and zero subtraction; preserve original j0/j2 operations, c forcing, full D sum and physical raw legs. Retain original fallback when BD_J1_PHYS is None.",
+  "hypothesis": "Identical finite numerical values; row-wise reductions and signed zeros require actual full16 byte-parity confirmation. No prior parity claim.",
+  "forecast": {
+    "dominant_saved_flops": 125829120,
+    "approx_bill_saved_pct": 0.0471,
+    "extra_small_calls": true,
+    "new_persistent_storage": false
+  },
+  "gates": "Exact-component N2: >=.02% adjusted gain,2wins,maxreg0,all16 byte parity; N8>=.02%,8wins,CIupper<0,additional6negative,all16 parity. Own boundary beforeN8. Final combined bank>=1%VALID40/fullserving.",
+  "no_coefficient_layer_or_projection_rescue": true,
+  "combo_integration": "If independently admitted, combine with E4/E6 GNN energy closure and existing retained combo; validate combined result."
+}

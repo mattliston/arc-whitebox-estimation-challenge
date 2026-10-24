@@ -1,0 +1,72 @@
+{
+  "schema": "q24-cs3b-one-use-target-free-source-probe-release-v2",
+  "status": "AUTHORIZED_ONE_USE_TARGET_FREE_SMALLWIDTH_SOURCE_PROBE_V2__NO_FULLWIDTH_OR_METER",
+  "created_at_utc": "2026-08-24T14:55:37Z",
+  "bindings": {
+    "candidate_estimator_sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+    "candidate_source_hold_sha256": "ac29611a20280de259c7ab2f970d865b09ca1c417d1ac09d64aeab5a89d23bb5",
+    "parent_estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+    "fixture_helper_sha256": "2c37c363155ac2b709de00a0d7a949a33a43106592e0df88daa7509bf2468b2d",
+    "source_probe_preregister_sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3",
+    "source_probe_static_binding_sha256": "9858e4720fe24911c7ae4e83701efb8d281e094e484598c623b62146a4a3658e",
+    "independent_static_source_audit_sha256": "27e5d66752520ebf287f7bc362330489849816b3d8cec0a1c7628aa931ca6c6c",
+    "runner_v1_erratum_sha256": "d61c9805b3185465c47b5b420e60737b168e7b95422520045e72346273e60559",
+    "runner_sha256": "bbc0ab938b0d052704959bd98e216582845700fddd6612f25ada3634597fc24c",
+    "output_path": "runs/source_probe_v2/results.json",
+    "claim_path": "runs/source_probe_v2/O_EXCL_CLAIM.json"
+  },
+  "supersedes_terminal_hold_only": {
+    "runner_v1_sha256": "5e0f24829ed77cd6492721e58a15b78bdea0545b739a9b72af07b121604152c0",
+    "release_v1_sha256": "a15aa506d6008e446c08faca6ef2bd7b6b385bd6323108a923b3dd891863c1e8",
+    "change_exact": "replace the undefined Python Name true with the Boolean literal True; version release/audit/output/claim namespaces from v1 to v2",
+    "scientific_gates_thresholds_roster_and_candidate_source": "UNCHANGED"
+  },
+  "independent_activation_gate": {
+    "path": "INDEPENDENT_SOURCE_PROBE_RELEASE_AUDIT_CS3B_V2.json",
+    "required_status_exact": "PASS_INDEPENDENT_SOURCE_PROBE_RUNNER_AND_RELEASE_AUDIT_CS3B_V2__ONE_USE_EXECUTION_PERMITTED",
+    "required_bindings": [
+      "candidate_estimator_sha256",
+      "candidate_source_hold_sha256",
+      "source_probe_preregister_sha256",
+      "source_probe_static_binding_sha256",
+      "independent_static_source_audit_sha256",
+      "runner_sha256",
+      "author_release_sha256",
+      "output_path",
+      "claim_path"
+    ],
+    "effective_now": false,
+    "reason": "The V2 runner refuses preflight until the independent V2 runner/release audit exists with the exact status and bindings."
+  },
+  "one_use_protocol": {
+    "preflight_before_claim": "verify every source HOLD preregistration static-audit runner V2 release and independent V2 release-audit binding",
+    "first_state_change": "mkdir absent runs/source_probe_v2 and durably seal O_EXCL_CLAIM.json with O_CREAT|O_EXCL before candidate import or fixture construction",
+    "result_write": "durably seal results.json with O_CREAT|O_EXCL; any required-control exception seals terminal REJECT",
+    "rerun_overwrite_retry_or_rescue": false
+  },
+  "frozen_dynamic_gates": {
+    "certificate": "helper/inlined named-intermediate and invalid-mask byte equality; exact 154-call ledgers",
+    "algebra": "all nonsymmetric width4/5/6/8 ranks under preregistered forward bound; no symmetry shortcut",
+    "resource": "exact corrected Lr_star/Dh FLOPs and 18/10 calls plus six integer crossover witnesses",
+    "fixtures": "exact ten frozen target-free fixtures, parent-finite safety, natural LOWRANK64, no-activation parity, two-run determinism, parent-scale disagreement",
+    "carriers": "current selected-state bytes, exact invalid-incident target/star/CP/aggregate zeros, one-push selected law, reconstruction and valid-valid residual gates",
+    "dense_signed_permutation_and_null_controls": "exactly as preregistered in V1"
+  },
+  "limits": {
+    "candidate_entrypoint": "private frozen _predict only",
+    "maximum_estimator_width": 128,
+    "width1024_estimator_runs": 0,
+    "literal_meter_runs": 0,
+    "dataset_rows_targets_teachers_scores_or_private_state": 0,
+    "network_credentials_packages_submissions_graph_edits": 0
+  },
+  "pass_authority": "immutable author V2 result and independent replay audit only",
+  "execution_counters_at_release": {
+    "runner_v1_executions": 0,
+    "runner_v2_executions": 0,
+    "candidate_imports": 0,
+    "candidate_estimator_executions": 0,
+    "fullwidth_runs": 0,
+    "literal_meter_runs": 0
+  }
+}

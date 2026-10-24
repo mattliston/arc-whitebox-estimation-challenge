@@ -1,0 +1,256 @@
+{
+  "access_accounting": {
+    "bank_or_staging_payload_bytes_opened": 0,
+    "board_score_or_network_payload_bytes_opened": 0,
+    "empirical_estimator_executions": 0,
+    "future_model_payload_bytes_opened": 0,
+    "future_oof_output_payload_bytes_opened": 0,
+    "live_authority_instance_payload_bytes_opened": 0,
+    "live_path_access": "metadata-only lstat gates exercised by the packaged synthetic verifier; no live payload was opened or hashed",
+    "mps_executions": 0,
+    "package_builds": 0,
+    "packaged_fixture_suite_runs": 2,
+    "packaged_static_replays": 2,
+    "protected_target_bank_row_or_weight_payload_bytes_opened": 0,
+    "submission_or_network_actions": 0,
+    "synthetic_model_inventory_worker_expected_rejections": 6,
+    "synthetic_model_inventory_worker_invocations": 8,
+    "synthetic_model_inventory_worker_successes": 2,
+    "synthetic_only_numpy_or_torch_use": true,
+    "training_or_scoring_runs": 0
+  },
+  "authorization": {
+    "H_receipt_issue": false,
+    "board": false,
+    "estimator": false,
+    "live_model_open": false,
+    "mps": false,
+    "network": false,
+    "package": false,
+    "refit_anchor_build": false,
+    "refit_execution": false,
+    "review_issue": false,
+    "seal_issue": false,
+    "static_postrun_body_accepted": false,
+    "submission": false,
+    "target_access": false
+  },
+  "date": "2026-08-27",
+  "decision": "BUILD_AND_FREEZE_A_NARROW_SUCCESSOR_THAT_COMPLETES_THE_14_ROOT_RUNTIME_CROSSWALK_AND_USES_AN_AUTHENTICATABLE_REGULAR_INTERPRETER_PATH_BEFORE_ANY_LIVE_SEAL_OR_REVIEW",
+  "independent_adversarial_replay": {
+    "all_39_packaged_negative_classes_passed": true,
+    "packaged_fixture_count": 39,
+    "packaged_fixture_evidence_sha256": "1ca92b2def13e2ec9e63e1a8e9e900032732b3bf4b39df92d0e186aeb7113fd4",
+    "published_control_exhaustive_leaf_probe": {
+      "evidence_sha256": "832ab67beb6e90282fe5dfd59f2908024b4a81419db43d0885b5fc6005664868",
+      "request_extra_key_rejected": true,
+      "request_leaf_mutations_rejected": 13,
+      "seal_extra_key_rejected": true,
+      "seal_leaf_mutations_rejected_excluding_parsed_issued_utc": 55
+    },
+    "runtime_v5_root_crosswalk_probe": {
+      "accepted_mutations": [
+        "callable_bundle_manifest_sha256",
+        "execution_stack_manifest_sha256",
+        "freeze_receipt_sha256",
+        "freeze_verification_sha256",
+        "independent_review_request_sha256",
+        "runner_sha256",
+        "static_verification_sha256",
+        "v3_terminal_failure_lineage_sha256"
+      ],
+      "arbitrary_extra_canonical_sha_root_accepted": true,
+      "evidence_sha256": "7baba30500b5d5b8d2f05cc7a662b42e417ce59413365a8c4923ca8a0a322912",
+      "frozen_runtime_root_count": 14,
+      "rejected_mutations": [
+        "flopscope_reset_verification_sha256",
+        "independent_incident_root_cause_sha256",
+        "independent_review_sha256",
+        "manifest_compatibility_scan_receipt_sha256",
+        "package_manifest_sha256",
+        "v4_terminal_failure_lineage_sha256"
+      ]
+    },
+    "synthetic_model_worker_probe": {
+      "J_state_payload_hash_exact": true,
+      "entry_count": 660,
+      "evidence_sha256": "2cfa13b43dc5e1f202e32c73be7719e3bb53188e1aa3bb229e970f7c3dab19b0",
+      "full_tensor_payload_merkle_exact": true,
+      "normalizer_payload_hash_exact": true,
+      "pair_state_payload_hash_exact": true,
+      "rejected": [
+        "bool selected-H",
+        "nonfinite pair state",
+        "r_l wrong shape",
+        "redundant normalizer mismatch",
+        "reordered J state"
+      ],
+      "worker_runtime": "weights_only CPU; no inference, training, MPS, or CUDA"
+    }
+  },
+  "independent_replay": {
+    "all_json_duplicate_keys_and_nonfinite_tokens_rejected": true,
+    "all_json_sorted_pretty_bytes_exact": true,
+    "component_count": 13,
+    "component_inodes_unique": true,
+    "freeze_replay_exit_code": 0,
+    "freeze_replay_stdout_byte_identical": true,
+    "package_regular_file_count": 16,
+    "package_symlink_count": 0,
+    "static_replay_exit_code": 0,
+    "static_replay_stdout_byte_identical": true
+  },
+  "issued_by": "independent_reviewer",
+  "issued_utc": "2026-08-28T05:52:17Z",
+  "material_hold_blockers": [
+    {
+      "accepted_synthetic_witness": {
+        "arbitrary_extra_sha_key_accepted": true,
+        "mutated_full_preflight_and_matching_RESULT_copy": "accepted by the sole provenance helper and the downstream exact-copy gate",
+        "mutation_accepted_for_each_unbound_root": true,
+        "unbound_root_count": 8
+      },
+      "finding": "The frozen runner declares exactly fourteen runtime-V5 static roots, but the postrun provenance validator accepts any SHA-valued dictionary and compares only six keys. Eight byte-authority roots can be changed independently, and extra SHA-valued keys can be inserted, while validation still succeeds when the RESULT provenance copy is changed consistently. The later RESULT/full-preflight equality check authenticates equality between two mutable copies; it does not restore the missing frozen-root crosswalk.",
+      "id": "runtime_v5_preflight_root_map_is_not_exact_or_complete",
+      "locations": [
+        "postrun_sealer.py:1911",
+        "postrun_sealer.py:1912",
+        "postrun_sealer.py:1914",
+        "postrun_sealer.py:1934",
+        "postrun_sealer.py:2271",
+        "nested_accuracy_runner.py:255"
+      ],
+      "severity": "FAIL_CLOSED_PROVENANCE_AND_STRICT_SCHEMA_GAP",
+      "unbound_roots": [
+        "freeze_receipt_sha256",
+        "freeze_verification_sha256",
+        "static_verification_sha256",
+        "runner_sha256",
+        "callable_bundle_manifest_sha256",
+        "execution_stack_manifest_sha256",
+        "independent_review_request_sha256",
+        "v3_terminal_failure_lineage_sha256"
+      ]
+    },
+    {
+      "accepted_environment_fact": {
+        "configured_path": "/Users/matt/anaconda3/bin/python3",
+        "link_target": "python3.11",
+        "lstat_type": "symbolic_link",
+        "resolved_regular_binary_sha256": "6116d7bcb852d61f4384daa1c43488771e6794636d959f2a7065b54c92a070a1"
+      },
+      "direct_synthetic_witness": {
+        "error": "authorized model-review interpreter: symlink component rejected",
+        "evidence_sha256": "d28949055b062712a679a70401a213f42ced6af9f5dad55e50548ba6170384af",
+        "future_model_payload_bytes_opened": 0,
+        "run_model_inventory_reached_worker": false
+      },
+      "finding": "The frozen review launcher authenticates its configured interpreter with the package's no-symlink file helper. The configured path is itself a symlink, so every live review attempt fails before the isolated model worker can start. The standalone synthetic worker is correct, but the frozen sealer cannot invoke it through its own authenticated path.",
+      "id": "model_inventory_launcher_rejects_its_own_authorized_interpreter_path",
+      "locations": [
+        "postrun_sealer.py:84",
+        "postrun_sealer.py:467",
+        "postrun_sealer.py:474",
+        "postrun_sealer.py:532",
+        "postrun_sealer.py:2530",
+        "postrun_sealer.py:2531"
+      ],
+      "severity": "DETERMINISTIC_LIVE_REVIEW_OPERABILITY_FAILURE"
+    }
+  ],
+  "package_root_metadata": {
+    "multiply_linked_regular_file_count": 0,
+    "regular_file_count": 16,
+    "symlink_count": 0
+  },
+  "passes_preserved_for_successor": {
+    "H_invariant_inner_rosters_and_r_l_hashes": true,
+    "MODELS_J_pair_normalizer_and_outer_r_l_payloads_cross_bound_to_training_receipts": true,
+    "all_four_outer_held_rosters_disjoint_cover_exact_688": true,
+    "all_nonnegative_accuracy_and_training_floats_reject_negative_zero": true,
+    "all_result_claim_overlap_roots_cross_bound": true,
+    "all_three_by_172_inner_rosters_disjoint_cover_each_516_outer_fit": true,
+    "atomic_three_file_review_and_H_publication_body": true,
+    "canonical_ASCII_JSON_duplicate_key_and_nonfinite_rejection": true,
+    "claim_five_source_roots_cross_bound_to_anchor_bank_dynamic_and_capability": true,
+    "different_fixed_seal_and_review_issuer_identities": true,
+    "exact_RESULT_prereg_runner_and_static_roots_equal_anchor_package": true,
+    "exact_inner_J_held_rank_hash_reconstruction": true,
+    "exact_inner_assignment_int8_and_outer_fit_int32_hash_reconstruction": true,
+    "exact_outer_fold_uint8_assignment_hash_reconstruction": true,
+    "exact_outer_r_l_float32_hash_reconstruction": true,
+    "exact_signed_binary64_fold_aggregate_selection_and_H_receipt_replay": true,
+    "exact_top_level_and_inner_receipt_schemas_for_fold_purity": true,
+    "full_published_seal_and_review_request_value_reconstruction": true,
+    "inner_held_rows_exact_field_and_binary64_equal_top_level_H_rows": true,
+    "isolated_worker_weights_only_CPU_tensor_shape_dtype_finiteness_core": true,
+    "post_worker_exact_six_member_rehash_before_review_publication": true,
+    "resource_and_novelty_observations_have_no_accuracy_or_H_veto": true,
+    "review_and_H_receipt_hash_order_is_acyclic": true,
+    "strict_H_materializer_is_hash_pinned_and_exact_schema": true,
+    "terminal_failure_metadata_gate_precedes_output_member_access": true
+  },
+  "precise_successor_repair_contract": {
+    "interpreter_launcher": [
+      "Bind the actual one-link regular CPython 3.11.5 executable, for example /Users/matt/anaconda3/bin/python3.11, and recompute every successor component and freeze root.",
+      "Add a synthetic end-to-end launcher positive control that calls the frozen sealer launcher rather than invoking the worker directly.",
+      "Retain exact interpreter SHA-256, worker SHA-256, CPU-only, weights-only, no-inference, timeout, and environment gates."
+    ],
+    "lineage": "Do not mutate or promote frozen V1R1. Build a fresh sibling that binds this HOLD and request a new different-agent static review.",
+    "runtime_v5_crosswalk": [
+      "Require runtime_v5_static_bindings to have the exact fourteen-key set declared by the hash-pinned frozen OOF runner.",
+      "Require exact equality of all fourteen values to the frozen runner's RUNTIME_V5_HASHES map, not merely six anchor projections.",
+      "Add integrated negative fixtures for each of the eight currently unbound roots plus missing and extra runtime-map keys, with RESULT and full-preflight copies mutated consistently."
+    ]
+  },
+  "predecessor_lineage": {
+    "durable_postrun_v1_hold_bound_exactly": true,
+    "durable_postrun_v1_hold_sha256": "89206a3f066e2e6f2054377398b2028ed78aabb003dc86235993e27a5149ba22",
+    "durable_postrun_v1_hold_status": "HOLD_FROZEN_POSTRUN_SEALER__FOLD_PURITY_EXACT_BINARY64_AND_PROVENANCE_BINDINGS_INCOMPLETE",
+    "frozen_postrun_v1_manifest_sha256": "97821cea6bec4558bd44020211f4a4c70c397f6d33c9f3489feec866658e8fb1"
+  },
+  "requested_checklist_findings": {
+    "MODELS_state_normalizer_r_l_to_training_receipts": "PASS_STATIC_AND_SYNTHETIC",
+    "all_39_packaged_negatives": "PASS_BYTE_EXACT_REPLAY",
+    "all_RESULT_CLAIM_preflight_and_prereg_root_crosswalks": "HOLD_EIGHT_OF_FOURTEEN_RUNTIME_V5_PREFLIGHT_ROOTS_UNBOUND",
+    "different_agent_review_and_H_receipt": "PASS_STATIC_IDENTITY_AND_HASH_ORDER__HOLD_LIVE_REVIEW_LAUNCHER",
+    "exact_3x172_fold_purity_rosters_and_hashes": "PASS_STATIC_AND_SYNTHETIC",
+    "full_published_seal_and_request_revalidation": "PASS_STATIC_AND_EXHAUSTIVE_SYNTHETIC_LEAF_MUTATION",
+    "isolated_worker_and_Merkle": "PASS_WORKER_CORE__HOLD_SEALER_LAUNCH_PATH",
+    "overall": "HOLD",
+    "resource_accuracy_non_veto_boundary": "PASS_STATIC",
+    "schema_and_atomicity": "PASS_EXCEPT_RUNTIME_V5_NESTED_MAP_NOT_EXACT",
+    "sign_exact_floats": "PASS_STATIC_AND_SYNTHETIC"
+  },
+  "review_id": "q24-signed-pair-v4r1-oof-postrun-sealer-v1r1-independent-static-hold",
+  "review_scope": "read-only frozen source, schema, hash, AST, and isolated synthetic-fixture review; no empirical OOF result, live model, authority-instance, bank, staging, row, weight, target, score, estimator, board, network, package, or submission payload access",
+  "review_scope_boundary": {
+    "deployment_inference_or_refit_authority_changed": false,
+    "frozen_static_and_freeze_PASS_receipts_are_insufficient_for_GO": true,
+    "no_accuracy_result_was_opened_or_changed": true,
+    "no_live_empirical_root_was_created": true,
+    "this_HOLD_forbids_V1R1_issue_seal_and_issue_review_commands": true,
+    "this_review_does_not_revoke_any_separate_predecessor_GO": true
+  },
+  "reviewed_frozen_sha256": {
+    "COMMAND_PLAN.json": "32d189e100fc9cf1c09566236126111fd7771860563cd58e8b32222f660e828b",
+    "CONTRACT.json": "a69e358224b4ce7b49c5810b667c4367a91a9e0f68c74702302689f94e899096",
+    "FREEZE_RECEIPT.json": "5e8a1f3f69dbcd3b8886b52565049a176a6e4b89a1a5c37fccbae348c916b813",
+    "FREEZE_VERIFICATION.json": "9fa9e1b203d8c09004dcec4034532e777f7f3ab668e999eb52675da8c8a2535d",
+    "FUTURE_BINDINGS_SCAFFOLD.json": "8adc46f5a74264afd989195f2593fb593ce5fd9063ba6a383bf34f529c4d51bf",
+    "INDEPENDENT_REVIEW_REQUEST.md": "afb1d7c3868b88fd47ca622313fd1b3805c5cb1c775d20ee01d4f6ffb8a3a935",
+    "PACKAGE_MANIFEST.json": "f1ab44f69758ac54ab8626955ee81a916adef31007e2c519b62dfe3242c27000",
+    "README.md": "dce98b0346d9146e1832b11c91d30b5e4a3744bb88bc7feb5b09b0e45a4956f6",
+    "REVIEW_SCAFFOLD.json": "963cbb47dec6876f79fa56919eae74be45276e9c2a92205ad24c579e50b58e61",
+    "SEAL_SCAFFOLD.json": "0c78ee1df4eccc2420a04920346196a992ffbbfab51fbff281b5c094a8eee537",
+    "STATIC_VERIFICATION.json": "15ab2c14bfcc92f7c797809b0bc95acb4b4a18e7dd3e8ce83126279595705e8a",
+    "adversarial_fixtures.py": "d7464cb99e835b37f15502f91ddcf010ff9655eeb64187ada065b2fbcce1ff04",
+    "model_inventory_worker.py": "66c6acddb64ed82ce04ca72a9c101c963aba56e8c5366fdb511281953080c7dc",
+    "postrun_sealer.py": "79310531ab98e57edbd476802736f2e77ff389ff524945dd8a8d5a1231ef1b74",
+    "verify_freeze.py": "f01c3a1280f3a1d39e0e11d67ae08fb882fbfa84d905931fe580aec23854a9e1",
+    "verify_static.py": "8861b7d3f7e0a29c838cd536f73247bb102a9620fbb8286892d88eaf0670b163"
+  },
+  "reviewer_different_from_package_author": true,
+  "schema": "public-q24-signed-pair-v4r1-oof-postrun-sealer-independent-static-review-v1r1",
+  "status": "HOLD_FROZEN_POSTRUN_V1R1__RUNTIME_ROOT_CROSSWALK_INCOMPLETE_AND_MODEL_WORKER_LAUNCH_INOPERABLE"
+}

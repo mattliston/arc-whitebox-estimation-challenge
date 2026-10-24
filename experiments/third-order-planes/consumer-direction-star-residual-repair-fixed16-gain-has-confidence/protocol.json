@@ -1,0 +1,141 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_consumer_residual_v2/fragment.py",
+    "sha256": "bbac3fdb7a4a5dc737f48e393e1997291ba50a787ceb1e65416fb12d18100205",
+    "bytes": 2720
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_consumer_residual_v2/candidate.py",
+    "sha256": "c0a30ca34dd9e40671cb4b3c64275aa2cfbd142830410f2e0c205e9c57826494",
+    "bytes": 932888
+  },
+  "change": "One fixed unit-amplitude consuming squared-weight mean residual repair of unchanged K32/Q1 star factors; appended active covariance/star and terminal diagonal overrides only.",
+  "formula": "s=(W*W)1; r=A*s-Q*(B*s); Ahat=Q*B+r*s.T/(s.T*s); zero norm bypass.",
+  "controls": [
+    "hill_climb_star_projection32_train2_v1",
+    "hill_climb_star_projection32_train6_v1",
+    "hill_climb_star_projection32_extra8_candidate_v1"
+  ],
+  "train2_ranks": [
+    35,
+    100
+  ],
+  "train2_advance": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 2
+  },
+  "if_advance_fixed_blocks": [
+    [
+      36,
+      45,
+      52,
+      58,
+      64,
+      70
+    ],
+    [
+      3,
+      12,
+      40,
+      41,
+      43,
+      44,
+      57,
+      68
+    ]
+  ],
+  "train16_retention": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 10,
+    "ci95_upper_below": 0,
+    "additional14_gain_positive": true
+  },
+  "limits": {
+    "train2_seconds": 150,
+    "train6_seconds": 300,
+    "extra8_seconds": 360,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "serial": true
+  },
+  "invariants": {
+    "parent_prefix_byte_exact": true,
+    "output_layer0_byte_exact": true,
+    "no_layer1_parity_requirement": true,
+    "same_input_helper_Cpre_byte_exact": true,
+    "s1zero_unchanged": true,
+    "offdiagonal_correction_scale": "1/3",
+    "diagonal_correction_scale": "1",
+    "signed_nonsymmetric_star": true
+  },
+  "cost": {
+    "estimated_added_primitive_flops_upper": 240000000,
+    "estimate_not_actual_metered_bill": true,
+    "no_extra_qr_svd_or_full_gemm": true,
+    "complete_actual_bill_required": true,
+    "added_correction_temporary_reserve_bytes": 25165824
+  },
+  "diagnostics": {
+    "metadata_global": "_CSR_STATS",
+    "fields": [
+      "covariance_calls",
+      "diagonal_calls",
+      "zero_directions",
+      "max_input_width",
+      "max_output_width"
+    ],
+    "no_retained_arrays": true
+  },
+  "one_fixed_source": true,
+  "no_amplitude_rank_or_layer_sweep": true,
+  "no_fit_or_truth_inputs": true,
+  "bank_policy": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/submission_policy_20260928_v1.json",
+    "sha256": "d069a04ed856331da19099e1ed86a3aa56bca81b56e8d2d09278fc7a6af793e7",
+    "bytes": 492
+  },
+  "notes": "Component screen/retention only; no worker, release or board qualification claim. Preserve all existing parent numerical routes and initial model weights. Native all-layer results and full paid costs determine the gate.",
+  "implementation_repair": {
+    "kind": "immutable_FNP_assignments_only",
+    "original_candidate": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_consumer_residual_v1/candidate.py",
+      "sha256": "7e986cdc9f1f3d546ee44bcdb34c1c2e7ce74c7ca3e6a238e9487d8332037f31",
+      "bytes": 932863
+    },
+    "original_protocol": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_consumer_residual_v1/protocol.json",
+      "sha256": "04d642c46ca499bbde489ba65e19ea5d55c7df573372e6a45715e588792e25e8",
+      "bytes": 3507
+    },
+    "failed_guard": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_consumer_residual_v1/train2_guard.json",
+      "sha256": "0021526a9bf152102908d5fcf924b77f54de1cae9ff08ac50ebd5adcf17053e2",
+      "bytes": 943
+    },
+    "failed_log": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_consumer_residual_v1/train2.log",
+      "sha256": "9803568bde78b397a01ec8b71b8d732bba51a6d4d3858f494ead7356d6e7d445",
+      "bytes": 9323
+    },
+    "changes": [
+      {
+        "before": "outer /= 3",
+        "after": "outer = outer / 3"
+      },
+      {
+        "before": "result += outer",
+        "after": "result = result + outer"
+      },
+      {
+        "before": "diagonal += (a * b).astype(fnp.float64)",
+        "after": "diagonal = diagonal + (a * b).astype(fnp.float64)"
+      }
+    ],
+    "scientific_choices_unchanged": true
+  }
+}

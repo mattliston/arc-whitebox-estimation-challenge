@@ -1,0 +1,141 @@
+{
+  "status": "SOURCE_AUDIT_NO_DIRECT_REPRICED_CALL_PATH_FOUND_NOT_A_0122_RUNTIME_CERTIFICATE",
+  "executed_by": "compute_hunt",
+  "created_utc": "2026-10-15T14:31:05.761117+00:00",
+  "sources": {
+    "e406": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_rtt2_request_repair_source_v1/candidate_rtt2_request_repair_HELD_v2.py",
+      "sha256": "e406e64b67df590b61f887d2abfb481c7937df4ee069f230b61bed69b324b81c",
+      "relevant_out_calls": [
+        {
+          "line": 745,
+          "call": "fnp.log1p(E, out=k['HM36'])",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 914,
+          "call": "fnp.cumprod(P16, axis=0, out=P16)",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 3922,
+          "call": "fnp.tanh(h, out=h)",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 10585,
+          "call": "fnp.sqrt(w, out=w)",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 10588,
+          "call": "fnp.tanh(h, out=h)",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 17680,
+          "call": "fnp.log1p(E, out=k['HM36'])",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        }
+      ]
+    },
+    "NPA": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_rtt2_np_action_restore_v1/candidate_NPA_QR_ON_HELD_v1.py",
+      "sha256": "8460c3d574d62a8ff165131c71e9c49a851bd11f4ca7be247f1989f1f66f9bf2",
+      "relevant_out_calls": [
+        {
+          "line": 745,
+          "call": "fnp.log1p(E, out=k['HM36'])",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 914,
+          "call": "fnp.cumprod(P16, axis=0, out=P16)",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 3922,
+          "call": "fnp.tanh(h, out=h)",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 10585,
+          "call": "fnp.sqrt(w, out=w)",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 10588,
+          "call": "fnp.tanh(h, out=h)",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        },
+        {
+          "line": 17681,
+          "call": "fnp.log1p(E, out=k['HM36'])",
+          "assessment": "same-dtype destination; cumprod uses untagged P16 filled through keyword out"
+        }
+      ]
+    }
+  },
+  "installed_runtime": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python",
+    "versions_from_distribution_metadata": {
+      "flopscope": "0.12.0",
+      "flopscope-server": "0.12.0",
+      "numpy": "2.4.6"
+    },
+    "guard_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/certify_astra_bank_copy_v2.py",
+    "guard_line": 21,
+    "candidate_or_runtime_mutated": false
+  },
+  "official_sources": {
+    "release": "https://github.com/AIcrowd/flopscope/releases/tag/v0.12.2",
+    "tag_changelog": "https://github.com/AIcrowd/flopscope/blob/v0.12.2/CHANGELOG.md",
+    "version_diff": "https://github.com/AIcrowd/flopscope/compare/v0.12.1...v0.12.2",
+    "starter_pins": "https://github.com/AIcrowd/whest-starterkit/blob/main/pyproject.toml",
+    "starter_changelog": "https://github.com/AIcrowd/whest-starterkit/blob/main/CHANGELOG.md"
+  },
+  "official_release_time": "2026-10-15T13:59:23Z",
+  "snapshots_sha256": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_flopscope_0122_source_audit_v1/official_release_v0122.json": "ccbcb553b852f8a67ac74bbf5a74df125bb203fece4d29d361eb9069c868080b",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_flopscope_0122_source_audit_v1/official_changelog_v0122.md": "667974cf2b615f17b1041770564abb6bb48ae1edd5d57f664d826bc9856cf7f2",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_flopscope_0122_source_audit_v1/official_starter_pyproject.toml": "0ecda2f3a887156e2887e8b159e878b812f5c939ef35ef6083c29a395bb42916",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_flopscope_0122_source_audit_v1/official_starter_changelog.md": "13fe54253cf9124c7cce2ff8ad6c8cd7a72f54247834594da2524047c80f08c9"
+  },
+  "affected_paths_absent": [
+    "unary dtype/signature/sig constraints",
+    "wider unary out destinations",
+    "choose or random.shuffle",
+    "histogram/FFT/polyfit/polyval",
+    "var/std mean= broadcast",
+    "trapezoid/interp/matrix_rank/vecdot/matvec/vecmat",
+    "array-tolerance isclose/allclose",
+    "caller-declared einsum symmetry",
+    "positional function output destinations"
+  ],
+  "source_assessment": [
+    "GOP2 log1p input E and HM36 destination both float32; sqrt/tanh destinations alias same input.",
+    "Explicit dtype=float64 calls are binary add/subtract/multiply, outside the new unary correction.",
+    "No explicit as_symmetric/SymmetricTensor/symmetrize calls; matrix symmetry is constructed by ordinary arithmetic/mirroring.",
+    "Existing cumprod is keyword-out P16, not a tagged cumulative-symmetry test case; reordered inferred einsum tags remain a limited dynamic audit caveat.",
+    "0.12.1 nonscalar full/full_like repricing does not apply: all full fills in these sources are scalar."
+  ],
+  "expected_direct_billing_delta_flops": 0,
+  "expected_direct_billing_delta_scope": "source-based inference for listed changed operation paths; not measured full-model 0.12.2 parity",
+  "public_platform": {
+    "latest_official_repository_statement": "starter pyproject explicitly states evaluator whestbench v0.16.0 plus flopscope[server]==0.12.0; starter floors lead by one patch",
+    "deployment_0122_confirmed": false,
+    "caveat": "package release/main dependency range does not prove live evaluator image changed; no fresh platform deployment receipt available from permitted primary sources"
+  },
+  "certificate_transfer": {
+    "historical_native_bills": "remain valid for their pinned local 0.12.0 environment; do not relabel as 0.12.1 or 0.12.2",
+    "relative_NPA_vs_e406": "no directly affected operation found in either source or added kernel; no identified changed net effect",
+    "new_0122_certification": "not performed; if grader deployment is confirmed, use isolated version-pinned primitive/trace bill comparison and existing accepted-seed prediction/runtime parity, not a new scientific selection sweep"
+  },
+  "work_scope": {
+    "model_calls": 0,
+    "candidate_imports": 0,
+    "package_installs": 0,
+    "running_process_changes": 0,
+    "forum_or_credentials_read": false
+  }
+}

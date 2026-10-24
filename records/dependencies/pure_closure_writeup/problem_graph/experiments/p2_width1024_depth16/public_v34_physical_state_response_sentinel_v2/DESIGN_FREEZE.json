@@ -1,0 +1,143 @@
+{
+  "schema": "v34-physical-state-response-rank35-sentinel-design-freeze-v2",
+  "date": "2026-08-31",
+  "status": "STATIC_FREEZE_PENDING_TWO_INDEPENDENT_AUDITS__NO_DATA_OR_EXECUTION_AUTHORITY",
+  "bindings": {
+    "design_sha256": "6db96ef9c3fd59b87dddab46f2466102fa16a425dd27afa6b8d819aa4c95379a",
+    "provider_algebra_sha256": "17545cc2741838674ba87a870905ccf55902841cd121c47e96fb1651d3dbd3c6",
+    "static_verifier_sha256": "17cb235bfa476ae72b33bfbfa73442404c53521e1298dd99a4d47316104cdcb5",
+    "static_receipt_sha256": "e3c16e43d71aef6a62bc23d063a99c10c8f6d0d221792c0c38065947e3154f77",
+    "post_q_cross_audit_sha256": "f7d02a28ed1b5e5996a7738ef962593784fff770283752e2266e5a49a7e8a72f",
+    "perfect_state_ceiling_sha256": "4a476a61364476a3eb9d625c0831aeb580ae4575893a7abe8291aa2884de50e5",
+    "perfect_state_recurrence_source_sha256": "63cf25f83aab4d2dbd5c808bcebf0c57980e278a75fdbbbf9c2cd07e1ea08cb1",
+    "literal_d11_source_sha256": "ace56bf60b267666e4f2a6d8ae772a089f234ebc725f34a4798b2f9e8284cbc2",
+    "direct_provider_terminal_result_sha256": "e1ed27d0882dddb09698da78d167f7e34096ce44742b210b64792a3d20babd7f",
+    "four_field_terminal_result_sha256": "d84c5831d3392961d04fcf23323794ca75858190924672aa21c4e496731b98f5",
+    "four_field_cubic_interpretation_sha256": "e6c8f44f88f8165f330e36642647d1388b598148bf9f24663f8ac369f82d3696",
+    "four_field_h4_terminal_audit_sha256": "46927c94a87ce76ceecf1158cb3d40edc7dc1c6a10351b49d5a9eda59c51c1cd"
+  },
+  "activation_interlock": {
+    "v1_is_unreachable_and_must_not_execute": true,
+    "exact_start5_q_capacity_passed": true,
+    "direct_target_blind_provider_terminally_closed": true,
+    "owned_four_field_provider_terminally_closed": true,
+    "no_other_preregistered_q_successor_live": true,
+    "required_independent_v2_static_audits": 2,
+    "automatic_data_or_execution_authority": false
+  },
+  "physical_interface": {
+    "target_layers_zero_based": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "external_input_width": 24,
+    "native_input_width": 20,
+    "appended_fields": [
+      "pre_k4/sigma^4",
+      "((W^2).T@(raw2_univariate-diag(M11_pair_before_overwrite)))/sigma_target^2",
+      "diag(cp_pre_k21)/sigma^3",
+      "cp4_pre_provider_diagonal/sigma^4"
+    ],
+    "new_provider_split_coordinate_count": 3,
+    "exact_first_reset_e2_is_zero": true,
+    "inference_is_target_free": true,
+    "generic_source_identifiability_guarantee": false
+  },
+  "predictor": {
+    "architecture": "Linear(24,32)-ReLU-Linear(32,3)",
+    "parameter_count": 899,
+    "outputs": [
+      "(truth_pre_v-host_v)/sigma^2",
+      "(truth_pre_k3-host_k3)/sigma^3",
+      "(truth_pre_k4-host_k4)/sigma^4"
+    ],
+    "fit_networks": [100, 150, 200, 250, 300, 400, 500, 600, 650],
+    "held_network": 35,
+    "layers": 15,
+    "nodes_per_network": 15360,
+    "fit_nodes": 138240,
+    "input_normalization": "population mean/std on nine fit networks only",
+    "label_normalization": "component RMS on nine fit networks only",
+    "loss": "equal MSE on three standardized physical state gaps only",
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 4096,
+    "epochs": 64,
+    "optimizer_steps": 2176,
+    "schedule": "cosine decay over exactly 2176 steps",
+    "seed_hex": "0x56334",
+    "fixed_final_epoch": true,
+    "early_stopping_or_validation_selection": false,
+    "q_endpoint_residual_or_board_loss_weight": 0
+  },
+  "response": {
+    "starts_at_zero_based_layer": 1,
+    "initial_response_is_zero": true,
+    "first_transport_elided": true,
+    "map": "exact edg2_relu_mean bound to perfect-state source",
+    "component_sources_are_pure_v_k3_k4_substitutions": true,
+    "rank35_loo_betas_v_k3_k4": [
+      0.8273280548817595,
+      0.32346157239952833,
+      0.15489222117700333
+    ],
+    "recurrence": "r_l=phi_l*(r_(l-1)@W_l)+betaV*sV_l+beta3*s3_l+beta4*s4_l",
+    "exact_gap_predictions_reproduce_frozen_rank35_oracle_column": true
+  },
+  "rank35_one_shot_gate": {
+    "model_and_normalization_frozen_before_held_open": true,
+    "source_zero_byte_reproduces_pinned_parent": true,
+    "all_values_finite": true,
+    "minimum_combined_response_cosine": 0.983459,
+    "maximum_combined_response_rms_error": 0.00000379871,
+    "held_noise_corrected_mse_strictly_below": 1e-8,
+    "rank35_exact_oracle_corrected_mse": 7.153517343378912e-9,
+    "each_component_response_dot_exact_nonnegative": true,
+    "source_on_strictly_beats_source_zero_endpoint": true,
+    "retries": 0,
+    "retuning_subsets_layer_windows_or_larger_heads": false,
+    "on_fail": "CLOSE_EXACT_V34_V2_PROVIDER_SPLIT_HEAD_AND_SPELLING",
+    "on_pass": "REQUEST_BUT_DO_NOT_GRANT_REMAINING_NINE_LOO_EVALUATIONS"
+  },
+  "incremental_resource_shell_width1024": {
+    "variance_provider_w2_matvecs": 14,
+    "fused_response_w_matvecs": 14,
+    "exact_dense_action_flops": 58691584,
+    "exact_dense_action_gemm_equivalents": 0.02734375,
+    "head_affine_operations": 26542080,
+    "relu_comparisons": 491520,
+    "scalar_physical_response_reserve_operations": 4915200,
+    "total_arithmetic_upper": 90148864,
+    "total_arithmetic_gemm_equivalents_upper": 0.04199934355153884,
+    "total_operations_including_comparisons": 90640384,
+    "explicit_streaming_workspace_upper_bytes": 262144,
+    "parameter_bytes_float32": 3596
+  },
+  "audit_then_release_order": [
+    "freeze_v2_bytes",
+    "two_independent_static_audits",
+    "fit_only_release_for_nine_networks",
+    "single_fit_and_model_hash_freeze",
+    "exclusive_rank35_claim",
+    "one_held_sentinel",
+    "terminal_gate"
+  ],
+  "access_at_freeze": {
+    "target_rows_opened_or_decoded": 0,
+    "cache_rows_opened": 0,
+    "derived_feature_caches_created": 0,
+    "estimator_calls": 0,
+    "training_or_scoring_runs": 0,
+    "network_or_submission_calls": 0
+  },
+  "authority": {
+    "target": false,
+    "cache": false,
+    "execution": false,
+    "training": false,
+    "held_network": false,
+    "integration": false,
+    "meter": false,
+    "package": false,
+    "board": false,
+    "submission": false
+  }
+}

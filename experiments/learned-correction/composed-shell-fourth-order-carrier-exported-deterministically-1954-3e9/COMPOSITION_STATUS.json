@@ -1,0 +1,61 @@
+{
+  "schema": "deploy-composition-prep-status-v1",
+  "prepared": "2026-08-25",
+  "build": {
+    "status": "BUILT_AND_SMOKED",
+    "output": "estimator_composed.py",
+    "output_sha256": "60f0f5f4434f28504206833d27ab4da8e4ce82387ef49b86cee020b2c02f8d95",
+    "composition": "public_noeigh_card_v1/estimator.py (373ad4d5) + lambda3 shell (audited hunks, order grid adapted to the t7 trim) + rank-4 K22-residual carrier (REPLACEMENTS/APPENDED imported verbatim from build_estimator_k22r.py)",
+    "patches_applied": 16,
+    "every_anchor_asserted_unique": true,
+    "shell_preimages_asserted_identical_to_audited_base": true,
+    "adaptations": [
+      "A1 order-grid rows d=7,8,9 re-emitted as 7-term rows (7..13),(8..14),(9..15): the t7 trim fixes _Q24_TERMS=7 (einsum t-axis and _INV_FACTORIAL slice), so the probe's 25-term rows cannot transfer; max gather 15 <= 38, inside the untouched q<=38 coefficient table",
+      "A2 order-grid emitted in the trim builder's exact byte format so rows d=0..6 stay byte-identical to the trim card's grid; the probe's 25-term reflow of those rows is not ported",
+      "A3 the instrumented-x diff's conditional-repair Cholesky hunk is NOT ported: the no-eigh lineage deliberately removed the whole repair family; the shell is applied in its condrepair-free estimator_x spelling, which the X audit certifies byte-identical to the instrumented file's lambda3 hunks"
+    ]
+  },
+  "smoke_forward": {
+    "store_row_rank": 35,
+    "budget_context": 4398046511104,
+    "billed_flops": 1954299960565,
+    "deployment_budget_2pow41": 2199023255552,
+    "margin_to_2pow41": 244723294987,
+    "margin_fraction": 0.1113,
+    "under_target_2p16e12": true,
+    "under_deployment_budget_2pow41": true,
+    "finite": true,
+    "nonnegative": true,
+    "wall_seconds": 22.66,
+    "added_flops_vs_noeigh_card_approx": "1954.3e9 - ~1716e9 = ~238e9 (shell at 7 Mehler terms + rank-4 carrier)",
+    "note": "benign inherited warning: the K22 block's 'term = lam[rank_index] * (g_rank * g_rank)' auto-routes np.multiply to fnp.multiply (verbatim from the probe builder; billed, warning only)"
+  },
+  "export_pipeline": {
+    "status": "FOUND_NOT_RECONSTRUCTED",
+    "trainer": "public_full688_transport_energy_coherence_cv_v1/run_experiment.py (sha 1aedf41e, live) driven by the frozen 160/40 protocol in public_lambda3_native_pilot_v1/run_x_pilot.py / public_k22_pilot_v1/k22_refit_diagnostic.py",
+    "exporter": "public_q24_native_transport_energy_pilot_v1/deployment_prep/export_literal_payload.py (sha 1d96c49f, live)",
+    "splicer": "splice_payload.py (this package): replaces the _TRANSPORT_PAYLOAD block of an already-integrated card; imports extract/render from the audited exporter",
+    "selfchecks": {
+      "identity": "re-exporting the frozen payload's own source model (public_q24_native_transport_energy_final_v1/FINAL_MODEL.pt, sha 21ad1ded = the card's _TRANSPORT_MODEL_ARTIFACT_SHA256) and splicing reproduced estimator_composed.py byte-identical (sha 60f0f5f4)",
+      "replacement": "splicing public_lambda3_native_pilot_v1/PILOT_MODEL.pt produced a compiling card, payload block replaced, all other bytes identical, literal round-trip bit-exact",
+      "numerical_parity": "banked: deployment_prep REAL_ARTIFACT_EXPORT_RESULT.json (torch-vs-flopscope max abs err 1.75e-10, bit-exact literal roundtrip) and SYNTHETIC_PARITY_RESULT.json; the inference cell fragment inside the composed card is byte-identical to the verified cell (ef80f445)"
+    },
+    "playbook": "EXPORT_PLAYBOOK.md (steps A row generation, B frozen training, C export+splice, D post-splice smoke, with exact commands)"
+  },
+  "transport_payload_state": "estimator_composed.py still carries the no-eigh card's frozen payload (source model 21ad1ded); it is STALE for the composed host by construction and MUST be retrained per the playbook before deployment",
+  "files": {
+    "build_composed.py": "b59e36eb0ae3eb96dc73f35ded206d228962ea1e0d954a22dc080fd6892ca480",
+    "estimator_composed.py": "60f0f5f4434f28504206833d27ab4da8e4ce82387ef49b86cee020b2c02f8d95",
+    "run_one_forward.py": "4fb5b2cab251bfbfee4c13d84d54772ad220fd3e042d582e506bfe62e710fd45",
+    "splice_payload.py": "be411e9b693151ab94455a6f945145929de46e4baf55cab2cc98f5d846c2673d",
+    "EXPORT_PLAYBOOK.md": "7228a80c5b77fb846ce2497818feb6588509159297ebc9da33545a293facab48",
+    "BUILD_RECEIPT.json": "carries build + smoke blocks",
+    "smoke.log": "raw smoke output"
+  },
+  "blockers": [],
+  "notes": [
+    "nothing outside public_deploy_composition_prep_v1/ was modified; nothing submitted; sealed_role_target_bundle never opened",
+    "run_one_forward.py --source <path> re-smokes any spliced card; without --source it sha-checks and updates BUILD_RECEIPT.json",
+    "the corrector retrain is licensed only by the science probe reporting; rows must come from THIS composed host (training trajectory = deploy trajectory)"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "phase2-v34-v2r1-static-integration-scaffold-receipt-v2",
+  "date": "2026-08-31",
+  "status": "PASS_STATIC_SCAFFOLD__MC_SEED_REFERENCE_SUPERSEDED__PRODUCTION_HOLD",
+  "supersedes": {
+    "path": "V34_V2R1_INTEGRATION_SCAFFOLD_RECEIPT.json",
+    "sha256": "a8098ca621f881c8fc1110973cab05c58d147447b67544002a69168f7ea28018",
+    "reason": "The former MC seed preimage omitted raw_weights_sha256 and the A/B stream tag. Its raw block algebra remains reusable, but it cannot bind an MC, model, integration, or release artifact."
+  },
+  "bindings": {
+    "integration_contract_sha256": "c4666ca5b6ec6d5657b8f68c0bc6e81113ef53c76e9a4e26cef9405d5d83561d",
+    "assembler_sha256": "f3bf0d11d316fd44b82810aa44fbbe216772f638e88f550dc8469b183fac33f7",
+    "assembler_static_self_test_sha256": "1e6d9aeb5bad03a8ce758b68fa7311cffdea2e23d07fb2deb48a7db5a90aa0e2",
+    "nine_component_harness_self_test_sha256": "6ba44d37d44e2c32eb1751becddfdf1940dc055002c50a63ff0d03f34f842574",
+    "accepted_parent_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "literal_provider_source_sha256": "ace56bf60b267666e4f2a6d8ae772a089f234ebc725f34a4798b2f9e8284cbc2",
+    "provider_algebra_sha256": "17545cc2741838674ba87a870905ccf55902841cd121c47e96fb1651d3dbd3c6",
+    "panel_binding_sha256": "16c4eb19b095e52ea852319a2fb78e72f8431c5addd3b3025a29f342ddbbc193",
+    "final_static_audit_binding_sha256": "b4fe1dcefa89e43f756c5f4b77f435c4a47bef1f578fc925b184096faf03c3b7",
+    "direct_final_static_audit_sha256": "7ee0d55e5e115baee186e2ab381a2780aeee409dee33ce84a0fcdce9831d0a5f",
+    "block_statistics_reference_sha256": "fbf4fa55725aeaf9f3619884acb374891af3e3206094f8d3b028162a0604dc8a",
+    "block_statistics_verifier_sha256": "e8dcb7206b7b670bec2171d90eb9415728a93f7e8cfe693dbdbe9c762d88d572",
+    "block_statistics_receipt_sha256": "55256bec00497cc0c7940c8db4a4d092d621db5b97c389b4962cf2e41142a2d7"
+  },
+  "superseded_mc_seed_reference": {
+    "status": "CLOSED_SEED_DOMAIN_LAW__RAW_BLOCK_ALGEBRA_ONLY",
+    "historical_mc_block_reference_sha256": "219bd7cd5b0b2670d2244a68e6e6a789879a7399a15278bf01715b304520d6e0",
+    "historical_verifier_sha256": "918af340dadec7b5175001dc55493c7bdf6f8d253c651b2256a1480107575dad",
+    "historical_receipt_sha256": "b10b8fb10335a17a89200eacf9489a06d99d2e29edf1a802bdb42c78e2d833c5",
+    "raw_block_summary_algebra_reusable": true,
+    "seed_domain_or_release_binding_reusable": false,
+    "corrected_generator_reference_verifier_hashes_pending": true
+  },
+  "verified": {
+    "architecture": "Linear(24,32)-ReLU-Linear(32,3)",
+    "trainable_float32_values": 899,
+    "normalizer_float32_values": 51,
+    "shipping_float32_values": 950,
+    "shipping_uncompressed_bytes": 3800,
+    "capture_anchor_ast_lineage": true,
+    "source_zero_synthetic_output_bytes_identical": true,
+    "deterministic_one_file_source_overlay_and_receipt": true,
+    "assembled_source_ast_no_environment_sibling_or_file_reads": true,
+    "nonpassing_full_panel_release_rejected": true,
+    "tensor_hash_drift_rejected": true,
+    "pinned_baseline_stage_and_whest_validate": true,
+    "nine_component_harness_self_tests": "PASS"
+  },
+  "resource_shell": {
+    "incremental_arithmetic_upper": 90148864,
+    "relu_comparisons": 491520,
+    "total_operations_including_comparisons": 90640384,
+    "dense_gemm_equivalents_upper": 0.04199934355153884,
+    "explicit_streaming_workspace_upper_bytes": 262144,
+    "required_measurement_order_global_ranks": [35, 279, 35],
+    "measured_on_candidate_release_bytes": false
+  },
+  "production_gate": {
+    "required_release_schema": "phase2-v34-v2r1-full-panel-integration-release-v1",
+    "required_release_status": "PASS_ALL_FOUR_AND_AGGREGATE__STATIC_ONE_FILE_BUILD_ALLOWED",
+    "missing_corrected_mc_generator_reference_and_verifier": true,
+    "missing_model_payload_and_export": true,
+    "missing_frozen_capture_runtime_overlay": true,
+    "missing_runtime_source_zero_parity_receipt": true,
+    "missing_full_four_row_and_aggregate_terminal_result": true,
+    "real_one_file_build_rejected_until_all_are_present": true
+  },
+  "scope": {
+    "estimator_imports": 0,
+    "candidate_prediction_calls": 0,
+    "public_target_rows_opened": 0,
+    "candidate_resource_calls": 0,
+    "public_score_calls": 0,
+    "packages_created": 0,
+    "network_actions": 0,
+    "submission_actions": 0
+  },
+  "authority": {
+    "static_scaffold": true,
+    "production_source_build": false,
+    "stage": false,
+    "candidate_whest_validation": false,
+    "resource": false,
+    "score": false,
+    "release": false,
+    "package": false,
+    "board": false,
+    "submission": false
+  }
+}

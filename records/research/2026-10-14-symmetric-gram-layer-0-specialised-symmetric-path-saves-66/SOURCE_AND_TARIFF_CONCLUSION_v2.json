@@ -1,0 +1,154 @@
+{
+  "status": "SOURCE_TARIFF_AUDIT_COMPLETE_SMALL_NONBITEXACT_OPTION_RETAINED",
+  "utc": "2026-10-14T07:52:01Z",
+  "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/s56ubq1tw_x/candidate.py",
+  "parent_sha256": "c149e5800751892eb4d203341154ab2444e824a067ffaf791293a49e035ca0a3",
+  "active_scope": {
+    "raw_predict_line": 3220,
+    "L0_call_line": 3272,
+    "resident_definition_line": 2220,
+    "calls_per_prediction": 1,
+    "FULL_LOWER_MOMENTS": true,
+    "other_calls": "One obsolete predict definition at1803 plus two _cov_compact definitions (earlier obsolete; final compact fallback inactive because current FULL_LOWER_MOMENTS=True). No broad all-layer Gram multiplier."
+  },
+  "source_segments": {
+    "_mm": {
+      "line": 12913,
+      "end_line": 12922,
+      "source_segment_sha256": "b1a48b7a69a8a6a0b952a22934a7da70e0a0420ce9fe4d4b3a5be3035fe908aa"
+    },
+    "_resident_gram512": {
+      "line": 2220,
+      "end_line": 2232,
+      "source_segment_sha256": "f8000879e5caf6999548db1a9c076328e5f911e0d9eecaa2b36ef4b9db79f959"
+    },
+    "_psd_sym_tile": {
+      "line": 12996,
+      "end_line": 13009,
+      "source_segment_sha256": "736ae692b04e3b83d2d3ff04853232f7b62b65695cca3032d97f87ae8cea9a7c"
+    },
+    "_psdb_sym_upper": {
+      "line": 9441,
+      "end_line": 9459,
+      "source_segment_sha256": "cfb99164191275a6c81742a8fd6596481cbd371e1259c15c134d5b76fdc34012"
+    },
+    "_psdm_group": {
+      "line": 13313,
+      "end_line": 13346,
+      "source_segment_sha256": "91c8d416e4a7301ad3f46994bbcd4d1dba3e3a25e55d177f0f3c514516cc2b90"
+    },
+    "_psdm_sym_upper": {
+      "line": 13349,
+      "end_line": 13361,
+      "source_segment_sha256": "fcf5856bb298c2a9d7fc0f1862c49d88557015de796f35c1ebcb9ccdadf0aa40"
+    }
+  },
+  "prior_history": {
+    "TEAM_LOG_line": 1517,
+    "line_sha256": "df2c77021e222922d5700913b706ba07a7e9d3b3f371143da08170a89c14163a",
+    "summary": "Engineer current S50 census reports resident Gram0.33% bill and4x4mirror\u22480.04%; generic covariance symmetric-tile refinements were previously unhelpful after XSDM. This L0 substitution is a distinct small arithmetic route, not a demonstrated0.2% lever."
+  },
+  "strongest_bounded_variant": "At L0 only, replace existing resident3-block Gram with existing _psdb_sym_upper(w32.T,w32); keeps exact real-arithmetic W.TW, same outputshape/dtype, existing scratch and already-required PB symmetric keys. No fragment or native protocol built.",
+  "comparisons": [
+    {
+      "phase": "cold",
+      "resident_bill": 886025472,
+      "psdb_bill": 819111232,
+      "saved": 66914240,
+      "percent_of_257G": 0.02603666926070039,
+      "request_delta": 272
+    },
+    {
+      "phase": "repeat",
+      "resident_bill": 845035456,
+      "psdb_bill": 707124192,
+      "saved": 137911264,
+      "percent_of_257G": 0.053661970428015564,
+      "request_delta": 141
+    }
+  ],
+  "rejected_naive_grids": {
+    "grid256": [
+      {
+        "phase": "cold",
+        "bill": 1342570496,
+        "ops": 27,
+        "shape": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "phase": "repeat",
+        "bill": 1342570496,
+        "ops": 27,
+        "shape": [
+          1024,
+          1024
+        ]
+      }
+    ],
+    "grid128": [
+      {
+        "phase": "cold",
+        "bill": 1208418304,
+        "ops": 101,
+        "shape": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "phase": "repeat",
+        "bill": 1208418304,
+        "ops": 101,
+        "shape": [
+          1024,
+          1024
+        ]
+      }
+    ]
+  },
+  "further_diagonal_only_optimistic_ceiling": [
+    {
+      "phase": "cold",
+      "unchanged_three_offdiagonal_tiles": 516873408,
+      "even_free_diagonal_groups_saving_max": 369152064,
+      "percent_of_257G": 0.14363893540856032,
+      "not_feasible_gain_claim": true
+    },
+    {
+      "phase": "repeat",
+      "unchanged_three_offdiagonal_tiles": 446744736,
+      "even_free_diagonal_groups_saving_max": 398290720,
+      "percent_of_257G": 0.15497693385214006,
+      "not_feasible_gain_claim": true
+    }
+  ],
+  "rounding": "Not bitexact: altered Strassen transform/partition/mirroring order. New prospective arithmetic/native accuracy qualification required; no old failed-arm reuse, no current gain claim.",
+  "tariff_limitations": [
+    "Shape-only currentFNP counters; cold and repeated cache states, not an actual setup/predict certificate.",
+    "Existing fine-tile function uses specialised P4/Strassen products; naive _mm256/128 grids fall to more expensive admitted routes.",
+    "Full production setup/cold/prebound cache effects, floating accuracy and wall remain unmeasured.",
+    "Frozen standalone c149 parent already includes bank/quarter compute. Further independent GTR/IOP cuts do not alter these L0 functions, but composition requires exact current-source rebasing."
+  ],
+  "native_or_model_evaluations": 0,
+  "prediction_or_truth_arrays_read": false,
+  "metadata_numerical_payload_max": 304,
+  "requests_or_allocations_created": false,
+  "probe_pins": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/METADATA_TARIFF_psdm_v1.json": "bb7da4fd3d50ede72cfaac6c12c9f0ea08018ada900a29944491850dd58b8be9",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/METADATA_TARIFF_psdb_components_v2.json": "ee58dd93795085f8c4203f77a625a529f738d836f341c50497a57b1a9bb8dfb6",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/METADATA_TARIFF_grid128_v1.json": "f6b8f0da284f2b1845d23872c581c03f3564867a1c4288a7a93159704a80c99b",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/METADATA_TARIFF_resident_v1.json": "679dc89ac95943e8d6b7dc357ec4cf9b36ddbf89833ce62a366149094f98681d",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/METADATA_TARIFF_grid256_v1.json": "42aa437ac4d6ef01f44681f57f130471825c1e38e188d2c6d624c8101c2282d7",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/METADATA_TARIFF_psdb_v1.json": "e5fe46e51121bc6556f07da81eb6a8e49ed91f387dc2915051842f4a4362e377",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/shape_tariff_probe_v1.py": "19b874a0f34d35d8c988df558e392c9484497104a022043fd5ec4c40ca903c8c",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/shape_tariff_probe_v2.py": "29718225a7961135602649f9ed1080becc9a818979d4acce91983f971e28f5ef"
+  },
+  "supersedes": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_l0_gram_symmetry_audit_v1/SOURCE_AND_TARIFF_CONCLUSION_v1.json",
+    "sha256": "a7d9e76bca0135e4ed87ad65aa522974deca71174479d81a55be136b8b8c1448",
+    "scope": "Correct descriptive inactive-call count only; source/tariff evidence unchanged."
+  }
+}

@@ -1,0 +1,40 @@
+{
+ "schema": "gate0-source-class-pricing-v1",
+ "bar": {
+  "endpoint_capture_required": 0.83805,
+  "q_innovation_rms_per_unit_l10_15": 7.486500211449564e-05,
+  "max_allowed_source_noise_se": 3.012793164677384e-05,
+  "note": "most generous read: ALL residual error budget spent as estimator noise; learning assumed perfect"
+ },
+ "class_1_sampled_order1": {
+  "per_unit_activation_sd_measured": 0.27386127875258304,
+  "paths_at_full_budget_zero_host": 69905.06666666667,
+  "se_at_full_budget": 0.0010358009490037319,
+  "se_deficit_x": 34.38008825656133,
+  "flops_deficit_x_at_1_over_P": 1181.9904685289462,
+  "with_measured_vr_1p62x": 729.6237460055223,
+  "with_oracle_deg2_surrogate": 414.4262877311367,
+  "with_free_oracle_deg64_surrogate": 33.09573311881049,
+  "verdict": "CLOSED: order-1 (minimum-variance sampled observable) needs >=33x full budget even under the unbuildable free degree-64 oracle surrogate, with the entire budget given to the source and none to the host"
+ },
+ "class_2_sampled_higher_order": {
+  "k6_measured_paths_deficit_x": 323.55000000000007,
+  "verdict": "CLOSED: per-path variance grows with observable order; measured anchor K6 at 324x gate deficit (0/315 cells); order 2-5 sits between order-1 (>=1193x raw) and K6"
+ },
+ "class_3_sampled_cv_hybrids": {
+  "measured_oracle_floor_mse": 2.85e-08,
+  "verdict": "CLOSED: floor 2.85e-8 >> 1e-8 with oracle surrogates (quadrature receipt, matched predictions)"
+ },
+ "class_4_deterministic_tapes": {
+  "best_actual_endpoint_fraction": 0.005,
+  "best_truth_oracle_fraction": 0.105,
+  "verdict": "CLOSED: two independent estimator lineages measure <=0.5% actual, 10.5% oracle ceiling vs 83.8% required"
+ },
+ "provenance": {
+  "q_innovation": "p2r0g6_native_j_physical_local_oracle_v1/RESULT.json (per_layer_local_q_minus_qJ_mse)",
+  "vbar_sigma": "public_quadrature_derivation_v1/QUADRATURE_VERDICT.json (measured vbar 6.4-8.6e-2, VR race, oracle surrogate captures, CV floor)",
+  "k6_screen": "public_support3_screen_science_v1/SCREEN_RESULT.json",
+  "det_tapes": "public_q24_signed_pair_v4r2_enriched_j_pair_factorial_decomposition_audit_v1 (054d09bb) + public_full688_rank16_cross_unit_covariance_cv_v1 N_VS_J decomposition (10.535% oracle)"
+ },
+ "external_constraint": "Raw <1e-8 through the enriched-J lane requires a target-blind source carrying >=83.805% of the late-q innovation variance at the endpoint. Every known source super-class is measured out: deterministic tapes (<=0.5% actual, 10.5% oracle), sampled path statistics at any order (>=33x full budget at oracle variance-reduction ceilings; order-1 is the minimum-variance sampled observable), sampled control-variate hybrids (2.85e-8 floor), and the specific support>=3 K6 replica source (0/315). Reopening requires either an exact analytic late-layer propagation advance (the blocked P2R0F3B family's named external theorems) or a certified sampled/deterministic representation with >=1000x better per-flop information about the activation law than independent path sampling. No such object is known."
+}

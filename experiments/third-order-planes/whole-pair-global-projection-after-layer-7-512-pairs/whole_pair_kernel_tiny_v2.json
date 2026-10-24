@@ -1,0 +1,207 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "fixture": "dense_signed",
+      "active_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "passed": true,
+      "gates": {
+        "selection": true,
+        "norms": true,
+        "gram64": true,
+        "cross32": true,
+        "coefficients": true,
+        "repeated": true,
+        "query": true,
+        "stored_physical_factors": true,
+        "paired_weights": true,
+        "newborn_p": true,
+        "newborn_weights": true,
+        "newborn_offset": true,
+        "newborn_fields": true,
+        "cold_star": true,
+        "finite": true
+      },
+      "checks": {
+        "norms_relative": 6.040425907657078e-16,
+        "gram64_relative": 6.131018489366481e-16,
+        "cross32_relative": 1.5500586052889743e-07,
+        "rhs32_relative": 2.6466438719023266e-07,
+        "physical_coefficient_relative": 4.170117290434124e-06,
+        "repeated_tensor_relative": 7.315764834253919e-08,
+        "query_repeated_relative": 9.450842338876352e-08,
+        "ridge_objective_actual": 1.1189763213810464,
+        "ridge_objective_reference": 1.1189763213753412
+      },
+      "total_native_flops": 44618,
+      "inclusive_function_flops": {
+        "_gpk_norms": [
+          2981
+        ],
+        "_gpk_kernel": [
+          15732,
+          10512
+        ],
+        "_gpk_solve": [
+          35255
+        ],
+        "_gpk_plane": [
+          4124,
+          1788
+        ]
+      },
+      "selected_indices": [
+        1,
+        3,
+        6,
+        13,
+        8,
+        2
+      ],
+      "reference_selected_indices": [
+        1,
+        3,
+        6,
+        13,
+        8,
+        2
+      ],
+      "normalized_reference_gram_condition": 14.611392116196383,
+      "input_sha256": "f0c4233e1d5924021f54d91ec0d030d474bbfc53ba83d52633b8082a61507c19"
+    },
+    {
+      "fixture": "correlated_signed",
+      "active_indices": [
+        2,
+        5,
+        6,
+        3,
+        7,
+        1
+      ],
+      "passed": true,
+      "gates": {
+        "selection": true,
+        "norms": true,
+        "gram64": true,
+        "cross32": true,
+        "coefficients": true,
+        "repeated": true,
+        "query": true,
+        "stored_physical_factors": true,
+        "paired_weights": true,
+        "newborn_p": true,
+        "newborn_weights": true,
+        "newborn_offset": true,
+        "newborn_fields": true,
+        "cold_star": true,
+        "finite": true
+      },
+      "checks": {
+        "norms_relative": 2.6561751531213956e-16,
+        "gram64_relative": 2.4950701317761715e-16,
+        "cross32_relative": 1.3272316843206832e-07,
+        "rhs32_relative": 2.986635241988723e-07,
+        "physical_coefficient_relative": 5.52566211422985e-07,
+        "repeated_tensor_relative": 5.216331783339921e-07,
+        "query_repeated_relative": 2.803358581894924e-07,
+        "ridge_objective_actual": 0.04063822475333017,
+        "ridge_objective_reference": 0.04063822475326846
+      },
+      "total_native_flops": 44618,
+      "inclusive_function_flops": {
+        "_gpk_norms": [
+          2981
+        ],
+        "_gpk_kernel": [
+          15732,
+          10512
+        ],
+        "_gpk_solve": [
+          35255
+        ],
+        "_gpk_plane": [
+          4124,
+          1788
+        ]
+      },
+      "selected_indices": [
+        7,
+        1,
+        3,
+        6,
+        12,
+        5
+      ],
+      "reference_selected_indices": [
+        7,
+        1,
+        3,
+        6,
+        12,
+        5
+      ],
+      "normalized_reference_gram_condition": 13.897478058983156,
+      "input_sha256": "985db76b3d857e751c9150acdc2befe5a2fb365c989b3a5dd04ea94016d5fbd3"
+    }
+  ],
+  "failure": null,
+  "seals_before": {
+    "qualify_whole_pair_kernel_tiny_v2.py": "cce2a7c3fb30d5822ff65c04179af76cea972200154517a466e146bc9d367526",
+    "whole_pair_kernel_core_v1.py": "86c51be6d15f8b1c8bce463a4fb649c4974a339b5bebb20b7592669075620654",
+    "WHOLE_PAIR_KERNEL_FIXED_PILOT_PROTOCOL_V1.md": "b6b08db3cf5b203383b3f046bc76e40a91c9cac3742132caf4e96d304588c08d",
+    "WHOLE_PAIR_KERNEL_STATIC_REVIEW_V1.md": "82e2e3b90bfc9e4172b7b6ef18adb53265d7cfb6fd5e13a8e7b04884629e3161",
+    "WHOLE_PAIR_KERNEL_TINY_V2_PREEXECUTION.md": "38cc3cab44a6d5cb64fd448cd05f81ac9ed505fc162a937e88f9e06cc0c44792"
+  },
+  "blas_env": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "nice": 10,
+  "versions": {
+    "flopscope": "0.12.0",
+    "numpy": "2.4.6"
+  },
+  "interpreter": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+  "boundaries": {
+    "passed": true,
+    "tests": [
+      {
+        "case": "ties_and_duplicate_dictionary",
+        "passed": true,
+        "physical_coefficient_relative": 2.479553222116609e-08
+      },
+      {
+        "case": "zero_distinct_rejected",
+        "passed": true
+      },
+      {
+        "case": "near_cancellation_original_cubes",
+        "passed": true,
+        "norm_relative": 0.0,
+        "physical_coefficient_relative": 8.684396740388234e-08
+      }
+    ],
+    "total_native_flops": 6818
+  },
+  "seals_after": {
+    "qualify_whole_pair_kernel_tiny_v2.py": "cce2a7c3fb30d5822ff65c04179af76cea972200154517a466e146bc9d367526",
+    "whole_pair_kernel_core_v1.py": "86c51be6d15f8b1c8bce463a4fb649c4974a339b5bebb20b7592669075620654",
+    "WHOLE_PAIR_KERNEL_FIXED_PILOT_PROTOCOL_V1.md": "b6b08db3cf5b203383b3f046bc76e40a91c9cac3742132caf4e96d304588c08d",
+    "WHOLE_PAIR_KERNEL_STATIC_REVIEW_V1.md": "82e2e3b90bfc9e4172b7b6ef18adb53265d7cfb6fd5e13a8e7b04884629e3161",
+    "WHOLE_PAIR_KERNEL_TINY_V2_PREEXECUTION.md": "38cc3cab44a6d5cb64fd448cd05f81ac9ed505fc162a937e88f9e06cc0c44792"
+  },
+  "seals_unchanged": true,
+  "wall_s": 0.08652687072753906,
+  "peak_rss_bytes": 50069504,
+  "completed_utc": "2026-09-07T09:42:42.398620+00:00",
+  "qualification": "Fixed synthetic original-cube implementation/API certificate only. No P2 state, targets, raw/adjusted score, native candidate bill or production runtime."
+}

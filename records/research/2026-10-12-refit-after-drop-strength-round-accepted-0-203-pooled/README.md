@@ -1,0 +1,371 @@
+# Refit-after-drop strength round accepted: -0.203% pooled check and -0.379% sealed MSE
+
+2026-10-12T05:31Z · decision · adopted · measured
+
+Twenty-one strength arms sized on all 64 of A39 gave a borderline check (-0.085%); the pre-written reserve rule pooled a second fresh 32 (-0.325%) and accepted; the sealed stage 2 confirmed -0.379%, so the candidate generation 50 (S50) twin and safe submitted.
+
+Recorded measurement:
+
+    check A40 520-551 -0.085% (se 0.102, 18/32); reserve A38 -0.325% (se 0.109, 21/32); pooled 64 -0.203% (se 0.076, -2.7 se); sealed A40 552-583 -0.379% (se 0.109, 25/32)
+
+## Programs
+
+- [candidate.py](candidate.py)
+- [../../../experiments/third-order-planes/aligning-pair-precision-covariance-arithmetic-still-fails-fidelity-maximum/code/astra_phase2_reexamination_v1/current_shared384_causal_p_v1/shared_operator.py](../../../experiments/third-order-planes/aligning-pair-precision-covariance-arithmetic-still-fails-fidelity-maximum/code/astra_phase2_reexamination_v1/current_shared384_causal_p_v1/shared_operator.py)
+- [../../../experiments/learned-correction/covariance-edge-refit-passes-native40-but-fails-independent-public8/code/codex_resume_20260919_v1/current_full_lower_p_allocator_v1/allocator.py](../../../experiments/learned-correction/covariance-edge-refit-passes-native40-but-fails-independent-public8/code/codex_resume_20260919_v1/current_full_lower_p_allocator_v1/allocator.py)
+- [../../../submissions/331824/estimator.py](../../../submissions/331824/estimator.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/common.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/common.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/guard.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/guard.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/native.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/native.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/qualify.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/qualify.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/records.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/records.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/retirement.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/retirement.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/run.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/run.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_implementation_v1/zero.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_implementation_v1/zero.py)
+
+<details>
+<summary>Additional programs and dependencies (39)</summary>
+
+- [../../../experiments/moment-propagation/consumer-constrained-rank-32-star-basis-increases-adjusted-error/code/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py](../../../experiments/moment-propagation/consumer-constrained-rank-32-star-basis-increases-adjusted-error/code/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py)
+- [../../../instruments/composite-estimator-builder-verifies-gain-correction-plane-scale-join/code/fable_analyst_v1/s2card.py](../../../instruments/composite-estimator-builder-verifies-gain-correction-plane-scale-join/code/fable_analyst_v1/s2card.py)
+- [../2026-09-23-training-normalization-constants-caused-70-loss-spike-network-weight/s6bcard.py](../2026-09-23-training-normalization-constants-caused-70-loss-spike-network-weight/s6bcard.py)
+- [../2026-09-23-partial-truth-plane-correction-outperforms-full-replacement-kink-row/covstep.py](../2026-09-23-partial-truth-plane-correction-outperforms-full-replacement-kink-row/covstep.py)
+- [../../../experiments/dials/extra-kink-row-carrier-scales-add-no-useful-gain/code/fable_covhunter_v1/covstep_s2.py](../../../experiments/dials/extra-kink-row-carrier-scales-add-no-useful-gain/code/fable_covhunter_v1/covstep_s2.py)
+- [../../../experiments/late-layer-exactness/local-final-layer-error-prediction-null-held-out-r/code/fable_covhunter_v1/gn3_knobs.py](../../../experiments/late-layer-exactness/local-final-layer-error-prediction-null-held-out-r/code/fable_covhunter_v1/gn3_knobs.py)
+- [../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_covhunter_v1/s6bcard_joint2.py](../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_covhunter_v1/s6bcard_joint2.py)
+- [../../../experiments/dials/third-dial-fit-round-nystrom-structure-null-sixteen-network/code/fable_covhunter_v1/s6bcard_joint2t.py](../../../experiments/dials/third-dial-fit-round-nystrom-structure-null-sixteen-network/code/fable_covhunter_v1/s6bcard_joint2t.py)
+- [../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_engineer_v1/gn_linear_hook.py](../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_engineer_v1/gn_linear_hook.py)
+- [../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_engineer_v1/join_nystrom_torch.py](../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_engineer_v1/join_nystrom_torch.py)
+- [../../../instruments/termwise-hermite-pair-series-implementation-reduces-training-intermediates-small/code/pair_series_torch.py](../../../instruments/termwise-hermite-pair-series-implementation-reduces-training-intermediates-small/code/pair_series_torch.py)
+- [../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_physicist_v1/refit6b/lrstar_s1zero_hook.py](../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_physicist_v1/refit6b/lrstar_s1zero_hook.py)
+- [../../../experiments/learned-correction/training-reduced-join-rank-fails-show-specific-co-adaptation/code/fable_physicist_v1/refit6b/s6bcard_loop5js.py](../../../experiments/learned-correction/training-reduced-join-rank-fails-show-specific-co-adaptation/code/fable_physicist_v1/refit6b/s6bcard_loop5js.py)
+- [../../../experiments/third-order-planes/nystrom-residual-plane-range-finder-needs-power-iteration-without/code/fable_porter_v1/star_nys_test.py](../../../experiments/third-order-planes/nystrom-residual-plane-range-finder-needs-power-iteration-without/code/fable_porter_v1/star_nys_test.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/fable_refit_v1/common.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/fable_refit_v1/common.py)
+- [../2026-09-23-rank-one-covariancemean-gain-mixture-explains-6368-2-1/model_bank_bfix.py](../2026-09-23-rank-one-covariancemean-gain-mixture-explains-6368-2-1/model_bank_bfix.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/fable_refit_v1/model_bank_research.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/fable_refit_v1/model_bank_research.py)
+- [../../../instruments/fresh-network-truth-generator-matches-organizer-results-after-masking/code/loader.py](../../../instruments/fresh-network-truth-generator-matches-organizer-results-after-masking/code/loader.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/n6y_cutsim_v2.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/n6y_cutsim_v2.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/pbase_cutsim_v1.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/pbase_cutsim_v1.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_cutsim_s46_v11.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_cutsim_s46_v11.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_push_native_v2.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_push_native_v2.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_rowcuts_v15.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_rowcuts_v15.py)
+- [../../../experiments/learned-correction/least-squares-correction-refits-improve-unseen-error-0-170/code/opus_reexam_20261001_v1/engineer/a33_starsum/star_ss_torch.py](../../../experiments/learned-correction/least-squares-correction-refits-improve-unseen-error-0-170/code/opus_reexam_20261001_v1/engineer/a33_starsum/star_ss_torch.py)
+- [../2026-10-11-one-direction-covariance-star-adopted-0-26-mse-0/star_ss_torch_v2.py](../2026-10-11-one-direction-covariance-star-adopted-0-26-mse-0/star_ss_torch_v2.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/b6cols.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/b6cols.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/b7cols.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/b7cols.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/f4b.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/f4b.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/ncar_bank_frozen_s2s.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/ncar_bank_frozen_s2s.py)
+- [../../../experiments/learned-correction/continued-training-lowers-held-out-error-only-0-240/code/otr_common.py](../../../experiments/learned-correction/continued-training-lowers-held-out-error-only-0-240/code/otr_common.py)
+- [../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_cut_runtime_v2.py](../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_cut_runtime_v2.py)
+- [../../../experiments/learned-correction/least-squares-correction-refits-improve-unseen-error-0-170/code/opus_reexam_20261001_v1/trainer/otr_engine.py](../../../experiments/learned-correction/least-squares-correction-refits-improve-unseen-error-0-170/code/opus_reexam_20261001_v1/trainer/otr_engine.py)
+- [../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_generated_manifest_v1.py](../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_generated_manifest_v1.py)
+- [../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_generated_v1.py](../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_generated_v1.py)
+- [../2026-10-11-research-native-parity-column-cut-covariance-star-strength-literals/otr_generated_v2.py](../2026-10-11-research-native-parity-column-cut-covariance-star-strength-literals/otr_generated_v2.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/trainer/otr_m.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/trainer/otr_m.py)
+- [../2026-10-12-queue-claim-race-kills-three-four-refit-workers-vanished/otr_m_v5.py](../2026-10-12-queue-claim-race-kills-three-four-refit-workers-vanished/otr_m_v5.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/trainer/otr_pl.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/trainer/otr_pl.py)
+- [../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker_generated_v11.py](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker_generated_v11.py)
+
+</details>
+
+## Evidence
+
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1226](../../TEAM_LOG_2026-10-01_to_10-22.md#L1226)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1229](../../TEAM_LOG_2026-10-01_to_10-22.md#L1229)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1303](../../TEAM_LOG_2026-10-01_to_10-22.md#L1303)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1313](../../TEAM_LOG_2026-10-01_to_10-22.md#L1313)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1317](../../TEAM_LOG_2026-10-01_to_10-22.md#L1317)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1323](../../TEAM_LOG_2026-10-01_to_10-22.md#L1323)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1330](../../TEAM_LOG_2026-10-01_to_10-22.md#L1330)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1331](../../TEAM_LOG_2026-10-01_to_10-22.md#L1331)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1363](../../TEAM_LOG_2026-10-01_to_10-22.md#L1363)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1365](../../TEAM_LOG_2026-10-01_to_10-22.md#L1365)
+
+<details>
+<summary>All result files and records (272)</summary>
+
+- [FROZEN_POINT_v1.json](FROZEN_POINT_v1.json) · record
+- [CHECK_VERDICT_v1.json](CHECK_VERDICT_v1.json) · record
+- [RESERVE_RULE_v1.json](RESERVE_RULE_v1.json) · record
+- [RESERVE_VERDICT_v1.json](RESERVE_VERDICT_v1.json) · record
+- [manifest.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/manifest.json) · result
+- [COMPLETE.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE.json) · result
+- [STARTED.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED.json) · result
+- [allowed_seeds.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds.txt) · result
+- [STARTED-ebf3e811.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-ebf3e811.json) · result
+- [worker.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker.log) · log
+- [t85_0_baseline_r7100552.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100552.w0.json) · result
+- [t85_1_candidate_r7100552.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100552.w0.json) · result
+- [t85_0_baseline_r7100552.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100552.json) · result
+- [t85_1_candidate_r7100552.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100552.json) · result
+- [worker-29a98910.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-29a98910.log) · log
+- [COMPLETE-b4409d96.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-b4409d96.json) · result
+- [STARTED-5633da69.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-5633da69.json) · result
+- [allowed_seeds-f9d7b33b.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-f9d7b33b.txt) · result
+- [STARTED-c841f061.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-c841f061.json) · result
+- [t85_0_baseline_r7100553.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100553.json) · result
+- [worker-0bda62e9.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-0bda62e9.log) · log
+- [t85_0_baseline_r7100553.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100553.w0.json) · result
+- [t85_1_candidate_r7100553.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100553.w0.json) · result
+- [t85_0_baseline_r7100553-fe8e45f0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100553-fe8e45f0.json) · result
+- [t85_1_candidate_r7100553.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100553.json) · result
+- [worker-410580b7.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-410580b7.log) · log
+- [COMPLETE-22ad9162.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-22ad9162.json) · result
+- [STARTED-49b28764.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-49b28764.json) · result
+- [allowed_seeds-d886c1bf.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-d886c1bf.txt) · result
+- [t85_0_baseline_r7100554.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100554.w0.json) · result
+- [t85_1_candidate_r7100554.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100554.w0.json) · result
+- [t85_0_baseline_r7100554.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100554.json) · result
+- [t85_1_candidate_r7100554.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100554.json) · result
+- [worker-164900ed.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-164900ed.log) · log
+- [COMPLETE-3241635f.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-3241635f.json) · result
+- [STARTED-12f628b5.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-12f628b5.json) · result
+- [allowed_seeds-5da8396a.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-5da8396a.txt) · result
+- [t85_0_baseline_r7100555.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100555.w0.json) · result
+- [t85_1_candidate_r7100555.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100555.w0.json) · result
+- [t85_0_baseline_r7100555.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100555.json) · result
+- [t85_1_candidate_r7100555.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100555.json) · result
+- [worker-460a21c8.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-460a21c8.log) · log
+- [COMPLETE-42506ac4.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-42506ac4.json) · result
+- [STARTED-597185a0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-597185a0.json) · result
+- [allowed_seeds-a153e348.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-a153e348.txt) · result
+- [t85_0_baseline_r7100556.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100556.w0.json) · result
+- [t85_1_candidate_r7100556.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100556.w0.json) · result
+- [t85_0_baseline_r7100556.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100556.json) · result
+- [t85_1_candidate_r7100556.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100556.json) · result
+- [worker-74594440.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-74594440.log) · log
+- [COMPLETE-496115c7.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-496115c7.json) · result
+- [STARTED-8d4b4ffc.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-8d4b4ffc.json) · result
+- [allowed_seeds-e7cc1a6c.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-e7cc1a6c.txt) · result
+- [t85_0_baseline_r7100557.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100557.w0.json) · result
+- [t85_1_candidate_r7100557.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100557.w0.json) · result
+- [t85_0_baseline_r7100557.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100557.json) · result
+- [t85_1_candidate_r7100557.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100557.json) · result
+- [worker-6f78e1ed.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-6f78e1ed.log) · log
+- [COMPLETE-063e3ba1.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-063e3ba1.json) · result
+- [STARTED-abe48c9d.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-abe48c9d.json) · result
+- [allowed_seeds-bb9590a8.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-bb9590a8.txt) · result
+- [t85_0_baseline_r7100558.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100558.w0.json) · result
+- [t85_1_candidate_r7100558.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100558.w0.json) · result
+- [t85_0_baseline_r7100558.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100558.json) · result
+- [t85_1_candidate_r7100558.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100558.json) · result
+- [worker-6f6cf36e.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-6f6cf36e.log) · log
+- [COMPLETE-7a5f92d8.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-7a5f92d8.json) · result
+- [STARTED-01408f5c.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-01408f5c.json) · result
+- [allowed_seeds-57e477a7.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-57e477a7.txt) · result
+- [t85_0_baseline_r7100559.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100559.w0.json) · result
+- [t85_1_candidate_r7100559.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100559.w0.json) · result
+- [t85_0_baseline_r7100559.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100559.json) · result
+- [t85_1_candidate_r7100559.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100559.json) · result
+- [worker-67d5f2ed.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-67d5f2ed.log) · log
+- [COMPLETE-c450928c.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-c450928c.json) · result
+- [STARTED-a3ecc860.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-a3ecc860.json) · result
+- [allowed_seeds-0c3bdf8c.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-0c3bdf8c.txt) · result
+- [t85_0_baseline_r7100560.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100560.w0.json) · result
+- [t85_1_candidate_r7100560.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100560.w0.json) · result
+- [t85_0_baseline_r7100560.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100560.json) · result
+- [t85_1_candidate_r7100560.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100560.json) · result
+- [worker-40e0050a.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-40e0050a.log) · log
+- [COMPLETE-f9a1321b.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-f9a1321b.json) · result
+- [STARTED-d8f6de51.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-d8f6de51.json) · result
+- [allowed_seeds-93bede85.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-93bede85.txt) · result
+- [t85_0_baseline_r7100561.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100561.w0.json) · result
+- [t85_1_candidate_r7100561.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100561.w0.json) · result
+- [t85_0_baseline_r7100561.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100561.json) · result
+- [t85_1_candidate_r7100561.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100561.json) · result
+- [worker-3ea9b43b.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-3ea9b43b.log) · log
+- [COMPLETE-85b5c506.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-85b5c506.json) · result
+- [STARTED-d21b4210.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-d21b4210.json) · result
+- [allowed_seeds-9cab98b4.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-9cab98b4.txt) · result
+- [t85_0_baseline_r7100562.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100562.w0.json) · result
+- [t85_1_candidate_r7100562.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100562.w0.json) · result
+- [t85_0_baseline_r7100562.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100562.json) · result
+- [t85_1_candidate_r7100562.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100562.json) · result
+- [worker-05b7cf57.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-05b7cf57.log) · log
+- [COMPLETE-4df20d47.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-4df20d47.json) · result
+- [STARTED-0e0d3c4f.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-0e0d3c4f.json) · result
+- [allowed_seeds-956fbbb5.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-956fbbb5.txt) · result
+- [t85_0_baseline_r7100563.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100563.w0.json) · result
+- [t85_1_candidate_r7100563.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100563.w0.json) · result
+- [t85_0_baseline_r7100563.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100563.json) · result
+- [t85_1_candidate_r7100563.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100563.json) · result
+- [worker-8ba8bd85.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-8ba8bd85.log) · log
+- [COMPLETE-191f6a09.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-191f6a09.json) · result
+- [STARTED-498cf33f.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-498cf33f.json) · result
+- [allowed_seeds-edf82744.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-edf82744.txt) · result
+- [t85_0_baseline_r7100564.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100564.w0.json) · result
+- [t85_1_candidate_r7100564.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100564.w0.json) · result
+- [t85_0_baseline_r7100564.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100564.json) · result
+- [t85_1_candidate_r7100564.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100564.json) · result
+- [worker-7b56d6b0.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-7b56d6b0.log) · log
+- [COMPLETE-3d79f1b7.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-3d79f1b7.json) · result
+- [STARTED-8101387e.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-8101387e.json) · result
+- [allowed_seeds-b6eae9bd.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-b6eae9bd.txt) · result
+- [t85_0_baseline_r7100565.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100565.w0.json) · result
+- [t85_1_candidate_r7100565.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100565.w0.json) · result
+- [t85_0_baseline_r7100565.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100565.json) · result
+- [t85_1_candidate_r7100565.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100565.json) · result
+- [worker-30ea6c30.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-30ea6c30.log) · log
+- [COMPLETE-e64ecdab.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-e64ecdab.json) · result
+- [STARTED-acc036c3.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-acc036c3.json) · result
+- [allowed_seeds-40deab90.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-40deab90.txt) · result
+- [t85_0_baseline_r7100566.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100566.w0.json) · result
+- [t85_1_candidate_r7100566.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100566.w0.json) · result
+- [t85_0_baseline_r7100566.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100566.json) · result
+- [t85_1_candidate_r7100566.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100566.json) · result
+- [worker-87baaa63.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-87baaa63.log) · log
+- [COMPLETE-2a29396d.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-2a29396d.json) · result
+- [STARTED-5e68e4e0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-5e68e4e0.json) · result
+- [allowed_seeds-5cd1a86c.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-5cd1a86c.txt) · result
+- [t85_0_baseline_r7100567.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100567.w0.json) · result
+- [t85_1_candidate_r7100567.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100567.w0.json) · result
+- [t85_0_baseline_r7100567.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100567.json) · result
+- [t85_1_candidate_r7100567.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100567.json) · result
+- [worker-a6f46448.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-a6f46448.log) · log
+- [COMPLETE-3cdade13.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-3cdade13.json) · result
+- [STARTED-d527c2e6.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-d527c2e6.json) · result
+- [allowed_seeds-48102db3.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-48102db3.txt) · result
+- [STARTED-3caaf50c.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-3caaf50c.json) · result
+- [worker-1f787667.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-1f787667.log) · log
+- [t85_0_baseline_r7100568.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100568.w0.json) · result
+- [t85_1_candidate_r7100568.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100568.w0.json) · result
+- [t85_0_baseline_r7100568.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100568.json) · result
+- [t85_1_candidate_r7100568.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100568.json) · result
+- [worker-b89ad149.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-b89ad149.log) · log
+- [COMPLETE-9dd2130b.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-9dd2130b.json) · result
+- [STARTED-4ba2697d.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-4ba2697d.json) · result
+- [allowed_seeds-e8f912e3.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-e8f912e3.txt) · result
+- [STARTED-cc338ea9.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-cc338ea9.json) · result
+- [t85_0_baseline_r7100569.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100569.json) · result
+- [worker-997f0b46.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-997f0b46.log) · log
+- [t85_0_baseline_r7100569.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100569.w0.json) · result
+- [t85_1_candidate_r7100569.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100569.w0.json) · result
+- [t85_0_baseline_r7100569-e72afee6.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100569-e72afee6.json) · result
+- [t85_1_candidate_r7100569.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100569.json) · result
+- [worker-c84881b2.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-c84881b2.log) · log
+- [COMPLETE-1d0175d9.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-1d0175d9.json) · result
+- [STARTED-678b27cc.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-678b27cc.json) · result
+- [allowed_seeds-64a11d0e.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-64a11d0e.txt) · result
+- [t85_0_baseline_r7100570.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100570.w0.json) · result
+- [t85_1_candidate_r7100570.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100570.w0.json) · result
+- [t85_0_baseline_r7100570.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100570.json) · result
+- [t85_1_candidate_r7100570.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100570.json) · result
+- [worker-00722c21.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-00722c21.log) · log
+- [COMPLETE-20b334bd.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-20b334bd.json) · result
+- [STARTED-206dfcc8.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-206dfcc8.json) · result
+- [allowed_seeds-202e5019.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-202e5019.txt) · result
+- [t85_0_baseline_r7100571.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100571.w0.json) · result
+- [t85_1_candidate_r7100571.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100571.w0.json) · result
+- [t85_0_baseline_r7100571.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100571.json) · result
+- [t85_1_candidate_r7100571.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100571.json) · result
+- [worker-ba2b9077.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-ba2b9077.log) · log
+- [COMPLETE-3a8d22cf.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-3a8d22cf.json) · result
+- [STARTED-6072c081.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-6072c081.json) · result
+- [allowed_seeds-935e4628.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-935e4628.txt) · result
+- [t85_0_baseline_r7100572.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100572.w0.json) · result
+- [t85_1_candidate_r7100572.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100572.w0.json) · result
+- [t85_0_baseline_r7100572.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100572.json) · result
+- [t85_1_candidate_r7100572.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100572.json) · result
+- [worker-ad3c8355.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-ad3c8355.log) · log
+- [COMPLETE-67b1e335.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-67b1e335.json) · result
+- [STARTED-6da123c9.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-6da123c9.json) · result
+- [allowed_seeds-3ca7fb17.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-3ca7fb17.txt) · result
+- [t85_0_baseline_r7100573.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100573.w0.json) · result
+- [t85_1_candidate_r7100573.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100573.w0.json) · result
+- [t85_0_baseline_r7100573.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100573.json) · result
+- [t85_1_candidate_r7100573.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100573.json) · result
+- [worker-2e9b9768.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-2e9b9768.log) · log
+- [COMPLETE-150bc2c3.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-150bc2c3.json) · result
+- [STARTED-1bac1a31.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-1bac1a31.json) · result
+- [allowed_seeds-754dcdbd.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-754dcdbd.txt) · result
+- [t85_0_baseline_r7100574.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100574.w0.json) · result
+- [t85_1_candidate_r7100574.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100574.w0.json) · result
+- [t85_0_baseline_r7100574.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100574.json) · result
+- [t85_1_candidate_r7100574.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100574.json) · result
+- [worker-c8b47d5e.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-c8b47d5e.log) · log
+- [COMPLETE-cdc9043b.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-cdc9043b.json) · result
+- [STARTED-3fdce541.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-3fdce541.json) · result
+- [allowed_seeds-f7edddb3.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-f7edddb3.txt) · result
+- [t85_0_baseline_r7100575.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100575.w0.json) · result
+- [t85_1_candidate_r7100575.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100575.w0.json) · result
+- [t85_0_baseline_r7100575.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100575.json) · result
+- [t85_1_candidate_r7100575.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100575.json) · result
+- [worker-cd7778f0.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-cd7778f0.log) · log
+- [COMPLETE-014c18af.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-014c18af.json) · result
+- [STARTED-f4a90313.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-f4a90313.json) · result
+- [allowed_seeds-945c30dc.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-945c30dc.txt) · result
+- [t85_0_baseline_r7100576.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100576.w0.json) · result
+- [t85_1_candidate_r7100576.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100576.w0.json) · result
+- [t85_0_baseline_r7100576.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100576.json) · result
+- [t85_1_candidate_r7100576.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100576.json) · result
+- [worker-821babd5.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-821babd5.log) · log
+- [COMPLETE-33f17352.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-33f17352.json) · result
+- [STARTED-1bb32829.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-1bb32829.json) · result
+- [allowed_seeds-ed0b9066.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-ed0b9066.txt) · result
+- [t85_0_baseline_r7100577.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100577.w0.json) · result
+- [t85_1_candidate_r7100577.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100577.w0.json) · result
+- [t85_0_baseline_r7100577.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100577.json) · result
+- [t85_1_candidate_r7100577.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100577.json) · result
+- [worker-386bd020.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-386bd020.log) · log
+- [COMPLETE-3043f446.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-3043f446.json) · result
+- [STARTED-845bf42c.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-845bf42c.json) · result
+- [allowed_seeds-88be1c8d.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-88be1c8d.txt) · result
+- [t85_0_baseline_r7100578.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100578.w0.json) · result
+- [t85_1_candidate_r7100578.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100578.w0.json) · result
+- [t85_0_baseline_r7100578.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100578.json) · result
+- [t85_1_candidate_r7100578.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100578.json) · result
+- [worker-83ebd381.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-83ebd381.log) · log
+- [COMPLETE-04b36095.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-04b36095.json) · result
+- [STARTED-674237d7.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-674237d7.json) · result
+- [allowed_seeds-7c811868.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-7c811868.txt) · result
+- [t85_0_baseline_r7100579.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100579.w0.json) · result
+- [t85_1_candidate_r7100579.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100579.w0.json) · result
+- [t85_0_baseline_r7100579.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100579.json) · result
+- [t85_1_candidate_r7100579.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100579.json) · result
+- [worker-3bae7e89.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-3bae7e89.log) · log
+- [COMPLETE-3139e8dd.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-3139e8dd.json) · result
+- [STARTED-bf437535.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-bf437535.json) · result
+- [allowed_seeds-f8d9d7fc.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-f8d9d7fc.txt) · result
+- [t85_0_baseline_r7100580.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100580.w0.json) · result
+- [t85_1_candidate_r7100580.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100580.w0.json) · result
+- [t85_0_baseline_r7100580.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100580.json) · result
+- [t85_1_candidate_r7100580.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100580.json) · result
+- [worker-a222dcc2.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-a222dcc2.log) · log
+- [COMPLETE-29117c77.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-29117c77.json) · result
+- [STARTED-e9e6f59a.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-e9e6f59a.json) · result
+- [allowed_seeds-d034b1f4.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-d034b1f4.txt) · result
+- [t85_0_baseline_r7100581.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100581.w0.json) · result
+- [t85_1_candidate_r7100581.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100581.w0.json) · result
+- [t85_0_baseline_r7100581.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100581.json) · result
+- [t85_1_candidate_r7100581.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100581.json) · result
+- [worker-c0e77108.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-c0e77108.log) · log
+- [COMPLETE-26f4b165.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-26f4b165.json) · result
+- [STARTED-7560778b.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-7560778b.json) · result
+- [allowed_seeds-d87d912c.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-d87d912c.txt) · result
+- [t85_0_baseline_r7100582.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100582.w0.json) · result
+- [t85_1_candidate_r7100582.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100582.w0.json) · result
+- [t85_0_baseline_r7100582.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100582.json) · result
+- [t85_1_candidate_r7100582.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100582.json) · result
+- [worker-6e46836d.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-6e46836d.log) · log
+- [COMPLETE-09b89b8e.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/COMPLETE-09b89b8e.json) · result
+- [STARTED-62932102.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/STARTED-62932102.json) · result
+- [allowed_seeds-007a12ae.txt](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/allowed_seeds-007a12ae.txt) · result
+- [t85_0_baseline_r7100583.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100583.w0.json) · result
+- [t85_1_candidate_r7100583.w0.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100583.w0.json) · result
+- [t85_0_baseline_r7100583.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_0_baseline_r7100583.json) · result
+- [t85_1_candidate_r7100583.json](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/t85_1_candidate_r7100583.json) · result
+- [worker-311f4e33.log](../2026-10-12-acceptance-trigger-misses-marker-manual-restart-also-fails-because/worker-311f4e33.log) · log
+- [TEAM_LOG_2026-10-01_to_10-22.md](../../TEAM_LOG_2026-10-01_to_10-22.md) · record
+
+</details>
+
+## Related work
+
+- ← enables: [Early-layer covariance edge and a 16-network refit rejected: +0.831% FLOPs and +0.197% independent MSE](../../../experiments/learned-correction/early-layer-covariance-edge-16-network-refit-rejected-0/README.md)
+- ← enables: [First refit-after-drop strength round adopted: -0.223% on fresh networks at zero added FLOPs](../2026-10-11-first-refit-after-drop-strength-round-adopted-0-223/README.md)
+- enables: [Generated refit-after-drop rounds connect sizing, porting, sealed judging and release through verdict files](../../../instruments/generated-refit-after-drop-rounds-connect-sizing-porting-sealed/README.md)
+- shipped in: [Submission #335505: carrier-strength refit with scatter-based gathers and an individual prebind list](../../../submissions/335505/README.md)
+- shipped in: [Submission #335508: lower-request fallback for the same carrier-strength refit](../../../submissions/335508/README.md)
+
+[Research graph](../../../graph/index.html#node=2026-10-12-refit-after-drop-strength-round-accepted-0-203-pooled) · [Copy provenance](../../../PROVENANCE.json)
+

@@ -1,0 +1,65 @@
+{
+  "status": "HELD_SOURCE_ONLY_NATIVE2_PILOT",
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_edge_bias_hoist_v1/candidate.py",
+    "sha256": "24b3ac8f8d77a819a14f03614565d7cfe3e268cd1806e1e754acd880b072c3c5",
+    "bytes": 975980
+  },
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_fusion_v1/candidate.py",
+    "sha256": "f9f4790b3c65f730404425e8923c767dc2f895fdcc1e14f14cc649286ad3b69f",
+    "bytes": 975980
+  },
+  "duplicate_check": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_edge_bias_hoist_v1/bounded_duplicate_check.json",
+    "sha256": "e7ffe96dd591a5553a9e0b1a9418f7eda71b288f3db6e3603f477ae36a0c2b84",
+    "bytes": 1244
+  },
+  "scope": "Only active learned covariance edge helper L8\u201314 bias association; PI/setup/cache/weights/constants unchanged.",
+  "real_arithmetic_identity": "(left_i+right_j)+bias == left_i+(right_j+bias)",
+  "numerical_caveat": "FP32 association changes rounding; not an exact-prediction component. Prior edge tanh approximations were sensitive and failed. No expected accuracy gain asserted.",
+  "price": {
+    "calls": 7,
+    "layers": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "width": 1024,
+    "channels": 16,
+    "old_add_elements_per_call": 33554432,
+    "new_add_elements_per_call": 16793600,
+    "saved_flops_per_network": 117325824,
+    "forecast_bill_pct_vs_parent_train2": -0.04451369446926426,
+    "previous_eight_FG_forecast_pct": -0.04454930803005142,
+    "mechanism": "One dense n*n*16 FP32 add moves to an n*16 add; same two public additions, all work paid.",
+    "memory": "One dense pre-bias temporary becomes one n*16 vector; no persistent storage/cache/arena change."
+  },
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "all16_finite": true,
+  "native2_gates": {
+    "adjusted_pct_strictly_below": 0.0,
+    "max_per_network_adjusted_regression_pct": 0.1,
+    "minimum_wins": 0
+  },
+  "interpretation": "A strictly positive pooled adjusted gain is required; either per-network regression above0.1% rejects. This only selects a complementary component for future validation, not a>=1% bank.",
+  "one_fixed_scope": true,
+  "no_parameter_variants": true,
+  "no_grid": true,
+  "no_native6_or_boundary_or_broad_authority": true,
+  "root_execution_held_until_parent_qualification": true,
+  "no_models_executed": true
+}

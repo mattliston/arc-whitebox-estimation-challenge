@@ -1,0 +1,27 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0D",
+    "label": "Fresh analytic hierarchy: Gaussian to Hermite/Mehler",
+    "kind": "phase2_analytic_baseline_hierarchy",
+    "status": "solved",
+    "priority": 1,
+    "summary": "The one-use mini100 comparison is complete. Hermite order 4 is the best pure analytic baseline at layer-16 raw MSE 3.8493004e-6 and all-layer MSE 2.1180294e-6. Orders 4, 6, and 10 are effectively tied, so additional univariate Hermite order is not the remaining bottleneck. The first-layer prediction matches the exact Gaussian/ReLU formula to 2.94e-16 MSE, and its 6.88e-10 scored residual matches the reference Monte Carlo noise floor. CP1792 remains below 1e-7 through layer 2 and first crosses at layer 3.",
+    "terminal_criterion": "Under one frozen mini split and the official meter, record per-layer and layer-16 raw MSE for diagonal Gaussian and Hermite/Mehler order 2, with target-blind predictions and no fitted correction.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/MIGRATION_MATRIX.md",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/OFFICIAL_SOURCE_AUDIT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/receipts/analytic_ladder/mini100-analytic-ladder-20260823T174059.488648Z-8bfdf89e2642/seal.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/receipts/analytic_ladder/mini100-analytic-ladder-20260823T174059.488648Z-8bfdf89e2642/manifest.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/receipts/joint_target_open/0b3c04441938e2930f4d8fc92e9ca788d0dcfcc4f0107a8b152867df735d5a7e.joint-score.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/exact_layer_foothold/DIAGNOSTIC.md",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/exact_layer_foothold/L1_NOISE_FLOOR.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/exact_layer_foothold/L1_NOISE_FLOOR_ADDENDUM.md"
+    ],
+    "decomposition_children": [
+      "P2R0E"
+    ]
+  }
+}

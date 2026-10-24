@@ -1,0 +1,125 @@
+{
+  "schema": "v34-v2r1-cubic-pass-audit-contract-static-verification-r1-v1",
+  "date": "2026-08-31",
+  "status": "PASS_REFERENCE_CONTRACT_ONLY__REPAIRED_RELEASE_FSM_INTEGRATION_STILL_REQUIRED",
+  "bindings": {
+    "cubic_pass_audit_schema_sha256": "0791f73c24d227b23906fd39ac66c326c6a360f27d3eb154e8edf4915e7d4e34",
+    "cubic_pass_audit_contract_sha256": "6b0776788333ccb783d6c9d22605f44129ffc3a39dc171aaa4826cc4a4dbb907",
+    "cubic_pass_audit_verifier_sha256": "ae2ddfe02f690e576335f8e127edbb291df73d300c5b52965e2d2c0a6a6807d4",
+    "prior_cubic_hold_audit_sha256": "fd3e6dc03acc3abf0f40f06b0e542705104f35e80b204e05d8bfecc5de9cb3a6",
+    "public_output_binding_ruling_sha256": "3591a1e736c116bcb5b71d2711f9f4a0cd4fdbaad2ecfee497f13e49b5c1f424"
+  },
+  "authoritative_runtime": {
+    "python": "3.11.5",
+    "numpy_imported": false,
+    "torch_imported": false,
+    "command": "data_gate/.venv/bin/python verify_cubic_pass_audit_contract.py"
+  },
+  "stage_runtime_contract": {
+    "scientific_stages": [
+      "fit",
+      "held_generation",
+      "held_semantic",
+      "panel_aggregate"
+    ],
+    "scientific_runtime": {
+      "distribution": "Anaconda",
+      "python": "3.11.5",
+      "numpy": "1.26.4",
+      "torch": "2.7.0"
+    },
+    "official_target_stage": "official_target_last",
+    "official_target_runtime": {
+      "environment": "data_gate/.venv",
+      "python": "3.11.5",
+      "numpy": "2.4.6",
+      "pyarrow": "25.0.1"
+    },
+    "runtime_swaps_rejected_by_reference_mutations": true
+  },
+  "diagnostic_runtime_disclosure": {
+    "system_python": "3.13.3",
+    "same_reference_suite_also_passed": true,
+    "authoritative_for_r1_execution_runtime": false
+  },
+  "result": {
+    "valid_control_accepted": true,
+    "mutation_case_names": [
+      "wrong_schema",
+      "wrong_role",
+      "hold_status",
+      "missing_binding",
+      "extra_binding",
+      "drifted_binding",
+      "wrong_prior_hold_digest",
+      "missing_semantic_check",
+      "seam_count_drift",
+      "deploy_dtype_regression",
+      "provider_recomputation",
+      "cross_gram_creep",
+      "observer_selection_fit_leak",
+      "old_seed_preimage",
+      "seed_receipt_count_drift",
+      "seed_supersession_missing",
+      "official_resource_binding_missing",
+      "held_meter_permission_missing",
+      "fit_audit_status_validation_missing",
+      "unknown_permission_key_accepted",
+      "claim_release_toctou_splice_not_rejected",
+      "static_fixture_runtime_mismatch",
+      "official_runtime_uses_scientific_numpy",
+      "scientific_runtime_uses_official_numpy",
+      "fit_meter_rss_binding_missing",
+      "later_continuation_artifact_not_checked",
+      "public_output_dtype_regression",
+      "public_output_prefix_row_mutation",
+      "public_output_final_cast_missing",
+      "source_zero_arithmetic_path",
+      "packaged_gate_uses_float64_shadow",
+      "resource_meter_excludes_full_return",
+      "streaming_overclaim",
+      "resource_count_drift",
+      "target_access_nonzero",
+      "estimator_call_nonzero",
+      "authority_escalation",
+      "release_fsm_integration_not_tested",
+      "mutation_count_mismatch",
+      "extra_top_level_key"
+    ],
+    "mutations_rejected": 40,
+    "zero_data": true
+  },
+  "integration_requirement": {
+    "status": "HOLD_UNTIL_ONE_STABLE_R1_SET_LANDS_AND_RELEASE_FSM_WRAPPER_REJECTS_ALL_40_MUTATIONS",
+    "required_entrypoint": "release_fsm.validate_independent_cubic_implementation_audit(document, expected_bindings)",
+    "valid_control_must_be_accepted": true,
+    "all_40_mutations_must_be_rejected": true,
+    "fit_claim_must_call_validator_before_claim_write": true,
+    "audit_file_hash_without_semantic_parse_is_forbidden": true
+  },
+  "access": {
+    "repair_draft_bytes_inspected": 0,
+    "repository_data_or_cache_arrays_opened": 0,
+    "production_weight_or_feature_arrays_opened": 0,
+    "fit_truth_arrays_opened": 0,
+    "mc_arrays_generated_or_opened": 0,
+    "official_targets_opened_or_decoded": 0,
+    "estimator_calls": 0,
+    "capture_runs": 0,
+    "training_or_scoring_runs": 0,
+    "network_calls": 0
+  },
+  "authority": {
+    "fit": false,
+    "capture": false,
+    "meter": false,
+    "held_generation": false,
+    "held_semantic": false,
+    "official_target_last": false,
+    "panel_continuation": false,
+    "integration": false,
+    "package": false,
+    "board": false,
+    "submission": false
+  }
+}

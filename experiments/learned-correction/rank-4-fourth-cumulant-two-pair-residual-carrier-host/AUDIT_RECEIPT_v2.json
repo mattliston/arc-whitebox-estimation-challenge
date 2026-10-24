@@ -1,0 +1,58 @@
+{
+  "schema": "k22pilot-audit-receipt-v2",
+  "verdict": "PASS",
+  "audited_utc": "2026-08-25",
+  "auditor": "independent-subagent",
+  "supersedes": "AUDIT_RECEIPT.json (verdict FAIL on the v1 build's k31 push; this receipt audits the corrected rebuild)",
+  "preregistration_sha256": "6358a8e306e6eb13c296466a481079d8e8bcc8a135d59b045fed1c850de1e5fe",
+  "checks": [
+    {
+      "name": "sha_repin",
+      "result": "PASS",
+      "detail": "Recomputed sha256 of public_k22_carrier_ab_probe_v1/estimator_k22r.py = 702e971c410ed688355af93c075aa0e13b38cc6462d0864c6c663ba51b4bb593, equal to the re-pinned value in PREREGISTRATION.json arms.k22r4 (line 20) and in generate_pilot_row.py ARMS (line 20); BUILD_RECEIPT.json output_sha256 and AB_K22R_PROBE_v2.json estimator_k22r_sha256 record the same hash. The base arm pin is unchanged (e4d25056...) and still matches disk."
+    },
+    {
+      "name": "math_spot_check_rebuilt",
+      "result": "PASS",
+      "detail": "The ACTUAL rebuilt _push_k22_residual and _push_k22_residual_diagonal were extracted from the sha-verified estimator_k22r.py and executed (fnp=numpy float64, _off_diagonal replicated from the file's own definition) against the exact einsum('ijkl,ia,jb,kc,ld->abcd') transport of the iijj family built from offdiag(Q_approx), channels extracted as tensor entries with copied views. Four variants (W 6x6 and 6x5; exact full-rank eigendecomposition with true zero diagonal; rank-4 truncation with nonzero diagonal exercising both spurs). All channels exact: max rel err over variants k4 3.86e-15, k31 1.29e-15, k22 2.99e-15, final-layer diagonal 3.86e-15 - all under the 1e-12 gate. The k31 errors now equal v1's residuals against 2x-exact, confirming the channel moved from exactly double to exactly correct."
+    },
+    {
+      "name": "diff_containment",
+      "result": "PASS",
+      "detail": "Reconstructing base + the updated builder's 7 replacements (each anchor still unique in the base) + APPENDED reproduces the rebuilt estimator_k22r.py byte-for-byte (sha 702e971c...). Reverse-edit proofs pin the old-to-new delta with no transcription: replacing the corrected k31 lines (2-line audit comment + '3.0 * s_one - 3.0 * (...)') with the v1 lines ('6.0 * s_one - 6.0 * (...)') reproduces the v1 estimator sha 0ecbbd49... exactly, and the same reverse edit on the builder reproduces the v1 builder sha 88277385... exactly - so the ONLY change to either file is the two 6.0->3.0 coefficients plus the added two-line comment. Zero '6.0' coefficients remain in the appended block. PREREGISTRATION.json: removing the amendment_log entry and un-pinning the sha reproduces the v1 prereg sha 30f4847b... byte-for-byte (only delta = re-pin + amendment entry). generate_pilot_row.py: diff against the v1 text is exactly one line (the sha pin; old sha appears nowhere). run_generation.py untouched (mtime and content unchanged since the v1 audit)."
+    },
+    {
+      "name": "amendment_log_accuracy",
+      "result": "PASS",
+      "detail": "Every claim in the amendment_log entry verified: (1) v1 sha and failure mode stated correctly (k31 exactly twice the true transported entry). (2) 'Amended before any generation or truth access' - no rows/ directory exists, no pilot metric exists, targets_read=0 throughout. (3) 'both 6.0 coefficients corrected to 3.0, rebuilt to sha 702e971c...' - proven by the reverse-edit hashes. (4) 're-screened by the target-free A/B' - AB_K22R_PROBE_v2.json (sha 1f57cfbf9dbcafe1bf9cec3343f27ec5b0e9e965251404b426b9549c6d711a36, matching the RECEIPT line in ab_probe_v3.log) completed during this audit, binds estimator_k22r_sha256=702e971c... hashed from the file at receipt time, rank-0 parity gate bit_exact=true flop_equal=true max_abs_delta=0.0, 8/8 roster rows [0,1,2,55,100,201,400,643] finite, movement 0.2441-0.5240 median 0.3164 at mean 209.72e9 added FLOPs, targets_read=0, with a supersedes field naming the old sha and the audit correction - so the prereg hypothesis's cited movement numbers (0.24-0.52, median 0.32, mean 209.7e9) remain accurate for the corrected build. (5) 're-audited' is completed by this receipt. NON-BLOCKING NOTE: authority.ab_probe and parity_gate_of_record still cite AB_K22R_PROBE.json, the superseded old-sha probe; the binding of record for the pinned build is AB_K22R_PROBE_v2.json, whose supersedes field closes the chain. Recommend citing the v2 probe in any future prereg revision; no integrity impact now."
+    }
+  ],
+  "computed_shas": {
+    "public_k22_carrier_ab_probe_v1/estimator_k22r.py": "702e971c410ed688355af93c075aa0e13b38cc6462d0864c6c663ba51b4bb593",
+    "public_k22_carrier_ab_probe_v1/build_estimator_k22r.py": "c6c9868c4b8784c87aea39f605adce0f330fade65e966236527495062e3326a8",
+    "public_k22_pilot_v1/PREREGISTRATION.json": "6358a8e306e6eb13c296466a481079d8e8bcc8a135d59b045fed1c850de1e5fe",
+    "public_k22_pilot_v1/generate_pilot_row.py": "a3e5896f7004954cd83b2b8c9aa573baa0268d95446cf2d507dea87e40fe7b88",
+    "public_k22_pilot_v1/run_generation.py": "44e1237e7ebbdfd08ece66810547a1db2a8add189ba7fece079f53edde0a056b",
+    "public_k22_carrier_ab_probe_v1/AB_K22R_PROBE_v2.json": "1f57cfbf9dbcafe1bf9cec3343f27ec5b0e9e965251404b426b9549c6d711a36",
+    "reconstructed_base_plus_7_replacements": "702e971c410ed688355af93c075aa0e13b38cc6462d0864c6c663ba51b4bb593",
+    "reverse_edit_estimator_recovers_v1": "0ecbbd4938a92cddd3a61266003035702496e8f4e91b7f7b27df1cd71d330841",
+    "reverse_edit_builder_recovers_v1": "882773857ac918501a128c088efa050616afa3e078fe6e05df5e38af13e428b6",
+    "reverse_edit_preregistration_recovers_v1": "30f4847bc5142f405bf538e3cf6907f6eac34837dcf97394012c1538f4505a5c"
+  },
+  "math_check": {
+    "method": "actual rebuilt functions exec'd from the sha-verified file; float64; exact reference = einsum push of the iijj family from offdiag(Q_approx), entry extraction with .copy() before fill_diagonal",
+    "max_rel_error_per_channel": {
+      "k4": 3.859388584081979e-15,
+      "k31": 1.2869876536281282e-15,
+      "k22": 2.9897927130548863e-15,
+      "k4_final_layer_diagonal": 3.859388584081979e-15
+    },
+    "per_variant": {
+      "square_6x6/exact_fullrank_zero_diag": {"k4": 3.859388584081979e-15, "k31": 1.1418973468877058e-15, "k22": 1.6416206625956164e-15, "k4_final_diagonal": 3.859388584081979e-15},
+      "square_6x6/rank4_truncated_nonzero_diag": {"k4": 9.714477690524976e-16, "k31": 1.2869876536281282e-15, "k22": 8.483571530978373e-16, "k4_final_diagonal": 9.714477690524976e-16},
+      "rect_6x5/exact_fullrank_zero_diag": {"k4": 3.2142999185139263e-16, "k31": 1.1165331085996288e-15, "k22": 2.9897927130548863e-15, "k4_final_diagonal": 3.2142999185139263e-16},
+      "rect_6x5/rank4_truncated_nonzero_diag": {"k4": 3.874162938900947e-16, "k31": 5.667372959417591e-16, "k22": 7.321951023787417e-16, "k4_final_diagonal": 3.874162938900947e-16}
+    },
+    "gate": "all channels < 1e-12 relative: PASS"
+  }
+}

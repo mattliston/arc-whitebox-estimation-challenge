@@ -1,0 +1,79 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G18C1",
+    "label": "Support>=3 scope-production controller V1R3 — one-shot result consumed",
+    "kind": "phase2_support3_k6_scope_production_control_terminal",
+    "status": "solved",
+    "priority": 1,
+    "summary": "Historical V1/V1R1 incidents remain preserved. The repaired controller V1R3 is frozen and accepted by final GO 474ac3bb. Its sole transaction committed CONTROL_RESULT 60de3860, independently metadata-reviewed at 3d0de81d, and produced exact scope roots 0e36053a/72a4c35e. The capability is consumed; retry and new scope production are false.",
+    "terminal_criterion": "Solved and consumed for this transaction. It authorizes neither retry nor Stage1 and must not be invoked again.",
+    "control_observation": {
+      "status": "V1R3_FROZEN_FINAL_GO__ONE_SHOT_CONTROL_SUCCESS__CAPABILITY_CONSUMED__NO_RETRY",
+      "v1r3_final_frozen_go_sha256": "474ac3bb532fd7ac2716103813b3812a6ef783e77f3fb9ef973525461ce23255",
+      "control_result_sha256": "60de386015fc9747db326d18156aa1fd823dd8b62e0a29617c017e603b29c86e",
+      "control_result_metadata_review_sha256": "3d0de81dd4932dc39fbf8def6b73b2f277f7ec17cb03bb3e28c39166a4753d52",
+      "role_scope_sha256": "0e36053ab3467cb963f246fcc29b7c573278736c5dd7fd5287f3316a608cf81a",
+      "producer_receipt_sha256": "72a4c35e2e746ba90459f5ed02cd40ab4c8aee45dd799bfe96aa4b17fd72c21d",
+      "one_shot_consumed": true,
+      "retry_authorized": false,
+      "new_scope_production_authorized": false,
+      "stage1_target_network_or_submission_authority": false
+    },
+    "decomposition_children": [],
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_role_scope_v1/ROLE_SCOPE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_role_scope_v1/SCOPE_PRODUCER_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_freeze_incident_v1r1/INDEPENDENT_FREEZE_ATTEMPT_INCIDENT_HOLD_V1R1.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_instance_v1/CONTROL_RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_prefreeze_review_v1/INDEPENDENT_PREFREEZE_REVIEW_V1.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_prefreeze_review_v1r1/INDEPENDENT_PREFREEZE_REVIEW_V1R1.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_result_review_v1/INDEPENDENT_CONTROL_RESULT_REVIEW_V1.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_review_v1r3/INDEPENDENT_STATIC_REVIEW_V1R3.json"
+    ],
+    "evidence_bindings": [
+      {
+        "role": "support3_role_scope_pending_independent_seal",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_role_scope_v1/ROLE_SCOPE.json",
+        "sha256": "0e36053ab3467cb963f246fcc29b7c573278736c5dd7fd5287f3316a608cf81a"
+      },
+      {
+        "role": "support3_scope_producer_receipt_pending_independent_seal",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_role_scope_v1/SCOPE_PRODUCER_RECEIPT.json",
+        "sha256": "72a4c35e2e746ba90459f5ed02cd40ab4c8aee45dd799bfe96aa4b17fd72c21d"
+      },
+      {
+        "role": "support3_scope_production_control_v1r1_freeze_attempt_incident_hold",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_freeze_incident_v1r1/INDEPENDENT_FREEZE_ATTEMPT_INCIDENT_HOLD_V1R1.json",
+        "sha256": "421d6d930d2415e302624356d04dd11cb0063df976148dace763eb978b29d432"
+      },
+      {
+        "role": "support3_scope_production_control_one_shot_result",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_instance_v1/CONTROL_RESULT.json",
+        "sha256": "60de386015fc9747db326d18156aa1fd823dd8b62e0a29617c017e603b29c86e"
+      },
+      {
+        "role": "support3_scope_production_control_v1_prefreeze_hold",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_prefreeze_review_v1/INDEPENDENT_PREFREEZE_REVIEW_V1.json",
+        "sha256": "2309019d28cee31dbf5ebc2033d06061bd0db0338940e238c3e3b0b58c1c5c8d"
+      },
+      {
+        "role": "support3_scope_production_control_v1r1_prefreeze_go_consumed",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_prefreeze_review_v1r1/INDEPENDENT_PREFREEZE_REVIEW_V1R1.json",
+        "sha256": "ad4733907bb47dd97b0d61a4ea92983a6031d35af74b8a3d0c917147cd67797a"
+      },
+      {
+        "role": "support3_scope_production_control_result_metadata_review_nonauthorizing",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_result_review_v1/INDEPENDENT_CONTROL_RESULT_REVIEW_V1.json",
+        "sha256": "3d0de81dd4932dc39fbf8def6b73b2f277f7ec17cb03bb3e28c39166a4753d52"
+      },
+      {
+        "role": "support3_scope_production_control_v1r3_final_frozen_go",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_production_control_review_v1r3/INDEPENDENT_STATIC_REVIEW_V1R3.json",
+        "sha256": "474ac3bb532fd7ac2716103813b3812a6ef783e77f3fb9ef973525461ce23255"
+      }
+    ]
+  }
+}

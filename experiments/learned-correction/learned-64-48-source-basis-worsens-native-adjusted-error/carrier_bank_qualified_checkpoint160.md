@@ -1,0 +1,9 @@
+The97-parameter carrier bank integration passed all12 fixed full native controls. Disabled predictions and complete bills match331824; enabled zero matches all16 prediction rows, variance domains, selectors and GNN states. Cold/warm repeats and separate physical/head effects passed. All7 guards retired, peak6.883GB,zero added swap. Session26888 TERMINAL0; no live worker remains.
+
+Complete added cost is27,440,474,844–27,440,475,038F on the four matched controls. Each such call needs roughly6.173%–6.491% raw-error reduction to offset that cost at its measured parent bill. This is an economic threshold, not a measured accuracy gain. No target arrays were opened.
+
+Across14 source cells on two control networks, normalized third RMS is[0.000600313088268718, 0.0007910074860435247], fourth RMS is[0.00024763051565643795, 0.000320395615679927], and maximum relative source variance is[0.0001971271969718711, 0.00025411810539401666]. The first factor's normalized RMS is[0.11681423046505317, 0.1225309897734003]. The source is measurably active; no input-normalization rescale is selected from this evidence.
+
+The selected next implementation adds a learned64-by48 basis map before the bounded factors, initialized to the current identity selection. It adds3,072 parameters (3,169 total) and a44.04MF ordinary seven-layer subtotal, while preserving the same16-sector law and physical bounds. This is not yet implemented or fitted. Version and qualify it, then qualify a memory-bounded differentiable translation and parameter transport before selecting a fit. See learnable_joint_basis_design_v1/DESIGN.md.
+
+The prior96-weight readout remains closed negative at adjusted ratio1.0121224487366616 and0/40 wins. Official331824 remains3.5070948899311718e-9 adjusted;4e-9 banked,3/2/~1e-9 unmet;goal active. Standing upload approval persists. No new upload. Free disk483.601GB.

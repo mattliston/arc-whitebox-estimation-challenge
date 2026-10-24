@@ -1,0 +1,53 @@
+{
+  "status": "READY_FOR_ACTUAL_RUNTIME_VALIDATION",
+  "scope": "All 18 registered push peel routes plus three fixed read routes fall back after original cap debit. Keep P40, W3, ZB4, all surviving read peel routes.",
+  "models": 0,
+  "fragment": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_compute_v1/hardware_repair336649_v1/fragment_all_push_off_v1.py.txt",
+  "fragment_sha256": "9a2bf765b778b810fc466545186d3c44fba7dd43667911bfb2fc132d0b8e3740",
+  "integrated_source_sha256": "c8f98b905d15d5224af0045cf01487d4a1b337cac911a44a9f6cd6c74acea113",
+  "setup_comparator": "Four-route fallback with one dead family removed, otherwise unchanged fixed SMX/peel/SM12 setup components",
+  "removed_setup_public_calls": 1403,
+  "removed_setup_flops": 2920886830,
+  "dead_families": [
+    "peel6_p10_5_16_5_tight",
+    "peel6_p10_5_5_21_tight",
+    "peel6_p10_5_5_26",
+    "peel6_p20_4_4_17",
+    "peel6_p20_5_11_5",
+    "peel6_p20_5_5_14"
+  ],
+  "surviving_family_dimensions_and_orientation_sets_unchanged": true,
+  "arithmetic_delta_comparator": "Added bill versus v19e routed products; percentage denominator is each saved S2tr control cold-reference bill.",
+  "saved16_mean_added_bill_pct": 0.367810030367113,
+  "saved16_max_added_bill_pct": 0.5284114943728433,
+  "saved16_mean_warm_metadata_request_delta": -291.6875,
+  "saved16_min_warm_metadata_request_delta": -534,
+  "saved16_max_warm_metadata_request_delta": -42,
+  "cold_wrapper_claim": null,
+  "cold_wrapper_limitation": "Restored generic parent kernels may have cache misses. Actual cold/warm boundary counters remain required; no additive cold saving is claimed.",
+  "cap_proof": {
+    "exhaustive_cap_cases": 60831,
+    "sequence_steps": 405,
+    "routing_cases": 165
+  },
+  "identity_restore_normal_exception": [
+    {
+      "exception": false,
+      "result": "ok",
+      "restored_original_identities": true
+    },
+    {
+      "exception": true,
+      "result": "expected_exception",
+      "restored_original_identities": true
+    }
+  ],
+  "prune_proof": "Every dead family has only excluded route users and zero SM12 users. All surviving per-family dimensions/orientations are unchanged; numeric owners are the fixed inherited mainread owners. No new numeric allocation or layout.",
+  "unexpected_test_issue": "Initial proof harness assumed cap=0 rejects every route; two zero-cost push routes correctly remain eligible. Proof v2 tests their unchanged acceptance/debit explicitly. Candidate unchanged.",
+  "receipts": [
+    "ALL_PUSH_SETUP_PRICE_v1.json",
+    "PROOF_PRUNE_ALL_PUSH_v1.json",
+    "PROOF_CAP_ALL_PUSH_v2.json",
+    "GUARD_ALL_PUSH_v1.json"
+  ]
+}

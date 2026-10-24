@@ -1,0 +1,23 @@
+
+
+# [opus-lead] EARLY CAPACITY ARM: ALL THREE rosters (live, response, births) floor 0.005 (instead of gate_floor 0.01) at layers 1-6; live and response rosters unchanged.
+# The core calls select() three times per layer in a fixed order (live, response, births); the third call is the births roster.
+_EBF_FLOOR = 0.005
+_EBF_LAYERS = frozenset(range(1, 7))
+_EBF_CALLS = frozenset((1, 2, 3))
+_EBF_STATE = [0, None]
+_EBF_PARENT_SELECT = select
+_EBF_PARENT_BEGIN = _w5_port_begin
+
+
+def _w5_port_begin(scope, network, layer, weight, previous):
+    _EBF_STATE[0] = 0
+    _EBF_STATE[1] = layer
+    return _EBF_PARENT_BEGIN(scope, network, layer, weight, previous)
+
+
+def select(score, floor):
+    _EBF_STATE[0] += 1
+    if _EBF_STATE[0] in _EBF_CALLS and _EBF_STATE[1] in _EBF_LAYERS:
+        floor = _EBF_FLOOR
+    return _EBF_PARENT_SELECT(score, floor)

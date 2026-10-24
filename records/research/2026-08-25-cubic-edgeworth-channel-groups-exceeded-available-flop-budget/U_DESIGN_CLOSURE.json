@@ -1,0 +1,33 @@
+{
+  "schema": "p2r0f2u-design-closure-v1",
+  "status": "PASS_CLOSED_AT_DESIGN",
+  "node": "P2R0F2U",
+  "scope": "Design-stage adjudication by exact synthetic flopscope billing; no source was built and no data touched.",
+  "bindings": {
+    "synthetic_billing_sha256": "e27fd5b0fe44680277e43580daee43be2c570ac0178df769884d191d7d1ad5cf"
+  },
+  "findings": {
+    "l5_not_implementable": "The host carries no fifth-order cumulant state, so the L5 group requires new state machinery outside this node's licensed scope.",
+    "l3l4_cost": {
+      "fourteen_layer_marginal": 69547720704,
+      "headroom_with_j": 66547897095,
+      "admissible": false,
+      "shortfall_fraction": 0.045
+    },
+    "l3cubed_cost": {
+      "fourteen_layer_marginal": 86934650880,
+      "admissible": false
+    },
+    "both_groups_cost": {
+      "fourteen_layer_marginal": 156482371584,
+      "admissible": false
+    },
+    "note": "Marginals exclude the additional weight-construction cost (k3*k4 and k3^3 plane products) and wider coefficient gathers, which only worsen every case."
+  },
+  "verdict": "Every implementable lambda^3 Edgeworth channel group exceeds the exact 2^41 headroom at the current host total; the L5 group is not implementable without new cumulant state. Together with the T closure (the Mehler tail is cost-admissible but effect-capped at 1.6e-5 of the error scale), the series-refinement family is measured out: within the budget, the Q24 closure's expansion orders sit at their cost frontier and the sub-leading terms that fit do not matter.",
+  "standing_question": "The only direction left open by the combined S/T/U receipts is reallocation: whether any existing host component delivers little error reduction per FLOP, so its budget could fund the L3*L4 shell (needs about 70e9). That is a value-attribution question requiring lawful truth on observer_fit and end-to-end measurement, respecting the partial-fix and co-adaptation laws.",
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0,
+  "targets_read": 0
+}

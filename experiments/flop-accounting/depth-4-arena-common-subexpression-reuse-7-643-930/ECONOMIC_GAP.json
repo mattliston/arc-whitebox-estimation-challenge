@@ -1,0 +1,739 @@
+{
+  "bindings": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d5_cp3_winograd_hybrid_v1/RECOVERED_REFERENCE_EVIDENCE.json": "cbf63a2c30cc2e1f8eca4f4506ad7510de10b72bd721d1bdf54640458f1fcfb6",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d9_cp3_arena_depth1_full_estimator_v1/D1_CANDIDATE_RESULT.json": "56212fc97101fd1d6054899c57393fbc5dc0ecaa6bbe57decf91d233c0b2594d",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d9_cp3_arena_depth1_full_estimator_v1/estimator.py": "f2ec257c891241b57c85803c70c73f365e075711e2b2cd214d9b58250762892e",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0g6_native_j_physical_local_oracle_v1/RESULT.json": "925466ad493c1bf84bf77ca40b455ae372b64ce89d4d4d33e1688c7e86387ae0",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp4_cap1024_card_v1/FULL_ESTIMATOR_GATE_RESULT.json": "d8f7cc7e563ad77fa8242564002d7c6265a7924d8740626cc7808b2dee45f1c6",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp4_cap1792_card_v1/FULL_ESTIMATOR_GATE_RESULT.json": "3722d52d09cdc6db3800d671672a48955147db004e365c755e9942cd82e72fb9",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_r40_economic_falsification_v1/audit_economic_gap.py": "fecea92ec7af824c94cd5d4a74c64cc7d652c45c229d102ded3b03403308cf64",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_r40_physical_kernel_audit_v1/RESULT.json": "8f398133cdf569dd01affeb248a9d3bd76fb0ae25978f80767091dc400cb17ec",
+    "/private/tmp/r40_public_extract_20260826/FMMa_6_3_3.m": "0522e007ea759cc96949f7b504c3a1c76eddc3f0c353410e8018f79abc44ccec",
+    "/private/tmp/r40_public_extract_20260826/audit_m124_m7b_r40r40w1_banked_physical_v090_subagent_20260723.py": "bbb118c2bbe0f628e1b0ad4e5a14890514b07d01e9ce7872f3c7db8f21a4f9ad",
+    "/private/tmp/r40_public_extract_20260826/audit_m185_r40_transform_packing_v090_subagent_20260724.py": "d560e41db15752f69b0c69d8826e2587c5bf450cf4526efb96bcf0ce706f81ad",
+    "/private/tmp/r40_public_extract_20260826/tichavsky_r40_schedule_c142_v1.py": "ccf2cc0ff7ff62784899a51f801e0827c5307f57ace5898a35167467c6a49b41"
+  },
+  "cap_deltas": {
+    "512": {
+      "einsum": 79461089280,
+      "evidence": "exact static continuation; output drift/raw unmeasured",
+      "matmul": 46193442816,
+      "other": 188780544,
+      "total": 125843312640
+    },
+    "768": {
+      "einsum": 65502445568,
+      "evidence": "exact static continuation; output drift/raw unmeasured",
+      "matmul": 38136446976,
+      "other": 137734656,
+      "total": 103776627200
+    },
+    "1024": {
+      "einsum": 51541704704,
+      "evidence": "measured full-estimator target-free gate",
+      "matmul": 30079451136,
+      "other": 134974464,
+      "total": 81756130304
+    },
+    "1792": {
+      "einsum": 12886999040,
+      "evidence": "measured full-estimator target-free gate",
+      "matmul": 7519862784,
+      "other": -7258880,
+      "total": 20399602944
+    }
+  },
+  "cap_science": {
+    "1024": {
+      "evidence": "measured full-estimator target-free gate",
+      "maximum_final_absolute_drift": 4.5418739318847656e-05,
+      "maximum_residual_s": 0.4434367222711444,
+      "measured_flop_saving": 81756130304,
+      "pooled_unique_final_rms_drift": 9.999932286193823e-06,
+      "raw_mse_measured": false
+    },
+    "1792": {
+      "evidence": "measured full-estimator target-free gate",
+      "maximum_final_absolute_drift": 1.3709068298339844e-05,
+      "maximum_residual_s": 0.4243676052428782,
+      "measured_flop_saving": 20399602944,
+      "pooled_unique_final_rms_drift": 2.503792400835152e-06,
+      "raw_mse_measured": false
+    },
+    "512": {
+      "drift_measured": false,
+      "evidence": "exact static continuation; output drift/raw unmeasured",
+      "raw_mse_measured": false
+    },
+    "768": {
+      "drift_measured": false,
+      "evidence": "exact static continuation; output drift/raw unmeasured",
+      "raw_mse_measured": false
+    }
+  },
+  "cap_static_operation_deltas": {
+    "512": {
+      "argsort": 929792,
+      "asarray": -8388608,
+      "concatenate": 20992000,
+      "einsum": 79461089280,
+      "getitem": 71372800,
+      "matmul": 46193442816,
+      "multiply": 161550336,
+      "negative": 17408,
+      "subtract": -8392704,
+      "sum": 17808384,
+      "where": -67108864
+    },
+    "768": {
+      "argsort": 772096,
+      "asarray": -8388608,
+      "concatenate": 17318400,
+      "einsum": 65502445568,
+      "getitem": 56678400,
+      "matmul": 38136446976,
+      "multiply": 132700160,
+      "negative": 13824,
+      "subtract": -8392704,
+      "sum": 14141952,
+      "where": -67108864
+    }
+  },
+  "cse": {
+    "four_pair_reason": "M11 and M22 have 3 self derivative channels and 7 transpose-paired channel orbits; M21/M31 retain all 17 channels.",
+    "remaining_exact_factorization_constraint": "The 54 required carrier-channel contractions (34 asymmetric plus 20 symmetric orbit representatives) have no established exact cross-family CSE in the current Q24 representation.",
+    "reset_reuse": {
+      "covariance2_and_variance_outer": 62914560,
+      "shared_scaled_variance": 30720
+    },
+    "strict_slot_copy_cancels_missing_weight_multiply": 411041792,
+    "tiers": {
+      "association_accumulator_conditional": 8932513792,
+      "strict_slots": 8286590976,
+      "symmetry_tag_conditional": 10076440576,
+      "transpose_views_algebraic": 8697632768
+    }
+  },
+  "current_board_boundary": {
+    "reason": "G11B projection invalid; bank #328586 remains authority",
+    "supersedes": 582395000000,
+    "unchanged_raw_flop_threshold": 573816383391
+  },
+  "d1_reconciliation": {
+    "cp4_plane_einsum": 171742068736,
+    "einsum": 212063236096,
+    "einsum_components": {
+      "cp4_drop_planes_26": 55807311872,
+      "cp4_pre_planes_28": 115934756864,
+      "cp_post_read_15x3": 220323840,
+      "four_pair_edgeworth_14_layers": 39943421952,
+      "initial_three_gaussian_pair_calls": 125872128,
+      "reset_stars_15x2": 31549440
+    },
+    "matmul": 1345955301376,
+    "matrix_eligible": 1517697370112,
+    "non_gemm_einsum": 40321167360,
+    "operation_sum": 1574162015607,
+    "other": 16143478135,
+    "total": 1574162015607
+  },
+  "dispatch": {
+    "d1_observed_residual_s": [
+      0.3933637347072363,
+      0.38183928607031703,
+      0.40020734211429954
+    ],
+    "logical_wave_calls_per_product_without_cross_product_reuse": 102,
+    "m139_seconds_per_wrapper_model": 2.9682888888888886e-06,
+    "modeled_wrapper_residual_s": 0.052983956666666665,
+    "note": "Cross-product wave batching lowers wrappers only by materializing/packing banks; it does not lower the arithmetic falsification.",
+    "requested_r40x2_b7x3_stacked_products": 175,
+    "upper_wrapper_count_before_pack_splits": 17850
+  },
+  "measured_cap_checks": {
+    "1024": {
+      "operation_delta": {
+        "argsort": 655360,
+        "asarray": -4194304,
+        "concatenate": 13644800,
+        "einsum": 51541704704,
+        "getitem": 46182400,
+        "matmul": 30079451136,
+        "multiply": 104902656,
+        "negative": 11264,
+        "subtract": -4196352,
+        "sum": 11523072,
+        "where": -33554432
+      },
+      "sum": 81756130304
+    },
+    "1792": {
+      "operation_delta": {
+        "argsort": 69632,
+        "asarray": -4194304,
+        "concatenate": 3411200,
+        "einsum": 12886999040,
+        "getitem": 5248000,
+        "matmul": 7519862784,
+        "multiply": 24646656,
+        "negative": 1280,
+        "subtract": -4196352,
+        "sum": 1309440,
+        "where": -33554432
+      },
+      "sum": 20399602944
+    }
+  },
+  "memory": {
+    "current_d1_maximum_measured_rss_bytes": 3546202112,
+    "float32_leaf_bank_gib": {
+      "A": 0.1226663589477539,
+      "B": 6.562650203704834,
+      "C": 1.750040054321289
+    },
+    "padded_shape_r40x2_b7x3": [
+      1152,
+      1080,
+      15408
+    ],
+    "shape": [
+      1024,
+      1024,
+      15360
+    ],
+    "verdict": "A/B/C leaf banks cannot coexist with the host under 8 GiB; a streamed spelling is mandatory."
+  },
+  "optimistic_floor_correction": {
+    "corrected_margin_vs_current_target": 40529561345,
+    "corrected_zero_tax_rank_only_exact_fraction": "447858193713055/729",
+    "corrected_zero_tax_rank_only_floor": 614345944736,
+    "error": "It discounts all 40.321167360B non-GEMM einsums and applies a rank ratio to an already-fast D1 leaf inventory.",
+    "old_uniform_discount_exact_fraction": "429268875523615/729",
+    "old_uniform_discount_floor": 588846194133
+  },
+  "physical_tiled_boundary": {
+    "1024": {
+      "product_costs_before_fixed_host": {
+        "fused_free_forward": 551539754418,
+        "fused_physical_arithmetic": 721193659912,
+        "separated_free_forward": 556581538622,
+        "separated_physical_arithmetic": 722143265800
+      },
+      "requested_r40x2_b7x3": {
+        "tiled_direct_fringe": {
+          "components": {
+            "forward_a": 16390619136,
+            "forward_b": 107326062592,
+            "fringes_and_accumulation": 256408838656,
+            "inverse_b7": 24333859200,
+            "inverse_r40": 12314203648,
+            "leaf": 465196905600,
+            "total": 881970488832
+          },
+          "margin_vs_current_target": 356923850712,
+          "omitted_positive_taxes": [
+            "padding/materialization copies",
+            "stack/gather/layout movement",
+            "final scale/crop",
+            "coefficient materialization"
+          ],
+          "strict_total_before_movement": 930740234103
+        },
+        "zero_pad": {
+          "components": {
+            "forward_a": 22056468480,
+            "forward_b": 117379921920,
+            "fringes_and_accumulation": 0,
+            "inverse_b7": 32683324800,
+            "inverse_r40": 16539469312,
+            "leaf": 669295625600,
+            "total": 857954810112
+          },
+          "margin_vs_current_target": 332908171992,
+          "omitted_positive_taxes": [
+            "padding/materialization copies",
+            "stack/gather/layout movement",
+            "final scale/crop",
+            "coefficient materialization"
+          ],
+          "strict_total_before_movement": 906724555383
+        }
+      },
+      "stacked_product_calls_fused": 159,
+      "stacked_product_calls_separated": 173,
+      "totals": {
+        "association_accumulator_conditional": {
+          "fused_free_forward": {
+            "flops": 599663576873,
+            "margin_vs_current_target": 25847193482
+          },
+          "fused_physical_arithmetic": {
+            "flops": 769317482367,
+            "margin_vs_current_target": 195501098976
+          },
+          "separated_free_forward": {
+            "flops": 604705361077,
+            "margin_vs_current_target": 30888977686
+          },
+          "separated_physical_arithmetic": {
+            "flops": 770267088255,
+            "margin_vs_current_target": 196450704864
+          }
+        },
+        "strict_slots": {
+          "fused_free_forward": {
+            "flops": 600309499689,
+            "margin_vs_current_target": 26493116298
+          },
+          "fused_physical_arithmetic": {
+            "flops": 769963405183,
+            "margin_vs_current_target": 196147021792
+          },
+          "separated_free_forward": {
+            "flops": 605351283893,
+            "margin_vs_current_target": 31534900502
+          },
+          "separated_physical_arithmetic": {
+            "flops": 770913011071,
+            "margin_vs_current_target": 197096627680
+          }
+        },
+        "symmetry_tag_conditional": {
+          "fused_free_forward": {
+            "flops": 598519650089,
+            "margin_vs_current_target": 24703266698
+          },
+          "fused_physical_arithmetic": {
+            "flops": 768173555583,
+            "margin_vs_current_target": 194357172192
+          },
+          "separated_free_forward": {
+            "flops": 603561434293,
+            "margin_vs_current_target": 29745050902
+          },
+          "separated_physical_arithmetic": {
+            "flops": 769123161471,
+            "margin_vs_current_target": 195306778080
+          }
+        },
+        "transpose_views_algebraic": {
+          "fused_free_forward": {
+            "flops": 599898457897,
+            "margin_vs_current_target": 26082074506
+          },
+          "fused_physical_arithmetic": {
+            "flops": 769552363391,
+            "margin_vs_current_target": 195735980000
+          },
+          "separated_free_forward": {
+            "flops": 604940242101,
+            "margin_vs_current_target": 31123858710
+          },
+          "separated_physical_arithmetic": {
+            "flops": 770501969279,
+            "margin_vs_current_target": 196685585888
+          }
+        }
+      }
+    },
+    "512": {
+      "product_costs_before_fixed_host": {
+        "fused_free_forward": 535788193652,
+        "fused_physical_arithmetic": 701225387272,
+        "separated_free_forward": 540829977856,
+        "separated_physical_arithmetic": 702174993160
+      },
+      "requested_r40x2_b7x3": {
+        "tiled_direct_fringe": {
+          "components": {
+            "forward_a": 15907553280,
+            "forward_b": 104105835008,
+            "fringes_and_accumulation": 248630150400,
+            "inverse_b7": 24087000000,
+            "inverse_r40": 12189280000,
+            "leaf": 452004302400,
+            "total": 856924121088
+          },
+          "margin_vs_current_target": 331807948248,
+          "omitted_positive_taxes": [
+            "padding/materialization copies",
+            "stack/gather/layout movement",
+            "final scale/crop",
+            "coefficient materialization"
+          ],
+          "strict_total_before_movement": 905624331639
+        },
+        "zero_pad": {
+          "components": {
+            "forward_a": 21419458560,
+            "forward_b": 113953555200,
+            "fringes_and_accumulation": 0,
+            "inverse_b7": 32362512000,
+            "inverse_r40": 16377121280,
+            "leaf": 650563984000,
+            "total": 834676631040
+          },
+          "margin_vs_current_target": 309560458200,
+          "omitted_positive_taxes": [
+            "padding/materialization copies",
+            "stack/gather/layout movement",
+            "final scale/crop",
+            "coefficient materialization"
+          ],
+          "strict_total_before_movement": 883376841591
+        }
+      },
+      "stacked_product_calls_fused": 161,
+      "stacked_product_calls_separated": 175,
+      "totals": {
+        "association_accumulator_conditional": {
+          "fused_free_forward": {
+            "flops": 583842481387,
+            "margin_vs_current_target": 10026097996
+          },
+          "fused_physical_arithmetic": {
+            "flops": 749279675007,
+            "margin_vs_current_target": 175463291616
+          },
+          "separated_free_forward": {
+            "flops": 588884265591,
+            "margin_vs_current_target": 15067882200
+          },
+          "separated_physical_arithmetic": {
+            "flops": 750229280895,
+            "margin_vs_current_target": 176412897504
+          }
+        },
+        "strict_slots": {
+          "fused_free_forward": {
+            "flops": 584488404203,
+            "margin_vs_current_target": 10672020812
+          },
+          "fused_physical_arithmetic": {
+            "flops": 749925597823,
+            "margin_vs_current_target": 176109214432
+          },
+          "separated_free_forward": {
+            "flops": 589530188407,
+            "margin_vs_current_target": 15713805016
+          },
+          "separated_physical_arithmetic": {
+            "flops": 750875203711,
+            "margin_vs_current_target": 177058820320
+          }
+        },
+        "symmetry_tag_conditional": {
+          "fused_free_forward": {
+            "flops": 582698554603,
+            "margin_vs_current_target": 8882171212
+          },
+          "fused_physical_arithmetic": {
+            "flops": 748135748223,
+            "margin_vs_current_target": 174319364832
+          },
+          "separated_free_forward": {
+            "flops": 587740338807,
+            "margin_vs_current_target": 13923955416
+          },
+          "separated_physical_arithmetic": {
+            "flops": 749085354111,
+            "margin_vs_current_target": 175268970720
+          }
+        },
+        "transpose_views_algebraic": {
+          "fused_free_forward": {
+            "flops": 584077362411,
+            "margin_vs_current_target": 10260979020
+          },
+          "fused_physical_arithmetic": {
+            "flops": 749514556031,
+            "margin_vs_current_target": 175698172640
+          },
+          "separated_free_forward": {
+            "flops": 589119146615,
+            "margin_vs_current_target": 15302763224
+          },
+          "separated_physical_arithmetic": {
+            "flops": 750464161919,
+            "margin_vs_current_target": 176647778528
+          }
+        }
+      }
+    },
+    "768": {
+      "product_costs_before_fixed_host": {
+        "fused_free_forward": 543180798700,
+        "fused_physical_arithmetic": 711247234440,
+        "separated_free_forward": 548222582904,
+        "separated_physical_arithmetic": 712196840328
+      },
+      "requested_r40x2_b7x3": {
+        "tiled_direct_fringe": {
+          "components": {
+            "forward_a": 16109273088,
+            "forward_b": 105554380288,
+            "fringes_and_accumulation": 254337812224,
+            "inverse_b7": 24255739200,
+            "inverse_r40": 12274670848,
+            "leaf": 457908292800,
+            "total": 870440168448
+          },
+          "margin_vs_current_target": 345382905816,
+          "omitted_positive_taxes": [
+            "padding/materialization copies",
+            "stack/gather/layout movement",
+            "final scale/crop",
+            "coefficient materialization"
+          ],
+          "strict_total_before_movement": 919199289207
+        },
+        "zero_pad": {
+          "components": {
+            "forward_a": 21688418304,
+            "forward_b": 115505568000,
+            "fringes_and_accumulation": 0,
+            "inverse_b7": 32587497600,
+            "inverse_r40": 16490975744,
+            "leaf": 659006723200,
+            "total": 845279182848
+          },
+          "margin_vs_current_target": 320221920216,
+          "omitted_positive_taxes": [
+            "padding/materialization copies",
+            "stack/gather/layout movement",
+            "final scale/crop",
+            "coefficient materialization"
+          ],
+          "strict_total_before_movement": 894038303607
+        }
+      },
+      "stacked_product_calls_fused": 161,
+      "stacked_product_calls_separated": 175,
+      "totals": {
+        "association_accumulator_conditional": {
+          "fused_free_forward": {
+            "flops": 591293996643,
+            "margin_vs_current_target": 17477613252
+          },
+          "fused_physical_arithmetic": {
+            "flops": 759360432383,
+            "margin_vs_current_target": 185544048992
+          },
+          "separated_free_forward": {
+            "flops": 596335780847,
+            "margin_vs_current_target": 22519397456
+          },
+          "separated_physical_arithmetic": {
+            "flops": 760310038271,
+            "margin_vs_current_target": 186493654880
+          }
+        },
+        "strict_slots": {
+          "fused_free_forward": {
+            "flops": 591939919459,
+            "margin_vs_current_target": 18123536068
+          },
+          "fused_physical_arithmetic": {
+            "flops": 760006355199,
+            "margin_vs_current_target": 186189971808
+          },
+          "separated_free_forward": {
+            "flops": 596981703663,
+            "margin_vs_current_target": 23165320272
+          },
+          "separated_physical_arithmetic": {
+            "flops": 760955961087,
+            "margin_vs_current_target": 187139577696
+          }
+        },
+        "symmetry_tag_conditional": {
+          "fused_free_forward": {
+            "flops": 590150069859,
+            "margin_vs_current_target": 16333686468
+          },
+          "fused_physical_arithmetic": {
+            "flops": 758216505599,
+            "margin_vs_current_target": 184400122208
+          },
+          "separated_free_forward": {
+            "flops": 595191854063,
+            "margin_vs_current_target": 21375470672
+          },
+          "separated_physical_arithmetic": {
+            "flops": 759166111487,
+            "margin_vs_current_target": 185349728096
+          }
+        },
+        "transpose_views_algebraic": {
+          "fused_free_forward": {
+            "flops": 591528877667,
+            "margin_vs_current_target": 17712494276
+          },
+          "fused_physical_arithmetic": {
+            "flops": 759595313407,
+            "margin_vs_current_target": 185778930016
+          },
+          "separated_free_forward": {
+            "flops": 596570661871,
+            "margin_vs_current_target": 22754278480
+          },
+          "separated_physical_arithmetic": {
+            "flops": 760544919295,
+            "margin_vs_current_target": 186728535904
+          }
+        }
+      }
+    }
+  },
+  "rank_only_cap_boundary": {
+    "1024": {
+      "cse_tiers": {
+        "association_accumulator_conditional": {
+          "exact_fraction": "15532447247053/27",
+          "favorable_integer_floor": 575275823964,
+          "margin_vs_current_target": 1459440573
+        },
+        "strict_slots": {
+          "exact_fraction": "15549887163085/27",
+          "favorable_integer_floor": 575921746780,
+          "margin_vs_current_target": 2105363389
+        },
+        "symmetry_tag_conditional": {
+          "exact_fraction": "15501561223885/27",
+          "favorable_integer_floor": 574131897180,
+          "margin_vs_current_target": 315513789
+        },
+        "transpose_views_algebraic": {
+          "exact_fraction": "15538789034701/27",
+          "favorable_integer_floor": 575510704988,
+          "margin_vs_current_target": 1694321597
+        }
+      },
+      "without_new_cse_exact_fraction": "15773625119437/27",
+      "without_new_cse_favorable_floor": 584208337756,
+      "without_new_cse_margin_vs_target": 10391954365
+    },
+    "1792": {
+      "cse_tiers": {
+        "association_accumulator_conditional": {
+          "exact_fraction": "48431475736423/81",
+          "favorable_integer_floor": 597919453536,
+          "margin_vs_current_target": 24103070145
+        },
+        "strict_slots": {
+          "exact_fraction": "48483795484519/81",
+          "favorable_integer_floor": 598565376352,
+          "margin_vs_current_target": 24748992961
+        },
+        "symmetry_tag_conditional": {
+          "exact_fraction": "48338817666919/81",
+          "favorable_integer_floor": 596775526752,
+          "margin_vs_current_target": 22959143361
+        },
+        "transpose_views_algebraic": {
+          "exact_fraction": "48450501099367/81",
+          "favorable_integer_floor": 598154334560,
+          "margin_vs_current_target": 24337951169
+        }
+      },
+      "without_new_cse_exact_fraction": "49155009353575/81",
+      "without_new_cse_favorable_floor": 606851967328,
+      "without_new_cse_margin_vs_target": 33035583937
+    },
+    "512": {
+      "cse_tiers": {
+        "association_accumulator_conditional": {
+          "exact_fraction": "407537282244511/729",
+          "favorable_integer_floor": 559036052461,
+          "margin_vs_current_target": -14780330930
+        },
+        "strict_slots": {
+          "exact_fraction": "408008159977375/729",
+          "favorable_integer_floor": 559681975277,
+          "margin_vs_current_target": -14134408114
+        },
+        "symmetry_tag_conditional": {
+          "exact_fraction": "406703359618975/729",
+          "favorable_integer_floor": 557892125677,
+          "margin_vs_current_target": -15924257714
+        },
+        "transpose_views_algebraic": {
+          "exact_fraction": "407708510511007/729",
+          "favorable_integer_floor": 559270933485,
+          "margin_vs_current_target": -14545449906
+        }
+      },
+      "without_new_cse_exact_fraction": "414049084798879/729",
+      "without_new_cse_favorable_floor": 567968566253,
+      "without_new_cse_margin_vs_target": -5847817138
+    },
+    "768": {
+      "cse_tiers": {
+        "association_accumulator_conditional": {
+          "exact_fraction": "137824666036021/243",
+          "favorable_integer_floor": 567179695621,
+          "margin_vs_current_target": -6636687770
+        },
+        "strict_slots": {
+          "exact_fraction": "137981625280309/243",
+          "favorable_integer_floor": 567825618437,
+          "margin_vs_current_target": -5990764954
+        },
+        "symmetry_tag_conditional": {
+          "exact_fraction": "137546691827509/243",
+          "favorable_integer_floor": 566035768837,
+          "margin_vs_current_target": -7780614554
+        },
+        "transpose_views_algebraic": {
+          "exact_fraction": "137881742124853/243",
+          "favorable_integer_floor": 567414576645,
+          "margin_vs_current_target": -6401806746
+        }
+      },
+      "without_new_cse_exact_fraction": "139995266887477/243",
+      "without_new_cse_favorable_floor": 576112209413,
+      "without_new_cse_margin_vs_target": 2295826022
+    }
+  },
+  "raw_context_only": {
+    "cap1024_projected_raw_ceiling_not_a_cap_score": 8.38996e-09,
+    "warning": "No cap1024/768/512 raw MSE has been measured in these receipts."
+  },
+  "schema": "public-q24-r40-economic-falsification-v1",
+  "scope": {
+    "estimator_executed": false,
+    "fixture_opened": false,
+    "only_static_integer_arithmetic_executed": true,
+    "package_changed": false,
+    "submission_attempted": false,
+    "target_opened": false
+  },
+  "status": "FAIL_PHYSICAL_COMPUTE_ROUTE_AT_CURRENT_UNCHANGED_RAW_THRESHOLD",
+  "terminal": {
+    "cap512_strict_fused_free_forward": {
+      "flops": 584488404203,
+      "margin_vs_current_target": 10672020812
+    },
+    "cap512_strict_fused_physical_arithmetic": {
+      "flops": 749925597823,
+      "margin_vs_current_target": 176109214432
+    },
+    "cap512_strict_separated_free_forward": {
+      "flops": 589530188407,
+      "margin_vs_current_target": 15713805016
+    },
+    "cap512_strongest_conditional_fused_free_forward": {
+      "flops": 582698554603,
+      "margin_vs_current_target": 8882171212
+    },
+    "conclusion": "No static plan reaches the current unchanged-raw threshold. Even the strongest conditional fused/free-forward lower bound remains above it, while charging actual forward transforms moves the plan far away.",
+    "external_constraint": "A new exact carrier factorization and/or a benchmark primitive that amortizes both forward and inverse transforms is required; operand reuse alone cannot affect the charged inverse-output lower bound.",
+    "smallest_scientific_discriminator_if_boundary_reopens": "Measure raw MSE for cap1024 first (existing full-size drift is already bound); do not spend a cap768/512 raw run until a literal physical plan crosses the live threshold with margin."
+  },
+  "tiny_r40_authority": {
+    "tensor_exact": true,
+    "tiny_flops": 342,
+    "tiny_r40_vs_direct32_max_abs": 2.682209014892578e-07,
+    "tiny_wrapper_calls": 292
+  }
+}

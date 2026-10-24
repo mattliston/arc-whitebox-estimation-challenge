@@ -1,0 +1,39 @@
+{
+  "schema": "phase2-v4-rejected-aggressive-push-v1",
+  "status": "REJECTED_SCIENTIFIC_INSTABILITY_DO_NOT_RESTORE",
+  "rejected_estimator_sha256": "aae098ffc3676e3b73a098a24c615d054cb7f538b94c8165d40713342a98576d",
+  "tiny_identity_operation_calls": 4511,
+  "fixture": {
+    "numpy_seed": 20260823,
+    "width": 8,
+    "depth": 16,
+    "construction": "For each layer: a=rng.normal(size=(8,8)); q,_=np.linalg.qr(a); weight=(0.35*q).astype(np.float64).",
+    "flop_budget": 1000000000000,
+    "entrypoint": "module._predict(mlp)"
+  },
+  "frozen_v3_result": {
+    "status": "PASS_FINITE",
+    "operation_calls": 8763,
+    "flops_used": 19695964
+  },
+  "rejected_v4_result": {
+    "status": "FAIL_NUMERICAL_PROPAGATION",
+    "warnings": [
+      "overflow encountered in reduce",
+      "invalid value encountered in multiply"
+    ],
+    "exception": "numpy.linalg.LinAlgError: Eigenvalues did not converge",
+    "failure_path": "_full_relu_reset -> _repair_covariance -> fnp.linalg.eigh(correlation)"
+  },
+  "isolated_seed17_internal_drift": {
+    "cubic_max_absolute": 1.0739504489265528e-05,
+    "cubic_max_scaled": 1.1789783982131764e-07,
+    "quartic_diagonal_max_absolute": 1.6263059308130323e-05,
+    "quartic_diagonal_max_scaled": 1.7187863020350648e-07,
+    "quartic_k31_max_absolute": 3.0517578125e-05,
+    "quartic_k31_max_scaled": 1.430511474609375e-06,
+    "quartic_k22_max_absolute": 7.62939453125e-06,
+    "quartic_k22_max_scaled": 1.1649339449326462e-07
+  },
+  "decision": "Revert batched fp32 star matmuls and n-ary fp32 diagonal reductions. Continue only association-preserving reuse and independently stable fp64 pointwise fusions."
+}

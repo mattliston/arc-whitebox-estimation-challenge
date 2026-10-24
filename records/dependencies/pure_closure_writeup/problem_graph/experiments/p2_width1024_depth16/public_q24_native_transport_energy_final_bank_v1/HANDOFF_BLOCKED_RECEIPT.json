@@ -1,0 +1,89 @@
+{
+  "schema": "q24-native-all688-final-bank-handoff-blocked-v1",
+  "status": "BLOCKED_RESOURCE_GATE",
+  "node": "P2R0H7B_BANK",
+  "disposition": "Do not package or submit this all-688 upgrade under the governing one-shot meter preregistration.",
+  "science": {
+    "final_model_path": "../public_q24_native_transport_energy_final_v1/FINAL_MODEL.pt",
+    "final_model_sha256": "21ad1dede3373c90d2694158b6599c4c172d7181c72634a6ec8e362449b7d1f8",
+    "final_fit_result_path": "../public_q24_native_transport_energy_final_v1/FINAL_FIT_RESULT.json",
+    "final_fit_result_sha256": "e8261895c5d8f5f1feb1e15f257612d1d1b36a90e8bde1ab05e2844100a8ba08",
+    "fixed_epoch": 6,
+    "training_rows": 688,
+    "validation_rows": 0,
+    "postfit_in_sample_raw_mse_diagnostic_not_used_for_selection": 2.9736792457285063e-08,
+    "paired_q24_host_raw_mse": 9.016075357240868e-08,
+    "ratio": 0.32981969736314654,
+    "finite_full_rollout": true,
+    "native_row_aggregate_sha256": "204097b1e43387fdc2080eb690606d7dc34aeda7ca4794cb98382137ebfa3db3"
+  },
+  "export": {
+    "estimator_path": "estimator.py",
+    "estimator_sha256": "5e4d4e7b661739c613012390fb38c8972c22d0f05d181f79a34caa7b09d7a16f",
+    "estimator_bytes": 672898,
+    "literal_payload_path": "FINAL_LITERAL_PAYLOAD.py",
+    "literal_payload_sha256": "8e57ecb33e020b8364425bd62bde09b659e92987c1dd14693857b6c0c8fe73ab",
+    "literal_payload_values": 26224,
+    "source_freeze_path": "SOURCE_FREEZE.json",
+    "source_freeze_sha256": "d7d91b3beea5722e031e4b0c0ede19023dd6fcb3fb1b8b72890b6aafb100f25c",
+    "whest_validate": "PASS"
+  },
+  "literal_meter": {
+    "preregistration_sha256": "8e48a3346cee632705339e7ff80d8df66a8b143e132aaeebb6e9ff8015f0baee",
+    "run_manifest_sha256": "7d1a32c811e06944774d5935154beb60a177a95d559577357786b430172ff316",
+    "program_sha256": "aa44035a3cc169b2974a825ceb2b703a42106b046547ddfd1526899002f84457",
+    "seal_sha256": "a70bda02af3ee874e0ac93ca85628e6da84754e1aec65cc12f568c4551251291",
+    "result_path": "METER_RESULT.json",
+    "result_sha256": "c8405b52b03c367a1c09b80c4ad4ab97fca0017707e96bb93d66acdf830b1949",
+    "status": "FAIL",
+    "flops_used": 2132366833051,
+    "phase2_budget": 2199023255552,
+    "flop_headroom": 66656422501,
+    "wall_time_seconds": 25.436657208018005,
+    "residual_wall_time_seconds": 0.49450173741206527,
+    "residual_wall_gate_seconds": 0.4,
+    "maximum_process_rss_bytes": 3218259968,
+    "output_array_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+    "gates": {
+      "flops_within_2pow41": true,
+      "wall_below_120_seconds": true,
+      "residual_wall_at_most_0_4_seconds": false,
+      "rss_below_8_gib": true,
+      "output_float32_16x1024": true,
+      "output_finite": true,
+      "conjunctive_pass": false
+    },
+    "attempt_law": "The frozen preregistration authorized one clean literal meter and no source/coefficient retry."
+  },
+  "export_parity": {
+    "verifier_path": "verify_final_bank_parity.py",
+    "verifier_sha256": "737431b4abf6764253db0253aaf36780bca71f104f0fd8d9feeab346ff361250",
+    "result_path": "PARITY_RESULT.json",
+    "result_sha256": "8914a42967da3309055101bf0d2ccefc76b2542378aac68dfa0757056543f2f6",
+    "status": "PASS",
+    "torch_flopscope_maximum_absolute_correction_error": 4.423782229423523e-09,
+    "literal_meter_output_byte_parity": true,
+    "output_array_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+    "finite": true
+  },
+  "package": {
+    "materialized": false,
+    "validated": false,
+    "reason": "The governing literal meter conjunctive gate failed."
+  },
+  "scope": {
+    "target_roles_used_for_fit": [
+      "observer_fit"
+    ],
+    "observer_selection_rows_opened": 0,
+    "public_or_private_board_name_joins": 0,
+    "network_accesses_by_builder": 0,
+    "submissions_by_builder": 0
+  },
+  "recomputation_commands_from_this_directory": {
+    "static_validate": "../data_gate/.venv/bin/whest validate --estimator estimator.py --format json",
+    "hash_receipts": "shasum -a 256 SOURCE_FREEZE.json METER_PREREGISTRATION.json METER_RUN_MANIFEST.json meter_final_bank.py METER_SEAL.json METER_RESULT.json verify_final_bank_parity.py PARITY_RESULT.json estimator.py FINAL_LITERAL_PAYLOAD.py",
+    "submit": null
+  },
+  "next_authority_required": "A new explicitly authorized, independently sealed meter policy would be required before any retry or package creation."
+}

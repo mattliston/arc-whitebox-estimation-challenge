@@ -1,0 +1,172 @@
+
+
+# BEGIN OPUS-SMALL FRAGMENT smallsm_v1 (2026-10-16; append LAST, after OPUS-PUSHSM pushsm, on GOV v4f c8dc9989)
+# The JOIN and OLD-BANK products that go through _shared_old384_mm (join: Y = J (w o J[rows])', Fj = Qn' J, the 384^3 core products;
+# old bank: the inner read L2 (F o lam)' and the reconstruction U F) through ONE Smirnov <3,3,6;40> top level over inner alt-basis
+# trees, exactly where _SMALLSM_RULE (an exact (m, k, n) table priced with the flopscope tariff, padding counted, against the live
+# incumbent) routes it. Same real arithmetic, rounding-level change. Mirrors OPUS-PUSHSM: its own environment (own _sm40 state; the
+# Smirnov read's and push-SM's state are untouched), families bound lazily at the first routed product of each worker (no setup
+# change), own outer stacks and padding arrays; circuits' node scratch and the trees use the kernel arena, which holds nothing between
+# kernel calls. Routed only outside UBX/cluster contexts and only when the module's Winograd path is on. _SMALLSM_ON joins the
+# governor's EXACT set.
+_SMALLSM_ON = True
+_SMALLSM_FORCE = None        # tests only: a family key routing every product it fits
+_SMALLSM_RECORDS = __RECORDS__
+_SMALLSM_FAMILIES = __FAMILIES__      # key -> (name, L, P, r, k, c)
+_SMALLSM_RULE = __RULE__              # (m, k, n) -> family key
+_SMALLSM_STATS = dict(routed=0, binds=0)
+_GOV_EXACT_OFF['_SMALLSM_ON'] = False
+_GOV_EXACT_SAVED['_SMALLSM_ON'] = True
+
+
+class _SmallSmEnvironment:
+    pass
+
+
+_SMALLSM_ENV = _SmallSmEnvironment()
+_SMALLSM_ENV.fnp = fnp
+_SMALLSM_ENV._IPT_REGION = _IPT_REGION
+_SMALLSM_ENV._BH_HOLD = _BH_HOLD
+_SMALLSM_ENV._TR_LAST = _TR_LAST
+_SMALLSM_ENV._SCRATCH = None
+_SMALLSM_ENV._rs_nat_perm = _rs_nat_perm
+_SMALLSM_ENV._rs_basis_views = _rs_basis_views
+_SMALLSM_ENV._sm40_owner = None
+
+
+class _SmallSmKernel(_AstraSm40Kernel):
+    def group_views(self, kind, shape):
+        # exact-size node scratch at the kernel arena's start (as OPUS-PUSHSM)
+        key = (self.record['name'], kind, tuple(shape))
+        cache = self.M._sm40_group_cache
+        if key not in cache:
+            groups = self.circuits[kind][1]
+            sizes = [len(nodes) for _, nodes in groups]
+            total = sum(sizes)
+            rows, cols = int(shape[0]), int(shape[1])
+            allnodes = fnp.reshape(self.M._SCRATCH[0][:total * rows * cols], (total, rows, cols))
+            cuts = []
+            at = 0
+            for size in sizes[:-1]:
+                at += size
+                cuts.append(at)
+            cache[key] = (tuple(fnp.split(allnodes, cuts, axis=0)), tuple(fnp.unstack(allnodes, axis=0)))
+        return cache[key]
+
+    def side(self, kind, L, P, rows, cols):
+        key = (self.fam[0], kind, L, P, rows, cols)
+        cache = self.M._sm40_cache
+        if key in cache:
+            return cache[key]
+        frame = self.M._sm40_frames[self.fam[0]]['sides'][kind]
+        T, chunks, G, basis, levels = _astra_sm40_slice_side(fnp, frame, P, rows, cols)
+        ops = []
+        if kind == 0:
+            for j in range(1, L + 1):
+                X = chunks[j]
+                V = G if j == 1 else levels[j]
+                ops.extend(((fnp.subtract, X[4], X[0], X[5]), (fnp.subtract, V[2:7:4], X[5], V[3:0:-2])))
+        elif kind == 1:
+            for j in range(1, L + 1):
+                Y = chunks[j]
+                V = G if j == 1 else levels[j]
+                ops.extend(((fnp.add, Y[1], Y[0], Y[5]), (fnp.subtract, V[5:2:-2], V[2:6:3], V[6:3:-2])))
+        else:
+            for j in range(L, 1, -1):
+                Z = chunks[j]
+                V = levels[j]
+                ops.extend(((fnp.add, Z[0], V[5:1:-3], V[5:None:-5]), (fnp.add, Z[5], Z[4], Z[5]), (fnp.add, Z[5], V[3:0:-2], V[2:4]),
+                            (fnp.add, Z[4], Z[6], Z[1])))
+        value = (T, chunks, G, basis, ops)
+        cache[key] = value
+        return value
+
+    def __call__(self, a, b, L, P, old=None):
+        M = self.M
+        m, k, n = int(a.shape[0]), int(a.shape[1]), int(b.shape[1])
+        ar, ak, an = self.record['shape']
+        u = 1 << L
+        cm, ck, cn = _rc_math.ceil(m / ar / u) * u, _rc_math.ceil(k / ak / u) * u, _rc_math.ceil(n / an / u) * u
+        self.family = self.fam
+        P = self.fam[2]
+        assert old is None and tuple(b.shape) == (k, n) and L == self.fam[1]
+        assert cm // u <= self.fam[3] and ck // u <= self.fam[4] and cn // u <= self.fam[5]
+        assert M._sm40_owner is M._SCRATCH[0]
+        M._TR_LAST[0] = None
+        self.cache.clear()
+        self.stats = dict(temp_live=0, temp_peak=0, leaf_bytes=0)
+        M._sm40_padding = self.pad
+        aa, bb, av, bv, pad_dest = _astra_sm40_padding_views(M, m, k, n, 0, cm, ck, cn, ar, ak, an)
+        for zero in pad_dest[4]:
+            fnp.copyto(zero, 0)
+        fnp.copyto(pad_dest[0], a)
+        fnp.copyto(pad_dest[1], b)
+        outerkey = (self.fam[0], L, cm, ck, cn, P)
+        if outerkey not in M._sm40_outer_cache:
+            LA = self.outer['A'][:, :cm, :ck]
+            RB = self.outer['B'][:, :ck, :cn]
+            PC = self.outer['C'][:, :cm, :cn]
+            pc = tuple(fnp.unstack(PC, axis=0))
+            cuts = list(range(P, 40, P))
+            parts = tuple(zip(fnp.split(LA, cuts, axis=0), fnp.split(RB, cuts, axis=0), fnp.split(PC, cuts, axis=0)))
+            M._sm40_outer_cache[outerkey] = (LA, RB, PC, pc, parts)
+        LA, RB, PC, pc, parts = M._sm40_outer_cache[outerkey]
+        _astra_sm40_linear_grouped(fnp, self.circuits['L'], av, (cm, ck), self.stats, out=LA, prepared=self.group_views('L', (cm, ck)))
+        _astra_sm40_linear_grouped(fnp, self.circuits['R'], bv, (ck, cn), self.stats, out=RB, prepared=self.group_views('R', (ck, cn)))
+        try:
+            for index, (A, B, C) in enumerate(parts):
+                self.bb_batch(A, B, C, L, (outerkey, index))
+        except BaseException:
+            M._sm40_cache.clear()
+            raise
+        finally:
+            self.cache.clear()
+            M._BH_HOLD.clear()
+            M._TR_LAST[0] = None
+        packed = _astra_sm40_linear_grouped(fnp, self.circuits['P'], pc, (cm, cn), self.stats, prepared=self.group_views('P', (cm, cn)))
+        out = fnp.reshape(fnp.transpose(fnp.reshape(packed, (ar, an, cm, cn)), (0, 2, 1, 3)), (ar * cm, an * cn))
+        return fnp.copy(out[:m, :n]) if tuple(out.shape) != (m, n) else out
+
+
+_SMALLSM_KERNELS = {}
+for _smk, _smf in _SMALLSM_FAMILIES.items():
+    _SMALLSM_KERNELS[_smk] = _SmallSmKernel(_SMALLSM_ENV, _SMALLSM_RECORDS[_smk[0]])
+    _SMALLSM_KERNELS[_smk].fam = _smf
+del _smk, _smf
+
+
+def _smallsm_bind():
+    env, arena = _SMALLSM_ENV, _SCRATCH[0]
+    env._sm40_owner = None
+    env._sm40_cache, env._sm40_io_cache, env._sm40_outer_cache, env._sm40_group_cache = {}, {}, {}, {}
+    env._sm40_padding_grid, env._sm40_padding_cache = {}, {}
+    env._sm40_frames = {f[0]: _astra_sm40_bind_family(fnp, env, arena, f) for f in _SMALLSM_FAMILIES.values()}
+    for key, f in _SMALLSM_FAMILIES.items():
+        q = _SMALLSM_KERNELS[key]; ar, ak, an = q.record['shape']
+        mr, mk, mc = f[3] << f[1], f[4] << f[1], f[5] << f[1]
+        q.outer = dict(A=fnp.empty((40, mr, mk), dtype=fnp.float32), B=fnp.empty((40, mk, mc), dtype=fnp.float32),
+                       C=fnp.empty((40, mr, mc), dtype=fnp.float32))
+        q.pad = (fnp.empty((ar * mr, ak * mk), dtype=fnp.float32), fnp.empty((ak * mk, an * mc), dtype=fnp.float32))
+    env._sm40_outer = None
+    env._sm40_outer_bytes = 0
+    env._sm40_extra_leaf_bytes = 0
+    env._SCRATCH = _SCRATCH
+    env._sm40_owner = arena
+    _SMALLSM_STATS['binds'] += 1
+
+
+_SMALLSM_PARENT = _shared_old384_mm
+
+
+def _shared_old384_mm(left, right):
+    if (_SMALLSM_ON and _AB_ON and _WINOGRAD and _SCRATCH is not None and _UBX_CTX[0] is None and _ASTRA_CLUSTER_CTX[0] is None
+            and len(left.shape) == len(right.shape) == 2 and str(left.dtype) == str(right.dtype) == 'float32'):
+        m, k, n = int(left.shape[0]), int(left.shape[1]), int(right.shape[1])
+        key = _SMALLSM_FORCE if _SMALLSM_FORCE is not None else _SMALLSM_RULE.get((m, k, n))
+        if key is not None:
+            if _SMALLSM_ENV._sm40_owner is not _SCRATCH[0]:
+                _smallsm_bind()
+            _SMALLSM_STATS['routed'] += 1
+            return _SMALLSM_KERNELS[key](left, right, _SMALLSM_FAMILIES[key][1], _SMALLSM_FAMILIES[key][2])
+    return _SMALLSM_PARENT(left, right)
+# END OPUS-SMALL FRAGMENT smallsm_v1

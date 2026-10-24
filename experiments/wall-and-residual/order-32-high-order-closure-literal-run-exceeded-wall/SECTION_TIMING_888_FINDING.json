@@ -1,0 +1,63 @@
+{
+  "schema": "phase2-fb-ec4-v4-888-target-free-section-timing-finding-v1",
+  "status": "RESEARCH_ONLY_RESIDUAL_LOCALIZATION__NOT_A_SUBMISSION_GATE",
+  "created_date": "2026-08-24",
+  "candidate": {
+    "path": "estimator_8883b2ccd8fce6f7993b32af615041ff9ec915c179f735a782ac5e7c86199734.py",
+    "sha256": "8883b2ccd8fce6f7993b32af615041ff9ec915c179f735a782ac5e7c86199734"
+  },
+  "driver": {
+    "path": "section_timing_888.py",
+    "sha256": "284ee52773883d665e845d73d6479c8df6a079ebe9e6b0f407087ba2b915f449",
+    "instrumentation": "non-overlapping top-level wrappers around immutable estimator functions; each phase subtracts active BudgetContext backend and FlopScope overhead deltas"
+  },
+  "deterministic_synthetic_fixture": {
+    "width": 1024,
+    "depth": 16,
+    "seed": 20260824,
+    "weight_stream": "numpy SeedSequence(seed).spawn(3)[0]; standard_normal; sqrt(2/width); float32",
+    "dataset_argument": null,
+    "target_values_accessed": 0
+  },
+  "measured_context": {
+    "flop_budget": 2199023255552,
+    "flops_used": 2187178578919,
+    "flops_remaining": 11844676633,
+    "wall_time_s": 38.45838208310306,
+    "flopscope_backend_time_s": 37.22663634782657,
+    "flopscope_overhead_time_s": 0.577047033701092,
+    "residual_wall_time_s": 0.6546987015753984,
+    "output_shape": [16, 1024],
+    "output_all_finite": true
+  },
+  "predict_decomposition": {
+    "wall_time_s": 38.45778649998829,
+    "flopscope_backend_time_s": 37.22663634782657,
+    "flopscope_overhead_time_s": 0.5764554082415998,
+    "residual_wall_time_s": 0.6546947439201176,
+    "classified_phase_residual_s": 0.5481007802300155,
+    "caller_gap_wall_s": 0.26346871722489595,
+    "unwrapped_operation_backend_plus_overhead_in_gaps_s": 0.15687475353479385,
+    "caller_gap_residual_s": 0.1065939636901021,
+    "closed_decomposition": true
+  },
+  "non_overlapping_phase_totals": {
+    "_full_relu_reset": {"count": 14, "residual_s": 0.40722514735534787, "share_of_predict_residual_pct": 62.20076625588968},
+    "caller_and_unwrapped_predict_code": {"count": 1, "residual_s": 0.1065939636901021, "share_of_predict_residual_pct": 16.28147540208573},
+    "_push_quartic": {"count": 14, "residual_s": 0.028988053556531668},
+    "_push_cubic": {"count": 14, "residual_s": 0.02658070158213377},
+    "_cp_read": {"count": 14, "residual_s": 0.019383045379072428},
+    "_cp4_reset": {"count": 14, "residual_s": 0.015390167012810707},
+    "_initialize_h1": {"count": 1, "residual_s": 0.01280882628634572},
+    "_cp4_read_planes": {"count": 14, "residual_s": 0.010104413609951735},
+    "_q38_coefficients": {"count": 15, "residual_s": 0.007919411174952984},
+    "_reset_stars": {"count": 14, "residual_s": 0.006668178364634514},
+    "_cp_grow": {"count": 14, "residual_s": 0.006458366755396128},
+    "all_other_wrapped_phases": {"residual_s": 0.01357122548772974}
+  },
+  "finding": "Full reset owns 62.2% of measured predict residual. The highest-yield next exact changes should eliminate Q32 rho-power, Edgeworth-product, and four-pair temporary allocation/free churn; call-count-only cleanup cannot close the residual gap.",
+  "authority": {
+    "granted": ["TARGET_FREE_ENGINEERING_LOCALIZATION"],
+    "withheld": ["FINAL_SOURCE_PASS", "ACCURACY_OR_MSE_CLAIM", "TARGET_OR_DATASET_ACCESS", "SUBMISSION", "PROBLEM_GRAPH_MUTATION"]
+  }
+}

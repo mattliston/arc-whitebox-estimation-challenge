@@ -1,0 +1,72 @@
+{
+ "utc": "2026-10-16T16:10:45Z",
+ "name": "s3",
+ "tag": "stks3_20261016_opus_v1",
+ "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_passrel_v1/stack_v1/cand_s3.py",
+ "candidate_sha256": "6921feaaecf8bf6750a250ec2c980a00723acb5fff4cced590fd9e216e076e57",
+ "base": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_passrel_v1/s3_v1/cand_s3base_v1.py",
+ "base_sha256": "fca7e0e9b58d65264e18787384ef095c89f4a5f7df1a9ffdf1c5dc1a3b2d2147",
+ "fragments": {
+  "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_passrel_v1/stack_v1/frag_l15rc30_v1.py.txt": "f280670f7e4ce462ede5d07e10a111f7c274992400d1a10cfd77ea0d028d61a6",
+  "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_passrel_v1/stack_v1/frag_dcv2_v1.py.txt": "e35b75e5c4a080c270fed55d3b9ddcdf490510e9ec4f9aba52d552fc4958f3b0",
+  "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_passrel_v1/stack_v1/frag_gsafe5_limit0_v1.py.txt": "b77358ec35a60386b43253d2824b8ba7da4bd7aa5c4c2b405062b05f41487698"
+ },
+ "pipeline_rc": 0,
+ "confirmed": true,
+ "count_gates_v4": true,
+ "requests": {
+  "normal_35_requests": 41929,
+  "normal_100_requests": 40634,
+  "slow_35_requests": 42390,
+  "slow_100_requests": 40772
+ },
+ "worst_wall_s": 91.6,
+ "residual_median_gate": {
+  "median": 0.3154473906050886,
+  "limit": 0.32,
+  "passed": true
+ },
+ "python_instr_per_request": {
+  "35": {
+   "build": 45186.114908535856,
+   "s2tr": 45319.718480648975,
+   "ratio": 0.9970519770070909
+  },
+  "100": {
+   "build": 44948.604764482945,
+   "s2tr": 45201.94047671209,
+   "ratio": 0.9943954682131476
+  }
+ },
+ "setup_s": 4.442,
+ "slow_setup_s": 4.585,
+ "p_fail_pct": {
+  "family": {
+   "any": 0.4,
+   "public": 0.4
+  },
+  "post": {
+   "any": 14.7,
+   "public": 9.1
+  },
+  "pre": {
+   "any": 0.3,
+   "public": 0.3
+  }
+ },
+ "bill_vs_base": {
+  "first_pct": -0.7396666367718074,
+  "warm_pct": -1.188645915611175,
+  "public_mix_pct": -1.1437479877272383
+ },
+ "bill_vs_s2tr": {
+  "first_pct": 0.8096176718581649,
+  "warm_pct": 0.2490559210825083,
+  "public_mix_pct": 0.30511209616007395
+ },
+ "dmse_vs_s2tr_pct": -0.384,
+ "projected_public": 1.4747203997322354e-09,
+ "projected_vs_336412_pct": -0.08005953428917856,
+ "passed": true,
+ "fire_argv_for_lead": "FIRE (lead only, cwd O): /Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/fire/fire_once.py stks3_20261016_opus_v1 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_stks3_20261016_opus_v1/submission.tar.gz '[opus-stack] S3 = LR2 9ef4b5e5 + u64 rqs2 x5 (strips, fhmdiag, pairdiag, misc_v2, reuse) + RQX2 v1 + JORD + L15RC30 + DCV2 + _GSAFE5_LIMIT 0 (no full sandwiches)'"
+}

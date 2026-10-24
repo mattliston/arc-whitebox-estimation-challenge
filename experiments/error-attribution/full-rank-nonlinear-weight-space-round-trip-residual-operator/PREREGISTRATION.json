@@ -1,0 +1,132 @@
+{
+  "schema": "public-full688-fullrank-roundtrip-residual-cv-preregistration-v1",
+  "node": "P2R0F2P",
+  "status": "frozen-before-any-p-metrics",
+  "question": "Can one full-rank nonlinear weight-space round-trip residual operator, applied to a learned target-free local score derived only from J's lawful 36 local features, reduce the frozen J autonomous OOF final-layer residual below 1e-8?",
+  "hypothesis": "The autonomous bottleneck is sign/alignment reconstruction of the hidden residual state through actual full-rank network geometry. N proved rank-16 learned-span amplitude exists but is alignment-limited: its truth-derived span oracle caps at 2.8928320722187982e-8, capturing 10.535% of J endpoint error versus the 69.076% needed, while row gain correlates 0.948 with correction-to-negative-error cosine and only 0.024 with amplitude. A nonlinear round trip through each layer's own full-rank weight couples every unit through the true network operator rather than a learned low-rank factor, and is the sole graph-licensed successor mechanism.",
+  "authority": {
+    "graph_node": "P2R0F2P (sole open leaf; design-only until this freeze)",
+    "n_cv_results_sha256": "37187da1fabdc84951a5bc68ef3f12fba1d4b940bc19027c8426f59f1b61be37",
+    "n_verification_sha256": "9b6a00d819eb219c8eada6242d96821a76abbfda2076e21f263d079113cb7645",
+    "n_vs_j_decomposition_sha256": "007ba020154fed4ca2dd63f16fd10b4961c85f4bd8f5b719cc131acafb53f82a",
+    "exposure_trained_residual_state_result_sha256": "fe2f2f3c8cfa890d416b520f443fbbe475ea8fabafbd16956006a9154b100440",
+    "p2r0f2j_oof_final_mse": 3.2334958229470984e-8,
+    "p2r0f2n_oof_final_mse": 3.230119894372402e-8,
+    "n_oracle_final_mse": 2.8928320722187982e-8,
+    "teacher_forced_capacity_mse": 8.207963477637236e-9,
+    "closed_axes_not_retried": [
+      "rank-16 or any-rank low-rank covariance scaling (P2R0F2N closed)",
+      "backward adjoint recurrent latent state (P2R0F2M closed)",
+      "typed diagonal error variance (P2R0F2I closed)",
+      "full-Gram pooled context (P2R0F2K closed)",
+      "state-independent Duhamel (P2R0F2H closed)",
+      "output-space ensembles (P2R0F2O closed)",
+      "Gaussian secant mean curvature (closed)"
+    ]
+  },
+  "material_difference": "P carries no new recurrent state, no covariance object, no low-rank factor, and no ensemble. It is a memoryless per-layer operator whose cross-unit coupling is the layer's own full-rank weight matrix used nonlinearly in a round trip. M's closed family carried a learned recurrent adjoint state across layers; P applies a static adjoint-then-forward round trip of the current layer weight to a learned local score with two scalars per layer. N's closed family learned a rank-16 factor span; P's coupling is the exact rank-1024 network operator.",
+  "scope": {
+    "role": "observer_fit",
+    "role_ranks": [0, 688],
+    "networks": 688,
+    "outer_folds": 4,
+    "outer_fold_seed": 1753358438,
+    "outer_fold_rule": "blake2s digest-size-4 little-endian of ascii '1753358438:mlp_id' modulo 4; identical to P2R0F2D/H/I/J/K/M/N",
+    "outer_fold_sizes": [147, 172, 171, 198],
+    "inner_folds_per_outer_training_complement": 3,
+    "inner_fold_rule": "blake2s digest-size-4 little-endian of ascii 'inner_seed:mlp_id' modulo 3, inner_seed = 1753358438 XOR ((outer_fold+1)*0x9E3779B1) using the full nonnegative integer product; identical to P2R0F2N",
+    "group_key": "mlp_id",
+    "observer_selection_targets_allowed": false,
+    "public_name_join_allowed": false,
+    "network_identity_input_allowed": false,
+    "deployment_truth_input_allowed": false,
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "all_tail_repairs_required": true
+  },
+  "base": {
+    "model": "Frozen P2R0F2J four-channel transport-energy coherence observer",
+    "outer_scoring_model": "The already frozen J model trained on the complete outer training complement (sealed fold_0..3.pt hashes)",
+    "inner_stacking_firewall": "Within each outer training complement, train exactly three fresh J models under J's exact frozen architecture, loss, six epochs, exposure schedule, optimizer, and fixed final checkpoint. Each P-training row is represented only by the J prediction/states/energies of the inner J model whose inner validation fold contains that row; neither that row nor any outer-validation row trained that J model.",
+    "inner_j_seed_law": "torch.manual_seed((1753358438 + 10000 + 101*outer_fold + inner_fold) & 0x7FFFFFFF); shuffle rng seed (1753358438 XOR ((outer_fold+1)*0x45D9F3B) XOR ((inner_fold+1)*0x119DE1F3)) & 0xFFFFFFFF; identical to P2R0F2N so the inner stack reproduces N's validated pipeline"
+  },
+  "architecture": {
+    "name": "full-rank nonlinear weight-space round-trip residual operator",
+    "convention": "Row convention throughout, matching the frozen J/N code: hidden vectors are rows; W_l = weights[:, l] with W_l[j, i] mapping layer l-1 unit j to layer l unit i; forward transport of x in layer l-1 is x @ W_l; adjoint transport of y in layer l is y @ W_l^T.",
+    "qhat": "For each corrected layer l in 2..15: features_l = the exact 36-feature lawful local vector J consumes (raw20 with feature 0 unstandardized and features 1..19 standardized by train-split centers/scales clamped to [-8,8]; per-channel message/rms m/R clamped [-8,8]; per-channel message/sigma m/(sigma*R) clamped [-8,8]; per-channel log1p(energy/R^2) clamped [0,8]; per-channel coherence m/sqrt(e+1e-4*R^2) clamped [-8,8]), with messages and energies produced by the frozen-J rollout states exactly as in P2R0F2N (zero at l=2, else m = Phi_l*(s_{l-1} @ W_l), e = J's cached energy observables). hidden = shared encoder Linear(36,128)-SiLU-Linear(128,128)-SiLU; score_l = per-layer head Linear(128,1); qhat_l = tanh(score_l), a dimensionless per-unit vector in (-1,1)^1024.",
+    "round_trip": "u_l = (qhat_l @ W_l^T) / sqrt(1024); t_l = tanh(b_l * u_l); v_l = (t_l @ W_l) / sqrt(1024); delta_l = R_l * a_l * v_l. In column-vector notation with W the layer's own weight operator this is exactly delta = R*a*W^T tanh(b*(W*qhat)/sqrt(width))/sqrt(width) from the N receipt, with W read as the adjoint-first operator on layer-l space.",
+    "convention_resolution": "The receipt formula requires qhat and delta to live in the same space as the domain of W. The only weight operators touching layer l are the incoming W_l and the outgoing W_{l+1}; a W_{l+1} round trip is undefined at the final corrected layer l=15 where the primary metric lives, so the incoming-weight adjoint-first round trip is the unique well-defined reading. This resolution is frozen before any metric.",
+    "R": "R_l = layer_rms[l], the training-split host-error RMS per layer computed exactly as in frozen J/N moments_for; recomputed per outer fold from that fold's training complement only.",
+    "a_parameterization": "a_l: one raw unconstrained scalar per corrected layer (14 total), initialized to 0.0 so training starts at exactly frozen J.",
+    "b_parameterization": "b_l: one raw unconstrained scalar per corrected layer (14 total), initialized to 1.0. tanh boundedness makes every b_l numerically safe; sign flips are absorbed by a_l and qhat.",
+    "head_initialization": "encoder Linear layers use PyTorch default initialization under the frozen per-fold torch.manual_seed(1753358438 + 30000 + outer_fold); head weights Normal(mean 0, std 2e-3); head bias zeros.",
+    "new_parameters": 23082,
+    "parameter_breakdown": {"encoder": 21248, "per_layer_heads": 1806, "a": 14, "b": 14},
+    "total_parameters_including_frozen_j": 48682,
+    "reported_output": "Frozen J prediction plus delta at every corrected layer; layers 0..1 remain zero-correction exactly as in J",
+    "no_new_recurrent_state": true,
+    "no_exposure_schedule": "P has no own recurrent state, so no teacher forcing exists anywhere in P; J states are autonomous exposure-1.0 rollouts in both the inner-stacked training cache and outer scoring.",
+    "deployment_truth_inputs": 0,
+    "network_identity_inputs": 0,
+    "selectors": 0
+  },
+  "training": {
+    "threads_per_fold_process": 2,
+    "maximum_parallel_fold_processes": 2,
+    "nice_level": 10,
+    "batch_size_networks": 3,
+    "epochs": 8,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0008,
+    "minimum_learning_rate": 0.00008,
+    "schedule": "CosineAnnealingLR over every batch of all eight epochs",
+    "weight_decay": 0.00002,
+    "gradient_clip_norm": 5.0,
+    "observer_init_seed": "torch.manual_seed(1753358438 + 30000 + outer_fold)",
+    "shuffle_seed": "numpy default_rng(1753358438 XOR ((outer_fold+1)*0xC2B2AE3D))",
+    "loss": "Fit-fold-normalized corrected-layer MSE of (delta - (truth - inner_stacked_J_prediction))/R_l with fixed layer weights linspace(0.5,1.5,14) averaged, plus equal final-layer focus. No auxiliary penalties.",
+    "checkpoint": "Fixed final epoch 8 in every fold; no early stopping, no checkpoint selection, no validation-metric feedback.",
+    "post_metric_retuning": false
+  },
+  "decision_gate": {
+    "mode": "all",
+    "finite_all_688_outer_oof_rollouts": true,
+    "oof_final_mse_strictly_below": 1e-8,
+    "every_outer_fold_final_mse_strictly_below": 1.1e-8,
+    "maximum_per_network_final_mse_strictly_below": 1e-7,
+    "observer_selection_targets_opened": 0,
+    "public_name_joins": 0,
+    "pass": "All conjuncts pass, followed by a separately frozen native deployment verification and literal meter before any submission consideration; this CV alone licenses no deployment claim.",
+    "fail": "Close this exact full-rank round-trip spelling measured on any failed conjunct; no retune, no second checkpoint, no scalar sweep, no meter, no deployment. Produce a read-only P-vs-J decomposition and update graph.json, problem-graph.html, and problem-graph.md."
+  },
+  "cost": {
+    "frozen_j_correction_upper": 1051656192,
+    "local_encoder_and_heads_upper": 838584320,
+    "roundtrip_dense_upper": 58691584,
+    "scaling_reserve": 114688,
+    "output_addition": 14336,
+    "added_roundtrip_observer_upper": 897404928,
+    "j_plus_roundtrip_correction_upper": 1949061120,
+    "native_q24_host_tape_baseline": 2131692137721,
+    "native_total_upper": 2133641198841,
+    "exact_scoring_budget_2pow41": 2199023255552,
+    "headroom_below_exact_2pow41": 65382056711,
+    "within_exact_2pow41": true,
+    "ledger_convention": "Dense vector-matrix products at 2*W*W-W flops; nonlinearity evaluations reserved at 64 flops each (258 per unit: 256 SiLU plus qhat tanh plus round-trip tanh); message/energy observables are computed once by the frozen J correction and shared with P exactly as in the P2R0F2N precedent, so they are not double-counted.",
+    "authority": "Conservative frozen source-structure arithmetic; literal meter only after the strict accuracy gate passes"
+  },
+  "resource_bound": {
+    "maximum_process_rss_bytes_per_fold": 8589934592,
+    "maximum_experiment_storage_bytes": 2147483648
+  },
+  "one_arm_law": {
+    "arms": 1,
+    "no_scalar_or_architecture_sweep": true,
+    "no_rank_analogue": true,
+    "any_post-metric_change_requires_new_node": true
+  },
+  "launch_gate": {
+    "order": "preregistration -> run manifest -> program -> static synthetic check -> independent adversarial audit receipt -> seal -> sealed smoke (no truth metrics) -> training release -> folds -> aggregate -> independent verification -> decomposition -> graph update",
+    "independent_audit": "A separate auditor with no stake in the design must check leakage safety (inner stacking, split law, target-first semantics, observer_selection closure), the convention resolution, the cost ledger arithmetic, and gate conformance to the graph terminal criterion before any seal; the audit receipt hash is bound into the training release.",
+    "condition": "No --fold or --aggregate execution before TRAINING_RELEASE.json exists binding seal, smoke, and audit receipts."
+  }
+}

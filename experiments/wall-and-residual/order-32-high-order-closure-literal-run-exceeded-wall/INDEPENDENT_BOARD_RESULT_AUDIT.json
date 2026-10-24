@@ -1,0 +1,85 @@
+{
+  "schema": "arc_whestbench.independent_board_result_audit.v1",
+  "recorded_at_utc": "2026-08-24T09:46:19Z",
+  "status": "PASS_INTERNAL_CONSISTENCY_AND_ARTIFACT_BINDING__UPSTREAM_TELEMETRY_NOT_REDERIVED",
+  "audited_result": {
+    "path": "BOARD_ATTEMPT_328199_RESULT.json",
+    "sha256": "066574b553aecde40fd30213a362d3598efbf355b3b463b84af3282fd3b1aff8",
+    "submission_id": 328199
+  },
+  "candidate_bindings_replayed": {
+    "archive": {
+      "path": "../../../../../submissions/fb-ec4-32-v4-3ddddd87.tar.gz",
+      "sha256": "2df56c53253494fc75da3de8a0a7bd29d0bf2b97fa8f052bd2378ba7534d5a82"
+    },
+    "archive_estimator_member_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "source_manifest_sha256": "0cad2cc4491fbb22de5dbf021612fac9d5dccd2c2dcb1f4e963314d0c90580bf",
+    "freeze_receipt_sha256": "b730a3e21ba1d297de4b4be6c938cf842f955d951fd008518971cc0fafd8295e",
+    "source_audit_sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d",
+    "local_meter_receipt_sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017",
+    "all_present_hashes_match": true
+  },
+  "count_reconciliation": {
+    "configured_mlps": 100,
+    "completed": 2,
+    "failed": 98,
+    "explicit_time_exhausted": 12,
+    "failed_without_telemetry_or_error_code": 86,
+    "completed_plus_failed": 100,
+    "completed_plus_explicit_timeout_plus_no_telemetry": 100,
+    "error_code_null": 88,
+    "null_decomposition": "2 completed rows plus 86 failed rows without telemetry equals 88 null error codes",
+    "completed_indices": [0, 12],
+    "explicit_timeout_indices": [1, 3, 4, 5, 8, 9, 10, 11, 15, 16, 17, 18],
+    "completed_and_timeout_indices_disjoint": true
+  },
+  "completed_only_arithmetic": {
+    "n": 2,
+    "mean_final_layer_mse": 7.366e-8,
+    "mean_all_layers_mse": 3.0735e-8,
+    "mean_adjusted_final_layer_score": 7.3015e-8,
+    "all_three_means_recomputed_exactly_from_the_two_recorded_decimal_pairs": true,
+    "classification": "PARTIAL_COMPLETED_ONLY_EVIDENCE__NOT_AN_AGGREGATE_BOARD_SCORE"
+  },
+  "completed_vs_fallback_interpretation": {
+    "completed_rows_are_scored_results": true,
+    "basis": [
+      "each row state is completed",
+      "each has non-null final-layer, all-layer, and adjusted scores",
+      "each has a near-full metered FLOP receipt and non-null backend, overhead, and residual telemetry",
+      "each residual is below the Phase-2 0.4-second cap"
+    ],
+    "completed_rows_should_not_be_described_as_evaluator_zero_fallbacks": true,
+    "explicit_time_exhausted_rows_have_no_recorded_scores_in_the_audited_receipt": true,
+    "failed_no_telemetry_rows_are_not_completed_or_scored_zero_rows": true,
+    "failed_no_telemetry_rows_safe_description": "closed as failed without telemetry or an error code; whether every such worker began execution is not proved by this receipt",
+    "aggregate_is_null": true,
+    "numeric_aggregate_board_score_obtained": false
+  },
+  "resource_arithmetic": {
+    "phase2_budget": 2199023255552,
+    "completed_row_flops_each": 2179759731685,
+    "completed_row_headroom_each": 19263523867,
+    "local_meter_flops": 2179742954469,
+    "board_minus_local_flops": 16777216,
+    "interpretation": "The board completed-row bill is within budget but is not numerically identical to the one-network local meter. This audit records the exact difference and makes no causal claim for it.",
+    "explicit_timeout_predict_wall_range_s": [117.825774346, 124.569543556],
+    "explicit_timeout_roundtrip_wall_range_s": [120.25183381299999, 127.11919622199997]
+  },
+  "verdict_replay": {
+    "submission_terminal_status_failed": true,
+    "attempt_consumed": true,
+    "smoke_passed": true,
+    "partial_e8_class_accuracy_evidence_on_two_completed_rows": true,
+    "operational_board_wall_failure": true,
+    "scientific_or_aggregate_promotion_authorized": false,
+    "unchanged_retry_authorized": false
+  },
+  "audit_boundary": {
+    "upstream_aicrowd_values_rederived": false,
+    "reason": "The anonymous public-page reopen did not yield independently parseable telemetry in this audit. The audit therefore certifies exact local artifact bindings, JSON consistency, arithmetic, and interpretation only; it does not independently attest the upstream extraction.",
+    "authenticated_api_or_credentials_accessed": false,
+    "private_scores_or_target_values_accessed": false,
+    "source_or_graph_mutated": false
+  }
+}

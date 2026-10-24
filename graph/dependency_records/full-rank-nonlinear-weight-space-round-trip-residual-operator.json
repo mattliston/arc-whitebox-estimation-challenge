@@ -1,0 +1,27 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F2P",
+    "label": "Full-rank nonlinear weight-space round-trip residual operator",
+    "kind": "phase2_fullrank_nonlinear_roundtrip_design",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The single sealed, independently audited full-rank nonlinear W/W^T round-trip arm is terminal. Verified OOF final MSE is 3.233151267667713e-8 versus frozen J 3.2334958229470984e-8, an improvement of only 0.0106558%; all four folds improve by 0.0057% to 0.0179%, wins/losses are 439/249, and 58.241% of gross paired row movement cancels. The maximum per-network MSE 3.409399173476085e-7 at rank 643 preserves the inherited hard breach. The gate fails every accuracy conjunct. The truth-optimal emitted-direction oracle caps at 3.216608956319193e-8, capturing 0.5222% of J endpoint error versus 69.076% needed: the learned full-rank direction cannot even point at the residual error. Independent replay verification passed with the frozen-J positive control matching J's CV records bit-exactly on all four folds. Combined with M (future-raw adjoint context, -0.008%) and N (rank-16 covariance, +0.104%, span oracle 10.535%), this closes the observer-on-fixed-tape family as information-capped near 3.23e-8 while teacher forcing at 8.207963477637236e-9 proves the recursion has capacity when the true state is supplied.",
+    "terminal_criterion": "Closed measured for this exact full-rank round-trip spelling under its frozen no-retune law: no second checkpoint, scalar sweep, rank analogue, meter, or deployment. The sole licensed successor is the materially different host-uncertainty tape augmentation P2R0F2Q, which changes the information set at the source instead of fitting a fourth operator class on inputs proven insufficient.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_fullrank_roundtrip_residual_cv_v1/PREREGISTRATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_fullrank_roundtrip_residual_cv_v1/PREREGISTRATION_SEAL.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_fullrank_roundtrip_residual_cv_v1/AUDIT_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_fullrank_roundtrip_residual_cv_v1/TRAINING_RELEASE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_fullrank_roundtrip_residual_cv_v1/CV_RESULTS.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_fullrank_roundtrip_residual_cv_v1/VERIFICATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_fullrank_roundtrip_residual_cv_v1/P_VS_J_OOF_DECOMPOSITION_AND_CLOSURE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_fullrank_roundtrip_residual_cv_v1/ONE_GRAPH_READY_SUCCESSOR_PROPOSAL.json"
+    ],
+    "decomposition_children": [
+      "P2R0F2Q"
+    ]
+  }
+}

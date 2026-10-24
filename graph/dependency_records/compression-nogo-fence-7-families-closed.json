@@ -1,0 +1,40 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_CARRIER_COMPRESS_NOGO",
+    "status": "closed_measured",
+    "goal_path_summary": "Five independent compression families were tested against the value metric in one day and ALL failed: SVD rank (4/16/64/256 keep corr 0.38/0.32/0.34/0.40 of the full 0.81), collective rank-1 (~0), one-step star basis (8-13%), host ridge shapes (R2 ~0.05), and unit-relabeling (permutation kills 90% of the value => identity-specific). Conclusion with receipts: the variance-relevant plane error cannot be summarized or learned generically - it must be COMPUTED for the specific net. This closes every 'compress the object' escape and forces the map-vs-memory fork (sibling MAPGAP node).",
+    "evidence": [
+      {
+        "claim": "coll proj ~0 (dv_corr -0.04), resid carries all (0.79)",
+        "historical_reference": "experiments/p2_width1024_depth16/public_g19_attribution_v1/TANGENT_V2_rank0035_tensorK21.json (coll/resid variants on disk)",
+        "receipt_status": "legacy descriptive reference; not current graph authority"
+      },
+      {
+        "claim": "SVD rank sweep 4/16/64/256 -> 0.379/0.323/0.340/0.395 vs full 0.813",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/rank_sweep_r35.log"
+      },
+      {
+        "claim": "one-step star 6-13% of fresh; amplitudes corr 0.5-0.6 with analytic emission",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/STAR_BASIS_FIT_rank0035.json"
+      },
+      {
+        "claim": "ridge profile R2 ~0.04-0.12; read R2 unstable",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/RIDGE_PROFILE_rank0035.json"
+      },
+      {
+        "claim": "symmetric permutation of plane deltas: dv_corr 0.813 -> 0.094",
+        "historical_reference": "experiments/p2_width1024_depth16/public_g19_attribution_v1/dvhat_rank0035_perm7.npz + tangent log",
+        "receipt_status": "legacy descriptive reference; not current graph authority"
+      }
+    ],
+    "label": "Compression NOGO fence (7 families closed)",
+    "kind": "phase2_g19b_subproblem",
+    "priority": 2,
+    "summary": "Can dK21 be summarized (low-rank / collective / star basis / ridge shapes / distributional)? NO - closed. [NOGO fence: protects against re-attempting closed compression families.]",
+    "terminal_criterion": "Resolved: SVD/collective/star/ridge/perm/block/richer-betas all closed with receipts; content identity-specific.",
+    "decomposition_children": []
+  }
+}

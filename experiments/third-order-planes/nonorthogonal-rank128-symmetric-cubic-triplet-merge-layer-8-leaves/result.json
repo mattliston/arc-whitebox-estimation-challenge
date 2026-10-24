@@ -1,0 +1,1420 @@
+{
+  "completed": true,
+  "information_gate_passed": false,
+  "query_relative_squared_error": 0.5662357525009898,
+  "plane_relative_squared_error": 0.2257116322597673,
+  "diagonal_relative_squared_error": 0.1282944408842422,
+  "symmetrized_tensor_relative_squared_error": 0.5920465631369735,
+  "unsymmetrized_tensor_relative_squared_error": 0.629810423917093,
+  "norms": {
+    "target_norm_squared": 21.143643621508645,
+    "target_gram_absolute_sum": 659.8649482887183,
+    "target_merged_inner": 7.827156421179834,
+    "unsymmetrized_norm_squared": 7.827156373265321,
+    "symmetrized_norm_squared": 7.028690759158205,
+    "unsymmetrized_error_squared": 13.316487152414298,
+    "symmetrized_error_squared": 12.518021538307183
+  },
+  "checks": {
+    "qr": 1.6266651113674882e-15,
+    "orthogonality": 1.8596955067639903e-15,
+    "maximum_normal_equation_relative_residual": 4.0473927798790143e-16
+  },
+  "solves": [
+    {
+      "sweep": 1,
+      "mode": 0,
+      "regularization": 9.999999999999999e-09,
+      "normal_equation_relative_residual": 4.446146911742721e-17
+    },
+    {
+      "sweep": 1,
+      "mode": 1,
+      "regularization": 1.382459029540812e-12,
+      "normal_equation_relative_residual": 1.0715316355301921e-16
+    },
+    {
+      "sweep": 1,
+      "mode": 2,
+      "regularization": 2.9955696162463096e-11,
+      "normal_equation_relative_residual": 3.9169846647336307e-16
+    },
+    {
+      "sweep": 2,
+      "mode": 0,
+      "regularization": 7.804775105113657e-10,
+      "normal_equation_relative_residual": 3.9268784896975936e-16
+    },
+    {
+      "sweep": 2,
+      "mode": 1,
+      "regularization": 1.030534922601663e-09,
+      "normal_equation_relative_residual": 3.796145564104781e-16
+    },
+    {
+      "sweep": 2,
+      "mode": 2,
+      "regularization": 1.263398364280533e-09,
+      "normal_equation_relative_residual": 4.0473927798790143e-16
+    }
+  ],
+  "old_atoms": 6144,
+  "triplets": 128,
+  "total_factor_columns": 384,
+  "physical_span_dimension": 384,
+  "network_rank": 35,
+  "entry_layer": 8,
+  "verification_probes_reused": true,
+  "verification_seed": 2026092004,
+  "verification_probes": 512,
+  "initialization_seed": 2026092005,
+  "full_sweeps": 2,
+  "fp64_gemm_leading_subtotals": {
+    "construction": 21365784576,
+    "qualification": 1207959552,
+    "diagnostic": 162697052160
+  },
+  "products": [
+    {
+      "tag": "construction_coordinate_change",
+      "shapes": [
+        [
+          384,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 3623878656
+    },
+    {
+      "tag": "qualification_qr",
+      "shapes": [
+        [
+          896,
+          384
+        ],
+        [
+          384,
+          384
+        ]
+      ],
+      "fp64_leading_billed_flops": 528482304
+    },
+    {
+      "tag": "qualification_orthogonality",
+      "shapes": [
+        [
+          384,
+          896
+        ],
+        [
+          896,
+          384
+        ]
+      ],
+      "fp64_leading_billed_flops": 528482304
+    },
+    {
+      "tag": "construction_initial_cross",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_initial_cross",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_mttkrp",
+      "shapes": [
+        [
+          384,
+          6144
+        ],
+        [
+          6144,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "qualification_normal_equation",
+      "shapes": [
+        [
+          384,
+          128
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_updated_cross",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_mttkrp",
+      "shapes": [
+        [
+          384,
+          6144
+        ],
+        [
+          6144,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "qualification_normal_equation",
+      "shapes": [
+        [
+          384,
+          128
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_updated_cross",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_mttkrp",
+      "shapes": [
+        [
+          384,
+          6144
+        ],
+        [
+          6144,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "qualification_normal_equation",
+      "shapes": [
+        [
+          384,
+          128
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_updated_cross",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_mttkrp",
+      "shapes": [
+        [
+          384,
+          6144
+        ],
+        [
+          6144,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "qualification_normal_equation",
+      "shapes": [
+        [
+          384,
+          128
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_updated_cross",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_mttkrp",
+      "shapes": [
+        [
+          384,
+          6144
+        ],
+        [
+          6144,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "qualification_normal_equation",
+      "shapes": [
+        [
+          384,
+          128
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_updated_cross",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_mttkrp",
+      "shapes": [
+        [
+          384,
+          6144
+        ],
+        [
+          6144,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "qualification_normal_equation",
+      "shapes": [
+        [
+          384,
+          128
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "construction_updated_cross",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "construction_physical_factors",
+      "shapes": [
+        [
+          896,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 176160768
+    },
+    {
+      "tag": "construction_physical_factors",
+      "shapes": [
+        [
+          896,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 176160768
+    },
+    {
+      "tag": "construction_physical_factors",
+      "shapes": [
+        [
+          896,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 176160768
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_target_norm",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_cross_inner",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "diagnostic_cross_inner",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "diagnostic_cross_inner",
+      "shapes": [
+        [
+          6144,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 1207959552
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_factor_gram",
+      "shapes": [
+        [
+          128,
+          384
+        ],
+        [
+          384,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 25165824
+    },
+    {
+      "tag": "diagnostic_old_physical",
+      "shapes": [
+        [
+          896,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 8455716864
+    },
+    {
+      "tag": "diagnostic_old_push",
+      "shapes": [
+        [
+          1024,
+          896
+        ],
+        [
+          896,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 22548578304
+    },
+    {
+      "tag": "diagnostic_merged_push",
+      "shapes": [
+        [
+          1024,
+          896
+        ],
+        [
+          896,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 469762048
+    },
+    {
+      "tag": "diagnostic_merged_push",
+      "shapes": [
+        [
+          1024,
+          896
+        ],
+        [
+          896,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 469762048
+    },
+    {
+      "tag": "diagnostic_merged_push",
+      "shapes": [
+        [
+          1024,
+          896
+        ],
+        [
+          896,
+          128
+        ]
+      ],
+      "fp64_leading_billed_flops": 469762048
+    },
+    {
+      "tag": "diagnostic_reference_query_a",
+      "shapes": [
+        [
+          6144,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 12884901888
+    },
+    {
+      "tag": "diagnostic_reference_query_b",
+      "shapes": [
+        [
+          6144,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 12884901888
+    },
+    {
+      "tag": "diagnostic_reference_query_read",
+      "shapes": [
+        [
+          1024,
+          6144
+        ],
+        [
+          6144,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 12884901888
+    },
+    {
+      "tag": "diagnostic_triplet_query_a",
+      "shapes": [
+        [
+          128,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_triplet_query_a",
+      "shapes": [
+        [
+          128,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_triplet_query_a",
+      "shapes": [
+        [
+          128,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_triplet_query_b",
+      "shapes": [
+        [
+          128,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_triplet_query_b",
+      "shapes": [
+        [
+          128,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_triplet_query_b",
+      "shapes": [
+        [
+          128,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_triplet_query_read",
+      "shapes": [
+        [
+          1024,
+          128
+        ],
+        [
+          128,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_triplet_query_read",
+      "shapes": [
+        [
+          1024,
+          128
+        ],
+        [
+          128,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_triplet_query_read",
+      "shapes": [
+        [
+          1024,
+          128
+        ],
+        [
+          128,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 268435456
+    },
+    {
+      "tag": "diagnostic_reference_plane",
+      "shapes": [
+        [
+          1024,
+          6144
+        ],
+        [
+          6144,
+          1024
+        ]
+      ],
+      "fp64_leading_billed_flops": 25769803776
+    },
+    {
+      "tag": "diagnostic_triplet_plane",
+      "shapes": [
+        [
+          1024,
+          128
+        ],
+        [
+          128,
+          1024
+        ]
+      ],
+      "fp64_leading_billed_flops": 536870912
+    },
+    {
+      "tag": "diagnostic_triplet_plane",
+      "shapes": [
+        [
+          1024,
+          128
+        ],
+        [
+          128,
+          1024
+        ]
+      ],
+      "fp64_leading_billed_flops": 536870912
+    },
+    {
+      "tag": "diagnostic_triplet_plane",
+      "shapes": [
+        [
+          1024,
+          128
+        ],
+        [
+          128,
+          1024
+        ]
+      ],
+      "fp64_leading_billed_flops": 536870912
+    }
+  ],
+  "complete_fnp_deployment_bill": false,
+  "actual_accuracy_score_measured": false,
+  "truth_accessed": false,
+  "model_calls": 0,
+  "new_physical_samples": 0,
+  "new_mean_training": false,
+  "nonlinear_tensor_fit": true,
+  "packet_sha256": "adc532fcbd06c9c9f0de8636067a168ee42b0385089958e47bd0f79ec7aa63e6",
+  "merge_sha256": "8ee5915abd37b8bd232d306a1b1475219223a678c2486a428807556509ca7b3e",
+  "elapsed_s": 1.91794737521559,
+  "peak_rss_bytes": 490733568
+}

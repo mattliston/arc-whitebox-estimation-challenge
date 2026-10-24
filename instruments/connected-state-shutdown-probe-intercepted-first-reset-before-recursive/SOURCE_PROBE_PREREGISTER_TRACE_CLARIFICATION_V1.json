@@ -1,0 +1,38 @@
+{
+  "schema": "q24-cs3b-source-probe-certificate-trace-clarification-v1",
+  "status": "SCOPED_NONDIRECTIONAL_CLARIFICATION__NO_GATE_THRESHOLD_OR_ROSTER_CHANGE",
+  "created_at_utc": "2026-08-24T15:09:06Z",
+  "bindings": {
+    "source_probe_preregister": {
+      "path": "SOURCE_PROBE_PREREGISTER_V1.md",
+      "sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3"
+    },
+    "candidate_estimator_sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+    "parent_estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+    "independent_static_source_audit_sha256": "27e5d66752520ebf287f7bc362330489849816b3d8cec0a1c7628aa931ca6c6c"
+  },
+  "clarification": {
+    "ambiguous_phrase": "CS2 helper-spelled certificate, CS3B inlined certificate, and two observer-local trace spellings",
+    "meaning_at_preregistration": "The two observer-local trace spellings are sys.settrace captures of the actual CS2 helper-spelled function frame and the actual CS3B inlined function frame. They are not two additional independently reimplemented arithmetic functions.",
+    "dynamic_arms_exact": [
+      "actual frozen CS2 helper-spelled _certified_invalid_marginals",
+      "actual frozen CS3B inlined _certified_invalid_marginals"
+    ],
+    "observer_action": "At each actual function return, copy every frozen common named intermediate/error-bound local and the returned invalid mask; compare dtype/shape/bytes and exact tracked ledger.",
+    "static_complement": "Independent static audit 27e5d667... already proves the candidate macro-expansion operation graph and helper-call removal against the parent expansion.",
+    "independent_arithmetic_replay_required": false
+  },
+  "unchanged": {
+    "certificate_roster": true,
+    "named_intermediate_set": true,
+    "byte_equality": true,
+    "invalid_mask_byte_equality": true,
+    "exact_154_call_ledger": true,
+    "all_scientific_resource_carrier_null_determinism_and_authority_gates": true
+  },
+  "access": {
+    "candidate_imports_or_executions": 0,
+    "source_probe_runs": 0,
+    "targets_scores_packages_submissions_network_graph": 0
+  }
+}

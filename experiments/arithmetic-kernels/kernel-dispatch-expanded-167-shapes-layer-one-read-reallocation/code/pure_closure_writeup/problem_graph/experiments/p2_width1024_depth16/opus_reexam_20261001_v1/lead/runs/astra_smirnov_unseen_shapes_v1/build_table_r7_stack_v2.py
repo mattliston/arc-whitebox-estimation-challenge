@@ -1,0 +1,13 @@
+import ast,hashlib,json
+from pathlib import Path
+D=Path(__file__).resolve().parent;O=D.parents[2];table=D/'candidate_smirnov_unseen32_table_HELD_v1.py';r7=O/'lead/runs/astra_r7_firstread_reallocation_v1/candidate_r7_firstread_reallocation_HELD_v2.py';base=O/'lead/runs/astra_smirnov_current24_virtual_v1/candidate_smirnov_arena_RPE_SPLIT_COV_HELD_v15.py'
+ts=table.read_text();rs=r7.read_text();bs=base.read_text();assert hashlib.sha256(ts.encode()).hexdigest()=='8665c32583fcea7121bdd834b0c7c56cbb4dbf91bd416c22988736682d6922f4';assert hashlib.sha256(rs.encode()).hexdigest()=='bf69eeb49e864d0db24ee3100685c9af7d71336d437e8513bf16ca946a7279e5'
+def node(s,name):return next(n for n in ast.parse(s).body if isinstance(n,ast.Assign)and isinstance(n.targets[0],ast.Name)and n.targets[0].id==name)
+tn=node(ts,'_ASTRA_SM40_PLANS');rn=node(rs,'_ASTRA_SM40_PLANS');replacement=ts.splitlines(keepends=True)[tn.lineno-1:tn.end_lineno];lines=rs.splitlines(keepends=True);lines[rn.lineno-1:rn.end_lineno]=replacement;out=''.join(lines);target=D/'candidate_smirnov_unseen_table_R7_HELD_v2.py';compile(out,str(target),'exec');target.write_text(out)
+on=node(out,'_ASTRA_SM40_PLANS');back=out.splitlines(keepends=True);back[on.lineno-1:on.end_lineno]=rs.splitlines(keepends=True)[rn.lineno-1:rn.end_lineno];assert ''.join(back)==rs
+# Table and R7 edits commute exactly, so the kernel/wrappers equal their independently held parents.
+bn=node(bs,'_ASTRA_SM40_PLANS');oldplan=ast.literal_eval(bn.value);newplan=ast.literal_eval(on.value);prebind=ast.literal_eval(node(out,'_ASTRA_SM40_PREBIND').value)
+assert len(newplan)==167 and all(newplan[k]==v for k,v in oldplan.items())and len(prebind)==9
+r7changes=rs.splitlines(keepends=True);r7changes[rn.lineno-1:rn.end_lineno]=bs.splitlines(keepends=True)[bn.lineno-1:bn.end_lineno];assert ''.join(r7changes)==rs
+manifest=dict(passed=True,candidate=str(target),candidate_sha256=hashlib.sha256(out.encode()).hexdigest(),table_sha256=hashlib.sha256(ts.encode()).hexdigest(),r7_sha256=hashlib.sha256(rs.encode()).hexdigest(),parent_sha256=hashlib.sha256(bs.encode()).hexdigest(),total_plans=167,original_preserved=105,new_plans=62,prebind_count=9,table_inverse_recovers_r7_byte_exact=True,kernel_math_unchanged=True,r7_eager_debt_flops=276903104,r7_setup_request_delta=-1,scope='Immutable pure composition: dictionary additions plus previously held exact R7 first-read prefetch reallocation. No compact-B or arithmetic modifications. R7 proof at astra_r7_firstread_reallocation_v1/SOURCE_HELD_v3.json and TINY_SOURCE_TARIFF_v2.json; new source preflight follows.')
+(D/'STACK_SOURCE_HELD_v2.json').write_text(json.dumps(manifest,indent=2)+'\n');print(json.dumps(manifest,indent=2))

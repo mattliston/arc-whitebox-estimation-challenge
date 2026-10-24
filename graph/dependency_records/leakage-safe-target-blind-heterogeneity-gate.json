@@ -1,0 +1,35 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G18F",
+    "label": "Leakage-safe target-blind heterogeneity gate",
+    "kind": "phase2_signed_pair_postfailure_next_science_leaf",
+    "status": "closed_measured",
+    "priority": 2,
+    "summary": "Coordinator-provided target-aware pair-on/zero oracle gain is only 7.654573932092748e-12, about 0.9174% of the current-board deficit. Even that non-deployable ceiling is far too small, hard-falsifying the current gating family as a board solver; post-hoc OOF gating would also leak.",
+    "terminal_criterion": "Closed_measured as a board solver and retained diagnostic only. Reopen only for a materially different preregistered target-blind mechanism whose prospective ceiling can address the deficit.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_v4r2_oof_terminal_failure_review_v1/INDEPENDENT_TERMINAL_FAILURE_REVIEW_V1.json"
+    ],
+    "evidence_bindings": [
+      {
+        "role": "oof_v4r2_independent_terminal_failure_review",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_v4r2_oof_terminal_failure_review_v1/INDEPENDENT_TERMINAL_FAILURE_REVIEW_V1.json",
+        "sha256": "ad3c619c5bb64557bcfc417392ec48a556707d018bd0f09abb09cc90597ddd0e"
+      }
+    ],
+    "control_observation": {
+      "source_review_sha256": "ad3c619c5bb64557bcfc417392ec48a556707d018bd0f09abb09cc90597ddd0e",
+      "new_science_execution_authorized": false,
+      "retry_of_v4r2_transaction_authorized": false,
+      "quantitative_triage_source": "COORDINATOR_PROVIDED_CONTROL_ASSERTION__NO_NEW_ARTIFACT_BOUND",
+      "target_aware_oracle_gain_raw_mse": 7.654573932092748e-12,
+      "share_of_current_board_gap_percent": "0.9174%",
+      "falsified_as_board_solver": true,
+      "retained_diagnostic_only": true
+    },
+    "decomposition_children": []
+  }
+}

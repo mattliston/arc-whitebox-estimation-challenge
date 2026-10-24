@@ -1,0 +1,42 @@
+{
+  "schema": "old-join-one-residual-pivot-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_join_residual_pivot_v1/candidate.py",
+    "sha256": "7bf9f22564aac81dc1214ea33ece2e09d950a67423f718b55d31f273437d8ef5",
+    "bytes": 978945
+  },
+  "intervention": "Only row selection in active old-join push, all3 joins7/10/13, same ranks/cohorts/full Y/QR/F/core/projection and downstream learned parameters.",
+  "formula": "G=J diag(lam^2) J.T + Q core Q.T when old exists. p=stableargmax diagG. g=G[:,p] by one thin column. score_i=d_i-g_i^2/d_p ifd_p>0, else d_i. Exclude p; choose largest rank-1 scores plusp, then physically sort indices.",
+  "rationale": "Reduce redundant selected rows after removing one dominant Gram direction, at fixed retained rank. This is a new empirical hypothesis, with no measured gain or theorem of endpoint improvement.",
+  "arithmetic": "Extra column FP32 ordinary thin matmul; residual score FP64; denominator clamped1e-30 with nonpositive fallback. Approximate rounded old core need not bePSD, and separatelycomputed d_p may differ from g_p. No clipping of negative residualscores.",
+  "ownership": "All runtime arithmetic/indexing uses public meteredFNP. No host array data extraction, persistent state, cache, setup mutation, or new arena. Temporary selectors retired before ordinary Y construction.",
+  "forecast": {
+    "extra_flops_saved_geometry": 30600000,
+    "network_reference_flops": 263000000000,
+    "estimated_bill_pct": 0.011634980988593157,
+    "conservative_bill_pct": 0.02,
+    "not_measured": true,
+    "actual_billing_required": true
+  },
+  "dedup": "Bounded oldjoin PT40/current_nystrom_origin/selector review found no residual-pivot equivalent. Value-weightedL10 ranking and energy-order-only failures preserved; closed star-greedy selection is different carrier.",
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "native2_only": true,
+  "gates": "raw<=-.1%,adjusted<=-.1%,>=1adjustedwin,maxadjustedregression<=1%; new ownboundary/native6 needed before retention. Bank>=1% only after fullqualification.",
+  "no_parameter_fit": true,
+  "no_pivot_layer_threshold_sweep": true,
+  "model_executed": false
+}

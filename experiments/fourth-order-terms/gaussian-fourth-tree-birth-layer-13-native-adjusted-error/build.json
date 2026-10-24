@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_gaussian_tree_birth13_v1/candidate.py",
+    "sha256": "25adf9d26af8c180c2a9189f427049ff314d2fa0630f656a398e2f2da4f63339",
+    "bytes": 947735
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_gaussian_tree_birth13_v1/build.py",
+    "sha256": "3cbcb570c959eb553224997a69c95f587c903d662832a9cad295a0204f7bdde6",
+    "bytes": 4521
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_gaussian_tree_birth13_v1/protocol.json",
+    "sha256": "257218be948152c66280e0330efbb9eaeacacc8f39e3fac6ac32e0ca57321979",
+    "bytes": 7207
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_gaussian_tree_birth13_v1/fragment.py",
+    "sha256": "e9819af2746e110de58190a1c46bd9645665ce55d7ff212c40de6a9eb8e5ba44",
+    "bytes": 2408
+  },
+  "override": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_gaussian_tree_birth13_v1/predict_override.py",
+    "sha256": "06a4cdce7765938a7b77c9d5bdc95d16dc3e7b40ce18f6121fc93ff37a694a48",
+    "bytes": 15157
+  },
+  "exact_parent_prefix": true,
+  "exact_inverse": true,
+  "ast_inverse": true,
+  "edits": [
+    {
+      "before": "        _t31_carry = {}\n",
+      "after": "        _t31_carry = {}\n        _gt13_source = None\n"
+    },
+    {
+      "before": "            if l in _T31_LAYERS:\n",
+      "after": "            if l == 13:\n                if _gt13_source is None:\n                    raise RuntimeError('GT13 missing post12 source')\n                _gt13_delta4, _gt13_extra = _gt13_faces(_gt13_source, w32, w, Cpre, mu, K21)\n                _gt13_source = None\n                k4 = k4 + _gt13_delta4\n                m, C, target, radial_new, aux = pair_map(mu, Cpre, K21, k4, k22, metric, extra31=_gt13_extra)\n                del _gt13_delta4, _gt13_extra\n            elif l in _T31_LAYERS:\n"
+    },
+    {
+      "before": "            if _t31_commit is not None:\n                _t31_commit(l, _e2_H(locals()))\n",
+      "after": "            if _t31_commit is not None:\n                _t31_commit(l, _e2_H(locals()))\n            if l == 12:\n                _gt13_source = _gt13_prepare(Cpre, aux, C)\n"
+    }
+  ],
+  "numerical_execution": false,
+  "original_Q22_inputs_unchanged": true,
+  "source_scope": "post12 birth -> pre13 only"
+}

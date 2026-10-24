@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-21T09:55:48Z",
+  "successful": true,
+  "files": [
+    {
+      "name": "onpolicy_first128_parent_selftest_v1_GUARD_v1.json",
+      "sha256": "19d9c7505193888d5f9272a5e63ce94ae5243ef2499b3b0728d5ce48cd3dda76"
+    },
+    {
+      "name": "onpolicy_first128_parent_selftest_v1.log",
+      "sha256": "cf03bcd8f8c49b22635995e65017f882de47816d1e379415bceba4073aa5af53"
+    },
+    {
+      "name": "SELFTEST_LAUNCH_v1.json",
+      "sha256": "30145f5f5a309cc03c89213ce4694812f09a1b1de99847e749760b774972cf7b"
+    }
+  ],
+  "checks": {
+    "original_first128_selftests": {
+      "independent_fold_hidden_complement_baseline": true,
+      "cross_half_moment_metric": true,
+      "fold_projection_and_scaling": true,
+      "float32_deployment_equation": true,
+      "exact128_feature_deployment": true
+    },
+    "explicit_selected_sums": true,
+    "production_excluded_features_and_labels_cannot_change_any_parent_tensor": true,
+    "state_bias_hidden_and_first_heads_all_recomputed": true,
+    "six_small_moment_accumulators": true
+  },
+  "guard_success": true,
+  "all_child_events_zero": true,
+  "one_selftest_only_no_parent_build": true
+}

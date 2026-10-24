@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-21T10:19:36Z",
+  "successful": true,
+  "kind": "STATIC_SEMANTIC_AND_RESOURCE_RESERVATION_PROOF_NO_JOB",
+  "source_recipe_sha256": "c8e572db92b5e31502de3db4092f9f14addfc20c54843abf217870bd49b3efbc",
+  "checks": {
+    "original_capture_and_run_group_adapters_byte_identical": true,
+    "client_transform_AST_identical_except_fragment_path_and_outer_finally": true,
+    "original_source_layer0_bypass_verified": true,
+    "all_source_recipe_hashes_exact": true,
+    "no_numerical_support_or_target_arrays": true
+  },
+  "resource": {
+    "anchor_family_reservation": "6families each control1+capture1 then audit1; each audit replaces its two fully retired endpoints, so capture-family guards<=12 including audits.",
+    "remaining_family_reservation": "3families each original4 capture guards then one audit after all4 retire; capture-family guards<=12 including audits.",
+    "truth_groups": 8,
+    "optional_external_small": 1,
+    "maximum_total_guarded_groups": 21,
+    "each_original_child_cap": 6500000000,
+    "base_bytes": 10000000000,
+    "hard_bound_bytes": 146500000000,
+    "parent_cap_bytes": 171798691840,
+    "unchanged_shared_admission": 36,
+    "separate_dynamic_clearance_required": true
+  },
+  "restrictions": [
+    "The external sole-small reservation is separate from family audits that occupy already released capture reservations. Root resource approval must state this explicitly.",
+    "No new stages authorized by this static arithmetic; existing oldOP fit and parentbuilder retirement gate remains.",
+    "Original native-empty assertion remains before anchor stage and eachremainingwave and optionalfit; truth workers spawn no native server."
+  ]
+}

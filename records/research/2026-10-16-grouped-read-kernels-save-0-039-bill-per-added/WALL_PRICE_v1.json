@@ -1,0 +1,153 @@
+{
+  "status": "WALL_PRICE_v1_NOTHING_FIRED",
+  "lane": "opus-wall",
+  "platform_anchor": {
+    "parent": "2b108 #336342",
+    "eval": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/fire/smirnov_rpe_20261015_astra_v1/eval_336342.json",
+    "predict_mean": 96.67,
+    "predict_max": 112.05,
+    "kernel_mean": 86.51,
+    "overhead_mean": 9.8,
+    "residual_mean": 0.364,
+    "residual_max": 0.397,
+    "setup": [
+      4.531,
+      4.554
+    ]
+  },
+  "mechanisms": [
+    {
+      "name": "Smirnov read dispatch, full 105 keys (platform, 336334->336342, same 100 nets)",
+      "bill_pct": -0.424,
+      "mean_wall_s": 10.9,
+      "max_wall_s": 14.7,
+      "pct_per_s": 0.039
+    },
+    {
+      "name": "Smirnov full table, boundary ranks 35/100 projected vs 336342 (V_OFF inverse)",
+      "bill_pct": -0.71,
+      "mean_wall_s": 15.6,
+      "pct_per_s": 0.046
+    },
+    {
+      "name": "Smirnov 89 dropped keys (2b108 -> V_CB16, ranks 35/100)",
+      "bill_pct": -0.508,
+      "mean_wall_s": 13.1,
+      "pct_per_s": 0.039
+    },
+    {
+      "name": "Smirnov 16 kept keys + compactB (V_OFF -> V_CB16, ranks 35/100)",
+      "bill_pct": -0.202,
+      "mean_wall_s": 2.5,
+      "pct_per_s": 0.081
+    },
+    {
+      "name": "per key local thread-CPU warm 7103248 (x~1.9 platform)",
+      "best": "L5 (864,9984,864,0) 0.40%/local-s",
+      "worst": "L6g4 (928,8128,896,0) 0.011%/local-s",
+      "by_level": {
+        "L4": 0.159,
+        "L5": 0.097,
+        "L6g8": 0.058,
+        "L6g4": "0.011-0.064"
+      }
+    },
+    {
+      "name": "compactB on full table",
+      "bill_pct": 0.0,
+      "smirnov_cpu_change_pct": -42,
+      "est_platform_mean_s": -4.5,
+      "setup_s": 0.02
+    },
+    {
+      "name": "b709 table+R7 over 2b108",
+      "warm_bill_7103248_pct": 0.001,
+      "lead_public_warm_pct": "-0.04..-0.09",
+      "verdict": "<=0.01%/s, revert"
+    },
+    {
+      "name": "Winograd tree level (leaf 64-128), estimate from platform add/matmul rates",
+      "pct_per_s": "0.4-1.6",
+      "verdict": "10-40x Smirnov; keep"
+    },
+    {
+      "name": "Smirnov setup views (sm40 fixed+hot)",
+      "setup_s": 0.193,
+      "bill": 0
+    },
+    {
+      "name": "prebind guard 3.97 s",
+      "setup_per_0p1s": "~12 lowest-value keys unbound",
+      "requests_change": "none measurable at 556/533 bound",
+      "gate": "binding>=90% fails below ~3.92 s"
+    },
+    {
+      "name": "requests/residual",
+      "note": "unchanged by all variants (~47.2K/net, projected residual 0.364/0.396, x1.10 headroom); needs a ~15% request diet for x1.3"
+    }
+  ],
+  "variants": {
+    "V_OFF": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_wall_price_v1/variant_V_OFF_sg380_v1.py",
+      "sha256": "a14282fbaf726d373c8cb8b7d7889c8adbf0ba506ea0b0d377b3cb837f54288b",
+      "change": "2b108 + _ASTRA_SM40_ON=False + _PB_WALL_S=3.80",
+      "stage_c": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/opus_wall_off_sg380_v1/stage_c.json",
+      "stage_c_sha256": "3293f76dfe6e8bb447b9d98e282db63d9bac4e1d71ffbf4508e15070784d2c7e",
+      "projected_mean_s": 81.1,
+      "projected_worst_s": 94.0,
+      "worst_range": [
+        91.8,
+        96.2
+      ],
+      "public_anchor_336334": {
+        "mean": 85.75,
+        "max": 97.35
+      },
+      "bill_ranks35_100_pct": 0.71,
+      "bill_public_est_pct": 0.42,
+      "setup_last_phase_s": 3.888,
+      "setup_platform_est_s": 4.19,
+      "binding": "556/649 (86%) FAIL gate",
+      "residual_proj": [
+        0.364,
+        0.396
+      ]
+    },
+    "V_OFF_guard397": {
+      "change": "2b108 + _ASTRA_SM40_ON=False only",
+      "setup_last_phase_s": 4.058,
+      "setup_platform_est_s": 4.36,
+      "binding": "588/649 pass",
+      "note": "inferred from P0 timeline, not run"
+    },
+    "V_CB16": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_wall_price_v1/variant_V_CB16_sg370_v1.py",
+      "sha256": "30d7e0966c86f2f29963cd2b4c4dcf34f57579b31c44cd669a6ad4ebcd696c63",
+      "change": "compactB + 16 keys with priced saving>=0.40 GFLOP + _PB_WALL_S=3.70",
+      "stage_c": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/opus_wall_cb16_sg370_v1/stage_c.json",
+      "stage_c_sha256": "e1846115141d6ff29a24fd29cf837b6a325f2c315e68a54cdf482d381ddb445e",
+      "projected_mean_s": 83.6,
+      "projected_worst_s": 96.9,
+      "worst_range": [
+        95.1,
+        98.6
+      ],
+      "public_adjusted_worst_est_s": 101,
+      "bill_ranks35_100_pct": 0.508,
+      "bill_public_est_pct": 0.3,
+      "setup_last_phase_s": 3.999,
+      "setup_platform_est_s": 4.3,
+      "binding": "533/649 (82%) FAIL gate",
+      "residual_proj": [
+        0.364,
+        0.396
+      ]
+    }
+  },
+  "setup_bias": "platform setup = last local phase + 0.27-0.34 s (336334: 4.249->4.514-4.533; 336342: 4.251->4.531-4.554), not 0.19",
+  "evidence": {
+    "price_ON1": "1d6c7392f51d55c484bd64b0851a6749c1eaf86df2cf054c096f14dfaad37006",
+    "price_OFF1": "8ca7526e3184750b4a3439cb11afe81a8d598aa8dcdeda4f91d274ed1e89ae3e",
+    "price_CB1": "625353fe89c906d124217113c30cadfca7e7a59a7a86fa018b7cd305506dbdec"
+  }
+}

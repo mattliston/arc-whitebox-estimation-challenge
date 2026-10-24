@@ -1,0 +1,114 @@
+ASTRA → OPUS: SESSION HANDOFF
+Final handoff timestamp: 2026-10-13T04:42:20Z
+Graceful wind-down completed at Matt's explicit request.
+
+STATUS AND SCOPE
+Astra's goal is PAUSED by the user; this does not claim that Opus's separate pipelines are paused. No new experiments, native certificates, queue workers or submissions will be launched by Astra. Six active research lanes are winding down; failed older beta/star sessions have no numerical jobs. Root owns the only numerical lane. The existing fixed eight-network RSCOV arm finished normally; final process state is recorded below. Public top-three placement has NOT been established by this session.
+
+PATHS
+P2 = /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16
+A = P2/astra_hunt_20261013_v1
+O = P2/opus_reexam_20261001_v1
+All session artifacts and edits are in A. The only intentional outside writes were authorized [astra] gain notices in O/TEAM_LOG.md and the final user-requested handoff notice. No other team's process was operated. No submission was made. REPORT.md is the full chronological evidence ledger. ROOT_RUNTIME.json is the numerical-lane status record.
+
+BASELINE AND ADMISSION
+Native baseline: O/engineer/a62_modules/s49/s51k2tw_x/candidate.py
+SHA256 b1d647e9a340a1f8da7925403636fa2c3a91f58f7e7c21db13ed59db435a8e48.
+Certificate: O/scout_native/cert_fs_s51k2twx_136.json and its _pred.npz.
+PB_ALL=1, seed7100136: bill257830154394, requests39285, prediction SHA5eb243477612152e, finalMSE1.5292630539702287e-8, prediction RMS0.9288412156471986.
+A rounding-level bill cut requires d²/baseMSE below HALF the relative bill saving. Byte equality must actually be measured. The user error-gain rule is paired7100584–591 on true S51+gk11, mean log-MSE change <=−0.15%, with SE/per-network values. Individual big-gain proposals also declared stricter port gates, stated below.
+
+CRITICAL CONTROL CORRECTION
+Old scout-card K-arm controls called S51 in some notes are actually S50. Use the true S51+gk11 controls at O/physicist/t134_refit_screen/results/t134_a_ctl_on_<seed>.json. Every private family needs a verified no-op before borrowing these. The latest observer control matched all16 layerMSEs against t134 and the earlier Sq control AND all1024 final FP64 prediction bytes against Sq. Do not copy an observer result into an unrun original control path to satisfy an old comparator; use the new prepared route.
+
+MEASURED BILL GAINS
+1. Original algebra stack (preferred measured rounding-level stack)
+A/native_stack_v1/candidate.py
+SHA256 6562cc7e5cdcfe3f056eb5743feb67e413908d1c22cbc89428ba7a61a3a154d0.
+Contains star_scale, star_beta_fused, read_lambda, RLF and D96.
+Evidence: A/native_stack_v2_cert.json, _cert_comparison.json, _guard.json.
+Bill257328286683: saves501867711, −0.1946505102%. Requests39097: −188, or−0.940ms at5us/request.
+PredictionSHA063146b176eadc7d; final d²8.281385934062961e-12; d²/baseMSE0.0541527889% < half-bill0.0973252551%; relative prediction RMS3.0982041689405205e-6.
+Actual single-network finalMSE+0.1343733764%; bill*MSE about−0.0605387%. The prediction-distance rule passes; single-network signed MSE noise is not a fresh-cohort result.
+Guard571.39s; maxRSS3.405GB, footprint4.388GB, zero swap growth. Announced once at02:13:56Z; A/announced_native_stack_v2.txt.
+Opus's own later s51k3 (SHA6bc5dc3e = this stack+idc1) fresh block7190008–015 reported mean log(bill*MSE)−0.2853%, SE0.1161%, 6/8 lower; every request count down. Evidence O/scout_native/seal_s51k3_judge.out and TEAM_LOG02:56:33Z. Later counts/release checks were reported by Opus; these are their results, not a second independent Astra gain. Do not duplicate their notice or infer a public result from local checks.
+
+2. HZT exact transform omission
+A/winograd_review/native_hzt_v1/candidate.py
+SHA256 357ef9bd99f7bc324a5719e7b2d573a2dd793702756cfab9812d21db1652e3bd.
+Fragment A/winograd_review/fragment_hzt_v1.py SHA6a336c93c889288e15efcc81938a753fe8ade056187d6c242684a2789d13053c.
+Evidence A/hzt_native_v1_cert_comparison.json and _guard.json.
+Bill257783733460: saves46420934, −0.0180044627%. Requests39342: +57, +0.285ms at5us/request. Final prediction SHA and all16 prediction deltaMSEs exactly unchanged from b1d; actualMSE unchanged. Stats a38,b43,saved_elements46420934.
+Guard323.245s; maxRSS4.256GB, footprint4.215GB, no swap growth. Announced once at03:59:24Z; A/announced_hzt_native_v1.txt. This is measured on b1d, NOT yet on the original algebra stack or Opus's newer stack. Do not simply add percentages without composition/count checks.
+
+ABLATIONS AND CLOSED NUMERICAL LEADS
+- RLF+D96 core (native_core_v1; SHA75e3415a8cdb754f48f3b0335863327fc65f5cb3e40d0eacbaa9d0051ab16d02): bill−0.182455344%, requests−143, d²/baseMSE0.0454160046%, relative prediction RMS2.8372923212e-6. ActualMSE+0.4419866201%, score+0.258724848%. Meets admission vs b1d but is worse than full stack; an ablation, not an additive win. Announced02:25:15Z with this distinction.
+- NoD96 stack (winograd_review/native_nod96_v1, SHA4bc3a33bed5a1fdfe3a04f3cfd93b68a0b733791fae3589bbf6ddc35c137bd7b): bill−0.0861439941%, requests−338; d²/baseMSE0.0668760518% exceeds half gain0.043071997%; rejected. ActualMSE+0.4717814781%. No gain notice.
+- All-level canonical RLF decoder (winograd_review/native_stack_canonical_v1, SHA45c3a26e524583a338489aa520f957cfda36c473b931bbc5b4bbf2b41371f394): A/canonical_native_v1_cert_{comparison,secondary_comparison}.json. Versus original stack, bill+32548656 (+0.0126486895%), requests unchanged, actualMSE+0.1281994674%. Versus b1d, bill−0.1820264414%, d²/baseMSE0.0589868035%, relative prediction RMS3.2335311650e-6, actualMSE+0.2627451098%. No incremental gain, no announcement; prefer original stack. Guard336.015s, RSS3.928GB, footprint4.534GB, no swap.
+- QZ7 toy was byte-exact on seven shapes, but corrected full native qz7_native_v2 had ZERO activations and unchanged bill/requests/prediction. No gain. Early native jobs hit the obsolete4GB RSS limit; their incomplete outputs are not certificates.
+- Sq fixed8: exact no-op control; A/harness_audit/guard_sq_arm_v1.json.comparison.json. Mean log+0.0160626119%, SE0.0243961888%, pooled+0.0113881817%, 4/8 lower. Per584–591: +0.0342863400,+0.0444428916,−0.0482758187,+0.0940156652,+0.1194909138,−0.0105235813,−0.0281878667,−0.0767476492%. Closed, no port.
+- Beta star-moment J3 fixed8: A/beta_rule/guard_starmoment_arm_v2.json.comparison.json. Exact control guard_starmoment_control_v3. Mean log−0.0255037045%, SE0.1566284493%, pooled+0.0272557237%, 4/8 lower. Per584–591: +0.6385021557,−0.5886959555,+0.5799861484,−0.3851158870,−0.3442385799,+0.0220976421,−0.1441463838,+0.0175812241%. Closed, no fitting/port. All56 choices s=+1; J3 rankings [+1,0,−1] throughout; consumer J21 rankings [0,+1,−1] throughout. This rule has no per-network discrimination. Guard1648.657s, RSS3.722GB, footprint1.737GB, no swap. JSON table key is 'comparison'; omit both comparison and stdout when printing metadata to avoid huge output.
+
+RSCOV FINAL RESULT
+COMPLETED VALID NULL. Fixed RSCOV1 at L8–14 on all8 seeds7100584–591. Mean log-MSE change -0.0167022828%, SE0.0342610112%, pooled-0.0160824758%, 5/8 lower. Per-network log-percent changes: 7100584: -0.0205447743%, 7100585: +0.0982037804%, 7100586: -0.0301447591%, 7100587: -0.1948283614%, 7100588: +0.0205216595%, 7100589: -0.0612373119%, 7100590: -0.0545902010%, 7100591: +0.1090017051%.
+Fails both the user−0.15% error-gain threshold and its predeclared−1% big-gain port gate. No port or coefficient/band/fallback retuning is proposed; no gain notice. Mathematical mechanism remains partly unresolved because activation/norm telemetry was not recorded in this arm.
+All eight exact layers0–7 match their own true S51 baseline, borrowed-control hashes were rechecked, all8 completed. Authoritative session8021 exited0. Guard elapsed1810.502s, maxRSS2899738624, footprint1778044936, zero swap growth. Evidence: A/harness_audit/rscov_additive_arm_guard_v1.json.comparison.json; independent stdlib postcheck A/harness_audit/rscov_postcheck_v1.json (VALID). Comparison SHAee19856acd6430961d05def0feb6ff5569923a8a66bb0d4c80bdf1ff40d2a121. The fixed8 screen is CLOSED without a measured gain; RSCOV native port work should remain parked.
+
+LATEST NO-OP OBSERVER FINDINGS
+A/harness_audit/additive_control_guard_v1.json.comparison.json: all16 MSEs equal t134 and Sq, final1024 FP64 bytes equal Sq, SHA94757511cf9218a3ae60b14d62cbf3ab75172d6184f4df1422ec84f663e1261a. Guard249.054s, RSS2614263808, footprint1557254080, zero swap. Observer used one physical bank read per L8–14 with RDC2 and recorded seven rows. Summary A/additive_control_summary_v1.json.
+Radial r=.0409074→.0585793. Fitted rank-one fourth-plane signal was essentially ALL the already-carried radial term (reference/fit1.0000905–1.0001610), despite15–20% explained plane energy. It does not identify a new latent fourth-order source. Third-plane explained fraction17.6→30.3% is a different observation, not a full-tensor identification. Row/diagonal covariance-support gaps were positive on all seven rows, with loose necessary bounds; PSD is assumed, not certified. The old moment_realizability_audit_v1.py did not support RDC2 and must not be used.
+
+READY BUT UNRUN: FIRST CONTINUATION CANDIDATE
+A/winograd_review/native_stack_hzt_asz_v1/candidate.py
+SHA256 8dd6ca2b4c7021d061f1791b78fd6ec8d45f1d1ad7d48bd65786c8e63d4c3a54.
+Exact source composition: original stack6562 + measured HZT fragment + new ASZ repeated-accumulator zero-fill removal. No canonical decoder or right-scale change.
+Independent source review covers accumulator ownership, RLF callback, cold views and masks. Root-only A/winograd_review/check_acc_zero_once_v1.py is UNRUN. It compares stack/HZT/OFF/combined, poisons scratch on every independent product, changes packet/tail widths, exercises actual RLF callback and view rebinding, and asserts bytes plus exact meter deltas. Run this before any native certificate.
+ASZ source price from observed packet census: expected9932937 bill saving (~0.0038525% of b1d) and32 fewer requests; not measured. HZT's cost/request changes in composition are not yet measured. Native continuation should compare both b1d and A/native_stack_v2_cert.json, and require prediction bytes equal the original stack for these two added exact fragments. Root did not launch either test during wind-down. Use the existing root launchers below, which explicitly set PB_ALL=1 and snapshot the native entry. The Winograd handoff's combined55,353,871 estimate contains an arithmetic slip: quoted component savings sum to56,353,871. Neither sum establishes composition; the native run must measure it. Also do not reuse its standalone command without PB_ALL=1.
+
+Future commands for Opus's own controlled continuation, from A with fresh paths (Astra is not launching them):
+  bash launch_check_v1.sh "$PWD/winograd_review/check_acc_zero_once_v1.py" asz_hzt_toy_v1
+  ASTRA_SECOND_BASE_CERT="$PWD/native_stack_v2_cert.json" bash launch_native_v1.sh "$PWD/winograd_review/native_stack_hzt_asz_v1/candidate.py" asz_hzt_native_v1 _ASZ_STATS,_HZT_STATS,_ASTRA_RLF_STATS
+Run serially, inspect authoritative exit/guard/toy first, and preserve default memory-relief behavior used by the tested root launcher.
+Outer-two canonical decoder is a separate source-only zero-bill/zero-request rewrite with an unrun toy. Not in this candidate and not a landed gain. Global all-level canonicalization costs about0.77% by source census and has poor current priority. Right-scale, final64 and BL-only alternatives are prepared/parked, not measured improvements.
+
+OTHER PREPARED WORK / RECOMMENDED ORDER FOR OPUS — NOT AN ARMED QUEUE
+1. Review the RSCOV final table below. The fixed big-gain port gate was mean log<=−1%; no strength/band/seed/fallback tuning from the results. User raw-error admission remains−0.15%, but a native score claim must include actual bill/request cost. The intervention also changes later same-layer GNN covariance features and the omitted-radial denominator; it is not an isolated next-layer propagation experiment.
+2. Run the ASZ+HZT poisoned-scratch toy, then one native7100136 PB_ALL=1 certificate with secondary original-stack comparison. If exact and cheaper, ask Opus workers for composition/count extension. Do not duplicate HZT's existing gain notice.
+3. RSCOV port only if justified by the final outcome: bank_algebra/rscov_stable_from_tables_v1.py SHA0fb8c6b66a8f9fbba106f37b9bd38684e0075927bec53ead0e8e82f88c76c94b plus RSCOV_REQUEST_DAG_v1.md. Exact rank3/Horner factorization source price~0.322% baseline bill plus remaining vector/copy work;~633 projected requests is an unimplemented design count, not a cap certificate. Mixed dense f32 after f64 cancellation has an absolute error bound, not a verified native gain. Factorization/float/H-D-V toys are prepared but UNRUN (see agent handoffs).
+4. CFCOV is a separate fixed1,L8–14 five-node compensated common-factor covariance arm, with predeclared−2% mean-log screen. Original control+8 queue and launch_cfcov_v1.sh are prepared but UNRUN. Literal source bill~2.39%; optimized unimplemented~1.58%; screen threshold alone does not establish net score benefit. Preserve its pinned helper/source and fallback; no retuning from RSCOV. New optional zero-control observer snapshots were being prepared for anisotropic/F4-N diagnostics; do NOT use incomplete integration or forge an old control result. Harness handoff states exact completion status.
+5. Identified anisotropic Gaussian b² covariance-fluctuation source: physics_alternative/anisotropic_source_diagnostic_v1.py SHA dc9813442677c6017f0b04226d6cbd1cb2ca81da0e2c014af008d9da9594d7fb; exact rational toy SHA d801a0170bc17a9984de5d640d5711d4cfc2d73852687f72de43ebcb143afccf. Both source-reviewed, UNRUN. Fixed largest-diagonal pivot, rank2 projection,32-row tiles, <=2.25MiB explicit extra tensors. Bounds apply only to the stated Gaussian b² source and their float evaluations are not certified intervals. K4L already overlaps the cubic-Hermite star component; repeated-index overlap for the quadratic chain is unresolved. A new all-distinct-before-projection idea is only a note: projecting into a thin core can reintroduce repeated-index entries when lifted back. No clean additive carrier or executable arm exists.
+6. Signed F4 nonlinear-shift discrepancy: storing(u+e)^3 for intended linear3u²e also creates N=Σλ[3u e²+e³]. Against the explicit same-anchor linearized reference, reference−stored=−N. This is a model-defined discrepancy, not proven truth error. Full Gaussian cross with lost star has independently checked signs/normalizations. Exact dense gauge cross can cost O(n²K), so use only a cheap O(nK) first-chaos/norm-bound diagnostic initially. beta_rule/F4_NONLINEAR_SIGNED_CROSS_v1.txt, bank_algebra/F4_NONLINEAR_REFERENCE_AUDIT_v1.md, star_algebra/F4_N_CROSS_INDEPENDENT_CHECK_v1.md hold derivations. beta_residual is the replacement after the original beta session's repeated remote compaction failure; its helper/toy are source checkpoints, not an evaluated selector. Its helper f4_nonlinear_observer_v1.py SHA615418a255afb474bd4e79cd684fdcbd83e5ae3807c3ae65c806a1278366309b and Fraction toy SHA6e218c3239f683dbfdf2847a4ab71ffce898216fb0afd7dbe5b76fb3a560b616 have AST checks only, no execution. Bank source review is complete; star review is pending. No hook or observer runtime integration exists. The optional gap endpoints are floating estimates with certified=False. No new beta arm is justified yet.
+Important handoff correction: two agent notes repeat3.928GB as a Torch baseline RSS; that figure belongs to canonical_native_v1's native certificate. The completed additive Torch control peaked at2.614GB. CFCOV control and its new observers are unrun, so their actual RSS/headroom remains unknown.
+
+IMPORTANT CLOSED / QUALIFIED DIRECTIONS
+NB-MERGE/joins and common YCP projection were prior closures, not new wins. Some initial planner prices were stale; the actual imported final planner was probed and overrides matter. Global full-moment feasibility is gauge invariant and cannot select beta; reduced consumer moments may differ, but overwriting their diagonals merely for scoring would define a different model. Gaussian f32 rounding power estimates are not hard signed-error bounds. Canonical RLF reconstruction did not improve the measured stack. Do not relabel old closures or source-only algebra as a measured gain.
+
+COMPLETED MATH CERTIFICATES (FORMULA EVIDENCE, NOT SCORE GAINS)
+- rscov_math_norms_v1: independent raw-joint autograd maxerror2.65e-16; small-r ratio4.000854; identity remainder2.29e-18; symmetry/zero-diag/fallback checks.
+- cfcov_toy_v1: four cases, max linear error4.025e-16, remainder2.915e-16, smallstrength ratio3.998565, identity4.684e-16.
+- hzt_toy_v1: byte/bill checks including NaN scratch, cold/warm/fused.
+- rlf_final64_toy_v1: OFF identical; ON independent float64-final reconstruction; +2MN bill/+3 requests; dtype pricing checked. No native final64 gain measured.
+- star_k21_toy_v1:48 exact rational cases plus24 polarization checks.
+- planner_probe_v2: final imported planner prices; v1 print serialization issue retained, not an arithmetic result failure.
+- additive_math_v1: additive-fit floating reference, Skellam/domain/degree9 derivative cases, F4 rational cross and covariance-support rational cases. These do not identify a realizable full-network latent law.
+- rlf_oldroute_v1: seven old reads already HZGdepth6, one(672,320,800) ordinary depth4. RLF forces that one todepth6. RLF/read-lambda are NOT byte-identical, even withoutD96. Separate read_lambda removal does not remove RLF's own lambda-left placement.
+- rlf_canonical_toy_v2: exact tensor oracle/floating bounds/fused and unfused strips/OFF equality/meter checks. v1 output serialization needed a Python float cast only; candidate arithmetic unchanged.
+
+RUNTIME RULES FOR ANY FUTURE OWNER
+Read A/LEAD_NOTE.md. Native uses --rss-backstop7500000000 and guardv3 default7.5GB footprint trigger. Torch and toys retain4GB. One numerical process, nice>=10, BLAS1 (Torch2 allowed), CPU only, fresh guard record, shared A/numerical_lane.lock, memory_pressure free>=50% before arithmetic. The old4GB native RSS cap caused incomplete runs and is superseded. No jobs or queue polling should be left armed by this paused session.
+A/launch_native_v1.sh accepts candidate path, fresh tag, stats names and optional seed; set ASTRA_SECOND_BASE_CERT to A/native_stack_v2_cert.json for composition comparison. A/guarded_entry.py snapshots per native launch; never reuse record/cert paths. Native interpreter is P2/astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python; guard interpreter /Users/matt/arc-white-box-estimation/.venv/bin/python; Torch /Users/matt/anaconda3/bin/python.
+At5us/request, positive request deltas need actual extended count checks. The early58ms residual margin is stale; a later public worst residual was0.396s, though most were<=0.360s. Do not claim universal4ms headroom or clearance from source pricing.
+TEAM_LOG timestamps must come from date -u in the same append command; watcher-sensitive terms listed in the original task must not appear in new Astra lines. Only the Opus lead handles submissions.
+
+FINAL DRAIN / AGENT HANDOFFS
+Finalized 2026-10-13T04:42:20Z. Sole numerical session8021 exited0; guard completed; shared numerical lock verified free. No further experiment was launched after wind-down. All research agents are inactive (completed or service-error termination), including the beta replacement. Original beta_rule and star_algebra had remote stream/compaction failures; no numerical child belonged to either. Existing star review notes are preserved; no final new support-bound result should be inferred.
+The unrun CFCOV control/arm request files remain preserved as1+8 requests, with no worker serving them. ASZ/HZT and observer toys were not run. No automatic restart, daemon or submission was armed by Astra. ROOT_RUNTIME.json records no active numerical session. Earlier lane notes that say RSCOV is live are superseded by the completed result above.
+Agent handoff/review files, relative to A:
+  bank_algebra/FINAL_HANDOFF_20261013T043118Z.md
+  winograd_review/HANDOFF_20261013T043118Z.md
+  physics_alternative/HANDOFF_WINDDOWN_v1.md
+  harness_audit/WINDDOWN_HANDOFF_20261013T043104Z.txt
+  beta_residual/HANDOFF_v1.md
+  star_algebra/F4_N_CROSS_INDEPENDENT_CHECK_v1.md
+  star_algebra/ANISOTROPIC_SOURCE_REVIEW_v1.md
+This handoff is being posted to O/TEAM_LOG.md with the same UTC timestamp. The public top-three objective remains unachieved/paused, not marked complete.

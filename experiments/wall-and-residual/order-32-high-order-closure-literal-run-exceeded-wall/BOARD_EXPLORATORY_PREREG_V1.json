@@ -1,0 +1,89 @@
+{
+  "schema": "phase2-frozen-pure-closure-exploratory-board-prereg-v1",
+  "status": "PREREGISTERED_ONE_EXPLORATORY_BOARD_VALIDATION__SCIENTIFIC_PROMOTION_HELD",
+  "created_at_utc": "2026-08-24T09:07:42Z",
+  "issued_by": "/root",
+  "user_authority": {
+    "rules_reaccepted": true,
+    "phase2_submissions_authorized": true,
+    "daily_attempt_resource": 10,
+    "instruction": "Use board attempts when appropriate while pursuing an e-8-class raw MSE pure closure."
+  },
+  "candidate": {
+    "label": "fb_ec4_32_v4_3ddddd87",
+    "science": "FB-EC4-32 plus CP4R2048 pure analytic closure; no sampling or learned residual",
+    "estimator_path": "estimator.py",
+    "estimator_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "source_manifest_sha256": "0cad2cc4491fbb22de5dbf021612fac9d5dccd2c2dcb1f4e963314d0c90580bf",
+    "freeze_receipt_sha256": "b730a3e21ba1d297de4b4be6c938cf842f955d951fd008518971cc0fafd8295e",
+    "independent_source_audit_sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d"
+  },
+  "phase2_meter": {
+    "receipt_path": "../meter_protocol/runs/fb_ec4_v4_sparse_resetarena_cp3compact_n1_s8_seed20260824/receipt.json",
+    "receipt_sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017",
+    "status": "PASS_PHASE2_SUBPROCESS_INTERFACE_AND_METER__ACCURACY_UNSCORED",
+    "flops_used": 2179742954469,
+    "budget": 2199023255552,
+    "residual_wall_time_s": 0.3926322143524885,
+    "wall_time_s": 35.34110458288342,
+    "sampled_solution_descendant_peak_rss_bytes": 4618567680,
+    "finite_output": true,
+    "n_failed_mlps": 0,
+    "fragile_residual_margin_s": 0.0073677856475115
+  },
+  "scientific_hold_disclosure": {
+    "moment_receipt_path": "../fullbudget_k21_k4_closure_v4_moment_diagnostic/runs/v4_target_free_moment_seed20260824/receipt.json",
+    "moment_receipt_sha256": "93124980ee134d2b0bad4e6f00b46ced6a7329fcc356945c12736443f4723ee8",
+    "status": "SCIENTIFIC_HOLD__SEE_GATES",
+    "facts": "All values, means, and variances were finite/nonnegative, but sparse order-three/four Hankel margins were negative at near-dead units in layers 10-16, with absolute minima around 1e-30 to 2e-28.",
+    "pending": "A target-free scale-normalized worst-unit diagnostic must distinguish cancellation dust from material law inconsistency.",
+    "effect": "This board run is an exploratory measurement only and is not scientific promotion or a claim that the closure defines a valid moment law."
+  },
+  "archive": {
+    "path": "../../../../../submissions/fb-ec4-32-v4-3ddddd87.tar.gz",
+    "sha256": "2df56c53253494fc75da3de8a0a7bd29d0bf2b97fa8f052bd2378ba7534d5a82",
+    "members_in_order": [
+      "estimator.py",
+      "manifest.json"
+    ],
+    "extracted_estimator_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "extracted_manifest_sha256": "58850abbd1f8fe93132187727a5173e27cb3fb8d6053ff06d1d55fdde8e70b5f",
+    "validate_package": "PASS",
+    "offshape_smoke": "PASS_FINITE_FLOAT32_SHAPE_2_BY_4"
+  },
+  "fixed_primary_readout": {
+    "metric": "official Phase-2 final-layer raw MSE",
+    "success_threshold_strict": 1e-08,
+    "success_rule": "raw_mse < 1e-8",
+    "secondary_readouts": [
+      "official adjusted score",
+      "grader status",
+      "per-MLP fallback or failure evidence if exposed"
+    ]
+  },
+  "one_attempt_contract": {
+    "maximum_uploads_under_this_preregistration": 1,
+    "no_source_change_after_preregistration": true,
+    "no_target_adaptation": true,
+    "no_fit": true,
+    "no_sampling": true,
+    "no_fallback_wrapper": true,
+    "no_automatic_retry": true,
+    "attempt_is_consumed_when_upload_is_accepted_by_aicrowd": true,
+    "a_failed_smoke_is_not_called_quota_free_without_explicit_platform_evidence": true
+  },
+  "submission": {
+    "challenge": "arc-white-box-estimation-challenge-2026",
+    "description": "EXPLORE FB-EC4-32 pure closure 3ddddd87 meter-pass moment-tail-HOLD",
+    "watch_timeout_s": 600,
+    "command": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/whest submit submissions/fb-ec4-32-v4-3ddddd87.tar.gz --challenge arc-white-box-estimation-challenge-2026 --description 'EXPLORE FB-EC4-32 pure closure 3ddddd87 meter-pass moment-tail-HOLD' --watch --watch-timeout 600 --json"
+  },
+  "preaccess_counters": {
+    "board_uploads_under_this_preregistration": 0,
+    "public_or_private_target_values_opened": 0,
+    "local_target_scores_computed": 0,
+    "fits": 0,
+    "sweeps": 0,
+    "retries": 0
+  }
+}

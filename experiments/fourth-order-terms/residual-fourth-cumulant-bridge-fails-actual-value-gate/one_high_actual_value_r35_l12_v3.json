@@ -1,0 +1,61 @@
+{
+  "rank": 35,
+  "source_post_layer": 12,
+  "pair_layer": 13,
+  "value_layer": 14,
+  "incoming_parent_plane_max_difference": 1.040915436610959e-06,
+  "byte_exact_boundary": {
+    "physical_slices_and_plane_byte_exact": true,
+    "consumer_state_byte_exact": true
+  },
+  "baseline_covariance_mse": 3.3693871521870713e-09,
+  "baseline_next_mean_response_mse": 6.893107636547183e-10,
+  "results": {
+    "oracle_A": {
+      "covariance_error_ratio": 0.47132696948938285,
+      "next_mean_error_ratio": 0.7650310194879522,
+      "value_correction_cosine": 0.5089348741868877,
+      "value_correction_relative_norm": 0.6640017167147965,
+      "current_one_step_mean_mse": 2.48646302742133e-09
+    },
+    "oracle_B": {
+      "covariance_error_ratio": 0.47232591066135426,
+      "next_mean_error_ratio": 0.7774227869630701,
+      "value_correction_cosine": 0.5026793672574342,
+      "value_correction_relative_norm": 0.6761997788216201,
+      "current_one_step_mean_mse": 2.4910961521151966e-09
+    },
+    "exact_heavy": {
+      "covariance_error_ratio": 0.5667655425956707,
+      "next_mean_error_ratio": 0.8861662828997046,
+      "value_correction_cosine": 0.40673410752613776,
+      "value_correction_relative_norm": 0.6338880577994892,
+      "current_one_step_mean_mse": 2.5858408374030324e-09
+    },
+    "positive_path": {
+      "covariance_error_ratio": 0.5266470371428398,
+      "next_mean_error_ratio": 0.8711241616051724,
+      "value_correction_cosine": 0.40766928709792744,
+      "value_correction_relative_norm": 0.600849020113854,
+      "current_one_step_mean_mse": 2.5455773528984746e-09
+    },
+    "full_K3_reference": {
+      "covariance_error_ratio": 0.1845945884617704,
+      "next_mean_error_ratio": 0.2997119476992045,
+      "value_correction_cosine": 0.8426953923213429,
+      "value_correction_relative_norm": 0.9419298215222345,
+      "current_one_step_mean_mse": 1.5955757174631995e-09
+    },
+    "oracle_AB_average": {
+      "covariance_error_ratio": 0.46836278358413236,
+      "next_mean_error_ratio": 0.7665221913729039,
+      "value_correction_cosine": 0.5084279936682883,
+      "value_correction_relative_norm": 0.6666089537060399,
+      "current_one_step_mean_mse": 2.4788025927771654e-09
+    }
+  },
+  "actual_value_bridge_gate": false,
+  "wall_s": 0.9024858474731445,
+  "source_sha256": "eec23f763541d1b8f185608346c6b2b1e2e515332822822d0119a2f12dd720f9",
+  "qualification": "Full1024-row exact distinct q4 projection, then actual active-support mask with all diagonals retained, natural-strength finite pair response. V1 full-versus-active parity mismatch corrected without changing a tolerance or gain gate. Original8M post13 covariance label is not independent of the original host trajectory; residual slice streams A/B are independent8M. Both saved physical-F64 and actual masked-F32 parent states independently replay byte-exactly; their recorded numeric difference is not treated as a changed source. Point diagnostic only, not a final-score ceiling, deployable residual source, FLOPs or adjusted score."
+}

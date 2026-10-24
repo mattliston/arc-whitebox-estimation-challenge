@@ -1,0 +1,84 @@
+{
+  "bindings": {
+    "candidate_estimator": {
+      "path": "estimator.py",
+      "sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779"
+    },
+    "comparator_release": {
+      "path": "ROOT_FULLWIDTH_COMPARATOR_RELEASE_SCAFFOLD_V1.json",
+      "sha256": "c5dc4408c69ac6eac36b05f139a54407366d23ccfcc1330c73f5f3e4ba98b3ab"
+    },
+    "comparator_runner": {
+      "path": "run_target_free_fullwidth_comparator.py",
+      "sha256": "c4251eabce9341c9f60da441a37d583fdea47c54102e54a8b89ece816d23b2f2"
+    },
+    "independent_audit": {
+      "path": "INDEPENDENT_STRICT_AUDIT_CS2.json",
+      "sha256": "cba8bfbb437f32aa377ca72da74b9504894e6380429e2acf0e5a059d7ef8afcb"
+    },
+    "independent_audit_verifier": {
+      "path": "verify_independent_strict_audit.py",
+      "sha256": "5673d297a3c5fd7dd7bd1fd2ec1a57c6ad9f51259d94870fbfa6bc3513a4a342"
+    },
+    "meter_driver": {
+      "path": "meter_protocol/run_synthetic_meter.py",
+      "sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34"
+    },
+    "meter_scaffold": {
+      "path": "ROOT_LITERAL_METER_RELEASE_SCAFFOLD_V1.json",
+      "sha256": "747bec4fa4d4c2b2dab216288eac0f1819ab7d2cbad5fb91ead2b366e227e1be"
+    },
+    "parent_estimator": {
+      "path": "fullbudget_k21_k4_closure_q24_manual_rho_v1/estimator.py",
+      "sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00"
+    },
+    "parent_meter": {
+      "path": "meter_protocol/runs/fb_ec4_q24_manual_rho_v1_7d0c9e30_n1_s8_seed20260824/receipt.json",
+      "sha256": "4ad5d4bb8e70a3f57ef7559f5dceffe0d92fc7b77626088cff87431bdbf18160"
+    },
+    "preregister": {
+      "path": "PREREGISTER_FULLWIDTH_COMPARATOR_AND_METER_V1.json",
+      "sha256": "e06a68a92a139c670b0fe2fcb38615e96fa8d96a0019b3eef58bc2e995d36dd0"
+    },
+    "source_hold": {
+      "path": "SOURCE_HOLD_V2.json",
+      "sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c"
+    }
+  },
+  "checks": {
+    "comparator_output_namespace_absent": true,
+    "comparator_release_one_use_authorized": true,
+    "durable_exclusive_claim_precedes_fixture_generation": true,
+    "exact_hash_chain": true,
+    "fixed_official_he_seed_roster": true,
+    "fullwidth_runs_executed_by_verifier": 0,
+    "invalid_incident_truth_table_or_definition": true,
+    "literal_meter_comparator_claim_sha256_null": true,
+    "literal_meter_comparator_receipt_sha256_null": true,
+    "literal_meter_output_namespace_absent": true,
+    "literal_meter_runs_executed_by_verifier": 0,
+    "literal_meter_scaffold_unauthorized": true,
+    "namespace_has_no_pycache_or_pyc": true,
+    "observer_two_unit_dynamic_microprobe": true,
+    "pre_audit_preregister_immutable_null_preserved": true,
+    "runner_has_no_dataset_target_truth_network_or_subprocess_route": true,
+    "runner_syntax_and_import_allowlist": true,
+    "strict_audit_pass_and_bindings": true,
+    "targets_or_truth_accessed": 0,
+    "uncertified_initialization_reset_bypassed": true
+  },
+  "created_at_utc": "2026-08-24T13:10:03.852561+00:00",
+  "mutable_boundary": {
+    "candidate_estimator": "immutable",
+    "comparator_next_write": "runs/fullwidth_official_he_seeds20260824_20260826_v1/CLAIM.json",
+    "comparator_runner_and_release": "immutable",
+    "comparator_terminal_write_if_process_reaches_decision": "runs/fullwidth_official_he_seeds20260824_20260826_v1/receipt.json",
+    "independent_audit_and_verifier": "immutable",
+    "meter_next_write_after_comparator_pass": "new ROOT_LITERAL_METER_RELEASE_CS2_V1.json only",
+    "meter_scaffold": "immutable and never executable",
+    "preregister": "immutable with historical null audit binding",
+    "source_hold": "immutable"
+  },
+  "schema": "q24-cs2-fullwidth-and-meter-release-static-verification-v1",
+  "status": "PASS_STATIC_RELEASE_CHAIN__COMPARATOR_READY__METER_FAIL_CLOSED_HOLD"
+}

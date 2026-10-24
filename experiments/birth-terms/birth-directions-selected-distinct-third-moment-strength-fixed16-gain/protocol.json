@@ -1,0 +1,135 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_distinct_strength_v2/fragment.py",
+    "sha256": "ed468c650a038375f884764a12dfd4889b129abd51a253f69ebe41a1168e672a",
+    "bytes": 2136
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_distinct_strength_v2/candidate.py",
+    "sha256": "bb9ed81c6086426cf42561dd94f434bb89ebee24fc9dca9fbf8bcde66962072b",
+    "bytes": 932343
+  },
+  "change": {
+    "old_call": "selected, births = select(_e2_gate_min, gate_floor)",
+    "new_call": "selected, births = _birth_distinct_select(_e2_gate_min, gate_floor, birth, g, alive, Cpre)",
+    "unique_birth_call_only": true
+  },
+  "formula": "p2_ij=Cpre_ij^2*(g_i*alive_i)^2, p2_jj=0; q_j=sum_i p2_ij; strength_j=(birth_j*alive_j)^2*max(q_j^2-sum_i p2_ij^2,0)",
+  "count": "Exactly original select(score,floor) padded count on the SAME current state; full/empty original result returned unchanged.",
+  "selection": "Alive candidates ranked by descending physical strength, stable original-index tie break; inactive candidates receive fixed rank score -1 below every valid strength>=0. Selected set reordered by descending original Gaussian margin with stable original-index ties.",
+  "roundoff": "Require finite difference and difference>=-32*n*FP64epsilon*(q^2+sum(p2^2)); only then clamp to zero. This is a validity guard, not a ranking or fit parameter.",
+  "scope": "Original birth selection at L0..14 only; alive/response selection unmodified. No rank/count/threshold/amplitude/layer sweep.",
+  "controls": [
+    "hill_climb_star_projection32_train2_v1",
+    "hill_climb_star_projection32_train6_v1",
+    "hill_climb_star_projection32_extra8_candidate_v1"
+  ],
+  "train2_ranks": [
+    35,
+    100
+  ],
+  "train2_advance": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 2
+  },
+  "if_advance_fixed_blocks": [
+    [
+      36,
+      45,
+      52,
+      58,
+      64,
+      70
+    ],
+    [
+      3,
+      12,
+      40,
+      41,
+      43,
+      44,
+      57,
+      68
+    ]
+  ],
+  "train16_retention": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 10,
+    "ci95_upper_below": 0,
+    "additional14_gain_positive": true
+  },
+  "invariants": {
+    "output_layer0_byte_exact": true,
+    "no_later_output_or_count_equality_claim": true,
+    "original_cached_CC_not_modified": true,
+    "cached_CC_owner_verified": true,
+    "all_numeric_work_paid_FNP": true,
+    "score_F64": true,
+    "singleton_alive_factor": true
+  },
+  "limits": {
+    "train2_seconds": 150,
+    "train6_seconds": 300,
+    "extra8_seconds": 360,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "serial": true
+  },
+  "cost": {
+    "estimated_added_primitive_flops_upper": 200000000,
+    "estimate_not_actual_paid_bill": true,
+    "largest_added_matrix_bytes": 8388608,
+    "additional_temporary_reserve_bytes": 25165824,
+    "no_new_gemm": true
+  },
+  "diagnostics": "_BDS_STATS: calls,full_or_empty,reranked,changed_units,selected_total,roundoff_clamps; Python metadata only, no retained arrays.",
+  "prior_art": {
+    "script": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/refit6b/births_prune_eval.py",
+      "sha256": "1ba5d2edfdfc11c99a2c50acf7880728c4d2e707add85a8ebe1d83b43adc5df7",
+      "bytes": 5135
+    },
+    "result": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/lean/RESULT_LEAN.md",
+      "sha256": "cff5e72cadf6bd30521081421b94656ee5391e6ad87369182e4951ad21795ea8",
+      "bytes": 15668
+    },
+    "scope": "Older consumption-ranked pruning within already Gaussian-selected newborns lost strongly: keep75% fromL8 raw1.63x/0wins. That changed count; no fixed-count all-candidate replacement receipt found."
+  },
+  "caveat": "Physical proxy omits learned birth-leg changes, interactions/cancellation between births, tensor terms with repeated indices, subsequent star projection and actual downstream consumption. No positive prediction. Count equality is conditional on same state; feedback may change later masks, counts and full bills.",
+  "one_fixed_source": true,
+  "no_fit_or_truth_inputs": true,
+  "bank_policy": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/submission_policy_20260928_v1.json",
+    "sha256": "d069a04ed856331da19099e1ed86a3aa56bca81b56e8d2d09278fc7a6af793e7",
+    "bytes": 492
+  },
+  "notes": "Exact S32 parent, excludes failed CSR/terminalk3square and unbanked cost bundle. Component gate only, not release qualification.",
+  "preexecution_tie_correction": {
+    "original_candidate": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_distinct_strength_v1/candidate.py",
+      "sha256": "0e3fb89b7d8d1098b7ce89b508aa51bfc0437113fb7c2040c9f28c499bf1ee31",
+      "bytes": 932319
+    },
+    "original_fragment": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_distinct_strength_v1/fragment.py",
+      "sha256": "c01612d798c48bd7d7d510d1d5e950bd8a8cf1930425c423000c1ab8eb4ff0f5",
+      "bytes": 2112
+    },
+    "original_protocol": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_distinct_strength_v1/protocol.json",
+      "sha256": "763784056777f7bc286000497a6740bd3fee4843d2157a877fd51c11311c8faf",
+      "bytes": 5125
+    },
+    "before": "order = fnp.argsort(-strength, kind='stable')",
+    "after": "order = fnp.argsort(-fnp.where(alive, strength, -1.0), kind='stable')",
+    "reason": "Exclude inactive zero-strength candidates from ties; original padded birth count does not exceed alive count.",
+    "no_previous_candidate_execution": true,
+    "science_count_and_within_set_order_unchanged": true
+  }
+}

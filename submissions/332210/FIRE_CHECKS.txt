@@ -1,0 +1,13 @@
+FIRE CHECKS S16 = S15 (S14 #332203 + engineer2 --altbasis, e313ab77) + bb6 (engineer E-59, batched depth-6; rounding-level), 2026-09-24 16:04
+file /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_fire_v1/fire_candS16/candS16_S15_bb6_mem.py
+sha256 a4a1e0f74a3100bd061a39d4e6ea1cde1b0271cd3746f4d64ff520d6e0458ab9 (engineer candS16bb6_mem.py a4a1e0f7...)
+validate: Validation passed in 100ms
+einsum gate vs fired S14: VERDICT PASS: 0 new repeated-operand einsum site(s), 0 new symmetric-tag call(s) vs ref
+import lines new vs S14: (empty = none)
+recipe rebuild sha a4a1e0f74a3100bd061a39d4e6ea1cde1b0271cd3746f4d64ff520d6e0458ab9 (must equal the fire file); S14 9003e5368e7fc278 (9003e536), S15 e313ab775de8c099 (e313ab77)
+recipe: fired S11 -> build_colpack -> build_deadcut --round=64 -> build_m64.py -> build_read6.py q -> build_ipt_v3.py -> cat ipt_read6_fragment.py -> build_altbasis.py -> cat bb6_fragment.py
+client/server smoke: 2 of 2 nets OK (fable_porter_v1/cz_S16_census.json)
+VALID40 vs S15 rows: raw (pooled MSE ratio): +0.056%  95% CI [-0.007%, +0.123%]  wins 17/40 (ties 0) util: mean 0.163136 vs 0.165596 (-1.486%); pooled util (= pooled flops) -1.486%  95% CI [-1.495%, -1.477%] adjusted (pooled): -1.431%  95% CI [-1.494%, -1.364%]  wins 40/40; per-net min -1.85% median -1.46% max -0.89% 
+bar: {"verdict": "PASS", "pooled_adjusted_pct": -1.431, "ci": [-1.494, -1.364], "wins": 40, "n": 40, "errors": 0, "bar": {"max_pct": -0.7, "ci_excludes_0": true, "min_wins": 0}, "clears_3e9_bar_minus_1p6": false} | pooled raw vs S15 +0.056% on 40 nets -> RAW PASS (|raw| <= 0.15%)
+residual gate vs S15:   r35 (cold): S15 mean 0.297 max 0.310 s | S16 mean 0.307 max 0.313 s | delta +0.010 s   r100: S15 mean 0.290 max 0.309 s | S16 mean 0.296 max 0.307 s | delta +0.006 s   r37: S15 mean 0.276 max 0.279 s | S16 mean 0.276 max 0.286 s | delta -0.001 s   S16 cold delta vs S15 +0.010 s (rule <= +0.03 s) -> RESIDUAL GATE PASS 
+--- appended 2026-09-24 16:04: TIGHTENED residual rule (lead 15:4x): S16 cold delta vs S15 +0.010 s (rule <= +0.010 s; projected platform max <= ~0.31 s = S14 0.276 + S15 0.017 + S16 delta) -> PASS

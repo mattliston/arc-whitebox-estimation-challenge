@@ -1,0 +1,38 @@
+{
+  "status": "CLOSED_NO_CURRENT_CAPTURE_JUSTIFIED",
+  "fixed_coefficient": 0.5,
+  "raw_geometric_MSE_pct": 0.03167497145709994,
+  "log_SE_pct": 0.04412891140075086,
+  "network_wins": 16,
+  "negative_groups": 3,
+  "n": 32,
+  "result_sha256": "1f2b82910ee2bdfe5cfb3c39ff5d5636d8a0092a9c48e867a5b0e3568315aef6",
+  "script_sha256": "0ff2b6856c1d0bcfb82c98147127e3f50d1801621fb06365b657ec646da887de",
+  "prereg_sha256": "9419673aa4abc83b35cf8df4a3c2926e7064a7614e41dc29b68f84196c0c48c0",
+  "exact_identity": "mu_true = E[ReLU(X)] - E[ReLU(-X)]; head residual odd component equals half inherited premean error only for an exact head.",
+  "source_proof": [
+    "GNN_LITERAL/HCF_U/HCF_COLUMNS exactly equal historical QR and final v17.",
+    "HC columns excluded atL15; only HCF f15_diag enters encoder0 bias.",
+    "f15_diag is quadratic in pushed bank columns; its regression usesv/1/mu\u00b2, so HCF bias is reflection-even.",
+    "Reflected W powers1/3 flip; power2 and energies remain; standardized gate changed before clipping.",
+    "Post-rawmoments use exact complement identities throughorder4, then recenter. Masked matrix features remain masked."
+  ],
+  "limitation": "Physical30 was captured float32; high-alpha moment recentering has cancellation. Involution maxabsolute1.15e-4 in postmoments, while original captured-head replaymax2.18e-10. This is a historical source falsifier, not current-native accuracy.",
+  "deployment_cost": {
+    "unfused_extra_head_multiply_add_FLOPs": 83492864,
+    "extra_head_bill_pct_of244GF": 0.0342183868852459,
+    "possible_fused_terminal_output_FLOPs": 66846720,
+    "linear_feature_ops_extra": true,
+    "RPC": "Not measured: failed scientific gate; shared M/E and HCF bias avoid new message contractions. Extra scalar-feature and head calls would require runtime fusion under v17 narrow residual margin."
+  },
+  "lifecycle": {
+    "new_models": 0,
+    "new_truth": 0,
+    "GPU": 0,
+    "coefficient_fits": 0,
+    "all_owned_retired": true,
+    "seconds": 1.5206557903438807,
+    "peak_RSS": 282787840
+  },
+  "corrections": "Initial input replay used dense W\u00b2/energy contractions, assertion failed before scoring; corrected to exact frozen GOP2 rank2 formulas. nice priority denied in sandbox; final CPU1 saved-only job completed1.52s at283MB without escalation."
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "fb-ec4-32-v4-bound-target-free-moment-diagnostic-freeze-receipt-v1",
+  "status": "PASS_SOURCE_STATIC_TINY_PARITY_AND_RUNNER_PREFLIGHT__FULL_REPLAY_AUTHORIZED",
+  "frozen_at_utc": "2026-08-24T08:58:41Z",
+  "bindings": {
+    "v4_estimator": {
+      "path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+      "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+    },
+    "v4_independent_audit": {
+      "path": "../fullbudget_k21_k4_closure_v4/INDEPENDENT_SOURCE_AUDIT_V4.json",
+      "sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d"
+    },
+    "v4_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_v4_sparse_resetarena_cp3compact_n1_s8_seed20260824/receipt.json",
+      "sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017"
+    },
+    "diagnostic_estimator": {
+      "path": "estimator.py",
+      "bytes": 71241,
+      "sha256": "3428b9e37641bcae9c7fcc867a55672f1160fecd225dc084f8a980d07ffe4256"
+    },
+    "diagnostic_builder": {
+      "path": "build_from_v4.py",
+      "bytes": 10684,
+      "sha256": "4efb165815ff9158c7071a99060304154c632f655c7b83b1f10df5053f58e909"
+    },
+    "diagnostic_parity_gate": {
+      "path": "verify_parity.py",
+      "bytes": 5206,
+      "sha256": "49619e9d252bfc1e5628d0be2c19866c3cc794457747b4ba4b4514f9a2657f6b"
+    },
+    "diagnostic_static_gate": {
+      "path": "verify_static.py",
+      "bytes": 6057,
+      "sha256": "37bdc50602327e5ab9ddd06d09e9d58dd8e4a2d6022675ea791b1016826ac06f"
+    },
+    "diagnostic_runner": {
+      "path": "run_target_free_diagnostic.py",
+      "bytes": 12511,
+      "sha256": "107afaa4e0dd0a1b8f47f0f4798e712d3b991609ceb6940e5a9e2b17e53cea02"
+    },
+    "diagnostic_source_manifest": {
+      "path": "SOURCE_MANIFEST.json",
+      "bytes": 4272,
+      "sha256": "ab774cb80025309913e2f2b25a0de3b59615073d72dfd25df4f7c80f50914c29"
+    }
+  },
+  "gates": {
+    "deterministic_transform": "PASS_EXACT_DETERMINISTIC_V4_TRANSFORM",
+    "static_and_provenance": "PASS_V4_MOMENT_DIAGNOSTIC_STATIC_AND_PROVENANCE",
+    "normal_estimator_tiny_output_bitwise_v4": true,
+    "diagnostic_shape": [4, 9],
+    "channel_order_count": "PASS_NINE_FROZEN_CHANNELS",
+    "tiny_parent_flops": 1279337,
+    "tiny_diagnostic_flops": 1280457,
+    "tiny_measured_additive_flops": 1120,
+    "tiny_standalone_additive_flops": 1120,
+    "full_increment_formula": "depth * (63 * width + 28)",
+    "width1024_depth16_incremental_flops": 1032640,
+    "projected_total_flops": 2179743987109,
+    "projected_total_below_2pow41": true,
+    "runner_manifest_preflight": "PASS",
+    "runner_meter_receipt_preflight": "PASS",
+    "runner_recreated_base_flops": 2179742954469,
+    "namespace_pycache_count": 0,
+    "namespace_pyc_count": 0
+  },
+  "authority": {
+    "granted": [
+      "ONE_TARGET_FREE_WIDTH1024_DEPTH16_MOMENT_REPLAY_SEED20260824"
+    ],
+    "withheld": [
+      "SUBMISSION",
+      "TARGET_OR_DATASET_TRUTH_ACCESS",
+      "RAW_MSE_OR_ACCURACY_CLAIM",
+      "FIT_OR_SAMPLING",
+      "SCALAR_REPAIR_OR_CLOSURE_FEEDBACK",
+      "PROBLEM_GRAPH_MUTATION"
+    ]
+  },
+  "claim_boundary": "The authorized replay can prove only necessary univariate order-four moment feasibility on the exact target-free synthetic weight trajectory bound by the passing V4 meter. It cannot prove a joint law, closure accuracy, MSE, or leaderboard performance."
+}

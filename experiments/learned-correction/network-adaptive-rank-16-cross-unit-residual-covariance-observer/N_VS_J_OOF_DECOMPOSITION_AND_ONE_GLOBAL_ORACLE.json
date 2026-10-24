@@ -1,0 +1,157 @@
+{
+  "schema": "p2r0f2n-vs-j-oof-decomposition-one-global-oracle-v1",
+  "status": "PASS_CLOSED",
+  "node": "P2R0F2N",
+  "scope": "Graph-ready read-only observer_fit OOF causal decomposition and one parameter-free global oracle; no candidate evaluation",
+  "bindings": {
+    "analysis_program_sha256": "e23fcecf5f565212220a1f29404ca05bf1aaf11cba586f7ac4116fca41b42798",
+    "terminal_verifier_sha256": "467e58e5242bddceb91d39e215a60d6275ff634bae48890d56609de27ea19247",
+    "terminal_verification_sha256": "9b6a00d819eb219c8eada6242d96821a76abbfda2076e21f263d079113cb7645",
+    "cv_results_sha256": "37187da1fabdc84951a5bc68ef3f12fba1d4b940bc19027c8426f59f1b61be37",
+    "shared_error_sha256": "1414515cfbb098e731e4f00d3f4ba7a310f17ac96e886846cd08aaaa0a679ca1",
+    "shared_stats_sha256": "1648a140768cdc254a7bb6957dcb8e82f4271118bc64b552bb08de294ec62208",
+    "feature_manifest_sha256": "9a43423982924bcc7a0c5b87288b19ff42452c90c9cc7b7f590e565d1b276f50",
+    "observer_fit_target_sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7",
+    "replayed_row_diagnostics_sha256": "1bc81c23fd01e9f191c0eee3fb546a98b403fdda32bdf4ccaaad9a404ee277ef"
+  },
+  "firewalls": {
+    "role": "observer_fit",
+    "observer_fit_rows_replayed": 688,
+    "observer_selection_targets_opened": 0,
+    "public_name_joins": 0,
+    "network_access": 0,
+    "training_steps": 0,
+    "model_writes": 0,
+    "graph_edits": 0,
+    "successor_implementations": 0,
+    "rank_sweeps": 0,
+    "hyperparameter_sweeps": 0,
+    "operator_oracles_tested": 1
+  },
+  "paired_final": {
+    "j_oof_final_mse": 3.233495822947099e-8,
+    "n_oof_final_mse": 3.230119894372404e-8,
+    "n_minus_j": -3.375928574695331e-11,
+    "n_fractional_improvement": 0.001044049152851051,
+    "wins": 389,
+    "losses": 299,
+    "ties": 0,
+    "negative_improvement_sum": -9.88896475099956e-8,
+    "positive_regression_sum": 7.566325891608084e-8,
+    "gross_absolute_sum": 1.7455290642607646e-7,
+    "cancellation_fraction": 0.8669378295127318,
+    "row_delta_p10": -4.4930818335501435e-10,
+    "row_delta_median": -4.071974264834893e-11,
+    "row_delta_p90": 3.7220017332137743e-10
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "networks": 147,
+      "n_minus_j": -3.202668918778414e-11,
+      "fractional_improvement": 0.0010153322854929588,
+      "wins": 73,
+      "losses": 74
+    },
+    {
+      "fold": 1,
+      "networks": 172,
+      "n_minus_j": -1.9174595506794775e-11,
+      "fractional_improvement": 0.0005864871613409187,
+      "wins": 105,
+      "losses": 67
+    },
+    {
+      "fold": 2,
+      "networks": 171,
+      "n_minus_j": -6.184742977408481e-11,
+      "fractional_improvement": 0.0018404377076242275,
+      "wins": 100,
+      "losses": 71
+    },
+    {
+      "fold": 3,
+      "networks": 198,
+      "n_minus_j": -2.3457193761481244e-11,
+      "fractional_improvement": 0.0007443330151111639,
+      "wins": 111,
+      "losses": 87
+    }
+  ],
+  "layerwise_summary": {
+    "layers_improving_j": [2, 3, 7, 8, 9, 10, 11, 12, 15],
+    "layers_regressing_j": [4, 5, 6, 13, 14],
+    "best_fractional_improvement_layer": 10,
+    "best_fractional_improvement": 0.0014302977475457975,
+    "final_fractional_improvement": 0.001044049152851051,
+    "final_linear_alignment_term_2e_dot_delta": -1.33467051022612e-10,
+    "final_quadratic_delta_cost": 9.970775896693237e-11,
+    "final_exact_mse_identity_residual": 6.30872124348473e-18
+  },
+  "hard_rows": {
+    "declared_role_ranks": [201, 310, 599, 643],
+    "j_mean": 2.7330554423437766e-7,
+    "n_mean": 2.7326790792971066e-7,
+    "wins": 2,
+    "losses": 2,
+    "signed_delta_sum": -1.5054521866793757e-10,
+    "hard_signed_share_of_population_net_change": 0.006481645567033178,
+    "breaches_above_1e_7_after_n": [201, 310, 599, 643],
+    "row_n_minus_j": {
+      "201": 2.3265842026418773e-10,
+      "310": -1.1781006889496575e-9,
+      "599": -6.785325881003738e-11,
+      "643": 8.627503088275696e-10
+    }
+  },
+  "covariance_amplitude_and_coherence": {
+    "final_delta_rms": 9.985377257116146e-6,
+    "final_diagonal_delta_rms": 4.271497090547606e-6,
+    "final_cross_delta_rms": 6.723980960299251e-6,
+    "final_cross_fraction_of_delta_squared_norm": 0.45344434999748784,
+    "final_delta_negative_error_cosine": 0.03716579605410065,
+    "final_diagonal_negative_error_cosine": 0.03202128330757035,
+    "final_cross_negative_error_cosine": 0.03485073467774012,
+    "final_score_negative_error_cosine": 0.02724246750373495,
+    "final_mean_diagonal_scale": 0.24903248523506266,
+    "final_mean_factor_eigenvalue": 0.577483958733907,
+    "gain_pearson_with_delta_negative_error_cosine": 0.9475367037201856,
+    "gain_pearson_with_score_negative_error_cosine": 0.894431129308828,
+    "gain_pearson_with_delta_rms": 0.024032302435777825,
+    "gain_pearson_with_cross_delta_rms": 0.010978645041452881,
+    "gain_pearson_with_mean_diagonal_scale": 0.012227010190293621,
+    "gain_pearson_with_mean_factor_eigenvalue": 0.036828783249344556,
+    "causal_read": "Gain is almost entirely explained by sign/alignment, not amplitude: row gain correlates 0.948 with correction-to-negative-error cosine and 0.894 with score cosine, versus 0.024 with total amplitude and 0.011 with cross amplitude."
+  },
+  "one_global_oracle_capacity_test": {
+    "operator": "For final-layer J error e and N dynamic factor U, P_U(e)=U(U^T U)^-1 U^T e; oracle error=(I-P_U)e.",
+    "operator_is_full_width_w_by_w_but_remains_rank16_geometry": true,
+    "operator_is_network_adaptive_nonlinear_through_u": true,
+    "oracle_uses_truth_for_analysis_only": true,
+    "free_parameters": 0,
+    "tuned_scales": 0,
+    "ranks_tested": [16],
+    "operators_tested": 1,
+    "j_final_mse": 3.233495822947099e-8,
+    "oracle_final_mse": 2.8928320722187982e-8,
+    "absolute_mse_reduction": 3.406637507283026e-9,
+    "captured_error_fraction": 0.10535462835941198,
+    "factor_above_1e_8": 2.8928320722187983,
+    "reaches_1e_8": false,
+    "pythagorean_relative_residual": 4.949745999792918e-16,
+    "interpretation": "The learned factor geometry has measurable oracle capacity, but even exact truth-derived coefficients in that one span recover only 10.535% of J endpoint error versus the 69.076% needed. It cannot justify rank scaling."
+  },
+  "closure": {
+    "exact_n_gate_passed": false,
+    "rank_or_hyperparameter_scaling_rejected": true,
+    "literal_meter_authorized": false,
+    "native_promotion_authorized": false,
+    "conclusion": "N is a real but tiny and weakly aligned endpoint improvement. All four folds improve, but 86.694% of paired row movement cancels; all four inherited hard breaches survive. The score is poorly aligned, and the exact factor-span oracle shows that fixing only the score still leaves 2.893x the target. Close this exact rank-16 covariance axis."
+  },
+  "one_graph_ready_proposal": {
+    "status": "DESIGN_ONLY_NOT_IMPLEMENTED_OR_LAUNCHED",
+    "proposal": "Test one full-rank nonlinear weight-space round-trip residual operator, not a larger low-rank covariance: delta=R*a*W^T tanh(b*(W*qhat)/sqrt(W))/sqrt(W), with qhat from J's lawful local features.",
+    "why": "A nonlinear W/W^T round trip is full rank, couples every unit through the actual network, and tests a materially different non-Gaussian global mechanism rather than rank or optimizer scaling.",
+    "required_before_any_launch": "Freeze exact normalization, parameterization of a and b, cost, nested OOF training, and strict gates before metrics; run only one arm."
+  }
+}

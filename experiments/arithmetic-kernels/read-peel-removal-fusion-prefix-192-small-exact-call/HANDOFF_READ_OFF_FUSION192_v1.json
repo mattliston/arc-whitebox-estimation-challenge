@@ -1,0 +1,40 @@
+{
+  "status": "READY_FOR_CONTROLLED_RUNTIME_TEST",
+  "models_run": 0,
+  "fragment": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_compute_v1/runtime_repair336657_v1/fragment_read_off_fusion192_v1.py.txt",
+  "fragment_sha256": "15f774d7c753841fedcf9b2f506ff92e8f65ca5211c55fa5c54b737b9ae48e72",
+  "setup_call_delta_components": {
+    "removed_read_peel": -2813,
+    "added_fixed_fusion_prefix_128_to_192": 2654,
+    "net": -159
+  },
+  "setup_flop_delta_components": {
+    "removed_read_peel": -5247128606,
+    "added_fusion": 0
+  },
+  "read_off_bill_mean_pct": 0.044796743834880325,
+  "read_off_warm_calls_mean": -115.9375,
+  "full_network_fusion_credit": "UNMEASURED; no claimed lower bound from new-key presence alone",
+  "mainread_first_use_calls": {
+    "rank35": 13,
+    "shape928x8128x896_rank0": 46,
+    "saved16_worst": 199
+  },
+  "tiny_public_fnp": {
+    "cases": 24,
+    "byte_equal": true,
+    "equal_bill": true,
+    "source": "TINY_FUSION192_v1.json"
+  },
+  "scope": [
+    "All original cap decisions and debit order retained.",
+    "No new numeric owners; original family dimensions, packed/boxed class and surviving P40 owners preserved.",
+    "Candidate fragment only; sealed v22b unchanged.",
+    "Read fallback changes floating recombination; whole predictions need grading, fusion itself is byte-exact."
+  ],
+  "limitations": [
+    "Metadata setup-call difference is not wall-time proof.",
+    "Potential large B/C fusion hardware penalty remains.",
+    "Actual hidden frees, lazy generic binds, reuse and residual require integrated runtime qualification."
+  ]
+}

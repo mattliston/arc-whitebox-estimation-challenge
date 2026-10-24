@@ -1,0 +1,49 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_PHYSICAL_V34_V2R1_IMPLEMENTATION_FIRST_FREEZE_HOLD",
+    "label": "V2R1 first implementation freeze terminal static HOLD",
+    "kind": "phase2_terminal_static_hold",
+    "status": "closed_this_form",
+    "priority": 1,
+    "summary": "TERMINAL_STATIC_HOLD / ZERO DATA. Manifest efb093d and freeze 5a0d937 passed their 39-fixture static verification, but independent Cubic, H4, and Direct audits all returned HOLD. Numeric deploy/trainer parity, release provenance and permission parsing, exact runtime evidence, full public-output assembly, resource scope, and anti-replay defects forbid data, execution, release, or mutation of this frozen set.",
+    "terminal_criterion": "This exact immutable first freeze remains historical HOLD evidence. Only a new append-only consolidated R1 source/manifest/freeze plus three independent PASS audits can supersede it.",
+    "evidence": [
+      {
+        "path": "experiments/p2_width1024_depth16/public_v34_physical_state_response_sentinel_v2r1/IMPLEMENTATION_MANIFEST_V2R1.json",
+        "sha256": "efb093d59000f76be614c9268754fc589c09e243ac891b1902c43a633f332a22",
+        "claim": "immutable first implementation manifest; terminal static HOLD"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_v34_physical_state_response_sentinel_v2r1/IMPLEMENTATION_FREEZE_V2R1.json",
+        "sha256": "5a0d937711794ad7d53e1449faf54f67b49d21c110a57b2533fece39ae82f6eb",
+        "claim": "immutable first implementation freeze; no data or execution authority"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_v34_physical_state_response_sentinel_v2r1/IMPLEMENTATION_STATIC_VERIFICATION_V2R1.json",
+        "sha256": "c395adc76b149defc04b6569ea494b0f2ddf9b83757e5a986d9e1fdba3d0c870",
+        "claim": "39 synthetic fixtures and py_compile PASS, insufficient for release"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_v34_physical_state_response_sentinel_v2r1/INDEPENDENT_CUBIC_IMPLEMENTATION_AUDIT.json",
+        "sha256": "fd3e6dc03acc3abf0f40f06b0e542705104f35e80b204e05d8bfecc5de9cb3a6",
+        "claim": "Cubic HOLD: deploy numeric and release-provenance repair required"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_v34_physical_state_response_sentinel_v2r1/INDEPENDENT_H4_RELEASE_IMPLEMENTATION_AUDIT.json",
+        "sha256": "05e969498fce33b06d60bdfb8234ab80d69da3056c8904f709926e9ed2f1d68b",
+        "claim": "H4 HOLD: eleven static release defects, zero data or execution"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_v34_physical_state_response_sentinel_v2r1/INDEPENDENT_DIRECT_IMPLEMENTATION_AUDIT.json",
+        "sha256": "a3f2769081e6f431d2215ea642861184cd1414ac8dfdce9a7d2e604601a359b0",
+        "claim": "Direct HOLD: release, numeric-evidence, full-output, and resource repair required"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_PHYSICAL_V34_V2R1_IMPLEMENTATION"
+    ]
+  }
+}

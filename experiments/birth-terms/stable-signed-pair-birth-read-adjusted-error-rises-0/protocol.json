@@ -1,0 +1,47 @@
+{
+  "schema": "s34-stable-pair-read1-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "layer": 1,
+  "formula": "p_t=u+v,p_s=u\u2212v. Sum lambda*(p_t_i\u00b2*p_t_j\u2212p_s_i\u00b2*p_s_j)=2lambda*((u_i\u00b2+v_i\u00b2)*v_j+2u_i*v_i*u_j).",
+  "capture": "u=common+directions*((t+s)/2),v=directions*((t\u2212s)/2), computed before separate FP32 leg addition.",
+  "scope": "Only L1 youngest cohort, zero inherited columns and full pushed output roster. If deadcut cropped the push, unchanged parent read is used.",
+  "tensor_state": "Original rounded pp, diagonal, omitted-radial, future carried legs and all other layers stay source-identical; only this L1 repeated-index plane read uses stable latent factors.",
+  "lifetime": "Existing per-layer _E2_LAYER field, popped before read, cleared at every next layer and in outer prediction finally; no cross-layer/network value cache.",
+  "approximation": "Exact pre-rounding polynomial identity, not byte parity with separately rounded legs. Accuracy is empirical.",
+  "prior_distinction": "Closed exact reassociation used an extra previous-row dense product; firstjoin_difference_rows changed row selection and old-tier metric. Neither preserved pre-leg newborn contrast.",
+  "adverse_evidence": "E29 same-input precision experiment had cancellation65x and diagonal relative error<=6e-7 with nearzero average raw gain; it did not preserve pre-leg contrast. No promised bankable gain.",
+  "price": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_stable_pair_read1_v1/price.json",
+    "sha256": "e8be927ac6999d2be30b60edada45fb57404ced13b911fa817803dffa595f319",
+    "bytes": 1998
+  },
+  "parity_layers": [
+    0
+  ],
+  "setup_counts": {
+    "bound": 682,
+    "lvfuse": 649,
+    "psdb_fused": 9
+  },
+  "primitive": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_stable_pair_read1_v1/probe.py",
+    "sha256": "9c2ad9e3abaad576eb5d1b3d0bc401db8460c616b9eaa781a465476ccecf5c38",
+    "bytes": 4733
+  },
+  "roster": [
+    35,
+    100
+  ],
+  "scope_authority": "native2_only",
+  "original_approximate_gates": true,
+  "no_scope_extension_without_real_positive_evidence": true,
+  "source_inverse_exact": true,
+  "model_executed": false,
+  "serving_qualified": false,
+  "submitted": false
+}

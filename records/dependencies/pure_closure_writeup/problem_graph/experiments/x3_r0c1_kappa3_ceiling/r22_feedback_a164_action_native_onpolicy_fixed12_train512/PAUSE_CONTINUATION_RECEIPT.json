@@ -1,0 +1,122 @@
+{
+  "schema": "a166-action-native-onpolicy-os-pause-continuation-receipt-v1",
+  "status": "PAUSED_RECOVERABLY_BY_SIGSTOP__NO_EVAL_STARTED",
+  "paused_at_utc": "2026-08-23T16:03:06Z",
+  "reason": "User requested a graceful pause because Phase 2 MLP shapes may change.",
+  "scientific_state": {
+    "last_completed_selection_epoch": 35,
+    "last_completed_selection_L32_raw_mse": 6.508989270220e-06,
+    "selected_best_epoch": 20,
+    "selected_best_selection_L32_raw_mse": 5.935467254481e-06,
+    "epoch0_selection_L32_raw_mse": 9.055830797763e-06,
+    "hard_gate_L32_raw_mse": 1e-07,
+    "best_over_hard_gate_ratio": 59.35467254481,
+    "active_work_at_pause": "After the epoch-35 selection and before any epoch-40 selection emission; the frozen trainer does not expose the active epoch or batch, so a narrower claim is forbidden.",
+    "true_K4_reads": 0,
+    "official_validation_or_test_accesses": 0,
+    "autonomous_eval416_512_started": false,
+    "source_result_scoring_started": false
+  },
+  "emitted_selection_history": [
+    {
+      "epoch": 0,
+      "selection_L32_raw_mse": 9.055830797763e-06,
+      "training_loss": null
+    },
+    {
+      "epoch": 5,
+      "selection_L32_raw_mse": 7.760968222788e-06,
+      "training_loss": 0.6968459497051
+    },
+    {
+      "epoch": 10,
+      "selection_L32_raw_mse": 6.180209428648e-06,
+      "training_loss": 0.691103510869
+    },
+    {
+      "epoch": 15,
+      "selection_L32_raw_mse": 6.382112953111e-06,
+      "training_loss": 0.6910234824754
+    },
+    {
+      "epoch": 20,
+      "selection_L32_raw_mse": 5.935467254481e-06,
+      "training_loss": 0.68884844558
+    },
+    {
+      "epoch": 25,
+      "selection_L32_raw_mse": 6.112938840252e-06,
+      "training_loss": 0.6899334171321
+    },
+    {
+      "epoch": 30,
+      "selection_L32_raw_mse": 5.962106683842e-06,
+      "training_loss": 0.6864177641304
+    },
+    {
+      "epoch": 35,
+      "selection_L32_raw_mse": 6.50898927022e-06,
+      "training_loss": 0.6867622490972
+    }
+  ],
+  "process_pause": {
+    "mechanism": "SIGSTOP applied to the entire foreground process group",
+    "process_group_id": 34247,
+    "parent_pid": 34247,
+    "worker_pids": [
+      34269,
+      34270,
+      34271,
+      34272,
+      34273,
+      34274,
+      34275,
+      34276,
+      34277,
+      34278,
+      34279,
+      34280
+    ],
+    "verified_parent_state": "TNs+",
+    "verified_worker_state": "TN+",
+    "verified_cpu_percent_each": 0.0,
+    "elapsed_at_verification": "09:40:45",
+    "unified_exec_session_id": 22788,
+    "processes_terminated": false
+  },
+  "durability_and_recoverability": {
+    "run_claim_consumed": true,
+    "restart_trainer_command_forbidden": true,
+    "exact_process_continuation_available": true,
+    "actual_best_state_location": "In-memory best_state inside suspended parent PID 34247 only",
+    "metric_history_durably_recorded_here": true,
+    "checkpoint_file_exists": false,
+    "selection_history_file_exists": false,
+    "why_no_checkpoint_file": "The frozen trainer publishes A166_ACTION_HEAD.pt and SELECTION_HISTORY.json only after leaving the full training loop. It has no pause or interrupt checkpoint hook.",
+    "resume_exact_process_group_command": "/bin/kill -CONT -- -34247",
+    "resume_monitoring_requirement": "Continue polling unified exec session 22788; do not invoke train_onpolicy_action_head_once.py again.",
+    "permanent_termination_command_if_shape_change_invalidates_run": "/bin/kill -TERM -- -34247",
+    "termination_consequence": "Permanent termination loses the in-memory epoch-20 parameter state and current optimizer state; RUN_CLAIM.json forbids a retry."
+  },
+  "artifact_census_at_pause": {
+    "RUN_CLAIM.json": "present",
+    "A166_ACTION_HEAD.pt": "absent",
+    "SELECTION_HISTORY.json": "absent",
+    "EVAL_PREDICTIONS_PRE_SCORE.npz": "absent",
+    "EVAL_PRE_SCORE_SEAL.json": "absent",
+    "SOURCE_RESULT.json": "absent"
+  },
+  "immutable_bindings": {
+    "run_claim_sha256": "8e63fa9876a4a36c5b72e60f3851d38f969e0b4b2f2c98a5e4b05cdfd98081a1",
+    "launch_authority_sha256": "45938ebca494942f40b95369bcebb741bc1f4beb20831b3b1d37961483f9af66",
+    "trainer_source_sha256": "7b7833f84062f5ee4a442250f2ae7c0cfe7174e22cb6ee3b014dc1c9faf18d75",
+    "fit_contract_source_sha256": "93e9aadf50eb11a8a6cd8590b88005dedba44beb74958b8634039633ee9040ac",
+    "runtime_source_sha256": "bff924fb7e0da947444700e233ae1924e9787bc0520c775a249ef6367444f6bd",
+    "source_protocol_sha256": "bb83b88a8c96d09bb41045faf21a86fb0c71393f867d3400de314d9f57810c6b",
+    "launch_guard_sha256": "9f36463dbed2ac67c884de8d89b37a02563b4a7b2e90edfeff35d8163942c227",
+    "parallel_engine_sha256": "6c09c185e96c31c7373a493b36fd732f24cb6868f8e4a0b4d9e43b8770ab5cf9",
+    "fixed12_executor_sha256": "0cf251bcac0c7aeffe549cde0729cc0412719c9de4d4c363920da23c43a25e4a",
+    "no_update_parity_receipt_sha256": "111d1270a9470850513a39c4d939c1a00a4e638d587b2bf8ef9ad2d72ed4497b"
+  },
+  "disposition": "PAUSED_PENDING_PHASE2_SHAPE_DECISION__DO_NOT_LAUNCH_A167__DO_NOT_RESTART_A166"
+}

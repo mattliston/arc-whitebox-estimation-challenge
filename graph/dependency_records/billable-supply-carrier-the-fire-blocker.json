@@ -1,0 +1,141 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_CARRIER",
+    "label": "Billable supply carrier (THE fire blocker)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "Invent a budget-priced K21 supplier at q >= ~0.75. MEASURED STATE: joint billable stack (honest hub-min ~0.35B + collective rank-1 ~free) q 0.56-0.63 cross-net with frozen coefficients; rho-modes 2/3 add nothing. CLOSED ARMS with receipts: hub triad family as conceived (honest q 0.39; collision-carry factor-form fix cures rot), exact lazy-t1 transport (null), ALS/Frobenius + read-sketch-OMP + exact-read subsets + Tucker compressions (READ-ALIGNMENT LAW: the consumed plane read is coordinate-aligned; spectral compressions are rotation-aligned), window carriers (long-memory dominated), plane routing (zero). Five design briefs with SOL.",
+    "terminal_criterion": "Billable supply q >= 0.75 held-out, or a proof the factor family cannot reach it.",
+    "evidence": [
+      {
+        "date": "2026-08-29",
+        "tag": "g19f-carrier-gate-failed",
+        "finding": "GATE RESULT: physics ladder on the tensor carrier CONVERGED at q(L12/L14) = 0.47/0.40 - gate was 0.8, goal bar 0.98. v5 (marginal-Edgeworth columns) DIVERGES (0.40 L12 -> 0.82 L15): double-counts diag-tensor content the F3 transport already carries - completion must stay Gaussian-columned (a[0]-check vs edg2 passed exactly; the error is joint-level, not the formula). v6 (g4-only columns, content genuinely outside the cum3 carrier): -0.2 pct plane RMS at L12/13, q +0.003 = nil. Residual deep fresh error is higher-order joint structure outside all implemented diagram families. CARRIER LINE CAPPED for the deployed <1e-8 goal. PIVOT EXECUTED -> R0C1 (pure-closure kappa3 ceiling, width 256, gate_a0 Owens-T already passed). The tensor recursion instrument carries over there.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/TENSOR_RECURSION_rank0035_v5.json",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/TENSOR_RECURSION_rank0035_v6.json",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/TENSOR_Q_rank0035_v6.json"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "hub-carrier-v0-billable-supply",
+        "finding": "NEW CONSTRUCTION (hub_carrier_v0.py): the budget-class carrier for distinct third-order content. Idea: each layer's fresh V-emission is a HUB tensor sum_h c_h e_h x x_h x y_h, carried as factor matrices; the class is CLOSED under the layer push (3 matmuls) and the leading ReLU transport (Hadamard by the gate vector); plane reads are one matmul; sources decay and are dropped beyond cap 4. Per-layer cost matmul-grade (~1e11 flop class - DEPLOYABLE under the 2^41 budget); 10 s/layer offline on MPS. RESULTS (rank 35): q climbs with accumulated history to 0.61 deep (L13) - beating the original full-tensor engine (0.45) with billable ops; the unaffordable v4 reference is 0.74-0.78. The j=k collision content (plane-class mass inside hub sources) was the magnitude inflator - exact first-read subtraction (2A+B enumeration) fixed rel 0.70->0.52. Enrichment paths to close 0.60->0.74: F3 correction terms (hub-closed under Hadamard with coupling matrices), richer (p,q) set, older-source retention, k211-into-4th (running separately).",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_carrier_v0.py",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_full3.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "hub-carrier-cost-correction-and-star-null",
+        "finding": "CORRECTION to the hub-carrier deploy bill: uncompressed carrier is ~4.6e11 flops/LAYER (~7e12 over 15 layers, 3x OVER the 2^41 budget), not the ~1e11 class stated earlier. Deployability rides on CP-rank compression (truth distinct-content rank is 1-6 per r0b-emission-rank-not-scale; incremental warm-started ALS at rank ~24 = matmul-grade ~e9/layer). ALSO: kappa3u/kappa4u star centers (Kibble hub expansion, (k3u/6)a[p+q+3]/sd^3 shift) measured NULL at w1024 - q 0.606 vs 0.605 (r35 L13), marginals too mild. Hub supply is NOT consumption-ready: rel ~0.5 magnitude inflation makes tangent dv_beta 0.07-0.09 (10x oversized) -> consumption -2214%. Hub value = q 0.59-0.63 deep cross-net at billable ops; next lever is magnitude honesty (collision-class completion) not more sources.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_carrier_v0.py"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "hub-magnitude-diagnosis-transport-rot",
+        "finding": "HUB MAGNITUDE DIAGNOSED by source-cap isolation (runs 4-5 s/layer): CAP=1 (newest source only, collisions subtracted) rel 0.37-0.39 q 0.33-0.40 - the hub's BIRTH content matches v4's fresh-only quality (kill-tensor fresh rel 0.40): the 3-class V-emission at birth is adequate. CAP=2 q 0.50-0.58; CAP=4 q 0.54-0.63 rel 0.46-0.52; CAP=8 rel EXPLODES 0.62-0.83 and q DROPS to 0.52-0.55: old-source content ROTS under the g-only (t=0 Mehler) transport - each transported layer multiplies error; history beyond ~4 layers is net-negative. HUB v1 DESIGN (fully measurement-specified): (1) t=1 Mehler transport corrections - each bond ρ-factor split by truncated ρ-spectral modes (k_rho~4), each transported triad spawns <=1+3*k_rho new triads; (2) per-layer CP recompression to rank ~24 (warm-started ALS, matmul-grade, billable ~e9/layer; truth rank 1-6 per r0b-emission-rank-not-scale makes this low-loss); (3) collision handling stays birth-subtracted. Expected: q toward v4's 0.78 at deploy cost. This is THE remaining build between the deploy-gated 12-14% chain and a fireable card.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_cap1.log",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_cap8.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "hub-campaign-threshold-and-billing-closure",
+        "finding": "HUB CAMPAIGN (11:45): four decisive measurements. (1) BILLING CLOSES WITHOUT COMPRESSION: HUB_MIN (single (1,1) class) at CAP=4 gives q IDENTICAL to full-PQ (0.624 vs 0.625 L14) - with shared-factor pushes (3 orientations reuse U/X/Y; v0 triple-pushes redundantly) and the negligible feed sources dropped, deploy cost ~0.35 x 2^41 total. (2) v1 (ALS rank-32/128 CP compression): FAILS - Frobenius objective keeps wrong columns (rank 128 WORSE than 32 deep); compression must be PLANE-READ-aware if ever needed. (3) t1-Mehler spectral transport at KRHO=4: NEGLIGIBLE (KRHO=0 identical) - deep rho spectrum too broad for few-mode splitting; the cap-8 rot is many-mode/many-layer compounding. (4) GAMMA UNIVERSALITY + THE CONVERSION THRESHOLD: hub delta is uniformly 4.5-5x hot; the frozen r35 gamma(l) profile (0.07->0.14) transfers across nets (within 10%) and restores honest scale (dv_beta 0.83) - but the calibrated chain STILL fails held-out (-13.5/-7.3%): q~0.6 supply is BELOW the chain's conversion threshold; v4's q~0.78 converts (+14%). THE BLOCKER IS NOW A NUMBER: lift hub q from 0.62 to ~0.75+ at factor-form billing. Candidate designs: plane-read-aware compression (match current + W-pushed future reads in factor space), or higher-rank bond splitting with that compression.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_carrier_v1.py",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_min_cap4.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "hub-v2-design-spec-complete",
+        "finding": "HUB v2 DESIGN SPEC (final piece, 12:00): deep rho needs only 6-19 spectral modes for 50-70% Frobenius mass (L13: 6/13/37 for 50/70/90%) - the KRHO=4 transport null was ~30% coverage, not a dead mechanism. v2 = KRHO~16 bond splitting (49 children/triad) + retention ~8 layers + PLANE-READ-AWARE compression to ~96 columns (objective: match current + W-pushed future plane reads - the only consumed functionals; Frobenius-ALS refuted), total bill e10-class (well under 0.35B). Target: q 0.62 -> 0.75+ (the measured conversion threshold). This is the complete, numbers-closed build plan for the fireable card's supply.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_carrier_v1.py"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "hub-v2-subset-mixture-tension",
+        "finding": "HUB v2 (read-aware OMP subset compression, KRHO=16, RANK=96): FAILS - q collapses to 0.08-0.17 (v0 cap-4: 0.62). ROOT TENSION now explicit: after one t<=1 spectral transport the content spreads over ~4700 columns; SUBSET selection (dynamically exact - each kept column is a genuine triad with correct future transport) covers ~1-2% of columns and loses the content; MIXTURES (rank-R recombination) cover it but break triad transport geometry (U-hadamard-X coupling does not commute with mixing; an SVD-of-read factorization has wrong dynamics). v4 escapes by carrying the FULL tensor (no factorization). Candidate resolutions for the sweep: (a) two-tier carrier (full recent + compressed old where dynamics fidelity matters less); (b) route t1-transport content into plane-class accumulators (exact plane transport, wrong distinct transport - vs dropping it); (c) lineage-structured mixing (mix only columns sharing sigma_r ancestry); (d) different carrier parametrization closed under both push and Mehler transport (e.g. Tucker with shared factors?). Handed to SOL as a design sweep (codex INBOX).",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_carrier_v2.py"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "window-memory-measurements",
+        "finding": "WINDOW-MEMORY CAMPAIGN (13:40). (1) w256 cohort-exact window measurement (w256_window.py, true cohort tensors, exact F3 transport per cohort): WINDOW-4 loses most deep supply - K21_rel l16 0.320->0.523, l24 0.456->0.806, l31 0.500->0.874 vs infinite window; LONG MEMORY carries the majority of deep distinct content at w256 (free-run FINAL improved 2.41->2.20e-5 - co-adaptation artifact, ignore). (2) w1024 FRESH_STOP subtraction methodology REFUTED: transport-only run diverges via the plane-feed loop (|d_win| = 2x |d_full|, q_window ~ 0, closure parts do not cancel) - window measurement at w1024 requires true cohort-v4 (4x cost, ~60-75 min sustained MPS, sign-off). IMPLICATION IF w1024 mirrors w256: ALL finite-window factor carriers (any cap) are capped below the q 0.75 conversion threshold, making long-memory-at-factor-cost THE design problem - elevates the transport-closed-parametrization ask (SOL item d) and the plane-class rerouting bound (item b) over window tuning.",
+        "files": [
+          "experiments/x3_r0c1_kappa3_ceiling/tensor_crosscheck_v1/w256_window.py",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_fs8_r35.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "plane-routing-bound-zero",
+        "finding": "PLANE-CLASS REROUTING BOUND (SOL item b) MEASURED AT w256: routing dropped cohorts' plane images into the self-perpetuating plane-feed loop recovers NOTHING (l28 K21_rel 0.8345 routed vs 0.8333 unrouted, vs 0.4727 infinite-window) - the lost value is the old content's FUTURE DISTINCT-POSITION evolution, which no plane-class approximation carries. Combined with the window-4 memory result: at w256, deep supply REQUIRES long-memory distinct-position transport. The cheap-arm campaign on the supply problem is now exhausted with numbers on every branch: window tuning (dead at w256), plane routing (zero), subset compression (q 0.17), Frobenius mixtures (worse with rank), few-mode spectral transport (negligible), full tensor (45x budget). GATING MEASUREMENTS (both need sign-off): (1) cohort-v4 at w1024 (~70 min sustained MPS) - does long-memory dominance transfer to depth-16/weak-rho? If NOT (w1024 memory is short), the hub family reopens; if yes, the design space narrows to transport-closed long-memory parametrizations (SOL item d). (2) one-layer truth tensor for the sub-resolution fresh deficit.",
+        "files": [
+          "experiments/x3_r0c1_kappa3_ceiling/tensor_crosscheck_v1/w256_win4route.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "tucker-carrier-opening",
+        "finding": "THE TUCKER CARRIER OPENS (14:30, w256 measurement): HOSVD-truncating the EXACT tensor recursion to a 64-per-slot Tucker core EVERY layer degrades deep supply only gracefully - K21_rel l24 0.548 / l31 0.598 vs exact 0.456/0.500 (+20% rel) - while CRUSHING the window family (win4 0.81/0.87, win8 0.68/0.79): the first parametrization that carries LONG MEMORY at bounded size. Shallow hurts (l8 0.47 vs 0.17) - consistent with [[broad-spectrum-early-distinct-law]] (early content is high-rank) AND possibly plane-slice destruction (truncation included the embedded plane slices - distinct-only variant pending). w1024 deploy sketch: incremental basis (push + QR at N x B ~ 4e8), core Hadamard-transport via basis-product projections (~3e8), fresh projection (GEMMs ~e8) => e9/layer class, WELL inside budget; w1024 truth distinct rank 1-6 (banked) suggests B modest at the target width. OPEN: incremental-basis vs per-layer HOSVD quality, Hadamard-closure error in core space, B-scaling.",
+        "files": [
+          "experiments/x3_r0c1_kappa3_ceiling/tensor_crosscheck_v1/w256_tucker.py",
+          "experiments/x3_r0c1_kappa3_ceiling/tensor_crosscheck_v1/w256_tuck64.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "tucker-width-transfer-fails-read-alignment-law",
+        "finding": "TUCKER WIDTH-TRANSFER FAILS + THE READ-ALIGNMENT LAW (15:40). w1024 Tucker truncation: B=64 destroys content (L4 rel 0.449 vs 0.058), B=256 (width-fraction matched to the w256 success) fails identically after ONE truncation (L2 rel 0.352, corr 0.936) - killed fail-fast at L3 both runs. DIAGNOSIS (unifies every failed compression arm today): the consumed functional - the K21 plane read T[a,a,b] - is COORDINATE-ALIGNED (near-diagonal entries), while spectral compressions (HOSVD bases, Frobenius CP-ALS, read-sketch OMP subsets) are ROTATION-ALIGNED; at small basis fraction the read-relevant near-diagonal content is the first thing lost. w256's apparent success was the 25% basis fraction retaining enough coordinate alignment by accident. DESIGN REQUIREMENT (final form, for SOL and tomorrow): any bounded carrier must make the coordinate-diagonal read structure EXPLICIT in its parametrization - e.g. carriers indexed by (diagonal position, offset) rather than rotation-invariant factors, or compression objectives containing the read functional exactly, not sketched. All compression arms are now closed with receipts; supply state stands at v4-offline q 0.78 (converts, unbillable) vs hub q 0.62 (billable, below threshold).",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_tuck256_r35.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "exact-read-subset-final-datapoint",
+        "finding": "EXACT-READ subset compression (closed-form read-image Grams via factor Grams, no sketching): q 0.10/0.18/0.26/0.29 (l5/9/13/14) at R=96 - better than sketched (0.08-0.17; aliasing was real) but far below v0 cap-4 (0.62): SUBSET selection has a hard ceiling ~0.3 at practical R because transported content spreads over thousands of columns. Compression campaign CLOSED with 2+ datapoints per arm: subsets (sketched 0.17, exact 0.29), Frobenius mixtures (worse with rank), Tucker (w256 partial, w1024 dead - read-alignment law), plane routing (zero), window truncation (memory-dominated). The supply road now runs through: SOL's parametrization sweep under the read-alignment constraint, the two sign-off instruments, or a design not yet conceived. The chain side (deploy-gated 14.3/11.8% held-out = 2.354/2.359e-8) stands ready to convert whatever supply clears q ~0.75.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_v2_exact.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "hub-honest-revaluation-collision-carry",
+        "finding": "HUB FAMILY HONESTLY REVALUED (17:00, closes the day's empirical program). (1) LAZY-t1 EXACT bond read (full-rho, closed-form staged einsum, newest source): NULL - q unchanged to 3 decimals; the t=1 Mehler correction is genuinely nil at w1024, so g-only transport was never the rot. (2) COLLISION-CARRY (T_col = sum_j Z[:,j] x e_j x e_j IS factor-form; carried as a negative source, transported+read exactly like what it corrects): CURES the rot - cap-8 rel 0.24 (was 0.83, exploding); magnitude honest without gamma calibration. (3) THE CATCH: q drops 0.62 -> 0.39 (cap4) / 0.37 (cap8) - the old q was PARTLY POWERED BY THE JUNK: un-subtracted collision content duplicates plane-class physics that accidentally fills the closure's plane deficit. The banked 'hub q 0.62' was inflated; honest distinct-only hub = q ~0.39, about HALF of v4's 0.78. The missing half = content beyond the V-emission triad form + multi-bond evolution - with t1 null and subsets/mixtures/Tucker/window all closed, the factor-form family as conceived cannot reach threshold; the road is SOL's parametrization sweep under the read-alignment law, the sign-off instruments, or new invention. SIDE DOOR OPENED: the collision junk's accidental benefit shows the closure plane deficit responds to added scaled plane-class content - a separately billable, legitimate channel (connects to the kappa3^2 plane-half that already converts +1pt held-out).",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_colcarry.log",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/hub_t1.log"
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "tag": "capture-curve-calibrates-the-target",
+        "finding": "The Gate-1 panel calibrates this node's target: capture (q) = -1.3% (0.38) / +2.5% (0.62) / +15.8% (0.78). Interpolating, the 3% fire bar sits near q ~0.63-0.65 for a zero-bill supply - barely above the current joint stack (0.62); ONE more orthogonal billable component of single-q ~0.3 would clear it. Candidates: the kappa3u-star family re-examined as an orthogonal component (null in rel, untested in joint-q), the feed-source class, second-order hub centers, or SOL's sweep outputs.",
+        "files": []
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_CARRIER_VALMAP",
+      "P2R0G19B_CARRIER_COMPRESS_NOGO",
+      "P2R0G19B_CARRIER_MAPGAP",
+      "P2R0G19B_MATH_ACCELERATION"
+    ],
+    "goal_path_summary": "THE blocker, now owned by the main session at full force (with the teammate's sweep as a parallel lane, not a substitute). Our accurate statistics engine costs 45x the compute budget; this node invents a cheap carrier good enough for the certified repair kit (quality 0.62 today; 0.75 makes the 18.7% fire; ~0.9 puts the big ladder in reach). The design space is mapped with receipts: eight failed families and one law explaining why (the consumed table read is coordinate-aligned; spectral compressions are rotation-aligned).\nWhy it matters: every rung above it - the 18.7% chain fire, the true-plane class, your 6e-9 goal that takes first place - consumes whatever this node produces. It is the difference between the scoreboard moving and everything staying theory."
+  }
+}

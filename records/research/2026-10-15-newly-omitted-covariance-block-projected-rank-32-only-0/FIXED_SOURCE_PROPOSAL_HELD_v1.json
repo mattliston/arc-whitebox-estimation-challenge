@@ -1,0 +1,77 @@
+{
+  "status": "HELD_SOURCE_ONLY_AWAITING_ACTUAL_COST_GATE",
+  "created_utc": "2026-10-15T19:53:11.252993+00:00",
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_hermite_group_view_repair_v1/candidate_hermite_group_views_QR_HELD_v2.py",
+    "sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a"
+  },
+  "current_floor_assignments": [
+    {
+      "line": 12410,
+      "value": 0.001
+    }
+  ],
+  "scope": {
+    "current_floor": 0.001,
+    "proposed_floor": 0.01,
+    "rounding": 64,
+    "rank": 32,
+    "layers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "newly_omitted_only": true,
+    "star_unchanged": true,
+    "roster": "stable descending gate; m0 is .001-rounded retained count, m1 is .01-rounded retained count; a=order[:m1], c=order[m1:m0]; order[m0:] stays omitted"
+  },
+  "basis": {
+    "rule": "Q=qr(C[c,order[:m0]] @ Omega[:m0,:]) reduced QR in float64, cast float32; one pass, no power iteration",
+    "omega": "numpy.default_rng(20261015).standard_normal((1024,32)).astype(float32)",
+    "rank": 32,
+    "fallback": "If m1==m0 use parent directly; if nonfinite or numerical rank deficient, retain complete original .001 route; no retuned rank"
+  },
+  "identity": {
+    "L": "Wc.T @ Q",
+    "R": "(Q.T @ Cca) @ Wa",
+    "H": "(Q.T @ Ccc) @ Q",
+    "T": "R + .5*H@L.T",
+    "delta": "L@T+(L@T).T",
+    "covariance": "Wa.T Caa Wa + delta = W0.T P C00 P W0, P=diag(Ia,Q Q.T)",
+    "final_diagonal": "parent reduced-roster diagonal + 2*row_sum(L*T.T)",
+    "psd": "P C00 P is PSD whenever C00 is PSD; no eigenvalue clipping; current tiny nonPSD residual is not repaired",
+    "full_rank": "Q square orthogonal on c exactly restores the current .001 covariance in real arithmetic"
+  },
+  "star_evidence": {
+    "function": "_dc_cov_star",
+    "line": 14564,
+    "description": "Calls _ss_factors(w.T,(w.T)^2,A32) before roster-specific covariance gathering; full-row STAR factors stay identical."
+  },
+  "historical_evidence": {
+    "file": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a44_cov/logs/deadcov2_651_s43skel.log",
+    "diagnostic_only": true,
+    "description": "Old floor .01 best-rank32 on all omitted rows reached late variance error of similar scale as .001 cut. Not current-native accuracy and not the attainable fixed range."
+  },
+  "required_gates": [
+    "Actual total cost saving >=.5% before implementation",
+    "No model or capture until root numerical grant",
+    "Tiny symmetric cross+self identity and all-original-input immutability",
+    "Current source call-chain and C/C32 coherence",
+    "Fixed native8 then conditional16; final24 and OOS8 adjusted sign unchanged"
+  ],
+  "no_models": true,
+  "no_truth": true,
+  "no_candidate": true
+}

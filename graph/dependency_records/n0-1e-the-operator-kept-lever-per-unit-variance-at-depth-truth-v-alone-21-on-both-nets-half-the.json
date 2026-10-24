@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N0_1E_V_GIVEN_PLANES_K3",
+    "label": "N0.1e THE OPERATOR-KEPT LEVER: per-unit VARIANCE at depth. Truth v alone -21% on both nets; HALF the v error removed -25% / -35% (past the bank line); needs a supply with corr >~ 0.9 to the true per-unit correction, structured",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 2,
+    "summary": "Truth v on top of truth planes + truth k3: r35 1.085e-8 -> 2.2e-9 (floor), r100 1.93e-8 -> 8.7e-9. Truth v alone on the plane host: 2.08e-8 -> 1.27e-8 (judge +0.35). The v error is coherent and tiny (0.03-0.3%); no frozen table can touch it (T-56); it is downstream of k3/k4 supply errors through the univariate map, so it should shrink as N0.1c/d land. T-80..T-80e: with the deployed operator KEPT, truth v alone 2.12e-8 / 2.20e-8 (-21%); mix 0.5 (half the card's structured v error removed at every layer) 2.019e-8 / 1.799e-8 (-25% / -35%); mix 0.75 -15% (r35). Truth k3 alone -3% / +38% (conflicts with the operator on r100); truth k4 alone +129% / +204% (in-span). The v error (0.04% at L4 -> 0.26% at L14) is supply-driven: the one-step univariate variance map from truth pre cumulants is exact to 0.046% (= the truth's own noise); truth planes remove ~35% of it at depth (in-span channel); the rest comes from the unit-specific k3/k4 errors through the map (a 5% k3 error -> ~0.1% v). The half-v effect is 0-5% inside the operator's span (judge +0.41 / +0.43): v corrections are perpendicular whatever their source, but the channel punishes any component off the true direction as iid noise: the plane-corrected cards' v injected alone (corr 0.5-0.77 with the true dv) -> 2-3x WORSE; the full-tensor engine's dv-hat (corr 0.72-0.82) at half scale -7.7% (r35) / -4.9% (r100), at full scale +18%. No deployable supply with corr >~ 0.9 exists; its source is the unit-specific third/fourth-order error behind the 1024^4 wall (N0.1c-ii / N0.1d). T-80i/j: at HALF scale the skew channel helps too (k3 -32% / -5%; v+k3 -68% / -41%) -> subsumed by N0.1f.",
+    "terminal_criterion": "Closed when the v error given planes+k3 is <= 0.05% coherent on two nets.",
+    "evidence": [
+      {
+        "claim": "T-73/T-73b.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-73/T-73b"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "The last piece: the per-neuron variances, which are already nearly right and mostly inherit their error from the skew and kurtosis terms above."
+  }
+}

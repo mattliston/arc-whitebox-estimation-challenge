@@ -1,0 +1,134 @@
+{
+  "schema": "public-q24-native22-high-capacity-ceiling-preregistration-v1",
+  "status": "FROZEN_BEFORE_NEW_TARGET_AUTHORITY_OR_TARGET_OPEN",
+  "purpose": "Decide whether the weak existing 22-feature late-q result is an architecture/data-optimization ceiling or a missing-information ceiling, before paying to generate signed-pair actions.",
+  "scientific_scope": "This is an observer-fit capacity discriminator, not a deployable D4 score estimate.  It rebuilds J fold-pure, fits no inference truth feature, opens no observer-selection/name/score/board surface, and grants no submission authority.",
+  "bindings": {
+    "j_source": {
+      "path": "../public_full688_transport_energy_coherence_cv_v1/run_experiment.py",
+      "sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810"
+    },
+    "qhead_full688_source": {
+      "path": "../public_q24_qhead_full688_refit_v1/run_refit.py",
+      "sha256": "7ffaae1a3d03a7d1f3fcfe3e9026d1674892c52291f7899978ff379f8da78cd2"
+    },
+    "raw_sufficient_stats": {
+      "path": "../public_full688_dynamic_multistate_residual_cv_v1/cache/raw_sufficient_stats.npz",
+      "sha256": "1648a140768cdc254a7bb6957dcb8e82f4271118bc64b552bb08de294ec62208"
+    },
+    "target_blind_feature_manifest": {
+      "path": "../learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/manifest.json",
+      "sha256": "9a43423982924bcc7a0c5b87288b19ff42452c90c9cc7b7f590e565d1b276f50"
+    },
+    "native_row_aggregate_sha256": "204097b1e43387fdc2080eb690606d7dc34aeda7ca4794cb98382137ebfa3db3",
+    "observer_fit_target_bundle": {
+      "path": "../data_gate/sealed_role_target_bundle/observer_fit.parquet",
+      "sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7"
+    },
+    "prior_full688_result_sha256": "87d22be8d48d7c73821c02bb3562b3e8ad67955022df0e2185c2f94838e87a25"
+  },
+  "role_and_firewall": {
+    "role": "observer_fit",
+    "networks": 688,
+    "permitted_target_columns": ["mlp_id", "all_layer_means"],
+    "observer_selection_targets": "forbidden",
+    "names": "forbidden",
+    "scores": "forbidden",
+    "board": "forbidden",
+    "network": "forbidden",
+    "submission": "forbidden",
+    "new_authority_required": true,
+    "transaction": "exactly one run; an O_CREAT|O_EXCL file-and-directory-fsynced claim is written after target-free row verification and before target decode; no retry after claim; any post-claim exception writes a terminal O_EXCL failure receipt"
+  },
+  "fold_law": {
+    "folds": 4,
+    "fit_per_fold": 516,
+    "held_per_fold": 172,
+    "salt": "q24-qhead-full688-refit-v1",
+    "algorithm": "sort role ranks by (blake2s-128(salt+':'+mlp_id),mlp_id,role_rank), assign sorted position modulo 4",
+    "fold_assignment_uint8_sha256": "0f8619f00185aa5413e06c2b9aad8c1f2a6743ec8c628994bbbc9ca25fec047c",
+    "outer_fold_model_or_epoch_selection": "forbidden"
+  },
+  "fold_pure_j": {
+    "source": "exact bound TransportEnergyMultiStateResidual source",
+    "fit": "rebuild once per outer fold on exactly its 516 fit rows",
+    "architecture": "36->96 SiLU->96 SiLU, four recurrent channels, corrected layers 2:15",
+    "normalizers": "raw centers/scales and target layer RMS computed from the 516 fit rows only using frozen raw sufficient statistics and target errors",
+    "epochs": 6,
+    "network_batch": 3,
+    "exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "optimizer": "AdamW lr=0.0012, eta_min=0.0001, weight_decay=0.00002, betas=(0.9,0.999), eps=1e-8, fixed source penalties from bound source",
+    "seed": "1753358438+fold immediately before constructor",
+    "row_order": "PCG64(1753358438 xor fold*0x9E3779B1), one permutation of increasing fit ranks per epoch",
+    "all688_target_trained_j_forbidden": true
+  },
+  "teacher": {
+    "base": "B_l=native_host_l+foldJ_l before output projection",
+    "error": "e_l=truth_l-B_l",
+    "suffix": [10, 11, 12, 13, 14, 15],
+    "phi": "raw20[l,:,5]",
+    "local_q": "q_l=e_l-phi_l*(e_(l-1)@W_l)",
+    "base_j_local": "qJ_l=foldJ_l-phi_l*(foldJ_(l-1)@W_l)",
+    "exact_transport": "s_9=0; s_l=phi_l*(s_(l-1)@W_l)+predicted_q_l",
+    "inference_truth_features": "none"
+  },
+  "features": {
+    "count": 22,
+    "law": "the exact prior q-head feature law: raw20 channel0; fold-fit standardized raw20 channels1:19; foldJ state divided by fold-J layer RMS; qJ divided by sigma times fold-J layer RMS; all standardized quantities clipped to [-8,8]",
+    "train_only_normalization": true,
+    "held_normalization_or_adaptation": "forbidden"
+  },
+  "paired_models": {
+    "control": "22->64 SiLU->64 SiLU plus six zero-initialized scalar heads",
+    "shared256_diagnostic": "one shared 22->256 SiLU->256 SiLU->256 SiLU trunk plus six zero-initialized scalar heads",
+    "primary_capacity_arm": "six independent 22->256 SiLU->256 SiLU->256 SiLU trunks, one per suffix layer, each with its own zero-initialized scalar head; this arm alone determines the capacity verdict",
+    "shared256_parameter_count": 139014,
+    "primary_independent256_parameter_count": 826374,
+    "control_parameter_count": 6022,
+    "seed": 1362178069,
+    "output_law": "sigma_l * foldJ_layer_rms_l * scalar_standard_head",
+    "data": "all 1024 nodes at every suffix layer in every epoch; no node sampling",
+    "epochs": 13,
+    "network_batch": 4,
+    "steps_per_epoch": 129,
+    "row_order": "PCG64(1362178069 xor 0xA5A5A5A5 xor fold*0x9E3779B1), one permutation of increasing fit ranks per epoch; byte-identical control/shared256/independent256 orders",
+    "optimizer": "AdamW lr=0.0012, weight_decay=0.00002, betas=(0.9,0.999), eps=1e-8; CosineAnnealingLR T_max=1677 eta_min=0.0001; L2 gradient clip5",
+    "loss": "mean over six layers of full-node MSE(predicted_q,q_target)/fit-fold_q_rms_l^2",
+    "checkpoint_selection": false,
+    "early_stopping": false,
+    "retry": false
+  },
+  "metrics": {
+    "primary_local": "pooled held candidate local-q MSE",
+    "primary_endpoint": "pooled held exact teacher-local suffix-transport final MSE",
+    "secondary": ["four fold local-q MSEs", "four fold endpoint MSEs", "control metrics", "exact-q oracle", "network win fraction", "paired-network z", "per-layer q-error and transported-error energy"]
+  },
+  "fixed_gate": {
+    "primary_independent256_local_q_mse_at_most": 1.375544984492742e-9,
+    "primary_independent256_endpoint_raw_mse_strictly_below": 1.2427319908150922e-8,
+    "primary_independent256_beats_control_local_mse_in_all_folds": true,
+    "primary_independent256_beats_control_endpoint_mse_in_all_folds": true,
+    "primary_independent256_beats_foldJ_base_endpoint_in_all_folds": true,
+    "minimum_network_win_fraction_vs_foldJ_base": 0.60,
+    "minimum_paired_network_z_vs_foldJ_base": 3.0,
+    "all_finite": true,
+    "heuristic_note": "The local threshold comes from scaling the old 5.435490771826353e-9 local MSE by the 0.25306730196702215 allowed endpoint-excess fraction.  The exact endpoint threshold is independently conjunctive, so this heuristic is never used as proof by itself."
+  },
+  "outcomes": {
+    "pass": "GO_NATIVE22_DIRECT_Q_INTEGRATION_CHILD__PAIR_SOURCE_NOT_YET_NEEDED__NO_SUBMISSION",
+    "fail": "CLOSE_CURRENT_NATIVE22_CAPACITY_SPELLING_AND_PRIORITIZE_SIGNED_PAIR_Q1_SOURCE__NO_RETRY",
+    "mixed_local_pass_endpoint_fail": "OPEN_Q3_STATE_OR_SUFFIX_UPDATE_CHILD; do not expand pair information before recurrence attribution",
+    "mixed_local_fail": "INFORMATION_OR_CONDITIONAL_MODEL_FAILURE; proceed to signed-pair H16 then H64/H256 ladder"
+  },
+  "runtime": {
+    "python": "3.11.5",
+    "numpy": "1.26.4",
+    "torch": "2.7.0 CPU",
+    "torch_threads": 2,
+    "torch_interop_threads": 1,
+    "deterministic_algorithms": true,
+    "rss": "observational only for this accuracy discriminator; no deployment FLOP/RSS/residual gate can reject or prevent the scientific run",
+    "output_commit": "MODELS.pt and RESULT.json are fsynced inside one temporary directory, then the directory is atomically renamed to NATIVE22_CAPACITY_OUTPUT_V1; no visible orphan model/result is permitted"
+  },
+  "decision": "FROZEN_AWAIT_INDEPENDENT_REVIEW_AND_NARROW_TARGET_RELEASE"
+}

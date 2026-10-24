@@ -1,0 +1,83 @@
+{
+  "interpretation": {
+    "design_implication": "Test a full-width learned backward-adjoint state whose sources are predicted only from native target-free raw20/sigma, never an oracle-seeded or fixed-mode correction.",
+    "native_transfer_caveat": "CP1792 values establish capacity only. They are not Q24 parity targets; P2R0F2M accuracy requires a separately frozen native-Q24 transfer.",
+    "negative": "Scalar/top-gain and a fixed low-rank basis do not discriminate the hard rows strongly enough; they are rejected as the successor.",
+    "positive": "Spatial endpoint-adjoint modes are materially enriched for realized J residual energy, and a full residual pullback separates the hard panel."
+  },
+  "metrics": {
+    "dominant_top8_residual_fraction": {
+      "hard_mean": 0.02230591716737437,
+      "hard_values": [
+        0.015037657167532994,
+        0.045359855987279006,
+        0.01591426466599489,
+        0.01291189084869058
+      ],
+      "ordinary_mean": 0.07089252709366987,
+      "ordinary_median": 0.06668853742650842
+    },
+    "endpoint_residual_pullback_norm": {
+      "hard_mean": 0.012554733781144023,
+      "hard_values": [
+        0.011347388848662376,
+        0.01557778287678957,
+        0.008722075261175632,
+        0.014571688137948513
+      ],
+      "ordinary_mean": 0.007915787362435367,
+      "ordinary_median": 0.007731560152024031
+    },
+    "endpoint_residual_pullback_norm_corr_log_j_mse": 0.7640547941053287,
+    "endpoint_residual_pullback_norm_hard_to_ordinary_mean": 1.5860372703697083,
+    "estimated_top_gain2": {
+      "hard_mean": 7.471623659133911,
+      "hard_values": [
+        8.057746887207031,
+        7.971254825592041,
+        6.9083638191223145,
+        6.949129104614258
+      ],
+      "ordinary_mean": 7.569772452116013,
+      "ordinary_median": 7.458474159240723
+    },
+    "estimated_top_gain2_corr_log_j_mse": 0.033407053330044054,
+    "estimated_top_gain2_hard_to_ordinary_mean": 0.9870341158069202,
+    "fixed_random8_residual_fraction": {
+      "hard_mean": 0.0059161432346015175,
+      "hard_values": [
+        0.0026233744000550277,
+        0.0038478672467552543,
+        0.008296535863373145,
+        0.008896795428222646
+      ],
+      "ordinary_mean": 0.007522932334740611,
+      "ordinary_median": 0.0076558063532587185
+    },
+    "hard_dominant_to_random_enrichment": 3.770347721960925,
+    "ordinary_dominant_to_random_enrichment": 9.42352316081469,
+    "random_subspace_dimension_fraction": 0.0078125
+  },
+  "panel": {
+    "hard_role_ranks": [
+      201,
+      310,
+      599,
+      643
+    ],
+    "jacobian_horizon": "L7 to L15, gated transports at L8..L15",
+    "modes": 8,
+    "networks": 68,
+    "ordinary_role_ranks": [
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+      32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
+      48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63
+    ],
+    "random_seed": 1753358493,
+    "selection_law": "observer_fit role ranks 0:63 plus the four J-declared >1e-7 ranks",
+    "subspace_iterations": 1
+  },
+  "schema": "p2r0f2m-readonly-endpoint-adjoint-capacity-v1",
+  "status": "complete-capacity-only-not-performance-estimate"
+}

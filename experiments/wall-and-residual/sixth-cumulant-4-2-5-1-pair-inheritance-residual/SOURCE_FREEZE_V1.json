@@ -1,0 +1,84 @@
+{
+  "schema": "q24-k42-k51-source-scalar-witness-counterfactual-freeze-v1",
+  "status": "FROZEN_STATIC_COUNTERFACTUAL__INDEPENDENT_REVIEW_REQUIRED__COUNTERFACTUAL_FORBIDDEN_RETRY_NO_RELEASE",
+  "created_utc": "2026-08-27T15:00:00Z",
+  "repair_basis": "independent HOLD: unconditional source execution guards plus corrected simultaneous client-bank lifetime",
+  "frozen_files": {
+    "DERIVATION.md": "08fcc6e0d6e04998e4e8f9a2a89038c46bee50328d819d744f369122b682b4d7",
+    "PREREGISTRATION.json": "e0732f217e44bca53e3b1b3536e1eca51c20c4b411a5225ae7661ffbe200bcf5",
+    "k42_k51_scalar_witness_source.py": "e0cfc3c20d2b48e0ea5345580f5f76410a92371d715ba6b61877dc83538b4496",
+    "counterfactual_runner_scaffold.py": "5783cbd7a9950686a33c2bde0409e216e3f21d9de559bf3be696ef67a4cd7af6",
+    "verify_static.py": "f0c62fcc30f12ddf96e24a4d571bcf4ce225496b077a73b52b0b3924e6d0c438",
+    "STATIC_VERIFICATION_V1.json": "0818aa6bf88c761d4ce13d939a4b371e74c933c901525b7e4214dadf18139848"
+  },
+  "parent_authority": {
+    "terminal_closure_receipt_sha256": "3334080f68af40fa02509639e7c9a6ebc87c8888c30b21aea399d9362bae793d",
+    "terminal_source_sha256": "547b45c219fd868d359ebb8deec9f564a89d433cd6fbdc9cc637940e164cd601",
+    "terminal_runner_sha256": "fd9a5f8f395f96af3569d7f2d422033bcd714c18d8b22760bb5e1fce0c9fbc8e",
+    "terminal_freeze_sha256": "2248c8dc67cceabdef1f1228a4d77acfd7b5d9aecd250dfb162a9e19b57a5b2a",
+    "canonical_graph_sha256": "84ff484740ec9390d61272e9807784396db9d944abcc84b2d2490e4e23f47e76",
+    "terminal_graph_node": "P2R0C1D29-K42K51-S0",
+    "terminal_graph_status": "closed_measured",
+    "terminal_graph_closure": "resource-residual-only",
+    "terminal_retry_allowed": false,
+    "terminal_rank643_allowed": false,
+    "counterfactual_graph_child_created": false
+  },
+  "static_verification": {
+    "schema": "q24-k42-k51-source-scalar-witness-counterfactual-static-v1",
+    "status": "PASS_STATIC_COUNTERFACTUAL_ONLY__INDEPENDENT_REVIEW_REQUIRED__NO_RELEASE_RANK_ROW_ESTIMATOR_OR_RUN",
+    "gate_count": 20,
+    "passing_gate_count": 20,
+    "all_gates_pass": true,
+    "source_called": false,
+    "estimator_imported": false,
+    "estimator_called": false,
+    "row_opened": false,
+    "weights_opened": false,
+    "rank_selected": false,
+    "release_created": false,
+    "target_or_score_read": false,
+    "graph_mutated": false
+  },
+  "counterfactual_accounting": {
+    "added_witness_formula": "15*(8*n^2 + 16*n - 16)",
+    "added_witness_flops": 126074640,
+    "counterfactual_integrated_incremental_flops": 151951499024,
+    "hard_incremental_cap_flops": 152200000000,
+    "cap_headroom_flops": 248500976,
+    "counterfactual_B_total_flops": 1510469538959,
+    "counterfactual_B_margin_below_2pow41_flops": 688553716593,
+    "simultaneous_client_combined_bank_bytes": 245760,
+    "counterfactual_projected_peak_rss_bytes": 7043407872,
+    "largest_scalar_witness_scratch_bytes": 8192,
+    "added_operation_calls": {
+      "min": 30,
+      "max": 30,
+      "diagonal": 15,
+      "count_nonzero": 15,
+      "add": 15,
+      "array_equal": 15
+    }
+  },
+  "boundary": {
+    "source_action_and_combined_raw_bytes_static_nonmutation_proved": true,
+    "full_planes_exposed_to_plain_numpy": false,
+    "descriptive_rms_norm_maxabs_fraction_cosine_diagnostics_present": false,
+    "full_public_A1_B_A2_parity_is_contract_only": true,
+    "runtime_parity_claimed": false,
+    "runtime_residual_claimed": false,
+    "rank_selection_law_present": false,
+    "release_or_execute_path_present": false,
+    "same_science_retry_allowed": false,
+    "source_execution_unconditionally_guarded_before_base_import_install_and_predict": true,
+    "user_supersession_required_for_any_distinct_future_program": true
+  },
+  "independent_review": {
+    "required": true,
+    "completed": false,
+    "reviewer_identity": null,
+    "verdict": "PENDING_READ_ONLY_REVIEW"
+  },
+  "forbidden_runtime_artifacts_present": [],
+  "terminal_decision": "PRESERVE_STATIC_COUNTERFACTUAL_ONLY__NO_RELEASE_NO_RANK_SELECTION_NO_ROW_NO_ESTIMATOR_NO_RUN_NO_GRAPH_NODE"
+}

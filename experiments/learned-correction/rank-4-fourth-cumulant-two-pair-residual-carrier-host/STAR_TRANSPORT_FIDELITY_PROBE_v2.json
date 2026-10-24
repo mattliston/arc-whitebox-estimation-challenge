@@ -1,0 +1,86 @@
+{
+  "estimator_sha256": "5e4d4e7b661739c613012390fb38c8972c22d0f05d181f79a34caa7b09d7a16f",
+  "estimator_source": "public_q24_native_transport_energy_final_repeatability_v3/estimator.py",
+  "node": "P2R0F3A",
+  "results": {
+    "A_star_family_positive_control": {
+      "deployed_f32_module_vs_exact": {
+        "exact_norms": {
+          "k22": 3.456351977166751,
+          "k31": 4.672580505636084,
+          "k4": 2.9808599342035693
+        },
+        "k22": 1.0128617469329597e-07,
+        "k31": 1.0433951545686111e-07,
+        "k4": 1.1138193924266618e-07,
+        "pooled_missed_fraction": 1.0501108820605127e-07
+      },
+      "float64_replica_vs_exact": {
+        "exact_norms": {
+          "k22": 3.456351977166751,
+          "k31": 4.672580505636084,
+          "k4": 2.9808599342035693
+        },
+        "k22": 3.0993242575752385e-16,
+        "k31": 2.2363371456957335e-16,
+        "k4": 1.824664894323699e-16,
+        "pooled_missed_fraction": 2.4376915881570454e-16
+      }
+    },
+    "B_k22_residual_only": {
+      "deployed_f32_module_vs_exact": {
+        "exact_norms": {
+          "k22": 2.2302704333923393,
+          "k31": 3.7778294633281617,
+          "k4": 2.5047022143973017
+        },
+        "k22": 1.0,
+        "k31": 1.0,
+        "k4": 1.0,
+        "pooled_missed_fraction": 1.0
+      },
+      "float64_replica_vs_exact": {
+        "exact_norms": {
+          "k22": 2.2302704333923393,
+          "k31": 3.7778294633281617,
+          "k4": 2.5047022143973017
+        },
+        "k22": 1.0,
+        "k31": 1.0,
+        "k4": 1.0,
+        "pooled_missed_fraction": 1.0
+      }
+    },
+    "C_generic_symmetric": {
+      "deployed_f32_module_vs_exact": {
+        "exact_norms": {
+          "k22": 5.695106603606647,
+          "k31": 7.828226250850369,
+          "k4": 6.938425541121252
+        },
+        "k22": 0.9030530445121885,
+        "k31": 0.9713046944191175,
+        "k4": 0.8909005278093509,
+        "pooled_missed_fraction": 0.9291771035082645
+      },
+      "float64_replica_vs_exact": {
+        "exact_norms": {
+          "k22": 5.695106603606647,
+          "k31": 7.828226250850369,
+          "k4": 6.938425541121252
+        },
+        "k22": 0.9030530535529169,
+        "k31": 0.9713046968595175,
+        "k4": 0.8909005358740195,
+        "pooled_missed_fraction": 0.9291771092433986
+      }
+    }
+  },
+  "schema": "p2r0f3a-star-transport-fidelity-probe-v2",
+  "seed": 7,
+  "status": "COMPLETE_SYNTHETIC_NO_DATA",
+  "supersedes": "STAR_TRANSPORT_FIDELITY_PROBE.json",
+  "supersession_reason": "v1's exact-reference k4 channel read zeros: einsum('aaab->ab') returned a writable view into the transported tensor and np.fill_diagonal on it erased Tp[a,a,a,a] before the k4 view was materialized. v2 copies every extraction; v1 k31/k22 unaffected.",
+  "targets_read": 0,
+  "width": 16
+}

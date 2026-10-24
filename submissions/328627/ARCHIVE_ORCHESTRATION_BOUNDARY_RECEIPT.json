@@ -1,0 +1,123 @@
+{
+  "schema": "p2r0c1-d5-archive-orchestration-boundary-v1",
+  "status": "ESTABLISHED_RUNTIME_PATH_NOT_REPRODUCED_EXTERNAL_BOUNDARY_REMAINS",
+  "conclusion": "The unchanged packed-D5 estimator passes exact official client/server execution on the three established [35,279,35] fixtures in one persistent process. D4 exhibits the same generic native/remote byte drift. The two board scoring failures therefore remain outside the locally reproduced estimator/runtime path: archive ingestion, grader orchestration, hidden rows, or another board-only boundary.",
+  "board_failures": [
+    {
+      "submission_id": 328627,
+      "grading_status_cd": "failed",
+      "score": null,
+      "watch_sha256": "38c824fc579fdf726d5dc5136f6510a3d92e6bff7ae87817943956e6532a4d19"
+    },
+    {
+      "submission_id": 328628,
+      "grading_status_cd": "failed",
+      "score": null,
+      "watch_sha256": "f12fafbf5ea8397f691f561c759a2f3a7f80f3fbff1e17db2e1840cf93bf64f3"
+    }
+  ],
+  "archives": {
+    "successful_d4": {
+      "archive_sha256": "b0c296c0cb0973452c7b0f0f25f802fee20c964dd6bc19613bbadea7d85d9747",
+      "source_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e"
+    },
+    "failed_d5_official": {
+      "archive_sha256": "3177acef03b722d8ddee71bcd66767cf3a847834bf734b77fd4342c125e540f8",
+      "source_sha256": "74095215f842a0a993ad89c94cbaa27baf2cbc2f8cb2868e490972be8b9ab5e5"
+    },
+    "manifest_equivalence": {
+      "same_member_names": [
+        "estimator.py",
+        "manifest.json"
+      ],
+      "same_schema_version": "1.0",
+      "same_api_version": "2.0",
+      "same_entrypoint": "estimator.Estimator",
+      "same_packager_version": "0.1.0",
+      "same_whestbench_version": "0.16.0",
+      "same_flopscope_version": "0.12.0",
+      "same_python_version": "3.11.5",
+      "same_numpy_version": "2.4.6",
+      "differences": [
+        "estimator.py SHA-256",
+        "created_at_utc"
+      ]
+    }
+  },
+  "remote_evidence": {
+    "d22_d5_rank35": {
+      "status": "REMOTE_RETURNED_OUTPUT",
+      "exception": null,
+      "literal_flops": 1271911836821,
+      "literal_calls": 17098,
+      "outer_wall_seconds": 43.64638287527487,
+      "output_array_sha256": "90c68c2964b30c74593c070b8c705e796012079f5d65d7fba74b22e5edcf7519",
+      "result_sha256": "a20d4acf382dccdc96b6403521c098648fedb1db75e2207265a7a37896687b29",
+      "server_telemetry_sha256": "513f6fbf8e486e8e6708080fbb6ab70ebb9767b4feef4dfc0c4206dc93a77fb8"
+    },
+    "d23_d4_rank35_control": {
+      "status": "REMOTE_RETURNED_OUTPUT",
+      "exception": null,
+      "literal_flops": 1319871710583,
+      "literal_calls": 15416,
+      "outer_wall_seconds": 27.263142749667168,
+      "remote_vs_native_rms": 2.670715107111561e-09,
+      "remote_vs_native_maximum_absolute": 1.1920928955078125e-07,
+      "remote_vs_native_unequal_elements": 702,
+      "result_sha256": "c432588f3ed5123c10d2aa36b393f4335fcbfc1a183339c6cd672df91aac488e",
+      "server_telemetry_sha256": "9685ac1a852bfbeb82201732fee8d7e98f6e2bf636feba38e1eb85190ca1f777",
+      "drift_receipt_sha256": "0f885ae7ab4da69cdfcee0a3efb72905a18fc43cd5d7c0d360381289f867749b"
+    },
+    "d24_d5_persistent_aba": {
+      "status": "PASS_FULL_REMOTE_ABA_RETURNED",
+      "call_order": [
+        35,
+        279,
+        35
+      ],
+      "literal_flops": [
+        1271911836821,
+        1307083518472,
+        1268437189120
+      ],
+      "literal_calls": [
+        17098,
+        17023,
+        17013
+      ],
+      "all_outputs_finite": true,
+      "rank35_repeat_byte_identical": true,
+      "server_max_array_bytes": 4294967296,
+      "server_peak_rss_bytes": 6698139648,
+      "server_peak_margin_below_8_gib_bytes": 1891794944,
+      "maximum_live_array_handles": 274,
+      "final_live_array_handles": 116,
+      "remote_vs_native_rms": [
+        3.5594475680925297e-09,
+        3.259195196537207e-09,
+        3.5594475680925297e-09
+      ],
+      "remote_vs_native_maximum_absolute": [
+        2.384185791015625e-07,
+        1.1920928955078125e-07,
+        2.384185791015625e-07
+      ],
+      "result_sha256": "a9a64cb519283caf23e6a6d390b81db5c0afe6afbb83a81fa58601339711c0d2",
+      "server_telemetry_sha256": "df24b95488837af51665f90e7d2698436bc48bbc1be47bfa04d491b68b839aeb",
+      "diagnostic_sha256": "66aa81d777ba84dda573f24ddc399fbf8d11df4a8364b39149a47e7a95285a65"
+    }
+  },
+  "inference_limits": [
+    "Remote byte inequality is not a D5-specific alias failure because the successful D4 control also drifts remotely.",
+    "The established fixtures exclude hidden grader rows and cannot prove hidden-row compatibility.",
+    "A local IPC server/client reproduces the documented protocol and limits but not the board's archive ingestion or process orchestration.",
+    "No target, score column, hidden row, package mutation, or board upload was used in D22-D24."
+  ],
+  "scope": {
+    "estimator_source_changed": false,
+    "target_columns_opened": [],
+    "scores_opened": [],
+    "hidden_rows_opened": [],
+    "submission": false
+  }
+}

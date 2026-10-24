@@ -1,0 +1,48 @@
+{
+  "lane": "opus-stack",
+  "S2": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_stack_v1/candidate_S2_f384_cb_gk4_t167r7_rqx_r1_v1.py",
+    "sha256": "9744cd9614df3cf3a90eda283074315b96c45025db206f94f68c017eb4d933c8"
+  },
+  "build_proof": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_stack_v1/S2_BUILD_PROOF_v1.json",
+  "native_7103248": {
+    "finite": true,
+    "identical_layers_vs_Full384_GK4": 16,
+    "flops": null,
+    "flops_G": 241.5485,
+    "bill_vs_Full384_GK4_pct": -0.115,
+    "bill_vs_2b108_pct": 1.487,
+    "reference": "candidate_S1_gk4_ref_v1.py (S1 + GK4 0.6, c260c835)"
+  },
+  "production": {
+    "normal": {
+      "first": 48218,
+      "warm": 45997
+    },
+    "slow": {
+      "first": 48510,
+      "warm": 46097
+    },
+    "p_loss_pct": 17.17,
+    "worst_wall_s": 108.9,
+    "mean_wall_s": 101.0,
+    "setup_s": 4.461,
+    "slow_setup_s": 4.611,
+    "slow_setup_gate": "FAIL (limit 4.6): needs compactB trim fragment in the slot",
+    "binding": "588/649",
+    "util": [
+      0.11127,
+      0.11151
+    ]
+  },
+  "vs_2b108": {
+    "first": -207,
+    "warm": -173
+  },
+  "notes": [
+    "R1 placed after RQX v1: RQX redefines _rs_load_a/_rs_load_b (quad cache only); R1 loads are the superset, RQX xsg/gop2 sites stay live",
+    "PREBIND = b709 9 entries (union of edits: b709 removal funds R7; Full384 edit only touched the removed L4 entry)",
+    "PLANS union 167 = Full384 105 + b709 62 new (24 transported 320->384), 0 collisions"
+  ],
+  "judge": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_stack_v1/JUDGE_OFFICIAL120_S2_v1.txt"
+}

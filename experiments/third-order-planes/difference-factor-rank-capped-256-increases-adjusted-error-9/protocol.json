@@ -1,0 +1,104 @@
+{
+  "schema": "fixed-local-uvp-v256-proposal-v1",
+  "root_admission_pending": true,
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_uvp_v256_v1/candidate.py",
+    "sha256": "113b0f6a13140f11fea933d5ffc50e425d3a10b16b0aa04b5b8f2852f1a31cae",
+    "bytes": 978432
+  },
+  "baseline": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "build": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_uvp_v256_v1/build.py",
+    "sha256": "cc7564eb74b7c5926e2608c732f09145cbacb776154407c669f9ddb0ff89a868",
+    "bytes": 9099
+  },
+  "source_inverse": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_uvp_v256_v1/source_inverse.json",
+    "sha256": "7ca24b0f916d139452569ecf2beb707d9d1683a6174fc32be002008f708e9628",
+    "bytes": 13973
+  },
+  "fixed_scope": {
+    "v_rank_cap": 256,
+    "common_rank_cap": 256,
+    "active_layers": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "retained_state_ranks": [
+      384,
+      320,
+      384
+    ],
+    "cache_limit_bytes": 512000000,
+    "cache_slots": 3
+  },
+  "formulas": {
+    "factors": "Fu=(Ft[:ru]+Fs[:ru])/2; Fv=(Ft[:rv]-Fs[:rv])/2; ru=rv=min(256,rank).",
+    "reconstruction": "Pt=U[:,:ru]Fu+U[:,:rv]Fv; Ps=U[:,:ru]Fu-U[:,:rv]Fv.",
+    "inner": "Su=left_t^2*lambda_t+left_s^2*lambda_s; Dv=left_t^2*lambda_t-left_s^2*lambda_s; inner[:rv]=Dv@Fv.T; inner[:ru]+=Su@Fu.T; trailing coordinates zero.",
+    "lazy": "Zero-embedded full-rank inner enters the unchanged full group.map.T; full mapped U, carrier Q/F/core and signed lambda remain unchanged."
+  },
+  "diagonal_and_tail": {
+    "hidden": "Existing sum(pp^3*lambda), _ott_diagonal (including YNT wrapper), cp_pre fill_diagonal and authoritative64 K21 diagonal refills remain byte-for-byte source unchanged. Kept-row pp and hence its computed diagonal do change; no full-carrier diagonal restoration is claimed.",
+    "terminal": "Existing terminal rowcut sum of reconstructed pp cubes remains; V256 changes this term. Star diagonal unchanged.",
+    "omitted": "OTT tail trace and omitted-radial tail energy/sum still use full F/U. Kept-row omitted-radial contractions consume truncated pp. This is an intentional approximate local read, not preservation of every full-carrier moment."
+  },
+  "ownership": "Five tuple metadata fields are consumed by the only three tuple-unpack sites. UBC owner identity remains full F, factors remain immutable, generation now includes local V shape. Forward cache rank check follows V256; transpose-cache branch remains unused and unchanged. All cache limits, setup shapes/deadline, finally cleanup, join schedules/ranks, young factors, learned parameters and tail owners remain unchanged.",
+  "pricing": {
+    "source_census": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s32_bill_census_v1/census.json",
+      "sha256": "0bac92025c957aa97b1e96a540eebb80b9fea41e8bfbaf865c2272c07f1d16e4",
+      "bytes": 5108240
+    },
+    "forecast_reconstruction_saved_flops": 2102532787,
+    "measured_v_minus_u_inner_proxy_flops": 1803653264,
+    "forecast_total_percent": 1.484753317728647,
+    "caveat": "Predecessor rank35 geometry, fixed-route fit plus measured proxy; new routing, padding, cache copies and full-rank inner zero/copy costs are not fully priced. Native bill decides."
+  },
+  "historical_evidence": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/RESULT.md",
+    "section": 37,
+    "caveat": "LoopR3 terminal-only: plain256 +.908 raw points versus common256/full-v +.022; joint u192/v320 +.415 is not an isolated current V trial. Expected accuracy benefit is not claimed."
+  },
+  "restrictions": [
+    "Exactly one fixed V256 trial; no V-rank/window/cache variants after failure.",
+    "No model or array execution by builder; root decides native admission and gates.",
+    "No broad/serving/submission authority and no claimed improvement."
+  ],
+  "source_checks": {
+    "inverse": true,
+    "compile_only": true,
+    "changed_functions": [
+      [
+        "_uvp_split",
+        8133
+      ],
+      [
+        "_uvp_recon",
+        8153
+      ],
+      [
+        "_uvp_inner",
+        8172
+      ],
+      [
+        "_uvp_state",
+        8951
+      ],
+      [
+        "_ipt_forward_b_ab",
+        9005
+      ]
+    ],
+    "scalar_rank_embedding": true,
+    "numerical_execution": false
+  }
+}

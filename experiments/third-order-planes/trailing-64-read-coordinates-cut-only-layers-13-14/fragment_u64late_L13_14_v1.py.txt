@@ -1,0 +1,83 @@
+
+
+# BEGIN OPUS-U64LATE FRAGMENT u64_late_L13_14_v1 (2026-10-16; append LAST to a 2b108-lineage source; stacks with the GB128r join fragment).
+# U64 mechanics (astra_read256_inner_cost_v1 24b13a67) with the cut window narrowed to layers 13-14: the vt leg drops its trailing 64
+# QR coordinates (rank 320->256 base, 384->320 recent) and the result is zero-padded back to full rank before the common add and every
+# later consumer (state, reconstruction, joins unchanged). Padding by one concatenate with a cached zero block (U64 used 4 requests).
+# Plain same-dtype ops only (billing-safe).
+_ASTRA_READ64_ON = True
+_ASTRA_READ64_STATS = dict(events=[], retired=True)
+_U64L_ZT = {}
+
+def _uvp_inner(left_sq, lam_cols, uv):
+    """[opus-u64late] U64 trailing-64 vt cut restricted to the L13-14 old reads; exact zero padding to full rank."""
+    Fu, Fv2, blocks, ru = uv
+    rows = int(left_sq.shape[0])
+    P = int(Fu.shape[1])
+    a_ = left_sq * lam_cols[None, :]
+    Su = fnp.empty((rows, P), dtype=fnp.float32)
+    Dv = fnp.empty((rows, P), dtype=fnp.float32)
+    h_ = _BH_HOLD.append
+    b = 0
+    views = _E2Hold()
+    # Batch only complete, positive-width roster views; preserve generic fallback.
+    tiled = bool(blocks) and int(blocks[0][0]) == 0
+    end = 0; half_cuts = []; roster_cuts = []; packed = 0
+    for start, width in blocks:
+        tiled = tiled and int(start) == end and int(width) > 0
+        end = int(start) + 2 * int(width)
+        packed += int(width); half_cuts.append(packed)
+        roster_cuts.extend((int(start) + int(width), end))
+    tiled = tiled and end == int(a_.shape[1])
+    if tiled:
+        a_parts = views(fnp.split(a_, roster_cuts[:-1], axis=1))
+        su_parts = views(fnp.split(Su, half_cuts[:-1], axis=1))
+        dv_parts = views(fnp.split(Dv, half_cuts[:-1], axis=1))
+    for index, (a, h) in enumerate(blocks):
+        if tiled:
+            ap, am = a_parts[2 * index], a_parts[2 * index + 1]
+            su, dv = su_parts[index], dv_parts[index]
+        else:
+            ap = views(a_[:, a:a + h]); am = views(a_[:, a + h:a + 2 * h])
+            su = views(Su[:, b:b + h]); dv = views(Dv[:, b:b + h])
+        h_(fnp.add(ap, am, out=su))
+        h_(fnp.subtract(ap, am, out=dv))
+        b += h
+    if blocks: del ap, am, su, dv
+    if tiled: del a_parts, su_parts, dv_parts
+    views.clear()
+    _BH_HOLD.clear()
+    del a_
+    rank = int(Fv2.shape[0])
+    layer = int(_UVP_CUR[0])
+    cut = (_ASTRA_READ64_ON and 13 <= layer <= 14 and rank in (320, 384)
+           and int(ru) == 256 and str(Fv2.dtype) == 'float32')
+    if cut:
+        keep = rank - 64
+        reduced = _ubx_product(Dv, views(views(Fv2[:keep, :]).T), uv, 'vt')
+        zt = _U64L_ZT.get(rows)
+        if zt is None:
+            zt = _U64L_ZT[rows] = fnp.zeros((rows, 64), dtype=fnp.float32)   # never written; one per row count per process
+        inner = fnp.concatenate([reduced, zt], axis=1)                      # = U64's zero-padded inner, one request
+        del reduced
+        views.clear()
+        _ASTRA_READ64_STATS['events'].append((layer, rows, P, rank, keep, int(ru)))
+    else:
+        inner = _ubx_product(Dv, Fv2.T, uv, 'vt')
+    inner_u = _ubx_product(Su, Fu.T, uv, 'ut')
+    common = inner[:, :ru]
+    _BH_HOLD.append(fnp.add(common, inner_u, out=common))
+    _BH_HOLD.clear()
+    del common
+    del Su, Dv, inner_u
+    return inner
+
+_U64L_PARENT_PREDICT = Estimator.predict
+def _u64l_predict(self, *args, **kwargs):
+    _ASTRA_READ64_STATS.clear(); _ASTRA_READ64_STATS.update(events=[], retired=False)
+    try:
+        return _U64L_PARENT_PREDICT(self, *args, **kwargs)
+    finally:
+        _ASTRA_READ64_STATS['retired'] = True
+Estimator.predict = _u64l_predict
+# END OPUS-U64LATE FRAGMENT u64_late_L13_14_v1

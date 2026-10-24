@@ -1,0 +1,55 @@
+{
+  "status": "DISTINCT_UNTESTED_REPRESENTATION_NO_CURRENT_FIDELITY_EVIDENCE",
+  "anchor": {
+    "submission": 336935,
+    "score": 1.4468565569762618e-09,
+    "source_sha256": "95c8717670a5b4fbc2dcf57e289a5a0f5a8c6f9c656bee3a638655deb94b0cdf"
+  },
+  "direct_recent_closure_found": false,
+  "not_equivalent_closures": [
+    "CP bank truncation and lowrank young read",
+    "Lowrank covariance error correction dial screen",
+    "Dead-row covariance cross-block rank32 repair cost closure",
+    "Historical truth residual writes"
+  ],
+  "archived_covariances": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/PRICE_CAPTURE_RANK16_v1.npz",
+      "source": "nativev61j, earlier same scientific lineage; not exact95c",
+      "keys": [
+        "L13_cov_after_edge",
+        "L14_cov_after_edge",
+        "L13_pre_cov",
+        "L14_pre_cov"
+      ],
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_chol_v1/cov_7103248.npz",
+      "source": "older native opus_pubgov_v1/cand_pubmaxa_pg2_v1_release.py",
+      "keys": "C0..C13,W0..W13,R0..R13,meta"
+    }
+  ],
+  "evidence": [
+    {
+      "source": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/RESULT.md",
+      "lines": [
+        775,
+        778
+      ],
+      "finding": "Historical truepre-C top16/64/256 trace fractions atL12=.37/.72/.95,L14=.41/.75/.96. NOT a diagonal+lowrank residual bound."
+    },
+    {
+      "source": "memory/p2-1010-covariance-dead-cut-closed.md",
+      "finding": "Cpre relativeFrobenius1e-3 led7\u201316% raw loss;1e-4 was nearfloat32-noise and neutral. This calibrates sensitivity, not a directlowrankclosure."
+    }
+  ],
+  "required_math": "C_hat=Z J Z^T+diag(diag(C-Z J Z^T)); Cpre_hat=(W^T Z)J(W^T Z)^T+W^T diag(D) W. Exact residual diagonal DOES NOT make its push diagonal; a dense weightedGram remains. OriginalC mayhave small negative modes, so signed/residualD treatment mustbeexplicit.",
+  "possible_fixed_falsifier": "Saved native rank16L13/L14 postC, fixedrank64 pivotedCholesky/Nystrom (no eigenbasis), retainexactD. Measure ||offdiag(E)||F/||C||F and paired nextW quadratic diagonal error diag(W^T E W); rejectif above1e-4 Cpre scale beforemodel. No rank sweep or endpointfit.",
+  "price_status": "Unmeasured0.12.3 tariff. Gross10.6%covariance share is notavailable saving: diagonalweightedGram, factorconstruction, lowrankpush andoutput reconstruction remain. No defensible2\u20134% claim fromsourcealone.",
+  "decision": "No model or SDK; no candidate. Distinct route meritsonlya bounded saved-fidelity falsifier ifrootauthorizes. Currentevidence insufficientforcredible\u2265.5%adjustedforecast."
+}

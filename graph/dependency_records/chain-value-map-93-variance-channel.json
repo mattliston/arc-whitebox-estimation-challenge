@@ -1,0 +1,27 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_CARRIER_VALMAP",
+    "status": "solved",
+    "goal_path_summary": "Before inventing a cheap carrier we measured exactly WHERE the certified 18.7% gain lives. Answer: 93% of it is the variance channel (dv-hat), fed by plane-error injections spread over layers 5-14; the skewness channel holds 2.2 points, the kurtosis channel none. This turned the carrier problem from 'copy the whole 45x engine' into 'supply the variance-relevant plane error at mid-to-late layers', which every later test targets.",
+    "evidence": [
+      {
+        "claim": "capture check 18.7 reproduced; v=17.46/k3=2.17/k4=-0.34; top cells L8-15 v",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/CHAIN_VALUE_MAP.json"
+      },
+      {
+        "claim": "injection windows keep-only L1-4/5-8/9-11/12-14 -> dv_corr(L15) -0.06/0.38/0.46/0.54 (r35)",
+        "historical_reference": "experiments/p2_width1024_depth16/public_g19_attribution_v1/rank_sweep_r35.log (window block) + dvhat_rank0035_w*.npz",
+        "receipt_status": "legacy descriptive reference; not current graph authority"
+      }
+    ],
+    "label": "Chain value map (93% = variance channel)",
+    "kind": "phase2_g19b_subproblem",
+    "priority": 2,
+    "summary": "Exact per-(layer,channel) value attribution of the certified 18.7% chain (linear in supply deltas). [Measurement: carrier requirement spec.]",
+    "terminal_criterion": "Resolved: exact attribution reproduced 18.7; v=17.46/k3=2.17/k4=-0.34; injections L5-14.",
+    "decomposition_children": []
+  }
+}

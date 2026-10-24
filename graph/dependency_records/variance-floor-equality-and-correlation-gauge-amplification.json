@@ -1,0 +1,19 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0H3H",
+    "label": "Variance-floor equality and correlation-gauge amplification",
+    "kind": "phase2_root_cause_result",
+    "status": "solved",
+    "priority": 1,
+    "summary": "Three original witnesses had variance minima just above 1e-30 (1.0000000000000003e-30, 1.0000000000000008e-30, and 1.0000000000000004e-30), so an exact equality check missed the floor event. Subsequent correlation normalization amplified tiny denominators into parent-repair excursions 0.00249167098660108, 0.008121398313472243, and 0.010735367118163627. Changing only variance==floor to variance<=2*floor repairs all three trajectories from 7.825e-7/9.667e-6/3.392e-4 to ordinary e-8 values.",
+    "terminal_criterion": "Preserve the <=2*floor trigger and the byte-identical normal branch; do not generalize beyond the measured near-floor correlation-gauge mechanism.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_v1/FREEZE_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_min_v1/FREEZE_RECEIPT.json"
+    ],
+    "decomposition_children": []
+  }
+}

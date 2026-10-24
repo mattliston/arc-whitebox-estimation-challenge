@@ -1,0 +1,58 @@
+{
+  "status": "CHEAP_PROXIES_NOT_SUPPORTED_NO_MODEL",
+  "matrix_square_not_hadamard": true,
+  "current_forms": [
+    "C",
+    "mu mu.T",
+    "mu (Cmu).T + (Cmu) mu.T"
+  ],
+  "active_regression_note": "v17 uses DFIT2: no constant; scaled C coefficient DSCALE*RHO. Nested C\u00b2 fit must preserve this parent unless explicitly changed. Physics owns that test.",
+  "algebra": {
+    "jacobi": "Write C=D+E with zero diagonal E. C\u00b2=DC+CD\u2212D\u00b2+E\u00b2. Jacobi drops E\u00b2; repairing its diagonal with sum(C*C,1)\u2212v\u00b2 does not restore missing offdiagonal modes.",
+    "nystrom16": "V=C[:,I], A=C[I,I], C_hat=V A^-1 V.T. C_hat\u00b2=V H V.T, H=A^-1(V.T V)A^-1. Add16 factors to current NP forms: left_i=fm_i*c4*(V H)_i, right_j=alive_j*V_j. Rank16 fit needs no C@probe iteration.",
+    "diagonal": "Exact diag(C\u00b2)=sum(C*C,1) is available through a reduction of current Hadamard cc32 once that owner is present. NP read comes before the usual cc32 construction; reuse requires moving construction earlier with identical owner/key, not assuming already cached."
+  },
+  "fixed_jacobi": {
+    "cosine_range": [
+      0.10935556094259177,
+      0.1570995390841492
+    ],
+    "max_projection_fraction": 0.02468026518045213,
+    "same_coefficient_error_range": [
+      0.9959033941467591,
+      0.9970433434956197
+    ]
+  },
+  "fixed_topdiag_nystrom16": {
+    "same_coefficient_recovery_pct": [
+      -3.3527211717437666,
+      -27.230870329843015,
+      -24.298811341815952,
+      2.79152576521835,
+      2.614811428772734,
+      28.677459342580658
+    ],
+    "cosine_range": [
+      0.307742343369973,
+      0.5989436375868858
+    ],
+    "cost_arithmetic_estimate_per_saved_block": [
+      26951680,
+      19283968,
+      16990208,
+      29769728,
+      21708800,
+      17809408
+    ],
+    "cost_not_full_public_tariff": true
+  },
+  "scope": "Historical matched e56 C/mu only, sixstates; not current rollout or terminal gain.",
+  "no_response_labels": true,
+  "no_models": true,
+  "no_GPU": true,
+  "no_sweep": true,
+  "result_pins": {
+    "RESULT_v1.json": "8b1c1c237cda2fd1c0d98228a5650818f1817cc42ef23ab61873ca5031b55eca",
+    "NYSTROM16_RESULT_v1.json": "bc42affa6b97a279ad60140775f78b6237a6bbf54ce66598a0908da2fdd6a29a"
+  }
+}

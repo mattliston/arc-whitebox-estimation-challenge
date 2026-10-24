@@ -1,0 +1,21 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1D27",
+    "label": "D27 shared-vs-split arena alias discriminator",
+    "kind": "phase2_hybrid_arena_alias_capacity_audit",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "Shared and split arena spellings have the exact same 58-call operation inventory and output bytes. Splitting saves only 0.683 ms median residual while allocating 2,320,941,056 extra bytes and leaving about 222 MB below the 8 GiB ceiling. It misses the frozen 15 ms credibility gate and is not board-safe.",
+    "terminal_criterion": "Closed at HOLD_NO_SUCCESSOR: the alias-only split changes no arithmetic, provides sub-millisecond median timing benefit, and consumes nearly all remaining memory margin.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d27_cp3_hybrid_shared_alias_discriminator_v1/audit_shared_alias_tiny.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d27_cp3_hybrid_shared_alias_discriminator_v1/D27_SHARED_ALIAS_TINY_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d25_cp3_d5push_d4read_hybrid_v1/D25_HYBRID_CANDIDATE_RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d26_cp3_d5push_left_transform_cse_v1/D26_DISPATCH_CSE_TINY_RECEIPT.json"
+    ],
+    "decomposition_children": []
+  }
+}

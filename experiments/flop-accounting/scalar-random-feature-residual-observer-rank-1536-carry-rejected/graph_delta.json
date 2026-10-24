@@ -1,0 +1,65 @@
+{
+  "schema": "problem-graph-delta-proposal-v1",
+  "base_graph_sha256": "d0498b828a862a1abd2ed7258b48f87e107bad55b8f4e1020078a9e0b74f670e",
+  "run_id": "cp1536_scalar_transport_rff_cv_688_v2",
+  "parent_update": {
+    "id": "P2R0C1D",
+    "status": "open",
+    "reason": "The scalar RFF implementation failed, but the broader materially different architecture-replacement problem remains open."
+  },
+  "update_nodes": [
+    {
+      "id": "P2R0C1D1",
+      "status": "closed_measured",
+      "summary": "On four-fold out-of-fold observer_fit CV, the finite CP1536 scalar physical-transport RFF observer reached autonomous raw MSE 1.2744674766113143e-6 and teacher-forced 1.2587467593815147e-6 versus host 3.7127081767379208e-6. Both miss raw<1e-7, so this exact spelling is closed.",
+      "status_basis": {
+        "as_of": "2026-08-24",
+        "reason": "The registered capacity and autonomous gates both failed on all 688 lawful observer_fit networks."
+      },
+      "evidence": [
+        {
+          "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_scalar_transport_rff_cv_v1/CV_RESULTS_V2.json",
+          "sha256": "fb82d90e91cc21ee33ec690d1a0788d4a61a0c600ddd3b7aaf1434a4e19d4f56",
+          "run_id": "cp1536_scalar_transport_rff_cv_688_v2",
+          "claim": "Four-fold out-of-fold autonomous/teacher raw MSE are 1.2744674766113143e-6/1.2587467593815147e-6 at projected 199,548,139,522 FLOPs; both raw gates fail.",
+          "scope": "development observer_fit cross-validation"
+        }
+      ]
+    }
+  ],
+  "add_nodes": [
+    {
+      "id": "P2R0C1D2",
+      "label": "Train the already-metered CP1536 H128/P4 recurrent Hermite observer",
+      "kind": "experiment",
+      "status": "open",
+      "priority": 1,
+      "summary": "The remaining concrete high-capacity cheap route is the target-blind CP1536 H128/P4/C256 width-equivariant recurrent observer already literally metered at 209,904,700,250 FLOPs but never trained or scored. It is materially different from the failed scalar RFF and local/tree students.",
+      "terminal_criterion": "Under network-grouped observer_fit cross-validation with observer_selection sealed, train the frozen H128/P4/C256 architecture and require finite autonomous final raw MSE <1e-7; if its teacher-forced/local capacity cannot approach 1e-7, stop before full recurrent training and close that exact form.",
+      "evidence": [
+        "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v3/STATIC_METER_ESTIMATE_V3.json",
+        "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_scalar_transport_rff_cv_v1/CV_RESULTS_V2.json"
+      ],
+      "decomposition_children": []
+    }
+  ],
+  "add_edges": [
+    {
+      "from": "P2R0C1D",
+      "to": "P2R0C1D2",
+      "type": "decomposes_to",
+      "planning": false
+    },
+    {
+      "from": "P2R0C1D1",
+      "to": "P2R0C1D2",
+      "type": "opens",
+      "planning": false
+    }
+  ],
+  "deactivate": [
+    "P2R0C1D1"
+  ],
+  "activate": [],
+  "root_rebase_required": true
+}

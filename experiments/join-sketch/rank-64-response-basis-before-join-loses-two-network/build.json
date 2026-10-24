@@ -1,0 +1,50 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_response64_prejoin_v1/candidate.py",
+    "sha256": "9d5adb581ceda1857e4cd789a057a2a0b3f3ae8c143f90432cd36683e640699f",
+    "bytes": 977212
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_response64_prejoin_v1/protocol.json",
+    "sha256": "2fb8cca1c4b3d284d7733dd40cb9b3211e043dba4c66e9156f86ee537aa1a858",
+    "bytes": 3983
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_response64_prejoin_v1/build.py",
+    "sha256": "4d2890a4b0736c448b9cebadfe2a2423b2e45c3732325a4916ddc3d3b129f0a3",
+    "bytes": 8031
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_response64_prejoin_v1/fragment.py",
+    "sha256": "f93b6863c983d91b979edd3961e6c330c7997051e3c5b2e66946bf364bc5945d",
+    "bytes": 1185
+  },
+  "source_inverse": {
+    "parent": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_fusion_v1/candidate.py",
+      "sha256": "f9f4790b3c65f730404425e8923c767dc2f895fdcc1e14f14cc649286ad3b69f",
+      "bytes": 975980
+    },
+    "suffix": "\n\n# Fill only response padding already paid by the same prejoin KS read.\ndef _response64_prejoin(layer, score, floor, live_indices, lam, state):\n    indices, mask = select(score, floor)\n    if not (4 <= layer <= 6) or int(state['columns']) != 0:\n        return indices, mask\n    m, k, n = int(indices.shape[0]), int(lam.shape[0]), int(live_indices.shape[0])\n    filled = (m + 63) // 64 * 64\n    if not (0 < m < filled <= n <= 1024 and k > 1024):\n        return indices, mask\n    if not (_KS_ON and _AB_ON and _WINOGRAD and _SCRATCH is not None):\n        return indices, mask\n    # Either READ7 shape would bypass the ordinary multi-chunk KS dispatcher.\n    if (m, k, n) in _R7_SHAPES or (filled, k, n) in _R7_SHAPES:\n        return indices, mask\n    current = _ks_plan(m, k, n)\n    expanded = _ks_plan(filled, k, n)\n    if current is None or len(current[2]) < 2 or current != expanded:\n        return indices, mask\n    keep = []\n    negative = -score\n    order = fnp.argsort(negative, kind='stable')\n    keep.extend((negative, order))\n    indices = order[:filled]\n    mask = fnp.zeros(len(score), dtype=fnp.bool_)\n    keep.append(fnp.put(mask, indices, True))\n    return indices, mask\n",
+    "edits": [
+      {
+        "before": "            response_indices, response_mask = select(response_score, gate_floor)\n",
+        "after": "            response_indices, response_mask = _response64_prejoin(l, response_score, gate_floor, live_indices, lam, shared_old)\n"
+      }
+    ],
+    "exact_inverse": true
+  },
+  "only_changed_function": [
+    [
+      "_predict_binary",
+      3214
+    ]
+  ],
+  "added_function": "_response64_prejoin",
+  "ast_compile": true,
+  "source_diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_response64_prejoin_v1/source.diff",
+    "sha256": "16dae46f5eb33d2134781d7be8e0d81c75062b925de4b7f3fc7c8d6502bb9387",
+    "bytes": 2426
+  }
+}

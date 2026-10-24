@@ -1,0 +1,323 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-independent-source-audit-v1",
+  "status": "PASS_FOR_TARGET_FREE_LITERAL_METER_ONLY",
+  "verdict": "PASS_WITH_MANDATORY_HOLDS",
+  "audited_at_utc": "2026-08-24T04:42:17Z",
+  "candidate": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_v1",
+  "audit_independence": {
+    "auditor_different_from_source_builder": true,
+    "independent_parallel_static_crosscheck_completed": true,
+    "source_files_modified": 0,
+    "receipt_files_added": 1,
+    "dataset_reads": 0,
+    "model_or_role_reads": 0,
+    "target_or_label_reads": 0,
+    "sampling_runs": 0,
+    "fits": 0,
+    "scores": 0,
+    "submissions": 0,
+    "scope": "Frozen-byte, target-free source, algebra, schedule, Phase-2 compliance, projected resource, memory, evidence, and authority audit only."
+  },
+  "frozen_binding": {
+    "source_manifest": {
+      "path": "SOURCE_MANIFEST.json",
+      "sha256": "56d5b8d079a5b7add490fb5f01139fd0ad5a8d182ca6a5b839f7171922f6c7bb",
+      "status": "FINAL_BYTE_FREEZE__SOURCE_ONLY__NO_EXECUTION_AUTHORITY"
+    },
+    "manifest_source_hashes_recomputed": true,
+    "manifest_source_hashes_match": true,
+    "files": {
+      "DESIGN.md": "5c3ae5b91a32f4216b8739e2d2013eb2cadbae64a0430c0aa7e71b3f15e2046f",
+      "EVIDENCE_BINDINGS.json": "5233c6fce125a86e621d044195c5f35bb8e3c91888c2b0e7b6e99683af2d3cf2",
+      "coherent_quartic.py": "dfc646e12a05b9660460dfd24ffad03d4348cb294c4595a4411ec255b7bbb458",
+      "estimator.py": "663a6593e5b6574f08634f921d5a871303d1f9cb981d06010b1b712df8ad4265",
+      "resource_ledger.py": "c4af0057932b997959ea6afaddfb869689b7c53a335fb0453574d95490f87df8",
+      "verify_algebra.py": "e57a0ecddaf8a285b6b5db597dab9dba7cd5415c0b46ff0c0c3fe537280c1790",
+      "verify_moment_feasibility.py": "5f4a55887eca5774e4534ab176a86a87d1c747b706cfb969f7f14c3ecc01cfa6",
+      "verify_static.py": "5ee602248f956b429a04d410692e0ad74b44621135d7d358386df5f2a96f0e52"
+    },
+    "bound_addon_audit": {
+      "path": "../FULL_BUDGET_CP4_CAP2048_RESIDUAL_CARRIER_AUDIT.md",
+      "sha256": "9f044c2665c2143413e5b7da398487c38545994b20ff177f3494c004b0811588",
+      "hash_recomputed_and_matched": true
+    },
+    "evidence_bindings": {
+      "count": 17,
+      "all_paths_exist": true,
+      "all_sha256_recomputed_and_matched": true,
+      "negative_controls_match": true
+    },
+    "byte_freeze_assessment": "PASS_AT_MANIFEST_SHA__DIRECTORY_CURRENTLY_UNTRACKED_IN_GIT"
+  },
+  "namespace_hygiene": {
+    "pre_receipt_regular_files": 9,
+    "pre_receipt_cache_directories": 0,
+    "pre_receipt_pyc_files": 0,
+    "required_post_receipt_cache_directories": 0,
+    "required_post_receipt_pyc_files": 0,
+    "coherent_quartic_py_role": "UNIMPORTED_NONAUTHORITATIVE_TOMBSTONE",
+    "unbound_runtime_debris_permitted": false,
+    "assessment": "PASS"
+  },
+  "gate_runs": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B verify_algebra.py",
+      "exit_code": 0,
+      "result": "PASS: target-free FB-EC4-32 algebra"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B verify_moment_feasibility.py",
+      "exit_code": 0,
+      "result": "PASS_DIAGNOSTIC_FORMULA_ONLY__ACTUAL_CLOSURE_REPLAY_REQUIRED",
+      "minimum_shifted_hankel_margin": 0.13206995108718156,
+      "minimum_full_hankel_margin": 0.09746764813817443
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B resource_ledger.py",
+      "exit_code": 0,
+      "result": "PASS_PROJECTED_LEDGER__NOT_A_LITERAL_METER"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B verify_static.py",
+      "exit_code": 0,
+      "result": "PASS: target-free FB-EC4-32 static/mutation/evidence/resource gate"
+    }
+  ],
+  "phase2_compliance_audit": {
+    "estimator_imports_exactly": [
+      "flopscope",
+      "flopscope.numpy",
+      "whestbench",
+      "whestbench.domain"
+    ],
+    "prohibited_numerical_imports_found": [],
+    "compiled_or_foreign_function_paths_found": [],
+    "threads_processes_async_or_subprocesses_found": [],
+    "filesystem_network_reader_or_dynamic_import_calls_found": [],
+    "flopscope_monkeypatch_or_accounting_interference_found": [],
+    "random_sampling_fit_score_retry_or_submission_paths_found": [],
+    "absolute_path_literals_found": [],
+    "python_outside_flopscope_role": "Synchronous control flow, shape inspection, fixed tuple/list assembly, slicing, and bookkeeping only; array-valued arithmetic is expressed through flopscope/fnp.",
+    "exact_pinned_runtime_available_in_audit_interpreter": false,
+    "required_runtime_versions": {
+      "flopscope": "0.12.0",
+      "whestbench": "0.16.0"
+    },
+    "pinned_runtime_smoke_required": true,
+    "residual_wall_time_measured": false,
+    "assessment": "STATIC_PASS__PINNED_RUNTIME_AND_RESIDUAL_METER_HOLD"
+  },
+  "algebra_and_schedule_audit": {
+    "cp3": {
+      "representation": "sum_r lambda_r sym3(p_r,p_r,q_r)",
+      "k21_orientation": "(P^2)(Q*lambda)^T + 2(P*Q)(P*lambda)^T",
+      "k12_is_transpose": true,
+      "final_k3_is_three_times_p2q_diagonal": true,
+      "post_relu_birth_orientations_verified": true,
+      "cap": 16384,
+      "affine_push": "W^T P and W^T Q",
+      "assessment": "PASS"
+    },
+    "h3": {
+      "coordinate_star_diagonal_action_verified": true,
+      "directed_k21_action_verified": true,
+      "post_reset_law": "H3 = K21_target - CP3_post_K21",
+      "w16_diagonal_action_verified": true,
+      "assessment": "PASS"
+    },
+    "cp4": {
+      "representation": "sum_r lambda_r u_r^tensor4",
+      "affine_push": "W^T U",
+      "d_a_b_orientations_verified": true,
+      "post_relu_order": [
+        "materialize gated inherited factors",
+        "reread stored inherited diagonal",
+        "append coordinate birth",
+        "stable descending top-energy selection",
+        "read dropped d/A/B",
+        "subtract dropped provider planes"
+      ],
+      "cap": 2048,
+      "rank_schedule": "W2 rank 1024; W3 through W16 rank 2048",
+      "drop_events": 13,
+      "assessment": "PASS_SUBJECT_TO_STORED_GATE_ROUNDING_QUALIFICATION"
+    },
+    "h4": {
+      "coordinate_star_d_k31_k22_actions_verified": true,
+      "covariance_pairing_d_k31_k22_actions_verified": true,
+      "strict_upper_least_squares_alpha_equivalent_full_symmetric_ratio": true,
+      "provider_added_once_before_q32": true,
+      "provider_subtracted_once_before_residual_fit": true,
+      "target_d_and_directed_k31_restored_analytically": true,
+      "k22_is_one_scalar_pairing_projection_plus_star_residual": true,
+      "assessment": "PASS_SUBJECT_TO_STORED_GATE_ROUNDING_QUALIFICATION"
+    },
+    "transition_order_h2_through_h15": [
+      "affine mean/covariance push",
+      "CP3 and CP4 factor push",
+      "assemble CP3+H3 K21",
+      "assemble CP4+H4 d/A/B exactly once",
+      "Q32 Edgeworth univariate and four pair moments",
+      "force pair diagonals from univariate moments",
+      "diagonal-preserving covariance PSD repair",
+      "connected K21/d/A/B recenter",
+      "CP4 gate/grow/select/drop",
+      "H3 and H4 residual reset",
+      "CP3 gate/grow birth"
+    ],
+    "transition_order_assessment": "PASS"
+  },
+  "dtype_and_billing_audit": {
+    "float32_paths": [
+      "CP3 lambda/P/Q storage, affine pushes, and GEMM reductions",
+      "CP4 lambda/U storage, affine pushes, d/A/B reductions, and dropped-block reductions",
+      "H3 and H4 storage and affine GEMMs"
+    ],
+    "post_reduction_float64_casts_verified": true,
+    "pre_gemm_carrier_float64_promotion_found": false,
+    "float64_paths": [
+      "mean and covariance",
+      "Q32 coefficients and consumers",
+      "connected recentering",
+      "PSD eigensolve and diagonal renormalization",
+      "H4 pairing coefficient"
+    ],
+    "literal_flopscope_price_verified": false,
+    "assessment": "SOURCE_DTYPE_PASS__LITERAL_PRICE_HOLD"
+  },
+  "w16_specialization_audit": {
+    "guard_precedes_all_full_plane_reads": true,
+    "executed_final_helpers": [
+      "_cp_k3",
+      "_push_cubic_diagonal",
+      "_push_quartic_diagonal",
+      "_cp4_read_diagonal",
+      "_univariate_edgeworth"
+    ],
+    "omitted_final_work": [
+      "dense CP3 K21 read",
+      "dense CP4 A/B reads",
+      "full H3/H4 plane actions",
+      "pair consumer",
+      "PSD repair",
+      "state reset and factor growth"
+    ],
+    "break_after_final_mean": true,
+    "assessment": "PASS"
+  },
+  "stable_selection_audit": {
+    "energy": "lambda^2 * (sum_i u_i^2)^4",
+    "descending": true,
+    "stable_keyword_literal_true": true,
+    "tie_break": "raw candidate-column order",
+    "append_before_select": true,
+    "keep_prefix_rank": 2048,
+    "drop_suffix_rank": 1024,
+    "generic_permutation_equivariance_at_exact_boundary_ties": false,
+    "tie_boundary_qualification": "Declared deterministic measure-zero generic-network limitation; no hidden FIFO claim.",
+    "pinned_flopscope_argsort_api_smoke_required": true,
+    "assessment": "SOURCE_PASS__PINNED_RUNTIME_SMOKE_HOLD"
+  },
+  "stored_gate_rounding_qualification": {
+    "stored_gated_diagonal_reread": true,
+    "birth_stored_float32_and_recast_for_provider": true,
+    "diagonal_birth_rounding_residual_left_in_h4": true,
+    "inherited_a_b_source": "float64 analytic row scaling of pre-gate planes",
+    "retained_factor_source": "materialized float32 gate times pushed_u",
+    "finite_stored_a_b_bit_exact_replay": false,
+    "reason": "round_float32(g*u)^p is not identically equal to g^p*u^p; dropped planes are reread from rounded factors while inherited A/B use the analytic gate action.",
+    "tiny_tensor_factor_materialization_bound_checked": true,
+    "full_shape_required_report": [
+      "maximum and normwise A partition discrepancy per reset",
+      "maximum and normwise B partition discrepancy per reset",
+      "finite outputs",
+      "effect on total reset reconstruction"
+    ],
+    "assessment": "DISCLOSED_AND_BOUNDED_SOURCE_MODEL__LITERAL_TRAJECTORY_HOLD"
+  },
+  "projected_resource_audit": {
+    "phase2_budget": 2199023255552,
+    "specialized_base": 1909202324994,
+    "cp4r2048_addon": 234507794432,
+    "projected_total": 2143710119426,
+    "projected_headroom": 55313136126,
+    "projected_fraction": 0.9748464978774791,
+    "cp4_addon_components": {
+      "dominant_subtotal": 233997074432,
+      "enumerated_lower_order": 397488128,
+      "stored_gated_inherited_diagonal_rereads": 113231872
+    },
+    "w16_specialization_mandatory": true,
+    "unspecialized_over_budget_by": 26281805314,
+    "cap2560_active": false,
+    "cap2560_projected_total": 2181353793026,
+    "q_above_32": "HOLD",
+    "projection_recomputed_and_internally_consistent": true,
+    "literal_meter_complete": false,
+    "assessment": "PROJECTED_PASS_WITH_55_313_136_126_HEADROOM__LITERAL_METER_HOLD"
+  },
+  "projected_memory_audit": {
+    "phase2_limit_bytes": 8589934592,
+    "cp3_persistent_payload_bytes": 134283264,
+    "cp4_persistent_payload_bytes": 8396800,
+    "cp4_append_candidate_payload_bytes": 12595200,
+    "h3_h4_persistent_payload_bytes": 8388608,
+    "mean_covariance_persistent_payload_bytes": 8396800,
+    "rho_q0_through_q32_stack_bytes": 276824064,
+    "q32_group3_working_bound_bytes": 830472192,
+    "projected_components_below_limit": true,
+    "combined_literal_peak_rss_measured": false,
+    "assessment": "PROJECTED_PASS__LITERAL_PEAK_RSS_HOLD"
+  },
+  "evidence_and_science_audit": {
+    "positive_architecture_evidence_bound": true,
+    "diagonal_cp4_77_89_percent_oracle_gain_evidence_bound": true,
+    "mixed_plane_and_psd_failure_evidence_bound": true,
+    "coherent_rank24_late_harm_negative_control_bound": true,
+    "negative_evidence_interpreted_as_warning_not_accuracy_prediction": true,
+    "fb_ec4_32_accuracy_claim_present": false,
+    "trajectory_evidence_present": false,
+    "scientific_promotion_authorized": false,
+    "assessment": "SOURCE_RATIONALE_BOUND__ACCURACY_AND_TRAJECTORY_HOLD"
+  },
+  "authority": {
+    "source_bytes_clear": true,
+    "target_free_pinned_runtime_import_smoke_authorized": true,
+    "target_free_literal_full_shape_meter_authorized": true,
+    "target_free_closure_replay_authorized_only_as_part_of_that_meter": true,
+    "dataset_open_authorized": false,
+    "official_model_reader_authorized": false,
+    "role_access_authorized": false,
+    "target_or_label_access_authorized": false,
+    "fit_or_sampling_authorized": false,
+    "accuracy_scoring_authorized": false,
+    "submission_authorized": false,
+    "cap2560_activation_authorized": false,
+    "q_above_32_authorized": false,
+    "scientific_or_accuracy_claim_authorized": false,
+    "statement": "PASS applies only to these manifest-bound bytes entering a target-free pinned-runtime smoke and literal meter. It grants no data, model-reader, target, scoring, fitting, sampling, submission, or scientific authority."
+  },
+  "mandatory_holds": [
+    "EXACT_FLOPSCOPE_0_12_0_AND_WHESTBENCH_0_16_0_IMPORT_API_SMOKE",
+    "LITERAL_FULL_SHAPE_FLOPSCOPE_COST_BELOW_2_POW_41",
+    "RESIDUAL_WALL_TIME_AT_OR_BELOW_0_4_SECONDS_WITH_NO_OUT_OF_SCOPE_COMPUTE",
+    "WALL_CLOCK_AT_OR_BELOW_120_SECONDS",
+    "COMBINED_PEAK_RSS_BELOW_8_GIB",
+    "ALL_REPORTED_MEANS_FINITE",
+    "ACTUAL_LAYER_SHIFTED_AND_FULL_HANKEL_MARGINS_NONNEGATIVE",
+    "MEASURED_CP4_STORED_GATE_A_B_PARTITION_DISCREPANCY_ACCEPTABLE",
+    "CAP2560_INACTIVE",
+    "Q_ABOVE_32",
+    "DENSE_H1_ALL_DISTINCT_EMITTER",
+    "DATA_MODEL_READER_ROLE_TARGET_FIT_SAMPLING_SCORE_SUBMISSION",
+    "SCIENTIFIC_OR_ACCURACY_PROMOTION"
+  ],
+  "fail_closed_meter_requirements": {
+    "on_any_import_api_failure": "HOLD",
+    "on_any_budget_wall_residual_or_rss_failure": "HOLD",
+    "on_any_nonfinite_output": "HOLD",
+    "on_any_negative_actual_hankel_margin": "HOLD",
+    "on_unreported_stored_gate_a_b_discrepancy": "HOLD",
+    "on_any_manifest_bound_source_hash_change": "REQUIRE_NEW_MANIFEST_AND_NEW_INDEPENDENT_AUDIT"
+  }
+}

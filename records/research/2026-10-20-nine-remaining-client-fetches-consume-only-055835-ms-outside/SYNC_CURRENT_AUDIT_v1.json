@@ -1,0 +1,141 @@
+{
+  "stamp_utc": "2026-10-20 20:29:05 UTC",
+  "status": "NO_NEW_SYNC_SITES; NINE_INHERITED_FETCHES_SMALL_AND_DISPATCH_TIMED",
+  "candidate_sources": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a.py": "b41627a6cc4d3c67280ab85fd7400ff07a0a167621326fcdb07690abe84ccac7",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_micro_kclm_copyall_astra.py": "4a40feb6169ebc523f38e217e8d2727b9a4fb54ea5d7531ad2fc945df227544b",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_micro_k31age4_astra.py": "684f0f9c67efe46b2ff657e4156242a75e4b4ce1e673af096b7905325f5fd14a",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_micro_k31age4_ecut_astra.py": "44834f68eb9966b9c44d7bcce4325433828f6554da8ecf90dfbc69cb39dc707f"
+  },
+  "external_prompt": "https://discourse.aicrowd.com/t/shipped-covariance-propagation-example-trips-the-phase-2-residual-cap-locally-0-16-0-but-grades-fine-what-happens-when-the-evaluator-upgrades/18202",
+  "history": [
+    {
+      "source": "TEAM_LOG.md:6095",
+      "finding": "Earlier rank35 26 r.tolist +15 bool. NOSYNC removed RTT conditioning and YNT checks; 9 checks deliberately remain."
+    },
+    {
+      "source": "TEAM_LOG.md:6103",
+      "finding": "Historical nosync all32 byte-identical; 41 fewer requests; do not repeat closed change."
+    },
+    {
+      "source": "TEAM_LOG.md:6128",
+      "finding": "v4a deployment contains NOSYNC; platform 100/100."
+    }
+  ],
+  "static": {
+    "active_sites": [
+      {
+        "function": "_dcr_right",
+        "line": 16439,
+        "kind": "same_roster_required_to_return_compact_young_prefix",
+        "expected_count_rank35": 8
+      },
+      {
+        "function": "_slr_virtual_rotation_envelope",
+        "line": 3633,
+        "kind": "paid_fp64_bound_on_unformed_virtual_rotation",
+        "expected_count_rank35": 1
+      }
+    ],
+    "dormant_sites": [
+      {
+        "function": "_rtt_basis",
+        "reason": "Only rank1 repair/disabled-RTP path; active _rtp_qr_basis always returns two columns and _RTP_ON=True."
+      },
+      {
+        "function": "_astra_fhm_core",
+        "expression": "int(alive.sum())",
+        "reason": "collect_states=False throughout production call chain; copied diagnostic-only block, not a new executed sync."
+      }
+    ],
+    "metadata": "Shape/count/dtype/owner checks and RemoteArray len use Python metadata. E2Hold.append returns None so its or-expression does not coerce the held array.",
+    "new_tails": "No new reachable data-dependent coercion or array assertion. SYNC_TAIL_DIFF_v1.json records full-source additions including copied dead code."
+  },
+  "runtime": {
+    "input_files": {
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/sync_diag_micro_4a40_r35_v2/sync_diagnostic.json": "c656edb43e657487a144c21710a4987c0daff95037f5343edb52bf149456c2bd",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/sync_diag_micro_4a40_r35_v2/manifest.json": "2754fc54d8e99c103a7fc17e0e59d295beaa82cade184977aa22ac5508aea69c",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/sync_diag_micro_4a40_r35_v2/rows.jsonl": "c951010c2eb10c3eb2c69915286361dfb43381dadad448d20682c296e1fb9768",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/sync_diag_micro_4a40_r35_v2/GUARD_v1.json": "f71030a0b597a7e8c0145d8e7eae21d271eba544c6be9ac523530d7293dac1b4"
+    },
+    "exact_environment": "Current quiet dual boundary, boundary310_v1 + server310_openblas_v1, effective client/server0.12.3; NumPy2.2.6 server.",
+    "predict_fetches": 9,
+    "bool_calls": 9,
+    "bool_wall_ms": 2.348542,
+    "bool_dispatch_ms": 2.292707,
+    "bool_outside_dispatch_ms": 0.055835,
+    "metadata_len_calls": 224,
+    "other_predict_coercions": [],
+    "setup_or_import_coercions": [],
+    "sites": [
+      {
+        "phase": "predict",
+        "rank": 35,
+        "method": "RemoteArray.__bool__",
+        "site": "_dcr_right:16439",
+        "top_level": true,
+        "calls": 8,
+        "exceptions": 0,
+        "wall_ns": 2129042,
+        "dispatch_ns": 2081457,
+        "outside_dispatch_ns": 47585
+      },
+      {
+        "phase": "predict",
+        "rank": 35,
+        "method": "RemoteArray.__bool__",
+        "site": "_slr_virtual_rotation_envelope:3633",
+        "top_level": true,
+        "calls": 1,
+        "exceptions": 0,
+        "wall_ns": 219500,
+        "dispatch_ns": 211250,
+        "outside_dispatch_ns": 8250
+      }
+    ],
+    "final_fetch": [
+      {
+        "phase": "final_fetch",
+        "rank": 35,
+        "method": "RemoteArray._fetch_data",
+        "site": "<harness>",
+        "top_level": true,
+        "calls": 1,
+        "exceptions": 0,
+        "wall_ns": 37335875,
+        "dispatch_ns": 37314083,
+        "outside_dispatch_ns": 21792
+      }
+    ],
+    "limitation": "Observer/concurrent load changed the pre-existing runtime route. Existing fast_rescue ran32 operations atL12 vs0 in quiet run. Predictions and bill differ. Never use this diagnostic for release qualification; it establishes exercised coercion/fetch counts and local inclusive durations only.",
+    "quiet_prediction_sha256": "3411f80ca1001634746fd2373b5914b72e5803624b62d40f16a2638350ba20a9",
+    "diagnostic_prediction_sha256": "8b45a27f6ed124b6bd0a39b7909f877771e771b01b67c2c9ba9170ba4c968130",
+    "quiet_fast_rescue": {
+      "calls": 0,
+      "elements": 0
+    },
+    "diagnostic_fast_rescue": {
+      "calls": 32,
+      "elements": 36392960
+    }
+  },
+  "cost": {
+    "source": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/census_copy_all_exact_35_v1.json",
+    "source_sha256": "b2a32247d3e9595e5439e50c81227fe0cfa26289e7f78780f76b484cacf2701a",
+    "native_rank35_warm_site_flops": {
+      "_dcr_right": 20344,
+      "_slr_virtual_rotation_envelope": 9289747
+    },
+    "dcr_bill_pct_of_full_native_estimator": 8.61808710241659e-06,
+    "slr_bill_pct_of_full_native_estimator": 0.003935305190985707,
+    "note": "These are existing check costs, not authorized savings. SLR remains required."
+  },
+  "decision": {
+    "dcr": "Keep same equality/fallback. RoundedCDF ties can change row order. Backend inverse mapping/gather would replace current zero-cost slice with paid materialization; no unchanged/lower-bill general replacement demonstrated.",
+    "early_materialization": "Could relocate the identical comparison before push with exact object/owner validation; eager send_recv leaves the same requests and the measured outside-dispatch amount is only0.055835ms total. No candidate built or score credit claimed.",
+    "slr": "Preserve exact overflow bound.",
+    "further_diagnostic": "No repeat warranted on this evidence. Existing nine conversions do not explain an order-of-magnitude residual problem. Other copies/requests may be profiled separately if actual current boundary data identifies a hotspot."
+  },
+  "adjusted_pct_vs_science32_rel_v4a_m15": 0.0,
+  "no_estimator_changes": true
+}

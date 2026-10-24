@@ -1,0 +1,101 @@
+{
+  "all_exact_byte_parity": true,
+  "baseline_repeatability_v3_median_residual_wall_seconds": 0.46550803259015083,
+  "bindings": {
+    "audit_program_sha256": "80b8bca06ed2829be0104e1b5f04d9c672e9f664b7f2e53483499b08ab644c62",
+    "baseline_source_sha256": "5e4d4e7b661739c613012390fb38c8972c22d0f05d181f79a34caa7b09d7a16f",
+    "optimized_source_sha256": "2fd2d40d4e30cc32269afb0113e244ee76c0a51005bce166c7625510f66a8a76"
+  },
+  "call_order": [
+    "a",
+    "b",
+    "a"
+  ],
+  "calls": [
+    {
+      "exact_byte_parity": true,
+      "fixture": "a",
+      "meter": {
+        "backend_time_seconds": 24.3254504352808,
+        "exact_outer_wall_seconds": 25.42537400033325,
+        "flops_used": 2132366833051,
+        "flopscope_overhead_time_seconds": 0.7324032299220562,
+        "maximum_process_rss_bytes": 3179347968,
+        "residual_wall_time_seconds": 0.3675203761085868,
+        "wall_time_seconds": 25.425374041311443
+      },
+      "mlp_id": 89,
+      "observed_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+      "ordinal": 0,
+      "reference_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+      "role_rank": 35
+    },
+    {
+      "exact_byte_parity": true,
+      "fixture": "b",
+      "meter": {
+        "backend_time_seconds": 24.007721382193267,
+        "exact_outer_wall_seconds": 25.061052749864757,
+        "flops_used": 2123756968456,
+        "flopscope_overhead_time_seconds": 0.6943480521440506,
+        "maximum_process_rss_bytes": 3495804928,
+        "residual_wall_time_seconds": 0.3589775236323476,
+        "wall_time_seconds": 25.061046957969666
+      },
+      "mlp_id": 534,
+      "observed_output_sha256": "db57adf6c8e448ccf39e40ecefb4ba298fcc701536596987182fdfc550657aee",
+      "ordinal": 1,
+      "reference_output_sha256": "db57adf6c8e448ccf39e40ecefb4ba298fcc701536596987182fdfc550657aee",
+      "role_rank": 279
+    },
+    {
+      "exact_byte_parity": true,
+      "fixture": "a",
+      "meter": {
+        "backend_time_seconds": 23.91188074555248,
+        "exact_outer_wall_seconds": 24.939588124863803,
+        "flops_used": 2132363680256,
+        "flopscope_overhead_time_seconds": 0.6650872877798975,
+        "maximum_process_rss_bytes": 3797565440,
+        "residual_wall_time_seconds": 0.3626168416813016,
+        "wall_time_seconds": 24.93958487501368
+      },
+      "mlp_id": 89,
+      "observed_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+      "ordinal": 2,
+      "reference_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+      "role_rank": 35
+    }
+  ],
+  "data_firewall": {
+    "name_or_board_join": false,
+    "observer_selection_opened": false,
+    "target_columns_opened": []
+  },
+  "first_call_flops_unchanged": true,
+  "first_call_residual_savings_vs_v3_median_seconds": 0.09798765648156404,
+  "gates": {
+    "all_three_residuals_strictly_below_0_4_seconds": true,
+    "all_three_rss_below_8_gib": true,
+    "all_three_within_2pow41_flops": true,
+    "two_distinct_fixtures_exact": true,
+    "same_fixture_repeat_exact": true
+  },
+  "implementation": {
+    "mechanical_change_only": true,
+    "numerical_operations_changed_on_first_call": false,
+    "summary": "Lazily retain the fixed-width Hermite/fusion/CP3/identity/diagonal scratch context past _predict return; reuse it on sequential calls.",
+    "full_overwrite_audit": {
+      "cp3_active_banks": "Every active destination prefix is overwritten by _cp_push/_cp_grow before read; stale inactive suffixes remain outside returned rank views.",
+      "cp3_lambda": "Each prediction starts at rank zero and overwrites every newly activated 1024-wide suffix before it enters the active view.",
+      "cp3_product_workspaces": "Every active width*rank view is overwritten by multiply before einsum/matmul read.",
+      "fusion_14_plane_arena": "All returned planes are initialized by full copy/multiply/add or full masked diagonal replacement before consumption.",
+      "fusion_edgeworth_products_and_weights": "Every mutable slot is overwritten; weights[0] is immutable one and is never mutated.",
+      "q24_powers": "Power zero and one are copied in full, then powers 2..24 are multiplied in full before gather/read.",
+      "immutable_payloads": "Hermite roots/masks, scalar coefficients, identity, and diagonal mask are read-only."
+    }
+  },
+  "repeat_same_fixture_exact": true,
+  "schema": "h7b-residual-wall-scratch-audit-v1",
+  "status": "PASS"
+}

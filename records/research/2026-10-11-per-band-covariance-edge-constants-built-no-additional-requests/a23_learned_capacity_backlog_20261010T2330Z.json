@@ -1,0 +1,64 @@
+{
+  "utc_from_date_u": "2026-10-10T23:27:51Z",
+  "kind": "Read-only historical backlog audit; no training/inference/new truth runs",
+  "recommendation": {
+    "lever": "Layer-band contrasts in existing16-channel covariance edge bias/output, then encoder arrays only if gradient evidence warrants",
+    "status": "Open hypothesis; no measured gain. Search found scalar edge-strength bands but no executed full-array edge-band test.",
+    "reason": "Current shared edge arrays show coherent stale gradients, while jmL projects all e.* into one sign/RMS direction. Different layer bands can cancel or need different steps. Bias/output are16 channels, not16 layers.",
+    "scope": "Preserve channel width16 and current physical inputs. Copy existing arrays as zero-change/function-preserving initialization; choose precreated constants by layer. First screen gradients on training networks only after cut-refit, retaining independent acceptance and frozen untouched final judge.",
+    "native_cost": "Array selection can preserve same per-network arithmetic and signatures; setup/constants/cache changes still require native parity and release qualification. Head BAND precedent measured zero layer FLOPs/requests plus6 setup requests, not a certificate for an edge implementation.",
+    "do_not_claim": "No evidence this recovers8.77%, or any positive gain; do not rerun known failed width/auxiliary-loss recipes merely because their historical holdouts were public."
+  },
+  "evidence": [
+    {
+      "test": "Hidden128/128 to256/256",
+      "source": "../fable_covhunter_v1/RESULT.md:634,963",
+      "outcome": "Sep24 one epoch TRAIN160: VALID16 +0.135%,7/16 wins. Sep25 matched2epochs: control-0.463%,wide-0.538%; incremental-0.075%. CLOSED.",
+      "holdout": "Historical reused public VALID16; armA alone also judgedVALID40. No untouched-generated wide comparison located.",
+      "cost": "Approx2.265GF extra dense work,~0.88% current bill; analytic estimate, no measured native expansion."
+    },
+    {
+      "test": "Larger final native MLP151-512-256-1",
+      "source": "../codex_resume_20260926_v2/native_final_graph_head_v1/RESULT.md",
+      "outcome": "Graph FIT128-4.84726%, CHECK32+2.97073% (CI+2.31249,+3.67570),2/32 wins. Local control CHECK+0.07575%; closed.",
+      "holdout": "FIT/CHECK partition of previously usedTRAIN160; not pristine/generated."
+    },
+    {
+      "test": "Banded head feature weights",
+      "source": "../trainer/RESULT.md:1114",
+      "outcome": "jmE head columns6/20 L10 split:0/128 significant gradients each; mean t\u00b20.70/0.50. Closed.",
+      "scope_limit": "Not a full trunk or covariance-edge array band test."
+    },
+    {
+      "test": "Banded enc0 bias",
+      "source": "../trainer/RESULT.md:1120",
+      "outcome": "jmF +0.203% vs jmD,SE0.203,21/48 wins after biased sizing acceptance. Closed.",
+      "holdout": "Reused48 public ranks, no generated test.",
+      "cost": "TEAM_LOG:594 records zero added prediction FLOPs/requests;6 setup requests."
+    },
+    {
+      "test": "Auxiliary intermediate-mean loss",
+      "source": "../fable_covhunter_v1/RESULT.md:503,589,597",
+      "outcome": "w0.3 L10-14 auxiliary terms: VALID40-0.006% vs exact w0 control,CI[-0.154,+0.142],20/40 wins. Other24 beyond monitoredVALID16+0.124% worse. Closed.",
+      "scope_limit": "The exact w0.3 recipe was executed; no reason to reopen uniform intermediate MSE."
+    },
+    {
+      "test": "Optimizer staleness after physics moves",
+      "source": "../trainer/cert/cv/frozen_table_0frzg.out;../trainer/cert/refit/jmix.py:20,74;../trainer/cert/refit/jmL_d1/solve.out",
+      "outcome": "e.bias mean t\u00b210.65/split-half0.91; e.output8.32/0.94; e.rho_scale26.84; e.left7.05. Current jmL single edge arm alone+0.447%, fitted multiplier-0.475, joint sizing-0.347% but LOO+0.148%.",
+      "interpretation": "Global sign/RMS direction plus a16-network9-arm solve is not evidence for profitable extra width. Fresh cut-aware screen and smaller independently sized subarms/band contrasts are more grounded."
+    },
+    {
+      "test": "Current edge sharing implementation",
+      "source": "../trainer/candidates/jmIf/candidate.py:7734",
+      "outcome": "_g5_message_edge_base uses one _EDGE_PARAMETERS dict shared8-14; bias/output length16 are channel vectors; no direct layer index in edge features. Context from GNN is indirect depth information."
+    },
+    {
+      "test": "Isolated current edge16to32",
+      "source": "../engineer/RESULT.md:256;../engineer/a19_edge_cut/fragment_ecut_v2.py; historical capacity subaudit",
+      "outcome": "No isolated executed current expansion located. Prior nonlinear16 refit and32-channel new pair heads failed other gates, so not a universal edge-capacity bound.",
+      "cost": "Dense nonlinear pair channels, not covariance rank. Full edge formerly1.20% bill; EcutS saved0.66-0.70%, so extra16 channels costs roughly0.5% current bill (source estimate) and more workspace. Prefer free bands."
+    }
+  ],
+  "search_limits": "Bounded source/receipt audit of current O notes/source and relevant Sep19/Sep24/Sep25/Sep26 history; absence means no executed test located, not proof no artifact exists anywhere."
+}

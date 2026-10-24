@@ -1,0 +1,19 @@
+
+# [opus-wall] product census probe: top-level _mm / _shared_old384_mm calls with shape, charged FLOPs and charged ops (diagnostic only).
+_MMP_CNT = dict(flops=0, ops=0)
+_MMP_ROWS = []
+_MMP_DEPTH = [0]
+def _mmp_wrap(name, inner):
+    def w(left, right, *a, **k):
+        top = _MMP_DEPTH[0] == 0
+        f0, o0 = _MMP_CNT['flops'], _MMP_CNT['ops']
+        _MMP_DEPTH[0] += 1
+        try:
+            return inner(left, right, *a, **k)
+        finally:
+            _MMP_DEPTH[0] -= 1
+            if top:
+                _MMP_ROWS.append((name, int(_RS_LAYER[0]) if _RS_LAYER[0] is not None else -1, tuple(int(x) for x in left.shape), tuple(int(x) for x in right.shape),
+                                  _MMP_CNT['flops'] - f0, _MMP_CNT['ops'] - o0))
+    return w
+_mm = _mmp_wrap('_mm', _mm)

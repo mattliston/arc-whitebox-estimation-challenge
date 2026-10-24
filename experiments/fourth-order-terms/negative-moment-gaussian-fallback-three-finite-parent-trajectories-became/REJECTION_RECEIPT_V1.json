@@ -1,0 +1,52 @@
+{
+  "schema": "q24-negative-moment-gaussian-fallback-rejection-receipt-v1",
+  "status": "REJECTED_THIS_FORM__BROADER_MOMENT_REPAIR_OPEN",
+  "created_at_utc": "2026-08-24T12:02:12Z",
+  "bindings": {
+    "parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "ef642a8e6b7f928427fcf1f395496fd2b839e5089c06046dbb138ea7d4054e0c"
+    },
+    "runner": {
+      "path": "run_probe.py",
+      "sha256": "ca987f48839fb152069083b576af5e9f5ac2a7a8a7d0981aa7b14197da0f7666"
+    },
+    "results": {
+      "path": "runs/probe_v1/results.json",
+      "sha256": "5cf1cfaba2db35b08456da1b927c5802a096616196e492e55c4cfd6fd031ddee"
+    }
+  },
+  "decisive_failures": {
+    "total_fallback_activations": 1609,
+    "parent_finite_to_fallback_nonfinite_regressions": [
+      "qr_seed20260823_scale0p35_float64",
+      "official_he_width128_seed20260825",
+      "official_he_width128_seed20260826"
+    ],
+    "post_fallback_negative_r3_count_total": 0,
+    "post_fallback_negative_r4_count_total": 1,
+    "parent_failure_recovered_count": 2,
+    "pure_normal_final_disagreement_mse": 5.5628056614115673e-08,
+    "pure_normal_all_layer_disagreement_mse": 2024.5585812440984,
+    "pure_normal_maximum_absolute_difference": 489.56126576372117,
+    "official_he_width32_seed20260825_final_disagreement_mse": 1717176249695541.5,
+    "official_he_width32_seed20260825_all_layer_disagreement_mse": 1512627507768880.5,
+    "official_he_width32_seed20260825_maximum_absolute_difference": 253885240.16015625
+  },
+  "interpretation": {
+    "closed_claim": "Replacing a full marginal tuple by its Gaussian positive-part tuple whenever the propagated third or fourth raw moment is negative is not a stable recursive Q24 repair.",
+    "why": "The intervention activates 1609 times, introduces three parent-finite regressions, leaves one represented negative fourth moment, and catastrophically changes one otherwise-finite official-He fixture. Two recoveries do not offset these preregistered fatal failures.",
+    "not_closed": "A coherent connected-state shutdown or another joint high-order stability intervention remains open.",
+    "forbidden_successor": "Do not rescue this exact trigger or fallback by tuning an epsilon, scale threshold, or layer threshold against these results."
+  },
+  "access": {
+    "dataset_rows": 0,
+    "target_or_truth_values": 0,
+    "scores": 0,
+    "full_width_1024_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "graph_edits": 0
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "schema": "p2r0c1-packed-d4-reinvestment-static-freeze-v1",
+  "status": "PASS_TINY_CHANGING_RANK_BYTE_AND_METER_PARITY",
+  "date": "2026-08-27",
+  "decision": {
+    "packed_d4": "GO_BUILD_FULL_FIVE_COMPONENT_GATE_ONLY",
+    "production_replacement": "HOLD_UNTIL_FULL_GATE",
+    "fmo_m8_target_free_gate": "GO_SPECIFICATION_ONLY",
+    "fmo_m8_accuracy_state": "HOLD_SINGLE_CYCLIC_RANK_AND_CLASSICALITY_OBSTRUCTIONS",
+    "package_or_submit": "HOLD"
+  },
+  "authority_bindings": {
+    "d4_source_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "d4_result_sha256": "6d8e7cf98d45b1c667d7d16c373cf9935f96d1f07e44674ca8f9584d51c111d1",
+    "d23_official_flopscope_0_12_control_sha256": "c432588f3ed5123c10d2aa36b393f4335fcbfc1a183339c6cd672df91aac488e",
+    "d23_server_telemetry_sha256": "9685ac1a852bfbeb82201732fee8d7e98f6e2bf636feba38e1eb85190ca1f777",
+    "depth_ladder_sha256": "50e2a26f110b4354630bf84f74e6e78433604a4d859b1d162b8f10e8e2144426",
+    "d15_packed_kernel_sha256": "f16a4953a365d789d170270758c5fdc08f8bb059e792a7f41b3d62ecd19e1891",
+    "d15_static_receipt_sha256": "8db4e0e286a7f52b74a029981a46ddf2c29f4408411f74b868d0d572e5647065",
+    "d15_full_result_sha256": "7571c8948ef992643642fb39731295b341fea9e7929aa8f9e53cbbe5c4623964"
+  },
+  "artifact_bindings": {
+    "packed_d4_kernel_sha256": "bc23fe4f8a46bd194390b53523d63d5ab136fc1feb0240d589fcaf3fad681a37",
+    "audit_tiny_static_sha256": "d516fc7b7dc6581e2d86d7d88171183294bc08aca185fb70c9e49a81faf4e409",
+    "fmo_m8_target_free_gate_sha256": "b191f44de6851f63bbc39d92d2bc691e4a089cfa48bd03e7aedada66e7582a92",
+    "derivation_sha256": "5414731c1b955e64fdbf7c6d0cac2f13f20bf2534f808c1e85fd1fdce1d1e9fa"
+  },
+  "environment": {
+    "python": "3.11.5",
+    "flopscope_distribution": "0.12.0",
+    "flopscope_local_runtime": "0.12.0+np2.4.6",
+    "bound_official_client_distribution": "0.12.0",
+    "bound_official_client_runtime": "0.12.0"
+  },
+  "tiny_gate": {
+    "width": 16,
+    "call_order": [
+      "push16_first",
+      "read16_first",
+      "push32",
+      "read32",
+      "push16_repeat",
+      "read16_repeat"
+    ],
+    "shapes": [
+      [16, 16, 16],
+      [16, 16, 16],
+      [16, 16, 32],
+      [16, 32, 16],
+      [16, 16, 16],
+      [16, 16, 16]
+    ],
+    "kernel_flops": [23136, 23136, 38407, 43668, 23136, 23136],
+    "kernel_calls_each": {
+      "add": 28,
+      "copyto": 56,
+      "matmul": 1,
+      "subtract": 32
+    },
+    "all_parent_candidate_bytes_identical": true,
+    "all_parent_candidate_meters_identical": true,
+    "push_aba_repeat_bytes_identical": true,
+    "read_aba_repeat_bytes_identical": true,
+    "all_external_outputs_strided": true,
+    "parent_binding": {
+      "reshape_calls": 52,
+      "reshape_flops": 78041
+    },
+    "candidate_binding": {
+      "reshape_calls": 48,
+      "reshape_flops": 76505
+    }
+  },
+  "production_exact_static_proof": {
+    "old_shared_arena_elements": 844165120,
+    "old_shared_arena_bytes": 3376660480,
+    "new_push_arena_elements": 331563008,
+    "new_push_arena_bytes": 1326252032,
+    "new_read_arena_elements": 511393792,
+    "new_read_arena_bytes": 2045575168,
+    "new_shared_arena_elements": 511393792,
+    "new_shared_arena_bytes": 2045575168,
+    "separate_nonaliased_read_output_elements": 2097152,
+    "separate_nonaliased_read_output_bytes": 8388608,
+    "new_total_persistent_scratch_bytes": 2053963776,
+    "persistent_saving_bytes": 1322696704,
+    "old_binding_reshape_calls": 52,
+    "new_binding_reshape_calls": 48,
+    "old_binding_flops": 1919598592,
+    "new_binding_flops": 1886044160,
+    "cold_binding_saving_flops": 33554432,
+    "hot_kernel_flops_delta": 0,
+    "hot_kernel_call_delta": 0,
+    "candidate_call_flops": [
+      1319838156151,
+      1356595288584,
+      1317948959232
+    ],
+    "maximum_call_flops": 1356595288584,
+    "maximum_flop_headroom": 842427966968,
+    "push_lifetime_intervals_elements": {
+      "a_even": [0, 9834496],
+      "b_even": [9834496, 157351936],
+      "a_odd": [157351936, 162971648],
+      "b_odd": [162971648, 247267328],
+      "dependency": [247267328, 331563008],
+      "leaf": [184045568, 331563008],
+      "product0": [0, 84295680],
+      "u": [84295680, 168591360],
+      "product1": [184045568, 268341248]
+    },
+    "read_lifetime_intervals_elements": {
+      "a_even": [0, 137682944],
+      "b_even": [137682944, 275365888],
+      "a_odd": [275365888, 354041856],
+      "b_odd": [354041856, 432717824],
+      "dependency": [432717824, 511393792],
+      "leaf": [501559296, 511393792],
+      "product0": [0, 5619712],
+      "u": [5619712, 11239424],
+      "product1": [501559296, 507179008]
+    }
+  },
+  "projections_explicitly_not_proven": {
+    "packed_process_peak_bytes": 5411373056,
+    "packed_margin_below_8_gib_bytes": 3178561536,
+    "d4_measured_maximum_residual_seconds_used_as_envelope": 0.35151344118639827,
+    "remaining_residual_envelope_seconds": 0.048486558813601754,
+    "runtime_saving_claimed": false,
+    "all_five_public_components_proven": false
+  },
+  "fmo_reinvestment": {
+    "one_contiguous_separate_bank_statically_fits": true,
+    "bank_cap_bytes": 16777216,
+    "arena_alias_forbidden": true,
+    "scout_incremental_flops_not_officially_metered": 5282856960,
+    "combined_projected_maximum_call_flops": 1361878145544,
+    "combined_projected_flop_headroom": 837145110008,
+    "combined_projected_peak_bytes": 5428150272,
+    "combined_projected_rss_margin_bytes": 3161784320,
+    "target_free_rank_gate_specified": true,
+    "target_free_parity6_gate_specified": true,
+    "accuracy_state_executed": false,
+    "raw_mse_improvement_claimed": false
+  },
+  "required_next_full_gate_components": [
+    "host",
+    "native_raw20",
+    "native_sigma",
+    "native_j_correction",
+    "final_public_prediction"
+  ],
+  "scope": {
+    "estimator_imports": 0,
+    "estimator_calls": 0,
+    "production_arrays_allocated": false,
+    "fixture_access": false,
+    "target_or_score_access": false,
+    "board_access": false,
+    "network": false,
+    "package": false,
+    "submission": false
+  }
+}

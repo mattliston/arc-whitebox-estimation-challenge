@@ -1,0 +1,102 @@
+{
+  "asof_utc": "2026-09-27T00:17:46.342594+00:00",
+  "status": "Closed at predeclared TRAIN2 information gate",
+  "mechanism": "Fixed zero-sum linear depth profile of the complete post-layer b-vector scale, theta = +/-0.02; all other source and model parameters frozen.",
+  "scope": "Repeatedly used training networks only; no held-out or generalization result.",
+  "information": {
+    "scope": "Reused TRAIN2 finite-direction information only; not an evaluated estimator at theta or a general upper bound",
+    "rows": [
+      {
+        "rank": 35,
+        "even_to_odd_ratio": 0.8597017768133448,
+        "odd_rms": 4.615894549114436e-06,
+        "even_rms": 3.968292745456713e-06,
+        "plus_raw_pct": 0.40377939654749895,
+        "minus_raw_pct": -0.6455899227236661,
+        "first_layer_byte_exact": true
+      },
+      {
+        "rank": 100,
+        "even_to_odd_ratio": 0.8979298218254638,
+        "odd_rms": 5.663381965948971e-06,
+        "even_rms": 5.0853195596141046e-06,
+        "plus_raw_pct": 0.10624596166513012,
+        "minus_raw_pct": -0.7989206662886383,
+        "first_layer_byte_exact": true
+      }
+    ],
+    "unclipped_theta": -0.029571138170613392,
+    "clipped_theta": -0.029571138170613392,
+    "linearized_raw_gain_pct": 0.39485929207587755,
+    "information_gate_passed": false,
+    "decision": "Close this fixed depth contrast; no finer step/profile/layer fit or validation"
+  },
+  "arms": [
+    {
+      "name": "plus",
+      "candidate_sha256": "b1030d20347ea71d17578db3568cd2c7de8be8cde481ec347bc7c943ef601cdc",
+      "tag": "trace_vector_depth_tilt_plus_train2_v1",
+      "raw_pct": 0.2499337788361533,
+      "adjusted_pct": 0.2501412809245318,
+      "complete_bills_identical": true,
+      "guard": {
+        "pid": 52353,
+        "command": [
+          "../astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python",
+          "native_eval.py",
+          "candidate_trace_vector_depth_tilt_plus_v1.py",
+          "35,100",
+          "trace_vector_depth_tilt_plus_train2_v1"
+        ],
+        "initial_swap_bytes": 2370043904.0,
+        "rss_trigger_bytes": 7500000000,
+        "poll_sleep_s": 0.05,
+        "max_rss_bytes": 5138104320,
+        "max_swap_growth_bytes": 0,
+        "completed": true,
+        "error": null,
+        "samples": 613,
+        "maximum_sample_interval_s": 0.08276629261672497,
+        "minimum_sample_interval_s": 0.06642191577702761,
+        "exit_code": 0,
+        "remaining_rows": [],
+        "elapsed_s": 45.3942409157753,
+        "whole_group_retired": true
+      }
+    },
+    {
+      "name": "minus",
+      "candidate_sha256": "0e1bd0296b6d4f5729f23ffd8cd1544720ba37a89930ae4f09217eea34dcdaca",
+      "tag": "trace_vector_depth_tilt_minus_train2_v1",
+      "raw_pct": -0.7248726526367544,
+      "adjusted_pct": -0.7247657186059242,
+      "complete_bills_identical": true,
+      "guard": {
+        "pid": 54336,
+        "command": [
+          "../astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python",
+          "native_eval.py",
+          "candidate_trace_vector_depth_tilt_minus_v1.py",
+          "35,100",
+          "trace_vector_depth_tilt_minus_train2_v1"
+        ],
+        "initial_swap_bytes": 2370043904.0,
+        "rss_trigger_bytes": 7500000000,
+        "poll_sleep_s": 0.05,
+        "max_rss_bytes": 5140856832,
+        "max_swap_growth_bytes": 0,
+        "completed": true,
+        "error": null,
+        "samples": 616,
+        "maximum_sample_interval_s": 0.08212616574019194,
+        "minimum_sample_interval_s": 0.06666716560721397,
+        "exit_code": 0,
+        "remaining_rows": [],
+        "elapsed_s": 45.689129625447094,
+        "whole_group_retired": true
+      }
+    }
+  ],
+  "decision": "No fitted candidate, finer step, new profile, free layer fit, sign selection, TRAIN6, validation, bundle or submission follows this failed contrast.",
+  "interpretation": "The better negative probe does not override the predeclared information gate. The linearized projection is not an evaluated estimator or universal accuracy bound."
+}

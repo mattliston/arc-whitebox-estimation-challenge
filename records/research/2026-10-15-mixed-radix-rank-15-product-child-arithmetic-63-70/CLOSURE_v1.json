@@ -1,0 +1,46 @@
+{
+  "status": "CLOSED_DIRECT_OUTER_RANK15_SPLIT_BEFORE_IMPLEMENTATION",
+  "utc": "2026-10-15T19:08:35.438560+00:00",
+  "published_algorithm": "https://fmm.univ-lille.fr/2x3x3.html",
+  "algorithm": "Hopcroft-Kerr exact real rank15 for2x3x3; cyclic tensor symmetry gives3x2x3",
+  "method": "Existing current1c913 actual FNP charging path, shape-only backend; 15 unchanged current child kernels, ignoring all combination/copy/setup/RPC overhead",
+  "favorable_bank_shape": {
+    "shape": [
+      960,
+      4096,
+      384
+    ],
+    "child": [
+      320,
+      2048,
+      128
+    ],
+    "warm_no_add_bill_increase_percent": 63.69967320223802
+  },
+  "recorded_current_read": {
+    "shape": [
+      736,
+      8640,
+      768
+    ],
+    "child": [
+      368,
+      2880,
+      256
+    ],
+    "warm_no_add_bill_increase_percent": 68.0224155353793,
+    "source_certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_hermite_group_fusion_final_science_v1/run_hf_pilot_s0_v1/native_7103248_ON.json",
+    "source_field": "_ASTRA_RLF_STATS.shapes; young product alone, no claim of retaining fused old read"
+  },
+  "reason": "Current depth6/half-zero packing beats rank15 at the proposed outer tier; child geometries lose favorable packed routes. Even zero-cost additions cannot rescue these shapes.",
+  "limitations": "This closes the concrete direct outer-tier rank15 construction on these eligible shapes, not every possible mixed-radix circuit or complete shape census.",
+  "models": 0,
+  "numerical_kernels": 0,
+  "evidence_sha256": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mixed_radix15_audit_v1/2x3x3_raw.mpl.bz2": "34c8f7dbb56914c1cf25476c4d41f0047165b1e44ce6676fb70991def1019e75",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mixed_radix15_audit_v1/ACTUAL_SHAPE_BOUND_v1.json": "32ba3580e6281e98158afe0070a6d22a270271ee5f8fa283d94842ac4efe8a6c",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mixed_radix15_audit_v1/price_actual_shape_v1.py": "5bd2e1994d65909ff26c5383198b6b7f73dc0aeaad97ed960681e72e1d494aba",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mixed_radix15_audit_v1/price_rank15_v1.py": "afb3b8bd3d72676dfa13cf2011179d6ffba92e1dbed287e99eb722423bc56be5",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_mixed_radix15_audit_v1/TARIFF_BOUND_v1.json": "4314661ffa79e906370ffa1d4992730c33525207e313b16593f9943d4900892f"
+  }
+}

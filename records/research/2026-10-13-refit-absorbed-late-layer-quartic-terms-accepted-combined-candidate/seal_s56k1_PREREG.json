@@ -1,0 +1,22 @@
+{
+ "tag": "s56k1",
+ "utc": "2026-10-13T17:02:53Z",
+ "base": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/s54k1tw_x/candidate.py",
+ "base_sha256": "db2d50756c5f34438e3c49cabfce272ebdfa4337d248d78fb775e211e2641563",
+ "stack": "s49/s56k1tw_x, built by chain_round_stack_v6.sh 56 s56k1 (S56 port twin + every carried delta; S56_DECISION: fired s54k1tw, extra none); its sha is posted by the chain",
+ "seeds": [
+  7190032,
+  7190033,
+  7190034,
+  7190035,
+  7190036,
+  7190037,
+  7190038,
+  7190039
+ ],
+ "allocation": "RE-USED from the cancelled s54k2 (seal_alloc_v1.jsonl, 15:40:11Z): s54k2 was never built (K4X_DECISION none at 17:01Z), so these 8 networks carry only the fired s54k1tw_x base side (cert_fs_seal_s54k2_base, 16:00-16:33Z) and no stack-side run; that base side is exactly this seal's base (the same fired file), copied to cert_fs_seal_s56k1_base",
+ "runner": "O/scout_native/run_cert_v2.py, PB_ALL=1, guard v3, BLAS threads 1",
+ "score": "per network log(final MSE stack / base) + log(flops stack / flops base) from the same runs (bill x MSE)",
+ "rule": "8 networks: FIRE iff mean < 0; 0 <= mean < +1 se -> 8 more (the next 8 of seal_block_v2: 7190040-047), then FIRE iff the 16-network mean < 0; else NO FIRE",
+ "note": "pre-registered at S56_DECISION time, before S56 ports; saves the base side and keeps 7190040-047 free for an extension"
+}

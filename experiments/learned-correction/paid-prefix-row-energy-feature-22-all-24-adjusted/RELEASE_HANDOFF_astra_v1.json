@@ -1,0 +1,116 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_v1/candidate_prefix_energy22_HELD_v1.py",
+    "sha256": "7b1266280f75edd8e44800e6afdcc5981d9f5d27f1a8226e73cac6f1f1abc84a",
+    "mode": 1
+  },
+  "parent_sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a",
+  "scientific_qualification": "PASS frozen all24 and OOS8 PRIMARY adjusted mean-log signs; no tuning",
+  "qualification": {
+    "n": 24,
+    "means": {
+      "PRIMARY": {
+        "MSE_log_pct": -0.2032131850775976,
+        "bill_log_pct": 0.040742746748348165,
+        "net_log_pct": -0.16247043832924946,
+        "ops_delta": 364.2083333333333
+      },
+      "e406": {
+        "MSE_log_pct": -0.38933335974101685,
+        "bill_log_pct": -0.34403575207680326,
+        "net_log_pct": -0.73336911181782,
+        "ops_delta": 447.3333333333333
+      }
+    },
+    "groups": {
+      "fresh16": {
+        "PRIMARY": {
+          "MSE_log_pct": -0.21179383511439548,
+          "bill_log_pct": 0.04063610884571598,
+          "net_log_pct": -0.1711577262686795,
+          "ops_delta": 364
+        },
+        "e406": {
+          "MSE_log_pct": -0.44924209425130557,
+          "bill_log_pct": -0.34300348537082725,
+          "net_log_pct": -0.7922455796221328,
+          "ops_delta": 447.3125
+        }
+      },
+      "OOS8": {
+        "PRIMARY": {
+          "MSE_log_pct": -0.18605188500400194,
+          "bill_log_pct": 0.04095602255361254,
+          "net_log_pct": -0.14509586245038938,
+          "ops_delta": 364.625
+        },
+        "e406": {
+          "MSE_log_pct": -0.26951589072043947,
+          "bill_log_pct": -0.34610028548875515,
+          "net_log_pct": -0.6156161762091946,
+          "ops_delta": 447.375
+        }
+      }
+    },
+    "SE_pct": {
+      "PRIMARY": 0.06162819748682426,
+      "e406": 0.12844581193185076
+    },
+    "all_implementation_pass": true,
+    "all_actual_retired": true
+  },
+  "source_rule": {
+    "feature": 22,
+    "coefficient": 1,
+    "weighting": "sum inverse tail variances / sum inverse prefix variances",
+    "scope": "All affected hidden L1\u201314; L0 and L15 untouched; typically L2\u201314.",
+    "unchanged": "All original read/physics values; only row-energy feature22 restored."
+  },
+  "billing": {
+    "native_bill_comparable": true,
+    "mean_flops": 246254409345.95834,
+    "min_flops": 233553290651,
+    "max_flops": 261104254596,
+    "mean_ops": 39833.708333333336,
+    "ops_delta": 364.2083333333333,
+    "setup_pb_single_count": 649,
+    "setup_pb_single_sha256": "b5f39ecf35c6665d1fe3655a9ee1f3b16f8eb2349d6576c1ffa22301f8067f06"
+  },
+  "runtime": {
+    "production_wall_valid": false,
+    "release_required": "Validate exact frozen candidate in production runtime; science wall clocks are not release evidence.",
+    "science_predict_wall_max_s": 34.38063691742718,
+    "science_predict_wall_mean_s": 32.32141647938018,
+    "max_rss_bytes": 6518128640,
+    "max_footprint_bytes": 2282132376,
+    "min_admission_free_percent": 79,
+    "guard_pressure_sampling": "Disabled in inherited guard; collector independently polls free memory."
+  },
+  "retirement": {
+    "all8_managed_sessions_actual_exit0": true,
+    "all_owned_processes_absent": true,
+    "research_slots_released": 4
+  },
+  "release_authority": "Root only; this handoff does not submit or authorize fire.",
+  "risks": [
+    "Late-layer prefix residual energy includes old-cohort residual contamination; measured fixed candidate passes all24/OOS despite this proxy limitation.",
+    "Adjusted gain is modest, below .5%; user/root chose to release qualifying smaller improvements."
+  ],
+  "evidence_sha256": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/PROTOCOL_REGISTERED_astra_v1.json": "8b120dcbc70a4638fda1b67f4a845e42cd6068f41961141c46c7690d68604e3c",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/ROOT_PILOT_AND_CONDITIONAL_REMAINING_GRANT_v1.json": "2fcd834371501119d011e90373584606d7500668ffe9221c34448964a2956ecc",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/PILOT_DECISION_astra_v1.json": "a32f072f5df07ac237830d32156b5f1d343ac2e2743c93e4ae532302ae4ba17b",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/PILOT_RETIREMENT_astra_v1.json": "3ca673c3eb07c59a8df2c26efd9e9ae9659832c3bf965d86bd2872f759d1cd5b",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/ALL24_DECISION_astra_v1.json": "f0bdcda6bcc19a6c9f737847c4e21c7cfe00849a2db8ac4983f5153fa3867797",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/REMAINING_RETIREMENT_astra_v1.json": "e4c509f371b0569dcf074b0e812793b7e004ccee6f14a3c4cc55d4d19532900d",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/finite_rpe_astra_v1.py": "1bf6906c54e99984d821fe6765cc4ae2f3e1a7ff1b191a73b5a1efd2bd9cb589",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/native_rpe_judge_astra_v1.py": "919b24a4115a57d148e907edfc0e0a0461ed1f00c8c69e2c3ee9ce5ba8636847",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/rpe_source_contract_v1.py": "dceef9ee25f924ee5494536a2a6ccad47039f76f230f5e3f22fc04252a83493c",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_science_v1/grade_rpe_retired_phase_v1.py": "72b33ad28cf443401d9dce88a3c402331ce8aee990a58b79781f1292c33baf81",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_v1/candidate_prefix_energy22_HELD_v1.py": "7b1266280f75edd8e44800e6afdcc5981d9f5d27f1a8226e73cac6f1f1abc84a",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_v1/source_diff_v1.patch": "2ad314f3161ff9d5e7f360c570f502240e0cd8f246232cdf7d212f99dfd9eed9",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_v1/SOURCE_HELD_v1.json": "8a7c2476811bb8878636f1c456c62aed3dd9344e545c342d392610432eaf4888",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_v1/ACTUAL_FNP_TINY_v2.json": "97b3de27075822417dd21abfc0dad843382ca9878058235984e331df095abaa3",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_v1/LARGER_ACCURACY_PEER_PASS_v1.json": "c710a5015c91405dbd1201959c1b6af9dcc8001bf017b651968428a0aa1949b1"
+  }
+}

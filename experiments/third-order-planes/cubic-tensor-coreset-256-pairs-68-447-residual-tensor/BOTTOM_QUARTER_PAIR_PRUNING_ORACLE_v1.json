@@ -1,0 +1,39 @@
+{
+  "status": "FIXED_BOTTOM_QUARTER_HISTORICAL_TENSOR_ORACLE_NO_MODELS",
+  "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a35_join/state/s39_rank0651.npz",
+  "archive_sha256": "f8d64aec21a167a21e7afd330f82d2acd3c2b508422e6158acb35a295647787d",
+  "full_tensor_reference": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_read_pair_coreset_audit_v1/SAVED_PAIR_CORESET_ORACLE_v1.json",
+  "full_tensor_reference_sha256": "655bd56990f2543a5dcf6fbe3f1cf293f5b5c09a9fe1fdd5ccd47248d3644329",
+  "source_sha256": "fe5ef375ee75fb8dc2179d94016c5670a49925192e964f946ff183d7739b0d3d",
+  "rule": "Drop bottom25% pairs by lambda^2*||fplus^3-fminus^3||_F^2; original signed lambdas unchanged; stable index ties",
+  "frame": {
+    "rank": 320,
+    "common_rank": 256,
+    "pairs": 5888,
+    "pair_blocks": [
+      1024,
+      1024,
+      1024,
+      992,
+      928,
+      896
+    ],
+    "source_generation": "S39 native651 L10"
+  },
+  "dropped_pairs": 1472,
+  "retained_pairs": 4416,
+  "omitted_tensor_squared_norm": 0.5307117534195217,
+  "full_tensor_squared_norm": 37.860185585512895,
+  "relative_squared_tensor_error": 0.014017674377766316,
+  "relative_tensor_frobenius_error": 0.11839625998217307,
+  "fraction_sum_individual_squared_norm": 0.015060045550052812,
+  "original_signed_weights_preserved": true,
+  "elapsed_seconds": 0.4471695013344288,
+  "history": "Nearby engineer/a61_prune closed YOUNG birth/read pruning from flat/cancelling energies; no exact OLD read-only pair-pruning arm found in bounded history.",
+  "limitations": [
+    "Historical S39 native651 L10 effective common256/difference320 frame only; not current output/truth.",
+    "Exact paired cubic-Gram identity with F32 cross products and F64 cubes, not sum-of-independent-energy approximation.",
+    "Folded old NP q/xq term and later U/gate transport not tested.",
+    "One fixed fraction; no fitting, Gram solve, parameter sweep, or native model."
+  ]
+}

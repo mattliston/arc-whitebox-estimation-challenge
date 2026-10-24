@@ -1,0 +1,81 @@
+{
+  "utc": "2026-10-21T10:42:34Z",
+  "successful": true,
+  "one_tensor_export_authorized": true,
+  "recipe_sha256": "8007030f426639dc1797a701bdefad5a767549ec24984ad3b0a116428309c6a8",
+  "exporter_sha256": "490fe55b85cd2af320c09074213d4d0f8af5139f42a455a10b6cc72f1c1811e0",
+  "fit_custody_sha256": "e4b494e4ae391759575f7278c6666d86f547a2be8f482f7ed8f6e28bde35b0c2",
+  "all_recipe_and_copied_receipt_pins_verified": true,
+  "fitted_sha256": "1433c329c60adceba5214d74ecec41f0443e316582766124a6b91e902e0753af",
+  "guard_sha256": "43e9f64c0e9be6022465f37dac27028b63d087f6e7d38c8481da1d6ddf881a56",
+  "cross_validation_recomputed": {
+    "mean_pct": -0.5898238460637762,
+    "network_se_pct": 0.03269628005848459,
+    "wins": 87,
+    "n": 90,
+    "fold_means_pct": [
+      -0.6040796886893943,
+      -0.63185203939412,
+      -0.5740351373692073,
+      -0.6106594831263239,
+      -0.5284928817398437
+    ]
+  },
+  "coefficient_custody": [
+    {
+      "family": "fold0",
+      "train_n": 72,
+      "held_n": 18,
+      "seal_sha256": "204b892525ec25adb53a3cb4070aa793bfdb7787cec88916afa6b2544b0343df",
+      "physical_rms": 0.10170030085124805,
+      "physical_max_layer": 0.34347289375654855
+    },
+    {
+      "family": "fold1",
+      "train_n": 72,
+      "held_n": 18,
+      "seal_sha256": "31a665fd2c4e25123c28d73aa4733d3590169bd6c2d57977516a836f4b250b9a",
+      "physical_rms": 0.10103264899307884,
+      "physical_max_layer": 0.3392782878346418
+    },
+    {
+      "family": "fold2",
+      "train_n": 72,
+      "held_n": 18,
+      "seal_sha256": "55d5ead3428ad921eab7af982fce2dfacc3f4e09992aa1a293fe6e9d39086728",
+      "physical_rms": 0.10237127129592301,
+      "physical_max_layer": 0.3443690603357238
+    },
+    {
+      "family": "fold3",
+      "train_n": 72,
+      "held_n": 18,
+      "seal_sha256": "69736fd1fec88e09d000747af06bca84521618e7fe1346a808355daf06c3b530",
+      "physical_rms": 0.10132548478636262,
+      "physical_max_layer": 0.34233564568899205
+    },
+    {
+      "family": "fold4",
+      "train_n": 72,
+      "held_n": 18,
+      "seal_sha256": "c0634515697eb5e5857860bb7287cfbaac65b448427c367de000590046be0eef",
+      "physical_rms": 0.10238405102957412,
+      "physical_max_layer": 0.3477452867820813
+    },
+    {
+      "family": "full90",
+      "train_n": 90,
+      "held_n": 0,
+      "seal_sha256": "32d1c08b9595683fc61d7f19c8794dabcd2238c25442701cfcac52720927a162",
+      "physical_rms": 0.10066949461540381,
+      "physical_max_layer": 0.34195512479995177
+    }
+  ],
+  "fitter_sequence_exact": "Each fold seals its coefficients before opening its own held18; original loop then computes next fold and full90. This is not a claim that all five coefficient seals preceded every held evaluation or that full90 was conditionally skipped on CV failure. No adaptive parameter changes; all final gates passed.",
+  "conditional_prior_limitation": "Original777a prior treated fixed; clean exclusion covers two new adaptation stages, not historical pretraining.",
+  "source_review": "Exporter490fe55b fully read: pure stdlib; append exact head/head_b/hidden_head float32-add rows1..15 to b54/4685; preserve entire parentprefix/allfunctions/nonheads/layer0/shapes; no first128.",
+  "native_or_paid_runtime_gain_claim": false,
+  "next_required": "Independent tensor proof, source/SDK/tariff qualification, fixed paidSMoff/NPoff/no-census companion, own final-stack paired Mac/VM scores vs latest verified BEST plus own parent, actual runtime margin.",
+  "one_native_launch_authorized": false,
+  "release_or_fire_authorized": false
+}

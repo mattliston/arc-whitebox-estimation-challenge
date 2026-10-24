@@ -1,0 +1,399 @@
+{
+  "access_accounting": {
+    "bank_or_staging_payload_bytes_opened": 0,
+    "board_or_score_payload_bytes_opened": 0,
+    "fitted_model_payload_bytes_opened": 0,
+    "live_archive_or_package_payload_bytes_opened": 0,
+    "live_estimator_or_MLP_executions": 0,
+    "live_package_builds": 0,
+    "mps_executions": 0,
+    "network_or_submission_actions": 0,
+    "numerical_training_or_scoring_runs": 0,
+    "public_row_or_weight_payload_bytes_opened": 0,
+    "static_and_synthetic_sources_only": true,
+    "synthetic_in_memory_archive_and_model_adversaries_executed": true,
+    "target_payload_bytes_opened": 0
+  },
+  "authorization": {
+    "accuracy": false,
+    "actual_state_parity": false,
+    "bank_ready": false,
+    "board": false,
+    "estimator_promotion": false,
+    "export": false,
+    "live_header_adapter": false,
+    "meter": false,
+    "model": false,
+    "model_path_access": false,
+    "mps": false,
+    "network": false,
+    "package": false,
+    "refit": false,
+    "static_semantic_successor_accepted": false,
+    "submission": false,
+    "target": false
+  },
+  "date": "2026-08-28",
+  "decision": "REPAIR_RESEAL_AND_INDEPENDENTLY_REVIEW_A_NARROW_SUCCESSOR_BEFORE_ANY_LIVE_MODEL_EXPORT_METER_PACKAGE_OR_SUBMISSION",
+  "exact_repair_findings": {
+    "unrepaired_meter_exactness": {
+      "accepted_adversarial_classes": [
+        "negative-zero wall_seconds",
+        "negative-zero residual_wall_seconds",
+        "integer false alias in runtime MPS_used",
+        "float aliases in row shape",
+        "float alias in aggregate networks",
+        "float alias in aggregate maximum_flops",
+        "integer true alias in aggregate repeat boolean",
+        "integer false alias in accuracy-boundary boolean",
+        "integer true alias in accuracy-boundary boolean",
+        "integer false alias in authority boolean"
+      ],
+      "exact_builtin_meter_scalar_types_frozen": false,
+      "negative_zero_meter_observations_rejected": false,
+      "required_repair": "Use sign-aware binary64 validation for every nonnegative meter observation; require exact built-in list, integer, float, and boolean types for runtime, row shape, aggregate, accuracy-boundary, and authority fields; add all reproduced witnesses as regression fixtures."
+    },
+    "v1r2_hold_repairs_verified": {
+      "architecture_trace_runtime_receipt_seal_and_model_review_exact_types": true,
+      "exact_positive_model_review_status_and_decision": true,
+      "fully_cross_bound_wrong_batch_digest_bundle_rejected": true,
+      "independent_J_and_H_specific_PCG64_batch_roots_pinned": true,
+      "model_adapter_nonnegative_binary64_negative_zero_rejected": true
+    }
+  },
+  "frozen_inventory_recount": {
+    "exact_22_tensor_count_by_H": {
+      "16": 22,
+      "256": 22,
+      "64": 22
+    },
+    "exact_field_inventory_counts": {
+      "J_header": 9,
+      "architecture": 5,
+      "export_bindings": 45,
+      "header": 14,
+      "model_review": 12,
+      "model_seal": 14,
+      "pair_header": 8,
+      "source_bindings": 53,
+      "training_receipt": 23
+    },
+    "exact_ordered_tensor_names": [
+      "J/state/source_weight",
+      "J/state/source_bias",
+      "J/state/gate_weight",
+      "J/state/gate_bias",
+      "J/state/transport_delta",
+      "J/state/mix_delta",
+      "J/state/centers",
+      "J/state/scales",
+      "J/state/layer_rms",
+      "J/state/trunk.0.weight",
+      "J/state/trunk.0.bias",
+      "J/state/trunk.2.weight",
+      "J/state/trunk.2.bias",
+      "J/normalizer/centers",
+      "J/normalizer/scales",
+      "J/normalizer/layer_rms",
+      "pair/r_l",
+      "pair/state/U",
+      "pair/state/b",
+      "pair/state/V",
+      "pair/state/c",
+      "pair/state/d"
+    ],
+    "pair_U_shape_by_H": {
+      "16": [
+        68,
+        64
+      ],
+      "256": [
+        308,
+        64
+      ],
+      "64": [
+        116,
+        64
+      ]
+    },
+    "unique_tensor_name_count": 22,
+    "writer_J_state_order": [
+      "source_weight",
+      "source_bias",
+      "gate_weight",
+      "gate_bias",
+      "transport_delta",
+      "mix_delta",
+      "centers",
+      "scales",
+      "layer_rms",
+      "trunk.0.weight",
+      "trunk.0.bias",
+      "trunk.2.weight",
+      "trunk.2.bias"
+    ],
+    "writer_pair_state_order": [
+      "U",
+      "b",
+      "V",
+      "c",
+      "d"
+    ]
+  },
+  "independent_adversarial_replay": {
+    "additional_archive_descriptor_and_timestamp_negatives_rejected": [
+      "boolean shape entry",
+      "float offset",
+      "boolean nbytes",
+      "zero shape entry",
+      "negative shape entry",
+      "negative offset",
+      "zero nbytes",
+      "negative nbytes",
+      "duplicate header key",
+      "gzip filename header",
+      "extra canonical tar blocking record",
+      "altered terminal tar padding",
+      "non-bytes archive container",
+      "lowercase z timestamp",
+      "fractional-seconds timestamp",
+      "numeric UTC-offset timestamp"
+    ],
+    "additional_negative_class_count": 16,
+    "all_104_packaged_negative_classes_rejected": true,
+    "fully_rehashed_four_artifact_wrong_batch_order_bundle_rejected": true,
+    "material_meter_adversaries_accepted": [
+      "negative_zero_wall_seconds",
+      "negative_zero_residual_wall_seconds",
+      "runtime_MPS_integer_false_alias",
+      "row_shape_float_aliases",
+      "aggregate_networks_float_alias",
+      "aggregate_maximum_flops_float_alias",
+      "aggregate_repeat_integer_true_alias",
+      "accuracy_boundary_integer_false_alias",
+      "accuracy_boundary_integer_true_alias",
+      "authority_integer_false_alias"
+    ],
+    "material_meter_adversary_acceptance_count": 10,
+    "non_authoritative_synthetic_archive_sha256": "8d3f92054f49e15264222d1e2e98d66118faeed6cdb76b6169659fed236a6c96"
+  },
+  "independent_replay": {
+    "environment": {
+      "MPS_used": false,
+      "device": "CPU",
+      "numpy": "1.26.4",
+      "physical_interpreter": "/Users/matt/anaconda3/bin/python3.11",
+      "python": "CPython 3.11.5",
+      "torch": "2.7.0"
+    },
+    "freeze_stdout_byte_identical_to_frozen_FREEZE_VERIFICATION": true,
+    "freeze_stdout_sha256": "1b0b25e601ff18311f3faae0df761117e48801571daba7dfa04082d6e169548b",
+    "independently_recomputed_batch_order_int32_sha256": {
+      "J": "affbed56980f9243316a1f26e27e6c9fccab08747d2f6679d3c6eeab1579b3bf",
+      "pair_H16": "238ad030f3bc8077c2db6a78490c68e6afe800a450dd6cd97c719e795e175a2d",
+      "pair_H256": "4a257b6241f97c3ddaf5209bd310898705b2261fc65fa1f81891442cbfb8ccb1",
+      "pair_H64": "87445d97fb3228064acd43882a4407849818d2ec662299454753fc13802f504d"
+    },
+    "package_local_bytecode_or_pycache_created": false,
+    "static_stdout_byte_identical_to_frozen_STATIC_VERIFICATION": true,
+    "static_stdout_sha256": "581fe0ff8f5e657a1eadc0ab55bf18edbe7233cb7cfc5bda1230adeda643a0b8",
+    "synthetic_parity": {
+      "candidate_H": [
+        16,
+        64,
+        256
+      ],
+      "cases": 6,
+      "entry_dtypes": [
+        "float32",
+        "float64"
+      ],
+      "final_composition_zero_boundary_byte_exact": true,
+      "maximum_absolute_seam_difference": 6.198883056640625e-06,
+      "maximum_relative_seam_difference": 0.00014548823760139653,
+      "prediction_outputs_equal_within_frozen_tolerance": true,
+      "unit_permutation_outputs_equal_within_frozen_tolerance": true,
+      "width": 9
+    }
+  },
+  "issued_by": "independent_reviewer",
+  "issued_utc": "2026-08-28T13:25:30Z",
+  "live_header_boundary": {
+    "exact_strengthened_live_refit_header_adapter_frozen": true,
+    "live_export_pre_path_gate": "PASS_FAIL_CLOSED",
+    "live_meter_pre_path_gate": "PASS_FAIL_CLOSED",
+    "meter_receipt_exact_type_and_sign_contract_frozen": false,
+    "model_and_source_roots_authenticatable_by_this_HOLD": false,
+    "required_next_adapter": "Freeze and independently review a narrow successor that repairs meter receipt sign-aware nonnegative floats and exact built-in runtime, shape, aggregate, accuracy-boundary, and authority types, with every reproduced alias as a rejection fixture.",
+    "runtime_V1R3_model_header_receipt_seal_and_review_adapter_passes": true,
+    "semantic_and_runtime_adapter_passes_do_not_override_meter_exactness_HOLD": true
+  },
+  "material_defects": [
+    {
+      "external_observations": {
+        "accuracy_boundary_integer_false_alias_accepted": true,
+        "accuracy_boundary_integer_true_alias_accepted": true,
+        "aggregate_maximum_flops_float_alias_accepted": true,
+        "aggregate_networks_float_alias_accepted": true,
+        "aggregate_repeat_integer_true_alias_accepted": true,
+        "authority_integer_false_alias_accepted": true,
+        "negative_zero_residual_wall_seconds_accepted": true,
+        "negative_zero_wall_seconds_accepted": true,
+        "row_shape_float_aliases_accepted": true,
+        "runtime_MPS_integer_false_alias_accepted": true
+      },
+      "finding": "The meter validator's nonnegative binary64 helper does not reject negative zero, and ordinary Python dict/list equality lets integer booleans and float integer aliases satisfy runtime, row-shape, aggregate, accuracy-boundary, and authority claims. The frozen request explicitly claims exact built-in scalar types and negative-zero rejection across telemetry and receipt scaffolds, so the static successor cannot receive GO.",
+      "id": "nonexact_meter_receipt_scalar_boolean_shape_and_sign_aliases_accepted",
+      "locations": [
+        "meter_receipt.py:86-89",
+        "meter_receipt.py:107-115",
+        "meter_receipt.py:137-155",
+        "meter_receipt.py:176-205",
+        "verify_static.py:971-1036",
+        "verify_static.py:1279-1285"
+      ],
+      "required_repair": "Reject negative-zero wall and residual observations; require exact built-in bool for runtime/aggregate/accuracy-boundary/authority booleans; require exact built-in integer shape entries and aggregate integer resources; compare nested meter values through explicit type-aware checks; add all ten accepted witnesses to the frozen adversarial suite.",
+      "severity": "EXACT_METER_RECEIPT_SCHEMA_AND_SIGN_CONTRACT_FALSE"
+    }
+  ],
+  "package_root_metadata": {
+    "artifact_package_sha256": "c9db558f8d55aa5a5005a82b65ebe014cf42922edd300e8fb718d6200ed093cc",
+    "freeze_receipt_sha256": "c4c432fbc3908d9d9bf2d3298e9f4988953f178a7af4f917d53e210bac08789e",
+    "freeze_verification_sha256": "1b0b25e601ff18311f3faae0df761117e48801571daba7dfa04082d6e169548b",
+    "manifest_bound_artifact_count": 20,
+    "multiply_linked_regular_file_count": 0,
+    "package_manifest_sha256": "9825ca3745a4f575dbcf3de5d0ad008273a0ec0c4e69669ab3f91f0cd5824b51",
+    "regular_file_count": 22,
+    "static_verification_sha256": "581fe0ff8f5e657a1eadc0ab55bf18edbe7233cb7cfc5bda1230adeda643a0b8",
+    "symlink_count": 0
+  },
+  "predecessor_lineage": {
+    "deployment_inference_v1_HOLD_review_sha256": "bf1690e2492b7000fe887cd52baba52b71bfb8721017f296b7b475626c3a6263",
+    "deployment_inference_v1r1_GO_review_sha256": "7e765482718dcd90452be2744b102d056a2881dca80e0670af97bd9206185c22",
+    "deployment_inference_v1r1_manifest_sha256": "4cc656d483a5c7d5331d03d4b91cc1ceb99594805c456e98a26180003760d89d",
+    "deployment_inference_v1r2_HOLD_review_sha256": "c936c47f5abf7d536876c5a37f9ed88f942c785806a59e243d0d86213b969408",
+    "deployment_inference_v1r2_manifest_sha256": "c0b58414a19e40efe1551d3a62ba43e2e64155dadb5f93a64d91e4a9154b2b13",
+    "predecessor_V1_and_V1R2_remain_held": true,
+    "refit_runtime_v1r3_GO_review_sha256": "2b6b72b8ade2f141f22bbd9dd5b4405b0cb1b35b6036f28ea914f55b03570f5f",
+    "refit_runtime_v1r3_manifest_sha256": "c370f9278e9f5ace7d1ad9e6905e12f0259a3594b737881abb8c125ff16c4df2",
+    "successor_promotes_predecessor_or_runtime_authority": false
+  },
+  "preserved_science_and_source_findings": {
+    "actual_all688_model_host_action_and_export_parity_still_required": true,
+    "archive_exact_rebuild_and_two_file_inventory_pass": true,
+    "deployment_core_byte_identical_to_reviewed_V1R1": true,
+    "deterministic_J_and_pair_batch_roots_exact": true,
+    "final_composition": "one float32 host-plus-J addition; independent float64 base and delta conversion; pair add on layers 2 through 15; float64 nonnegative clamp; one C-order float32 cast",
+    "generic_host_predicate": "float(fnp.min(variance)) <= 2.0e-30",
+    "model_receipt_seal_review_positive_law_exact": true,
+    "no_live_bank_row_weight_target_model_score_package_or_board_payload_opened": true,
+    "no_rank_MLP_identity_target_score_pair_zero_fold_ensemble_MPS_or_scientific_fallback_route": true,
+    "rendered_source_forbidden_import_and_payload_route_scan_pass": true,
+    "resource_non_veto_semantics_do_not_cure_meter_schema_exactness_defect": true,
+    "resource_observations_cannot_change_H_retry_refit_or_veto_accuracy": true
+  },
+  "requested_checklist_findings": [
+    {
+      "finding": "The frozen V1R3 serializer, adapter, and independent AST recount agree on the 14-field header, exact schemas, output inventory, actual J order, U,b,V,c,d order, 22 tensors, architecture, source DAG, seeds, epochs, and batch laws.",
+      "id": 1,
+      "verdict": "PASS_EXACT_RUNTIME_V1R3_HEADER_ADAPTER"
+    },
+    {
+      "finding": "Tensor descriptor, payload, aggregate, floor, architecture, trace, runtime, receipt, seal, and model-review exactness checks pass. The separate meter receipt scaffold accepts negative zero and numeric/boolean aliases, so the request's cross-scaffold exact-type claim is false.",
+      "id": 2,
+      "verdict": "HOLD_NONEXACT_METER_TYPES_AND_NEGATIVE_ZERO"
+    },
+    {
+      "finding": "The fabricated full bundle proves one all-688 CPU refit, one target decode, pair-zero absence, no postfit score/choice, exact J/pair traces, non-veto telemetry, native evidence, runtime stack, preinitializer closure, and protected-input guard evidence.",
+      "id": 3,
+      "verdict": "PASS_STATIC_FABRICATED_REFIT_RECEIPT"
+    },
+    {
+      "finding": "Seal and model-review validation cross-binds model, receipt, capability, runtime/native roots, exact different-agent GO status and accepting decision, and false export/package/submission authority. HOLD, REJECT, arbitrary strings, and integer boolean aliases reject.",
+      "id": 4,
+      "verdict": "PASS_EXACT_POSITIVE_MODEL_REVIEW_LAW"
+    },
+    {
+      "finding": "Export bindings cover model/header/source/parent/OOF/bank/runtime roots. Every empirical and adapter root is null, and export-live rejects before any supplied-path observation.",
+      "id": 5,
+      "verdict": "PASS_CURRENT_NULL_PRE_PATH_GATE__LIVE_EXPORT_HOLD"
+    },
+    {
+      "finding": "The reviewed source cut and rendered AST preserve the generic host, online selected-H actions, one J and one pair-on state, exact rounding/composition order, and exclude Torch, NumPy, filesystem model loading, target/routing, pair-zero, fold ensemble, MPS, and alternate inference routes.",
+      "id": 6,
+      "verdict": "PASS_STATIC_AND_SYNTHETIC__ACTUAL_STATE_PARITY_HOLD"
+    },
+    {
+      "finding": "An independent NumPy 1.26.4 PCG64 replay reproduced the exact J and H16/H64/H256 roots, and the fully self-consistent four-artifact wrong-root forgery rejected.",
+      "id": 7,
+      "verdict": "PASS_INDEPENDENT_DETERMINISTIC_BATCH_ORDER_ROOTS"
+    },
+    {
+      "finding": "All 104 packaged adversaries and 16 additional descriptor/archive/timestamp adversaries reject; six parity cases cover both dtypes and every H. Ten independently added meter exactness adversaries are accepted and expose the material gap.",
+      "id": 8,
+      "verdict": "PASS_MODEL_ARCHIVE_ADVERSARIES__HOLD_METER_ADVERSARIAL_COVERAGE"
+    },
+    {
+      "finding": "Canonical archive validation rejects alternate gzip headers/members, streams, trailing bytes, GNU/non-USTAR bytes, metadata, inventory, timestamps, and padding through exact rebuild equality.",
+      "id": 9,
+      "verdict": "PASS_EXACT_STATIC_ARCHIVE__PACKAGE_HOLD"
+    },
+    {
+      "finding": "Resource telemetry remains non-veto, and every later parity, estimator review, package validation, BANK_READY, submission, network, and MPS gate remains null or false. The meter validator's exact schema defect nevertheless blocks static successor acceptance.",
+      "id": 10,
+      "verdict": "PASS_NON_VETO_AND_NULL_AUTHORITY__HOLD_EXACT_METER_SCHEMA"
+    }
+  ],
+  "review_id": "q24-signed-pair-v4r1-all688-deployment-inference-review-v1r3-meter-exactness-hold",
+  "review_scope": "read-only frozen static source, exact V1R3 runtime-adapter crosswalk, predecessor lineage, hash/freeze replay, and isolated fabricated/synthetic model, parity, archive, and meter adversaries; no live bank, row, weight, target, score, fitted model, estimator, archive, package, board, network, or submission payload access",
+  "review_scope_boundary": {
+    "first_live_blocker": "repair and independently review exact meter receipt scalar, boolean, shape, aggregate, accuracy-boundary, authority, and negative-zero validation",
+    "future_children_must_bind_this_exact_HOLD_review_sha256": true,
+    "no_live_child_may_inherit_empirical_or_package_authority_from_this_HOLD": true,
+    "this_HOLD_accepts_or_authorizes_no_static_or_live_successor": true
+  },
+  "reviewed_artifact_sha256": {
+    "DESIGN.md": "dcf714b9e783f0aadcd6b2ff65f9c7de48d4a70969151a412b68fed99e8e3454",
+    "EXPORT_CONTRACT.json": "8f80b10d99a9f45ca970f2ee1095101d7813642df952cf910d41bb68d807f767",
+    "FREEZE_RECEIPT.json": "c4c432fbc3908d9d9bf2d3298e9f4988953f178a7af4f917d53e210bac08789e",
+    "FREEZE_VERIFICATION.json": "1b0b25e601ff18311f3faae0df761117e48801571daba7dfa04082d6e169548b",
+    "FUTURE_BINDINGS_HOLD.json": "0b1913e2336e788174c128d614353cf26e246b406609b82d6b4d631a5f97ba82",
+    "INDEPENDENT_REVIEW_REQUEST.md": "1cad8bfe37e7b86ae63f4e0fdf481a1552fef53078ca09abd8d7c7d9cb6c26e3",
+    "KNOWN_BLOCKERS.json": "bafba1cbf182c8275cc02c649ef80c179731b17e4336266629f9ac897368f838",
+    "METER_CONTRACT.json": "f9d05501d2e0d0a379d01c142388f79373f9ce57fbd0841c8c64b761381c0058",
+    "PACKAGE_MANIFEST.json": "9825ca3745a4f575dbcf3de5d0ad008273a0ec0c4e69669ab3f91f0cd5824b51",
+    "STATIC_VERIFICATION.json": "581fe0ff8f5e657a1eadc0ab55bf18edbe7233cb7cfc5bda1230adeda643a0b8",
+    "UPSTREAM_V1R3_BINDING.json": "27fd7c1bf8f82b8bad2198079f136e3b094e35055354239948db92376396308e",
+    "V1R2_HOLD_BINDING.json": "1230ba647915da619438843a5b2f59f4c6a357d9bb737c224ba83c54b8eb8869",
+    "V1_HOLD_BINDING.json": "f7b586262b1746c708e4fdabba2e20579952cb7d928cb44d531ab43345dbbda1",
+    "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+    "estimator_source_template.py": "2a1a254fe3b097924f73bfb13cecbbf9e6e3a74e6b4b9c74c82f7134655bf124",
+    "export_archive_builder.py": "579f2bdec738f54f070d588c4e263ed7333e4cd2e69d10dd2cdfe9d881337d57",
+    "freeze_package.py": "1b9ecb1968abc39800eb3f9d3958c3b9be55110ee853719aac4c259104e281c3",
+    "live_output_contract.py": "a83d0b23abff0e1340b6bc6f97a9a7f81ca4ddc47c7cb956ead58d255da1c79b",
+    "meter_receipt.py": "a9fafd87594d8c86efb48828385b06ff6715a975c0084ee031085d6302f91ee4",
+    "synthetic_parity.py": "2b7f53cfa9ac0c4879bfb914fdc63fab9060a6a17a0e87bd35813c0bc2e98011",
+    "verify_freeze.py": "3e9342d5c081866ac5047a36fc7e928eb70e88c2a1f7e70ac6595734b1d65a1e",
+    "verify_static.py": "a6608dcb78cb9d6cc2fe911a4c6224134b48ccede2ad19526daefdbdb430f9e4"
+  },
+  "reviewed_upstream_static_sha256": {
+    "deployment_inference_v1_HOLD_review": "bf1690e2492b7000fe887cd52baba52b71bfb8721017f296b7b475626c3a6263",
+    "deployment_inference_v1r1_GO_review": "7e765482718dcd90452be2744b102d056a2881dca80e0670af97bd9206185c22",
+    "deployment_inference_v1r1_manifest": "4cc656d483a5c7d5331d03d4b91cc1ceb99594805c456e98a26180003760d89d",
+    "deployment_inference_v1r2_HOLD_review": "c936c47f5abf7d536876c5a37f9ed88f942c785806a59e243d0d86213b969408",
+    "deployment_inference_v1r2_manifest": "c0b58414a19e40efe1551d3a62ba43e2e64155dadb5f93a64d91e4a9154b2b13",
+    "fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_min_v1/estimator.py": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d",
+    "public_q24_native_transport_energy_pilot_v1/instrumented_estimator.py": "f539889324fb82cc1ded35a41c8b5a359014d9ddac52eab62949257e8e58a0ef",
+    "public_q24_signed_pair_three_bank_runtime_v5/parent_capture.py": "10ed893bbd50257f21b434fb90e95185026bdf73740b3b6590a001cc1fecc425",
+    "public_q24_signed_pair_three_bank_runtime_v5/signed_pair_literal.py": "20a50cc065c0a9fc3c22fe5b5e178771b2b1fefeacc4a8a68ea48748fb2d2a57",
+    "refit_runtime_v1r3_FREEZE_RECEIPT": "6dc1272044d9a28aed17385f5a14e46efa29a2324b633fb1e1aabc223853d89c",
+    "refit_runtime_v1r3_FREEZE_VERIFICATION": "7c9a5239ace728fc0988b6f623e972aba4429746678e60887342250e7890e489",
+    "refit_runtime_v1r3_GO_review": "2b6b72b8ade2f141f22bbd9dd5b4405b0cb1b35b6036f28ea914f55b03570f5f",
+    "refit_runtime_v1r3_PACKAGE_MANIFEST": "c370f9278e9f5ace7d1ad9e6905e12f0259a3594b737881abb8c125ff16c4df2",
+    "refit_runtime_v1r3_STATIC_VERIFICATION": "8a3ec4116d1f913009286854fbf0034ed3ed65ee5c5904c4c960a8f6f0a66915",
+    "refit_runtime_v1r3_refit_runner.py": "fd02fd5eaefa4373c7493d8adcdbb81edda78fb3c5a6f0ca00bb7da97fab37f8"
+  },
+  "reviewer_different_from_package_author": true,
+  "schema": "public-q24-signed-pair-v4r1-all688-deployment-inference-independent-static-review-v1r3",
+  "status": "HOLD_FROZEN_STATIC_DEPLOYMENT_INFERENCE_V1R3__NONEXACT_METER_RECEIPT_TYPES_AND_NEGATIVE_ZERO"
+}

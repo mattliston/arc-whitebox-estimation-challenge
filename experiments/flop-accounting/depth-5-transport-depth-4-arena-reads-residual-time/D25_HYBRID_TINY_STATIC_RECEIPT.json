@@ -1,0 +1,348 @@
+{
+  "bindings": {
+    "audit_sha256": "c54968ee80ecfcf62611cb894004e514e6aac50b89f97c51f598f088c9588c2b",
+    "candidate_source_sha256": "91f4f3501227666993897de154984e8d364bd335ae1ebc7c4137cef4c38b5978",
+    "d24_result_sha256": "a9a64cb519283caf23e6a6d390b81db5c0afe6afbb83a81fa58601339711c0d2",
+    "d4_result_sha256": "6d8e7cf98d45b1c667d7d16c373cf9935f96d1f07e44674ca8f9584d51c111d1",
+    "depth_ladder_runner_sha256": "50e2a26f110b4354630bf84f74e6e78433604a4d859b1d162b8f10e8e2144426",
+    "packed_kernel_sha256": "f16a4953a365d789d170270758c5fdc08f8bb059e792a7f41b3d62ecd19e1891"
+  },
+  "gate_eligibility": "GO_FREEZE_FULL_RUNNER_HOLD_HEAVY",
+  "lifetime_intervals": {
+    "d4_read": {
+      "a1": [
+        0,
+        25690112
+      ],
+      "a2": [
+        51380224,
+        96337920
+      ],
+      "a3": [
+        141295616,
+        219971584
+      ],
+      "a4": [
+        298647552,
+        436330496
+      ],
+      "b1": [
+        25690112,
+        51380224
+      ],
+      "b2": [
+        96337920,
+        141295616
+      ],
+      "b3": [
+        219971584,
+        298647552
+      ],
+      "b4": [
+        436330496,
+        574013440
+      ],
+      "dependency": [
+        574013440,
+        652689408
+      ],
+      "leaf": [
+        652689408,
+        662523904
+      ],
+      "output0": [
+        679383040,
+        680431616
+      ],
+      "output1": [
+        680431616,
+        681480192
+      ],
+      "product0": [
+        662523904,
+        668143616
+      ],
+      "product1": [
+        668143616,
+        673763328
+      ],
+      "u": [
+        673763328,
+        679383040
+      ]
+    },
+    "packed_d5_push": {
+      "a_even": [
+        275365888,
+        285200384
+      ],
+      "a_odd": [
+        0,
+        17210368
+      ],
+      "b_even": [
+        285200384,
+        432717824
+      ],
+      "b_odd": [
+        17210368,
+        275365888
+      ],
+      "dependency": [
+        432717824,
+        580235264
+      ],
+      "leaf": [
+        322079744,
+        580235264
+      ],
+      "product0": [
+        0,
+        147517440
+      ],
+      "product1": [
+        322079744,
+        469597184
+      ],
+      "u": [
+        147517440,
+        295034880
+      ]
+    },
+    "proof": [
+      "push and read execute sequentially and share one arena",
+      "the arena extent is the maximum, not the sum, of role layouts",
+      "each role's persistent views are bound once to its audited layout",
+      "D5 push preserves packed-D5 reduction order",
+      "D4 read preserves the board-passed D4 reduction order"
+    ]
+  },
+  "official_environment": {
+    "executable": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+    "flopscope": "0.12.0",
+    "numpy": "2.4.6",
+    "python": "3.11.5 (main, Sep 11 2023, 08:31:25) [Clang 14.0.6 ]"
+  },
+  "production": {
+    "arena_saving_vs_d4_bytes": 650739712,
+    "arena_saving_vs_full_d5_bytes": 853835776,
+    "cold_non_kernel_call_delta_vs_d4": {
+      "dead_asarray": -10,
+      "reshape_view_bindings": 4
+    },
+    "cold_saving_vs_d4_flops": 27332018402,
+    "d4_binding_flops": 1919598592,
+    "d4_push_flops": 313373614080,
+    "d4_read_binding_flops": 933404672,
+    "d4_read_flops": 278180216832,
+    "d4_roster_flops": 591553830912,
+    "d5_push_flops": 285271541760,
+    "d5_read_flops_not_selected": 256770519040,
+    "dead_payload_cold_saving_flops": 226,
+    "hot_saving_vs_d4_flops": 28102072320,
+    "hybrid_literal_cold_binding_flops": 2689652736,
+    "hybrid_roster_flops": 563451758592,
+    "incremental_hot_kernel_wrappers_vs_d4": {
+      "add": 210,
+      "copyto": 420,
+      "subtract": 240,
+      "total": 870
+    },
+    "packed_d5_push_binding_flops": 1756248064,
+    "predicted_call_flops": [
+      1292539692181,
+      1328493216264,
+      1289846886912
+    ],
+    "predicted_total_calls": [
+      16280,
+      16211,
+      16201
+    ],
+    "projected_margin_below_8_gib_bytes": 2506604544,
+    "projected_process_peak_from_d4_gate_bytes": 6083330048,
+    "push_arena_bytes": 2320941056,
+    "push_arena_elements": 580235264,
+    "push_view_count": 30,
+    "read_arena_bytes": 2725920768,
+    "read_arena_elements": 681480192,
+    "read_view_count": 26,
+    "shared_arena_bytes": 2725920768,
+    "shared_arena_elements": 681480192
+  },
+  "production_layout_exact": true,
+  "schema": "p2r0c1-d5push-d4read-hybrid-static-tiny-v1",
+  "scope": {
+    "fixture_access": false,
+    "full_estimator_calls": 0,
+    "network": false,
+    "package": false,
+    "submission": false,
+    "target_or_score_access": false
+  },
+  "source_dispatch_proof": {
+    "cp_push_depth4_calls": 0,
+    "cp_push_depth5_calls": 2,
+    "cp_read_depth4_calls": 2,
+    "cp_read_depth5_calls": 0
+  },
+  "status": "PASS_TINY_CHANGING_RANK_BYTE_PARITY_AND_STATIC_BILL",
+  "tiny_call_order": [
+    "push64_first",
+    "read64_first",
+    "push128",
+    "read128",
+    "push64_repeat"
+  ],
+  "tiny_candidate_binding": {
+    "calls": {
+      "reshape": 56
+    },
+    "costs": {
+      "reshape": 1741284
+    },
+    "flops": 1741284
+  },
+  "tiny_records": [
+    {
+      "byte_identical_to_role_authority": true,
+      "label": "push64_first",
+      "meter": {
+        "calls": {
+          "add": 35,
+          "copyto": 70,
+          "matmul": 1,
+          "subtract": 40
+        },
+        "costs": {
+          "add": 147308,
+          "copyto": 294616,
+          "matmul": 201684,
+          "subtract": 168352
+        },
+        "flops": 811960
+      },
+      "meter_identical_to_role_authority": true,
+      "repeat_byte_identical": true,
+      "role": "push",
+      "shape": [
+        64,
+        64,
+        64
+      ],
+      "strided_external_output": true
+    },
+    {
+      "byte_identical_to_role_authority": true,
+      "label": "read64_first",
+      "meter": {
+        "calls": {
+          "add": 28,
+          "copyto": 56,
+          "matmul": 1,
+          "subtract": 32
+        },
+        "costs": {
+          "add": 80080,
+          "copyto": 160160,
+          "matmul": 268912,
+          "subtract": 91520
+        },
+        "flops": 600672
+      },
+      "meter_identical_to_role_authority": true,
+      "repeat_byte_identical": true,
+      "role": "read",
+      "shape": [
+        64,
+        64,
+        64
+      ],
+      "strided_external_output": true
+    },
+    {
+      "byte_identical_to_role_authority": true,
+      "label": "push128",
+      "meter": {
+        "calls": {
+          "add": 35,
+          "copyto": 70,
+          "matmul": 1,
+          "subtract": 40
+        },
+        "costs": {
+          "add": 273572,
+          "copyto": 441924,
+          "matmul": 403368,
+          "subtract": 273572
+        },
+        "flops": 1392436
+      },
+      "meter_identical_to_role_authority": true,
+      "repeat_byte_identical": true,
+      "role": "push",
+      "shape": [
+        64,
+        64,
+        128
+      ],
+      "strided_external_output": true
+    },
+    {
+      "byte_identical_to_role_authority": true,
+      "label": "read128",
+      "meter": {
+        "calls": {
+          "add": 28,
+          "copyto": 56,
+          "matmul": 1,
+          "subtract": 32
+        },
+        "costs": {
+          "add": 91520,
+          "copyto": 320320,
+          "matmul": 576240,
+          "subtract": 171600
+        },
+        "flops": 1159680
+      },
+      "meter_identical_to_role_authority": true,
+      "repeat_byte_identical": true,
+      "role": "read",
+      "shape": [
+        64,
+        128,
+        64
+      ],
+      "strided_external_output": true
+    },
+    {
+      "byte_identical_to_role_authority": true,
+      "label": "push64_repeat",
+      "meter": {
+        "calls": {
+          "add": 35,
+          "copyto": 70,
+          "matmul": 1,
+          "subtract": 40
+        },
+        "costs": {
+          "add": 147308,
+          "copyto": 294616,
+          "matmul": 201684,
+          "subtract": 168352
+        },
+        "flops": 811960
+      },
+      "meter_identical_to_role_authority": true,
+      "repeat_byte_identical": true,
+      "role": "push",
+      "shape": [
+        64,
+        64,
+        64
+      ],
+      "strided_external_output": true
+    }
+  ]
+}

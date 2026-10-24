@@ -1,0 +1,61 @@
+{
+  "schema": "v34-v2r1-mc-block-reference-static-verification-v1",
+  "date": "2026-08-31",
+  "status": "PASS_SYNTHETIC_ONLY__NO_DATA_OR_EXECUTION_AUTHORITY",
+  "bindings": {
+    "mc_block_reference_sha256": "219bd7cd5b0b2670d2244a68e6e6a789879a7399a15278bf01715b304520d6e0",
+    "verify_mc_block_reference_sha256": "918af340dadec7b5175001dc55493c7bdf6f8d253c651b2256a1480107575dad",
+    "confirmatory_data_protocol_sha256": "f978719aacfde1eeb94b94513cf020a806dd5f5afb1c3aed5df43569769b37bd"
+  },
+  "runtime": {
+    "python": "3.11.5",
+    "numpy": "1.26.4"
+  },
+  "fixtures": {
+    "exact_block_boundary_batch_schedule": "PASS_7x65536_PLUS_41248",
+    "all_eight_frozen_seed_derivations": "PASS",
+    "raw_sum_to_cumulant_reconstruction": "PASS",
+    "all_delete_one_states_from_raw_sums": "PASS",
+    "endpoint_block_mean_extraction": "PASS",
+    "dtype_shape_count_fail_closed": "PASS"
+  },
+  "literal_contract": {
+    "streams": 2,
+    "blocks_per_stream": 16,
+    "samples_per_block": 500000,
+    "samples_per_stream": 8000000,
+    "pre_raw_sum_shape_per_stream": [16, 16, 1024, 4],
+    "post_raw_sum_shape_per_stream": [16, 16, 1024, 2],
+    "raw_sum_dtype": "float64",
+    "count_dtype": "int64",
+    "endpoint_layer": 15,
+    "delete_one_sample_count": 7500000,
+    "adaptive_extension": false
+  },
+  "scope": {
+    "normal_generation_or_network_propagation_implemented": false,
+    "raw_accumulator_and_reconstruction_semantics_pinned": true,
+    "future_generator_must_still_prove_float32_normals_and_propagation": true,
+    "future_generator_must_still_prove_isolation_and_completion": true
+  },
+  "access": {
+    "repository_data_or_cache_reads_by_test": 0,
+    "weight_or_feature_arrays_opened": 0,
+    "targets_opened": 0,
+    "physical_labels_generated": 0,
+    "estimator_calls": 0,
+    "training_or_scoring_runs": 0,
+    "network_or_submission_calls": 0
+  },
+  "authority": {
+    "fit": false,
+    "held_generation": false,
+    "held_evaluation": false,
+    "official_target_last": false,
+    "integration": false,
+    "meter": false,
+    "package": false,
+    "board": false,
+    "submission": false
+  }
+}

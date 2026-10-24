@@ -1,0 +1,138 @@
+{
+  "schema": "phase2-layer3-attribution-v7-independent-post-failure-audit-v1",
+  "status": "PASS_V7_TERMINAL_PRECLAIM_PROCESS_TABLE_DENIAL__ONE_INVOCATION_CONSUMED__ZERO_PHYSICAL_OR_SCIENTIFIC_ACCESS__NO_RETRY",
+  "audit_date": "2026-08-23",
+  "audit_scope": "Independent read-only verification of the exact V7 release, durable invocation tombstone, sealed failure boundary, frozen runner audit and sources, empty post-tombstone data/output namespace, process quiescence, source-ordered zero physical/scientific access, and permanent no-retry disposition.",
+  "execution_authority": false,
+  "retry_authority": false,
+  "sealed_terminal_evidence": {
+    "ROOT_RELEASE.json": {
+      "sha256": "ec8212289a1e2b04a8c7b09f49d2faa621902b94b38e207b9b3bf4d188ed3b0b",
+      "schema": "phase2-layer3-attribution-v7-root-release-v1",
+      "status": "ROOT_AUTHORIZED_ONE_LAYER3_ATTRIBUTION_V7_INVOCATION",
+      "release_id": "1f73a98254fd72168d79f2b9dce1e351978d6e770242a9d082916079906e7627",
+      "future_invocations_authorized": 1
+    },
+    "receipts/l3-v7-1f73a98254fd72168d79f2b9dce1e351978d6e770242a9d082916079906e7627.invocation-consumed.json": {
+      "sha256": "4afc677fe255291851ada832ee6ca6579fcd464daade4767c30c3f6b1bc96153",
+      "schema": "phase2-layer3-attribution-v7-invocation-consumed-v1",
+      "status": "ONE_INVOCATION_IRREVERSIBLY_CONSUMED_BEFORE_WORKER_CREATION",
+      "future_invocations_remaining": 0,
+      "retry_authorized": false
+    },
+    "EXECUTION_FAILURE_BOUNDARY_V7.json": {
+      "sha256": "fad9463c6a641ece441ac80247870467a9d0b6d89b3d1382a23242a88878e060",
+      "schema": "phase2-layer3-attribution-v7-execution-failure-boundary-v1",
+      "status": "CLOSED_PRECLAIM_SANDBOX_PROCESS_TABLE_DENIAL__INVOCATION_CONSUMED__NO_RETRY"
+    },
+    "INDEPENDENT_LAYER3_ATTRIBUTION_RUNNER_AUDIT_V7.json": {
+      "sha256": "e32e160a81d2953a7890c521330d4f59d6bfb0f3341e31164e37e188a8212273",
+      "status": "PASS_LAYER3_ATTRIBUTION_V7_RUNNER_AND_ONE_USE_SCAFFOLD"
+    },
+    "SOURCE_MANIFEST.json": "e46539787d966807220d281e817c83858163d1e5fafe256832d572d79396d0f0",
+    "STATIC_VERIFICATION.json": "bc9dd82e0cb414125550df6a768890cc291849bdb823b0b5b52537253fc5911c",
+    "SYNTHETIC_REHEARSAL.json": "b3599beac63faa395087cef7c0f23c40e176c483a60fb41084d127cc097e425d",
+    "launch_once.py": "73f33f9028da5e6b5db361ffe9a5a041d31e35c42b1e6d12ac57cf5a32cff687",
+    "worker.py": "eeac889c8df17eb1a089aa3d19ab1b46f7b2e3556a77e43d3dbf98598893518c"
+  },
+  "cross_binding": {
+    "release_id_equal_across_release_tombstone_and_failure": true,
+    "release_sha256_equal_across_tombstone_and_failure": true,
+    "source_manifest_sha256_equal_across_release_tombstone_and_failure": true,
+    "runner_audit_sha256_equal_across_release_and_failure": true,
+    "invocation_tombstone_sha256_equal_to_failure_binding": true
+  },
+  "failure_boundary": {
+    "phase": "first whole-process-group RSS sample immediately after worker creation",
+    "primary_exception": "PermissionError: [Errno 1] Operation not permitted: '/bin/ps'",
+    "secondary_exception": "PermissionError: [Errno 1] Operation not permitted during os.killpg process-group containment",
+    "launcher_exit_code": 1,
+    "invocations_attempted": 1,
+    "scientific_code_reached": false,
+    "data_claim_created": false,
+    "physical_loader_import_authorized": false
+  },
+  "exact_source_order": {
+    "launcher": [
+      "validate_release",
+      "consume_invocation_tombstone with durable O_CREAT|O_EXCL file write plus file and parent-directory fsync",
+      "create worker in a new process group",
+      "supervise whole process group with the bound /bin/ps",
+      "require sole atomic result"
+    ],
+    "worker": [
+      "validate_claimed_release",
+      "run_preclaim_gates",
+      "durable_data_claim with O_CREAT|O_EXCL file write plus file and parent-directory fsync",
+      "import_physical_loader_after_claim",
+      "load_exact_two_rows_after_claim",
+      "verify_decoded_rows_against_prebound_checkpoints",
+      "run_science",
+      "publish_atomic_result"
+    ],
+    "consequence": "Because the durable data claim is absent, source order excludes physical loader import, physical row iteration/decoding, frozen-host parity, production stream generation, teacher-artifact generation, result analysis, staging, and publication."
+  },
+  "post_failure_namespace": {
+    "root_release_present": true,
+    "invocation_tombstones_present": 1,
+    "data_claim_path_present": false,
+    "data_claims_present": 0,
+    "staging_path_present": false,
+    "staging_artifacts_present": 0,
+    "result_path_present": false,
+    "results_present": 0,
+    "receipt_non_sentinel_children": [
+      "l3-v7-1f73a98254fd72168d79f2b9dce1e351978d6e770242a9d082916079906e7627.invocation-consumed.json"
+    ],
+    "run_non_sentinel_children": []
+  },
+  "independent_process_quiescence": {
+    "check": "read-only escalated pgrep -af '[v]7_layer3_attribution_runner'",
+    "exit_code": 1,
+    "stdout_bytes": 0,
+    "matches": 0,
+    "status": "PASS_NO_REMAINING_V7_LAUNCHER_WORKER_OR_DESCENDANT"
+  },
+  "scientific_disposition": {
+    "physical_snapshot_calls": 0,
+    "physical_parquet_files_opened": 0,
+    "physical_dataset_iterator_calls": 0,
+    "physical_dataset_rows_decoded": 0,
+    "teacher_artifacts_generated": 0,
+    "target_values_decoded": 0,
+    "target_metrics_computed": 0,
+    "fits": 0,
+    "scores": 0,
+    "production_scientific_result_obtained": false,
+    "scientific_inference": "none"
+  },
+  "one_use_disposition": {
+    "release_future_invocations_authorized_before_attempt": 1,
+    "observed_invocations": 1,
+    "future_invocations_remaining": 0,
+    "one_invocation_authority_consumed": true,
+    "authority_consumed_before_and_despite_absent_data_claim": true,
+    "same_release_reinvocation": "forbidden",
+    "same_v7_execution_retry": "forbidden",
+    "replacement_release_under_this_authority": "forbidden",
+    "source_patch_under_this_authority": "forbidden",
+    "retry_authorized": false,
+    "this_audit_is_not_a_release": true,
+    "this_audit_is_not_a_claim": true,
+    "this_audit_is_not_execution_authority": true
+  },
+  "post_failure_audit_access": {
+    "execution_attempts": 0,
+    "loader_modules_imported": 0,
+    "physical_dataset_files_opened": 0,
+    "physical_dataset_rows_accessed": 0,
+    "target_values_accessed": 0,
+    "scientific_computations": 0,
+    "targeted_read_only_process_checks": 1,
+    "files_added": 1,
+    "existing_files_modified": 0,
+    "graph_or_html_modified": false,
+    "release_claim_run_or_result_written": false
+  },
+  "required_next_step": "None under V7 authority. The sole invocation is permanently consumed; no retry, resume, replacement release, patch, or variant is authorized. Any future execution requires a separately designed successor, fresh independent review, and fresh root authority."
+}

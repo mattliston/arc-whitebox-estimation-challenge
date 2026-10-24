@@ -1,0 +1,46 @@
+{
+  "decision": "STOP_GPU_RAD_FOR_CURRENT_CRUNCH; CPU current-physics port is possible but not a bounded 10\u201315 minute restart",
+  "no_model_gpu_or_training_started": true,
+  "reusable_worker": "astra_gop2_carry_absorb_held_v1/trainer/worker_generated_v18.py",
+  "reusable_native_simulator": "../../engineer/a22_cutsim/torch_cutsim_s46_v11.py",
+  "current_parent": "opus_fix336687_v1/candidate_v61j.py",
+  "verified_parameter_reuse": {
+    "_GNN_LITERAL": true,
+    "_EDGE_LITERAL": true,
+    "_FINAL_LITERAL": true,
+    "_BDNH_A_LITERAL": true,
+    "_MESSAGE_EDGE_LITERAL": true
+  },
+  "minimal_physics_port": [
+    {
+      "component": "JSK-lite join at L7/L10/L13",
+      "work": "Modify torch_push_native_v2 to select 2048/1536/1536 energy-ranked joined columns, retain all Fj/carry columns, and rescale the Nystrom core to full joined trace. Keep current ranks384/320/384 and lazy old factors.",
+      "size": "about30\u201360 lines plus parity checks"
+    },
+    {
+      "component": "RTP young read",
+      "work": "Implement exact z1.5 prefix plus rank2 tail through outer z2 cut, basis from vc/mu, signed-prefix power step with old inner subtracted, rank-deficiency fallback, full old-tail readdition. Existing worker only has rdc2 zero-tail cut.",
+      "size": "about100\u2013180 lines and state/hook wiring"
+    },
+    {
+      "component": "W3 response-weighted rank4 messages",
+      "work": "Add metric from enc0[:,62:78], weighted16x16 Gram eigenspace, rank4 XLB then T contraction. Preserve separate GOP2 W2 and energy paths; select a documented detached spectral derivative consistent with existing GOP2.",
+      "size": "about35\u201360 lines"
+    },
+    {
+      "component": "Current scalar binding",
+      "work": "Retain S56 learned arrays, set bfix=.119, gsk=.9, gk4=1 and star beta multiplier .85; rebuild/export the current per-layer parameter map.",
+      "size": "small configuration patch"
+    },
+    {
+      "component": "Previously omitted native forward details",
+      "work": "Implement covariance dead-cut(.001 rounded64), learned-edge row/column cut and native tanh stand-in, and native mixed-precision plane/centering sequence. Existing cutsim explicitly declares these unmodeled. No need to port billing/prebind/kernel plumbing merely for a research surrogate.",
+      "size": "separate forward-parity work; not a known small adapter"
+    }
+  ],
+  "gpu_blocker": "Current worker/card constructs CPU float64 physics; otr_gop2_v1 explicitly asserts CPU for float64 eig/QR. Local truth GPU is MPS. There is no device-placement bridge. An honest accelerated route needs mixed CPU/GPU forward and backward transfers rather than blanket float32 conversion.",
+  "previous_certificate_limit": "Worker18 accepted four forward/gradient calls but explicitly made no matching native136 forward-parity claim; it is not a currentv61j certificate.",
+  "minimal_honesty_gate": "After CPU physics port, compare currentv61j baseline layer outputs and roster/join identities on saved independent store inputs, then calibrate a fixed coefficient directional delta against native before any refit. Existing cached truths suffice; no new Monte Carlo samples.",
+  "estimated_effort": "Several hours of engineering and parity work for a CPU research forward; GPU migration is additional work with no measured speedup. This is a planning estimate, not a runtime measurement.",
+  "recommendation": "Do not start stale Torch or GPU training. Current native direct-bill work is the shorter route. Keep this port list only if root explicitly funds a longer route."
+}

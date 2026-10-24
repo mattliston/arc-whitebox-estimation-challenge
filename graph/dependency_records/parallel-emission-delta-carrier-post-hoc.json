@@ -1,0 +1,17 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_PKG_SUB2_DELTA_CARRIER",
+    "label": "SUB-2: parallel emission-delta carrier (post-hoc)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "closed_measured",
+    "priority": 3,
+    "summary": "Fallback if SUB-1 shows coadaptation loss: card unchanged; a parallel chain carries the emission delta as CP-1024 terms per layer (the pushed plane delta sum_i w_i (x) w_i (x) g_i is CP-1024 exactly), gated and pushed like the card's CP3, and applies beta_v * sum r . dv-hat post hoc through the consumption's linear integral. Cost model: dense plane read from CP-16384 ~3.4e10 flops/layer (+22% util over 14 layers); energy-capped delta carrier (<=2048 terms) ~+3% util. Fix path for N1.2a/b if the retrofit shows coadaptation loss. T-28: the direct emission-delta form is DEAD; the remaining form is a rank-compressed carrier of the pushed residual's distinct entries (TT24/Tucker) with the adjoint reads (N1.2g) as the consumer, plus F2J refit. Rung-class (<= ~10-15%). CLOSED (T-34): rank compression of the carried residual fails the plane certificate (0.85-0.96 error at L1-5); rows dead (T-28); direct emission delta dead (T-28). No cheap carrier form found; the residual carry remains +17% util.",
+    "terminal_criterion": "Closed when the delta carrier's supply is graded at optimal beta on r35/r100 and its bill is priced against the raw gain (adj = raw x util).",
+    "evidence": [],
+    "decomposition_children": [],
+    "goal_path_summary": "If the formula cannot be swapped in place, run it beside the estimator instead and add the difference at the end - a correction that never touches the tuned core, priced so the extra compute does not eat the gain."
+  }
+}

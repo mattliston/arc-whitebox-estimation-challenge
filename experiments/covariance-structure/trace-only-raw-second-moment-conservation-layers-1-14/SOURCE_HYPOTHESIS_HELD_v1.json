@@ -1,0 +1,45 @@
+{
+  "status": "HELD_ONE_FIXED_SOURCE_HYPOTHESIS_NO_MODEL_OR_ALLOCATION",
+  "utc": "2026-10-14T18:25:46.559635+00:00",
+  "name": "Trace-only raw-second conservation after head compensation",
+  "parent": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_fhm_iop_rescue_v1/candidate_fhm_dense_IOP_OFF_HELD_v1.py",
+  "parent_sha256": "4e1bf080bb6751b487c62842e369a427633e0c4686f089fd3f8e6448bb416f0e",
+  "mathematics": {
+    "original": "d_after=d_before-(1+RC-KC)*(2*h*dm+dm^2); m_after=h+dm, where dm is already FHM-effective.",
+    "drift": "sum(d_after+m_after^2)-sum(d_before+h^2)=(KC-RC)*sum(2*h*dm+dm^2).",
+    "fixed_arm": "For every L1..14, eta=(RC-KC)*mean(2*h*dm+dm^2); replace only outgoing float64 diagonal d_after by d_after+eta before original C64/C32 paired diagonal writes.",
+    "property": "In real arithmetic preserves pair-map total raw second moment while retaining all offdiagonal compensation and differences among marginal variances. No PSD or nonnegative-diagonal guarantee.",
+    "interpretation": "Tests whether the learned mean correction should change the distribution of marginal variances but not the pair formula total energy. Existing RC/KC calibration may intentionally repair total energy too; therefore this is not a theorem that accuracy improves.",
+    "scope": "Same effective dm, means, covariance offdiagonals, targets, radial source, gq, state sizes and selection algorithms. Future values/rosters can change. No arm strength, bands, fitting, alternative directions, or outcome-based coefficient."
+  },
+  "placement": "Current _astra_fhm_core: after original _gn_rc block, before _ps_post_cov32=C; both existing fill_diagonal calls consume repaired d64. Existing _ps_mdm_diag supplies h*dm; no source/cache alias reuse beyond the active call.",
+  "history": {
+    "distinct_from": [
+      "R2F elementwise raw-second lower clipping",
+      "NNV diagonal zero floor",
+      "JCF diagonal plus pairwise bounds",
+      "late-KC placement",
+      "Q4/CENTRAL fourth radial normalization",
+      "raw21 central third target shift",
+      "terminal three-term output calibration"
+    ],
+    "bounded_search": "No explicit trace-only raw-second head compensation found in TEAM_LOG and physicist source. Not an exhaustive novelty claim.",
+    "rejected_here": "gq [0,1] clipping had only tiny tail effect on all eight archived S42 captures; no model slot proposed."
+  },
+  "diagnostic": {
+    "receipt": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_raw_second_trace_v1/ARCHIVED_TRACE_MAGNITUDE_v1.json",
+    "sha256": "f025408f8a2675cfb6d31c009512ad01ee0d29200a81a3198030ff3e2af1e7de",
+    "scope": "Existing eight completed public S42 parent trajectories; current RC/KC literals substituted only to bound scale. No current-parent gain inference, residual/truth reads, or fitting.",
+    "finding": "|eta|/mean(prevariance) median2.56e-6, max3.25e-5; signs mixed67positive/45negative. Largest one-step Gaussian mean perturbation1.18e-6 RMS per unit squared weight-column norm. This could matter against ~1e-4 residuals if aligned, but establishes neither sign nor >=0.5% gain."
+  },
+  "cost": {
+    "local_conservative_arithmetic_bound": "<50*n charged elementary-equivalent units per layer, <0.72M at1024x14 (~0.00028% of257G), excluding all changed future routes. Not a measured native tariff.",
+    "expected_requests": "A handful of vector/scalar operations per layer, no new matrix products/keys; actual full bill/requests required."
+  },
+  "shortest_test": {
+    "proposed": "One parent/OFF/ON implementation+price pair on a root-designated already-explored public seed, with unchanged prefix, dual-diagonal cache, no accuracy selection. Then one fixed direct-native arm on prospectively allocated fresh16/OOS16, full retired pools, strict actual paired-net signs. Root may instead choose an explicit small diagnostic screen before full registration.",
+    "early_reject": "If a registered diagnostic shows the direction only adds uncorrelated perturbation or materially worsens accuracy, close; do not sweep strength/bands on the same seeds.",
+    "not_authorized": "No seed allocation, requests, imports, model calls, or deployable candidate created."
+  },
+  "decision": "Concrete cheap hypothesis for root prioritization; unbanked and unvalidated. >=0.5% remains the target, not an evidence-supported estimate."
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "public-full688-dynamic-multistate-cache-rebind-v1",
+  "status": "applied-before-training-or-metrics",
+  "cause": "The shared cache was prepared under the original runner hash. The RSS-units amendment changed only resource accounting, but the cache manifest correctly failed closed on the old program hash.",
+  "action": "Rebind cache/MANIFEST.json from the original runner hash to the resealed runner hash. Cached array bytes, tail roster, targets, host selection, and feature moments are unchanged.",
+  "old_program_sha256": "edcbd421640a1fbf013301d8de4103c8234d77d845793a89a010d3736fef9b74",
+  "new_program_sha256": "8871ac10f3f122d9231652e3618c888bdc69b71cc0de44ffa00a79630258225d",
+  "pre_metric_evidence": {
+    "sessions": [71576, 24605, 1733, 6378],
+    "halt_location": "prepare_cache manifest comparison, before model construction and optimizer loop",
+    "fold_result_files_created": 0,
+    "fold_model_files_created": 0,
+    "cv_result_files_created": 0
+  }
+}

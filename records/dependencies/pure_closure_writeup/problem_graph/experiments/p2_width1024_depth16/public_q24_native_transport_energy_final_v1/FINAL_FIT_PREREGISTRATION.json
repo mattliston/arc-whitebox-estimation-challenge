@@ -1,0 +1,51 @@
+{
+  "schema": "p2r0f2j-q24-native-all688-final-fit-preregistration-v1",
+  "status": "frozen-after-transfer-pass-before-all688-target-open",
+  "node": "P2R0H7B",
+  "objective": "Fit exactly one deployment model on all 688 lawful observer_fit Q24-native tapes after the protected 160/40 transfer pass.",
+  "population_and_firewall": {
+    "role": "observer_fit",
+    "training_rows": 688,
+    "validation_rows": 0,
+    "observer_selection_rows": 0,
+    "private_or_board_name_joins": 0,
+    "required_native_rank_coverage": "exactly 0:687",
+    "required_unique_mlp_ids": 688,
+    "target_open_order": "only after all 688 receipt/source/seal and payload hashes pass"
+  },
+  "architecture": {
+    "authority": "exact P2R0F2J TransportEnergyMultiStateResidual source",
+    "depth": 16,
+    "width": 1024,
+    "raw_features": 20,
+    "input_features": 36,
+    "channels": 4,
+    "hidden": 96,
+    "parameters": 25600,
+    "first_corrected_layer": 2,
+    "deployment_truth_inputs": 0
+  },
+  "fixed_training": {
+    "model_seed": 1753358478,
+    "shuffle_stream_id": 40,
+    "epochs": 6,
+    "batch_size_networks": 3,
+    "own_primary_state_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "optimizer": "AdamW",
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 2e-05,
+    "gradient_clip": 5.0,
+    "checkpoint": "fixed epoch 6",
+    "checkpoint_selection": false,
+    "model_selection": false,
+    "postfit_in_sample_score": "diagnostic only, never a selection gate"
+  },
+  "output": {
+    "model": "FINAL_MODEL.pt",
+    "result": "FINAL_FIT_RESULT.json",
+    "required_state_dict_keys": 13,
+    "next_gate": "literal payload export, integrated estimator literal meter, residual/resource/package validation"
+  },
+  "failure_policy": "Abort on any incomplete/corrupt/stale/duplicate row, identity mismatch, nonfinite training or rollout, resource breach, or source/seal drift."
+}

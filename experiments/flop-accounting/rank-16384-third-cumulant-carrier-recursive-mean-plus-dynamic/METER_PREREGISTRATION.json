@@ -1,0 +1,40 @@
+{
+  "schema": "p2r0c1d3-integrated-host-tape-meter-preregistration-v1",
+  "status": "frozen-before-literal-meter-no-targets",
+  "graph_child": "P2R0C1D3",
+  "purpose": "deployment-faithful CP16384 recursive-mean raw20/sigma instrumentation and literal cost admission",
+  "scope": {
+    "role": "observer_fit",
+    "role_rank": 0,
+    "host_generation_roster": [0],
+    "target_roles_opened": [],
+    "target_columns_opened": [],
+    "observer_selection_opened": false,
+    "name_or_board_join": false,
+    "fits": 0,
+    "scores": 0
+  },
+  "host": {
+    "exact_source_sha256": "361c87cba008987c117871bf9892beecce75911634798ed7ad3fa26fd8ee5814",
+    "exact_class": "EstimatorRecursiveMeanCarry",
+    "exact_measured_flops": 620090560514,
+    "instrumented_source_sha256": "76a87a1d161db9583dd318971b2688079d1919579d7a900fa9ec1a0230318105",
+    "instrumented_class": "EstimatorInstrumentedRecursiveMeanCarry",
+    "prediction_gate": "byte-identical array parity to exact source on frozen observer_fit rank 0",
+    "tape": "raw20[16,1024,20] and sigma[16,1024] derived from the same live CP16384 recursive-mean state"
+  },
+  "cost_admission": {
+    "phase2_budget": 2199023255552,
+    "dynamic4_original_correction_upper": 920637440,
+    "dynamic4_raw20_materialization_reserve_to_remove_after_literal_tape": 268435456,
+    "post_tape_dynamic4_correction_upper": 652201984,
+    "integrated_host_tape_plus_correction_ceiling_exclusive": 666987623541,
+    "decision": "admit the protected 160/40 target pilot only when literal integrated host+tape FLOPs plus 652201984 is strictly below 666987623541"
+  },
+  "single_use": {
+    "literal_meter_runs": 1,
+    "source_parity_runs": 1,
+    "retries": 0,
+    "on_failure": "do not open targets; close only this D3 instrumentation spelling"
+  }
+}

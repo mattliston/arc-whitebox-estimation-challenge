@@ -1,0 +1,645 @@
+{
+  "actual_v12": [
+    {
+      "rank": 35,
+      "roster": [
+        {
+          "shape": [
+            672,
+            6144,
+            384
+          ],
+          "count": 1,
+          "record": "signed_executable_1",
+          "family": "sm12_e1_L5P40"
+        },
+        {
+          "shape": [
+            736,
+            6144,
+            384
+          ],
+          "count": 1,
+          "record": "signed_executable_1",
+          "family": "sm12_e1_L5P40"
+        }
+      ],
+      "exact_warm_gain_flops": 161389018,
+      "exact_warm_request_delta": -93,
+      "bill_ref": 244467763716,
+      "gain_pct": 0.06597292930801588,
+      "note": "Denominator adds back fixed12 credit to final v12 bill; other final components unchanged. Cold35 denominator only approximate warm."
+    },
+    {
+      "rank": 100,
+      "roster": [
+        {
+          "shape": [
+            384,
+            864,
+            5632
+          ],
+          "count": 1,
+          "record": "signed_executable_0",
+          "family": "sm12_e0_L5P40"
+        },
+        {
+          "shape": [
+            384,
+            928,
+            6144
+          ],
+          "count": 1,
+          "record": "signed_executable_0",
+          "family": "sm12_e0_L5P40"
+        },
+        {
+          "shape": [
+            672,
+            6144,
+            384
+          ],
+          "count": 1,
+          "record": "signed_executable_1",
+          "family": "sm12_e1_L5P40"
+        },
+        {
+          "shape": [
+            864,
+            5632,
+            384
+          ],
+          "count": 1,
+          "record": "signed_executable_1",
+          "family": "sm12_e1_L5P40"
+        },
+        {
+          "shape": [
+            928,
+            6144,
+            384
+          ],
+          "count": 1,
+          "record": "signed_executable_1",
+          "family": "sm12_e1_L5P40"
+        }
+      ],
+      "exact_warm_gain_flops": 472688642,
+      "exact_warm_request_delta": -244,
+      "bill_ref": 243379227778,
+      "gain_pct": 0.19384249627378836,
+      "note": "Denominator adds back fixed12 credit to final v12 bill; other final components unchanged. Cold35 denominator only approximate warm."
+    }
+  ],
+  "fixed8_geometry_inference": [
+    {
+      "rank": 35,
+      "observed_fixed12_count": 2,
+      "saved_read_known_shapes": [
+        [
+          736,
+          6144,
+          384
+        ],
+        [
+          672,
+          6144,
+          384
+        ]
+      ],
+      "cohort_widths": {
+        "join7": 6144,
+        "join10": 5568,
+        "join13": 4672
+      },
+      "possible_rosters": [
+        {
+          "joins": [],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              672,
+              6144,
+              384
+            ]
+          ],
+          "gain_flops": 161389018,
+          "request_delta": -93
+        }
+      ],
+      "gain_flops_bounds": [
+        161389018,
+        161389018
+      ],
+      "gain_pct_bounds": [
+        0.066100423070479,
+        0.066100423070479
+      ],
+      "exact_given_saved_geometry": true
+    },
+    {
+      "rank": 150,
+      "observed_fixed12_count": 4,
+      "saved_read_known_shapes": [
+        [
+          736,
+          6144,
+          384
+        ],
+        [
+          672,
+          6144,
+          384
+        ]
+      ],
+      "cohort_widths": {
+        "join7": 6144,
+        "join10": 5504,
+        "join13": 4608
+      },
+      "possible_rosters": [
+        {
+          "joins": [
+            7
+          ],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              672,
+              6144,
+              384
+            ],
+            [
+              384,
+              928,
+              6144
+            ],
+            [
+              928,
+              6144,
+              384
+            ]
+          ],
+          "gain_flops": 342850524,
+          "request_delta": -191
+        },
+        {
+          "joins": [
+            10
+          ],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              672,
+              6144,
+              384
+            ],
+            [
+              384,
+              864,
+              5504
+            ],
+            [
+              864,
+              5504,
+              384
+            ]
+          ],
+          "gain_flops": 377498860,
+          "request_delta": -191
+        }
+      ],
+      "gain_flops_bounds": [
+        342850524,
+        377498860
+      ],
+      "gain_pct_bounds": [
+        0.1413308735791342,
+        0.15561371479463537
+      ],
+      "exact_given_saved_geometry": false
+    },
+    {
+      "rank": 16,
+      "observed_fixed12_count": 5,
+      "saved_read_known_shapes": [
+        [
+          672,
+          6144,
+          384
+        ]
+      ],
+      "cohort_widths": {
+        "join7": 6144,
+        "join10": 5568,
+        "join13": 4480
+      },
+      "possible_rosters": [
+        {
+          "joins": [
+            7,
+            10
+          ],
+          "shapes": [
+            [
+              672,
+              6144,
+              384
+            ],
+            [
+              384,
+              928,
+              6144
+            ],
+            [
+              928,
+              6144,
+              384
+            ],
+            [
+              384,
+              864,
+              5568
+            ],
+            [
+              864,
+              5568,
+              384
+            ]
+          ],
+          "gain_flops": 551628608,
+          "request_delta": -249
+        }
+      ],
+      "gain_flops_bounds": [
+        551628608,
+        551628608
+      ],
+      "gain_pct_bounds": [
+        0.23003575590622297,
+        0.23003575590622297
+      ],
+      "exact_given_saved_geometry": true
+    },
+    {
+      "rank": 200,
+      "observed_fixed12_count": 3,
+      "saved_read_known_shapes": [
+        [
+          736,
+          6144,
+          384
+        ]
+      ],
+      "cohort_widths": {
+        "join7": 6144,
+        "join10": 5632,
+        "join13": 4992
+      },
+      "possible_rosters": [
+        {
+          "joins": [
+            7
+          ],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              384,
+              928,
+              6144
+            ],
+            [
+              928,
+              6144,
+              384
+            ]
+          ],
+          "gain_flops": 234407522,
+          "request_delta": -143
+        },
+        {
+          "joins": [
+            10
+          ],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              384,
+              864,
+              5632
+            ],
+            [
+              864,
+              5632,
+              384
+            ]
+          ],
+          "gain_flops": 235730150,
+          "request_delta": -143
+        }
+      ],
+      "gain_flops_bounds": [
+        234407522,
+        235730150
+      ],
+      "gain_pct_bounds": [
+        0.088819803770396,
+        0.08932096328276536
+      ],
+      "exact_given_saved_geometry": false
+    },
+    {
+      "rank": 250,
+      "observed_fixed12_count": 4,
+      "saved_read_known_shapes": [],
+      "cohort_widths": {
+        "join7": 6144,
+        "join10": 5504,
+        "join13": 4800
+      },
+      "possible_rosters": [
+        {
+          "joins": [
+            7,
+            10
+          ],
+          "shapes": [
+            [
+              384,
+              928,
+              6144
+            ],
+            [
+              928,
+              6144,
+              384
+            ],
+            [
+              384,
+              864,
+              5504
+            ],
+            [
+              864,
+              5504,
+              384
+            ]
+          ],
+          "gain_flops": 397571348,
+          "request_delta": -196
+        }
+      ],
+      "gain_flops_bounds": [
+        397571348,
+        397571348
+      ],
+      "gain_pct_bounds": [
+        0.16089274852781316,
+        0.16089274852781316
+      ],
+      "exact_given_saved_geometry": true
+    },
+    {
+      "rank": 259,
+      "observed_fixed12_count": 4,
+      "saved_read_known_shapes": [
+        [
+          736,
+          6144,
+          384
+        ],
+        [
+          672,
+          6144,
+          384
+        ]
+      ],
+      "cohort_widths": {
+        "join7": 6144,
+        "join10": 5632,
+        "join13": 4672
+      },
+      "possible_rosters": [
+        {
+          "joins": [
+            7
+          ],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              672,
+              6144,
+              384
+            ],
+            [
+              384,
+              928,
+              6144
+            ],
+            [
+              928,
+              6144,
+              384
+            ]
+          ],
+          "gain_flops": 342850524,
+          "request_delta": -191
+        },
+        {
+          "joins": [
+            10
+          ],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              672,
+              6144,
+              384
+            ],
+            [
+              384,
+              864,
+              5632
+            ],
+            [
+              864,
+              5632,
+              384
+            ]
+          ],
+          "gain_flops": 344173152,
+          "request_delta": -191
+        },
+        {
+          "joins": [
+            13
+          ],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              672,
+              6144,
+              384
+            ],
+            [
+              384,
+              864,
+              4672
+            ],
+            [
+              864,
+              4672,
+              384
+            ]
+          ],
+          "gain_flops": 293420962,
+          "request_delta": -191
+        }
+      ],
+      "gain_flops_bounds": [
+        293420962,
+        344173152
+      ],
+      "gain_pct_bounds": [
+        0.11807464487596837,
+        0.13849768067437077
+      ],
+      "exact_given_saved_geometry": false
+    },
+    {
+      "rank": 277,
+      "observed_fixed12_count": 2,
+      "saved_read_known_shapes": [
+        [
+          736,
+          6144,
+          384
+        ],
+        [
+          736,
+          6144,
+          384
+        ]
+      ],
+      "cohort_widths": {
+        "join7": 6144,
+        "join10": 5632,
+        "join13": 4736
+      },
+      "possible_rosters": [
+        {
+          "joins": [],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ],
+            [
+              736,
+              6144,
+              384
+            ]
+          ],
+          "gain_flops": 105892032,
+          "request_delta": -90
+        }
+      ],
+      "gain_flops_bounds": [
+        105892032,
+        105892032
+      ],
+      "gain_pct_bounds": [
+        0.04269839267274921,
+        0.04269839267274921
+      ],
+      "exact_given_saved_geometry": true
+    },
+    {
+      "rank": 287,
+      "observed_fixed12_count": 1,
+      "saved_read_known_shapes": [
+        [
+          736,
+          6144,
+          384
+        ]
+      ],
+      "cohort_widths": {
+        "join7": 6144,
+        "join10": 5376,
+        "join13": 4480
+      },
+      "possible_rosters": [
+        {
+          "joins": [],
+          "shapes": [
+            [
+              736,
+              6144,
+              384
+            ]
+          ],
+          "gain_flops": 52946016,
+          "request_delta": -45
+        }
+      ],
+      "gain_flops_bounds": [
+        52946016,
+        52946016
+      ],
+      "gain_pct_bounds": [
+        0.022319005715141928,
+        0.022319005715141928
+      ],
+      "exact_given_saved_geometry": true
+    }
+  ],
+  "mean_gain_pct_bounds": [
+    0.1087839560147381,
+    0.11318483558052223
+  ],
+  "mean_gain_flops_bounds": [
+    267513253.75,
+    278353648.0
+  ],
+  "provenance": "Actual v12 accepted roster exact on35/100. Fixed8 uses observed route counts plus saved48c RTT m and cohort widths; no model rerun.",
+  "limitations": [
+    "Inferred fixed8 bounds are conditional on unchanged saved48c read geometry, which was not logged in P40 boundary files. Do not relabel exact P40 telemetry.",
+    "Join Y/Fj give paired complementary calls; independent first-old read at layers7..9 gives one call. Other old-bank calls are either rank384 inner/reconstruction or UVP split widths and cannot match fixed12.",
+    "Full actual16 old-inner rosters were not logged; seven later boundary files have no RTT read geometry. No exact16 P40 population bill from current files."
+  ],
+  "models": 0
+}

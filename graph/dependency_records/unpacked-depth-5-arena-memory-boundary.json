@@ -1,0 +1,20 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1D14C",
+    "label": "Unpacked depth-5 arena memory boundary",
+    "kind": "phase2_architecture_memory_boundary",
+    "status": "closed_this_form",
+    "priority": 1,
+    "summary": "The prior depth-5 implementation projects above 8.8 GB and remains closed in its unchanged allocation form. Lifetime packing later reduced the measured official peak below 7 GB, so the old receipt is not a family-wide D5 impossibility proof.",
+    "terminal_criterion": "Closed only for the unchanged unpacked arena. The materially different lifetime-packed successor is recorded under P2R0C1D16; no retry of this allocation is licensed.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d5_cp3_winograd_hybrid_v1/MEMORY_ERRATUM_001.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d15_cp3_arena_depth5_lifetime_packed_v1/PACKED_D5_STATIC_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d18_d5_official_env_full_gate_v1/D18_OFFICIAL_ENV_FULL_GATE_RESULT.json"
+    ],
+    "decomposition_children": []
+  }
+}

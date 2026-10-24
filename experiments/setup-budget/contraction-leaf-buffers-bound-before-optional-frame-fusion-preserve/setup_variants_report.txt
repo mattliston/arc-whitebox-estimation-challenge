@@ -1,0 +1,29 @@
+10:06:01 machine gate WAIT for setup-variants-parity: heavy 0, free+inactive 10.1 GB (need 8+4), memory free 42% (retry 60 s)
+10:10:02 machine gate PASS for setup-variants-parity: heavy 2 < 4, free+inactive 12.7 GB >= 8+4, memory free 53%
+== (A) S27r vs S27r_ksfirst
+setup A: wall 0.06 s; bound 410; guard [['lvfuse', 388, 0.057], ['ksplit', 22, 0.058]]; lvf {'fused_keys': 388}
+setup B: wall 0.08 s; bound 410; guard [['ksplit', 22, 0.0], ['lvfuse', 388, 0.08]]; lvf {'fused_keys': 388}
+r35: all-16-layer predictions identical True (max abs diff 0.000e+00); flops A 295,909,672,807 B 295,909,672,807 identical True (B/A +0.000%); final MSE B/A +0.000%
+r100: all-16-layer predictions identical True (max abs diff 0.000e+00); flops A 294,879,820,437 B 294,879,820,437 identical True (B/A +0.000%); final MSE B/A +0.000%
+== (A) S27r vs S27r_trim372
+setup A: wall 0.12 s; bound 410; guard [['lvfuse', 388, 0.116], ['ksplit', 22, 0.117]]; lvf {'fused_keys': 388}
+setup B: wall 0.18 s; bound 394; guard [['lvfuse', 372, 0.176], ['ksplit', 22, 0.178]]; lvf {'fused_keys': 372}
+r35: all-16-layer predictions identical True (max abs diff 0.000e+00); flops A 295,909,672,807 B 295,998,327,002 identical False (B/A +0.030%); final MSE B/A +0.000%
+r100: all-16-layer predictions identical True (max abs diff 0.000e+00); flops A 294,879,820,437 B 294,907,779,445 identical False (B/A +0.009%); final MSE B/A +0.000%
+10:18:30 machine gate WAIT for setup-variants-S27r: heavy 0, free+inactive 11.8 GB (need 9+4), memory free 42% (retry 60 s)
+10:41:34 machine gate PASS for setup-variants-S27r: heavy 1 < 4, free+inactive 13.0 GB >= 9+4, memory free 49%
+== (B) pair S27 vs S27r at load { 6.21 8.27 9.12 }
+  S27            setup 2.089 s log [['lvfuse', 372, 2.08], ['ksplit', 22, 2.088], ['bound', 394, 2.089]] | r35: flops 305,903,971,154 req 29,276 resid 0.176 | r100: flops 304,869,229,732 req 28,995 resid 0.196
+  S27r           setup 2.297 s log [['lvfuse', 388, 2.287], ['ksplit', 22, 2.295], ['bound', 410, 2.297]] | r35: flops 295,909,672,807 req 29,139 resid 0.181 | r100: flops 294,879,820,437 req 28,892 resid 0.196
+  S27r vs S27 (same load): setup +0.208 s; bill r35 -3.267% r100 -3.277%
+10:42:50 machine gate PASS for setup-variants-S27r_ksfirst: heavy 3 < 4, free+inactive 24.3 GB >= 9+4, memory free 79%
+== (B) pair S27 vs S27r_ksfirst at load { 6.47 7.68 8.81 }
+  S27            setup 3.466 s log [['lvfuse', 372, 3.452], ['ksplit', 22, 3.464], ['bound', 394, 3.465]] | r35: flops 305,903,971,154 req 29,276 resid 0.297 | r100: flops 304,869,229,732 req 28,995 resid 0.278
+  S27r_ksfirst   setup 3.505 s log [['ksplit', 22, 0.031], ['lvfuse', 327, 3.503], ['bound', 410, 3.505]] | r35: flops 295,909,672,807 req 29,245 resid 0.291 | r100: flops 294,879,820,437 req 28,933 resid 0.277
+  S27r_ksfirst vs S27 (same load): setup +0.039 s; bill r35 -3.267% r100 -3.277%
+10:44:35 machine gate PASS for setup-variants-S27r_trim372: heavy 3 < 4, free+inactive 22.8 GB >= 9+4, memory free 78%
+== (B) pair S27 vs S27r_trim372 at load { 10.80 8.74 9.08 }
+  S27            setup 3.079 s log [['lvfuse', 372, 3.066], ['ksplit', 22, 3.077], ['bound', 394, 3.079]] | r35: flops 305,903,971,154 req 29,276 resid 0.226 | r100: flops 304,869,229,732 req 28,995 resid 0.196
+  S27r_trim372   setup 3.152 s log [['lvfuse', 372, 3.14], ['ksplit', 22, 3.151], ['bound', 394, 3.152]] | r35: flops 295,998,327,002 req 29,318 resid 0.220 | r100: flops 294,907,779,445 req 28,927 resid 0.201
+  S27r_trim372 vs S27 (same load): setup +0.073 s; bill r35 -3.238% r100 -3.267%
+SETUP VARIANTS DONE

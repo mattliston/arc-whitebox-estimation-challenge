@@ -1,0 +1,31 @@
+{
+  "lane": "opus-wpivot",
+  "base": "2b108+R256 (controls opus_gbfix_v1/screen_R256)",
+  "bar": "xMSE <= -0.3%% vs R256 at equal bill and requests",
+  "design": "R256 greedy selection ranks rows by w*d_res; w = phi(a_{L-1}[previous]) of the join rows (captured from _deadcut_push); pre-registered P1 = pdf/pdf0 + 1e-6, P2 = 0.5 + 0.5 pdf/pdf0; append-last copy of _ojx_greedy with 2 ranking lines weighted",
+  "P1": {
+    "sha": "d71359da",
+    "xMSE_pct": -0.141,
+    "se": 1.092,
+    "lower": "5/8",
+    "bill_pct": 0.0,
+    "native_ops_delta": 27,
+    "per_seed_range_pct": [
+      -3.754,
+      4.884
+    ]
+  },
+  "P2": {
+    "sha": "dd695923",
+    "xMSE_pct": -0.217,
+    "se": 1.058,
+    "lower": "4/8",
+    "bill_pct": 0.0,
+    "native_ops_delta": 27,
+    "per_seed_range_pct": [
+      -4.311,
+      3.403
+    ]
+  },
+  "verdict": "CLOSED: no resolvable mean gain; pivot choice reshuffles per-network final MSE by several %% either way (SE ~1.1%% on 8 seeds)"
+}

@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-11T00:40:21Z",
+  "status": "source/identity/linked-provenance checks PASS; native parent scientific export-binding and numerical gates pending",
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a59_repair_heads/repair_head_build_v2.py",
+    "sha256": "7c03be8395a5d7fdde4ef6d38acfd557276980cf9b02343ee5c5f47050649f79"
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a59_repair_heads/fragment_repair_heads_v2.py",
+    "sha256": "06422496e5177c60a0a1a442c0fa448d97746fb7d7de4d5dda5190a807ab1eb9"
+  },
+  "feature_spec": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t87_repair_head_feature_spec_v1.json",
+    "sha256": "29fd46fa9ad6243249bb4b4606f20e3cd78f6b282781061fda500a8b6a7af821"
+  },
+  "runtime_entry": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_cutsim_repair_heads_v1.py",
+    "sha256": "3b063e2ddea97309ba302fe85d01fb86ee8640897f0a80928241f4a8ba29973f"
+  },
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/stack/candidate_T_C_B_F_D_Hfull_HV2_F4Cv2t0.656,0.6c0.0,0.44439084790069294,0.0,0.17112793763960094_K4Lv6c0.8597296897041633,0.8597296897041633_EcutSv2_L3_L3o_SS0_NPv9@jmIf_r2_HC@jmIfh_BT@kef1e7_Phfull_v1_CS_Rlvfuse_sized32_Rtsr_off__jmIf.py",
+    "sha256": "63f89e8da3e599d550a332972229a27c8600d1e8b97bfbb61ba02f8995e11428"
+  },
+  "probes": [
+    {
+      "output_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a59_repair_heads/fixtures_v2/native_disabled_source.py",
+      "output_sha256": "63f89e8da3e599d550a332972229a27c8600d1e8b97bfbb61ba02f8995e11428",
+      "active": false,
+      "qualification_blockers": [
+        "native parent scientific parameters/checkpoint/request export binding pending"
+      ]
+    },
+    {
+      "output_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a59_repair_heads/fixtures_v2/native_zero_source.py",
+      "output_sha256": "63f89e8da3e599d550a332972229a27c8600d1e8b97bfbb61ba02f8995e11428",
+      "active": false,
+      "qualification_blockers": [
+        "native parent scientific parameters/checkpoint/request export binding pending"
+      ]
+    },
+    {
+      "output_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a59_repair_heads/fixtures_v2/native_nonzero_source.py",
+      "output_sha256": "49fd57ab5866a1509b1ddea2d0b5736ba8d1764246b88bfb0e11d8fc9d122124",
+      "active": true,
+      "qualification_blockers": [
+        "native parent scientific parameters/checkpoint/request export binding pending"
+      ]
+    }
+  ],
+  "disabled_exact_parent": true,
+  "zero_exact_parent": true,
+  "nonzero_exact_site_edits": 3,
+  "request_linkage_failures_rejected": [
+    "params",
+    "hu",
+    "flags",
+    "profile",
+    "dependency"
+  ],
+  "new_einsum_signatures": [],
+  "reviewed_projection": {
+    "signature": "kn,kc->nc",
+    "operands": [
+      [
+        2,
+        1024
+      ],
+      [
+        2,
+        128
+      ]
+    ],
+    "output": [
+      1024,
+      128
+    ],
+    "dtype": "float32",
+    "optimize": false,
+    "arithmetic": "ordinary two-term dense contraction"
+  },
+  "imports": "stdlib only; no estimator/Torch/NumPy/flopscope",
+  "native_execution": false
+}

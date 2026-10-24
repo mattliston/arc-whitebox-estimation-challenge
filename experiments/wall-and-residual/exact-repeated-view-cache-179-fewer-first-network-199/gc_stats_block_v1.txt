@@ -1,0 +1,12 @@
+
+# [opus-wall] GC probe: report collector activity per prediction on stderr (diagnostic only).
+import gc as _opus_gc, sys as _opus_sys
+_OPUS_GC_PRED_PARENT = Estimator.predict
+def _opus_gc_predict(self, *a, **k):
+    s0 = [x['collections'] for x in _opus_gc.get_stats()]
+    try:
+        return _OPUS_GC_PRED_PARENT(self, *a, **k)
+    finally:
+        s1 = [x['collections'] for x in _opus_gc.get_stats()]
+        print('OPUS_GC collections', [b - a for a, b in zip(s0, s1)], 'tracked', len(_opus_gc.get_objects()), 'frozen', _opus_gc.get_freeze_count(), file=_opus_sys.stderr, flush=True)
+Estimator.predict = _opus_gc_predict

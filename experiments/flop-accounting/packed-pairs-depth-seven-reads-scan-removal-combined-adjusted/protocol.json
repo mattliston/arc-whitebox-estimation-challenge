@@ -1,0 +1,102 @@
+{
+  "schema": "s34-packed-pair-read7-scan-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "retained_components": [
+    {
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_blocksym_v1/retained_component.json",
+        "sha256": "354b9e07ce8d5041f6e20a47991f45aa8b3b107f24e7ae126ad41b6ef45c969f",
+        "bytes": 16336
+      },
+      "native8": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_blocksym_v1/native8_assessment.json",
+        "sha256": "e078f2170818b86eaeff381a577eb9294ba13cea662d1f4743e3d6d747be7fa5",
+        "bytes": 41212
+      },
+      "boundary": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_blocksym_v1/boundary_assessment.json",
+        "sha256": "020be27246a4730743673d8f75e41351bcf1ed9266c368f7b8843774b2ba005e",
+        "bytes": 40747
+      },
+      "candidate": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_blocksym_v1/candidate.py",
+        "sha256": "4e82cf45bd46e114a756d20220332f36d20db2bdb2767d95dcae1401d12f337a",
+        "bytes": 968747
+      }
+    },
+    {
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_read7_v1/retained_component.json",
+        "sha256": "ad0e0e3e710de25bef877d5eb1efdc1da838086b436373bf78e3deeebf279843",
+        "bytes": 10276
+      },
+      "native8": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_read7_v1/native8_assessment.json",
+        "sha256": "de95bdfe7e82e0ebeea9614b23301b501c6571d9844c7618b52b1232f77e4f98",
+        "bytes": 39945
+      },
+      "boundary": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_read7_v1/boundary_assessment_read7_v3.json",
+        "sha256": "27263c9cce47d5cbea4b0c5a0c665f4cb03d21616e67f4a539d65f9ecca23c16",
+        "bytes": 42579
+      },
+      "candidate": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_read7_v1/candidate.py",
+        "sha256": "9ea3a975561d6fae2ae8806b9812d81fe7cadc23845f86cce14b80696d0bf7d6",
+        "bytes": 965977
+      }
+    }
+  ],
+  "scan_component": {
+    "fragment": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_oldtier_scan_elision_v1/fragment.py",
+      "sha256": "1fc78706a4f0fe0a6c59c25e9087e87ce7c2df1abda828359d1089e012aa6b1c",
+      "bytes": 236
+    },
+    "native2": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_oldtier_scan_elision_v1/native2_assessment.json",
+      "sha256": "4c5e0fc50c3129a96ad2ab4bbc8754415703dbac4c722f8b6529c6b1b2271989",
+      "bytes": 15706
+    }
+  },
+  "scope": "One combined native2, own boundary, fixed6/native8 and later independent broad validation only on passed gates.",
+  "component_qualifications": "PP and READ7 each passed own N8, boundary and S32 runtime recheck. Scan has isolated exact N2 evidence and qualifies further in the combination.",
+  "source_inverse": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_blocksym_v1/source_inverse.json",
+    "sha256": "2527accbd4462bfbeac82821bf72be72d6d8de76823036df5ef967bbeab6d369",
+    "bytes": 5213
+  },
+  "append_order": [
+    "packed_pair",
+    "READ7",
+    "scan_elision"
+  ],
+  "gn_pair_bond_reuse_excluded": true,
+  "nystrom_excluded": true,
+  "compatibility": "Packed pair keeps FT/P16 but does not restore full-AA T1/T4. Baseline GN remains; GN-reuse override is explicitly absent. READ7 alters only admitted mm routes; scan retains dtype checks.",
+  "no_hidden_value_cache": true,
+  "same_arena_and_existing_resource_caps": true,
+  "setup_counts": {
+    "bound": 687,
+    "lvfuse": 649,
+    "psdb_fused": 9,
+    "pair_block_indices": 1,
+    "read7_fused": 4
+  },
+  "parity_layers": [
+    0
+  ],
+  "all16_finite_required": true,
+  "original_S34_paired_controls": true,
+  "original_approximate_score_gates": true,
+  "no_additive_gain_claim": true,
+  "broad_qualified": false,
+  "serving_qualified": false,
+  "submitted": false,
+  "model_executed": false
+}

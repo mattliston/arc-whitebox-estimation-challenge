@@ -1,0 +1,158 @@
+{
+  "train": [
+    35,
+    36,
+    38,
+    40,
+    41,
+    43,
+    44,
+    45,
+    46,
+    47,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58
+  ],
+  "valid": [
+    37,
+    39,
+    42,
+    48
+  ],
+  "records": [
+    {
+      "rank": 37,
+      "parent_raw": 2.128118095377153e-08,
+      "control_raw": 2.1433378428236114e-08,
+      "sources_raw": 2.1144534820633943e-08,
+      "sources_to_parent": 0.9935790154956898,
+      "sources_to_control": 0.9865236547486302,
+      "control_numpy_mps_max": 2.9103830456733704e-11,
+      "sources_numpy_mps_max": 2.9103830456733704e-11
+    },
+    {
+      "rank": 39,
+      "parent_raw": 1.7861628910077238e-08,
+      "control_raw": 1.7952818047691347e-08,
+      "sources_raw": 1.8170240427882426e-08,
+      "sources_to_parent": 1.0172779044598264,
+      "sources_to_control": 1.0121107660988653,
+      "control_numpy_mps_max": 2.1827872842550278e-11,
+      "sources_numpy_mps_max": 4.3655745685100555e-11
+    },
+    {
+      "rank": 42,
+      "parent_raw": 2.3224433216557637e-08,
+      "control_raw": 2.326506291404369e-08,
+      "sources_raw": 2.286703241711371e-08,
+      "sources_to_parent": 0.9846110001431975,
+      "sources_to_control": 0.9828914927760753,
+      "control_numpy_mps_max": 2.9103830456733704e-11,
+      "sources_numpy_mps_max": 2.9103830456733704e-11
+    },
+    {
+      "rank": 48,
+      "parent_raw": 2.2439381373937166e-08,
+      "control_raw": 2.2438353077457258e-08,
+      "sources_raw": 2.1937080956503117e-08,
+      "sources_to_parent": 0.9776152288218846,
+      "sources_to_control": 0.9776600306081401,
+      "control_numpy_mps_max": 2.1827872842550278e-11,
+      "sources_numpy_mps_max": 2.9103830456733704e-11
+    }
+  ],
+  "histories": {
+    "control": {
+      "initial_valid_mse": 2.1201994826469672e-08,
+      "epochs": [
+        {
+          "arm": "control",
+          "epoch": 10,
+          "train_mse": 2.263088028087168e-08,
+          "valid_mse": 2.128410514501411e-08,
+          "wall_s": 0.673126220703125
+        },
+        {
+          "arm": "control",
+          "epoch": 20,
+          "train_mse": 2.2566172930282846e-08,
+          "valid_mse": 2.126887821418677e-08,
+          "wall_s": 0.7357110977172852
+        },
+        {
+          "arm": "control",
+          "epoch": 30,
+          "train_mse": 2.253259978601818e-08,
+          "valid_mse": 2.1277781314665845e-08,
+          "wall_s": 0.804901123046875
+        },
+        {
+          "arm": "control",
+          "epoch": 40,
+          "train_mse": 2.251906572325879e-08,
+          "valid_mse": 2.127279330466081e-08,
+          "wall_s": 0.8716390132904053
+        }
+      ]
+    },
+    "sources": {
+      "initial_valid_mse": 2.1201994826469672e-08,
+      "epochs": [
+        {
+          "arm": "sources",
+          "epoch": 10,
+          "train_mse": 2.2473798821920354e-08,
+          "valid_mse": 2.112671282361589e-08,
+          "wall_s": 1.0179340839385986
+        },
+        {
+          "arm": "sources",
+          "epoch": 20,
+          "train_mse": 2.231920248618735e-08,
+          "valid_mse": 2.1055578613982107e-08,
+          "wall_s": 1.080672025680542
+        },
+        {
+          "arm": "sources",
+          "epoch": 30,
+          "train_mse": 2.2242920394432986e-08,
+          "valid_mse": 2.104073004716156e-08,
+          "wall_s": 1.1444261074066162
+        },
+        {
+          "arm": "sources",
+          "epoch": 40,
+          "train_mse": 2.2215056461050153e-08,
+          "valid_mse": 2.1030167829394486e-08,
+          "wall_s": 1.2061150074005127
+        }
+      ]
+    }
+  },
+  "payloads": {
+    "control": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/payload_gaussian_shadow_disagreement_control_pilot_v1.npz",
+      "sha256": "ea919f6a5d736203b1c93a5ba158daffe3c030ebc387b1120ab41823ce6e3dc8"
+    },
+    "sources": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/payload_gaussian_shadow_disagreement_sources_pilot_v1.npz",
+      "sha256": "2d93287aa66914dded5f524171cadc433f18161acdcc2843a9bd729efe4a99fb"
+    }
+  },
+  "pooled_sources_to_parent": 0.991890541138321,
+  "pooled_sources_to_control": 0.9885917467814677,
+  "parent_wins": 3,
+  "expansion_gate": false,
+  "wall_s": 1.2269041538238525,
+  "peak_rss_bytes": 445333504,
+  "source_sha256": "64dcc60f0695ddf821ff6abd224e7a9e554a9e0696b004c02e77ed563ce87ebf",
+  "qualification": "One fixed40-epoch matched final-only Q pilot on20/4 current on-policy nets, original1e9 truths. Inputs and P prefix byte-exact before targets,8 independent Gaussian-trajectory disagreement channels versus same-size zero-input control. Independent NumPy final head with original dynamic prefix, clipped outputs. No fit expansion,14-net adjusted score, bill, candidate or official result."
+}

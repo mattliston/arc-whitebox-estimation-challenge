@@ -1,0 +1,121 @@
+{
+  "status": "CLOSED_TENSOR_MODE_PROXY_GATE",
+  "candidate_chosen_without_labels": "tensor_pair_gram",
+  "mean_CP_error_ratio": {
+    "tensor_pair_gram": 0.9930632436014423,
+    "tensor_pair_gram_noise4e6": 0.9937331422427851
+  },
+  "rule": "Fixed exact per-pair cubic modeGram, traces matched; CP squared-error ratio<=.8 on EACH saved rank, with and without4e-6 noise; H diagnostic only",
+  "rows": [
+    {
+      "rank": 35,
+      "m": 832,
+      "new_columns": 4672,
+      "selected_pairs": 768,
+      "all_pairs": 2336,
+      "H_gram_offdiagonal_energy_fraction": 0.758443291036263,
+      "arms": {
+        "baseline": {
+          "signed_CP_error_squared": 1.1455106031711776e-06,
+          "weighted_H_projection_error_squared": 0.03771502149200501,
+          "subspace_chord_squared_per_rank": 1.4652788038471698e-07,
+          "CP_error_ratio_vs_baseline": 1.0,
+          "H_error_ratio_vs_baseline": 1.0
+        },
+        "baseline_noise4e6": {
+          "signed_CP_error_squared": 1.1576526194274574e-06,
+          "weighted_H_projection_error_squared": 0.03856998684025825,
+          "subspace_chord_squared_per_rank": 0.002129605653659161,
+          "CP_error_ratio_vs_baseline": 1.010599654182743,
+          "H_error_ratio_vs_baseline": 1.022669093491952
+        },
+        "tensor_pair_gram": {
+          "signed_CP_error_squared": 1.0984004290779447e-06,
+          "weighted_H_projection_error_squared": 0.030400465928401843,
+          "subspace_chord_squared_per_rank": 0.014592178309574488,
+          "CP_error_ratio_vs_baseline": 0.9588740829086912,
+          "H_error_ratio_vs_baseline": 0.8060572346444577
+        },
+        "tensor_pair_gram_noise4e6": {
+          "signed_CP_error_squared": 1.1005674720741699e-06,
+          "weighted_H_projection_error_squared": 0.030407593756265783,
+          "subspace_chord_squared_per_rank": 0.014617010941312514,
+          "CP_error_ratio_vs_baseline": 0.9607658532600315,
+          "H_error_ratio_vs_baseline": 0.8062462263931551
+        }
+      },
+      "policy_details": {
+        "selected_complete_pairs": 768,
+        "parent_columns": 1536,
+        "tensor_columns": 1536,
+        "trace_normalization": 295.97636340069107,
+        "parent_new_gram_trace": 3441.253233811986,
+        "unscaled_tensor_trace": 11.626783957586632,
+        "minimum_schur": 0.3523011829865458,
+        "negative_schur_count": 0,
+        "full_H_cubed_included": true,
+        "cross_pair_terms_in_metric_omitted": true
+      },
+      "memory_free_start": 59,
+      "memory_free_end": 59
+    },
+    {
+      "rank": 200,
+      "m": 864,
+      "new_columns": 4992,
+      "selected_pairs": 768,
+      "all_pairs": 2496,
+      "H_gram_offdiagonal_energy_fraction": 0.7535892884699468,
+      "arms": {
+        "baseline": {
+          "signed_CP_error_squared": 1.406460776101879e-06,
+          "weighted_H_projection_error_squared": 0.07379849227330482,
+          "subspace_chord_squared_per_rank": 1.3721463842930604e-07,
+          "CP_error_ratio_vs_baseline": 1.0,
+          "H_error_ratio_vs_baseline": 1.0
+        },
+        "baseline_noise4e6": {
+          "signed_CP_error_squared": 1.42023899210006e-06,
+          "weighted_H_projection_error_squared": 0.07456645784996851,
+          "subspace_chord_squared_per_rank": 0.00122376202574781,
+          "CP_error_ratio_vs_baseline": 1.0097963741558214,
+          "H_error_ratio_vs_baseline": 1.0104062502228315
+        },
+        "tensor_pair_gram": {
+          "signed_CP_error_squared": 1.4447902137961323e-06,
+          "weighted_H_projection_error_squared": 0.06321864052078041,
+          "subspace_chord_squared_per_rank": 0.015567257783082655,
+          "CP_error_ratio_vs_baseline": 1.0272524042941933,
+          "H_error_ratio_vs_baseline": 0.8566386463107802
+        },
+        "tensor_pair_gram_noise4e6": {
+          "signed_CP_error_squared": 1.444013885325605e-06,
+          "weighted_H_projection_error_squared": 0.06322545334651153,
+          "subspace_chord_squared_per_rank": 0.015587358911376747,
+          "CP_error_ratio_vs_baseline": 1.0267004312255386,
+          "H_error_ratio_vs_baseline": 0.856730962908603
+        }
+      },
+      "policy_details": {
+        "selected_complete_pairs": 768,
+        "parent_columns": 1536,
+        "tensor_columns": 1536,
+        "trace_normalization": 425.37426445013836,
+        "parent_new_gram_trace": 4290.097517235199,
+        "unscaled_tensor_trace": 10.085465614100585,
+        "minimum_schur": 0.3622028545413456,
+        "negative_schur_count": 0,
+        "full_H_cubed_included": true,
+        "cross_pair_terms_in_metric_omitted": true
+      },
+      "memory_free_start": 59,
+      "memory_free_end": 59
+    }
+  ],
+  "no_truths_read": true,
+  "no_SDK": true,
+  "no_endpoint_oracle": true,
+  "caveat": "Historical L13 joins, exact CPU float32 algebra. NP/coadaptation/current native transfer not tested.",
+  "elapsed_s": 0.3393633756786585,
+  "maxrss_bytes": 421543936
+}

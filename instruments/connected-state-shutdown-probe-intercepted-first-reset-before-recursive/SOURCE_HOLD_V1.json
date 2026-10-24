@@ -1,0 +1,116 @@
+{
+  "schema": "q24-cs3b-hybrid-localized-pairing-source-hold-v1",
+  "status": "IMMUTABLE_SOURCE_HOLD__ZERO_EXECUTIONS__INDEPENDENT_SOURCE_AUDIT_REQUIRED",
+  "created_at_utc": "2026-08-24T14:21:26Z",
+  "bindings": {
+    "estimator": {
+      "path": "estimator.py",
+      "sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+      "bytes": 80681
+    },
+    "parent_estimator": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2/estimator.py",
+      "sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779"
+    },
+    "source_build_release": {
+      "path": "../q24_cs3b_hybrid_exact_lowrank_pairing_covariance_design_v1/SOURCE_BUILD_RELEASE_V1.json",
+      "sha256": "ba13a061c505d2ea61a748daf3586c6c2bace296b343a062a37c665c84864bc4",
+      "status_exact": "AUTHORIZED_ONE_ADDITIVE_V3_SOURCE_BUILD__NO_EXECUTION_OR_PROBE"
+    },
+    "author_corrected_design_receipt": {
+      "path": "../q24_cs3b_hybrid_exact_lowrank_pairing_covariance_design_v1/DESIGN_RECEIPT_V1.json",
+      "sha256": "087a4d9cecd66908e42446ccd294a53da9dd697b382ef96e03729fe8de07f894"
+    },
+    "independent_corrected_design_audit": {
+      "path": "../q24_cs3b_hybrid_exact_lowrank_pairing_covariance_design_v1/INDEPENDENT_CORRECTED_DESIGN_AUDIT_CS3B_V1.json",
+      "sha256": "f458c9dbae04e3c7745380a459a074f380f894321eb3ce612a4caac9f5b39a39"
+    },
+    "original_preregister_sha256": "dde30939ef271523a7bda593903d9377da8372ffd56d0fa1684c479d9a9c9e5f",
+    "null_division_correction_sha256": "4f95cdc324e31459e7e700c54c68f47d8164eca261286a93521f0df9880de253",
+    "null_nonfinite_clarification_sha256": "89cc4e0fe35d9cdbf0e412006a191cfc5dcac374a8bfbcee976dc80d6a93b9f7",
+    "resource_law_correction_sha256": "e61c0db7624477a20b35ddb8cca21face00513e6961951914e91d83b2089dc03",
+    "independent_source_audit_scaffold": {
+      "path": "../q24_cs3b_hybrid_exact_lowrank_pairing_covariance_design_v1/INDEPENDENT_SOURCE_AUDIT_SCAFFOLD_CS3B_V1.json",
+      "sha256": "5b8a212ff282154d3507d6dfa39bbb102f929e3de640cdb354b34d6e45a9e467",
+      "authority": "static fail-closed scaffold only; an additive populated audit is required"
+    }
+  },
+  "implemented_exact_laws": {
+    "pairing_modes": [
+      "NOMINAL",
+      "LOWRANK64",
+      "DENSE32"
+    ],
+    "parent_push_grouping": "pre_left=weight64_t@covariance; pre_covariance=pre_left@weight64",
+    "lowrank_algebra": "Qmask=((Q-U.T@B)-A@U)+U.T@(G@U), with U=W[idx,:], Crows=C[idx,:], G=Crows[:,idx], A=pre_left[:,idx], B=Crows@W and no represented-symmetry shortcut",
+    "corrected_lowrank_cost": "16*r*w^2+4*r^2*w+8*w^2+20*r*w+8*r^2+2*w",
+    "dense_selector_cost": "4*w^3+8*w^2",
+    "selector": "LOWRANK64 iff corrected_lowrank_cost<=dense_selector_cost",
+    "all_valid_branch": "bool(fnp.all(valid_high_order)) before invert or flatnonzero; NOMINAL aliases fp64 covariance and repaired_variance",
+    "null_alpha": "denominator/1.0 only when bool(denominator) is false; nonfinite denominator follows ordinary parent division",
+    "state_lifetime": "selected current covariance fits the current star and is carried for exactly one push; every next reset overwrites mode and payload"
+  },
+  "authorized_static_checks": {
+    "ast_parse": true,
+    "parent_diff_inspected": true,
+    "certificate_helper_calls_remaining": 0,
+    "certificate_tracked_call_ledger": {
+      "nextafter": 57,
+      "abs": 23,
+      "multiply": 35,
+      "add": 28,
+      "subtract": 5,
+      "negative": 2,
+      "less": 2,
+      "bitwise_or": 1,
+      "zeros_like": 1,
+      "total": 154
+    },
+    "forbidden_old_lowrank_cost_spelling_present": false,
+    "fnp_all_valid_plane_present": false,
+    "native_numpy_import_present": false,
+    "pairing_enabled_present": false,
+    "unrelated_parent_function_ast_changes": 0,
+    "actual_changed_functions": [
+      "_certified_invalid_marginals",
+      "_shutdown_connected_state",
+      "_reset_stars",
+      "_full_relu_reset",
+      "_predict"
+    ]
+  },
+  "gates": {
+    "frozen_source_sha": true,
+    "authorized_static_parse_and_diff": true,
+    "independent_populated_source_audit": false,
+    "separate_source_probe_preregister_and_release": false,
+    "target_free_source_probe": false,
+    "full_width_comparator": false,
+    "literal_source_meter": false,
+    "targets_or_scores": false,
+    "package": false,
+    "submission": false,
+    "canonical_graph_edit": false
+  },
+  "execution_counters": {
+    "candidate_imports": 0,
+    "candidate_estimator_executions": 0,
+    "source_probe_runs": 0,
+    "fullwidth_runs": 0,
+    "literal_meter_runs": 0,
+    "target_or_score_reads": 0,
+    "network_or_credential_accesses": 0
+  },
+  "authority": {
+    "allowed_next": "read-only independent exact-source audit against the frozen SHA; if and only if it passes, a separate immutable one-use source-probe preregistration and release",
+    "forbidden": [
+      "source mutation",
+      "candidate import or execution",
+      "fixture or fullwidth execution",
+      "literal metering",
+      "dataset target score or private-state access",
+      "packaging or submission",
+      "canonical graph mutation"
+    ]
+  }
+}

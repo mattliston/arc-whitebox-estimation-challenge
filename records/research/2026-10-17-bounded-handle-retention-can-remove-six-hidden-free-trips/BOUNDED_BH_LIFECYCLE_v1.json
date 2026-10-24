@@ -1,0 +1,198 @@
+{
+  "status": "PASS_METADATA_ONLY",
+  "models": 0,
+  "numeric_reads": 0,
+  "scope": "One fixed policy: retain four completed BH_HOLD groups, owner-provenance byte cap128MiB, release before the final ordinary public flush. Source-extracted warm fused products only; not a candidate integration.",
+  "rows": [
+    {
+      "mode": "baseline",
+      "oversized_parent": false,
+      "retention_limit_bytes": 134217728,
+      "max_accounted_root_bytes": 0,
+      "oversized_group_rejections": 0,
+      "released_four_group_batches": 0,
+      "products": 8,
+      "public_calls": 593,
+      "calls_by_op": {
+        "reshape": 24,
+        "copyto": 16,
+        "add": 288,
+        "subtract": 240,
+        "matmul": 8,
+        "unstack": 16,
+        "final_public_flush": 1
+      },
+      "free_roundtrips": 8,
+      "freed_handles": 592,
+      "peak_additional_handles": 74,
+      "final_handle_delta": 0,
+      "retained_aliases": 0,
+      "flushes": [
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "final_public_flush",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        }
+      ]
+    },
+    {
+      "mode": "bounded4",
+      "oversized_parent": false,
+      "retention_limit_bytes": 134217728,
+      "max_accounted_root_bytes": 25165824,
+      "oversized_group_rejections": 0,
+      "released_four_group_batches": 2,
+      "products": 8,
+      "public_calls": 593,
+      "calls_by_op": {
+        "reshape": 24,
+        "copyto": 16,
+        "add": 288,
+        "subtract": 240,
+        "matmul": 8,
+        "unstack": 16,
+        "final_public_flush": 1
+      },
+      "free_roundtrips": 2,
+      "freed_handles": 592,
+      "peak_additional_handles": 296,
+      "final_handle_delta": 0,
+      "retained_aliases": 0,
+      "flushes": [
+        {
+          "before": "reshape",
+          "freed": 296,
+          "scratch": 256,
+          "external": 40
+        },
+        {
+          "before": "final_public_flush",
+          "freed": 296,
+          "scratch": 256,
+          "external": 40
+        }
+      ]
+    },
+    {
+      "mode": "bounded4",
+      "oversized_parent": true,
+      "retention_limit_bytes": 134217728,
+      "max_accounted_root_bytes": 0,
+      "oversized_group_rejections": 8,
+      "released_four_group_batches": 0,
+      "products": 8,
+      "public_calls": 593,
+      "calls_by_op": {
+        "reshape": 24,
+        "copyto": 16,
+        "add": 288,
+        "subtract": 240,
+        "matmul": 8,
+        "unstack": 16,
+        "final_public_flush": 1
+      },
+      "free_roundtrips": 8,
+      "freed_handles": 592,
+      "peak_additional_handles": 74,
+      "final_handle_delta": 0,
+      "retained_aliases": 0,
+      "flushes": [
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "reshape",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        },
+        {
+          "before": "final_public_flush",
+          "freed": 74,
+          "scratch": 64,
+          "external": 10
+        }
+      ]
+    }
+  ],
+  "free_trip_reduction_known_full_owners": 6,
+  "ownership_rule": "Count distinct original numeric roots, not view nbytes; scratch root is pre-existing and adds0. Unknown owner must fall back to immediate release. A4MiB cropped view from64MiB parent is charged64MiB.",
+  "production_limitation": "Current candidate BH_HOLD has no complete public owner-provenance map. This policy cannot be safely dropped in using view.nbytes alone.",
+  "historical_upper_context": "Old warm detailed profile has271 total list.clear calls (not all BH). Even perfect N4 batching is at most203 fewer clear-boundary free trips on that profile, far below4421 current hidden free trips. Counts differ across source versions; not a whole-model runtime estimate."
+}

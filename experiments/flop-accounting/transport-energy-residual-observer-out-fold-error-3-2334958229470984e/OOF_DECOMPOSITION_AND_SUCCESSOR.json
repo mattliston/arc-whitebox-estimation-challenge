@@ -1,0 +1,149 @@
+{
+  "schema": "p2r0f2i-oof-decomposition-and-single-successor-v1",
+  "status": "complete_read_only_analysis",
+  "scope": {
+    "observer_fit_networks": 688,
+    "observer_selection_targets_opened": 0,
+    "new_training_performed": false,
+    "saved_fold_models_used_for_typed_state_diagnostics": true,
+    "canonical_graph_edited": false
+  },
+  "bindings": {
+    "p2r0f2d_cv_results_sha256": "ddaf1ede02733eb4429dcaf003ff65f8d9fba2460352e8deba4fb54a3c111dbf",
+    "p2r0f2h_cv_results_sha256": "55fd5ec3c50cbe70fad9c9f83e88625afc374cb5dd4e32261c1a1a1518727104",
+    "p2r0f2i_cv_results_sha256": "ab810134e83924b698eca0647f97a44ba3ef884653bb3fb3e6516862f00b445f",
+    "p2r0f2i_verification_sha256": "c642bc67bf84709be8c9ee8dca7a5b4371bae756de99841f3374188d9521bce1",
+    "analysis_program_sha256": "474e4a2045b19ad9b335f0c9a6faaf2025deef4aa491e432cceeebeda054b07c"
+  },
+  "decomposition": {
+    "headline": {
+      "p2r0f2d_oof_final_mse": 3.2969476163272226e-8,
+      "p2r0f2h_oof_final_mse": 3.908100560611721e-8,
+      "p2r0f2i_oof_final_mse": 3.5165106535091496e-8,
+      "i_improvement_fraction_vs_h": 0.1001995473323433,
+      "i_regression_fraction_vs_d": 0.06659585250751382
+    },
+    "paired_rows": {
+      "i_better_than_d": 25,
+      "i_worse_than_d": 663,
+      "i_better_than_h": 678,
+      "i_worse_than_h": 10,
+      "median_i_minus_d": 2.1243491694434305e-9,
+      "p10_i_minus_d": 6.496382829984162e-10,
+      "p90_i_minus_d": 3.809757775524968e-9
+    },
+    "folds": {
+      "i_minus_d_range": [1.8563505047840043e-9, 2.4834537857103136e-9],
+      "interpretation": "The regression against P2R0F2D is present in every fold with modest dispersion; fold generalization is not the main failure."
+    },
+    "depth": {
+      "i_minus_d_at_l7": 4.3882939689040974e-10,
+      "i_minus_d_at_l15": 2.19563037181927e-9,
+      "fraction_final_regression_added_l7_to_l15": 0.800135121775164,
+      "interpretation": "The typed diagonal state recovers P2R0F2H broadly but still loses to the four-state observer through steady late-depth accumulation."
+    },
+    "groups": {
+      "repaired_tail_i_minus_d": 1.6461752886005772e-9,
+      "non_tail_i_minus_d": 2.204558002418096e-9,
+      "hard_four_i_minus_d": 1.6328180785823504e-9,
+      "other_684_i_minus_d": 2.198921671779719e-9,
+      "interpretation": "Neither repaired tails nor the four safety failures explain the mean regression."
+    },
+    "hard_rows": {
+      "threshold": 1e-7,
+      "identical_breach_ranks_for_d_h_i": [201, 310, 599, 643],
+      "p2r0f2i_maximum_role_rank": 643,
+      "p2r0f2i_maximum_mlp_id": 364,
+      "p2r0f2i_maximum_final_mse": 3.42368130350359e-7
+    },
+    "typed_variance_calibration": {
+      "final_predicted_variance_to_actual_mse_ratio": 0.7534246961312139,
+      "final_unitwise_variance_sqerr_pearson": 0.30568849172418666,
+      "final_networkwise_variance_mse_pearson": 0.10765351547976038,
+      "final_one_sigma_coverage": 0.6862622638081395,
+      "final_two_sigma_coverage": 0.9314731331758721,
+      "hard_to_other_predicted_variance_ratio": 0.9515102574422474,
+      "variance_floor_fraction": 0.0,
+      "variance_cap_fraction": 0.0,
+      "interpretation": "The variance state is numerically healthy and roughly calibrated per unit, but it underpredicts late error and has almost no network-level discrimination; the four hard networks receive slightly lower predicted variance than the rest."
+    },
+    "coherence_and_gain": {
+      "final_mean_absolute_coherence": 0.8680884569152475,
+      "final_coherence_saturation_fraction": 0.0,
+      "final_mean_gain": 1.0279949403379443,
+      "final_gain_below_one_fraction": 0.5060978379360465,
+      "interpretation": "Coherence is well-scaled, but the learned mean transport is amplified on average at the final layer instead of providing a hard-row-specific damping signal."
+    },
+    "conclusion": "P2R0F2I proves that a recurrent typed signal is useful relative to a state-independent source, but learned diagonal prediction variance discards cross-input cancellation geometry and cannot identify the persistent hard networks. P2R0F2D remains the incumbent among these three forms."
+  },
+  "proposed_single_successor": {
+    "node": "P2R0F2J",
+    "label": "Four-channel transport-energy coherence observer CV",
+    "status": "design_frozen_pending_preregistration_and_root_review",
+    "material_difference": "Return to P2R0F2D's best four signed recurrent channels, but augment every transported message with an exactly observable squared-contribution energy and cancellation/coherence ratio. No learned variance state or heteroscedastic loss remains.",
+    "state_and_transport": {
+      "signed_states": 4,
+      "signed_message": "m_lc = Phi_l * (s_{l-1,c} @ W_l)",
+      "contribution_energy": "e_lc = Phi_l^2 * ((s_{l-1,c} elementwise-squared) @ (W_l elementwise-squared))",
+      "coherence": "k_lc = clamp(m_lc/sqrt(e_lc+1e-4*R_l^2),-8,8)",
+      "meaning": "e_lc is the exact sum of squared signed input contributions before cross terms; k_lc exposes alignment versus cancellation in the actual autonomous state and current network weights.",
+      "deployment_truth_inputs": 0,
+      "network_identity_inputs": 0
+    },
+    "architecture": {
+      "base": "P2R0F2D four-channel dynamic physical observer",
+      "raw_features": 20,
+      "message_features": 8,
+      "energy_and_coherence_features": 8,
+      "input_features": 36,
+      "hidden": 96,
+      "parameters": 25600,
+      "cell": "Shared two-layer H96 SiLU trunk emits four physical-scale sources and four bounded gains; retain P2R0F2D's bounded near-identity 4x4 channel mix.",
+      "dynamic_gain_range": [0.75, 1.25],
+      "mix_delta_scale": 0.12,
+      "reported_correction": "channel zero"
+    },
+    "training": {
+      "fold_assignment": "identical four network-disjoint folds and seed 1753358438",
+      "fold_sizes": [147, 172, 171, 198],
+      "host_rule": "identical all-688 repaired-host rule with the same 11 data-derived repairs",
+      "threads_per_fold": 2,
+      "parallel_folds": 4,
+      "epochs": 6,
+      "batch_size_networks": 3,
+      "optimizer": "AdamW",
+      "learning_rate": 0.0012,
+      "minimum_learning_rate": 0.0001,
+      "schedule": "CosineAnnealingLR over all six epochs",
+      "weight_decay": 2e-5,
+      "gradient_clip_norm": 5.0,
+      "own_primary_state_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+      "loss": "Exactly P2R0F2D's normalized rollout plus final focus, 2e-5 normalized auxiliary-state penalty, and 5e-4 near-identity transport/mixing penalty; no variance-calibration term.",
+      "checkpoint": "fixed final epoch 6; CV metrics cannot select a checkpoint or second architecture"
+    },
+    "frozen_decision_gate": {
+      "mode": "all",
+      "finite_all_autonomous_rollouts": true,
+      "oof_final_mse_strictly_below": 2.9672528546945005e-8,
+      "maximum_per_network_final_mse_strictly_below": 1e-7,
+      "pass": "Promote only if all three conjuncts pass.",
+      "fail": "Close this exact transport-energy form measured; do not meter or deploy it."
+    },
+    "static_cost_concept": {
+      "measured_host_flops": 2126977459133,
+      "mean_plus_energy_transport_upper_estimate": 217997312,
+      "conservative_correction_upper_estimate": 1051656192,
+      "host_plus_correction_upper_estimate": 2128029115325,
+      "phase2_budget": 2200000000000,
+      "headroom_under_upper_estimate": 71970884675,
+      "literal_meter": "required only after the accuracy gate passes"
+    },
+    "forbidden": [
+      "observer_selection targets",
+      "public-board identity joins",
+      "retuning from CV metrics",
+      "a second architecture or checkpoint after metrics"
+    ],
+    "launch_performed": false
+  }
+}

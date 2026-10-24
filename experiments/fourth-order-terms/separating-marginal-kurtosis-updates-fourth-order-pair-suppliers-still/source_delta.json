@@ -1,0 +1,74 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "donor": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_k4_rowdiag_v1/candidate.py",
+    "sha256": "ebd4c32f26a3bcfec8e76f587db611ab5b5bdc053cb7d927eb61b40381389bc7",
+    "bytes": 981008
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_k4_marginal_only_v1/candidate.py",
+    "sha256": "b4732eba8404938b8ca1420c6289dd86091e7b54d2391734fbfec7020daa0137",
+    "bytes": 981271
+  },
+  "zero": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_k4_marginal_only_v1/candidate_zero.py",
+    "sha256": "c683d60557a7360b1b429877591093a7d96d5f940def40e3ff06e971f65752e0",
+    "bytes": 981271
+  },
+  "donor_delta": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_k4_rowdiag_v1/source_delta.json",
+    "sha256": "2e490f421cef7dc27f1e40a9606cccc98c43928063f2b403894e35091575e4d7",
+    "bytes": 4822
+  },
+  "build": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_k4_marginal_only_v1/build.py",
+    "sha256": "24e7578aad88f01eceddd7a242c09b39af2e14d1bf95b81da9ed05b02f10157d",
+    "bytes": 4949
+  },
+  "edits": [
+    {
+      "old": "                k4 = k4 + _K4R_ALPHA * _k4r_delta(w32, _k4r_previous[1])",
+      "new": "                _E2_LAYER['k4_q31_base'] = k4   # own current banded radial estimate, before marginal correction\n                k4 = k4 + _K4R_ALPHA * _k4r_delta(w32, _k4r_previous[1])"
+    },
+    {
+      "old": "    _r31 = _k31_row_scale(mu, k3, v)\n    if extra31 is None:\n        _e2_hold.append(fnp.multiply(_ps32(t4 * _r31 if _r31 is not None else t4)[:, None], rho, out=st['T31']))\n    else:\n        x31 = _e2_H(extra31 / _e2_H(_e2_H(v * s)[:, None])) / _e2_H(s[None, :])\n        fnp.fill_diagonal(x31, 0)\n        _e2_hold.append(fnp.add(_ps32(t4 * _r31 if _r31 is not None else t4)[:, None] * rho, _ps32(x31), out=st['T31']))",
+      "new": "    _q31_k4 = L.get('k4_q31_base')\n    _q31_t4 = t4 if _q31_k4 is None else _q31_k4 / _e2_H(v ** 2)\n    _r31 = _k31_row_scale(mu, k3, v)\n    if extra31 is None:\n        _e2_hold.append(fnp.multiply(_ps32(_q31_t4 * _r31 if _r31 is not None else _q31_t4)[:, None], rho, out=st['T31']))\n    else:\n        x31 = _e2_H(extra31 / _e2_H(_e2_H(v * s)[:, None])) / _e2_H(s[None, :])\n        fnp.fill_diagonal(x31, 0)\n        _e2_hold.append(fnp.add(_ps32(_q31_t4 * _r31 if _r31 is not None else _q31_t4)[:, None] * rho, _ps32(x31), out=st['T31']))"
+    },
+    {
+      "old": "(_s19_k4u if _S19_GN_TORCH else k4), aux))",
+      "new": "(_s19_k4u if _S19_GN_TORCH else _E2_LAYER.get('k4_q31_base', k4)), aux))"
+    }
+  ],
+  "donor_whole_source_inverse_to_parent": true,
+  "whole_source_inverse_to_donor": true,
+  "compiled": true,
+  "alpha": 1.0,
+  "layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "fit_or_coefficient_search": false,
+  "semantics": "Correct marginal k4 and its existing local consumers; keep pair and GN Q31 tied to current pre-add banded radial k4. K22 input unchanged. Terminal scalar retains the donor correction.",
+  "zero_identity_design": "alpha0 bypasses donor correction/state arithmetic and never creates the context key; pair reuses original t4 object and GN original k4. Exact native byte/bill identity remains required.",
+  "lifetime": "Context clears each layer before correction; saved k4 is a reference to the pre-add vector, not a mutable scratch alias. No cross-network state.",
+  "extra_arithmetic_above_donor_flops_upper_bound": 26624,
+  "cost": "Only a second length1024 square/divide at13 hidden layers; donor own measured cost remains applicable only as a forecast until native billing.",
+  "distinction": "Earlier rowdiag physical, head coadapt and amplitude trials changed the radial-Q31 suppliers together with marginal k4; this fixed intervention separates those channels.",
+  "model_or_array_job_executed_by_builder": false
+}

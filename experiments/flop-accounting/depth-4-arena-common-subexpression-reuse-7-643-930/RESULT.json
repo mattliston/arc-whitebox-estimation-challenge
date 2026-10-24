@@ -1,0 +1,102 @@
+{
+  "schema": "q24-r40-physical-kernel-audit-v1-result",
+  "authority": {
+    "schedule_sha256": "ccf2cc0ff7ff62784899a51f801e0827c5307f57ace5898a35167467c6a49b41",
+    "upstream_FMMa_6_3_3_sha256": "0522e007ea759cc96949f7b504c3a1c76eddc3f0c353410e8018f79abc44ccec",
+    "upstream_commit": "8bb354d63061504d1a712efafc8d06a0e8fa3f07",
+    "nodes": {"A": 74, "B": 53, "C": 142},
+    "logical_calls": {"A": 8, "B": 6, "C": 14},
+    "workspace_slots": {"A": 24, "B": 12, "C": 53}
+  },
+  "tensor_certificate": {
+    "basis_pairs_checked": 162,
+    "exact": true,
+    "failure_count": 0,
+    "max_abs_integer_tensor_error": 0,
+    "tensor_scale": 4
+  },
+  "tiny_physical": {
+    "shape": [6, 3, 3],
+    "dtype": "float32",
+    "flops": 342,
+    "expected_flops": 342,
+    "wrapper_calls": 292,
+    "residual_s": 0.0005616657435894012,
+    "backend_s": 0.00016480963677167892,
+    "overhead_s": 0.003265149425715208,
+    "rss_delta_bytes": 212992,
+    "inventory": {
+      "A_binary": 74,
+      "B_binary": 53,
+      "C_binary": 142,
+      "terminal_sign_elements": 15,
+      "rank_products": 40,
+      "scale_elements": 18,
+      "padding": 0,
+      "stack": 0,
+      "reshape": 0,
+      "copy": 0,
+      "crop": 0,
+      "coefficient_materialization": 0
+    },
+    "numerical": {
+      "finite": true,
+      "r40_vs_direct64_max_abs": 2.639865934739305e-7,
+      "r40_vs_direct64_rmse": 1.343513394389918e-7,
+      "direct32_vs_direct64_max_abs": 4.705337630639406e-8,
+      "direct32_vs_direct64_rmse": 1.8314994652100742e-8,
+      "r40_vs_direct32_max_abs": 2.682209014892578e-7,
+      "r40_vs_direct32_rmse": 1.3193115933063382e-7
+    }
+  },
+  "static_physical_bill": {
+    "evidence_grade": "deployable-conservative static plan; no full-shape runtime",
+    "roster": {
+      "pushes": 15,
+      "push_depth": 3,
+      "reads": 28,
+      "read_depth": 2
+    },
+    "components": {
+      "transform_A": 11644461216,
+      "transform_B": 9423550308,
+      "transform_C": 17224291008,
+      "winograd_leaf": 425028422400,
+      "padding_copy": 707788800,
+      "layout_reshape": 1010723508,
+      "terminal_sign": 2585261532,
+      "fused_scale_crop": 281018368,
+      "stack": 0,
+      "coefficient_materialization": 0
+    },
+    "cp3_flops": 467905517140,
+    "non_cp3_host_flops": 425860164095,
+    "host_flops": 893765681235,
+    "cap_2pow41": 2199023255552,
+    "headroom_to_2pow41": 1305257574317,
+    "cp3_savings_vs_D1": 379655842220,
+    "host_delta_vs_optimistic_893495871479": 269809756,
+    "verdict": "beats D1 physically on the full Q24 CP3 geometry"
+  },
+  "conditional_optimizations": {
+    "symbolically_folded_sign_cp3_flops": 465320255608,
+    "symbolically_folded_sign_host_flops": 891180419703,
+    "status": "optimistic until full-geometry sign fusion is metered",
+    "nodewise_charged_calls": 28474,
+    "frozen_affine_calls_before_splits": 4133,
+    "frozen_affine_status": "requires full-geometry affine-bind certificate"
+  },
+  "static_memory": {
+    "evidence_grade": "explicit-digit and streamed-W1 static assumptions, not production evidence",
+    "largest_push_peak_gib_upper_bound": 3.6919116973876953,
+    "largest_push_additive_with_current_host_rss_gib_upper_bound": 6.54728889465332,
+    "largest_read_peak_gib_upper_bound": 1.9367748498916626
+  },
+  "scope": {
+    "estimator_executed": false,
+    "fixture_opened": false,
+    "target_opened": false,
+    "package_changed": false,
+    "submission_attempted": false
+  }
+}

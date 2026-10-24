@@ -1,0 +1,25 @@
+archive release/runs/opus_runtime_v27e_cb270c6f/submission.tar.gz sha256 d2affc1b4b7af7f8aba7a235516fc83eff90d53515ec68bcc04f3aadd9391c18 bytes 1799141
+estimator sha256 cb270c6f91a5a763524b8d6299bac760b65103edcdfd634300fa49b0b63e7ca0 lines 22250 | manifest ['cb270c6f91a5a763524b8d6299bac760b65103edcdfd634300fa49b0b63e7ca0'] | entrypoint {'module': 'estimator', 'class': 'Estimator'}
+imports ['base64', 'flopscope', 'flopscope.numpy', 'gc', 'math', 'time', 'whestbench', 'zlib']
+Continued GC repair exception: estimator = reviewed v24b source + 8 appended statements (reader defs, GC-quiet wrapper, Estimator.predict rebinding) only
+  eye L900: _pe34 = _PE34_BY_LAYER.get(_PHYS_LAYER[0])   # opus-engineer2 a62 pe3 / pe4 by layer (make_pe34_v1.py): torch's e3 x (1 + pe3[l]), e4 x (1 + pe4[l])
+  eye L3348: if _S19_K4BAND is not None and l >= 1:   # PT-33 S19: per-unit k4 x band L1-7/8-11/12-15 (covhunter; torch pair_in, k4_15)
+  eye L3421: if _S19_BSCALE is not None:   # PT-33 S19: carried b x bscale after the b-fix, before trace_post (covhunter; torch b_post)
+  eye L3494: else:   # PT-33 S19: carried CP weights x s_carry, newborn x s_new (covhunter; torch state_out)
+  eye L3971: if '_k31_row_scale' in (_e2_append_inline((_e2_value_inline := globals())) or _e2_value_inline) else None)   # PT-33 S19: torch GN remainder keeps the configure
+  eye L6654: # L14, the L15 star diagonal. The porter's no-refit torch test found rank truncation of that plane is not a cliff (rank 32: +0.37%
+  eye L6660: # wrong directions (k=48 without power steps: final MSE +4.5..+10.9% on 35/100/37/39 against torch's exact rank-32 truncation
+  eye L7181: # ablation survivor, fable_analyst_v1/RESULT.md sec. 36: raw +0.002% on torch VALID16). Full native saving (engineer2 census of S23 r100):
+  eye L7641: if '_k31_row_scale' in (_e2_append_inline((_e2_value_inline := globals())) or _e2_value_inline) else None)   # PT-33 S19: torch GN remainder keeps the configure
+  eye L10846: # held to the end of the call and lower-case einsum subscripts): native port of the lead's K4L rule (O/K4L_SPEC.md, torch reference
+  eye L10860: # loc = 0 exactly; they get no correction and are left out of the beta sums (the torch reference has no row cuts).
+  eye L13717: # plane strengths by cohort age may differ by READ layer (the torch k31l instances read their leaves nkl1 / nkl2 / nkl3 at the layer
+  eye L13756: # BEGIN OPUS-ENGINEER a62 K4 FAMILY (2026-10-12 00:1xZ; S50 arm fk4; trainer 10-11 23:5xZ): the torch card scales the radial k4 by band(l) +
+  eye L17113: if _S19_K4BAND is not None and l >= 1:   # PT-33 S19: per-unit k4 x band L1-7/8-11/12-15 (covhunter; torch pair_in, k4_15)
+  eye L17188: if _S19_BSCALE is not None:   # PT-33 S19: carried b x bscale after the b-fix, before trace_post (covhunter; torch b_post)
+  eye L17261: else:   # PT-33 S19: carried CP weights x s_carry, newborn x s_new (covhunter; torch state_out)
+  eye L17463: if _S19_K4BAND is not None and l >= 1:   # PT-33 S19: per-unit k4 x band L1-7/8-11/12-15 (covhunter; torch pair_in, k4_15)
+  eye L17540: if _S19_BSCALE is not None:   # PT-33 S19: carried b x bscale after the b-fix, before trace_post (covhunter; torch b_post)
+  eye L17613: else:   # PT-33 S19: carried CP weights x s_carry, newborn x s_new (covhunter; torch state_out)
+einsum calls 71, signatures 23 (reference 23)
+PREFIRE CLEAR | new signatures: 0

@@ -1,0 +1,20 @@
+01:46:10 gate OPEN for release: heavy=1 free+inactive=14.3GB need 11GB mp=59%
+01:46:40 own gate OPEN: swap flat at 2164.44M for 30 s, free + file-backed 6.88 GB
+  C0: 5 other busy processes at its start: worker.py 85% (pid 66022); worker.py 126% (pid 66421); t19_second_chaos_mc.py 72% (pid 69718); quick.py 90% (pid 71823); e32_matrix_mc.py 127% (pid 73494)
+  leg C0: kernel 147.05 s, 180.7 Gcycles, 343.3 Ginstr; requests 42626; residual 1.140 s; setup 32.55 s, 525 of 649 keys bound, 0 deferred keys fused, 15168 requests, platform clock x1.3; server system/user 0.15
+[C boundary, setup of a x1.3 slower worker] PASS: requests/network 42626 (+5226 free trips); setup 32.55 s (limit 4.1; 525 of 649 keys bound, 0 deferred keys fused, 15168 requests, platform clock x1.3; parent 649 of 649 keys bound, 24 deferred keys fused, 19617 requests, platform clock x1); peak RSS 5.58 GB (limit 7.5), footprint 2.63 GB; added swap 0 MB (limit 0); handles after 2 networks 36993; paged network measurements left out of the counters: none; vs parent: kernel proxy time 0.9576x (instructions 0.9849x, cycles 1.4842x, seconds 2.3055x), requests 0.9859x, residual instructions 1.0036x, bill 0.97967x; PROJECTED platform wall mean 77.9 s, worst network 89.7 s (limit 105; range 88.2-91.2), residual (from requests) mean 0.300 / max 0.334 s (limit 0.4); a single network may take x1.54 the mean wall and x1.33 the mean residual before a limit (S35: x1.46 and x1.31; in #333099 the slow workers' networks took x1.33-1.38 and x1.22-1.34 on average, the lost ones above x1.49 and x1.33-1.43); STRESS: the candidate sessions were set up at the pace of a worker x1.3 slower; with that setup the residual limit (0.4 s) is reached by a network at x1.33 a normal worker's mean time per request and the wall limit (120 s) at x1.54; first network after the setup against the parent's first under a normal setup: requests 1.0005x, residual instructions 1.0202x, bill 0.98227x
+SLOW SESSION EXIT 0
+  ok   requests per network                         41,862                                                     limit <= 43,300
+  ok   binding phase, requests                      17366 (all keys bound)                                     limit <= 18,100, all bound
+  ok   projected mean wall                          74.9 s                                                     limit <= 80 s
+  ok   projected mean residual                      0.295 s (from requests)                                    limit <= 0.305 s
+  ok   requests under a setup 1.3x slower           42,626 (+1.83%)                                            limit <= +2%
+  ok   outputs finite on every network              20 networks, non-finite 0                                  limit all finite
+  ok   peak handles                                 57,578                                                     limit < 70,000
+  ok   peak footprint, server + client              2.53 GB (group RSS 6.81 GB)                                limit < 7.5 GB
+  ok   native parity on 35, 100 (bytes and bill)    True                                                       limit identical
+  ok   platform #333481: networks lost              0 of 100                                                   limit none
+  ok   platform #333481: mean residual              0.2944 s (worst network 0.3322; room 0.106 s)              limit <= 0.305 s
+  ok   platform #333481: mean wall                  77.1 s (worst network 88.3; room 42.9 s)                   limit <= 80 s
+[designation s38] PASS: every criterion met
+JUDGE DONE

@@ -1,0 +1,8 @@
+TAG fable-porter PT-48b: star Nystrom range finder, torch VALID16 (16 nets), S23-structure card, loopR1 + round-1 dials, no refit
+certificate (ctrl copy vs the physicist's lrstar_s1zero_hook): net 37: EQUAL
+ctrl: mean MSE 1.6562e-08; kept-plane energy mean 0.8041 (min over calls 0.1352)
+nys (Nystrom columns, no power step): raw pooled +33.842% [95% CI +27.265, +41.196], better on 0/16 nets; per net min +15.29% median +31.31% max +67.19%
+    native bill -1.638% (nets 37/39: -1.493%, -1.783%); adjusted estimate +31.650%; kept-plane energy mean 0.7549 (min 0.1114); bar raw <= +0.3%: FAIL
+nysp (Nystrom columns + power step): raw pooled +0.083% [95% CI -0.147, +0.307], better on 4/16 nets; per net min -0.63% median +0.11% max +0.87%
+    native bill -0.438% (nets 37/39: -0.447%, -0.428%); adjusted estimate -0.355%; kept-plane energy mean 0.8052 (min 0.1404); bar raw <= +0.3%: PASS
+per net (nys / nysp vs ctrl): 37 +15.3/+0.32, 39 +34.8/+0.05, 42 +33.0/+0.61, 48 +20.2/+0.20, 59 +48.5/+0.87, 63 +45.1/+0.50, 66 +63.5/+0.01, 67 +67.2/+0.16, 71 +27.1/+0.04, 73 +20.1/+0.09, 75 +19.7/-0.54, 79 +21.4/+0.32, 93 +35.4/-0.63, 101 +31.8/-0.43, 122 +30.8/+0.14, 130 +27.0/-0.61

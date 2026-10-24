@@ -1,0 +1,180 @@
+{
+  "status": "FIXED_TWO_NETWORK_FIRST_PRODUCT_SPLIT_SCREEN",
+  "candidate_sha256": "84e46bfbe4afd81387eaa432ade5fa82563ce5bf26dbf707b9927cfb395195be",
+  "baseline_submission": 336935,
+  "baseline_adjusted": 1.4468565569762618e-09,
+  "rows": [
+    {
+      "rank": 35,
+      "raw_pct": 0.14373804996137274,
+      "bill_pct": 0.017380766146724014,
+      "adjusted_pct": 0.1611437988824349,
+      "extra_flops": 41511680,
+      "requests": 44339,
+      "control_requests": 44241,
+      "requests_delta": 98,
+      "wall_s": 39.359833125025034,
+      "control_wall_s": 37.81754037551582,
+      "residual_instructions": 2390098647,
+      "control_residual_instructions": 2377682992,
+      "nonfinite": 0,
+      "rescue": {
+        "calls": 0,
+        "elements": 0
+      },
+      "covsplit_state": {
+        "calls": 14,
+        "layers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "retired": true
+      },
+      "prediction_rms": 2.1863862146760705e-06,
+      "final_prediction_rms": 2.685788704302284e-06,
+      "layer_raw_pct": [
+        0.0,
+        0.05178493334023759,
+        0.4977036830506876,
+        0.7273502131772691,
+        0.33472903047779834,
+        0.31021175762093733,
+        0.017213925650572115,
+        -0.7223681941111781,
+        -0.009573965978126875,
+        -0.10419347239413179,
+        -0.41569707388191546,
+        -0.7583147123999101,
+        -0.39014105356882656,
+        0.04161478632909166,
+        0.34801814532792186,
+        0.14373804996137274
+      ]
+    },
+    {
+      "rank": 200,
+      "raw_pct": 0.6832505557169632,
+      "bill_pct": 0.016505535651201164,
+      "adjusted_pct": 0.6998688655322161,
+      "extra_flops": 42528000,
+      "requests": 44560,
+      "control_requests": 44462,
+      "requests_delta": 98,
+      "wall_s": 37.83701075054705,
+      "control_wall_s": 37.32542350143194,
+      "residual_instructions": 2419844969,
+      "control_residual_instructions": 2392811365,
+      "nonfinite": 0,
+      "rescue": {
+        "calls": 0,
+        "elements": 0
+      },
+      "covsplit_state": {
+        "calls": 14,
+        "layers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "retired": true
+      },
+      "prediction_rms": 2.4755678244618094e-06,
+      "final_prediction_rms": 3.838168074273134e-06,
+      "layer_raw_pct": [
+        0.0,
+        -0.06610352410335585,
+        0.7881876277023414,
+        -3.482144483954097,
+        0.48105797148232377,
+        0.06812022128523942,
+        -0.5281818197891752,
+        -0.3569402267915467,
+        -0.8609746946315111,
+        0.13455299221145633,
+        0.6735239538120386,
+        0.5840237546456795,
+        -0.014825908647786434,
+        0.25137585984456035,
+        0.37188639634917475,
+        0.6832505557169632
+      ]
+    }
+  ],
+  "mean": {
+    "raw_pct": 0.413494302839168,
+    "bill_pct": 0.01694315089896259,
+    "adjusted_pct": 0.4305063322073255,
+    "requests_delta": 98
+  },
+  "conditional_projected_adjusted": 1.4530853660720016e-09,
+  "guards": {
+    "control200": {
+      "completed": true,
+      "whole_group_retired": true,
+      "max_rss_bytes": 7007502336,
+      "max_footprint_bytes": 6807755328,
+      "min_pressure_free_pct": 59
+    },
+    "candidate35": {
+      "completed": true,
+      "whole_group_retired": true,
+      "max_rss_bytes": 6651723776,
+      "max_footprint_bytes": 6451779848,
+      "min_pressure_free_pct": 58
+    },
+    "candidate200": {
+      "completed": true,
+      "whole_group_retired": true,
+      "max_rss_bytes": 6995165184,
+      "max_footprint_bytes": 6797482440,
+      "min_pressure_free_pct": 59
+    }
+  },
+  "controls": {
+    "source_sha256": "95c8717670a5b4fbc2dcf57e289a5a0f5a8c6f9c656bee3a638655deb94b0cdf",
+    "directory": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_bill_v1/post935_compute_v1/cov_first_diag_split_peer_v1/native_control_split_fixed_v1/control200",
+    "rank": 200,
+    "cold_requests": 44462,
+    "warm_requests": 43260,
+    "extra_cold_requests": 1202,
+    "cold_flops": 257659011490,
+    "warm_flops": 257294551440,
+    "cold_bill_tax_pct": 0.14165090086837306,
+    "prediction_byte_equal_to_warm": true,
+    "guard": {
+      "completed": true,
+      "whole_group_retired": true,
+      "max_rss_bytes": 7007502336,
+      "max_footprint_bytes": 6807755328,
+      "min_pressure_free_pct": 59
+    }
+  },
+  "caveats": [
+    "Rank200 uses a newly measured matching fresh control. Rank35 uses existing current95c cold science control.",
+    "Two fixed networks do not validate population gain or runtime eligibility.",
+    "Current kernel geometry is unchanged by source policy; floating-point ordering changes and efficacy is measured."
+  ]
+}

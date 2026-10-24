@@ -1,0 +1,29 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1D2",
+    "label": "CP1536 H128 recurrent-Hermite observer",
+    "kind": "phase2_compute_architecture_training",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The exact four-epoch CP1536 H128/P4/C256 recurrent-Hermite fit is finite and improves protected raw MSE from host 3.7456453025317232e-6 to 9.421320969930728e-7 (74.85%), but misses the <1e-7 gate by 9.421x. A fixed 32-training-row diagnostic is 8.932946971969713e-7 and the held/train ratio is 1.05467, so the miss is fit/optimization rather than protected-fold generalization. Its exact zero-head meter is 209,904,700,250 FLOPs, yielding floor-adjusted 9.421320969930728e-8; the loss flattened across epochs, so this schedule is not extended.",
+    "terminal_criterion": "Closed for this exact four-epoch H128/P4/C256 recurrent-Hermite training spelling because protected raw MSE 9.421320969930728e-7 misses 1e-7; the broader cheap architecture family remains open but requires a materially different optimization or accuracy-compute design.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v3/estimator_primary_cp1536_h128.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v3/LAUNCH_COMMON_DRIVER_METERS_V3.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v3/STATIC_METER_ESTIMATE_V3.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_launch/INDEPENDENT_LAUNCH_AUDIT_V4.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/PREREGISTRATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/run_experiment.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/RUN_MANIFEST.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/PREREGISTRATION_SEAL.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/RESULTS.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/verification.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/EXECUTION_RECONCILIATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/graph_delta.json"
+    ],
+    "decomposition_children": []
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "schema": "phase2-width1024-depth16-observer-budget-reallocation-v1",
+  "status": "PASS_TARGET_FREE_STATIC_REALLOCATION__COMBINED_METERS_REQUIRED",
+  "access": {
+    "new_public_target_values_decoded": 0,
+    "model_fits_performed": 0,
+    "teacher_states_accessed": 0,
+    "official_hidden_examples_accessed": 0,
+    "phase1_parameter_tensors_reused": 0,
+    "phase1_fitted_scalars_reused": 0,
+    "graph_or_html_modified": false
+  },
+  "authority": {
+    "score_floor_max_integer_flops": 219902325555,
+    "score_floor_condition": "10 * estimator_flops <= 2^41",
+    "v2_static_meter_sha256": "c8073ed814ea31ce16d5c6b44f34ef947e442f8fa861d71ce5e620a336a90273",
+    "host_meter_summary_sha256": "44c5946f8f6356c19ebf17ef9f230790dba3f46ffd467680353df675d1768979",
+    "frozen_joint_score_sha256": "992f8e27d8b44c4ce236051022b4baf43e59b6f610ca57aedb6eb4315b73045c",
+    "note": "The 103923320832-FLOP value belongs to Hermite order 10; Hermite order 4 is 103519094784."
+  },
+  "host_measurements": [
+    {"host": "hermite_order4", "flops": 103519094784, "final_raw_mse": 3.849300358689406e-06, "all_layer_raw_mse": 2.1180294255017804e-06, "layer2_raw_mse": 1.5536452260972563e-07},
+    {"host": "hermite_order10", "flops": 103923320832, "final_raw_mse": 3.849300547399477e-06, "all_layer_raw_mse": 2.1180289543638134e-06, "layer2_raw_mse": 1.5536452694709453e-07},
+    {"host": "cp3_cap512", "flops": 136462170114, "final_raw_mse": 3.799028043642153e-06, "all_layer_raw_mse": 2.0302987318411863e-06, "layer2_raw_mse": 7.850484537840704e-08},
+    {"host": "cp3_cap1024", "flops": 168812139522, "final_raw_mse": 3.762168087950475e-06, "all_layer_raw_mse": 1.9742425590632073e-06, "layer2_raw_mse": 2.192582806672553e-08},
+    {"host": "cp3_cap1536", "flops": 199018976258, "final_raw_mse": 3.7339069924135637e-06, "all_layer_raw_mse": 1.936026483441147e-06, "layer2_raw_mse": 2.192582806672553e-08},
+    {"host": "cp3_cap1792", "flops": 214122341378, "final_raw_mse": 3.722402415224689e-06, "all_layer_raw_mse": 1.920413376561686e-06, "layer2_raw_mse": 2.192582806672553e-08}
+  ],
+  "formula": {
+    "constants": {"n": 1024, "d": 16, "t": 15, "local_features": 20, "nonlinear_cost": 64},
+    "cell_input": "I = L + P + H",
+    "parameters": "C*(L+P+H) + C*C + 2*H*C + 3*C + 2*H + 5 + P",
+    "rows": {
+      "edge_construction": "d*9*n*n",
+      "message_transport": "t*n*H*(2*n-1)",
+      "message_rms": "t*P*(3*n*(H/P)+2)",
+      "message_log_reserve": "t*P*64",
+      "local_extraction": "d*16*n*n",
+      "local_standardization": "2*L*d*n",
+      "source_and_message_gates": "L*d*n+t*n*H",
+      "core1": "d*n*C*(2*(L+P+H)-1)",
+      "core2": "d*n*C*(2*C-1)",
+      "candidate_and_state_gate": "d*n*2*H*(2*C-1)",
+      "mean_head": "d*n*(2*C-1)",
+      "biases": "d*n*(2*C+2*H+1)",
+      "nonlinear_reserve": "d*n*(2*C+3*H+1)*64",
+      "hidden_blend": "d*n*H*6",
+      "decode": "d*n*67"
+    },
+    "recurrent_static_baseline_h32_p4_c64": 2056671096,
+    "local_static_baseline_h32_p4_c64": 1048563456,
+    "conservative_pre_meter_ceiling": "max(static + 400000000, ceil(1.20 * static))",
+    "warning": "Static and conservative values are admission screens, not official flopscope authority."
+  },
+  "measured_h32_implementation_calibration": [
+    {"host": "cp3_cap512", "local_overhead": 1381231038, "local_over_static": 1.3172603242049283, "recurrent_overhead": 2390322858, "recurrent_over_static": 1.162229032463633},
+    {"host": "cp3_cap1536", "local_overhead": 1382785452, "local_over_static": 1.318742746647848, "recurrent_overhead": 2391877272, "recurrent_over_static": 1.1629848237046454},
+    {"host": "cp3_cap1792", "local_overhead": 1383156652, "local_over_static": 1.3190967547890589, "recurrent_overhead": 2392248472, "recurrent_over_static": 1.1631653095396057}
+  ],
+  "tiers": [
+    {"tier": "T0", "H": 32, "P": 4, "channels_per_power": 8, "C": 64, "parameters": 12041, "recurrent_static": 2056671096, "local_static": 1048563456, "recurrent_conservative": 2468005316, "local_conservative": 1448563456},
+    {"tier": "T1", "H": 64, "P": 4, "channels_per_power": 16, "C": 96, "parameters": 30377, "recurrent_static": 3832336248, "local_static": 1816121088, "recurrent_conservative": 4598803498, "local_conservative": 2216121088},
+    {"tier": "T2", "H": 128, "P": 4, "channels_per_power": 32, "C": 256, "parameters": 171017, "recurrent_static": 10985525112, "local_static": 6953094912, "recurrent_conservative": 13182630135, "local_conservative": 8343713895},
+    {"tier": "T3", "H": 256, "P": 4, "channels_per_power": 64, "C": 512, "parameters": 669705, "recurrent_static": 32285904760, "local_static": 24221044480, "recurrent_conservative": 38743085712, "local_conservative": 29065253376}
+  ],
+  "viable_recurrent_conservative": {
+    "hermite_order4_reduced_feature_contract": ["T0", "T1", "T2", "T3"],
+    "hermite_order10_reduced_feature_contract": ["T0", "T1", "T2", "T3"],
+    "cp3_cap512": ["T0", "T1", "T2", "T3"],
+    "cp3_cap1024": ["T0", "T1", "T2", "T3"],
+    "cp3_cap1536": ["T0", "T1", "T2"],
+    "cp3_cap1792": ["T0", "T1"]
+  },
+  "combined_conservative_grid": {
+    "hermite_order4_reduced_feature_contract": {
+      "T0": {"combined": 105987100100, "margin": 113915225455},
+      "T1": {"combined": 108117898282, "margin": 111784427273},
+      "T2": {"combined": 116701724919, "margin": 103200600636},
+      "T3": {"combined": 142262180496, "margin": 77640145059}
+    },
+    "hermite_order10_reduced_feature_contract": {
+      "T0": {"combined": 106391326148, "margin": 113510999407},
+      "T1": {"combined": 108522124330, "margin": 111380201225},
+      "T2": {"combined": 117105950967, "margin": 102796374588},
+      "T3": {"combined": 142666406544, "margin": 77235919011}
+    },
+    "cp3_cap512": {
+      "T0": {"combined": 138930175430, "margin": 80972150125},
+      "T1": {"combined": 141060973612, "margin": 78841351943},
+      "T2": {"combined": 149644800249, "margin": 70257525306},
+      "T3": {"combined": 175205255826, "margin": 44697069729}
+    },
+    "cp3_cap1024": {
+      "T0": {"combined": 171280144838, "margin": 48622180717},
+      "T1": {"combined": 173410943020, "margin": 46491382535},
+      "T2": {"combined": 181994769657, "margin": 37907555898},
+      "T3": {"combined": 207555225234, "margin": 12347100321}
+    },
+    "cp3_cap1536": {
+      "T0": {"combined": 201486981574, "margin": 18415343981},
+      "T1": {"combined": 203617779756, "margin": 16284545799},
+      "T2": {"combined": 212201606393, "margin": 7700719162},
+      "T3": null
+    },
+    "cp3_cap1792": {
+      "T0": {"combined": 216590346694, "margin": 3311978861},
+      "T1": {"combined": 218721144876, "margin": 1181180679},
+      "T2": null,
+      "T3": null
+    }
+  },
+  "recommendation": {
+    "primary": {
+      "host": "cp3_cap1536",
+      "tier": "T2",
+      "arm": "recurrent_with_preregistered_matching_local_ablation",
+      "combined_static": 210004501370,
+      "combined_conservative": 212201606393,
+      "conservative_margin": 7700719162,
+      "reason": "Only 0.3091 percent worse final MSE than CP1792, same measured L2, and enough headroom for H128/C256.",
+      "resource_fallback_if_combined_meter_fails": {
+        "host": "cp3_cap1536",
+        "tier": "T0",
+        "measured_combined": 201410853530,
+        "measured_margin": 18491472025,
+        "sampled_descendant_peak_rss_bytes": 2411364352,
+        "residual_wall_time_s": 0.15038874559104443,
+        "wall_time_s": 1.4726413749158382,
+        "status": "PASS_TARGET_BLIND_COMMON_DRIVER_ZERO_HEAD_SCAFFOLD"
+      }
+    },
+    "host_fidelity_control": {
+      "host": "cp3_cap1792",
+      "tier": "T1",
+      "arm": "recurrent_with_preregistered_matching_local_ablation",
+      "combined_static": 217954677626,
+      "combined_conservative": 218721144876,
+      "conservative_margin": 1181180679,
+      "meter_required": true,
+      "fallback_if_meter_fails": {"host": "cp3_cap1792", "tier": "T0", "measured_combined": 216514589850, "measured_margin": 3387735705}
+    },
+    "later_capacity_challenger_not_first_primary": {
+      "host": "cp3_cap1024",
+      "tier": "T3",
+      "combined_static": 201098044282,
+      "combined_conservative": 207555225234,
+      "conservative_margin": 12347100321,
+      "host_flops_freed_versus_cp1792": 45310201856,
+      "risk": "Eight-times baseline transport width, 669705 parameters on 688 independent fit networks, and unmetered training/runtime behavior."
+    },
+    "cp512_t3_not_primary": {
+      "host": "cp3_cap512",
+      "tier": "T3",
+      "host_flops_freed_versus_cp1792": 77660171264,
+      "host_final_mse_loss_percent_versus_cp1792": 2.058499320333129,
+      "combined_conservative": 175205255826,
+      "conservative_margin": 44697069729,
+      "reason": "The large cell cannot reconstruct CP columns already discarded at cap512; L2 has only 2.1495e-8 MSE room below 1e-7, T3 has 669705 parameters on 688 independent networks, message transport is eight times T0, and H256 lacks combined RSS/residual authority."
+    }
+  },
+  "invariants": {
+    "layer1_correction": "structural_zero_for_all_parameters",
+    "layer2": "candidate_raw_mse_must_not_exceed_host_on_selection_audit_lockbox",
+    "observer_output_enters_host_state": false,
+    "fit_positions": [12, 700],
+    "selection_positions": [712, 800],
+    "audit_positions": [800, 900],
+    "lockbox_positions": [900, 1000],
+    "retired_positions": [[0, 12], [700, 712]],
+    "capacity_frozen_before_target_release": true,
+    "failed_gate_fallback": "untouched_host_no_capacity_sweep"
+  }
+}

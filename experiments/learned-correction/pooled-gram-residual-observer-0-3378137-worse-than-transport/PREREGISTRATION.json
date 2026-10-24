@@ -1,0 +1,117 @@
+{
+  "schema": "public-full688-full-gram-pooled-context-cv-preregistration-v1",
+  "node": "P2R0F2K",
+  "status": "frozen-before-cv-metrics",
+  "question": "Can exact cross-channel transported Gram geometry plus a target-free width-pooled network context close P2R0F2J's remaining late-layer mean gap and persistent four-network safety failures?",
+  "parent_evidence": {
+    "p2r0f2j_oof_final_mse": 3.2334958229470984e-8,
+    "p2r0f2j_cv_results_sha256": "70a0917258a2d656ab9593a67b3a04483af153d8ef59162be9570a6a62b9b5b4",
+    "p2r0f2j_verification_sha256": "c50a8a6a59b28ab11c1e2db8ce14ce24181e8a7c9d6ecfc1ff31019825f27dcb",
+    "p2r0f2j_decomposition_sha256": "c709e2c04c61f427aa0b41c57b37dd0313138a81e8e6438610d430976d38ea0f",
+    "p2r0f2j_improvement_fraction_vs_d": 0.01924561769374095,
+    "fraction_d_to_j_gain_added_l7_through_l15": 0.9327320270162892,
+    "p2r0f2j_better_than_d_networks": 545,
+    "same_four_maximum_gate_breach_ranks": [201, 310, 599, 643],
+    "late_diagonal_coherence_hard_to_other_ratio": 0.9998048903574915,
+    "late_offdiagonal_pair_correlation_hard_to_other_ratio": 1.1610826973119783,
+    "offdiagonal_pair_correlation_network_mse_pearson": 0.046915486597640325,
+    "interpretation": "J establishes a real distributed late-layer gain, but its strictly local diagonal coherence cannot discriminate the persistent hard networks. The omitted full transported Gram and width-pooled context are one materially different lawful observability intervention."
+  },
+  "data": {
+    "role": "observer_fit",
+    "role_ranks": [0, 688],
+    "networks": 688,
+    "group_key": "mlp_id",
+    "folds": 4,
+    "fold_assignment": "Identical to P2R0F2D/H/I/J: blake2s32(1753358438:mlp_id) modulo 4",
+    "fold_sizes": [147, 172, 171, 198],
+    "host_rule": "Use the old deterministic host unless max(final_layer_mse,max_layer_mse)>5e-7; all 11 such ranks must use the near-floor-min repair.",
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "observer_selection": "forbidden",
+    "public_board_identity_join": "forbidden",
+    "retuning_from_cv_metrics": "forbidden"
+  },
+  "architecture": {
+    "name": "full-Gram pooled-context four-channel residual observer",
+    "base": "P2R0F2J four-channel signed physical recurrence",
+    "signed_states": 4,
+    "signed_message": "m_lc = Phi_l * (s_{l-1,c} @ W_l)",
+    "full_symmetric_transport_gram": "G_lcd = Phi_l^2 * ((s_{l-1,c}*s_{l-1,d}) @ W_l^2), 0<=c<=d<4",
+    "diagonal_energy": "e_lc = G_lcc",
+    "offdiagonal_correlation": "rho_lcd = clamp(G_lcd/sqrt(G_lcc*G_ldd+1e-8*R_l^4),-1,1), c<d",
+    "local_input": "J's raw20 plus four each of m/R, m/(sigma*R), log1p(e/R^2), and diagonal coherence, plus six rho values",
+    "local_input_features": 42,
+    "local_hidden": 96,
+    "local_trunk": "shared Linear(42,96)-SiLU-Linear(96,96)-SiLU",
+    "network_pool": "mean_width(x) concatenated with sqrt(mean_width(x^2)+1e-8), yielding 84 target-free values per layer",
+    "context_input_features": 84,
+    "context_hidden": 32,
+    "context_trunk": "shared Linear(84,32)-SiLU-Linear(32,32)-SiLU, broadcast across width",
+    "heads": "layer-specific four-source and four-gain heads consume concatenated H96 local plus H32 context",
+    "dynamic_gain_range": [0.75, 1.25],
+    "mix_delta_scale": 0.12,
+    "reported_correction": "channel zero",
+    "parameters": 34048,
+    "first_corrected_layer": 2,
+    "deployment_truth_inputs": 0,
+    "network_identity_inputs": 0,
+    "material_difference": "Unlike J's pointwise diagonal-energy cell, K exposes all six cross-channel W-squared contribution correlations and a permutation-invariant whole-network context; unlike I it does not learn or carry a variance state."
+  },
+  "training": {
+    "seed": 1753358438,
+    "threads_per_fold": 2,
+    "parallel_folds": 4,
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "schedule": "CosineAnnealingLR over all six epochs",
+    "weight_decay": 0.00002,
+    "gradient_clip_norm": 5.0,
+    "own_primary_state_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "loss": "Exactly J/D's fit-fold-normalized corrected-layer rollout plus equal final focus, 2e-5 normalized auxiliary-state penalty, and 5e-4 near-identity transport/mixing penalty; no context, covariance, or hard-row auxiliary loss.",
+    "checkpoint": "Fixed final epoch 6 in every fold; no checkpoint selection."
+  },
+  "primary_metric": "Network-weighted 688-network out-of-fold autonomous final-layer MSE",
+  "decision_gate": {
+    "mode": "all",
+    "pass": "Every rollout is finite AND OOF final-layer MSE <2.9672528546945005e-8 AND maximum per-network final-layer MSE <1e-7.",
+    "fail": "Any conjunct fails; close this exact full-Gram pooled-context form measured and do not meter or deploy it.",
+    "oof_final_mse_strictly_below": 2.9672528546945005e-8,
+    "maximum_per_network_final_mse_strictly_below": 1e-7
+  },
+  "difficulty_caveat": {
+    "mean_if_j_four_hard_rows_were_zeroed": 3.074597250717809e-8,
+    "ordinary_row_improvement_fraction_still_needed": 0.03491331945940153,
+    "claim": "K must improve the ordinary 684 networks as well as the hard four; the Gram shift is not preregistered as a sufficient selector."
+  },
+  "cost_contract": {
+    "parameter_count": 34048,
+    "measured_host_flops": 2126977459133,
+    "mean_energy_and_full_gram_transport": 381495296,
+    "reused_w_squared_materialization_reserve": 13631488,
+    "raw20_materialization_reserve": 268435456,
+    "raw20_standardization": 655360,
+    "local_fused_heads_and_special_reserve": 674250752,
+    "width_pool_context_and_broadcast_reserve": 3065216,
+    "output_addition": 16384,
+    "conservative_correction_upper_estimate": 1341549952,
+    "host_plus_correction_upper_estimate": 2128319009085,
+    "phase2_budget": 2200000000000,
+    "headroom_under_upper_estimate": 71680990915,
+    "requirement": "Preserve this frozen structural estimate; run a literal flopscope meter only after the accuracy gate passes."
+  },
+  "resource_bound": {
+    "maximum_process_rss_bytes_per_fold": 8589934592,
+    "maximum_experiment_storage_bytes": 2147483648
+  },
+  "launch_gate": {
+    "status": "hold_after_sealed_smoke",
+    "condition": "Do not start fold training until D4 is terminal or root explicitly releases the heavy lane."
+  },
+  "outcome": {
+    "pass": "Promote K for literal deployment construction and separately test raw-accuracy transfer to a cheap host.",
+    "fail": "Close P2R0F2K measured; retain the broader autonomous residual problem open."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "FROZEN_PREIMPLEMENTATION_ERRATUM",
+  "date": "2026-08-26",
+  "scope": "P2R0C1D5 depth-4 CP3 Winograd hybrid storage accounting only",
+  "reason": "The frozen source design allocates two persistent (2,1024,16384) float32 read workspaces. The preregistration correctly identified these as two width-by-cap buffers more than the incumbent, but its fused-push line omitted their full-cap allocation and its fused-read line counted only the active rank. This erratum adds the full persistent allocation to every projected peak. It changes no source algorithm, rank threshold, arithmetic schedule, or execution gate.",
+  "extra_persistent_read_workspace_bytes_vs_incumbent": 134217728,
+  "calculation": "2 * 1024 * 16384 * 4",
+  "corrected_projected_peaks_bytes": {
+    "depth4_sequential_push_rank15360": 6932381696,
+    "depth4_batched_push_rank10240": 8037105664,
+    "depth4_batched_read_rank11264": 7880278016,
+    "depth4_sequential_read_rank14336": 6281641984,
+    "depth5_sequential_push_rank15360": 9487945728
+  },
+  "corrected_depth4_maximum_bytes": 8037105664,
+  "corrected_depth4_maximum_gib": 7.485137939453125,
+  "frozen_rss_ceiling_bytes": 8589934592,
+  "corrected_depth4_margin_bytes": 552828928,
+  "depth5_excess_bytes": 898011136,
+  "disposition": "Depth 4 remains statically admissible and requires literal RSS measurement; depth 5 remains closed. The runtime ceiling remains strictly below 8 GiB."
+}

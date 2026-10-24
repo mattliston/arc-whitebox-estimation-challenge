@@ -1,0 +1,62 @@
+{
+ "stage": "A",
+ "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_uvp_split_views_v1/candidate_prefix22_uvp_split_HELD_v1.py",
+ "candidate_sha256": "507355ec4d4d76f725ae83ef4fc57fdacc19bb622c90e214453dad50791832a4",
+ "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_prefixenergy22_uvpsplit_20261015_astra_v1/submission.tar.gz",
+ "gates": {
+  "contract": true,
+  "package": true,
+  "validate_package": true,
+  "archive_contents": true,
+  "root_reviewed_exact_vector_repeat": true,
+  "no_numpy_import": true,
+  "einsum_signatures_proven": true,
+  "einsum_no_new_repeated_operand": true,
+  "python310": true
+ },
+ "passed": true,
+ "einsum_signatures": {
+  "ij,i,j->ij": 3,
+  "ij,i->ij": 9,
+  "lsjab,ak,bk->lsjk": 2,
+  "a,sj,k->asjk": 2,
+  "i,ij->ij": 9,
+  "<non-literal>": 1,
+  "i,j->ij": 1,
+  "ij,aj->aij": 1,
+  ",i,ij->ij": 1,
+  "aj,j,j->aj": 1,
+  "ij,ij->i": 3,
+  "i,ji->ij": 9,
+  "i,i,i->i": 3,
+  "i,j,ij->ij": 4,
+  "oab,ak,bk->ok": 2,
+  "als,lsjk,lk->asjk": 2,
+  "kn,kc->nc": 2,
+  "ij,ij,j->ij": 3,
+  "ij,c->ijc": 3,
+  "ik,ik->k": 3,
+  "ai,aj->ij": 1,
+  "ij,ij,j->i": 2,
+  "ij,ij,i->j": 2
+ },
+ "new_einsum_signatures": [],
+ "reviewed_einsum_signatures": [],
+ "new_repeated_operand_einsums": [],
+ "uploaded": false,
+ "root_reviewed_repeated_operand_einsums": [
+  [
+   "ij,ij->i",
+   [
+    "normalized",
+    "normalized"
+   ],
+   18400
+  ]
+ ],
+ "root_vector_review": {
+  "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_energy22_uvp_split_delivery_v1/ROOT_VECTOR_EINSUM_REVIEW_v1.json",
+  "sha256": "b40d81c001433f9e26121ffb18c5fba00ef96c54aa3f6c0a15593402252df97e"
+ },
+ "line": "[A package] PASS: source 1476980 bytes sha 507355ec4d4d; contract output shape [2, 4]; archive 600265 bytes sha d70c49348487; einsum signatures 23, new vs proven source: none; under Python 3.10: compiles, no 3.11-only name (3.10.20 []); failed: none; NOT uploaded"
+}

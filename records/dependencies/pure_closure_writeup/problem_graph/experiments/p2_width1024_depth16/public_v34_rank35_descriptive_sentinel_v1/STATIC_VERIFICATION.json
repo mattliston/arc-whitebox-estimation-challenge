@@ -1,0 +1,40 @@
+{
+  "schema": "v34-rank35-descriptive-static-verification-v1",
+  "status": "PASS_DUAL_RUNTIME_STATIC_AND_SYNTHETIC__ZERO_PRODUCTION_DATA",
+  "implementation_manifest_sha256": "4efc59b30c30ddfa46dbac2a21dfc6857247bfa40f358721d60d3ed2d93f5ce3",
+  "implementation_freeze_sha256": "d77a1348edbe1d67025489a7221802c3ddb56c03a5d138b232196be539254037",
+  "verifier_sha256": "bed645e89df64b25c81b823af1260b6c7a81365ae9f55688165434fe23ec8b7d",
+  "transaction_sha256": "c928180da6076737588cab8edd25c32457601cc66466106758964b8f9ea73b9c",
+  "release_builder_sha256": "e38b97b814cd443411cc753b20b09461a9b98c4e135e7c275fe1c63d32e8853c",
+  "h4_checklist_sha256": "d7b0524c383fbf978cd605a92b15dfcf61dcfad28ab299b75ab30092a82dea58",
+  "h4_scope_amendment_sha256": "5674c5f21ddd523c4def4d94ef86de6807538081bea006f49e04bbeaae542f62",
+  "tests": [
+    "syntax_and_import_scope",
+    "frozen_closure",
+    "result_keysets",
+    "synthetic_public_output",
+    "stage_runtime_contracts",
+    "release_builder_keyset",
+    "manifest_and_freeze_deep_rehash"
+  ],
+  "test_count_per_runtime": 7,
+  "runtimes": {
+    "anaconda": {"invocation":"/Users/matt/anaconda3/bin/python3.11","python":"3.11.5","numpy":"1.26.4","torch":"2.7.0","result":"PASS_7_OF_7"},
+    "data_gate": {"invocation":"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python","python":"3.11.5","numpy":"2.4.6","pyarrow":"25.0.1","flopscope":"0.12.0","whestbench":"0.16.0","result":"PASS_7_OF_7"}
+  },
+  "canonical_runtime_receipt_checks": {
+    "fit_capture_data_gate_nice10_thread4_pyarrow_not_imported_preclaim": true,
+    "fit_train_anaconda_nice10_thread4_pyarrow_not_imported": true,
+    "target_score_data_gate_nice10_thread4_pyarrow_not_imported_preclaim": true,
+    "full_live_receipt_equals_release_runtime_contract": true
+  },
+  "adversarial_checks": {
+    "unknown_result_key_rejected_all_four_stages": true,
+    "target_numeric_boolean_gate_mismatch_rejected": true,
+    "target_extra_nested_access_key_rejected": true,
+    "release_builder_validator_exact_keyset": true
+  },
+  "production_artifacts_present": 0,
+  "production_data_access": {"targets":0,"labels":0,"weights_arrays":0,"estimator_calls":0,"capture_runs":0,"meter_runs":0,"training_runs":0,"scoring_runs":0,"network":0},
+  "authority": {"release":false,"execution":false,"target":false,"retry":false,"package":false,"board":false,"submission":false,"network":false}
+}

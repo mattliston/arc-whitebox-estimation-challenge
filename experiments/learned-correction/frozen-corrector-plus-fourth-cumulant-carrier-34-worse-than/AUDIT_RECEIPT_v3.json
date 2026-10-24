@@ -1,0 +1,55 @@
+{
+  "schema": "combined-pilot-audit-receipt-v3",
+  "verdict": "PASS",
+  "audited_utc": "2026-08-25",
+  "auditor": "independent-subagent",
+  "supersedes_note": "AUDIT_RECEIPT_v2.json (FAIL) killed the 4ba5e4a2 build's misplaced clamp; this receipt audits the 14c9288d build with the projection at the reported output and passes it.",
+  "preregistration_sha256": "9cf44487ff3dad193c2d2c5ac5d143a7698f6ca7be695bcaf4dc76b66c05b115",
+  "checks": [
+    {
+      "name": "sha_repin",
+      "result": "PASS",
+      "detail": "public_combined_card_v1/estimator.py recomputes to 14c9288da98fbc80f009f0880eb87d73d2ce60016161aa4e5c022e1c942d1b76, matching the expected value and the pins in PREREGISTRATION.json (line 22), generate_row.py ARMS (line 20, runtime-asserted), BUILD_RECEIPT.json output_sha256, and PREREGISTRATION_SEAL_v3.json."
+    },
+    {
+      "name": "diff_containment",
+      "result": "PASS",
+      "detail": "The 4ba5e4a2 -> 14c9288d delta is EXACTLY moving the maximum() wrap, proven by reverse-edit hashing: the current estimator has the _predict stack line restored to stock (count 1, clamped form count 0) and the corrected-output clamp present once; reverting the corrected-site clamp alone recovers the v1-audited a746d46e byte-for-byte; reverting it AND re-adding the stack clamp recovers 4ba5e4a2 byte-for-byte. A full rebuild (base + 3 trim patches + corrected-site clamp patch + 7 audited wiring replacements + deployment APPENDED) reproduces disk 14c9288d exactly. The builder's only delta from the v1-audited cb9455d3 is the nonnegativity patch section, now anchored (count==1 assert) on the _predict_corrected output line with a comment correctly naming the deployed path; generate_row.py is the sealed 9f931ca6 content with only the pin swapped; run_generation.py unchanged (bcd17829); PREREGISTRATION.json reverse-edits (remove amendment entry 2 + un-pin) to the previously audited 2e6ee889 exactly."
+    },
+    {
+      "name": "instrumented_rank35_run",
+      "result": "PASS",
+      "detail": "Sealed 14c9288d build, Estimator.predict on rank 35 with _predict instrumented: deployed output min is EXACTLY 0.0 with ZERO negatives, finite, shape [16,1024] - passes the generator's validation. exact-zero count is 322, precisely the formerly negative d-spur elements and nothing else. Billed 2175116182773 flops (= the unclamped a746d46e bill + 16384 for the f32 elementwise maximum at the corrected site; 16384 LESS than the failed 4ba5e4a2 build, whose no-op f64 stack clamp billed 32768), within budget with margin 23907072779 under 2^41. Raw host at the now-stock stack site: min +1.5e-17, zero negatives, consistent with every prior probe."
+    },
+    {
+      "name": "amendment_and_seal_accuracy",
+      "result": "PASS",
+      "detail": "The new amendment_log entry (entry 2 of 2 in the array; the team-lead's message called it entry 3 counting rounds, a label nit only) records the v2 finding accurately: first clamp proven a billed no-op at the raw-host stack, deployed path adds the frozen transport correction afterwards, 322 negatives persisted, projection now wraps host + correction in _predict_corrected, 'verified on rank 35: min exactly 0.0, finite, 2175.1e9 FLOPs (sha 4ba5e4a2 -> 14c9288d)' - every claim reproduced independently by this audit's instrumented run. The arm note's clamp sentence ('reported means clamped at zero', 'bills 16384 comparisons', 'can only reduce MSE') is now true of the deployed path: the projection applies to the reported output, billed exactly 16384, and is exact knowledge there (truth means are nonnegative post-ReLU averages), so per-element error weakly decreases. PREREGISTRATION_SEAL_v3.json binds every recomputed sha (estimator 14c9288d, builder 1ed802e9, generator 2fb1597a, orchestrator bcd17829, prereg 9cf44487, base 2fd2d40d), cites both audit receipts correctly (v1 034fd922..., v2 706e6ef0... - both verified against disk), and supersedes v2 with zero rows generated: rows/ does not exist and gen.log still ends at the single 10:07 pre-amendment failure."
+    }
+  ],
+  "computed_shas": {
+    "public_combined_card_v1/estimator.py": "14c9288da98fbc80f009f0880eb87d73d2ce60016161aa4e5c022e1c942d1b76",
+    "public_combined_card_v1/build_estimator_combined.py": "1ed802e919607a6f978dbbe4c2716785c56ddeac6c39f50d0903c4a68efd602e",
+    "public_combined_pilot_v1/PREREGISTRATION.json": "9cf44487ff3dad193c2d2c5ac5d143a7698f6ca7be695bcaf4dc76b66c05b115",
+    "public_combined_pilot_v1/generate_row.py": "2fb1597a3aa110f8132bcb2ddbbba20f3fea4ac544578b49e17a327c00ea6b5e",
+    "public_combined_pilot_v1/run_generation.py": "bcd17829034301366d674c35ad3b4be1760eeb9a3a3ef360439a8ace35decd3e",
+    "public_combined_pilot_v1/AUDIT_RECEIPT.json": "034fd922110a65769808b14eb4034f07c79b1d7d0e66bd1c1ec08382b7ed3c50",
+    "public_combined_pilot_v1/AUDIT_RECEIPT_v2.json": "706e6ef00734556c34d478ad8ae9640b0c054ae076d07fe0a9d1a2f0e36e9e73",
+    "reverse_edit_estimator_recovers_v1_audited": "a746d46e1dea90d9f1ec73d66562f7a4a9eea16dd47f34c1b5ebb0c48e97dd3d",
+    "reverse_edit_estimator_recovers_v2_failed": "4ba5e4a2bc869429d83e08abcc2dd1fefc065006286c1fca1be81b2951f8802f",
+    "reverse_edit_builder_recovers_v1_audited": "cb9455d3560be7660094d709221190d0b6edbeee0fefd06bfdb263bec168b1d2",
+    "reverse_edit_preregistration_recovers_v2_audited": "2e6ee889362c7cc944427b0d4ab7890e9f69d4d0a45b57f9ab0880e450bf6046",
+    "generator_pin_swap_recovers_sealed_v1": "9f931ca603b1115f16f498467cce9b51571c3f276c6b7259e9bfb398825d1fed"
+  },
+  "rank35_instrumented_numbers": {
+    "raw_host_min_at_stack": 1.5255976587446208e-17,
+    "raw_host_negatives_at_stack": 0,
+    "deployed_output_min": 0.0,
+    "deployed_output_negatives": 0,
+    "deployed_output_finite": true,
+    "exact_zero_count": 322,
+    "flops_used": 2175116182773,
+    "budget_margin_under_2pow41": 23907072779,
+    "would_pass_generator_validation": true
+  }
+}

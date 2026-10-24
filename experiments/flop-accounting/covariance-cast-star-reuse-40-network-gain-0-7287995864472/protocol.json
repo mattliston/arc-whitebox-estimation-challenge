@@ -1,0 +1,53 @@
+{
+  "schema": "cov-cast-star-reuse-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_bd_delta_read_cache_cast_v1/candidate.py",
+    "sha256": "d255a7bc32cf72073c3e944b21730f86b25226324341fbab35df8abc82716c3b",
+    "bytes": 974323
+  },
+  "scope": "native2_only_conditional_on_parent_retention",
+  "parent_retention_requirement": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_bd_delta_read_cache_cast_v1/retained_component.json",
+  "parent_retention": null,
+  "intervention": "Retain the final FP32 post-hook covariance after GN_RC and before widening. After existing C64 diagonal refill, patch the retained32 diagonal from the identical authoritative _ps_Cdiag, then store the exact(C64,C32) pair. _ps32 reuses only on object identity. trace_post and next full covariance or terminal diagonal reuse it. Remove only star diagonal subtraction immediately overwritten by the original fill_diagonal.",
+  "ownership": "Full-lower lineage only. C is not mutated after the pair is bound; _t31_commit=None. Next covariance executes before _E2_LAYER.clear. Pair is replaced each layer and popped in active prediction finally. No value hashing or shape-based ancestry, no cross-network retained pair.",
+  "covariance_proof": "Offdiagonal C64 entries are exact widenings of retained FP32 values, so narrowing returns the same bits. Diagonal C64 refill and retained32 refill use the same FP64 source values, yielding identical FP32 conversion. Preserve both original FP64 diagonals and all contraction/read ordering.",
+  "star_proof": "rest is FP32. Parent offdiagonal subtraction is x\u2212(+0), preserving finite values and signed zeros; parent diagonal is immediately replaced by _ps_star_diag. Child retains the original3*rest.T operation and the exact same final diagonal fill.",
+  "price": {
+    "covariance_removed_casts": 30,
+    "conservative_cov_saved_flops": 62883840,
+    "star_saved_flops": 23616000,
+    "total_saved_flops": 86499840,
+    "approx_s34_bill_saved_pct": 0.032347861718098295,
+    "explanation": "30denseFP64\u219232 casts at rate2; charge conservative2*n extra diagonal refill per15calls (actual public destination rate is1). Star removal bills diag construction n, scalar multiply n(n+1)/2 because it is structurally symmetric, and dense subtract n\u00b2 per15calls. Source forecast, not measured gain."
+  },
+  "resources": "Original640M cache,5slots,7.5GB processRSS,zeroaddedSwap/setup4.1/serving limits unchanged. Assessor640M applies only candidate and exact pinned cachecast parent; older/S34 controls retain512M.",
+  "gates": "N2 vs actual cachecast parent gain>=.02%,2wins,maxreg0,ALL16 bytes exact,allfinite/resources. Own boundary before N8 gain>=.02%,8wins,CIupper<0,additional6negative,ALL16 exact. Parent retention required before numerical acquisition. Broad totalS34>=.8%; finalVALID40 bank>=1% plus serving.",
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "parent_native2": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_bd_delta_read_cache_cast_v1/native2_assessment.json",
+    "sha256": "af202468866782d29e86092cd4532fd616a941092182861198976b16c0faaac8",
+    "bytes": 19295
+  },
+  "no_parameter_or_window_search": true,
+  "model_executed": false,
+  "serving_qualified": false,
+  "submitted": false
+}

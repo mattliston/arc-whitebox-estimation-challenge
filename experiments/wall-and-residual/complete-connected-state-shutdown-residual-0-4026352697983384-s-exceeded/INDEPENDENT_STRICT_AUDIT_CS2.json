@@ -1,0 +1,229 @@
+{
+  "schema": "q24-certified-connected-carrier-shutdown-v2-independent-strict-audit-v1",
+  "status": "PASS_INDEPENDENT_EXACT_BYTE_SOURCE_AND_TARGET_FREE_CARRIER_AUDIT__IMMUTABLE_HOLD__FULLWIDTH_UNMEASURED",
+  "audited_at_utc": "2026-08-24T12:51:04Z",
+  "audit_scope": {
+    "mode": "independent read-only exact-byte source audit, exact stored-tuple sign audit, compact-carrier reconstruction, identity and signed-permutation one-push red-team, deterministic fixture replay, API validation, and exact small-width resource projection",
+    "estimator_source_edits": 0,
+    "canonical_graph_edits": 0,
+    "dataset_members_opened": 0,
+    "targets_or_teachers_opened": 0,
+    "truth_computed": false,
+    "raw_mse_or_score_computed": false,
+    "maximum_width_executed": 128,
+    "fullshape_width1024_runs": 0,
+    "packages": 0,
+    "submissions": 0
+  },
+  "bindings": {
+    "candidate_estimator": {
+      "path": "estimator.py",
+      "bytes": 72277,
+      "sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779"
+    },
+    "manual_rho_parent_estimator": {
+      "path": "../fullbudget_k21_k4_closure_q24_manual_rho_v1/estimator.py",
+      "sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00"
+    },
+    "source_preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "e83d1bfd6578556853af6ad1b6a9de3f35a2f45869a1262b99241d12653928c0"
+    },
+    "design_preregister": {
+      "path": "../q24_connected_shutdown_pairing_complete_design_v1/PREREGISTER.md",
+      "sha256": "3f95c1920ff609265e7d50567c713a891a6ecc315da801ef3cc5723eda37541a"
+    },
+    "design_receipt_sha256": "8f0ac6ab4e6ee77abc8601f733ad95ad5bf99a3c375a2a67a9bfdf09dd6eedd1",
+    "post_source_reconciliation_sha256": "e588e74ba8376233d42e4b2f40c4ad1bdf6fb53b86ff90bf22f80d73e2b2ddb0",
+    "frozen_source_probe_runner": {
+      "path": "run_source_probe.py",
+      "sha256": "d9e9e423103037058254d8d06e837fb8426f46ab6b2898ea47c7dab91c448aea"
+    },
+    "frozen_source_probe_result": {
+      "path": "runs/source_probe_v1/results.json",
+      "sha256": "c4c8231c17a68f89916fea5fdf87f9dd0fa52be34ad47d03fbe3ab4d0e21bb7f"
+    },
+    "author_source_hold": {
+      "path": "SOURCE_HOLD_V2.json",
+      "sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c"
+    },
+    "independent_verifier": {
+      "path": "verify_independent_strict_audit.py",
+      "bytes": 30299,
+      "sha256": "5673d297a3c5fd7dd7bd1fd2ec1a57c6ad9f51259d94870fbfa6bc3513a4a342"
+    },
+    "fixture_helper_sha256": "2c37c363155ac2b709de00a0d7a949a33a43106592e0df88daa7509bf2468b2d",
+    "manual_rho_literal_meter_result_sha256": "82e55b8308d0d30924f6aa76648bb140cef329b86a92cb39e168c0c7fb9b5488",
+    "manual_rho_literal_meter_receipt_sha256": "4ad5d4bb8e70a3f57ef7559f5dceffe0d92fc7b77626088cff87431bdbf18160"
+  },
+  "exact_source_delta": {
+    "status": "PASS_ADDITIVE_FROZEN_MECHANISM_ONLY",
+    "imports_exact": [
+      "flopscope",
+      "flopscope.numpy",
+      "whestbench.BaseEstimator",
+      "whestbench.domain.MLP"
+    ],
+    "added_executable_functions": [
+      "_add_sub_error",
+      "_certified_invalid_marginals",
+      "_multiply_error",
+      "_shutdown_connected_state",
+      "_up"
+    ],
+    "changed_parent_functions": [
+      "_full_relu_reset",
+      "_predict",
+      "_reset_stars"
+    ],
+    "q24_context_ast_equal_manual_rho_parent": true,
+    "univariate_edgeworth_ast_equal_manual_rho_parent": true,
+    "forbidden_dynamic_or_file_calls": [],
+    "production_width": 1024,
+    "production_depth": 16,
+    "production_budget_guard": 2199023255552,
+    "source_api": "one Estimator(BaseEstimator) with predict(self, mlp, budget)",
+    "candidate_bytes_unchanged_during_audit": true
+  },
+  "certificate_authority": {
+    "status": "PASS_OUTWARD_SIGN_CERTIFICATE_FOR_STORED_FP64_TUPLES",
+    "necessary_conditions": {
+      "A": "r1*r3-r2^2 >= 0 for a nonnegative marginal",
+      "B": "(r4-r2^2)*(r2-r1^2)-(r3-r1*r2)^2 >= 0 by covariance PSD"
+    },
+    "roundoff_proof": {
+      "input_contract": "the four stored binary64 inputs are treated as exact; no upstream-moment or probability-law authority is claimed",
+      "local_bound": "2^-52 strictly exceeds binary64 u/(1-u); multiplying it by the stored result bounds one normal rounded add/subtract/multiply",
+      "subnormal_zero_case": "_up(0) is the least positive subnormal, so a primitive rounded to zero still receives a nonzero outward absolute allowance",
+      "bound_dag": "nonnegative inherited add/subtract errors sum outward; product errors use |x|Ey+|y|Ex+ExEy, with every nonnegative primitive advanced by nextafter(+inf)",
+      "classification": "strict margin < -outward_error only; boundary and indeterminate values remain compatible"
+    },
+    "dynamic_recursive_resets": 140,
+    "stored_tuple_count": 6272,
+    "stored_inputs_all_finite_binary64": true,
+    "certified_invalid_union_count": 2327,
+    "exact_negative_A_count": 1645,
+    "exact_negative_B_count": 2214,
+    "certified_flag_with_exact_A_and_B_both_nonnegative_count": 0,
+    "claim_boundary": "certificate soundness for the displayed represented-tuple inequalities, not completeness, upstream moment accuracy, joint-law feasibility, or board-tail causality"
+  },
+  "mask_and_pairing_timing": {
+    "status": "PASS_COMPLETE_CURRENT_BASIS_CONNECTED_SHUTDOWN",
+    "recursive_reset_only": true,
+    "reported_raw1_and_lower_order_state_retained": true,
+    "invalid_K4_target_zero": true,
+    "invalid_incident_K21_K31_K22_targets_zero": true,
+    "cp3_post_gate_invalid_zero": true,
+    "cp3_birth_coefficient_invalid_zero": true,
+    "cp4_post_gate_invalid_zero": true,
+    "cp4_invalid_identity_birth_effective_coefficient_zero": true,
+    "pairing_predicate": "fnp.all(valid_high_order)",
+    "pairing_alpha_affected_reset_exact_zero": true,
+    "pairing_zero_timing": "after nominal numerator/denominator evaluation but before three_alpha, quartic_diagonal, and quartic residual construction",
+    "h1_behavior": "unchanged; _initialize_h1 omits pairing_enabled",
+    "final_layer_behavior": "unchanged; no outgoing recursive connected state is constructed"
+  },
+  "carrier_reconstruction_and_one_push": {
+    "status": "PASS_ZERO_VIOLATIONS",
+    "recursive_states_checked": 140,
+    "activated_recursive_states": 96,
+    "invalid_units_checked": 2327,
+    "returned_target_incident_nonzero_count": 0,
+    "gate_or_birth_invalid_nonzero_count": 0,
+    "affected_pairing_alpha_nonzero_count": 0,
+    "analytic_cp3_incident_nonzero_count": 0,
+    "actual_stored_cp3_incident_nonzero_count": 0,
+    "returned_cp4_provider_incident_nonzero_count": 0,
+    "actual_stored_cp4_incident_nonzero_count": 0,
+    "cubic_or_quartic_star_incident_nonzero_count": 0,
+    "reconstructed_K21_K4_K31_K22_incident_nonzero_count": 0,
+    "identity_one_push_incident_nonzero_count": 0,
+    "signed_permutation_one_push_incident_nonzero_count": 0,
+    "one_push_signed_permutation": "W[i,(5*i+3) mod w]=(-1)^i; invalid source coordinate i maps to (5*i+3) mod w",
+    "all_reconstructed_and_pushed_fields_finite": true,
+    "semantic_boundary": "one push proves exact mapped-zero preservation for identity and a fixed signed permutation; it is not a dense-weight stability or accuracy result"
+  },
+  "deep_target_free_fixture_replay": {
+    "status": "PASS_ALL_TEN_OUTPUT_HASHES_REPEAT_FROZEN_RESULT",
+    "fixture_count": 10,
+    "candidate_finite_count": 10,
+    "parent_finite_to_candidate_nonfinite_count": 0,
+    "parent_failure_recovered_count": 3,
+    "activation_count": 2327,
+    "identity_and_near_identity_activation_count": 0,
+    "identity_and_near_identity_parent_byte_parity": true,
+    "all_finite_pair_rms_and_maxabs_parent_scale_gates": true,
+    "frozen_probe_stored_invariant_violation_count": 0,
+    "independent_actual_carrier_and_one_push_violation_count": 0,
+    "repeat_authority": "each candidate output hash reproduced the separately frozen source-probe hash exactly",
+    "rows": [
+      {"fixture": "identity_width8_float32", "activations": 0, "output_sha256": "6faa838c43e63803a332d2cd867f391c96fe5f2ced0a6429b9a168f0ebb59600"},
+      {"fixture": "near_identity_seed20260823_scale0p02_float32", "activations": 0, "output_sha256": "2a58c4d3266e65d7ca968fdde6f199eeb41809fec39659ae371fd9b7c28cbacc"},
+      {"fixture": "qr_seed20260823_scale0p35_float64", "activations": 38, "output_sha256": "e5dd8083edfc23efc79b2408d63bef771e8cb01d2ab8af2a36588f37a81485d9"},
+      {"fixture": "pure_normal_seed17_scale0p12_float32", "activations": 48, "output_sha256": "7a9b2c5bd61026509eb68c53167b2fe1d559e24df569ddf12763eca608df93ab"},
+      {"fixture": "official_he_width32_seed20260825", "activations": 135, "output_sha256": "959744ac47d1816ca76492e4607622fe50369fe7836dc92027f8ff6e43028465"},
+      {"fixture": "official_he_width32_seed20260826", "activations": 215, "output_sha256": "7f0a5d22aa354e46f28426ed7286a7ccd841f0739db8df69ecee8c2851f3bacc"},
+      {"fixture": "official_he_width64_seed20260825", "activations": 282, "output_sha256": "9d7643cf2818f3a5f33a7c0239051642978e272877b8331d3fcde78b6230bf7a"},
+      {"fixture": "official_he_width64_seed20260826", "activations": 295, "output_sha256": "580cafb6ea57f954a45f8a3026c2efee0b890bf461c8f24143a032c9c8e43da8"},
+      {"fixture": "official_he_width128_seed20260825", "activations": 617, "output_sha256": "19d0fa25ae8ce209fe1663afb608a7b3ce1f76f316b122d54d02f9f987e31d79"},
+      {"fixture": "official_he_width128_seed20260826", "activations": 697, "output_sha256": "0989f7f1b7cc3f068584d45bdbac9e174acf194e216da070cc40b700fc158fb3"}
+    ]
+  },
+  "resource_authority": {
+    "status": "PASS_EXACT_SMALL_WIDTH_POLYNOMIAL_PROJECTION__LITERAL_FULLWIDTH_HELD",
+    "independent_rows": [
+      {"width": 4, "flop_delta": 24234, "call_delta": 2296},
+      {"width": 8, "flop_delta": 59570, "call_delta": 2296},
+      {"width": 16, "flop_delta": 163842, "call_delta": 2296},
+      {"width": 32, "flop_delta": 506786, "call_delta": 2296}
+    ],
+    "increment_law": "350*w^2 + 4634*w + 98",
+    "phase2_budget_flops": 2199023255552,
+    "manual_rho_parent_literal_flops": 2131280786389,
+    "projected_increment_flops_width1024": 371746914,
+    "projected_total_flops_width1024": 2131652533303,
+    "projected_headroom_flops_width1024": 67370722249,
+    "projected_utilization_percent": 96.93633425299595,
+    "projected_calls_width1024": 9504,
+    "literal_candidate_flops": null,
+    "candidate_wall_seconds": null,
+    "candidate_flopscope_residual_seconds": null,
+    "candidate_descendant_rss_bytes": null
+  },
+  "api_and_namespace": {
+    "pinned_whestbench_version": "0.16.0",
+    "validate_command": "env PYTHONDONTWRITEBYTECODE=1 data_gate/.venv/bin/whest validate --estimator <exact estimator.py> --format json",
+    "validate_exit_code": 0,
+    "validate_ok": true,
+    "validate_class_name": "Estimator",
+    "validate_smoke_output_shape": [2, 4],
+    "namespace_pycache_count_after_audit": 0,
+    "namespace_pyc_count_after_audit": 0
+  },
+  "audit_reconciliation": {
+    "published_probe_static_gate_was_not_encoded_in_pass_boolean": true,
+    "published_probe_did_not_reconstruct_post_grow_cp3_or_identity_signed_permutation_push": true,
+    "independent_audit_supplied_those_missing_checks_without_source_mutation": true,
+    "frozen_probe_result_changed": false,
+    "source_hold_changed": false,
+    "candidate_gate_changed": false,
+    "fixture_roster_changed": false,
+    "threshold_or_trigger_tuned": false
+  },
+  "verdict": {
+    "exact_source_scope": "PASS",
+    "outward_stored_tuple_certificate": "PASS",
+    "target_and_gate_birth_masks": "PASS",
+    "pairing_alpha_timing": "PASS",
+    "actual_compact_carrier_reconstruction": "PASS",
+    "identity_and_signed_permutation_one_push": "PASS",
+    "ten_fixture_deterministic_target_free_replay": "PASS",
+    "exact_small_width_resource_law": "PASS",
+    "projected_phase2_flop_admission": "PASS",
+    "literal_width1024_meter": "NOT_RUN_NOT_AUTHORIZED_BY_THIS_AUDIT",
+    "wall_residual_memory": "UNMEASURED",
+    "raw_mse_accuracy_or_score": "UNOPENED_AND_UNSCORED",
+    "strongest_authority": "IMMUTABLE_SOURCE_HOLD_FOR_SEPARATELY_RELEASED_TARGET_FREE_WIDTH1024_COMPARATOR_AND_LITERAL_METER",
+    "promotion": "HOLD_PENDING_SEPARATE_FULLSHAPE_RESOURCE_AND_RUNTIME_AUTHORITY"
+  }
+}

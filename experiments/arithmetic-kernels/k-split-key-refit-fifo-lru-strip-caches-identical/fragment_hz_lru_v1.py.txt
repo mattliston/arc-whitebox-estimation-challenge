@@ -1,0 +1,10 @@
+
+
+# BEGIN OPUS-TABLES FRAGMENT hz_lru_v1 (2026-10-16; append LAST): LRU recency for the strip-kernel view caches. They were FIFO (a hit
+# did not refresh), so once full (_HZ_SIDES at network ~4-5, _HZ_VIEWS ~5, _HZG_VIEWS ~8 of a worker life) the views every network reuses
+# were evicted first and rebuilt (zero-FLOP getitems, but requests). _CapLRU.get moves a hit to the end; caps, views, handles and
+# arithmetic are unchanged (exact): only the eviction victim changes.
+for _ot_name in ('_HZ_SIDES', '_HZ_VIEWS', '_HZG_VIEWS', '_HZD_VIEWS', '_HZ7_VIEWS'):
+    if type(globals().get(_ot_name)) is dict:
+        globals()[_ot_name] = _CapLRU(globals()[_ot_name])
+# END OPUS-TABLES FRAGMENT hz_lru_v1

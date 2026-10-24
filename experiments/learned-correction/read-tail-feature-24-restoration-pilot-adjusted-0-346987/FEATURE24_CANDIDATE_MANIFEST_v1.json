@@ -1,0 +1,68 @@
+{
+  "parent": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_hermite_group_view_repair_v1/candidate_hermite_group_views_QR_HELD_v2.py",
+  "parent_sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_saved_error_mechanism_v1/candidate_feature24_tail_restore_all_v1.py",
+  "candidate_sha256": "92ee989b6c0ccbfa155744ceda7cdd4f049b1e5ef5af09e4dc77b9fb5f2c1ee9",
+  "fragment_sha256": "c92109da0a40e82141880070d5960141ff00d0a3040946b125f09cec1608dc91",
+  "scope": "All RTT-changed hidden layers 2..14, fixed exact young-tail feature24 restoration; first two layers and terminal remain unchanged; no fitted constants.",
+  "formula": "sum_j((L_i * lambda) dot R_j - current_young_tail_ij)/sigma_j / (sqrt(n)*variance_i), excluding i=j",
+  "no_covariance_or_K21_plane_mutation": true,
+  "model_calls": 0,
+  "train16_geometry_shape_cost_upper": 182689920,
+  "train16_geometry_cost_pct_upper": 0.07666412140877614,
+  "per_layer": [
+    {
+      "layer": 2,
+      "flops_upper": 10041600
+    },
+    {
+      "layer": 3,
+      "flops_upper": 14490752
+    },
+    {
+      "layer": 4,
+      "flops_upper": 18006912
+    },
+    {
+      "layer": 5,
+      "flops_upper": 20753024
+    },
+    {
+      "layer": 6,
+      "flops_upper": 24706560
+    },
+    {
+      "layer": 7,
+      "flops_upper": 13587712
+    },
+    {
+      "layer": 8,
+      "flops_upper": 14745472
+    },
+    {
+      "layer": 9,
+      "flops_upper": 15976320
+    },
+    {
+      "layer": 10,
+      "flops_upper": 10059648
+    },
+    {
+      "layer": 11,
+      "flops_upper": 11355776
+    },
+    {
+      "layer": 12,
+      "flops_upper": 13223552
+    },
+    {
+      "layer": 13,
+      "flops_upper": 7001472
+    },
+    {
+      "layer": 14,
+      "flops_upper": 8741120
+    }
+  ],
+  "limits": "Cost is shape arithmetic only, not a native FNP bill; exact old-tail read contribution is untouched. Original float32 K21 construction and accumulation rounding are not reproduced by the analytic float64 moment correction."
+}

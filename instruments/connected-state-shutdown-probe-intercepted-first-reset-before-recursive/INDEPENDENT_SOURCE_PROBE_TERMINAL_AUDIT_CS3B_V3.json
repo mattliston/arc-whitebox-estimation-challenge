@@ -1,0 +1,121 @@
+{
+  "schema": "q24-cs3b-independent-source-probe-terminal-audit-v3",
+  "status": "REJECT_CONFIRMED__ONE_USE_CONSUMED__HARNESS_H1_OBSERVER_CHRONOLOGY_FAILURE__SOURCE_DYNAMIC_VERDICT_UNRESOLVED",
+  "created_at_utc": "2026-08-24T15:19:27Z",
+  "bindings": {
+    "candidate_estimator_sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+    "candidate_source_hold_sha256": "ac29611a20280de259c7ab2f970d865b09ca1c417d1ac09d64aeab5a89d23bb5",
+    "runner_sha256": "e2a5b6b974dca8d4202e06241ce276d6d5079b92a21e1b17c523b1ba50bd2514",
+    "author_release_sha256": "5bca9147ed3b3140ea974ff5033ca8f45d1fa73888e32b4c824a817b2d727ba6",
+    "independent_runner_release_audit_sha256": "797544589238468f5cfa24fe551659610f3a3b38b071c5de0084fe96c782f2b9",
+    "source_probe_preregister_sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3",
+    "source_probe_trace_clarification_sha256": "6bea490cc0cd745866111159ae9fb973cfd645e95925934464e7b8effc0dd09c",
+    "o_excl_claim": {
+      "path": "runs/source_probe_v3/O_EXCL_CLAIM.json",
+      "sha256": "f56019d53654ed229ebeaf4fd877af663e5a32faeac0d7a61a52ec249544e328"
+    },
+    "terminal_result": {
+      "path": "runs/source_probe_v3/results.json",
+      "sha256": "cde21e1338cc6eb749e4ff239cc4fd5de64181400346d30ca8f86cb0a67f8def"
+    }
+  },
+  "terminal_protocol_audit": {
+    "claim_status_exact": "CLAIMED_BEFORE_CANDIDATE_IMPORT_OR_FIXTURE_CONSTRUCTION",
+    "claim_binds_exact_source_runner_release_and_independent_audit": true,
+    "claim_candidate_imports_before_claim": 0,
+    "claim_fixture_constructions_before_claim": 0,
+    "result_status_exact": "REJECT_SOURCE_PROBE",
+    "result_binds_claim_sha256": true,
+    "strict_json_result_valid": true,
+    "v3_namespace_consumed": true,
+    "rerun_overwrite_retry_or_rescue_permitted": false,
+    "v1_and_v2_namespaces_remain_absent_and_terminally_held": true,
+    "pycache_pyc_or_pyo_debris": 0
+  },
+  "valid_positive_evidence": {
+    "certificate_equivalence": {
+      "pass": true,
+      "roster_size": 276,
+      "parent_total_calls": 154,
+      "candidate_total_calls": 154,
+      "parent_flops": 84180,
+      "candidate_flops": 84180,
+      "common_named_intermediate_bytes_equal": true,
+      "invalid_mask_bytes_equal": true,
+      "invalid_mask_sha256": "9967c611a42ed175f76ffa02ded676ca14b99a7738d755ac1cf82073032a9e9b"
+    },
+    "resource_selector_and_nonsymmetric_algebra": {
+      "pass": true,
+      "executed_width_rank_rows": 23,
+      "lowrank_rows": 2,
+      "dense_rows": 21,
+      "both_modes_exercised": true,
+      "all_resource_exact": true,
+      "all_forward_bounds": true,
+      "maximum_bound_violation_count": 0,
+      "all_six_integer_crossover_witnesses": true,
+      "signed_permutation_exact_mapped_zeros": true
+    },
+    "exact_null_control": {
+      "pass": true,
+      "positive_zero_alpha": true,
+      "null_alpha_sha256": "4efe80ce1f81357344342700b20f49223aab512897bee9307679905ec32841d6",
+      "ordinary_alpha": 0.46875,
+      "null_and_ordinary_true_divide_calls": [1, 1],
+      "operation_ledger_equal": true,
+      "maximum_k4_k31_reconstruction_error": 0.0,
+      "reconstruction_bound": 0.00009155413138017853,
+      "reported_k22_residual_norm": 1.7677669529663689
+    },
+    "parent_fixture_baseline": {
+      "fixture_count": 10,
+      "finite_parent_outputs": 10
+    },
+    "bounded_h1_candidate_evidence": "All 21 candidate _predict attempts reached and returned from the original H1 _reset_stars body before the observer raised.  This is not evidence for any recursive reset, carrier push, full output, or natural activation."
+  },
+  "failed_or_unobserved_required_evidence": {
+    "candidate_fixture_attempts": 20,
+    "forced_dense_candidate_attempts": 1,
+    "candidate_attempts_with_runtime_error": 21,
+    "unique_error_type": "RuntimeError",
+    "unique_error_message": "observer ordering invariant failed",
+    "recorded_recursive_reset_counts": [0],
+    "recorded_push_counts": [0],
+    "natural_lowrank_activation_count": 0,
+    "natural_activation_interpretation": "UNOBSERVED_DUE_TO_PRE_RECURSIVE_H1_OBSERVER_FAILURE; not evidence of zero source activations",
+    "candidate_finite_outputs": 0,
+    "forced_dense_pass": false,
+    "ten_fixture_pass": false,
+    "carrier_reconstruction_evidence": "UNOBSERVED",
+    "no_activation_output_parity_evidence": "UNRESOLVED",
+    "dynamic_source_pass": false
+  },
+  "root_cause": {
+    "classification": "PROBE_HARNESS_OBSERVER_CHRONOLOGY_DEFECT",
+    "candidate_source_location": "estimator.py _initialize_h1 calls _reset_stars before entering the recursive reset loop",
+    "candidate_source_call_line_at_frozen_bytes": 1487,
+    "runner_location": "run_source_probe_v3.py observed_reset_stars",
+    "runner_guard_lines_at_frozen_bytes": [829, 833],
+    "exact_sequence": [
+      "candidate_run replaces module._reset_stars with observed_reset_stars",
+      "candidate _predict enters _initialize_h1",
+      "_initialize_h1 resolves the patched global _reset_stars",
+      "the original _reset_stars body returns successfully",
+      "holder.reset, holder.cp_post, and holder.provider are still unset because _full_relu_reset and recursive CP resets have not occurred",
+      "the observer raises RuntimeError before any reset or push record is appended"
+    ],
+    "source_numeric_defect_demonstrated": false,
+    "harness_failure_demonstrated": true
+  },
+  "bounded_interpretation": {
+    "exact_v3_probe_result": "TERMINAL_REJECT",
+    "exact_49060_source_dynamic_acceptance": "NOT_ESTABLISHED",
+    "exact_49060_source_numeric_rejection": "NOT_ESTABLISHED",
+    "static_source_pass_remains_historical_context_only": true,
+    "direct_certificate_resource_algebra_signed_permutation_and_null_results_remain_valid_for_their_exact_isolated_controls": true,
+    "fixture_carrier_determinism_no_activation_and_forced_dense_claims_must_not_be_inferred": true,
+    "exact_v3_source_probe_namespace_must_never_run_again": true,
+    "promotion_fullwidth_meter_accuracy_board_targets_package_submission_and_graph_authority": false
+  },
+  "lawful_successor_requirement": "Any successor must use a distinct preregistered node, distinct source hash or otherwise separately authorized non-retry design, distinct runner/release/audit chain, and distinct O_EXCL namespace.  It must exclude the H1 _reset_stars call from the recursive-reset observer while preserving exact normal numerical and tracked-resource behavior."
+}

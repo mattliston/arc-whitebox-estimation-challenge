@@ -1,0 +1,60 @@
+{
+  "status": "EARLY_CHEAPENING_CLOSED",
+  "lane": "opus-early",
+  "tests": [
+    {
+      "name": "BF02 births-only floor 0.02 at layers 1-6",
+      "candidate_sha256": "a40c412488cc0eb55be24e1a7199ac9a609e21bfd1ed2133a5fca9bebd6bced9",
+      "prereg": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_early_v1/PREREG_BF02_v1.json",
+      "prereg_sha256": "8c354e236f326abdf4649003521f74d522c9a83c3ca1f50e32d4d4d6ee9e6afa",
+      "boundary": {
+        "bill_first": -1.438,
+        "bill_warm": -1.399,
+        "req_first": 1168,
+        "req_warm": 250
+      },
+      "screen8": {
+        "seeds": "7103248-55",
+        "xMSE": 2.306,
+        "xMSE_se": 1.171,
+        "lower": 1,
+        "MSE": 1.603,
+        "screen_bill": -0.487,
+        "xnet": 1.819
+      },
+      "net_with_warm_bill": 0.907,
+      "verdict": "CLOSED"
+    },
+    {
+      "name": "RT10 RTT exact young-read cutoff 1.0 sigma at layers 1-6",
+      "candidate_sha256": "a62dfd3cc3ec4e800bb98438cdf34b9082ea247467558f6542e2aa2421b97f67",
+      "prereg": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_early_v1/PREREG_RT10_v1.json",
+      "prereg_sha256": "2ceb8cefd71449c05207e30e32064003539946335eb3b09889fd46e2e15abecc",
+      "boundary": {
+        "bill_first": -0.659,
+        "bill_warm": -0.88,
+        "req_first": 14,
+        "req_warm": -146
+      },
+      "screen8": {
+        "seeds": "7103248-55",
+        "xMSE": 3.848,
+        "xMSE_se": 1.58,
+        "lower": 2,
+        "MSE": 2.687,
+        "screen_bill": -0.928,
+        "xnet": 2.919
+      },
+      "net_with_warm_bill": 2.968,
+      "verdict": "CLOSED"
+    }
+  ],
+  "not_run": [
+    "BF03 (pre-registration rule: single setting per seed set)"
+  ],
+  "lessons": [
+    "early capacity is not cheap in final error: error born early is small only at the current capacity; removing early births/exact reads raises final error 1.6-4x the bill saved",
+    "any shape-changing knob on 2b108 raises cold-bind requests (BF02 +1168 first/+250 warm) unless the prebind list and Smirnov keys are re-derived"
+  ],
+  "seeds_note": "7103248-55 have now carried two pre-registered early settings plus the lead/astra history; no fitting done on them"
+}

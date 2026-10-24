@@ -1,0 +1,51 @@
+{
+ "stage": "A",
+ "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/variants/s46x_twin/candidate.py",
+ "candidate_sha256": "8ba4c1588cc561e1efd713326d2dbfd7c52240f2f3424eed706c85e7734322a6",
+ "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_s46x_twin/submission.tar.gz",
+ "gates": {
+  "contract": true,
+  "package": true,
+  "validate_package": true,
+  "archive_contents": true,
+  "no_numpy_import": true,
+  "einsum_signatures_proven": true,
+  "einsum_no_new_repeated_operand": true,
+  "python310": true
+ },
+ "passed": true,
+ "einsum_signatures": {
+  "ij,i,j->ij": 3,
+  "ij,i->ij": 5,
+  "lsjab,ak,bk->lsjk": 1,
+  "alsqj,lsjk,lk->aqsk": 1,
+  "a,sq,k->aqsk": 1,
+  "ij,ij->i": 2,
+  "i,ij->ij": 5,
+  "<non-literal>": 1,
+  "i,j->ij": 1,
+  "ij,aj->aij": 1,
+  ",i,ij->ij": 1,
+  "aj,j,j->aj": 1,
+  "i,ji->ij": 6,
+  "i,i,i->i": 1,
+  "i,j,ij->ij": 2,
+  "oab,ak,bk->ok": 1,
+  "kn,kc->nc": 2,
+  "ij,ij,j->ij": 1,
+  "ij,c->ijc": 3,
+  "ik,ik->k": 1,
+  "ai,aj->ij": 1,
+  "ij,ij,j->i": 1,
+  "ij,ij,i->j": 1
+ },
+ "new_einsum_signatures": [],
+ "reviewed_einsum_signatures": [
+  "a,sq,k->aqsk",
+  "alsqj,lsjk,lk->aqsk",
+  "kn,kc->nc"
+ ],
+ "new_repeated_operand_einsums": [],
+ "uploaded": false,
+ "line": "[A package] PASS: source 1172535 bytes sha 8ba4c1588cc5; contract output shape [2, 4]; archive 521720 bytes sha 07d594b905de; einsum signatures 23, new vs proven source: none; under Python 3.10: compiles, no 3.11-only name (3.10.20 []); failed: none; NOT uploaded"
+}

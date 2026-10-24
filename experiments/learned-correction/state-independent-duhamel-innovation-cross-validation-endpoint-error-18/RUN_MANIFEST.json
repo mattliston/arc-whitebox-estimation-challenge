@@ -1,0 +1,72 @@
+{
+  "schema": "public-full688-state-independent-duhamel-cv-run-manifest-v1",
+  "node": "P2R0F2H",
+  "status": "authorized-public-development-cv",
+  "scope": "One fixed four-fold network CV on observer_fit ranks 0:687",
+  "approved_actions": [
+    "train_fixed_fold_0",
+    "train_fixed_fold_1",
+    "train_fixed_fold_2",
+    "train_fixed_fold_3",
+    "aggregate_out_of_fold_metrics"
+  ],
+  "forbidden_actions": [
+    "read_observer_selection_targets",
+    "read_public_board_identity_join",
+    "retune_from_cv_metrics",
+    "fit_a_second_architecture",
+    "add_recurrent_inputs_to_source_provider"
+  ],
+  "data": {
+    "role": "observer_fit",
+    "role_ranks": [0, 688],
+    "networks": 688,
+    "fold_sizes": [147, 172, 171, 198],
+    "group_key": "mlp_id",
+    "tail_threshold": 5e-7,
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "base_rows_complete": 688,
+    "repaired_tail_rows_complete": 11
+  },
+  "architecture": {
+    "hidden": 96,
+    "input_features": 20,
+    "parameters": 12880,
+    "predicted_state_inputs_to_source": 0,
+    "transport": "one exact Phi*(state@W) channel",
+    "epochs": 6,
+    "batch_size_networks": 3,
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001
+  },
+  "decision_gate": {
+    "finite_all_rollouts": true,
+    "oof_final_mse_strictly_below": 2.9672528546945005e-8,
+    "maximum_per_network_final_mse_strictly_below": 1e-7,
+    "mode": "all"
+  },
+  "resources": {
+    "parallel_folds_maximum": 4,
+    "threads_per_fold": 2,
+    "maximum_rss_bytes_per_fold": 8589934592,
+    "maximum_experiment_storage_bytes": 2147483648
+  },
+  "deployment_admission_estimate": {
+    "parameter_count": 12880,
+    "measured_host_flops": 2126977459133,
+    "correction_source_structure_upper_estimate": 792712192,
+    "host_plus_correction_upper_estimate": 2127770171325,
+    "phase2_budget": 2200000000000,
+    "headroom_under_upper_estimate": 72229828675,
+    "literal_meter_required_after_accuracy_pass": true
+  },
+  "bindings": {
+    "preregistration_sha256": "0824bef80a047d9bbd3eeb62fb57a6c410aeb784693017a5b1da325dc24e82db",
+    "program_sha256": "d1472e602cc0a7cd612da8ee4341050c907875e0261bbc117aa78580aceeb551",
+    "loader_sha256": "babd7733966f7b94b358a5b30906bcf19c8cbe47eb49a8e9cb7e49f8f7f1e3c1",
+    "shared_cache_manifest_sha256": "ab463ae4887afd51b3816cbe2275f2f49a9b6e860eeaf0d9d62d7743056d80ca",
+    "shared_error_sha256": "1414515cfbb098e731e4f00d3f4ba7a310f17ac96e886846cd08aaaa0a679ca1",
+    "shared_stats_sha256": "1648a140768cdc254a7bb6957dcb8e82f4271118bc64b552bb08de294ec62208"
+  },
+  "frozen_at_utc": "2026-08-24T21:15:47Z"
+}

@@ -1,0 +1,2553 @@
+{
+ "tag": "public_trivariate_derivation_v1",
+ "date": "2026-08-25",
+ "model": "x_u = relu(mu_u + sd_u * z_u); (z) standard multivariate normal, corr rho",
+ "primitives": {
+  "m": "E[x] = c1[0]",
+  "c1[q]": "E[x He_q(z)]  (He probabilists', He_{q+1}=z He_q - q He_{q-1})",
+  "c2[q]": "E[x^2 He_q(z)]",
+  "A[q]": "c1[q] for q>=1; A[0]=0",
+  "B[q]": "c2[q] - 2*m*c1[q] for q>=1; B[0]=c2[0]-m^2 (=Var x)",
+  "J[q]/K[q]/alpha[q]": "the A[q] of units j/k/(each unit)"
+ },
+ "kappa211": {
+  "definition": "kappa(x_i,x_i,x_j,x_k) joint cumulant (x_i doubled slot)",
+  "term_value": "coefficient * rho_monomial * i_functional * j_functional * k_functional",
+  "exact_all_orders": "sum_{a,b,t>=0, a+b>=1} r_ij^a r_ik^b r_jk^t/(a! b! t!) * (B[a+b] - 2*A[a]*A[b]*[t==0]) * J[a+t] * K[b+t]",
+  "order_le_1": "identically zero (disconnected diagrams cancel)",
+  "terms": [
+   {
+    "order": 2,
+    "rho_monomial": "r_ij^0 * r_ik^1 * r_jk^1",
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_jk": 1
+    },
+    "coefficient": "1",
+    "i_functional": "B[1]",
+    "j_functional": "J[1]",
+    "k_functional": "K[2]"
+   },
+   {
+    "order": 3,
+    "rho_monomial": "r_ij^0 * r_ik^1 * r_jk^2",
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_jk": 2
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[1]",
+    "j_functional": "J[2]",
+    "k_functional": "K[3]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^0 * r_ik^1 * r_jk^3",
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_jk": 3
+    },
+    "coefficient": "1/6",
+    "i_functional": "B[1]",
+    "j_functional": "J[3]",
+    "k_functional": "K[4]"
+   },
+   {
+    "order": 3,
+    "rho_monomial": "r_ij^0 * r_ik^2 * r_jk^1",
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 2,
+     "r_jk": 1
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[2]",
+    "j_functional": "J[1]",
+    "k_functional": "K[3]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^0 * r_ik^2 * r_jk^2",
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 2,
+     "r_jk": 2
+    },
+    "coefficient": "1/4",
+    "i_functional": "B[2]",
+    "j_functional": "J[2]",
+    "k_functional": "K[4]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^0 * r_ik^3 * r_jk^1",
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 3,
+     "r_jk": 1
+    },
+    "coefficient": "1/6",
+    "i_functional": "B[3]",
+    "j_functional": "J[1]",
+    "k_functional": "K[4]"
+   },
+   {
+    "order": 2,
+    "rho_monomial": "r_ij^1 * r_ik^0 * r_jk^1",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_jk": 1
+    },
+    "coefficient": "1",
+    "i_functional": "B[1]",
+    "j_functional": "J[2]",
+    "k_functional": "K[1]"
+   },
+   {
+    "order": 3,
+    "rho_monomial": "r_ij^1 * r_ik^0 * r_jk^2",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_jk": 2
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[1]",
+    "j_functional": "J[3]",
+    "k_functional": "K[2]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^1 * r_ik^0 * r_jk^3",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_jk": 3
+    },
+    "coefficient": "1/6",
+    "i_functional": "B[1]",
+    "j_functional": "J[4]",
+    "k_functional": "K[3]"
+   },
+   {
+    "order": 2,
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_jk^0",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_jk": 0
+    },
+    "coefficient": "1",
+    "i_functional": "B[2] - 2*A[1]*A[1]",
+    "j_functional": "J[1]",
+    "k_functional": "K[1]"
+   },
+   {
+    "order": 3,
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_jk^1",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_jk": 1
+    },
+    "coefficient": "1",
+    "i_functional": "B[2]",
+    "j_functional": "J[2]",
+    "k_functional": "K[2]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_jk^2",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_jk": 2
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[2]",
+    "j_functional": "J[3]",
+    "k_functional": "K[3]"
+   },
+   {
+    "order": 3,
+    "rho_monomial": "r_ij^1 * r_ik^2 * r_jk^0",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 2,
+     "r_jk": 0
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[3] - 2*A[1]*A[2]",
+    "j_functional": "J[1]",
+    "k_functional": "K[2]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^1 * r_ik^2 * r_jk^1",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 2,
+     "r_jk": 1
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[3]",
+    "j_functional": "J[2]",
+    "k_functional": "K[3]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^1 * r_ik^3 * r_jk^0",
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 3,
+     "r_jk": 0
+    },
+    "coefficient": "1/6",
+    "i_functional": "B[4] - 2*A[1]*A[3]",
+    "j_functional": "J[1]",
+    "k_functional": "K[3]"
+   },
+   {
+    "order": 3,
+    "rho_monomial": "r_ij^2 * r_ik^0 * r_jk^1",
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 0,
+     "r_jk": 1
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[2]",
+    "j_functional": "J[3]",
+    "k_functional": "K[1]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^2 * r_ik^0 * r_jk^2",
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 0,
+     "r_jk": 2
+    },
+    "coefficient": "1/4",
+    "i_functional": "B[2]",
+    "j_functional": "J[4]",
+    "k_functional": "K[2]"
+   },
+   {
+    "order": 3,
+    "rho_monomial": "r_ij^2 * r_ik^1 * r_jk^0",
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 1,
+     "r_jk": 0
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[3] - 2*A[2]*A[1]",
+    "j_functional": "J[2]",
+    "k_functional": "K[1]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^2 * r_ik^1 * r_jk^1",
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 1,
+     "r_jk": 1
+    },
+    "coefficient": "1/2",
+    "i_functional": "B[3]",
+    "j_functional": "J[3]",
+    "k_functional": "K[2]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^2 * r_ik^2 * r_jk^0",
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 2,
+     "r_jk": 0
+    },
+    "coefficient": "1/4",
+    "i_functional": "B[4] - 2*A[2]*A[2]",
+    "j_functional": "J[2]",
+    "k_functional": "K[2]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^3 * r_ik^0 * r_jk^1",
+    "exponents": {
+     "r_ij": 3,
+     "r_ik": 0,
+     "r_jk": 1
+    },
+    "coefficient": "1/6",
+    "i_functional": "B[3]",
+    "j_functional": "J[4]",
+    "k_functional": "K[1]"
+   },
+   {
+    "order": 4,
+    "rho_monomial": "r_ij^3 * r_ik^1 * r_jk^0",
+    "exponents": {
+     "r_ij": 3,
+     "r_ik": 1,
+     "r_jk": 0
+    },
+    "coefficient": "1/6",
+    "i_functional": "B[4] - 2*A[3]*A[1]",
+    "j_functional": "J[3]",
+    "k_functional": "K[1]"
+   }
+  ]
+ },
+ "kappa1111": {
+  "definition": "kappa(x_i,x_j,x_k,x_l), all slots distinct",
+  "term_value": "coefficient * rho_monomial * prod_u vertex_functionals[u]",
+  "exact_all_orders": "sum over bond multisets on the 6 edges whose support is a connected graph covering all four vertices: prod_e r_e^{t_e}/t_e! * prod_u alpha_{s_u}^{(u)}, s_u = incident bond order",
+  "order_le_2": "identically zero (THEOREM: two bonds cannot connect four vertices; the three perfect matchings cancel against the pair-product subtractions)",
+  "terms": [
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_il^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[1]",
+     "k": "alpha[1]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 2
+    },
+    "rho_monomial": "r_il^1 * r_jl^1 * r_kl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[4]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 2,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_il^1 * r_jl^2 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[4]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_il^1 * r_jk^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 2
+    },
+    "rho_monomial": "r_il^1 * r_jk^1 * r_kl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[1]",
+     "k": "alpha[3]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_il^1 * r_jk^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_il^1 * r_jk^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 2,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_il^1 * r_jk^1 * r_jl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[3]",
+     "k": "alpha[1]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 2,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_il^1 * r_jk^2 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[3]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 2,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_il^1 * r_jk^2 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[3]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 2,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_il^2 * r_jl^1 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[1]",
+     "l": "alpha[4]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 2,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_il^2 * r_jk^1 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 2,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_il^2 * r_jk^1 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 2
+    },
+    "rho_monomial": "r_ik^1 * r_jl^1 * r_kl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[1]",
+     "k": "alpha[3]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 2,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^1 * r_jl^2 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^1 * r_jk^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[1]",
+     "k": "alpha[3]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 2
+    },
+    "rho_monomial": "r_ik^1 * r_jk^1 * r_kl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[1]",
+     "k": "alpha[4]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_jk^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^1 * r_jk^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[3]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 2,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_jk^1 * r_jl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[3]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 2,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^1 * r_jk^2 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[4]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 2,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_jk^2 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[3]",
+     "k": "alpha[3]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_il^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^1 * r_il^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 2,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_il^1 * r_jl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_il^1 * r_jk^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^1 * r_il^1 * r_jk^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[3]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_il^1 * r_jk^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 2,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_il^1 * r_jk^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[3]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 2,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_il^2 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[1]",
+     "k": "alpha[1]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 1,
+     "r_il": 2,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^1 * r_il^2 * r_jk^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 2,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^2 * r_jl^1 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[3]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 2,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ik^2 * r_jk^1 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[4]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 2,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^2 * r_jk^1 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[3]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 2,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^2 * r_il^1 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 0,
+     "r_ik": 2,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ik^2 * r_il^1 * r_jk^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[1]",
+     "k": "alpha[3]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 2
+    },
+    "rho_monomial": "r_ij^1 * r_jl^1 * r_kl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 2,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_jl^2 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[3]",
+     "k": "alpha[1]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_jk^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 2
+    },
+    "rho_monomial": "r_ij^1 * r_jk^1 * r_kl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[2]",
+     "k": "alpha[3]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_jk^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[3]",
+     "k": "alpha[1]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_jk^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[3]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 2,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_jk^1 * r_jl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[4]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 2,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_jk^2 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[3]",
+     "k": "alpha[3]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 2,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_jk^2 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[1]",
+     "j": "alpha[4]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_il^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 2
+    },
+    "rho_monomial": "r_ij^1 * r_il^1 * r_kl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_il^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_il^1 * r_jk^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_il^1 * r_jk^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_il^1 * r_jk^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[3]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 2,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_il^1 * r_jk^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[3]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 2,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_il^2 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[1]",
+     "k": "alpha[1]",
+     "l": "alpha[3]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 0,
+     "r_il": 2,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_il^2 * r_jk^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 2
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_kl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[1]",
+     "k": "alpha[3]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_jl^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 2,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_jl^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[3]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_jk^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[2]",
+     "k": "alpha[3]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_jk^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[3]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 3,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_il^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[1]",
+     "k": "alpha[1]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_il^1 * r_kl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_il^1 * r_jl^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_il^1 * r_jk^1",
+    "coefficient": "1",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 1,
+     "r_il": 2,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^1 * r_il^2",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[4]",
+     "j": "alpha[1]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 2,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^1 * r_ik^2 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[1]",
+     "k": "alpha[3]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 2,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^2 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 1,
+     "r_ik": 2,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^1 * r_ik^2 * r_il^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[4]",
+     "j": "alpha[1]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^2 * r_jl^1 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[3]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^2 * r_jk^1 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[3]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 1,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^2 * r_jk^1 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[2]",
+     "j": "alpha[4]",
+     "k": "alpha[1]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^2 * r_il^1 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[2]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 0,
+     "r_il": 1,
+     "r_jk": 1,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^2 * r_il^1 * r_jk^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[3]",
+     "k": "alpha[1]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 1
+    },
+    "rho_monomial": "r_ij^2 * r_ik^1 * r_kl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[2]",
+     "k": "alpha[2]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 1,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 1,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^2 * r_ik^1 * r_jl^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[3]",
+     "j": "alpha[3]",
+     "k": "alpha[1]",
+     "l": "alpha[1]"
+    }
+   },
+   {
+    "order": 4,
+    "exponents": {
+     "r_ij": 2,
+     "r_ik": 1,
+     "r_il": 1,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": 0
+    },
+    "rho_monomial": "r_ij^2 * r_ik^1 * r_il^1",
+    "coefficient": "1/2",
+    "vertex_functionals": {
+     "i": "alpha[4]",
+     "j": "alpha[2]",
+     "k": "alpha[1]",
+     "l": "alpha[1]"
+    }
+   }
+  ]
+ },
+ "verification": {
+  "kappa211": [
+   {
+    "name": "t211-null-ij",
+    "note": "k independent -> exact 0",
+    "mus": [
+     0.5,
+     -0.4,
+     0.9
+    ],
+    "sds": [
+     1.0,
+     0.8,
+     1.3
+    ],
+    "rho": {
+     "r_ij": 0.2,
+     "r_ik": 0.0,
+     "r_jk": 0.0
+    },
+    "mc": {
+     "kappa": 2.569564609060455e-05,
+     "se": 1.7400337013136845e-05,
+     "N": 400000000
+    },
+    "quad": {
+     "kappa": 0.0,
+     "refinement_delta": 0.0
+    },
+    "series": {
+     "T2": 0.0,
+     "T3": 0.0,
+     "T4": 0.0,
+     "T14": 0.0
+    },
+    "series_hermgauss": {
+     "T2": 0.0,
+     "T3": 0.0,
+     "T4": 0.0
+    }
+   },
+   {
+    "name": "t211-null-jk",
+    "note": "i independent -> exact 0",
+    "mus": [
+     0.5,
+     -0.4,
+     0.9
+    ],
+    "sds": [
+     1.0,
+     0.8,
+     1.3
+    ],
+    "rho": {
+     "r_ij": 0.0,
+     "r_ik": 0.0,
+     "r_jk": 0.25
+    },
+    "mc": {
+     "kappa": -1.912085745251496e-05,
+     "se": 1.6804674848644747e-05,
+     "N": 400000000
+    },
+    "quad": {
+     "kappa": -5.48172618408671e-16,
+     "refinement_delta": -1.3877787807814457e-17
+    },
+    "series": {
+     "T2": 0.0,
+     "T3": 0.0,
+     "T4": 0.0,
+     "T14": 0.0
+    },
+    "series_hermgauss": {
+     "T2": 0.0,
+     "T3": 0.0,
+     "T4": 0.0
+    }
+   },
+   {
+    "name": "t211-wedge-sym",
+    "note": "isolates wedge kernel B2-2A1^2",
+    "mus": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "rho": {
+     "r_ij": 0.2,
+     "r_ik": 0.2,
+     "r_jk": 0.0
+    },
+    "mc": {
+     "kappa": 0.0024590977795092344,
+     "se": 1.4080441543151226e-05,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.0024559491051809176,
+     "refinement_delta": -4.787836793695988e-16
+    },
+    "series": {
+     "T2": 0.001816901138162093,
+     "T3": 0.0024535209105296745,
+     "T4": 0.0024535209105296745,
+     "T14": 0.0024559491051441627
+    },
+    "series_hermgauss": {
+     "T2": 0.0018169717397977776,
+     "T3": 0.0024536231784002263,
+     "T4": 0.0024536213755025926
+    }
+   },
+   {
+    "name": "t211-wedge-mixed",
+    "note": "wedge, mixed sign",
+    "mus": [
+     0.5,
+     -0.4,
+     0.9
+    ],
+    "sds": [
+     1.0,
+     0.8,
+     1.3
+    ],
+    "rho": {
+     "r_ij": 0.2,
+     "r_ik": -0.15,
+     "r_jk": 0.0
+    },
+    "mc": {
+     "kappa": 0.00015364659944610594,
+     "se": 1.2173142191745774e-05,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.00017625022595693738,
+     "refinement_delta": 3.148523108897905e-16
+    },
+    "series": {
+     "T2": 0.0004703026125591963,
+     "T3": 0.000190992947305406,
+     "T4": 0.00017985555655938983,
+     "T14": 0.00017625022596429684
+    },
+    "series_hermgauss": {
+     "T2": 0.000468609553300048,
+     "T3": 0.00018943741271054302,
+     "T4": 0.00017831751438791211
+    }
+   },
+   {
+    "name": "t211-path-j",
+    "note": "isolates B1*J2*K1 path",
+    "mus": [
+     0.5,
+     -0.4,
+     0.9
+    ],
+    "sds": [
+     1.0,
+     0.8,
+     1.3
+    ],
+    "rho": {
+     "r_ij": 0.2,
+     "r_ik": 0.0,
+     "r_jk": 0.2
+    },
+    "mc": {
+     "kappa": 0.00527432756690169,
+     "se": 1.6738388632281082e-05,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.0052796529040290766,
+     "refinement_delta": -7.632783294297951e-17
+    },
+    "series": {
+     "T2": 0.004765312904570623,
+     "T3": 0.005357654426223247,
+     "T4": 0.005281205960671928,
+     "T14": 0.005279652903914781
+    },
+    "series_hermgauss": {
+     "T2": 0.0047574930245151215,
+     "T3": 0.005349051178681086,
+     "T4": 0.005272811371925211
+    }
+   },
+   {
+    "name": "t211-path-k",
+    "note": "isolates B1*J1*K2 path",
+    "mus": [
+     0.5,
+     -0.4,
+     0.9
+    ],
+    "sds": [
+     1.0,
+     0.8,
+     1.3
+    ],
+    "rho": {
+     "r_ij": 0.0,
+     "r_ik": 0.2,
+     "r_jk": 0.2
+    },
+    "mc": {
+     "kappa": 0.0013003103005422294,
+     "se": 1.4007984757136748e-05,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.0013179217663673339,
+     "refinement_delta": -3.157196726277789e-16
+    },
+    "series": {
+     "T2": 0.0017350090634505571,
+     "T3": 0.0013492353074836116,
+     "T4": 0.001311168055763579,
+     "T14": 0.0013179217663197378
+    },
+    "series_hermgauss": {
+     "T2": 0.0017323602726729823,
+     "T3": 0.0013483445093457986,
+     "T4": 0.0013103882987208213
+    }
+   },
+   {
+    "name": "t211-all-small",
+    "note": "all bonds, rho=0.1",
+    "mus": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "rho": {
+     "r_ij": 0.1,
+     "r_ik": 0.1,
+     "r_jk": 0.1
+    },
+    "mc": {
+     "kappa": 0.0022232812451657017,
+     "se": 8.538355089476313e-06,
+     "N": 1600000000
+    },
+    "quad": {
+     "kappa": 0.002223189400051083,
+     "refinement_delta": -2.1337098754514727e-16
+    },
+    "series": {
+     "T2": 0.002045774715459477,
+     "T3": 0.0022338465382761514,
+     "T4": 0.0022231166559428853,
+     "T14": 0.002223189400051636
+    },
+    "series_hermgauss": {
+     "T2": 0.0020391853603084972,
+     "T3": 0.002226811867362596,
+     "T4": 0.002216160339750646
+    }
+   },
+   {
+    "name": "t211-all-mid",
+    "note": "all bonds, mixed signs",
+    "mus": [
+     0.5,
+     -0.4,
+     0.9
+    ],
+    "sds": [
+     1.0,
+     0.8,
+     1.3
+    ],
+    "rho": {
+     "r_ij": 0.2,
+     "r_ik": -0.2,
+     "r_jk": 0.15
+    },
+    "mc": {
+     "kappa": 0.0021393547785601933,
+     "se": 1.4360371958004897e-05,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.002128046698006779,
+     "refinement_delta": 3.937822290467352e-16
+    },
+    "series": {
+     "T2": 0.0028997980309189773,
+     "T3": 0.0022753762203045775,
+     "T4": 0.0021434284331207413,
+     "T14": 0.0021280466948903746
+    },
+    "series_hermgauss": {
+     "T2": 0.002893662301615001,
+     "T3": 0.002270147158694118,
+     "T4": 0.00213857090155438
+    }
+   },
+   {
+    "name": "t211-all-03",
+    "note": "larger rho, skewed marginals",
+    "mus": [
+     -0.8,
+     0.3,
+     -0.2
+    ],
+    "sds": [
+     1.0,
+     0.7,
+     1.1
+    ],
+    "rho": {
+     "r_ij": 0.3,
+     "r_ik": 0.25,
+     "r_jk": -0.2
+    },
+    "mc": {
+     "kappa": 0.0019910373360849396,
+     "se": 7.4278924218408445e-06,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.0019820821865835997,
+     "refinement_delta": -2.445960101127298e-16
+    },
+    "series": {
+     "T2": 0.0010793239597821358,
+     "T3": 0.001840487134867071,
+     "T4": 0.0019554348619543454,
+     "T14": 0.001982082268942957
+    },
+    "series_hermgauss": {
+     "T2": 0.0010868833564204455,
+     "T3": 0.0018473690811226877,
+     "T4": 0.001961833928216395
+    }
+   },
+   {
+    "name": "t211-stress-04",
+    "note": "stress |rho|=0.4",
+    "mus": [
+     0.5,
+     -0.4,
+     0.9
+    ],
+    "sds": [
+     1.0,
+     0.8,
+     1.3
+    ],
+    "rho": {
+     "r_ij": 0.4,
+     "r_ik": 0.3,
+     "r_jk": 0.2
+    },
+    "mc": {
+     "kappa": 0.01736996856321068,
+     "se": 2.6883155240654726e-05,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.017371219925562995,
+     "refinement_delta": -1.1796119636642288e-15
+    },
+    "series": {
+     "T2": 0.010251928954080296,
+     "T3": 0.018030940135028185,
+     "T4": 0.01729461681186641,
+     "T14": 0.017371217539030828
+    },
+    "series_hermgauss": {
+     "T2": 0.010239088244839524,
+     "T3": 0.01801338808500248,
+     "T4": 0.017279867402581316
+    }
+   },
+   {
+    "name": "t211-tiny-005",
+    "note": "scaling anchor",
+    "mus": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "rho": {
+     "r_ij": 0.05,
+     "r_ik": 0.05,
+     "r_jk": 0.05
+    },
+    "mc": {
+     "kappa": 0.0005321232668947276,
+     "se": 7.170036938561026e-06,
+     "N": 1600000000
+    },
+    "quad": {
+     "kappa": 0.0005342844052081404,
+     "refinement_delta": -9.974659986866641e-17
+    },
+    "series": {
+     "T2": 0.0005114436788648693,
+     "T3": 0.0005349526567169535,
+     "T4": 0.0005342820390711243,
+     "T14": 0.0005342844052083009
+    },
+    "series_hermgauss": {
+     "T2": 0.0005097963400771243,
+     "T3": 0.0005332496534588866,
+     "T4": 0.0005325839329831397
+    }
+   },
+   {
+    "name": "t211-negwedge",
+    "note": "wedge, both negative",
+    "mus": [
+     -0.8,
+     0.3,
+     -0.2
+    ],
+    "sds": [
+     1.0,
+     0.7,
+     1.1
+    ],
+    "rho": {
+     "r_ij": -0.2,
+     "r_ik": -0.2,
+     "r_jk": 0.0
+    },
+    "mc": {
+     "kappa": 0.001816210652638474,
+     "se": 2.535951241989325e-06,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.0018168877903451206,
+     "refinement_delta": 1.1145598333150986e-16
+    },
+    "series": {
+     "T2": 0.0023192564887674276,
+     "T3": 0.0018043189291465692,
+     "T4": 0.0018168854403489041,
+     "T14": 0.0018168877903114704
+    },
+    "series_hermgauss": {
+     "T2": 0.0023241062152526775,
+     "T3": 0.0018098406357190005,
+     "T4": 0.0018223559216192337
+    }
+   }
+  ],
+  "kappa1111": [
+   {
+    "name": "t1111-null-matching",
+    "note": "pairs independent -> exact 0",
+    "mus": [
+     0.0,
+     0.5,
+     -0.4,
+     0.7
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     0.8,
+     1.2
+    ],
+    "rho": {
+     "r_ij": 0.25,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 0,
+     "r_jl": 0,
+     "r_kl": -0.2
+    },
+    "mc": {
+     "kappa": 4.318096783770096e-07,
+     "se": 6.491335494339347e-06,
+     "N": 400000000
+    },
+    "quad": {
+     "kappa": 8.760353553682876e-17,
+     "refinement_delta": -3.2959746043559335e-17
+    },
+    "series": {
+     "T2": 0,
+     "T3": 0.0,
+     "T4": 0.0,
+     "T10": 0.0
+    },
+    "series_hermgauss": {
+     "T3": 0.0,
+     "T4": 0.0
+    }
+   },
+   {
+    "name": "t1111-chain",
+    "note": "path i-j-k-l isolated",
+    "mus": [
+     0.0,
+     0.5,
+     -0.4,
+     0.7
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     0.8,
+     1.2
+    ],
+    "rho": {
+     "r_ij": 0.2,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 0.2,
+     "r_jl": 0,
+     "r_kl": 0.2
+    },
+    "mc": {
+     "kappa": 0.0003203545642468738,
+     "se": 5.019678277595193e-06,
+     "N": 1600000000
+    },
+    "quad": {
+     "kappa": 0.000329155429204522,
+     "refinement_delta": 6.418476861114186e-17
+    },
+    "series": {
+     "T2": 0,
+     "T3": 0.00034277573429308697,
+     "T4": 0.0003285403671959861,
+     "T10": 0.00032915553720670894
+    },
+    "series_hermgauss": {
+     "T3": 0.00034248074410667866,
+     "T4": 0.0003282961926298294
+    }
+   },
+   {
+    "name": "t1111-star-l",
+    "note": "star at l isolated",
+    "mus": [
+     0.0,
+     0.5,
+     -0.4,
+     0.7
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     0.8,
+     1.2
+    ],
+    "rho": {
+     "r_ij": 0,
+     "r_ik": 0,
+     "r_il": 0.2,
+     "r_jk": 0,
+     "r_jl": 0.2,
+     "r_kl": 0.2
+    },
+    "mc": {
+     "kappa": -0.0001996257893687572,
+     "se": 4.881704417366966e-06,
+     "N": 1600000000
+    },
+    "quad": {
+     "kappa": -0.00019610215522255614,
+     "refinement_delta": 3.924811864397526e-17
+    },
+    "series": {
+     "T2": 0,
+     "T3": -0.00016082157905964917,
+     "T4": -0.00020534841481684342,
+     "T10": -0.0001961023787939223
+    },
+    "series_hermgauss": {
+     "T3": -0.00016137099344677434,
+     "T4": -0.00020601918912426193
+    }
+   },
+   {
+    "name": "t1111-all-015",
+    "note": "all six bonds",
+    "mus": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "rho": {
+     "r_ij": 0.15,
+     "r_ik": 0.15,
+     "r_il": 0.15,
+     "r_jk": 0.15,
+     "r_jl": 0.15,
+     "r_kl": 0.15
+    },
+    "mc": {
+     "kappa": 0.0015277756764106025,
+     "se": 8.191014262646657e-06,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.0015248332461571265,
+     "refinement_delta": 1.5265566588595902e-16
+    },
+    "series": {
+     "T2": 0,
+     "T3": 0.0016114437988054401,
+     "T4": 0.0015290559008092322,
+     "T10": 0.0015248346233779507
+    },
+    "series_hermgauss": {
+     "T3": 0.0016047542056760436,
+     "T4": 0.0015230570167145611
+    }
+   },
+   {
+    "name": "t1111-chain-half",
+    "note": "chain at rho/2 (cubic scaling)",
+    "mus": [
+     0.0,
+     0.5,
+     -0.4,
+     0.7
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     0.8,
+     1.2
+    ],
+    "rho": {
+     "r_ij": 0.1,
+     "r_ik": 0,
+     "r_il": 0,
+     "r_jk": 0.1,
+     "r_jl": 0,
+     "r_kl": 0.1
+    },
+    "mc": {
+     "kappa": 3.882813845581179e-05,
+     "se": 3.5057239048636044e-06,
+     "N": 1600000000
+    },
+    "quad": {
+     "kappa": 4.1982938480199456e-05,
+     "refinement_delta": 1.6371452804531117e-17
+    },
+    "series": {
+     "T2": 0,
+     "T3": 4.284696678663587e-05,
+     "T4": 4.1957256343067065e-05,
+     "T10": 4.1982938525776334e-05
+    },
+    "series_hermgauss": {
+     "T3": 4.281009301333483e-05,
+     "T4": 4.192355854603176e-05
+    }
+   },
+   {
+    "name": "t1111-all-mixed",
+    "note": "mixed signs",
+    "mus": [
+     0.0,
+     0.5,
+     -0.4,
+     0.7
+    ],
+    "sds": [
+     1.0,
+     1.0,
+     0.8,
+     1.2
+    ],
+    "rho": {
+     "r_ij": 0.2,
+     "r_ik": -0.15,
+     "r_il": 0.1,
+     "r_jk": 0.15,
+     "r_jl": -0.1,
+     "r_kl": 0.2
+    },
+    "mc": {
+     "kappa": 0.00017236963289635025,
+     "se": 5.705238504392405e-06,
+     "N": 800000000
+    },
+    "quad": {
+     "kappa": 0.00016572758464944307,
+     "refinement_delta": 2.688821387764051e-17
+    },
+    "series": {
+     "T2": 0,
+     "T3": 0.00017716626765912658,
+     "T4": 0.00017368409596380674,
+     "T10": 0.00016573010955433674
+    },
+    "series_hermgauss": {
+     "T3": 0.00017791974367843745,
+     "T4": 0.0001745694621726296
+    }
+   }
+  ]
+ },
+ "notes": [
+  "quad = deterministic kink-split nested Gauss-Legendre truth (refinement_delta shows its error)",
+  "series TN = master formula truncated at total bond order N (T14/T10 ~ all orders)",
+  "MC centered with exact means; se from batch spread; pull=(MC-quad)/se"
+ ]
+}

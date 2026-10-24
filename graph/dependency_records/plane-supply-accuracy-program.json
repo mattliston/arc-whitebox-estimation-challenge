@@ -1,0 +1,21 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_SUPPLY",
+    "label": "Plane-supply accuracy program",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 2,
+    "summary": "Deep K21-plane supply quality drives the chain. Offline v4 engine: 8.0% -> 6.4% deep rel after the campaign's fixes (kappa3^2 plane-half + in-recursion collective). Rungs: est supply -> 15.8% capture; TRUE planes -> 54.9% (1.21e-8 raw = leader parity in adj). Decomposes to the collective mode (solved), kappa3^2 emission (shipped), and the sub-resolution residual (open).",
+    "terminal_criterion": "Offline deep plane rel <= 2-3% and a billable path to it.",
+    "evidence": [],
+    "decomposition_children": [
+      "P2R0G19B_COLL",
+      "P2R0G19B_K3SQ",
+      "P2R0G19B_RESID"
+    ],
+    "goal_path_summary": "The correction machine is only as good as the statistics fed into it, and this node tracks how accurate our best statistics actually are, layer by layer. Over the campaign we cut the deep-layer error of our best (offline) statistics by about a quarter, and we measured exactly how much each further improvement is worth in final score.\nIt gets us to the goal because the ladder is quantified: today's supply gives ~16% error removal; perfect third-order tables would give ~55% (board lead territory); perfect everything gives the sub-1e-8 result. Each child node below is one identified piece of that remaining gap."
+  }
+}

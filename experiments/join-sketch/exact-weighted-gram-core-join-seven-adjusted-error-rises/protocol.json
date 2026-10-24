@@ -1,0 +1,55 @@
+{
+  "schema": "combo-exact-projected-core7-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_read7_scan_v1/candidate.py",
+    "sha256": "2212448b123d4be2dadf9c4c8642b49ad1cb3e073a1cc49684e4fc083a19c14f",
+    "bytes": 972032
+  },
+  "scope": "native2_only",
+  "intervention": "Only layer7: skip sampled K construction and R64 solve/core multiply. Keep Y/Q/QR unchanged; after existing Fj=Qn.T@J, store symmetrized FP32 Fj diag(lam[start:stop]^2) Fj.T.",
+  "coefficient": 1,
+  "selected_join": 7,
+  "ownership": "Assert old_columns==0 and _need_core at the changed point; actual signed stored coefficients are squared exactly as in the parent.",
+  "unchanged": "Current joining bank, selected rows/order, Y, QR, Qn, Fj projection, all carried factors, all other joins, ranks, learned weights, PP/READ7/scan, caches, setup and resource limits.",
+  "first_changed_prediction_layer": 10,
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "mechanism": "Correct first stored Gram to match the actual projected factors. It changes the next join10 sketch/selection; the core is not read by reconstruction or inherited-moment consumers between joins.",
+  "claim": "Exact projected weighted-Gram formula in real arithmetic; its native product uses existing FP32 kernels. No endpoint accuracy or byte-parity claim after layer9.",
+  "prior": "The earlier exact-core recurrence remains immediately before the active Nystr\u00f6m override. S30 adopted cheaper approximate cores with other changes. No current S34 exact-core7 reverse trial was found in bounded named records; earlier joint Gram metric and jitter tests are distinct.",
+  "price": {
+    "source": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s32_bill_census_v1/census.json",
+      "sha256": "0bac92025c957aa97b1e96a540eebb80b9fea41e8bfbaf865c2272c07f1d16e4",
+      "bytes": 5108240
+    },
+    "observed_rank": 35,
+    "shape": [
+      384,
+      6144,
+      384
+    ],
+    "removed_core_flops_excluding_unchanged_qr": 530546688,
+    "full_native_d5_model_gram_flops": 1018712847.8016001,
+    "weight_product_flops": 2359296,
+    "approximate_net_added_flops": 491000000,
+    "approximate_bill_increase_pct": 0.184,
+    "interpretation": "First-order saved-shape source forecast; actual dispatch/padding/binding and downstream trajectories require measurement. Raw improvement must exceed roughly.284% to clear a .1% adjusted gate."
+  },
+  "no_window_coefficient_join_rescue": true,
+  "score_policy": "Incremental vs retained combo: N2 gain>=.1%,>=1win,maxreg<=1%,L0\u20139 parity. N8 gain>=.1%,>=6wins,CIupper<0,additional6negative. Own boundary before N8; total S34 gain>=.8% before broad; final VALID40 bank>=1% and full serving.",
+  "model_executed": false,
+  "serving_qualified": false,
+  "submitted": false
+}

@@ -1,0 +1,182 @@
+{
+  "access_accounting": {
+    "authority_files_created": 0,
+    "live_or_protected_payloads_opened": 0,
+    "model_bank_target_or_numeric_payloads_opened": 0,
+    "network_accesses": 0,
+    "numerical_training_inference_or_scoring_runs": 0,
+    "review_receipts_created": 1,
+    "reviewed_frozen_package_edited": false
+  },
+  "authorization": {
+    "anchor_issue": false,
+    "anchor_review_issue": false,
+    "bank_open": false,
+    "capability_issue": false,
+    "execution": false,
+    "final_release_issue": false,
+    "live_bindings_issue": false,
+    "model_open": false,
+    "network": false,
+    "package": false,
+    "refit": false,
+    "submission": false,
+    "target_open": false
+  },
+  "cross_interpreter_replay": {
+    "additional_interpreters_tested": 0,
+    "interpreter": "CPython 3.13.3",
+    "same_interpreter_two_pass_byte_identity": true
+  },
+  "date": "2026-08-28",
+  "decision": "HOLD_FROZEN_BUILDER_V2R2__DO_NOT_BIND_RUNTIME_V1R5_OR_ISSUE_AUTHORITY",
+  "issued_by": "independent_refit_execution_authority_builder_v2r2_reviewer",
+  "issued_utc": "2026-08-28T22:10:00Z",
+  "material_defects": [
+    {
+      "defect_id": "RUNTIME_CONTROL_FUTURE_IMPORT_ORDER_NOT_ENFORCED",
+      "evidence": {
+        "adversarial_fixture_gap": "adversarial_fixtures.py:438-453 tests missing and altered imports but not import reordering",
+        "compile_result": "SyntaxError: from __future__ imports must occur at the beginning of the file",
+        "parser_result": "accepted the exact valid seven-literal control map after the future import line was moved to the end",
+        "source": "live_bindings_contract_v2.py:721-764"
+      },
+      "impact": "The Builder can accept authenticated prospective Runtime control bytes that Python cannot import, violating the exact future-module and deterministic-operability requirements.",
+      "minimum_repair": "Enforce the exact AST sequence: optional leading docstring, the annotations future import, the shared-evaluator import, then the seven prescribed literal assignments. Add future-import and shared-import reordering rejection fixtures and static checks.",
+      "severity": "MATERIAL_HOLD"
+    },
+    {
+      "defect_id": "BUILDER_MULTI_FILE_SNAPSHOTS_DO_NOT_REVALIDATE_EVERY_COMPONENT_BASENAME",
+      "evidence": {
+        "builder_snapshot_sources": [
+          "refit_execution_authority_builder_v2.py:428-466",
+          "refit_execution_authority_builder_v2.py:592-665",
+          "refit_execution_authority_builder_v2.py:1574-1655"
+        ],
+        "generic_revalidation": "refit_execution_authority_builder_v2.py:196-199 calls revalidate_held for every document",
+        "held_document_behavior": "live_bindings_contract_v2.py:1259-1269 checks the current basename only when owned_parent is set",
+        "ownership_gap": "Only each package manifest receives owned_parent; component documents opened with _held_open_at do not",
+        "static_lineage_gap": "refit_execution_authority_builder_v2.py:355-378 retains directories but performs FD-only document revalidation"
+      },
+      "impact": "An equal-byte or changed-byte component basename replacement inside an otherwise unchanged retained package directory is not rejected by RuntimeCandidate, PostrunSnapshot, BuilderSnapshot, or validate_static_lineage, contrary to the request that every current basename map to the held inode.",
+      "minimum_repair": "Make each multi-file bundle own its retained package-directory mapping and call revalidate_held_at for every in-package document before each use and commit; do the same for every static-lineage root. Add equal-byte component-rebind fixtures for Runtime, Builder, postrun, and static-lineage snapshots and make verify_static require those call paths.",
+      "severity": "MATERIAL_HOLD"
+    }
+  ],
+  "package_component_inventory": {
+    "all_regular": true,
+    "all_single_link": true,
+    "all_unique_device_inode": true,
+    "cache_directories": 0,
+    "component_count": 17,
+    "freeze_root_count": 3,
+    "frozen_file_count": 20,
+    "manifest_component_roots_rehashed_exact": true,
+    "symlink_count": 0
+  },
+  "path_and_inode_safety": {
+    "anchor_actual_byte_publication": {
+      "all_three_retained_O_RDWR_fds_live_and_exact_at_commit": true,
+      "all_three_same_fd_bounded_reread_and_rehash": true,
+      "basename_inode_mode_size_revalidated_after_staging_and_parent_fsync": true,
+      "corrupt_success_write_rejections": 3,
+      "descriptor_relative_exclusive_directory_rename": true,
+      "late_inode_mode_0444_and_size_drift_rejected": true,
+      "only_error_suppressed_descriptor_cleanup_after_rename": true,
+      "parent_fsync_and_rename_faults_rejected_without_destination": true,
+      "retained_parent_dirfd_fsynced_before_rename": true,
+      "write_fsync_chmod_0400_fsync_sequence": true
+    },
+    "builder_multi_file_component_basename_revalidation": false,
+    "hard_link_marker_publication_order": true,
+    "postrename_parent_open_or_fsync_claimed": false,
+    "power_loss_durability_claimed": false,
+    "runtime_live_snapshot_revalidates_package_and_authority_basenames": true,
+    "scope_boundary": {
+      "hostile_same_principal_or_privileged_concurrent_writer_covered": false,
+      "identity_strings_are_cryptographic_principals": false,
+      "model": "non-hostile custodian and one authenticated exclusive writer through each commit",
+      "postrename_power_loss_durability_covered": false,
+      "stronger_scope_requires": "enforceable writer isolation or consumer-validated commit protocol, cryptographic identity where required, and a fresh independent review"
+    }
+  },
+  "review_id": "q24-sp-v2r2-frozen-independent-static-review-hold-20260828-01",
+  "review_request_sha256": "5f4ffecef65f21cf4b36f346e10b6f762238ad24b6fe3ed67e871a980aa1790d",
+  "review_scope": "Exact immutable Builder/Contract V2R2 package, three freeze roots, all 17 manifest components, all 22 pinned static prerequisites, stopped control-plane semantics, and deterministic metadata-only replays; no live OOF, protected, model, bank, target, numerical, network, package, submission, or authority access.",
+  "reviewed_frozen_sha256": {
+    "ANCHOR_ISSUANCE_REQUEST_SCAFFOLD.json": "3ecd1ff4ee5d0c97557f405664a4191ec801f50b459c2817675976a2118919ba",
+    "ANCHOR_REVIEW_SCAFFOLD.json": "3e596e88491211ebe75bb6328cdb7d0f7b9a75eb77f90c768495026da99ae64f",
+    "AUTHORITY_DAG_V2.json": "2b99518127fff5297fd1d1faffae5e893f42ad703a2bb2d45b71c9d3e410dedd",
+    "BINDINGS_HOLD.json": "09ed7e7768b2a1ce238b5315b8f7f81a81d3d96f0586324c87767a356fb51e17",
+    "CAPABILITY_ISSUANCE_REQUEST_SCAFFOLD.json": "44c8ebcf4204f74f6897dc4f4f53dd6831456e4f8e77fe98a585768710a1bc1c",
+    "FREEZE_RECEIPT.json": "eb9487e09e7f6c8709c04db3c938be801af1783fb885302be5a763af3c439736",
+    "FREEZE_VERIFICATION.json": "7e00fe8fe1ebc690951f65bb1910949b6151c975a6d6a590bd6edd9f2d87b8e8",
+    "INDEPENDENT_REVIEW_REQUEST.md": "5f4ffecef65f21cf4b36f346e10b6f762238ad24b6fe3ed67e871a980aa1790d",
+    "LIVE_BINDINGS_CONTRACT_V2.json": "fbaac883978e103c668945b85d09893abb87a42f9b2e85877644e15d124491d9",
+    "LIVE_BINDINGS_SCAFFOLD.json": "f9ad7629258d420bf5ebd87874f5444e89d82f4d8890cf44662c822f813e8056",
+    "PACKAGE_MANIFEST.json": "7b5db92faa9d6b2b5d81d0fccbd84a1c7c92aa0395c5aeedc8428e77d8d0e8b8",
+    "README.md": "7373b74ef2126e9a6e31ab561b77e626968570f21ff596b398cc56bd49171384",
+    "RELEASE_ISSUANCE_REQUEST_SCAFFOLD.json": "32c05255586dc45c25465af36486aff5673d5f41f0d75885b673327727a59447",
+    "RUNTIME_V1R5_REVIEW_CONTRACT.json": "97293b346971d5e484b27b34578e02fd5bcb713c217d0a9619b6c6c81cf30747",
+    "STATIC_VERIFICATION.json": "2f269d6e44ef33f18a3d3f0027bfa679b129fd9e0c3344385a259b198ec1367b",
+    "adversarial_fixtures.py": "ee962b02f081bd73b969659d7b34f28e4375b8301ddf5f9bb4ef5d0943bfd258",
+    "live_bindings_contract_v2.py": "888afa4acb421e95545be573aa4ff3a4ccc163d6bfafa61bb6b18c553a973c3c",
+    "refit_execution_authority_builder_v2.py": "77cefd22e08bc828777846efe4404189b5101d1ff127c121003d1d7bbb4fc3f9",
+    "verify_freeze.py": "5d1db4c7ec133f2f35b4974dac93cc2bb57c9a86d2ad1c5954c5ba24d51fd97c",
+    "verify_static.py": "248586329167cea9de032b6d626d963a0723dff6c73074ebce38957bf8f25254"
+  },
+  "reviewer_different_from_package_author": true,
+  "schema": "public-q24-signed-pair-v4r2-all688-refit-execution-authority-independent-static-review-v2r2",
+  "static_lineage": {
+    "all_22_pinned_static_roots_rehashed_exact": true,
+    "bindings_hold_authorization_field_count_native_false": 12,
+    "bindings_hold_sha256": "09ed7e7768b2a1ce238b5315b8f7f81a81d3d96f0586324c87767a356fb51e17",
+    "future_authority_root_count_null": 4,
+    "future_empirical_root_count_null": 5,
+    "future_runtime_root_count_null": 2,
+    "pinned_static_prerequisite_sha256": {
+      "public_q24_signed_pair_lean_v5_post_generation_seal_review_v1r2/OOF_CONSUMER_HANDOFF_V1R2.json": "470e25cfc27bc7828a2ea202914b0acab8b8451406c615804da1d714a5e738ca",
+      "public_q24_signed_pair_nested_accuracy_oof_review_v4r2/INDEPENDENT_STATIC_REVIEW_V4R2.json": "c15c3945c88ad07fa7a6cfa25dcb800958627dcb7db55e5ce3998b4029d7a02d",
+      "public_q24_signed_pair_nested_accuracy_oof_v4r2/PACKAGE_MANIFEST.json": "c5e0512c629730e8b732c5aadf253bf080013439ed98e6e8a8060d63e4e65cf0",
+      "public_q24_signed_pair_nested_accuracy_oof_v4r2/V4R2_AUTHORITY_BINDINGS.json": "0c87cedd05e52f9464bef179a6c961be0c392bd194a37452a79cd9a1ac846743",
+      "public_q24_signed_pair_v4r1_all688_refit_runtime_review_v1r4/INDEPENDENT_STATIC_REVIEW_V1R4.json": "69b28b93d04fd8b8e5753b0708aaac2a5005c5360a54aebfcdef2f41c808dc33",
+      "public_q24_signed_pair_v4r1_all688_refit_runtime_v1r4/PACKAGE_MANIFEST.json": "d211a742b80085f4a7fa9c3885689a9c52c3ebe0df3c70e83336af2aa153935f",
+      "public_q24_signed_pair_v4r2_all688_refit_execution_authority_builder_review_v1/INDEPENDENT_STATIC_REVIEW_V1.json": "f2fe3e44e8a2158b2be49071c18b16fd0a942f5d168a78590dcb321026ef9ce6",
+      "public_q24_signed_pair_v4r2_all688_refit_execution_authority_builder_v1/PACKAGE_MANIFEST.json": "15f7427bf0b6ad72b17eeec0d3ce4100d40f013515c9368041569cccb9650073",
+      "public_q24_signed_pair_v4r2_all688_refit_execution_authority_builder_v2r1_prefreeze_review_v1/INDEPENDENT_PREFREEZE_REVIEW_HOLD_V1.json": "2505beb091dee7f93aeb910b1cba16b3ef2b0f45cfd50bc95972d862defbb7fc",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_review_v1r1/INDEPENDENT_STATIC_REVIEW_V1R1.json": "c1c2c479898ddaf13c5626fc35595737dcec50fa8c1f331f3eca003aa34bb90c",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_review_v1r2/INDEPENDENT_STATIC_REVIEW_V1R2.json": "e6f36e7c971a05a51a2e9670337cb4518051c0e13c2fe590ee5b3ed743e08239",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_v1r1/PACKAGE_MANIFEST.json": "e8b10df6c712b7f2b80106da766d52f633d0bc6652b4325941669da4261ee057",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_v1r2/FREEZE_RECEIPT.json": "47f696663b5c27d7edbc2a45d84a61b4b21851d17a95b2a3e3157cc5c2be02d1",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_v1r2/FREEZE_VERIFICATION.json": "d21dc76a4836f0c3099a2d4064a501e9d0ebdb6ff74e678aaabc97bde578748b",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_v1r2/PACKAGE_MANIFEST.json": "6477b8529adc5f7b7989bc9a863e75058f8b34ac08c35cafa76b9c676a57720f",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_v1r2/STATIC_VERIFICATION.json": "ece1bf4eae6150aac09d0bdfe33bed1e78dd991b1e452e56a3feed8615295fe1",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_v1r2/adversarial_fixtures.py": "83c9bf4f750fedee1f0b1c56ac6a305f81e619b7fabd7ec9d9079412177eb8a5",
+      "public_q24_signed_pair_v4r2_oof_postrun_sealer_v1r2/postrun_sealer.py": "7a793e19408317488866204987801bfc0ab4373bdef4df76a86c1633256efb3c",
+      "public_q24_signed_pair_v4r2_oof_postrun_trace_schema_incident_v1/COMPATIBILITY_HOLD_V1.json": "8a3ca8fce32b09df9e501f3811d58fb1b5c219fdc4a1f9b8b80bc3bf9b15a75a",
+      "public_q24_signed_pair_v4r2_postrun_to_board_compatibility_gap_audit_cycle_breaking_dag_addendum_v1r3/CYCLE_BREAKING_DAG_ARCHITECTURE_AUDIT_V1.json": "942c8d80aac99f2ce78963bb5363adcdf0e16eb3333016f8eaa37df029b29df2",
+      "public_q24_signed_pair_v4r2_postrun_to_board_compatibility_gap_audit_cycle_breaking_dag_addendum_v1r3/FREEZE_RECEIPT.json": "d9c55f65e84db6b171cf0f5678cbc670a160fa3ff497be9be271c3ea30751b39",
+      "public_q24_signed_pair_v4r2_postrun_to_board_compatibility_gap_audit_cycle_breaking_dag_addendum_v1r3/PACKAGE_MANIFEST.json": "ed7b89575174150c5b7c3d67bd1c505dd7a5e9a52c18d3e0becf8469172739ac"
+    },
+    "postrefit_root_count_null": 3,
+    "prefreeze_independent_go_sha256": "3c5e5ba88a6c7cce2b5d6b5127db7d6b3a75ea3de3e3f3d44efae25389c9be75",
+    "static_prerequisite_root_count": 22
+  },
+  "static_verification": {
+    "adversarial_fixture_count": 389,
+    "adversarial_fixture_output_sha256": "351ba45e5154f26134234a0d046f3dd62bc375571c726ef02d143b1f729c156d",
+    "adversarial_fixture_replays": 2,
+    "adversarial_fixture_status": "PASS_ALL_SIX_BOUNDARY_AND_ANCHOR_PUBLICATION_REPAIR_ADVERSARIES",
+    "all_replay_pairs_byte_identical": true,
+    "freeze_verification_output_sha256": "7e00fe8fe1ebc690951f65bb1910949b6151c975a6d6a590bd6edd9f2d87b8e8",
+    "freeze_verification_replays": 2,
+    "green_replays_override_material_static_defects": false,
+    "self_test_output_sha256": "1ec0dd85839512b63cd6b99033c3c46f4d2f802fd4e60c646769ab4bd17cf9c3",
+    "self_test_replays": 2,
+    "static_output_sha256": "2f269d6e44ef33f18a3d3f0027bfa679b129fd9e0c3344385a259b198ec1367b",
+    "static_replays": 2,
+    "status_output_sha256": "82403a2ada9d9cc21fcf4a34edf4bdb8bec36f83d2701f43fbab94f733b4d773",
+    "status_replays": 2
+  },
+  "status": "HOLD_FROZEN_EXTERNAL_BINDINGS_BUILDER_V2R2__RUNTIME_CONTROL_OPERABILITY_AND_PACKAGE_BASENAME_REVALIDATION_DEFECTS__NO_LIVE_AUTHORITY"
+}

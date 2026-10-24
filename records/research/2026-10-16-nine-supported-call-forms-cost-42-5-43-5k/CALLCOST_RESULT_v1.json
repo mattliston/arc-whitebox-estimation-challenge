@@ -1,0 +1,47 @@
+{
+  "lane": "opus-callcost",
+  "probe": "synthetic boundary candidate synth_form_v1.py (8000 calls/network, warm network), env CC_FORM",
+  "forms": {
+    "add_out": {
+      "resid_instr_per_req": 43150,
+      "resid_cycles_per_req": 18203
+    },
+    "add_new": {
+      "resid_instr_per_req": 43499,
+      "resid_cycles_per_req": 16957
+    },
+    "einsum_rowdot": {
+      "resid_instr_per_req": 42959,
+      "resid_cycles_per_req": 15748
+    },
+    "einsum_mm": {
+      "resid_instr_per_req": 42840,
+      "resid_cycles_per_req": 16034
+    },
+    "getitem": {
+      "resid_instr_per_req": 42485,
+      "resid_cycles_per_req": 14410
+    },
+    "reshape": {
+      "resid_instr_per_req": 42644,
+      "resid_cycles_per_req": 15458
+    },
+    "matmul_new": {
+      "resid_instr_per_req": 42539,
+      "resid_cycles_per_req": 15455
+    },
+    "sum_axis": {
+      "resid_instr_per_req": 42874,
+      "resid_cycles_per_req": 16111
+    },
+    "astype": {
+      "resid_instr_per_req": 43059,
+      "resid_cycles_per_req": 15419
+    }
+  },
+  "spread_pct": 2.3,
+  "estimator_avg_resid_instr_per_req": 47862,
+  "floor_resid_instr_per_req": 43000,
+  "our_python_overhead_pct": 11,
+  "verdict": "NO call-form lever: per-request residual is a flat ~43K-instruction client cost for every form tested (spread <=2.3%%); our estimator averages ~47.9K, so ~4.5-5K instr/request (~11%%) is our own Python between calls -> the only remaining residual lever is participant Python overhead (wall lane domain; cProfile data in opus_req_diet_v1/profile_2b108_v1)"
+}

@@ -1,0 +1,153 @@
+{
+  "passed": false,
+  "stage": "full_fixed_product",
+  "records": [
+    {
+      "kind": "small_certificate",
+      "shape": [
+        216,
+        216,
+        432
+      ],
+      "repeat": 0,
+      "threads": 1,
+      "wall_s": 0.2777372505515814,
+      "flops": 50036224,
+      "relative_frobenius": 0.00011760220893463122,
+      "max_abs": 0.001009465534854287,
+      "passed": true
+    },
+    {
+      "kind": "bankD4",
+      "shape": [
+        1024,
+        832,
+        8192
+      ],
+      "repeat": 0,
+      "threads": 1,
+      "wall_s": 0.16452079080045223,
+      "flops": 8417538304,
+      "relative_frobenius": 6.667789418363796e-06,
+      "max_abs": 8.171147842861437e-05,
+      "finite": true
+    },
+    {
+      "kind": "bankD4",
+      "shape": [
+        1024,
+        832,
+        8192
+      ],
+      "repeat": 1,
+      "threads": 1,
+      "wall_s": 0.11564979236572981,
+      "flops": 8417538304,
+      "relative_frobenius": 6.667789418363796e-06,
+      "max_abs": 8.171147842861437e-05,
+      "finite": true
+    },
+    {
+      "kind": "smirnov_stream8",
+      "shape": [
+        1024,
+        832,
+        8192
+      ],
+      "repeat": 0,
+      "threads": 1,
+      "wall_s": 0.9859339594841003,
+      "flops": 6834384092,
+      "relative_frobenius": 0.00014472458212292093,
+      "max_abs": 0.0016746561659788384,
+      "finite": true
+    },
+    {
+      "kind": "smirnov_stream8",
+      "shape": [
+        1024,
+        832,
+        8192
+      ],
+      "repeat": 1,
+      "threads": 1,
+      "wall_s": 0.9320346657186747,
+      "flops": 6611249012,
+      "relative_frobenius": 0.00014472458212292093,
+      "max_abs": 0.0016746561659788384,
+      "finite": true,
+      "warm_bank_time_ratio": 8.05911231358909,
+      "bank_flop_ratio": 0.7854135940026962
+    },
+    {
+      "kind": "bankD4",
+      "shape": [
+        1024,
+        832,
+        8192
+      ],
+      "repeat": 0,
+      "threads": 4,
+      "wall_s": 0.10951804090291262,
+      "flops": 8417538304,
+      "relative_frobenius": 6.667789418363796e-06,
+      "max_abs": 8.171147842861437e-05,
+      "finite": true
+    },
+    {
+      "kind": "bankD4",
+      "shape": [
+        1024,
+        832,
+        8192
+      ],
+      "repeat": 1,
+      "threads": 4,
+      "wall_s": 0.10902329068630934,
+      "flops": 8417538304,
+      "relative_frobenius": 6.667789418363796e-06,
+      "max_abs": 8.171147842861437e-05,
+      "finite": true
+    },
+    {
+      "kind": "smirnov_stream8",
+      "shape": [
+        1024,
+        832,
+        8192
+      ],
+      "repeat": 0,
+      "threads": 4,
+      "wall_s": 0.932154250331223,
+      "flops": 6611249012,
+      "relative_frobenius": 0.00014472458212292093,
+      "max_abs": 0.0016746561659788384,
+      "finite": true
+    },
+    {
+      "kind": "smirnov_stream8",
+      "shape": [
+        1024,
+        832,
+        8192
+      ],
+      "repeat": 1,
+      "threads": 4,
+      "wall_s": 0.9403161248192191,
+      "flops": 6611249012,
+      "relative_frobenius": 0.00014472458212292093,
+      "max_abs": 0.0016746561659788384,
+      "finite": true,
+      "warm_bank_time_ratio": 8.624910502149243,
+      "bank_flop_ratio": 0.7854135940026962
+    }
+  ],
+  "reserved_arena_bytes": 1073741824,
+  "dedicated_padding_bytes": 20499472,
+  "retained_workspace_bytes": 1094241296,
+  "peak_live_arena_bytes": 595483520,
+  "source_sha256": "7c9ca40924410a7d5b6280c40bf500f78d9c935c831914e90047c549de430c74",
+  "wall_s": 5.0310468673706055,
+  "peak_rss_bytes": 1795981312,
+  "qualification": "Fixed prototype only: iid matrices, official-version native FNP, exact same bankD4 product, one/four BLAS threads, cold/warm. Not structured CP accuracy, a complete candidate/14-net score, official service timing or persistent total/residual-wall gate."
+}

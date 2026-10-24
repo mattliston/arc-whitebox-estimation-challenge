@@ -1,0 +1,51 @@
+{
+  "lane": "opus-select",
+  "bar": "oracle >= 0.8%% noise-free MSE",
+  "b_u_part_truncation": {
+    "mechanism": "uvp split keeps pair-mean F_u only in the frame leading r_u=256 coordinates; live join index-sorts Nystrom rows (uvp comment claims energy order)",
+    "oracle_svd_rotation": {
+      "xMSE_pct": -0.412,
+      "se": 0.543,
+      "lower": "6/8",
+      "bill_pct": 0.0
+    },
+    "deployable_energy_order": {
+      "xMSE_pct": -0.066,
+      "se": 0.326,
+      "lower": "4/8",
+      "bill_pct": 0.0
+    },
+    "Fu_energy_kept_by_layer": {
+      "7": {
+        "kept_before": 0.9962224816414023,
+        "kept_after": 0.9980315260644603
+      },
+      "10": {
+        "kept_before": 0.9993685808917623,
+        "kept_after": 0.9997760690904137
+      },
+      "13": {
+        "kept_before": 0.9997253422755961,
+        "kept_after": 0.9999109934492822
+      }
+    },
+    "verdict": "CLOSED (below bar)"
+  },
+  "a_rtt2_prefix": {
+    "mechanism": "young read keeps the gate-sorted prefix with gate >= Phi(-2) (32-rounded) + rank-two tail completion",
+    "bound_full_read": {
+      "xMSE_pct": -0.047,
+      "se": 0.454,
+      "lower": "2/8",
+      "bill_pct": 2.078
+    },
+    "verdict": "CLOSED (cut is lossless; also covers the 32-block rounding)"
+  },
+  "not_tested": [
+    "capture step (c)"
+  ],
+  "candidates": {
+    "select": "candidate_2b108_select_v1.py 6cc46d20",
+    "rttfull": "candidate_2b108_rttfull_v1.py 5c486cca"
+  }
+}

@@ -1,0 +1,20 @@
+FIRE CHECKS S13 = S12 (c20d67c7 = S11 #332182 + colpack + deadcut35 + read6q) + --ipt v3 (engineer E-53, in-place tree Winograd), 2026-09-24 13:51
+file /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_fire_v1/fire_candS13/candS13_S12_ipt3_mem.py
+sha256 2a5dd324d78c4db6bc457485ce050a1e93d0ec2dea2654d0a6346b7de4119249 (engineer candS12ipt3_mem.py 2a5dd324...)
+validate: Validation passed in 136ms
+einsum gate vs fired S11: VERDICT PASS: 0 new repeated-operand einsum site(s), 0 new symmetric-tag call(s) vs ref
+import lines new vs S11: (empty = none)
+recipe rebuild sha 2a5dd324d78c4db6bc457485ce050a1e93d0ec2dea2654d0a6346b7de4119249 (must equal the fire file)
+recipe: build_stack.sh --gn=v3 --refit=B2 ep1 --l15cut --join=v2 -- <S11 kernel flags incl --symout --lean> -> build_e2mem mem,yright,arena,hold2 -> build_colpack -> build_deadcut (z 3.5, round 32) -> build_read6 q -> build_ipt_v3
+client/server smoke: 2 of 2 nets OK (fable_porter_v1/cz_S13_census.json)
+identity vs S12: S13 vs S12 VALID40 rows: final MSE identical on 40/40 nets; per-net util change -2.588..-2.262% (median -2.494%) IDENTITY PASS 
+VALID40 vs S11 rows: raw (pooled MSE ratio): +0.022%  95% CI [-0.124%, +0.171%]  wins 23/40 (ties 0) util: mean 0.169183 vs 0.175271 (-3.473%); pooled util (= pooled flops) -3.473%  95% CI [-3.549%, -3.399%] adjusted (pooled): -3.446%  95% CI [-3.615%, -3.275%]  wins 40/40; per-net min -4.69% median -3.43% max -2.41% 
+bar (S12's relaxed): {"verdict": "PASS", "pooled_adjusted_pct": -3.446, "ci": [-3.615, -3.275], "wins": 40, "n": 40, "errors": 0, "bar": {"max_pct": -0.8, "ci_excludes_0": true, "min_wins": 26}, "clears_3e9_bar_minus_1p6": true}
+strict -1.0: {"verdict": "PASS", "pooled_adjusted_pct": -3.446, "ci": [-3.615, -3.275], "wins": 40, "n": 40, "errors": 0, "bar": {"max_pct": -1.0, "ci_excludes_0": true, "min_wins": 26}, "clears_3e9_bar_minus_1p6": true}
+--- appended 2026-09-24 13:52 (lead 13:40 checklist)
+identity method: per-net final-layer MSE float64 equality vs S12's VALID40 rows on all 40 nets (VALID40 rows store MSE, not arrays); all-16-layer array identity: r35/r100 in-process (porter, stack/S13_vs_S12_parity.txt) and at the client/server boundary (engineer cs_probe, below)
+engineer cs_probe r35 (numpy-free client + OpenBLAS server, 16x1024 f32): S13 == S12 byte-identical (porter cmp)
+engineer cs_probe r100 (numpy-free client + OpenBLAS server, 16x1024 f32): S13 == S12 byte-identical (porter cmp)
+engineer cs_probe flops: {"tag": "netsIPT3", "rank": 35, "flops": 372824913912, "wall": 35.05, "rss_mb": 5512} {"tag": "netsIPT3", "rank": 100, "flops": 367557315017, "wall": 34.02, "rss_mb": 5269}  vs {"tag": "netsS12", "rank": 35, "flops": 382330535071, "wall": 50.09, "rss_mb": 5829} {"tag": "netsS12", "rank": 100, "flops": 374093624879, "wall": 48.95, "rss_mb": 5891} 
+engineer mem gate (fable_engineer_v1/mem_ipt3.log; engineer2 run_mem.sh): server peak RSS MB: 6109.36 server live-array peak MB 2555.0 final live MB 2022.0 max handles 25655 server peak RSS MB: 5622.11 server live-array peak MB 2423.7 final live MB 1890.7 max handles 16202 
+engineer gate record: fable_engineer_v1/gate_S12ipt3_checks.txt (items 1-5; S12 -> S13 live peak 2555.0 -> 2423.7 MB, handles 25655 -> 16202, server CPU 45.26/44.53 -> 32.24/30.97 s)

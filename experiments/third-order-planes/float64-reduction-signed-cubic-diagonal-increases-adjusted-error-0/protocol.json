@@ -1,0 +1,196 @@
+{
+  "schema": "prospective-cp-diagonal-sum64-native2-v1",
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_fusion_v1/candidate.py",
+    "sha256": "f9f4790b3c65f730404425e8923c767dc2f895fdcc1e14f14cc649286ad3b69f",
+    "bytes": 975980
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cp_diagonal_sum64_v1/candidate.py",
+    "sha256": "8e8ae9cbe759df3aa3d91c3d20b479bbb43e40885a3fc68dd7716e5b66b7f1b6",
+    "bytes": 976000
+  },
+  "scope": "Only hidden CP third diagonal and terminal row-selected CP third diagonal sum accumulators becomeFP64; input products remainFP32, CP read plane unchanged; only now-redundant reduced-vector casts removed.",
+  "hypothesis": "Reduce signed cancellation error in existing FP32 CP products. No accuracy gain is assumed; existing kernel/product rounding remains.",
+  "historical_evidence": {
+    "E29_log": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/RESULT.md",
+      "sha256": "f55ef74cb1f50d42fe0aa1139a711fda0a5b11818f53d84befebc20ca49b006d",
+      "bytes": 185356
+    },
+    "E29_same_input_probe": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/f32_precision_check.py",
+      "sha256": "8260ff00ca111f1337815cdf1826bc526f5baed7ea92856614e22df7d6a29952",
+      "bytes": 3066
+    },
+    "remaining_precision_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/teammate_remaining_precision_consumers_v1/RESULT.md",
+      "sha256": "5eb7abdfaf29ce8d499ec1a925b078c643ce7d7a5d13af059fd90c15cf99dbe3",
+      "bytes": 2448
+    },
+    "interpretation": "E29 banked a broader FP32 third-plane conversion with near-neutral average raw effect. Its precision check compared fullFP64 arithmetic, not reduction-only. No isolated reduction-only executed arm found in this bounded review; not an exhaustive absence claim."
+  },
+  "price": {
+    "shape_roster": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/young_read_shapes_train2_v1/shape_census.json",
+      "sha256": "941a563a7bd097dd3dd1096d9dcaf15bb486d858b7ea60628cb44ce1a3a132c8",
+      "bytes": 9380
+    },
+    "historical_rows": [
+      {
+        "rank": 35,
+        "full_columns_by_layer": [
+          [
+            1,
+            2048
+          ],
+          [
+            2,
+            4096
+          ],
+          [
+            3,
+            6144
+          ],
+          [
+            4,
+            8128
+          ],
+          [
+            5,
+            9984
+          ],
+          [
+            6,
+            11712
+          ],
+          [
+            7,
+            13376
+          ],
+          [
+            8,
+            14912
+          ],
+          [
+            9,
+            16384
+          ],
+          [
+            10,
+            17728
+          ],
+          [
+            11,
+            19072
+          ],
+          [
+            12,
+            20352
+          ],
+          [
+            13,
+            21568
+          ],
+          [
+            14,
+            22784
+          ]
+        ],
+        "hidden_input_elements": 192806912,
+        "hidden_extra_bill_upper": 192778240
+      },
+      {
+        "rank": 100,
+        "full_columns_by_layer": [
+          [
+            1,
+            2048
+          ],
+          [
+            2,
+            4096
+          ],
+          [
+            3,
+            6144
+          ],
+          [
+            4,
+            8128
+          ],
+          [
+            5,
+            9984
+          ],
+          [
+            6,
+            11776
+          ],
+          [
+            7,
+            13440
+          ],
+          [
+            8,
+            14976
+          ],
+          [
+            9,
+            16384
+          ],
+          [
+            10,
+            17728
+          ],
+          [
+            11,
+            19072
+          ],
+          [
+            12,
+            20352
+          ],
+          [
+            13,
+            21504
+          ],
+          [
+            14,
+            22656
+          ]
+        ],
+        "hidden_input_elements": 192806912,
+        "hidden_extra_bill_upper": 192778240
+      }
+    ],
+    "terminal_extra_upper_F": 25000000,
+    "whole_network_extra_bill_upper_F": 217778240,
+    "approximate_bill_pct_at263GF": 0.0828054144486692,
+    "scope_note": "Historical exact shapes, not a current model census. Upper bound uses one additional input-sized unit perFP64 reduction and removes14 FP64 reduced-vector casts; terminal<=25MF conservative bound. Public FP64 accumulator billing retained."
+  },
+  "ranks": [
+    35,
+    100
+  ],
+  "parity_layers": [
+    0
+  ],
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "strict_adjusted": false,
+    "wins_min": 1,
+    "ci_upper_below": null,
+    "max_per_network_regression_pct": 1.0,
+    "additional6_gain_required": false
+  },
+  "finite_all16_required": true,
+  "limits": {
+    "seconds": 150,
+    "rss_bytes": 7500000000,
+    "swap_growth_bytes": 0
+  },
+  "authority": "One fixednative2 pilot only; no6/boundary/broad/release without newrootdecision afterPASS. No otherprecision/layer variants.",
+  "setup_cache_and_all_other_parameters_unchanged": true,
+  "model_executed": false
+}

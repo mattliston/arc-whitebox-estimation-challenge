@@ -1,0 +1,105 @@
+{
+  "schema": "conditional-RR-plus-retained-PI-v1",
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "source_parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_identity_v1/candidate.py",
+    "sha256": "7b53cf6a14032cdf84542cd3d56442fcf543ceba6044a2819df0da24d112d91a",
+    "bytes": 976122
+  },
+  "score_comparator": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_fusion_v1/candidate.py",
+    "sha256": "f9f4790b3c65f730404425e8923c767dc2f895fdcc1e14f14cc649286ad3b69f",
+    "bytes": 975980
+  },
+  "source_inverse": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/source_inverse.json",
+    "sha256": "0b421f268406a3798f6a9be87f44646ddbac97992ae7ff680d23dcf2f4718d39",
+    "bytes": 4692
+  },
+  "rr_protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_identity_v1/protocol.json",
+    "sha256": "6d6b34f6d19931438bc11c629bece8e297981cd37af9baf1576fcb67400e9de8",
+    "bytes": 3088
+  },
+  "pi_retained": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_packed_pair_inverse_v1/retained_component.json",
+    "sha256": "0558e8b78ad63292be9f97afb49e95539eb12ef04cc96343176fbdebc339aaa9",
+    "bytes": 7028
+  },
+  "pi_native8": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_packed_pair_inverse_v1/native8_assessment.json",
+    "sha256": "adab4a9b23ab7d79ba270e019af8236e553e4cdf4e09ad628e3d99e4f3246b7a",
+    "bytes": 42713
+  },
+  "pi_primitive": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_packed_pair_inverse_v1/primitive.json",
+    "sha256": "4167cd7fecdd0adcafaf3f07edf2057dcc8b655102de56f72c232ec9b3b4efde",
+    "bytes": 8159
+  },
+  "pi_prior_incremental_adjusted_pct": -0.04529975341369674,
+  "pi_prior_all16_exact": true,
+  "scope": "Exact retained PI edit and unchanged fragment transplanted onto RR/P128. No other source edits; no setup, routing, rank, table or cache-budget change.",
+  "mechanism": "RR omits multiplication by exact unity; PI replaces five ordered packed takes and three P16-channel takes using one paid int32 inverse, shared transpose view and discarded sentinel. Both preserve scalar/reduction order.",
+  "caveats": [
+    "Prior PI retained evidence is versus FG, not a claim that the current composition passes.",
+    "One 4MiB inverse per prediction plus paid cold construction, P16 scratch and backend intp/flatten temporaries. Prior source estimate about6.95MB owned extra memory is not an RSS bound.",
+    "PI public scatter and metadata checks alter dispatch count; own combined normal boundary/RSS/residual/wall and N8 are mandatory. Official FG failure remains preserved; current P128 is official S35."
+  ],
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.02,
+    "strict_adjusted": false,
+    "wins_min": 2,
+    "ci_upper_below": null,
+    "max_per_network_regression_pct": 0.0,
+    "additional6_gain_required": false
+  },
+  "native8_gates": {
+    "adjusted_pct_at_most": -0.02,
+    "strict_adjusted": false,
+    "wins_min": 8,
+    "ci_upper_below": 0,
+    "max_per_network_regression_pct": 0.0,
+    "additional6_gain_required": true
+  },
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "activation_required": "RR native2 assessment PASS plus clean model/assessment guards before this draft can be activated.",
+  "auxiliary_native2_required": {
+    "comparator_source": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_identity_v1/candidate.py",
+      "sha256": "7b53cf6a14032cdf84542cd3d56442fcf543ceba6044a2819df0da24d112d91a",
+      "bytes": 976122
+    },
+    "assessment_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_identity_v1/native2_assessment.json",
+    "tag": "hill_climb_pair_rr_identity_v1_train2_v1",
+    "ranks": [
+      35,
+      100
+    ],
+    "all16_prediction_files_byte_equal": true,
+    "mean_bill_strictly_lower": true,
+    "interpretation": "Positive incremental cost saving and identical outputs versus actual RR N2; primary score gates remain against P128."
+  },
+  "authority": "Conditional N2-only source preparation; no model execution. Combined own N2/boundary/N8 replaces separate RR N8. No broad/release authority; final >=1% over official S35 remains.",
+  "model_executed": false
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "fb-ec4-q32-fp32-pair-durable-rejection-v1",
+  "status": "CLOSED_SCIENTIFIC_AND_NUMERICAL_FAILURE__NO_AUDIT_HOLD",
+  "parent": {
+    "path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+    "bytes": 68698,
+    "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+  },
+  "candidate": {
+    "path": "estimator.py",
+    "bytes": 69019,
+    "sha256": "66dcadb6d3229e83fcd57405f0618a51fd6d8f224d1881b2a5bc215de218646d",
+    "immutable_disposition": "REJECTED_BYTES_RETAINED_AS_NEGATIVE_EVIDENCE"
+  },
+  "bound_artifacts": [
+    {"path": "PREREGISTER.md", "sha256": "f22bc0f423c5368efbf1fde07bde48c8c8b48face7b4543d9fba693b0f4c101d"},
+    {"path": "authorization_manifest.json", "sha256": "61a1664c1861c2c08b2c08ebec4a0f14932439de6f4452306117b63f319ed890"},
+    {"path": "build_from_v4.py", "sha256": "0cce6ab3c0eb19e42d7d2171abb7ba535ed337900839bbec7b90be5fc8585dfb"},
+    {"path": "RUNNER_AMENDMENT_1.md", "sha256": "5f7e41a28abc585bca0594d58273789472169a1be2411ad9bbd655efa3e3ea47"},
+    {"path": "run_target_free_compare.py", "sha256": "bdab3088cd22b3f30321561a18b25d429368542d8107f9612e38cb4b837250ed"},
+    {"path": "results.json", "sha256": "91ddb8264df916ebd6ce4682b34c0f932df01cc5cfd92fe045c6428e4e021b6c"},
+    {"path": "verify_static.py", "sha256": "efedd957d032af39fe31e2c2eb92b6a75e734ebfd36b76399642a9f7d2f0e9f2"},
+    {"path": "verify_results.py", "sha256": "322199c929992dc3aa5c9964ba542679f0a8a8850c4d658f8b33e0fb4a0b9ae6"},
+    {"path": "verification.json", "sha256": "28e2d840b7cb41943dda44f2cac64a92112fdefe3148cc77ed2ba1cb0bd4eef4"}
+  ],
+  "decisive_failures": {
+    "official_he_width8": "LinAlgError after 10 connected resets",
+    "official_he_width32": "nonfinite final reported mean after 15 connected resets",
+    "official_he_width64_final_mse_vs_v4": 95719899056.07812,
+    "canonical_pure_normal_width8": "LinAlgError after 6 connected resets"
+  },
+  "resource_projection_only": {
+    "flops": 2084524619649,
+    "flop_budget": 2199023255552,
+    "wall_s_range": [21.938773840924394, 33.72636051248649],
+    "static_peak_rss_bytes": 5060575364,
+    "production_shape_run": false
+  },
+  "access_accounting": {
+    "dataset_rows": 0,
+    "targets_or_teachers": 0,
+    "scores": 0,
+    "full_shape_runs": 0,
+    "submissions": 0,
+    "graph_edits": 0
+  },
+  "authorized_successor_use": "NEGATIVE_EVIDENCE_ONLY",
+  "withheld": [
+    "INDEPENDENT_AUDIT_HANDOFF",
+    "PRODUCTION_METER",
+    "PACKAGE",
+    "TARGET_OR_SCORE_ACCESS",
+    "BOARD_SUBMISSION"
+  ]
+}

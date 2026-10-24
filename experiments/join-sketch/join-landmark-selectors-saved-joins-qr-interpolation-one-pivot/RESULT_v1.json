@@ -1,0 +1,169 @@
+{
+  "prereg": {
+    "source_sha256": "7f24dfd501a412297dca4e4e50a66f725158be5bc81c8fb068cd97507e029bec",
+    "rank": 384,
+    "formula": "diag=sum(Fj^2*w,axis1)+sum((overlap@oldcore)*overlap,axis1)",
+    "scope": "Fixed six archived joins, unchanged static topdiag rows, no model or tuning; only middle join is novel and has a consumed stored core.",
+    "inputs": {
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_sketchgb_v1/cap/join_7103248_1.npz": "473ffbc0499b71fab787188dea4069d3e4cd7bae75124096759878925f1666f5",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_sketchgb_v1/cap/join_7103248_2.npz": "0fd1a68719783c239a759666a676d3c2eb117840ad2d238c01e251fdaa31174c",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_sketchgb_v1/cap/join_7103248_3.npz": "3ccc3f9eb6968ad664183dc906506e2a06f38106efb39927250e4992dd6aece3",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_sketchgb_v1/cap/join_7103249_1.npz": "7242bbc0575a671d437ab9f690893a74a18175a750677a305b7ba44a0632e91c",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_sketchgb_v1/cap/join_7103249_2.npz": "1eeaa84e7d903f8143445455c865ce523b1c59db1b3bd19b16792eb145a59832",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_sketchgb_v1/cap/join_7103249_3.npz": "547836166a0b3f1f6ff577b810efe0353f4d15cfd36093735e8050259e543ab8"
+    }
+  },
+  "rows": [
+    {
+      "file": "join_7103248_1.npz",
+      "shape": [
+        928,
+        6144
+      ],
+      "oldrank": 0,
+      "saved_rank": 384,
+      "test_rank": 384,
+      "diagonal_formula_maxabs": 3.375077994860476e-14,
+      "operator_error2_recovered": 0.06643921275590847,
+      "core_error2_recovered": 0.11807579438003502,
+      "base_operator_relative_error": 0.001145651750978248,
+      "repaired_operator_relative_error": 0.001106939599175148,
+      "base_trace_relative_error": 0.0010280027804150927,
+      "repaired_trace_relative_error": 0.0003455751619054519,
+      "base_core_trace": 486.1478603438589,
+      "exact_core_trace": 486.4799624723485,
+      "diagonal_change_relative": 0.0003430749197479065,
+      "repaired_min_eigenvalue": 0.0018347841795777811,
+      "raw_flops_diagonal_new": 7077888,
+      "raw_flops_old": 0,
+      "exact_current_l10_factor_reduction_if_materialized": "3*rank*total_old_columns; no oldcore multiply needed"
+    },
+    {
+      "file": "join_7103248_2.npz",
+      "shape": [
+        864,
+        5568
+      ],
+      "oldrank": 384,
+      "saved_rank": 320,
+      "test_rank": 384,
+      "diagonal_formula_maxabs": 2.4158453015843406e-13,
+      "operator_error2_recovered": 0.061168086361196305,
+      "core_error2_recovered": 0.09852988474445945,
+      "base_operator_relative_error": 0.00020978423927051572,
+      "repaired_operator_relative_error": 0.0002032669540580406,
+      "base_trace_relative_error": 0.00021733989356019205,
+      "repaired_trace_relative_error": 6.233560399996065e-05,
+      "base_core_trace": 2655.1179916276897,
+      "exact_core_trace": 2655.529635772374,
+      "diagonal_change_relative": 6.027338255509779e-05,
+      "repaired_min_eigenvalue": 0.002342728499362821,
+      "raw_flops_diagonal_new": 6414336,
+      "raw_flops_old": 113541120,
+      "exact_current_l10_factor_reduction_if_materialized": "3*rank*total_old_columns; no oldcore multiply needed"
+    },
+    {
+      "file": "join_7103248_3.npz",
+      "shape": [
+        832,
+        4544
+      ],
+      "oldrank": 320,
+      "saved_rank": 384,
+      "test_rank": 384,
+      "diagonal_formula_maxabs": 6.821210263296962e-13,
+      "operator_error2_recovered": 0.0635836893561651,
+      "core_error2_recovered": 0.09778186013343915,
+      "base_operator_relative_error": 7.372743471500334e-05,
+      "repaired_operator_relative_error": 7.134501081043118e-05,
+      "base_trace_relative_error": 9.004063205334049e-05,
+      "repaired_trace_relative_error": 2.4384966206234005e-05,
+      "base_core_trace": 7577.944544037493,
+      "exact_core_trace": 7578.4421238346795,
+      "diagonal_change_relative": 2.1108269272098473e-05,
+      "repaired_min_eigenvalue": 0.0025301523160161732,
+      "raw_flops_diagonal_new": 5234688,
+      "raw_flops_old": 78888960,
+      "exact_current_l10_factor_reduction_if_materialized": "3*rank*total_old_columns; no oldcore multiply needed"
+    },
+    {
+      "file": "join_7103249_1.npz",
+      "shape": [
+        960,
+        6144
+      ],
+      "oldrank": 0,
+      "saved_rank": 384,
+      "test_rank": 384,
+      "diagonal_formula_maxabs": 2.3092638912203256e-14,
+      "operator_error2_recovered": 0.06484337049551636,
+      "core_error2_recovered": 0.11480935327249886,
+      "base_operator_relative_error": 0.00115835038625261,
+      "repaired_operator_relative_error": 0.0011201653288042304,
+      "base_trace_relative_error": 0.0010140107176229453,
+      "repaired_trace_relative_error": 0.0003388182837494186,
+      "base_core_trace": 388.9512746532918,
+      "exact_core_trace": 389.2141581777945,
+      "diagonal_change_relative": 0.0003426507655162012,
+      "repaired_min_eigenvalue": 0.0016641459111910184,
+      "raw_flops_diagonal_new": 7077888,
+      "raw_flops_old": 0,
+      "exact_current_l10_factor_reduction_if_materialized": "3*rank*total_old_columns; no oldcore multiply needed"
+    },
+    {
+      "file": "join_7103249_2.npz",
+      "shape": [
+        896,
+        5632
+      ],
+      "oldrank": 384,
+      "saved_rank": 320,
+      "test_rank": 384,
+      "diagonal_formula_maxabs": 2.5579538487363607e-13,
+      "operator_error2_recovered": 0.06161719117739828,
+      "core_error2_recovered": 0.10181449955639243,
+      "base_operator_relative_error": 0.00023442351038275674,
+      "repaired_operator_relative_error": 0.0002270864318819558,
+      "base_trace_relative_error": 0.0002459855146363313,
+      "repaired_trace_relative_error": 7.458772599682622e-05,
+      "base_core_trace": 2393.3170721773013,
+      "exact_core_trace": 2393.7273823613473,
+      "diagonal_change_relative": 6.898296469635735e-05,
+      "repaired_min_eigenvalue": 0.0024358872801168076,
+      "raw_flops_diagonal_new": 6488064,
+      "raw_flops_old": 113541120,
+      "exact_current_l10_factor_reduction_if_materialized": "3*rank*total_old_columns; no oldcore multiply needed"
+    },
+    {
+      "file": "join_7103249_3.npz",
+      "shape": [
+        832,
+        4864
+      ],
+      "oldrank": 320,
+      "saved_rank": 384,
+      "test_rank": 384,
+      "diagonal_formula_maxabs": 6.252776074688882e-13,
+      "operator_error2_recovered": 0.06552558794168317,
+      "core_error2_recovered": 0.09908003411787603,
+      "base_operator_relative_error": 8.789127908214761e-05,
+      "repaired_operator_relative_error": 8.496293212637353e-05,
+      "base_trace_relative_error": 0.00010427359452629473,
+      "repaired_trace_relative_error": 2.7363842887949635e-05,
+      "base_core_trace": 7855.561273501343,
+      "exact_core_trace": 7856.16550577334,
+      "diagonal_change_relative": 2.654009994494106e-05,
+      "repaired_min_eigenvalue": 0.0034147574465287003,
+      "raw_flops_diagonal_new": 5603328,
+      "raw_flops_old": 78888960,
+      "exact_current_l10_factor_reduction_if_materialized": "3*rank*total_old_columns; no oldcore multiply needed"
+    }
+  ],
+  "seconds": 1.042086124420166,
+  "peak_rss_bytes": 433782784,
+  "limitations": [
+    "Historical captures; middle saved rank320 but test uses current-style384.",
+    "Local Gram error is not final prediction MSE.",
+    "L7 exact diagonal previously null on fixed8; L13 core is unused."
+  ]
+}

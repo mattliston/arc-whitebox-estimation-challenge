@@ -1,0 +1,113 @@
+{
+  "schema": "edge-tanh-paid-lookup-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cov_cast_star_reuse_v1/candidate.py",
+    "sha256": "4ec2b3711b3ac8519eb0fcfa990ed3110e7a4a1f8407ff5ad776a494a2302965",
+    "bytes": 974641
+  },
+  "scope": "native2_only_conditional_on_parent_retention",
+  "parent_retention_requirement": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cov_cast_star_reuse_v1/retained_component.json",
+  "parent_retention": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cov_cast_star_reuse_v1/retained_component.json",
+    "sha256": "a865e60627e7f13724315f184fe8f8b9dab3a16338591d7d21d193bf54df78dd",
+    "bytes": 1852
+  },
+  "intervention": "Only active _g5_message_edge_base tanh(h,out=h), existing L8\u201314 calls, is replaced by one fixed uniform nearest-grid table on[0,8], step2^-20 and original sign. Other activations and all learned/physical parameters remain unchanged.",
+  "adaptive_selection": "New prospectively selected lookup trial after failed fixedR5. Its approximately.00147 bound was too loose; higher Pad\u00e9 orders and two-gather interpolation have no paying bill. Preserve R5 source/protocol/result/closeout without rewriting the old no-follow-on plan. No lookup spacing/window/degree/coefficient sweep or fit.",
+  "prior_failure": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_tanh_r5_v1/closeout.json",
+    "sha256": "c3e8208554fba531c43be88426ec958b384c49e014e3b3fce13a222a93c36450",
+    "bytes": 957
+  },
+  "prior_protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_tanh_r5_v1/protocol.json",
+    "sha256": "eaebf75707efc26addab3bca2e2551aaa9b5ac65b3dd8b6789b672e65806c719",
+    "bytes": 4722
+  },
+  "table_elements": 8388609,
+  "step": 9.5367431640625e-07,
+  "clamp": 8.0,
+  "selected_layers": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_edge_tanh_lookup_v1/fragment.py",
+    "sha256": "e61b757213794eaf5089c5015fc6198c72349561a52d0529826ff9387182cce8",
+    "bytes": 1246
+  },
+  "formula_fixture": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_edge_tanh_lookup_v1/formula_fixture.py",
+    "sha256": "b26a87c139e5c8f6ea7f851b87aa606e538fc20c3c977b226389143578fb8a07",
+    "bytes": 1415
+  },
+  "ownership": "Paid FP32 integer arange, multiply and tanh create table once per prediction on first edge call. One shape only; shape change drops all old state. One FP32 work plane plus fresh int32 cast per call. take(mode=clip,out=work) reuses work; original h sign remains intact until final copysign(out=h). State cleared at active prediction try entry and innermost finally, including exceptions. No cross-network values retained.",
+  "numeric_scope": "Finite FP32 activations. Power-of-two scaling is exact and all table integers0..2^23 are exactly representable. Positive cast truncates after adding.5. Proven index range0..2^23 permits modeclip. Original signed zero is restored by copysign. No claim of exact predictions.",
+  "proof": {
+    "quantization_bound": 4.768371866248344e-07,
+    "table_rounding_allowance": 2.9802322387695312e-08,
+    "conditional_global_bound": 5.066395090125297e-07,
+    "tail_bound": 2.384185791015625e-07,
+    "qualification": "The quantization and saturation bounds are analytic. The5.0664e-7 total bound assumes correctly rounded FP32 table tanh; installed public wrapper forwards NumPy tanh and does not certify its elementary-function error. More generally total error is <=2^-21+2^-45+maximum table tanh primitive error; native validation remains mandatory."
+  },
+  "price": {
+    "old_flops_per_element": 16,
+    "new_flops_per_element": 10,
+    "activation_elements": 117440512,
+    "table_cold_flops": 159383571,
+    "constant_array_flops": 4,
+    "net_saved_flops": 545259497,
+    "approx_s34_bill_saving_pct": 0.20390764664346006,
+    "temporary_storage_bytes": 167772164,
+    "constant_storage_bytes": 16,
+    "explanation": "Runtime6unit ops(abs,min,mul,add,astype,copysign)+take4=10. Table arange2+multiply1+tanh16=19F per8388609 values; constants4 extra. Storage FP32scratch67108864+int32indices67108864+table33554436; no mode-raise gather output buffer. Forecast excludes tiny metadata and measures no speed or accuracy."
+  },
+  "billing_sources": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/lib/python3.11/site-packages/flopscope/_array_ops.py",
+      "sha256": "e45e927f18c54352503a4951d3d925a5f31f92ecea245e32360825d71a05da6c",
+      "bytes": 159218
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/lib/python3.11/site-packages/flopscope/_ndarray.py",
+      "sha256": "fa5bbecb48b123ab77f31ced3da877d2e333aa5b403a324c33da591b967d3e74",
+      "bytes": 57408
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/lib/python3.11/site-packages/flopscope/_pointwise.py",
+      "sha256": "7d376515446f1b174bef375c48116a552098bd514f5552450876f56822beb0c7",
+      "bytes": 331932
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/lib/python3.11/site-packages/flopscope/data/default_weights.json",
+      "sha256": "f729bc47f07c080b8c7b9d7b045e5663f0af313669b4c2a962b5a9044a94cb7a",
+      "bytes": 11271
+    }
+  ],
+  "resources": "Candidate and exactC32 comparator640M internal UBCcap; historicalcontrols512M. Original150s N2/300sN6/7.5GB RSS/zeroSwap/setup4.1 and ownboundary/serving gates unchanged.",
+  "gates": "N2 incremental>=.1%gain,>=1win,maxreg<=1%,L0\u20137bytes. Ownboundary then N8>=.1%gain,>=6wins,CIupper<0,additional6negative. Broad only totalS34>=.8%; finalVALID40>=1% and fullserving. No learned-target fitting.",
+  "parent_native2": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cov_cast_star_reuse_v1/native2_assessment.json",
+    "sha256": "0d7f20e638df5563de3aaab3590c4416da0aa09cf490d252441fb842cbc070a3",
+    "bytes": 17515
+  },
+  "model_executed": false,
+  "serving_qualified": false,
+  "submitted": false
+}

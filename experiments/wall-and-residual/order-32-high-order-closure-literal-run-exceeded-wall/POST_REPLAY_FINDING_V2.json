@@ -1,0 +1,67 @@
+{
+  "schema": "fb-ec4-v4-certified-normalized-moment-post-replay-finding-v2",
+  "status": "TECHNICAL_PASS__SCIENTIFIC_HOLD__STORED_TUPLE_CERT_NEG_PRESENT",
+  "date": "2026-08-24",
+  "bindings": {
+    "frozen_v4_estimator_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "v2_diagnostic_estimator_sha256": "ac81482d2ac28ea97cc963309401405260328cea86bfd1bdc1b9b7a396e041b8",
+    "v2_source_manifest_sha256": "439e7a2aeb43ac38841037ba73321110cdfd954e7b5958133b715749d838f722",
+    "v2_freeze_receipt_sha256": "faa670bbc52f6d61ad7eb8911387253711daed5a7df24546597f793b3d3d39fb",
+    "v2_independent_source_audit_sha256": "fc02c4b6c31995166974fadd892eb2763c6e029350766a40789d4984a6a4cc14",
+    "v1_hold_receipt_sha256": "93124980ee134d2b0bad4e6f00b46ced6a7329fcc356945c12736443f4723ee8",
+    "v2_replay": {
+      "path": "runs/v4_target_free_certified_moment_seed20260824/receipt.json",
+      "bytes": 48210,
+      "sha256": "4a7929243f8813fc56be4b2fb9cf97970bd1766678d0d3dad86a856dc6578dcb"
+    }
+  },
+  "technical_result": {
+    "flops_used": 2179748856741,
+    "base_v4_flops": 2179742954469,
+    "exact_incremental_flops": 5902272,
+    "phase2_budget": 2199023255552,
+    "headroom": 19274398811,
+    "wall_time_s": 34.214199375361204,
+    "backend_time_s": 33.14891177928075,
+    "flopscope_overhead_time_s": 0.7372344341129065,
+    "residual_wall_time_s": 0.32805316196754575,
+    "all_28_values_finite_each_layer": true,
+    "all_resource_and_price_gates_pass": true
+  },
+  "scientific_result": {
+    "layers_1_through_9": "ALL_1024_A_AND_B_MARGINS_CERT_POS",
+    "first_cert_negative_layer": 10,
+    "cert_negative_counts_by_layer": [
+      {"layer": 10, "A": 0, "B": 1},
+      {"layer": 11, "A": 1, "B": 0},
+      {"layer": 12, "A": 1, "B": 0},
+      {"layer": 13, "A": 0, "B": 2},
+      {"layer": 14, "A": 1, "B": 0},
+      {"layer": 15, "A": 3, "B": 9},
+      {"layer": 16, "A": 3, "B": 1}
+    ],
+    "total_cert_negative_A": 9,
+    "total_cert_negative_B": 13,
+    "total_zero_compatible_A": 0,
+    "total_zero_compatible_B": 0,
+    "total_scale_zero_A": 0,
+    "total_scale_zero_B": 0,
+    "worst_relative_pattern": "The worst late negative margins are typically -1 relative to their difference-of-positive-terms scale, while outward relative error bounds are about 4.44e-16 for A and 8.88e-16 for B.",
+    "interpretation": "The sparse late negatives are not determinant-evaluation cancellation dust. On the represented fp64 raw tuples they are sign-certified infeasible, concentrated in near-dead units."
+  },
+  "claim_boundary": {
+    "certified": "Only fp64 determinant arithmetic applied to the stored raw r1..r4 tuple, with raw-input error defined as zero.",
+    "not_certified": "Upstream error in producing r1..r4, a joint multivariate law, closure accuracy, raw MSE, or leaderboard performance.",
+    "consequence": "The V1 stored-tuple moment-feasibility HOLD remains. No clipping, floor, repair, source change, target access, score, fit, submission, or graph mutation is authorized here."
+  },
+  "negative_controls": {
+    "dataset_accesses": 0,
+    "target_or_truth_accesses": 0,
+    "score_or_fit_calls": 0,
+    "sampling_estimator_calls": 0,
+    "scalar_moment_clips_floors_or_repairs": 0,
+    "frozen_source_mutations": 0,
+    "board_submissions_authorized": 0,
+    "problem_graph_mutations_here": 0
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "p2r0f3b1a.reverse_hermite.preregistration.v1",
+  "node": "P2R0F3B1A",
+  "title": "Target-free reverse-Hermite final-mean functional discriminator",
+  "frozen_utc_date": "2026-08-26",
+  "scope": {
+    "allowed": [
+      "synthetic iid Gaussian weights",
+      "closed-loop level-C exact-ledger predictions",
+      "analytic Hermite mean columns computed from the predicted state",
+      "antithetic synthetic-network Monte Carlo used only as a small-n reference"
+    ],
+    "forbidden": [
+      "observer_fit.npz",
+      "observer_selection.json",
+      "observer names or identities",
+      "public or private development targets",
+      "any fitted coefficient, target-derived selection, or target-derived tape"
+    ],
+    "promotion_scope": "algebraic and frozen small-n discriminator only; this receipt cannot authorize a development-target run"
+  },
+  "hypotheses": {
+    "primary": "The endpoint mean error contains a systematic leading finite-width contribution that can be represented as a reverse-adjoint sum of local, target-free Hermite mean-map defects evaluated on the frozen level-C forward state, without feeding the correction back into that state.",
+    "finite_width_arm": "If those local defects cancel a genuine leading 1/n term, their relative RMS should scale approximately as 1/n and the corrected relative RMS may fall to O(1/n^2). This is a falsifier, not an assumption.",
+    "caution": "Existing quadrature/coherence evidence reports low-degree retention changing much more slowly than 1/n (approximately 0.397 at n=64 L6, 0.359 at n=1024-real, 0.156 annealed), so clean 1/n scaling is not presumed.",
+    "null": "The cheap reverse construction is only the ordinary first-order forward Duhamel sum with a small or misaligned local source; a non-equivalent exact full Hermite functional is rank/cost impossible at degree 5."
+  },
+  "exact_operator": {
+    "baseline": "Run the level-C closed-loop ledger. At layer l let pre_l be its predicted pre-ReLU state, post_l its predicted post-ReLU state, and phi_l = Phi(mu_l/sigma_l). The candidate never changes pre_l, post_l, covariance, or cumulant state.",
+    "kappa5_closure": "g5_hat = 5*g3*g4 - (40/9)*g3^3, using standardized g3 and g4 from pre_l.",
+    "local_source_ladder": {
+      "K4": "s_l = 0 (negative control)",
+      "K5": "s_l = (g5_hat/120)*C5",
+      "K7": "K5 + (g3*g4/144)*C7",
+      "K9": "K7 + (g3^3/1296)*C9",
+      "K12": "K9 + (g3*g5_hat/720 + g4^2/1152)*C8 + (g3^2*g4/1728)*C10 + (g3^4/31104)*C12"
+    },
+    "column_definition": "Cq = sigma*phi(mu/sigma)*He_{q-2}(-mu/sigma). Layer 1 has an exactly Gaussian input and therefore an exactly zero source.",
+    "forward_duhamel": "For every source layer l, set v=s_l and for k=l+1..D apply v <- (v @ W_k) .* phi_k. Sum all endpoint v and add once to the unmodified level-C endpoint mean.",
+    "reverse_adjoint": "J_k = W_k diag(phi_k). Define A_l = product_{k=l+1..D} J_k in forward order. The endpoint correction is sum_l s_l A_l. An implementation may accumulate this by forward source transport or exact small-n matrix products, but the two must agree.",
+    "onsager_interpretation": "The s_l are local predicted mean-map defects and the adjoint sum is the perturbative final-functional/Onsager-loop correction. It is not claimed to be an exact full Hermite density expansion.",
+    "no_feedback_rule": "No source, correction, truth residual, or adjusted endpoint may enter any future forward-state update."
+  },
+  "frozen_networks": {
+    "family_weight_seeds": [49127, 90733],
+    "construction": "For each seed draw five iid standard-normal 16x16 master matrices. The n=16 network uses all entries scaled by sqrt(2/16). The coupled n=8 network uses each top-left 8x8 block scaled by sqrt(2/8).",
+    "n8_d4": {
+      "width": 8,
+      "depth": 4,
+      "reference_seeds": [149127, 190733]
+    },
+    "n16_d5": {
+      "width": 16,
+      "depth": 5,
+      "reference_seeds": [249127, 290733]
+    },
+    "antithetic_base_samples_per_network": 10000000,
+    "reported_total_forward_samples_per_network": 20000000,
+    "matched_width_scaling_endpoint": "depth 4, using the full n=8 network and the first four layers of its coupled n=16 network"
+  },
+  "algebraic_gates": {
+    "ledger_reproduction": "Captured baseline posts must agree with ledger_rig.run_ledger(..., 'C') to max relative error <= 1e-12.",
+    "K4_identity": "The K4 endpoint must be bitwise identical to the baseline endpoint.",
+    "source_identity": "At every non-Gaussian layer and ladder degree, the explicit source formula must agree to max relative error <= 1e-13 with the corresponding difference of analytic Hermite mean maps.",
+    "adjoint_parity": "Forward Duhamel transport and explicit reverse matrix-adjoint products must agree to max relative error <= 1e-12.",
+    "equivalence_gate": "Record, rather than obscure, that the compressed reverse operator is algebraically identical to first-order forward Duhamel for the same additive sources. Therefore reverse direction alone is not a new operator. Promotion requires the new target-free source ladder to pass every empirical gate; otherwise classify EQUIVALENT_EFFECT_CAPPED and close.",
+    "full_expansion_rank_gate": "A genuinely non-equivalent exact scalar Hermite functional through total degree 5 requires at least binom(n+4,5) coefficients. At n=1024 this lower bound must be compared with the complete 2.2e12 FLOP budget before any full-expansion proposal."
+  },
+  "empirical_gates": {
+    "accuracy": "For K12, baseline_MSE/corrected_MSE must be >=3.0 separately on all four frozen final endpoints, and its geometric-mean improvement must be >=3.0. No seed may be omitted.",
+    "degree_ladder": "Report K4, K5, K7, K9, K12. K12 must be the best aggregate rung; otherwise rank/degree selection fails because no target-free reason selects a lower rung.",
+    "alignment": "For K12, cosine(delta, truth-baseline) must be >=0.5 on every frozen final endpoint.",
+    "nontriviality": "For K12, endpoint correction RMS must be >=0.05 times baseline error RMS on at least three of four frozen final endpoints.",
+    "stability": "All quantities must be finite; K12 correction RMS <=4 times baseline error RMS on every endpoint; corrected MSE <=10 times baseline MSE; reference RMS standard error <=0.10 times corrected RMS error.",
+    "finite_width_falsifier": "At coupled depth 4, report relative correction RMS and corrected relative error RMS at n=8 and n=16. 1/n source evidence requires the median paired ratio delta_rel(n8)/delta_rel(n16) in [1.4,2.8]. O(1/n^2) residual evidence requires corrected_rel(n8)/corrected_rel(n16) in [2.8,5.6], equivalent to an MSE ratio in [7.84,31.36]. These scaling results are diagnostic and cannot rescue a failed >=3x endpoint gate.",
+    "reference_noise": "If a stability/noise gate fails, stop as INCONCLUSIVE_NOISE; do not increase samples unless a new receipt is written first."
+  },
+  "width1024_depth16_cost_gate": {
+    "board_budget_per_mlp": 2200000000000,
+    "nonzero_source_layers": 15,
+    "source_to_endpoint_matvecs": 105,
+    "dense_matvec_plus_gain_flops_each": 2097152,
+    "transport_flops": 220200960,
+    "source_arithmetic_upper_bound_flops_per_unit_layer": 128,
+    "source_arithmetic_upper_bound_flops": 1966080,
+    "total_extra_flops_upper_bound": 222167040,
+    "cheap_operator_cost_pass_rule": "total_extra_flops_upper_bound <= 1.0e9 and current host total plus this bound <=2.2e12",
+    "full_degree5_scalar_coefficient_lower_bound": 9474438804480,
+    "full_expansion_fail_rule": "If the scalar degree-5 coefficient lower bound alone exceeds 2.2e12, the exact full-expansion arm fails before output multiplicity, layer transport, or arithmetic is counted."
+  },
+  "terminal_logic": {
+    "PASS_SMALL_N_ONLY": "All algebraic, empirical, scaling-diagnostic reporting, stability, rank/degree, and cheap-cost gates pass. This still requires a separate preregistration before any development-target run.",
+    "CLOSE_EQUIVALENT_EFFECT_CAPPED": "Adjoint parity proves Duhamel equivalence and any accuracy/alignment/nontriviality/degree gate fails.",
+    "CLOSE_RANK_COST_DICHOTOMY": "The cheap compressed arm fails while the first non-equivalent exact functional exceeds the rank/cost gate.",
+    "INCONCLUSIVE_NOISE": "Only a frozen reference-noise gate fails.",
+    "mandatory_stop": "On any equivalence, rank, cost, stability, accuracy, or degree-ladder failure: persist the terminal receipt and stop without accessing development targets."
+  }
+}

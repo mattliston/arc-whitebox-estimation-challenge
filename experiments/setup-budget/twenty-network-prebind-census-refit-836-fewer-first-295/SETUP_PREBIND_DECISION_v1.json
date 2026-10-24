@@ -1,0 +1,59 @@
+{
+  "status": "EXACT_SETUP_LEVER_READY_NO_FIRE",
+  "base": "VN+H128 #336381 source 779e4ffe (candidate_S3_a32fa3b4_v1.py)",
+  "method": "own key census (engineer/quick.py --keys --binds; 20 public ranks 37..116 in 7 sessions of <=3, networks 35/100 EXCLUDED so the boundary check is out of sample) -> engineer/a62_modules/prebind_targeted_v2.py: 138 dead listed keys swapped for 138 wanted unlisted keys, stable reorder by use; list length stays 649",
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_setup_v1/fragment_prebind_vnh128_v1.py.txt",
+    "sha256": "2f29dcac809ce25ae383a6e6549d6451acd16b53f13bbe3bebfa7a5dbf7a79d6",
+    "apply": "append LAST (redefines _PB_SINGLE only)"
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_setup_v1/candidate_vnh128_pbt_v1.py",
+    "sha256": "fec8f42b57a3750ec28d4b5100a6783794d6a99d3fba5ee2f310761d40a0a43f"
+  },
+  "boundary_vs_VNH128": {
+    "normal_first": [
+      48875,
+      48039,
+      -836
+    ],
+    "normal_warm": [
+      45993,
+      45698,
+      -295
+    ],
+    "slow_first": [
+      49133,
+      48460,
+      -673
+    ],
+    "slow_warm": [
+      46093,
+      45904,
+      -189
+    ],
+    "p_loss": [
+      19.64,
+      14.88
+    ],
+    "keys_bound_normal": [
+      588,
+      595
+    ],
+    "setup": [
+      4.441,
+      4.439
+    ],
+    "slow_setup": [
+      4.585,
+      4.581
+    ],
+    "worst_wall": 104.2,
+    "slow_requests_ratio": "+0.67%"
+  },
+  "predictions": "byte-identical: diag 7103248, boundary normal+slow ranks 35/100",
+  "bill": "FLOPs fall (fewer in-predict lazy binds billed at numel): first network -0.34%, warm -0.18% (normal), diag 7103248 -0.22%",
+  "official120": "ALL PASS",
+  "caveat": "list fitted to VN+H128 key shapes; a VN+GB128r (or any new) file needs its own census (scripts staged: run_census_v1.sh x7 sessions + finish_prebind_v3.sh, ~15 min)",
+  "owned_processes_retired": true
+}

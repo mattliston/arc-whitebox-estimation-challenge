@@ -1,0 +1,19 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1D11",
+    "label": "R40 physical compute / economic falsification",
+    "kind": "phase2_physical_compute_kernel",
+    "status": "closed_cost",
+    "priority": 1,
+    "summary": "The exact c142 R40 schedule and tiny tensor identity pass, but the unchanged-raw route is economically closed. With cap512, strict fused physical arithmetic totals 749,925,597,823 FLOPs, 176,109,214,432 above the live 573,816,383,391 boundary. Even the strongest conditional fused/free-forward floor is 582,698,554,603, still 8,882,171,212 high.",
+    "terminal_criterion": "Closed at the current unchanged-raw boundary. Reopen only if an exact carrier/transform primitive removes more than 8,882,171,212 FLOPs even under the free-forward floor, or a measured raw gain raises the lawful compute threshold.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_r40_physical_kernel_audit_v1/RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_r40_economic_falsification_v1/ECONOMIC_GAP.json"
+    ],
+    "decomposition_children": []
+  }
+}

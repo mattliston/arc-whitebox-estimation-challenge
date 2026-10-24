@@ -1,0 +1,37 @@
+{
+  "schema": "phase2-cap16384-mean-recurrence-ablation-target-free-resource-v1",
+  "status": "PASS_BOTH_FULL_BUDGET_RESOURCE_AND_INTERFACE_GATES__ACCURACY_UNSCORED",
+  "source": {
+    "estimator_sha256": "361c87cba008987c117871bf9892beecce75911634798ed7ad3fa26fd8ee5814",
+    "preregistration_sha256": "e563ff08646965b5634c27c14c590b04e48c71a5a13b1fbe8ef509bf3ee80334"
+  },
+  "full_budget": 2199023255552,
+  "arms": {
+    "cap16384_layer2_mean_carry": {
+      "class": "EstimatorLayer2MeanCarry",
+      "flops": 620090560514,
+      "full_budget_fraction": 0.28198453970344417,
+      "sampled_solution_rss_bytes": 4972527616,
+      "wall_time_s": 1.5683506247587502,
+      "residual_wall_time_s": 0.11781940795481205,
+      "receipt_sha256": "2f2d08d620577de5d0e16a1b9a10012fc40de00df055c1939ad893623f5f2f06"
+    },
+    "cap16384_recursive_mean_carry": {
+      "class": "EstimatorRecursiveMeanCarry",
+      "flops": 620090560514,
+      "full_budget_fraction": 0.28198453970344417,
+      "sampled_solution_rss_bytes": 4876861440,
+      "wall_time_s": 1.4685903750360012,
+      "residual_wall_time_s": 0.11874580150470138,
+      "receipt_sha256": "efd8caeba590f157d5c6811c94fa37ffb4a95ce864e08c042196ff6eba0701fa"
+    }
+  },
+  "common_output": {
+    "failed_mlps": 0,
+    "shape": [16, 1024],
+    "dtype": "float32",
+    "finite": true
+  },
+  "accuracy_scope": "Deterministic synthetic fixture only; no dataset target, role target, fit, score, or selection access.",
+  "decision": "PASS_RESOURCE__HOLD_ACCURACY_PENDING_INDEPENDENT_SEALER_AUDIT"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "public-host-error-localization-audit-v1",
+  "node": "P2R0F2S",
+  "status": "PASS_INDEPENDENT_PRELAUNCH_AUDIT",
+  "auditor": "independent-subagent-no-design-stake",
+  "audited_file_sha256": {
+    "preregistration": "5d3fc567a0e586d050ceadc04d7336823e671af9c9e84e3d29a723ac59a12834",
+    "program": "ebce7e843913833e2d13a65cbd23d3e7c8ebefeac129631b0d699054da7f8b3a"
+  },
+  "checks": [
+    "M1 conformance: per-layer MSE (mean over rows of mean over units) and increments via diff with prepend 0 match Delta_l = mse_l - mse_(l-1); final MSE emitted; fractional share derivable as m1_layer_mse/m1_final_mse (not separately emitted).",
+    "M2 conformance: top-1% = top 10 of 1024 units, top-10% = top 102, at probe layers 7/11/15; cross-half persistence = Pearson of per-unit summed squared error between disjoint alternating row halves (scale-invariant, so sums vs means immaterial).",
+    "M3 conformance: a_l = sum<e_l,p_l>/sum<p_l,p_l> accumulated over all units and rows per frame (exact global least-squares scalar), p_l = Phi_l * (e_(l-1) @ W_l), Phi = tape channel 5; two-pass fit-then-apply is exact; born fraction = sum||e-a*p||^2/sum||e||^2 with matched normalizations; layer 0 correctly excluded; e @ W_l row convention verified against the host source (instrumented_estimator.py:1536 with 'directed @ weight32' transport).",
+    "M4 conformance: streaming Pearson of |channel| vs local e^2 and vs born^2 per (layer, channel); CorrAccumulator algebra verified against np.corrcoef to 1e-15 on synthetic data; pooled = mean of per-layer correlations over layers 2..15 (14 layers, matching the conclusion rule's '14 corrected layers'); born sign-consistency counts per-layer sign matches against the pooled sign.",
+    "M5 conformance: per-row final-layer MSE vs per-channel row-mean absolute magnitude and vs the M3 born-error total; zero-variance guard returns 0.0.",
+    "M6 conformance: hard rows 201/310/599/643 layer profiles and channel magnitudes vs a population median; see minor notes for the omitted per-hard-row unit-concentration sub-metric and the stride-8 median sample.",
+    "READ-ONLY: sole write is LOCALIZATION_RESULT.json guarded by FileExistsError (not present at audit time); imports are numpy/pyarrow/hashlib/json/pathlib only; no torch, no network, no subprocess, no gradient, no training, no store modification; sha256 opens files read-binary only.",
+    "LAWFULNESS: targets read only from data_gate/sealed_role_target_bundle/observer_fit.parquet (the lawful development target set); native slice rows 35..234 equals the pilot ROSTER tuple(range(35,235)) previously opened by the closed pilot protocol; R_PILOT_CLOSURE.json licenses exactly this localization node; no observer_selection path (string occurs only as the firewall counter key); no name join performed (positional alignment; the pilot's load_roster_targets verified mlp_id identity alignment on rows 35:235 of the same file using the identical combine_chunks/storage/flatten/reshape(688,16,1024) decode).",
+    "DATA WIRING: on-disk shapes verified - patched_error [688,16,1024] f32 (built as targets[rank] - row.host in the producing package; population MSE 9.115992600417403e-8 matches the prereg's 9.12e-8); cp1792_raw_locals [16,1024,20] channel-5 slice in [0,1] mean ~0.50 (gate-like); weights [16,1024,1024] f32; aug7_locals [16,1024,7]; native host [16,1024] f32; raw20 [16,1024,20] channel-5 in [0,1]; r10_locals [16,1024,10]; native and r10 stores each hold exactly rows 0035..0234 (200 dirs); weights indexed by the same rank for both frames is correct (same 688-network roster).",
+    "STATISTICAL SANITY: conclusion-rule inputs (pooled M4(ii) plus 14-layer sign consistency) are computed exactly as frozen; degenerate cells characterized empirically - dev aug7 channel 4 (coincident_bond_degree) is identically 0.0 at all layers and native r10 layer 15 is identically 0.0 for all 10 channels - and all-zero cells were verified to yield corr = exactly 0.0 (cov exactly 0), never NaN or garbage; constant-NONZERO cells would produce astronomically large garbage via the 1e-300 variance floor, but none exist (minimum genuine pooled CV 4.5e-2 native layers 2..14, 6.8e-2 dev excluding channel 4, about six orders above the rounding-residue signature); division guards on a (proj_den>0 plus floor), born fraction (floored), and row correlations (std guard) leave no NaN path on finite inputs; sampled inputs all finite."
+  ],
+  "material_defects_found": 0,
+  "minor_notes": [
+    "M6 omission: the frozen M6 text lists per-hard-row unit concentration, which the program does not compute (layer profiles and channel magnitudes are covered); descriptive only, no bearing on the conclusion rule, and recoverable post-hoc from the same read-only inputs under the same frozen definition.",
+    "Native-frame pooled M4 values are structurally diluted by 13/14 because r10 layer 15 is identically zero and contributes corr 0.0: the 0.15 pooled bar corresponds to about 0.1615 over the 13 live layers, and native sign consistency is capped at 13 of 14 (layer 15 sign 0 never matches a nonzero pooled sign). Both effects make the conclusion rule strictly more conservative, never easier; readers of the receipt should interpret native pooled magnitudes and consistency counts with this in mind.",
+    "Dev channel 4 (coincident_bond_degree) is identically zero, so its pooled M4 is 0.0 with a vacuous sign-consistency of 14; the 0.15 magnitude bar excludes it from ever being selected. Its M5 row correlation returns the guarded 0.0.",
+    "The 1e-300 variance floor in CorrAccumulator.corr() is not resolution-aware (vanishing-denominator pattern); it is safe for this frozen input set only because every degenerate cell is exactly zero. A one-line guard (corr = 0 where sxx == 0) would make it robust by construction; recommended, not required.",
+    "M4 per-layer values are emitted only for the born target (layers 2..15); M4(i) local per-layer values and the layer-1 correlations are computed but not emitted, though the prereg says 'reported per layer and pooled' - the conclusion rule needs only what is emitted.",
+    "M1 fractional share of final-layer MSE is not separately emitted but is exactly derivable from emitted fields.",
+    "M2 is reported at probe layers 7/11/15 rather than all 16 layers; matches the audit instruction's frozen intent. The native even/odd half assignment is by roster-index parity (rank minus 35), swapping the half labels relative to literal rank parity; Pearson correlation is symmetric in the halves, so the reported number is unaffected.",
+    "M6 population channel median uses a stride-8 sample of 86 rows (excluding, by coincidence of stride, all four hard rows); immaterial for a median.",
+    "The mlp_id parquet column is read but never used (no join performed; firewall intact); the whole 688-row lawful parquet is materialized although only rows 35..234 feed the native frame.",
+    "The program does not pin BLAS thread counts; the preregistration freezes threads: 2, so the launcher should set OMP_NUM_THREADS=2 (and VECLIB_MAXIMUM_THREADS=2 on macOS) to conform to the resource freeze.",
+    "Dev-frame Phi and channels describe the cp1792 development host while the dev error is the Q24-lineage repaired host error; the preregistration itself marks the dev channels as cross-frame comparison only, and the M3 dev attribution inherits that caveat by design. The native frame is the internally consistent one and is the frame the conclusion rule is designed around."
+  ],
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0
+}

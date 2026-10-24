@@ -1,0 +1,108 @@
+{
+ "what": "One new input column of the learned mean correction's first layer (enc0) with its 128 weights after ONE line-search step along the mean of 36 exact network gradients.",
+ "files": {
+  "u_128": "the 128 weights of the new column (float32)",
+  "enc0_w_127": "the parent enc0_w (128 x 126) with the new column inserted at index 30 (after the 30 feature columns, before the 96 message columns)",
+  "enc0_w_features_31": "the first 31 columns of that array (30 features + the new one)",
+  "torch_pred": "predictions of all 16 layers (16 x 1024, float32) of the torch card on ranks 651 and 378 with the column off and on: the parity target is their difference"
+ },
+ "column_definition": [
+  "layers 1..14 only; layers 0 and 15 and the final-layer feature function: 0",
+  "rows = the response rows of this layer's bank read",
+  "B_ii = diagonal of the law's matrix on the columns pushed into the layer: sum_r (w_r pp_ir^2 + x_r pp_ir pp_i,partner(r))",
+  "fit = least squares of B_ii over those rows on (tr C v_i, 1, mu_i^2, 2 mu_i (C mu)_i); C = pre-activation covariance, v its diagonal floored at 1e-12, mu = pre-activation mean, C mu over all units; float64",
+  "x_i = (B_ii - fit_i) / (tr C v_i) on the rows",
+  "z_i = clip((x_i - mean) / sd, -8, 8), mean and sd over the rows, sd with n - 1; 0 if sd is 0 or not finite",
+  "units outside the rows: z_i = 0",
+  "float32; enc0 pre-activation = [30 features, 96 messages] enc0_w' + enc0_b + z_i u'  (as a 31st feature column: centre 0, scale 1 for every layer, layer-15 mask 1)"
+ ],
+ "card": "S39 card (candidate 3 + star by row sums), pair law with the constant regressor and three forms, k31l on cohorts of ages 1-2 at strength 1, second dials (O/trainer/candidates/law_dials_d7_ages12: candidate.py sha c2b7f6839646 + its physics_dials.json)",
+ "judged": "first 25 judging ranks, torch, forward only, final-layer MSE: against the same card without the column -1.787% (se 0.286, better on 23 of 25; all layers -2.028%); against the same card with the FIRST dials (the S41 arithmetic in torch) -2.612% (se 0.344, 23 of 25; all layers -2.868%)",
+ "line_search": "16 line-search ranks: step 0.1 -1.154% (16 of 16), 0.25 -1.740%, 0.5 +0.031%; parabola minimum 0.2484 (the weights' length), -1.75%",
+ "gradient": "mean over 36 training networks at zero weights: 105 of 128 weights beyond 3 standard errors, mean t squared 55, split-half cosine 0.98 (all-units version of the column; the response-rows version gives the same first step)",
+ "parity": {
+  "651": {
+   "final_layer_mse_off": 1.2824927177279182e-08,
+   "final_layer_mse_on": 1.2645082899174509e-08,
+   "change_pct": -1.4023025286513002,
+   "rms_change_per_layer": [
+    0.0,
+    1.2512971941238508e-06,
+    8.79010576369379e-07,
+    2.2100102671900324e-06,
+    3.762232590637855e-06,
+    5.261494022740968e-06,
+    6.122007227294186e-06,
+    7.325919197975052e-06,
+    9.626950979431864e-06,
+    1.0704359569009105e-05,
+    1.1675595226886943e-05,
+    1.1868100446702177e-05,
+    1.293500144504449e-05,
+    1.2711867580333503e-05,
+    1.3929536718524876e-05,
+    1.476144079965085e-05
+   ],
+   "response_rows_per_layer": [
+    0,
+    1024,
+    1024,
+    992,
+    928,
+    896,
+    864,
+    800,
+    736,
+    704,
+    672,
+    640,
+    608,
+    608,
+    640,
+    0
+   ]
+  },
+  "378": {
+   "final_layer_mse_off": 1.2641278197384936e-08,
+   "final_layer_mse_on": 1.2593337277048404e-08,
+   "change_pct": -0.3792410829661974,
+   "rms_change_per_layer": [
+    0.0,
+    1.3664018641515051e-06,
+    1.0169580477396429e-06,
+    2.272787960826379e-06,
+    3.62139631379464e-06,
+    5.5362920312688985e-06,
+    5.965262135350932e-06,
+    7.390197354432375e-06,
+    9.208939105203988e-06,
+    1.0059872879450067e-05,
+    1.05434530204784e-05,
+    1.1085268194794558e-05,
+    1.243751098486267e-05,
+    1.3195313287905909e-05,
+    1.4463647371016635e-05,
+    1.5779976594811742e-05
+   ],
+   "response_rows_per_layer": [
+    0,
+    1024,
+    1024,
+    992,
+    928,
+    896,
+    832,
+    768,
+    736,
+    672,
+    640,
+    640,
+    608,
+    544,
+    544,
+    0
+   ]
+  }
+ },
+ "torch_code": "O/trainer/otr_m.py (comment HEAD INPUTS; function columns, column 6); request fields hf: 2, hu: O/trainer/cert/head/s1r_weights.json; law module n6x = O/trainer/frozen/ncar6_t1402x.py"
+}

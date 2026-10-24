@@ -1,0 +1,37 @@
+{
+  "schema": "w2-condrepair-board-attempt-result-v1",
+  "node": "P2R0F2W2",
+  "attempt_classification": "CONSUMED_FAILED__ONE_MLP_TIMEOUT_ZERO_FALLBACK",
+  "submission": {
+    "id": 328400,
+    "challenge_id": 1174,
+    "challenge_round_id": 1429,
+    "created_at": "2026-08-25T13:41:37.418Z",
+    "grading_status_cd": "graded",
+    "score_adjusted": 0.026391339219659114,
+    "score_secondary_raw_final": 0.02639134407304059
+  },
+  "candidate": {
+    "estimator_sha256": "24ed2325e4db0c0287a222189a986c2d6462f80832c717827c27b783a6655ee2",
+    "archive_sha256": "16d3b38bb219812671467b148ca7aa7e2aa1f3003fb07e410b4a78fcbee58021"
+  },
+  "authority": {
+    "fire_authority_receipt": "FIRE_AUTHORITY_RECEIPT.json",
+    "attempts_authorized": 1,
+    "attempts_consumed": 1
+  },
+  "diagnosis": {
+    "user_report": "your bank failed because one of the mlps timed out (2026-08-25, mid-session)",
+    "arithmetic_consistency": "One zero-prediction fallback MLP with truth-power MSE about 1.32 dominates the 50-row mean: 1.32/50 = 0.0264, matching both scores; adjusted equals raw to 8 digits because the fallback row is billed at effectively full budget, so its multiplier is 1.0.",
+    "delta_vs_banked": "The card differs from graded 328326 by exactly the 16-line Cholesky certificate block; a synchronous certificate exception falls back to the banked eigh path, so the timeout row most plausibly paid repeated failed-certificate attempts (cholesky wall on top of full eigh wall) on an already-slow hard row.",
+    "banked_baseline_unchanged": {
+      "submission_id": 328326,
+      "raw_final_layer_mse": 2.9409640056599073e-08,
+      "score_adjusted": 2.847207506864414e-08
+    }
+  },
+  "successor": "public_condrepair_deployment_card_v3: same card plus a deterministic failure-stop guard (2 consecutive failed certificates disable further attempts for the rest of that MLP; success resets; state resets per predict). Worst case per row = banked + at most 2 cholesky attempts; grader reproducibility preserved (no clocks).",
+  "observation_channel": "GET https://www.aicrowd.com/api/v1/submissions/328400 (authenticated, read-only)",
+  "score_accessed": true,
+  "target_accessed": false
+}

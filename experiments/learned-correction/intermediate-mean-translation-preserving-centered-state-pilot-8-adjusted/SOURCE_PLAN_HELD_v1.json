@@ -1,0 +1,34 @@
+{
+  "status": "SOURCE_ONLY_MINIMAL_MECHANISM_FOR_ROOT_REVIEW",
+  "candidate_sha256": "28825d8844545a068be29e88b20839ddb14581de8732c1bc120b0515c0990282",
+  "parent_sha256": "4d7739a5ad4444be8c20bdd5c5bc86f1cee5536a2c21e956d86dd95e6c83d8d9",
+  "coefficients_source_sha256": "214349861d83ed18ab84422d27b451cdfb8ba53986f9b4868256e4c7f15b767e",
+  "fragment_sha256": "cfa31e8f108b4dd5f0d2ae91663193ca574367f571e5762cc91ab249de8e8a60",
+  "source_inverse_exact": true,
+  "refit": false,
+  "layers": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "ridge": 10.0,
+  "shrink": 0.5,
+  "core_changes": [
+    [
+      "\n            means.append(m)\n",
+      "\n            _lmt_next_mean = _lmt_translation(l, m)\n            means.append(_lmt_next_mean)\n"
+    ],
+    [
+      "            radial = radial_new\n",
+      "            radial = radial_new\n            m = _lmt_next_mean\n"
+    ]
+  ],
+  "mechanism": "Compute translated output after original FHM covariance update; preserve original m for current BFIX/NP/trace/birth consumers; assign translated m only after all current centered-state construction for next layer. Original FHM/head unchanged.",
+  "prior_failed_source_sha256": "8ac1053c8ebc4f6da8f8d68bb228cd58ecbe55e2f1e4f3291a632a32c4467c7e",
+  "no_models": true
+}

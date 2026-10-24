@@ -1,0 +1,51 @@
+{
+  "schema": "combo-radial-metric14-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_read7_scan_v1/candidate.py",
+    "sha256": "2212448b123d4be2dadf9c4c8642b49ad1cb3e073a1cc49684e4fc083a19c14f",
+    "bytes": 972032
+  },
+  "scope": "native2_only",
+  "intervention": "Only final radial assignment at L14 and metric covariance: radial_new * denominator / D(final C), with original association radial_new*(denominator/D).",
+  "D": "trace(C)^2 + 2*sum(C*C)",
+  "numerator": "Existing denominator before learned edge and GNN covariance/recentering; no new capture.",
+  "premise": "Preserve double trace of the radial fourth-cumulant closure across the subsequent covariance update. This does not claim raw-fourth-moment or exact recentering consistency.",
+  "unchanged": "All current layer mean/C, birth/third target/bfix paths, coefficient1, all other layer radial values, wrappers, kernel routes, caches, setup and resource limits.",
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "coefficient": 1,
+  "no_window_or_coefficient_rescue": true,
+  "prior_negative_evidence": "Terminal fixed k4-band convention correction raw+.2803%; L14 third-target recenter raw+3.8006%; historical covariance adjoint found radial consumer weak. No accuracy-gain promise.",
+  "cost": {
+    "extra_dense_fp64_operations": "One multiply and one sum of n*n, each FP64 rate2; trace, scalar power/multiply/add/divide add O(n) work.",
+    "dominant_paid_flops": 4194304,
+    "approx_total_bill_pct": 0.0016,
+    "new_gemm": false,
+    "new_persistent_storage": false
+  },
+  "score_policy": "N2 incremental vs combo<=-.1%,>=1win,maxreg<=1%; then own boundary before N8<=-.1%,>=6wins,CIupper<0,additional6negative. Broad only total gain vs S34>=.8%; final VALID40 bank>=1%.",
+  "symbolic_fixture": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_radial_metric14_v1/symbolic_result.json",
+    "sha256": "597810d1abab90beb581d488a2c1ff9dc0e81a6acdc88cf9d40d17fae761a985",
+    "bytes": 599
+  },
+  "model_executed": false,
+  "serving_qualified": false,
+  "submitted": false
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "p2r0f2j-q24-native-final-generation-preregistration-v1",
+  "status": "frozen-after-native-transfer-pass-before-final-generation",
+  "node": "P2R0H7B",
+  "objective": "Materialize the exact target-free Q24-native host/raw20/sigma tapes needed for a fixed all-688 observer_fit final fit after the protected native-transfer gate passed.",
+  "authorization_gate": {
+    "pilot_result": "../public_q24_native_transport_energy_pilot_v1/PILOT_RESULT.json",
+    "pilot_result_sha256": "7ecdc3438ddd4934853134ef0002b517e8111a2ecbf3a0e9abdafd0efb7e89a7",
+    "required_decision": "decision_gate.conjunctive_pass == true",
+    "protected_validation_raw_mse": 3.107235383605394e-08
+  },
+  "population": {
+    "role": "observer_fit",
+    "total_final_fit_rows": 688,
+    "already_materialized_pilot_ranks_inclusive": [35, 234],
+    "already_materialized_count": 200,
+    "fresh_complement": "ranks 0:34 and 235:687",
+    "fresh_count": 488,
+    "observer_selection_rows": 0,
+    "name_or_board_joins": 0
+  },
+  "source": {
+    "instrumented_estimator": "../public_q24_native_transport_energy_pilot_v1/instrumented_estimator.py",
+    "instrumented_estimator_sha256": "f539889324fb82cc1ded35a41c8b5a359014d9ddac52eab62949257e8e58a0ef",
+    "feature_manifest_sha256": "9a43423982924bcc7a0c5b87288b19ff42452c90c9cc7b7f590e565d1b276f50",
+    "field_contract": "unchanged twenty Q24-native fields and sigma seam proven by the 160/40 protected transfer pilot"
+  },
+  "execution": {
+    "workers": 3,
+    "threads_per_worker": 2,
+    "phase2_budget_per_row": 2199023255552,
+    "wall_limit_seconds_per_row": 120.0,
+    "rss_limit_bytes_per_worker": 8589934592,
+    "storage_limit_bytes_for_fresh_rows": 1073741824,
+    "progress_interval_rows": 100
+  },
+  "final_fit_policy_bound_now": {
+    "training_rows": 688,
+    "validation_rows": 0,
+    "checkpoint_selection": "none; fixed epoch 6 only",
+    "architecture": "exact P2R0F2J D16 H96 C4 transport-energy coherence model",
+    "model_seed": 1753358478,
+    "shuffle_stream_id": 40,
+    "epochs": 6,
+    "batch_size_networks": 3,
+    "exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 2e-05,
+    "gradient_clip": 5.0,
+    "target_role": "observer_fit only"
+  },
+  "firewall": {
+    "target_columns_during_generation": [],
+    "observer_selection": false,
+    "network_or_submission": false,
+    "private_or_board_identity_join": false
+  },
+  "failure_policy": "Abort on any seal/hash/schema/finiteness/budget/wall/RSS/storage failure; never silently omit a rank."
+}

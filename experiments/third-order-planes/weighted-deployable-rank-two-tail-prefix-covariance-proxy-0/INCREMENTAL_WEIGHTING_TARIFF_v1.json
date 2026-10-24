@@ -1,0 +1,102 @@
+{
+  "status": "SOURCE_ONLY_INCREMENTAL_WEIGHTING_TARIFF",
+  "per_layer": [
+    {
+      "layer": 2,
+      "m": 1024,
+      "prefix": 960,
+      "increment_flops": 71872,
+      "charged_ops": 18
+    },
+    {
+      "layer": 3,
+      "m": 992,
+      "prefix": 928,
+      "increment_flops": 69600,
+      "charged_ops": 18
+    },
+    {
+      "layer": 4,
+      "m": 928,
+      "prefix": 896,
+      "increment_flops": 65472,
+      "charged_ops": 18
+    },
+    {
+      "layer": 5,
+      "m": 864,
+      "prefix": 864,
+      "increment_flops": 61344,
+      "charged_ops": 18
+    },
+    {
+      "layer": 6,
+      "m": 800,
+      "prefix": 800,
+      "increment_flops": 56800,
+      "charged_ops": 18
+    },
+    {
+      "layer": 7,
+      "m": 768,
+      "prefix": 800,
+      "increment_flops": 54944,
+      "charged_ops": 18
+    },
+    {
+      "layer": 8,
+      "m": 672,
+      "prefix": 768,
+      "increment_flops": 48960,
+      "charged_ops": 18
+    },
+    {
+      "layer": 9,
+      "m": 704,
+      "prefix": 768,
+      "increment_flops": 50816,
+      "charged_ops": 18
+    },
+    {
+      "layer": 10,
+      "m": 672,
+      "prefix": 704,
+      "increment_flops": 48128,
+      "charged_ops": 18
+    },
+    {
+      "layer": 11,
+      "m": 608,
+      "prefix": 704,
+      "increment_flops": 44416,
+      "charged_ops": 18
+    },
+    {
+      "layer": 12,
+      "m": 608,
+      "prefix": 736,
+      "increment_flops": 44832,
+      "charged_ops": 18
+    },
+    {
+      "layer": 13,
+      "m": 576,
+      "prefix": 736,
+      "increment_flops": 42976,
+      "charged_ops": 18
+    },
+    {
+      "layer": 14,
+      "m": 512,
+      "prefix": 704,
+      "increment_flops": 38848,
+      "charged_ops": 18
+    }
+  ],
+  "total_flops": 699008,
+  "total_charged_ops": 234,
+  "estimated_wholebill_pct": 0.00028288190876280716,
+  "exact_matrix_product_count_unchanged": true,
+  "method": "Use Qright=D*Qw for coefficient extraction and Qleft=Qw/D for reconstruction; avoids scaling the full young-left matrix. In power step multiply V by gate_prefix^2, U by D. Original old-inner reused/subtracted once.",
+  "limitations": "Only incremental vector/skinny operations priced. Existing two QR+four power matmuls and tail products remain at original shapes/dtypes. Views/scalar transfers total RPC not fully measured; degeneracy policy and native rounding still need source qualification. No implementation or model calls."
+}

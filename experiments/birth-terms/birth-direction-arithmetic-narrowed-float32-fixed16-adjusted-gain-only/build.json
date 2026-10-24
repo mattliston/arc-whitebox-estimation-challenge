@@ -1,0 +1,104 @@
+{
+  "source_only": true,
+  "numerical_execution": false,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_direction_fp32_v1/candidate.py",
+    "sha256": "cbb425ab3e38996d119d0b39da1d5a3078c8f4eeff901ef0f2274f29e580e7d4",
+    "bytes": 930628
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_direction_fp32_v1/build.py",
+    "sha256": "2bc7e9473ca70ff887d39bcde68d05db040a0096051677bae15b5cca6dead617",
+    "bytes": 5930
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_direction_fp32_v1/PROTOCOL.md",
+    "sha256": "b97f8f20780050b2788e83401cbdab0b3f4cf0e3014789f5d2bf9a8918eebef6",
+    "bytes": 2444
+  },
+  "precision_inventory": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_direction_fp32_v1/PRECISION.md",
+    "sha256": "ad38c1b2b142c226e8034a120ee372410d9544949877bd42e25c175dc21b1c83",
+    "bytes": 2760
+  },
+  "reference_builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/build_f32.py",
+    "sha256": "0337462ee548bd70e88f5fb0a6219961880164c2d26ed6da44dba825e927f41c",
+    "bytes": 5851
+  },
+  "reference_result": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/RESULT.md",
+    "sha256": "f55ef74cb1f50d42fe0aa1139a711fda0a5b11818f53d84befebc20ca49b006d",
+    "bytes": 185356
+  },
+  "edits": [
+    {
+      "function": "_e2_bd_state3",
+      "line": 7080,
+      "before": "def _e2_bd_state3(n):\n    st = _E2_BD_STATE3.get(n)\n    if st is None:\n        D = fnp.empty((3, n, n), dtype=fnp.float64)\n        st = dict(D=D, Dv=fnp.unstack(D), D12=D[1:3], diag=fnp.arange(3 * n) % n * (n + 1) + fnp.arange(3 * n) // n * (n * n),\n                  old32=fnp.empty((n, n), dtype=fnp.float32))\n        _E2_BD_STATE3[n] = st\n    return st\n",
+      "after": "def _e2_bd_state3(n):\n    st = _E2_BD_STATE3.get(n)\n    if st is None:\n        D = fnp.empty((3, n, n), dtype=fnp.float32)   # E-29 BD-only: three current directions.\n        st = dict(D=D, Dv=fnp.unstack(D), D12=D[1:3], diag=fnp.arange(3 * n) % n * (n + 1) + fnp.arange(3 * n) // n * (n * n),\n                  old32=fnp.empty((n, n), dtype=fnp.float32))\n        _E2_BD_STATE3[n] = st\n    return st\n",
+      "replacements": [
+        {
+          "before": "D = fnp.empty((3, n, n), dtype=fnp.float64)",
+          "after": "D = fnp.empty((3, n, n), dtype=fnp.float32)   # E-29 BD-only: three current directions."
+        }
+      ]
+    },
+    {
+      "function": "_bd_update",
+      "line": 7544,
+      "before": "def _bd_update(bp, Cpre, K21, aux, d, alive, births, a, t, s, coefficients):\n    _e2_H = _E2Hold()   # E2: temporaries of this call, released together (one hidden free trip)\n    _e2_hold = []   # E2: out= alias handles, released together at exit (one hidden free trip)\n    \"\"\"Return (new full stored base32, stored-pair repeated-plane delta64).\n\n    ``bp`` is the ORIGINAL off-diagonal g_i*Cpre_ij.  Orthogonalization is\n    unmasked, columnwise, before the prescribed native alive-row mask.\n    Below the 1e-20 norm-squared floor this is a regularized residual,\n    not a claim of exact Euclidean orthogonality.\n    No input is mutated.  The returned delta's diagonal is explicitly zero.\n    This is added to old ``born``; it does not replace the old beta term.\n    E2: the four directions live in one persistent (4,n,n) stack; projection, orthogonalization and the ordered\n    coefficient sum run once over the stack (same per-element float64 operations and order as the j-loop).\n    \"\"\"\n    n = int(_e2_H(bp.shape[0]))\n    st = _e2_bd_state3(n)   # J3CUT: three directions\n    D = st['D']; D0, D1, D2 = st['Dv']\n    c = coefficients.astype(fnp.float64)[:3]   # J3CUT: rows 0..2 of the unchanged four-column head\n    alpha = aux['alpha']\n    sigma = aux['sigma']\n    g = aux['gate']\n    eta = alpha / sigma\n    half_d = 0.5 * d\n    negative_half_g = _e2_H(-0.5) * g\n    negative_half_d = -half_d\n    denominator = fnp.maximum(_e2_H(fnp.sum(_e2_H(bp * bp), axis=0)), 1e-20)\n    _e2_hold.append(fnp.multiply(half_d[:, None], K21, out=D0))\n    _e2_hold.append(fnp.multiply(negative_half_g[:, None], K21.T, out=D1))\n    _e2_hold.append(fnp.multiply(negative_half_d[:, None], _E2_LAYER['CC'] if _E2_LAYER.get('Cpre') is Cpre and 'CC' in _E2_LAYER else Cpre * Cpre, out=D2))\n    _e2_hold.append(fnp.multiply(st['D12'], eta, out=st['D12']))\n    fnp.put(D, st['diag'], 0.0)\n    _s19_raw = None\n    if _S19_BD_ADD is not None:   # PT-33 S19: physical raw legs ADDED to the learned orthogonalized ones (covhunter X0/X2/X3)\n        for _s19_j, _s19_x in enumerate(_S19_BD_ADD[:3]):   # J3CUT: no X3 raw leg\n            if _s19_x != 0.0:\n                _s19_t = st['Dv'][_s19_j] * _s19_x\n                _s19_raw = _s19_t if _s19_raw is None else _s19_raw + _s19_t\n    projection = _e2_H(fnp.sum(_e2_H(bp * D), axis=1)) / denominator\n    if _BD_J1_PHYS is not None:   # PT-27 j05: leg j1 (row 1) in PHYSICAL form: not orthogonalized, coefficient _BD_J1_PHYS instead of c[1]\n        _j1m, _g5_j1tail, _g5_j1col = _g5_j1((1.0, 0.0, 1.0), _BD_J1_PHYS)   # G5: per-process constants\n        projection = _g5_mulrow(projection, _j1m)\n        c = (c * _j1m + _g5_j1tail) if c.ndim == 1 else (_g5_mulrow(c, _j1m) + _g5_j1col)\n    _e2_hold.append(fnp.subtract(D, _g5_bcast3(bp, projection), out=D))\n    _e2_hold.append(fnp.multiply(D, c[:, None, None] if c.ndim == 1 else c[:, None, :], out=D))\n    change = fnp.sum(D, axis=0)\n    if _s19_raw is not None:\n        change = change + _s19_raw\n    fnp.fill_diagonal(change, 0.0)\n\n    alive_column = alive[:, None]\n    old32 = st['old32']\n    _e2_hold.append(fnp.multiply(bp, alive_column, out=old32))\n    new32 = fnp.empty((n, n), dtype=fnp.float32)\n    _e2_hold.append(fnp.multiply(bp + change, alive_column, out=new32))\n    del change\n    old = old32.astype(fnp.float64)\n    new = new32.astype(fnp.float64)\n    difference = new - old\n    del new\n\n    # These are precisely the scalar values stored in lam/newborn, extended\n    # to all columns; births selects the exact same padded selected set.\n    ats32 = fnp.stack((a, _e2_H(t * alive), _e2_H(s * alive)), dtype=fnp.float32)\n    _E2_LAYER.update(ats_a=a, ats_t=t, ats_s=s, ats_alive=alive, ats32=ats32)\n    a64, t64, s64 = fnp.unstack(_e2_H(ats32.astype(fnp.float64)))\n    weight = _g5_chain(a64, _e2_H(t64 - s64), births)\n    quadratic_weight = _g5_chain(a64, _e2_H(_e2_H(t64 * t64) - _e2_H(s64 * s64)), births)\n    delta = _e2_H(_e2_H(_e2_H(_e2_H(2 * old) * difference) + _e2_H(difference * difference)) * weight) + _e2_H(fnp.einsum('i,ji->ij', quadratic_weight, difference, optimize=False))\n    fnp.fill_diagonal(delta, 0.0)\n    return new32, delta\n",
+      "after": "def _bd_update(bp, Cpre, K21, aux, d, alive, births, a, t, s, coefficients):\n    _e2_H = _E2Hold()   # E2: temporaries of this call, released together (one hidden free trip)\n    _e2_hold = []   # E2: out= alias handles, released together at exit (one hidden free trip)\n    \"\"\"Return (new full stored base32, stored-pair repeated-plane delta64).\n\n    ``bp`` is the ORIGINAL off-diagonal g_i*Cpre_ij.  Orthogonalization is\n    unmasked, columnwise, before the prescribed native alive-row mask.\n    Below the 1e-20 norm-squared floor this is a regularized residual,\n    not a claim of exact Euclidean orthogonality.\n    No input is mutated.  The returned delta's diagonal is explicitly zero.\n    This is added to old ``born``; it does not replace the old beta term.\n    E2: the four directions live in one persistent (4,n,n) stack; projection, orthogonalization and the ordered\n    coefficient sum run once over the stack; E-29 BD-only now computes this internal stack in float32.\n    Current three legs, coefficients, raw-leg additions and FP64 physical delta are preserved.\n    \"\"\"\n    n = int(_e2_H(bp.shape[0]))\n    st = _e2_bd_state3(n)   # J3CUT: three directions\n    D = st['D']; D0, D1, D2 = st['Dv']\n    c = coefficients.astype(fnp.float32)[:3]   # J3CUT: rows 0..2 of the unchanged four-column head\n    alpha = aux['alpha']\n    sigma = aux['sigma']\n    g = aux['gate']\n    eta = alpha / sigma\n    half_d = 0.5 * d\n    negative_half_g = _e2_H(-0.5) * g\n    negative_half_d = -half_d\n    denominator = fnp.maximum(_e2_H(fnp.sum(_e2_H(bp * bp), axis=0)), 1e-20)\n    _e2_hold.append(fnp.multiply(half_d[:, None], K21, out=D0))\n    _e2_hold.append(fnp.multiply(negative_half_g[:, None], K21.T, out=D1))\n    _e2_hold.append(fnp.multiply(negative_half_d[:, None], _E2_LAYER['CC'] if _E2_LAYER.get('Cpre') is Cpre and 'CC' in _E2_LAYER else Cpre * Cpre, out=D2))\n    _e2_hold.append(fnp.multiply(st['D12'], eta.astype(fnp.float32), out=st['D12']))\n    fnp.put(D, st['diag'], 0.0)\n    _s19_raw = None\n    if _S19_BD_ADD is not None:   # PT-33 S19: physical raw legs ADDED to the learned orthogonalized ones (covhunter X0/X2/X3)\n        for _s19_j, _s19_x in enumerate(_S19_BD_ADD[:3]):   # J3CUT: no X3 raw leg\n            if _s19_x != 0.0:\n                _s19_t = st['Dv'][_s19_j] * _s19_x\n                _s19_raw = _s19_t if _s19_raw is None else _s19_raw + _s19_t\n    bp32 = bp.astype(fnp.float32)   # E-29: denominator is still formed in FP64, then rounded.\n    projection = _e2_H(fnp.sum(_e2_H(bp32 * D), axis=1)) / denominator.astype(fnp.float32)\n    if _BD_J1_PHYS is not None:   # PT-27 j05: leg j1 (row 1) in PHYSICAL form: not orthogonalized, coefficient _BD_J1_PHYS instead of c[1]\n        _j1m, _g5_j1tail, _g5_j1col = _g5_j1((1.0, 0.0, 1.0), _BD_J1_PHYS)   # Original cached constants.\n        _j1m = _j1m.astype(fnp.float32)\n        _g5_j1tail = _g5_j1tail.astype(fnp.float32)\n        _g5_j1col = _g5_j1tail[:, None]   # Keep this internal coefficient branch in FP32.\n        projection = _g5_mulrow(projection, _j1m)\n        c = (c * _j1m + _g5_j1tail) if c.ndim == 1 else (_g5_mulrow(c, _j1m) + _g5_j1col)\n    _e2_hold.append(fnp.subtract(D, _g5_bcast3(bp32, projection), out=D))\n    _e2_hold.append(fnp.multiply(D, c[:, None, None] if c.ndim == 1 else c[:, None, :], out=D))\n    change = fnp.sum(D, axis=0)\n    if _s19_raw is not None:\n        change = change + _s19_raw\n    fnp.fill_diagonal(change, 0.0)\n\n    alive_column = alive[:, None]\n    old32 = st['old32']\n    _e2_hold.append(fnp.multiply(bp32, alive_column, out=old32))\n    new32 = fnp.empty((n, n), dtype=fnp.float32)\n    _e2_hold.append(fnp.multiply(bp32 + change, alive_column, out=new32))\n    del change\n    old = old32.astype(fnp.float64)\n    new = new32.astype(fnp.float64)\n    difference = new - old\n    del new\n\n    # These are precisely the scalar values stored in lam/newborn, extended\n    # to all columns; births selects the exact same padded selected set.\n    ats32 = fnp.stack((a, _e2_H(t * alive), _e2_H(s * alive)), dtype=fnp.float32)\n    _E2_LAYER.update(ats_a=a, ats_t=t, ats_s=s, ats_alive=alive, ats32=ats32)\n    a64, t64, s64 = fnp.unstack(_e2_H(ats32.astype(fnp.float64)))\n    weight = _g5_chain(a64, _e2_H(t64 - s64), births)\n    quadratic_weight = _g5_chain(a64, _e2_H(_e2_H(t64 * t64) - _e2_H(s64 * s64)), births)\n    delta = _e2_H(_e2_H(_e2_H(_e2_H(2 * old) * difference) + _e2_H(difference * difference)) * weight) + _e2_H(fnp.einsum('i,ji->ij', quadratic_weight, difference, optimize=False))\n    fnp.fill_diagonal(delta, 0.0)\n    return new32, delta\n",
+      "replacements": [
+        {
+          "before": "coefficient sum run once over the stack (same per-element float64 operations and order as the j-loop).",
+          "after": "coefficient sum run once over the stack; E-29 BD-only now computes this internal stack in float32.\n    Current three legs, coefficients, raw-leg additions and FP64 physical delta are preserved."
+        },
+        {
+          "before": "c = coefficients.astype(fnp.float64)[:3]",
+          "after": "c = coefficients.astype(fnp.float32)[:3]"
+        },
+        {
+          "before": "_e2_hold.append(fnp.multiply(st['D12'], eta, out=st['D12']))",
+          "after": "_e2_hold.append(fnp.multiply(st['D12'], eta.astype(fnp.float32), out=st['D12']))"
+        },
+        {
+          "before": "projection = _e2_H(fnp.sum(_e2_H(bp * D), axis=1)) / denominator",
+          "after": "bp32 = bp.astype(fnp.float32)   # E-29: denominator is still formed in FP64, then rounded.\n    projection = _e2_H(fnp.sum(_e2_H(bp32 * D), axis=1)) / denominator.astype(fnp.float32)"
+        },
+        {
+          "before": "_j1m, _g5_j1tail, _g5_j1col = _g5_j1((1.0, 0.0, 1.0), _BD_J1_PHYS)   # G5: per-process constants",
+          "after": "_j1m, _g5_j1tail, _g5_j1col = _g5_j1((1.0, 0.0, 1.0), _BD_J1_PHYS)   # Original cached constants.\n        _j1m = _j1m.astype(fnp.float32)\n        _g5_j1tail = _g5_j1tail.astype(fnp.float32)\n        _g5_j1col = _g5_j1tail[:, None]   # Keep this internal coefficient branch in FP32."
+        },
+        {
+          "before": "_e2_hold.append(fnp.subtract(D, _g5_bcast3(bp, projection), out=D))",
+          "after": "_e2_hold.append(fnp.subtract(D, _g5_bcast3(bp32, projection), out=D))"
+        },
+        {
+          "before": "_e2_hold.append(fnp.multiply(bp, alive_column, out=old32))",
+          "after": "_e2_hold.append(fnp.multiply(bp32, alive_column, out=old32))"
+        },
+        {
+          "before": "_e2_hold.append(fnp.multiply(bp + change, alive_column, out=new32))",
+          "after": "_e2_hold.append(fnp.multiply(bp32 + change, alive_column, out=new32))"
+        }
+      ]
+    }
+  ],
+  "inverse_exact": true,
+  "physical_delta_tail_byte_exact": true,
+  "modified_active_definitions": [
+    "_e2_bd_state3",
+    "_bd_update"
+  ],
+  "learned_literal_bytes_unchanged": true,
+  "source_added_bytes": 462,
+  "expected_layer0_bytes_exact": true,
+  "prediction_arithmetic": "All new casts/products use metered FNP; no external numerical code.",
+  "all_other_source_unchanged": true
+}

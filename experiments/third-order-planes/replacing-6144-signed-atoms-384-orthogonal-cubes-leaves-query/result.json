@@ -1,0 +1,652 @@
+{
+  "completed": true,
+  "numerical_checks_passed": true,
+  "information_gate_passed": false,
+  "query_relative_squared_error": 0.9540261570726674,
+  "plane_relative_squared_error": 0.8740800687347923,
+  "diagonal_relative_squared_error": 0.8504987027021403,
+  "query_signal_squared": 91801.11754627753,
+  "query_residual_squared": 87580.66738765137,
+  "plane_signal_squared": 1.1207959281019715,
+  "plane_residual_squared": 0.9796653818730465,
+  "old_tensor_frobenius_squared": 21.143643621508645,
+  "retained_orthogonal_cube_energy": 0.7526006421748065,
+  "tensor_relative_squared_error": 0.964405347741994,
+  "gram_absolute_to_signed_sum": 31.20866772543698,
+  "old_atoms": 6144,
+  "new_atoms": 384,
+  "physical_span_dimension": 384,
+  "checks": {
+    "qr_reconstruction": 1.6266651113674882e-15,
+    "orthogonality": 3.2277073571993677e-15,
+    "slice_symmetry": 3.920547991689592e-16,
+    "eigen_residual": 2.5330198618403402e-15
+  },
+  "network_rank": 35,
+  "entry_layer": 8,
+  "scope": "old shared prefix before the entry8 join, from stored rounded Q/F",
+  "verification_seed": 2026092004,
+  "verification_probes": 512,
+  "verification_probes_reused": true,
+  "precision": "optimistic FP64",
+  "packet_sha256": "adc532fcbd06c9c9f0de8636067a168ee42b0385089958e47bd0f79ec7aa63e6",
+  "merge_sha256": "97db011233fdb89d75df8e6091a52806998112e09aa1e9e424ad5bd9c34622dd",
+  "source_sha256": "0f21ddbacb9ea2f5f8aa7edebfe0da4579d6763a1c013dc2b2d52ba446118901",
+  "algebra_sha256": "e40403aa9becef5b0e01a65b7218fe86e25651e411f67eb0e2a39ba11deb79a7",
+  "fp64_gemm_leading_subtotals": {
+    "construction": 11400118272,
+    "qualification": 1283457024,
+    "diagnostic": 158846681088
+  },
+  "products": [
+    {
+      "tag": "construction_change_coordinates",
+      "shapes": [
+        [
+          384,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 3623878656
+    },
+    {
+      "tag": "construction_slice",
+      "shapes": [
+        [
+          384,
+          6144
+        ],
+        [
+          6144,
+          384
+        ]
+      ],
+      "fp64_leading_billed_flops": 3623878656
+    },
+    {
+      "tag": "construction_atom_queries",
+      "shapes": [
+        [
+          384,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 3623878656
+    },
+    {
+      "tag": "construction_physical_basis",
+      "shapes": [
+        [
+          896,
+          384
+        ],
+        [
+          384,
+          384
+        ]
+      ],
+      "fp64_leading_billed_flops": 528482304
+    },
+    {
+      "tag": "qualification_qr",
+      "shapes": [
+        [
+          896,
+          384
+        ],
+        [
+          384,
+          384
+        ]
+      ],
+      "fp64_leading_billed_flops": 528482304
+    },
+    {
+      "tag": "qualification_orthogonality",
+      "shapes": [
+        [
+          384,
+          896
+        ],
+        [
+          896,
+          384
+        ]
+      ],
+      "fp64_leading_billed_flops": 528482304
+    },
+    {
+      "tag": "qualification_eigensystem",
+      "shapes": [
+        [
+          384,
+          384
+        ],
+        [
+          384,
+          384
+        ]
+      ],
+      "fp64_leading_billed_flops": 226492416
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_norm_gram",
+      "shapes": [
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 2415919104
+    },
+    {
+      "tag": "diagnostic_form_old_prefix",
+      "shapes": [
+        [
+          896,
+          384
+        ],
+        [
+          384,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 8455716864
+    },
+    {
+      "tag": "diagnostic_push_old",
+      "shapes": [
+        [
+          1024,
+          896
+        ],
+        [
+          896,
+          6144
+        ]
+      ],
+      "fp64_leading_billed_flops": 22548578304
+    },
+    {
+      "tag": "diagnostic_push_merged",
+      "shapes": [
+        [
+          1024,
+          896
+        ],
+        [
+          896,
+          384
+        ]
+      ],
+      "fp64_leading_billed_flops": 1409286144
+    },
+    {
+      "tag": "diagnostic_reference_query_leg_a",
+      "shapes": [
+        [
+          6144,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 12884901888
+    },
+    {
+      "tag": "diagnostic_reference_query_leg_b",
+      "shapes": [
+        [
+          6144,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 12884901888
+    },
+    {
+      "tag": "diagnostic_reference_query_read",
+      "shapes": [
+        [
+          1024,
+          6144
+        ],
+        [
+          6144,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 12884901888
+    },
+    {
+      "tag": "diagnostic_merged_query_leg_a",
+      "shapes": [
+        [
+          384,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 805306368
+    },
+    {
+      "tag": "diagnostic_merged_query_leg_b",
+      "shapes": [
+        [
+          384,
+          1024
+        ],
+        [
+          1024,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 805306368
+    },
+    {
+      "tag": "diagnostic_merged_query_read",
+      "shapes": [
+        [
+          1024,
+          384
+        ],
+        [
+          384,
+          512
+        ]
+      ],
+      "fp64_leading_billed_flops": 805306368
+    },
+    {
+      "tag": "diagnostic_reference_plane",
+      "shapes": [
+        [
+          1024,
+          6144
+        ],
+        [
+          6144,
+          1024
+        ]
+      ],
+      "fp64_leading_billed_flops": 25769803776
+    },
+    {
+      "tag": "diagnostic_merged_plane",
+      "shapes": [
+        [
+          1024,
+          384
+        ],
+        [
+          384,
+          1024
+        ]
+      ],
+      "fp64_leading_billed_flops": 1610612736
+    }
+  ],
+  "complete_fnp_deployment_bill": false,
+  "actual_accuracy_score_measured": false,
+  "truth_accessed": false,
+  "model_calls": 0,
+  "new_samples": 0,
+  "new_training": false,
+  "seconds": 1.785480041988194,
+  "peak_rss_bytes": 600621056,
+  "numpy_version": "2.4.6",
+  "threads": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/lib/python3.11/site-packages/numpy/.dylibs/libscipy_openblas64_.dylib",
+      "version": "0.3.31.188.0",
+      "threading_layer": "pthreads",
+      "architecture": "neoversen1"
+    }
+  ]
+}

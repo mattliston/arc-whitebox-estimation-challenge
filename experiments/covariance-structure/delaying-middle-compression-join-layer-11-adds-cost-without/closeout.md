@@ -1,0 +1,1 @@
+The isolated middle join11 trial is closed after failed actual FIT4. Raw error changed −0.0312390823%, compute +2.3060568354%, adjusted score +2.2754704861%, with zero adjusted wins. Delaying this join did not repay its extra compute. No CHECK8, resource test, full40 or submission follows. The original RRPI parent and official S35 remain unchanged.

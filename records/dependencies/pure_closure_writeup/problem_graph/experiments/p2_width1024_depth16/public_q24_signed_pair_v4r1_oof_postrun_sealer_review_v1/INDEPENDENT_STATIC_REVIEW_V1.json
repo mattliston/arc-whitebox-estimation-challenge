@@ -1,0 +1,259 @@
+{
+  "schema": "public-q24-signed-pair-v4r1-oof-postrun-sealer-independent-static-review-v1",
+  "status": "HOLD_FROZEN_POSTRUN_SEALER__FOLD_PURITY_EXACT_BINARY64_AND_PROVENANCE_BINDINGS_INCOMPLETE",
+  "date": "2026-08-27",
+  "issued_utc": "2026-08-28T05:06:35Z",
+  "issued_by": "independent_reviewer",
+  "review_id": "q24-signed-pair-v4r1-oof-postrun-sealer-review-v1-hold-exact-evidence",
+  "review_scope": "read-only frozen source, schema, hash, AST, and synthetic-fixture review; no future OOF output, model, authority-instance, bank, staging, row, weight, target, score, estimator, board, network, or submission payload access",
+  "decision": "BUILD_AND_FREEZE_A_NARROW_SUCCESSOR_THAT_CLOSES_FOLD_PURITY_BINARY64_AND_SOURCE_PROVENANCE_BEFORE_ANY_LIVE_SEAL",
+  "reviewer_different_from_package_author": true,
+  "package_component_count": 13,
+  "package_root_inventory_count": 16,
+  "package_root_metadata": {
+    "regular_file_count": 16,
+    "symlink_count": 0,
+    "multiply_linked_regular_file_count": 0
+  },
+  "reviewed_frozen_sha256": {
+    "COMMAND_PLAN.json": "b49aba3a873b4ad0fb39afbad5f6f3d91b3781a9f47c1ed0ea2d7298456ea028",
+    "CONTRACT.json": "92b324ecbc34f7a0a9a864913ebaf9723987fc58902fc480aaaaeddfc36edbcc",
+    "FUTURE_BINDINGS_SCAFFOLD.json": "3d8ba871ba4bca7a91042da8d4890bce9c53e382749567549656d30416bc27e4",
+    "INDEPENDENT_REVIEW_REQUEST.md": "26e82e30a02783a8a3b46801d6b1aa7ebc506085437ca82eba1d7563ab6d6b3d",
+    "README.md": "c7f262ab15f4f9a5752cc3a54baf7f5996f263c32344578d9b72eded3805cd7f",
+    "REVIEW_SCAFFOLD.json": "487e636266e3e97a0644b12cb489049fcc2dd92670e959d24ca6bdbd51673281",
+    "SEAL_SCAFFOLD.json": "55c73bad4aef604bef27ba07b89852613bf4cbffb7d8720637d414290cdbd26b",
+    "STATIC_VERIFICATION.json": "daeb1f1240c029e197258d22e9f78d980f5682cb35d56a3f595df981d49776e5",
+    "adversarial_fixtures.py": "64ef56f0a099c6a0fc6ca50d55b21de8060f4f0f856bdb11e0013af63c81e60d",
+    "model_inventory_worker.py": "317d97c8c2b383907066dda55a4bfa183eb299588eaff1b9bd345495cc4fbfef",
+    "postrun_sealer.py": "b90717f859fd33f567d4109e40c9762af45d9e27f2b13e7fafd8ec0c3e225a5b",
+    "verify_freeze.py": "51633c66cdd7186bffe5b378a34522560846be12e762742bd44dcab7fc463104",
+    "verify_static.py": "915eddc422ae535558c6e12b732e3a209886246c91ef047e55ad1afcc02e6f80",
+    "PACKAGE_MANIFEST.json": "97821cea6bec4558bd44020211f4a4c70c397f6d33c9f3489feec866658e8fb1",
+    "FREEZE_RECEIPT.json": "f61b9c2a277ff079bc8a2c140a0d6ae77f268e1e3203b9bf470aa8918b50f09a",
+    "FREEZE_VERIFICATION.json": "4dad365e76576fe87100ef6968725608b44643face9b7abb9e998e8be69999b1"
+  },
+  "reviewed_static_prerequisite": {
+    "deployment_v1r2_manifest_sha256": "1670b4184826ebdac8c9cc00a18008e27fd106203aeaf8fff248c332a0d546c1",
+    "deployment_v1r2_freeze_receipt_sha256": "ff461dfc5efc1d598c1f347ed456b4e6f5d3db7be5f5485bcff84b6b426d1cbe",
+    "deployment_v1r2_freeze_verification_sha256": "cf66fbe5de8d3b6cbb49ebcdaad597b57e0c63412f81b1ed8a1194fd89c86084",
+    "deployment_v1r2_static_verification_sha256": "981c2bdcca99d3a0021887317b6cbe0324c46f210cc55d137f01b30b40c1966e",
+    "deployment_v1r2_contract_sha256": "539f6d6640a09681dd6a37030c9af3dfc1d95ce0901c9e4158443e9a33d0f6b9",
+    "deployment_v1r2_independent_GO_sha256": "edba20c8c357722cc54fe98e58c81bb2983425d6565ef4500eaf9bda0a7bc19b",
+    "binding_exact": true
+  },
+  "material_hold_blockers": [
+    {
+      "id": "inner_oof_fold_purity_and_declared_rank_hashes_not_replayed",
+      "severity": "FAIL_CLOSED_HONEST_NESTED_EVIDENCE_GAP",
+      "finding": "The reducer validates the 516 top-level metric rows per outer fold and their pooled 2,064-row multiplicity, but each inner receipt is checked only for labels, counts, and dict presence. It never validates the three 172-row inner-held inventories, proves disjoint coverage of the 516 outer-fit ranks, or proves that their exact H-specific rows equal the top-level metrics. The declared outer_fit_rank_int32_sha256 and inner_assignment_int8_sha256 are format-only under the frozen V1 validator and are not independently reconstructed. Thus the accepted rows are outer-fit rows but are not independently established as fold-pure inner-OOF rows.",
+      "locations": [
+        "postrun_sealer.py:691",
+        "postrun_sealer.py:708",
+        "postrun_sealer.py:710",
+        "postrun_sealer.py:769",
+        "deployment_contract.py:299",
+        "deployment_contract.py:301"
+      ],
+      "accepting_synthetic_witness": {
+        "mutation": "outer_fit_rank_int32_sha256 changed from the independently reconstructed fold-0 int32-le hash to 64 zeroes",
+        "correct_rank_sha256": "0bafa75c24a9c046af09fd93b33312d99a954797000b3ddf86feaf22778de096",
+        "accepted_wrong_rank_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "correct_canonical_selection_sha256": "b1f662370be25226d80c60f3a9144f067b80bba38f248fe1188b1413b0607c3f",
+        "accepted_wrong_canonical_selection_sha256": "4da497a51485f5fdcd9ff4e2b02fb18b981628f910ddcac09e2fae1f9f7124ec",
+        "postrun_selection_replay_accepted": true
+      }
+    },
+    {
+      "id": "canonical_negative_zero_aliases_survive_exact_metric_replay",
+      "severity": "FAIL_CLOSED_BINARY64_SCHEMA_ALIAS",
+      "finding": "Signed paired-summary mean_gain and numeric z are exact floats but are compared to recomputed NumPy values with Python numeric equality, under which -0.0 equals +0.0. The selection input map is validated only by frozen V1 finite-nonnegative logic, which also accepts -0.0, and its equality to the recomputed +0.0 mean is numeric. Therefore byte-distinct canonical receipts pass an advertised exact replay.",
+      "locations": [
+        "postrun_sealer.py:653",
+        "postrun_sealer.py:669",
+        "postrun_sealer.py:731",
+        "postrun_sealer.py:971",
+        "postrun_sealer.py:1003",
+        "deployment_contract.py:254",
+        "deployment_contract.py:256",
+        "deployment_contract.py:328",
+        "deployment_contract.py:330"
+      ],
+      "accepting_synthetic_witnesses": [
+        {
+          "field": "paired_vs_pair_zero.mean_gain and numeric z",
+          "recomputed_positive_zero_summary_sha256": "e36a299e8926c48b074fdd2c7650884884f53b43520e9082d17f616297d63951",
+          "accepted_negative_zero_summary_sha256": "c3c39cf67efe666bf8036c624cda03e59b8cf317b7bd7713c6370fc9cb156ea3",
+          "python_dict_equality": true,
+          "summary_type_validator_accepted": true
+        },
+        {
+          "field": "pair_on_raw_mse_selection_input.16",
+          "positive_zero_canonical_selection_sha256": "4f416f346f40c625afc7c7ce00e5155cca503f6c5863b6d278c63590a8d7b43d",
+          "accepted_negative_zero_canonical_selection_sha256": "6755edef4b8ccc0d57232858b5aef5f04692e9740cda35f845abc834977401d3",
+          "postrun_selection_replay_accepted": true
+        }
+      ]
+    },
+    {
+      "id": "result_source_roots_not_cross_bound_to_claim_and_validated_authority",
+      "severity": "FAIL_CLOSED_AUTHORITY_PROVENANCE_SPLIT",
+      "finding": "RESULT and the one-shot claim both carry the V1 HOLD, bank-generation receipt, ordered-688 record, target bundle, and outer-fold assignment roots, but validate_transaction compares RESULT to claim/authority only for claim, full-preflight, release, anchor, and consumed-capability roots. The five data/fold roots are merely checked as canonical SHA-256 strings and may disagree while validation accepts. The claim copies are likewise not required here to equal the already validated anchor package/bank/dynamic bindings or capability roots. This permits the sealed fold roster and data provenance to split from the reviewed authority chain.",
+      "locations": [
+        "postrun_sealer.py:890",
+        "postrun_sealer.py:919",
+        "postrun_sealer.py:1367",
+        "postrun_sealer.py:1389",
+        "postrun_sealer.py:1490",
+        "postrun_sealer.py:1502"
+      ],
+      "uncompared_overlapping_bindings": [
+        "v1_hold_receipt_sha256",
+        "bank_generation_receipt_sha256",
+        "ordered_688_record_sha256",
+        "target_bundle_sha256",
+        "outer_fold_assignment_uint8_sha256"
+      ]
+    },
+    {
+      "id": "published_seal_and_review_request_are_only_partially_revalidated",
+      "severity": "FAIL_CLOSED_CANONICAL_CONTROL_SCHEMA_GAP",
+      "finding": "Review issuance repeats output and transaction replay, but the published seal's access_truth and decision are not required to equal the issuer's frozen values. The published review request is not exact-key validated and several mandatory booleans are not checked. Byte-distinct canonical control artifacts can therefore be accepted as the reviewed predecessor even though the issuer body advertises exact control-schema replay.",
+      "locations": [
+        "postrun_sealer.py:1699",
+        "postrun_sealer.py:1761"
+      ],
+      "omitted_seal_fields": [
+        "access_truth",
+        "decision"
+      ],
+      "omitted_review_request_requirements": [
+        "exact_keyset",
+        "repeat_result_selection_and_transaction_validation",
+        "isolated_weights_only_cpu_model_inventory_required",
+        "materialize_strict_pooled_H_receipt_after_review_bytes",
+        "target_bank_row_weight_or_estimator_access_allowed"
+      ]
+    }
+  ],
+  "passes_preserved_for_successor": {
+    "reviewed_deployment_v1r2_GO_bound_exactly": true,
+    "terminal_failure_lstat_gate_precedes_every_output_member_open": true,
+    "exact_six_member_output_inventory_and_one_link_regular_checks": true,
+    "output_bytes_pre_and_post_hashed_with_directory_merkle": true,
+    "canonical_ASCII_JSON_duplicate_key_and_nonfinite_token_rejection": true,
+    "exact_CPython_3_11_5_and_NumPy_1_26_4_accuracy_replay": true,
+    "strict_builtin_integer_boolean_and_nonnegative_float_base_validation": true,
+    "exact_688_outer_held_coverage_and_four_172_row_partition": true,
+    "per_fold_and_aggregate_summary_gate_and_strict_raw_hurdle_recomputation": true,
+    "pooled_2064_value_vector_and_rank_vector_hash_construction": true,
+    "every_role_rank_0_through_687_exactly_three_times_per_H": true,
+    "math_fsum_divide_2064_and_frozen_tie_min_H_law": true,
+    "authority_anchor_review_capability_release_claim_consumption_preflight_chronology_core": true,
+    "terminal_failure_private_residue_and_no_retry_topology": true,
+    "isolated_process_weights_only_map_location_cpu_model_load": true,
+    "exact_model_object_keysets_tensor_shapes_float32_cpu_finiteness_and_normalizer_equality": true,
+    "complete_inner_outer_model_tensor_inventory_and_payload_merkle": true,
+    "model_worker_executes_no_inference_training_MPS_or_CUDA": true,
+    "distinct_fixed_seal_and_review_issuer_identities": true,
+    "seal_precedes_review_and_review_hash_precedes_H_receipt_without_cycle": true,
+    "review_and_H_receipt_publish_in_one_atomic_three_file_directory": true,
+    "seal_and_review_directories_are_exclusive_durable_atomic_and_no_retry": true,
+    "all_three_empirical_roots_null_at_freeze": true,
+    "all_refit_package_and_submission_authority_false_at_freeze": true,
+    "twenty_frozen_synthetic_fixtures_pass": true,
+    "static_and_freeze_replay_byte_exact_under_authorized_interpreter": true
+  },
+  "precise_successor_repair_contract": {
+    "lineage": "Do not mutate or promote V1. Create a new frozen sibling that binds this HOLD, recomputes every component/manifest/freeze root, and requests a fresh different-agent static review.",
+    "exact_binary64": [
+      "Compare every observed float in fold, aggregate, selection, seal, and H evidence to its recomputed value by exact struct.pack('<d', value) bytes after exact builtin-float and finiteness checks.",
+      "For semantically nonnegative inputs, reject negative zero explicitly. For signed fields such as paired mean_gain and numeric z, permit either zero sign only when it exactly matches the independently recomputed binary64 bytes.",
+      "Validate all three pair_on_raw_mse_selection_input values directly against the independently recomputed metric means with exact binary64 equality."
+    ],
+    "fold_purity_and_rank_hashes": [
+      "Require each selection's exact top-level and inner-receipt keysets.",
+      "For each outer fold and H, validate exactly three inner-held row inventories of 172 exact increasing unique rows, identical held rosters across H within each inner fold, pairwise disjoint rosters, and exact union equal to the 516 outer-fit ranks.",
+      "Require the sorted concatenation of the three inner-held rows for each H to be exact-field and binary64-equal to metrics[H].per_network.",
+      "Recompute outer_fit_rank_int32_sha256 from the exact increasing 516-role roster.",
+      "Reconstruct the rank-to-inner assignment from the three reviewed held rosters, serialize assignment[outer_fit] as signed int8 in outer-fit order, and require exact inner_assignment_int8_sha256 equality.",
+      "Where inner j held-rank hashes are retained, recompute them from the exact inner-held roster."
+    ],
+    "authority_and_result_provenance": [
+      "Require every claim binding to equal the corresponding validated anchor package, anchor bank, anchor dynamic, capability, release, or frozen science root.",
+      "Require every RESULT binding overlapping the claim to equal the exact claim value, including V1 HOLD, bank generation, ordered record, target bundle, and outer-fold assignment.",
+      "Require RESULT preregistration and static-verification roots to equal the validated anchor package bindings, not merely canonical SHA strings.",
+      "Bind the recomputed outer held/fit rosters to the exact reviewed outer-fold assignment root."
+    ],
+    "published_control_artifacts": [
+      "Exact-key validate the published seal and review request.",
+      "Require every seal field other than the independently parsed issuance time to equal a freshly reconstructed frozen payload, including access_truth and decision.",
+      "Require every review-request scalar and boolean to equal the frozen request law.",
+      "Rehash the six output members after the potentially long model-worker phase and before atomic review/H publication, or bind an equivalent immutable snapshot proof."
+    ],
+    "required_new_negative_fixtures": [
+      "positive-zero recomputation versus canonical negative-zero paired mean_gain",
+      "positive-zero recomputation versus canonical negative-zero numeric z",
+      "positive-zero metric mean versus canonical negative-zero selection input",
+      "wrong but canonical outer-fit rank SHA",
+      "wrong but canonical inner-assignment SHA",
+      "inner-held overlap, gap, duplicate, reorder, H-specific roster, and top-level row substitution",
+      "each RESULT-versus-CLAIM source-root mismatch independently",
+      "each CLAIM-versus-anchor/capability/bank source-root mismatch independently",
+      "mutated seal access truth or decision",
+      "missing, extra, or false mandatory review-request field",
+      "output member mutation during the model-worker-to-review-publication window"
+    ]
+  },
+  "review_request_findings": {
+    "pre_output_terminal_failure_gate": "PASS_STATIC",
+    "exact_six_file_inventory_and_lstat_identity": "PASS_STATIC",
+    "authority_review_capability_release_claim_core_chronology": "PASS_CORE__HOLD_SOURCE_ROOT_CROSS_BINDINGS",
+    "numpy_1_26_4_metrics_gates_and_raw_hurdle": "PASS_NUMERICAL_LAW__HOLD_EXACT_SIGNED_ZERO_REPLAY",
+    "strict_688_outer_held_coverage": "PASS_STATIC_AND_SYNTHETIC",
+    "fold_pure_2064_H_reducer": "HOLD_INNER_HELD_PROVENANCE_NOT_REPLAYED",
+    "rank_value_and_source_hashes": "PASS_POOLED_VALUE_AND_ROLE_RANK_HASHES__HOLD_DECLARED_OUTER_AND_INNER_ASSIGNMENT_HASHES",
+    "weights_only_CPU_model_inventory_and_merkle": "PASS_STATIC",
+    "seal_review_H_receipt_acyclicity_and_atomicity": "PASS_CORE__HOLD_PARTIAL_PUBLISHED_CONTROL_REVALIDATION",
+    "future_roots_null_and_no_live_access": "PASS_STATIC",
+    "overall": "HOLD"
+  },
+  "access_accounting": {
+    "future_oof_output_payload_bytes_opened": 0,
+    "future_model_payload_bytes_opened": 0,
+    "live_authority_instance_payload_bytes_opened": 0,
+    "bank_or_staging_payload_bytes_opened": 0,
+    "public_row_or_weight_payload_bytes_opened": 0,
+    "target_payload_bytes_opened": 0,
+    "score_or_board_payload_bytes_opened": 0,
+    "estimator_executions": 0,
+    "training_or_scoring_runs": 0,
+    "mps_executions": 0,
+    "package_builds": 0,
+    "submission_or_network_actions": 0,
+    "synthetic_static_fixture_runs": 3
+  },
+  "authorization": {
+    "static_postrun_body_accepted": false,
+    "seal_issue": false,
+    "review_issue": false,
+    "H_receipt_issue": false,
+    "model_open": false,
+    "refit_anchor_build": false,
+    "target_access": false,
+    "refit_execution": false,
+    "estimator": false,
+    "mps": false,
+    "package": false,
+    "board": false,
+    "network": false,
+    "submission": false
+  },
+  "review_scope_boundary": {
+    "frozen_static_and_freeze_PASS_receipts_are_insufficient_for_GO": true,
+    "this_HOLD_forbids_the_V1_issue_seal_and_issue_review_commands": true,
+    "deployment_V1R2_GO_remains_valid_and_unchanged": true,
+    "no_accuracy_result_was_opened_or_changed": true,
+    "no_live_empirical_root_was_created": true
+  }
+}

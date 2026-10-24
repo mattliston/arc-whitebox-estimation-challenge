@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N1_2D_FOURTH",
+    "label": "N1.2d fourth-order plane inputs K22/K31 (card CP4 rank 2048; carried_rel 0.17-0.24) - PRICE pending (SUB-3 ORACLE_FOURTH)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "closed_measured",
+    "priority": 3,
+    "summary": "The emission's Edgeworth channels take K22/K31; the card carries them in a rank-2048 CP4 with 17-24% error (engine diag). Oracle arm running (truth K22/K31 fed each layer). If binding, descend: CP4 birth formula vs rank truncation vs push, graded against mps_planes truth. MEASURED (T-20): truth k4u+K22/K31 -> v-arm 7.4 (not lifted) but the k4 arm becomes +5.7 and joint 18.7 (vs 14.4). Not the variance limiter; it unlocks N3.",
+    "terminal_criterion": "Closed when the fourth-order oracle price is measured and, if binding, its children are priced.",
+    "evidence": [
+      {
+        "claim": "Running 2026-09-01 (teammate B).",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-20 (pending)"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "Whether the estimator's rougher fourth-order tables are what limit the correction, and if so which part of them."
+  }
+}

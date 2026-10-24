@@ -1,0 +1,25 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1B",
+    "label": "Known trims and CP4 cap reductions",
+    "kind": "phase2_cost_reduction_result",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "Known arithmetic trims remain insufficient, and the two direct CP4 cap descendants are now measured. Cap1024 saves 81,756,130,304 FLOPs per call but produces pooled unique-fixture final drift 9.999932286193823e-6. Cap1792 saves 20,399,602,944 FLOPs per call but still produces pooled unique drift 2.503792400835152e-6. Both fail their frozen accuracy gates.",
+    "terminal_criterion": "Closed only for the enumerated incremental trims; any successor must present an exact additional static/literal cost delta and its raw-accuracy consequence.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_v1/INDEPENDENT_SOURCE_AND_METER_AUDIT_Q24.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_a1_no_cp4_v1/EXACT_STATIC_DELTA.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_v1/FREEZE_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp4_cap1024_card_v1/FULL_ESTIMATOR_GATE_RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp4_cap1792_card_v1/FULL_ESTIMATOR_GATE_RESULT.json"
+    ],
+    "decomposition_children": [
+      "P2R0C1B1",
+      "P2R0C1B2"
+    ]
+  }
+}

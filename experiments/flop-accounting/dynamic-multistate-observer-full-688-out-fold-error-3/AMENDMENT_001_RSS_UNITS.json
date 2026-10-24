@@ -1,0 +1,25 @@
+{
+  "schema": "public-full688-dynamic-multistate-residual-cv-mechanical-amendment-v1",
+  "status": "applied-before-training-or-metrics",
+  "time_utc": "2026-08-24T20:52:00Z",
+  "failure": "resource.getrusage(RUSAGE_SELF).ru_maxrss was multiplied by 1024 whenever its magnitude was below 1 GiB. On Darwin ru_maxrss is already bytes, so healthy initial RSS values near 0.55 GiB were falsely reported near 550 GiB.",
+  "scope": "Replace magnitude-based unit guessing with sys.platform != 'darwin' before applying the Linux KiB-to-byte conversion. No architecture, data, fold, seed, schedule, loss, gate, or cost formula changed.",
+  "old_bindings": {
+    "program_sha256": "edcbd421640a1fbf013301d8de4103c8234d77d845793a89a010d3736fef9b74",
+    "run_manifest_sha256": "3ee9f3957b00715b595014043873ff5f36a58fd6758a63e65a2ea4f2b8788ee5",
+    "seal_sha256": "c0895a671f4a93678281e7cf4167474bf8e725d46c2ddcc1916aca3e778f47d8"
+  },
+  "new_bindings": {
+    "program_sha256": "8871ac10f3f122d9231652e3618c888bdc69b71cc0de44ffa00a79630258225d",
+    "run_manifest_sha256": "702daa9deb54ca8b4b6a954d35b1090818f6b60a1d12c01464ff56cefe456feb",
+    "seal_sha256": "b1e59fc818f9b296c216bbc2d11781bf153fcf202b4521f87e1e8370d3a1b818"
+  },
+  "pre_metric_evidence": {
+    "sessions": [70479, 93501, 89687, 69937],
+    "all_exit_codes": [1, 1, 1, 1],
+    "halt_location": "fit_fold: enforce_resources('training start'), before optimizer loop",
+    "fold_result_files_created": 0,
+    "fold_model_files_created": 0,
+    "cv_result_files_created": 0
+  }
+}

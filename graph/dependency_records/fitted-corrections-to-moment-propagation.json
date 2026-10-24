@@ -1,0 +1,23 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F",
+    "label": "Accuracy-first fitted innovation route",
+    "kind": "phase2_learned_observer_retraining",
+    "status": "open",
+    "priority": 1,
+    "summary": "Teacher-forced residual innovation crosses the 1e-8 raw-MSE boundary, but the best verified autonomous full-population providers remain near 3.23e-8. Rank-16 cross-unit covariance improves J by only 0.1044%, and its truth-coefficient factor-span oracle remains at 2.8928320722187982e-8. The open question is now a materially full-rank nonlinear residual-state operator, not whether a local correction signal exists.",
+    "terminal_criterion": "Produce a frozen Phase-2-legal autonomous fitted correction that is finite and improves protected final-layer raw MSE; retain <1e-8 as the governing success threshold.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_dual_distill_pilot_v1/RESULTS.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_recursive_tangent_innovation_v1/NONLINEAR_RESULTS.json"
+    ],
+    "decomposition_children": [
+      "P2R0F1",
+      "P2R0F2",
+      "P2R0F3"
+    ]
+  }
+}

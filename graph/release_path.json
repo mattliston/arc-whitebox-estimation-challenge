@@ -1,0 +1,1877 @@
+{
+  "schema": 2,
+  "root": "dev-recursive-correction",
+  "path_start": "P2R0D",
+  "summary": "The estimator developed from analytic moments to learned corrections, a rebuilt signed-pair state, cheaper propagation and richer learned readouts. The two final variants share that development and differ in their last coefficient update.",
+  "limit": "This path follows documented development milestones. Some intermediate versions are summarized; a connection is not automatically an immediate source-file parent. The independent core rebuild is identified explicitly. The final coefficient exports and runtime assembly are verified by hashes.",
+  "display_parents": {
+    "P2R0D": "P2R0",
+    "P2R0H7A": "P2R0E3",
+    "P2R0H7B": "P2R0H7A",
+    "P2R0F2V": "P2R0H7B",
+    "P2R0C1D9": "P2R0F2V",
+    "P2R0C1D14A": "P2R0C1D9",
+    "P2R0C1D14B": "P2R0C1D14A"
+  },
+  "reading_order": [
+    "P2R0D",
+    "P2R0E",
+    "P2R0E3",
+    "P2R0H7A",
+    "P2R0H7B",
+    "P2R0F2V",
+    "P2R0C1D9",
+    "P2R0C1D14A",
+    "P2R0C1D14B",
+    "dev-recursive-correction",
+    "dev-signed-pair-state",
+    "dev-fitted-births",
+    "dev-composed-corrections",
+    "dev-shared-basis",
+    "dev-shared-runtime",
+    "dev-full-moments",
+    "dev-covariance-correction",
+    "dev-mean-refit",
+    "dev-spaced-joins",
+    "dev-joint-refit",
+    "dev-nystrom-joins",
+    "dev-local-fourth",
+    "dev-pair-norm-coupling",
+    "dev-norm-informed-mean",
+    "dev-corrected-gates",
+    "dev-late-k4",
+    "dev-feasible-mean",
+    "dev-output-projection",
+    "dev-young-tail",
+    "dev-join-sketch",
+    "dev-late-tail",
+    "dev-compressed-messages",
+    "dev-edge-readout",
+    "build-parent",
+    "build-fit"
+  ],
+  "nodes": [
+    {
+      "id": "dev-recursive-correction",
+      "parent": "P2R0C1D14B",
+      "title": "Feed the learned correction into every layer",
+      "claim": "The earlier estimator corrected its output after propagation. The new model reads the current moment state at each layer, corrects the mean and covariance, and passes that corrected state forward. Honest training rows and a smaller fourth-order carrier produced #329754.",
+      "date": "2026-09-04T17:20:19Z",
+      "source": "experiments/flop-accounting/honest-learned-closure-variance-heads-noise-tests-separated-information/code/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g22_operator_features_v1/build_gnn_candidate.py#L1",
+      "files": [
+        {
+          "path": "experiments/flop-accounting/honest-learned-closure-variance-heads-noise-tests-separated-information/code/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g22_operator_features_v1/build_gnn_candidate.py#L1"
+        },
+        {
+          "path": "experiments/flop-accounting/honest-learned-closure-variance-heads-noise-tests-separated-information/code/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g22_operator_features_v1/build_gnn_candidate.py"
+        },
+        {
+          "path": "experiments/error-attribution/accumulated-tracker-readout-reached-0-346-alone-0-811/LANE_g3_tracker.md#L938"
+        },
+        {
+          "path": "submissions/329754/estimator.py"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L703"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L704"
+        }
+      ],
+      "record": "submission-329754",
+      "status": "adopted",
+      "directory": "experiments/flop-accounting/honest-learned-closure-variance-heads-noise-tests-separated-information",
+      "step": "2026-09-04T17:20:19Z"
+    },
+    {
+      "id": "dev-signed-pair-state",
+      "parent": "dev-recursive-correction",
+      "title": "Rebuild the state around paired cubic columns",
+      "claim": "An independently rebuilt moment model replaced the large fourth-order tensor with a covariance-shaped approximation. Two signed columns represented each new cubic contribution. The learned correction was retrained for this state; the resulting family reached #329926 after runtime repairs.",
+      "date": "2026-09-05",
+      "source": "experiments/wall-and-residual/exact-kernel-resource-tradeoff/RESEARCH_RECEIPTS_2026_09_04.md#L8",
+      "files": [
+        {
+          "path": "experiments/wall-and-residual/exact-kernel-resource-tradeoff/RESEARCH_RECEIPTS_2026_09_04.md#L8"
+        },
+        {
+          "path": "experiments/wall-and-residual/exact-kernel-resource-tradeoff/RESEARCH_RECEIPTS_2026_09_04.md"
+        },
+        {
+          "path": "submissions/329926/README.md"
+        },
+        {
+          "path": "experiments/wall-and-residual/exact-kernel-resource-tradeoff/RESEARCH_RECEIPTS_2026_09_04.md#L77"
+        },
+        {
+          "path": "experiments/wall-and-residual/exact-kernel-resource-tradeoff/RESEARCH_RECEIPTS_2026_09_04.md#L81"
+        },
+        {
+          "path": "experiments/error-attribution/two-cube-coadaptation-moment-boundary-audit-full-pair-closure/code/astra_phase2_reexamination_v1/candidate_binary_learned_v1.py"
+        }
+      ],
+      "record": "2026-09-05-two-cube-coadaptation-moment-boundary-audit-full-pair-closure",
+      "status": "adopted",
+      "directory": "experiments/error-attribution/two-cube-coadaptation-moment-boundary-audit-full-pair-closure",
+      "step": "2026-09-05",
+      "stage_label": "Core rebuilt"
+    },
+    {
+      "id": "dev-fitted-births",
+      "parent": "dev-signed-pair-state",
+      "title": "Fit the directions of newly created cubic terms",
+      "claim": "Four fitted directions changed the cubic columns created after each ReLU while keeping the mean-correction heads fixed. The complete estimator improved on held networks and became #330390.",
+      "date": "2026-09-09T00:45:35Z",
+      "source": "submissions/330390/CONFIRMED_BANK_330390.md#L3",
+      "files": [
+        {
+          "path": "submissions/330390/CONFIRMED_BANK_330390.md#L3"
+        },
+        {
+          "path": "experiments/birth-terms/four-fitted-birth-directions-pass-native40-independent14-adjusted-ratios/PROTOCOL.md#L47"
+        },
+        {
+          "path": "experiments/birth-terms/four-fitted-birth-directions-pass-native40-independent14-adjusted-ratios/PROTOCOL.md#L55"
+        }
+      ],
+      "record": "submission-330390",
+      "status": "adopted",
+      "directory": "submissions/330390",
+      "step": "2026-09-09T00:45:35Z"
+    },
+    {
+      "id": "dev-composed-corrections",
+      "parent": "dev-fitted-births",
+      "title": "Combine learned birth and mean corrections",
+      "claim": "The next candidate combined the learned birth correction with the existing mean encoder. The two saved models were composed without another fit, then the combined estimator was measured on held networks before subsequent carrier work.",
+      "date": "2026-09-09",
+      "source": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40/SOURCE_BUILD_RESULT.md#L3",
+      "files": [
+        {
+          "path": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40/SOURCE_BUILD_RESULT.md#L3"
+        },
+        {
+          "path": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40/NATIVE40_SCORE_V3_RESULT.md"
+        },
+        {
+          "path": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40/NATIVE40_SCORE_V3_RESULT.md#L3"
+        },
+        {
+          "path": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40/NATIVE40_SCORE_V3_RESULT.md#L5"
+        }
+      ],
+      "record": "2026-09-09-frozen-birth-direction-mean-head-neural-composition-passes-native40",
+      "status": "adopted",
+      "directory": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40",
+      "step": "2026-09-09"
+    },
+    {
+      "id": "dev-shared-basis",
+      "parent": "dev-composed-corrections",
+      "title": "Compress older cubic columns into one shared basis",
+      "claim": "Recent cubic columns stayed explicit. Older cohorts were projected into one rank-384 basis and read together, reducing their computation. The constructor retained the learned mean and birth models already present in its parent.",
+      "date": "2026-09-12T17:25Z",
+      "source": "records/research/2026-09-12-shared-rank-384-basis-cubic-cohorts-older-than-four/PROTOCOL.md#L10",
+      "files": [
+        {
+          "path": "records/research/2026-09-12-shared-rank-384-basis-cubic-cohorts-older-than-four/PROTOCOL.md#L10"
+        },
+        {
+          "path": "experiments/join-sketch/shared-rank-384-old-basis-40-networks-adjusted-ratio/NATIVE40_AND_SCORE_RESULT_20260912.md"
+        },
+        {
+          "path": "records/research/2026-09-12-shared-rank-384-basis-cubic-cohorts-older-than-four/PROTOCOL.md#L17"
+        }
+      ],
+      "record": "2026-09-12-shared-rank-384-basis-cubic-cohorts-older-than-four",
+      "status": "adopted",
+      "directory": "records/research/2026-09-12-shared-rank-384-basis-cubic-cohorts-older-than-four",
+      "step": "2026-09-12T17:25Z"
+    },
+    {
+      "id": "dev-shared-basis-timeout",
+      "parent": "dev-shared-basis",
+      "title": "The first compressed version timed out",
+      "claim": "The rank-384 estimator looked viable in local timing, but #330840 timed out on every attempted hosted network. The representation was retained; the implementation needed fewer remote operations.",
+      "date": "2026-09-13T00:26:29Z",
+      "source": "submissions/330840/FAILED_330840_20260912_PDT.md#L3",
+      "files": [
+        {
+          "path": "submissions/330840/FAILED_330840_20260912_PDT.md#L3"
+        },
+        {
+          "path": "records/research/2026-09-13-batched-six-level-factor-propagation-pair-series-fusion-split/RECEIPTS.md#L4"
+        }
+      ],
+      "record": "submission-330840",
+      "status": "closed_measured",
+      "directory": "submissions/330840",
+      "step": "2026-09-13T00:26:29Z"
+    },
+    {
+      "id": "dev-shared-runtime",
+      "parent": "dev-shared-basis",
+      "title": "Make the compressed estimator run within the time limit",
+      "claim": "Batched products, separate frame caches and a size-based multiplication schedule reduced remote calls. After two failed hosted versions, #330931 ran successfully with the same moment model and learned payload.",
+      "date": "2026-09-13T23:13:32Z",
+      "source": "records/research/2026-09-13-batched-six-level-factor-propagation-pair-series-fusion-split/RECEIPTS.md#L28",
+      "files": [
+        {
+          "path": "records/research/2026-09-13-batched-six-level-factor-propagation-pair-series-fusion-split/RECEIPTS.md#L28"
+        },
+        {
+          "path": "records/research/2026-09-13-batched-six-level-factor-propagation-pair-series-fusion-split/RECEIPTS.md"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L707"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L708"
+        },
+        {
+          "path": "submissions/330931/estimator.py"
+        }
+      ],
+      "record": "submission-330931",
+      "status": "adopted",
+      "directory": "submissions/330931",
+      "step": "2026-09-13T23:13:32Z"
+    },
+    {
+      "id": "dev-full-moments",
+      "parent": "dev-shared-runtime",
+      "title": "Restore full covariance and third-moment reads",
+      "claim": "The estimator restored the full covariance, the repeated third-moment residual and the trace vector. Cubic masks, birth rules, rank-384 compression and learned parameters were held fixed, isolating the value of those lower-moment reads.",
+      "date": "2026-09-20T17:53:09Z",
+      "source": "records/research/2026-09-20-full-lower-moment-support-broke-first-four-row-byte/PROTOCOL.md#L23",
+      "files": [
+        {
+          "path": "submissions/331672/OFFICIAL_RESULT.md#L6"
+        },
+        {
+          "path": "submissions/331672/OFFICIAL_RESULT.md#L7"
+        },
+        {
+          "path": "records/research/2026-09-20-full-lower-moment-support-broke-first-four-row-byte/PROTOCOL.md#L23"
+        },
+        {
+          "path": "records/research/2026-09-20-full-lower-moment-support-broke-first-four-row-byte/PROTOCOL.md#L34"
+        }
+      ],
+      "record": "submission-331672",
+      "status": "adopted",
+      "directory": "submissions/331672",
+      "step": "2026-09-20T17:53:09Z"
+    },
+    {
+      "id": "dev-covariance-correction",
+      "parent": "dev-full-moments",
+      "title": "Learn a correction to late-layer covariance",
+      "claim": "A learned pair model corrected covariance at layers 8–14 on the full-moment trajectory. Its measured gain survived packaging and hosted evaluation. This created a different trajectory for the mean model to learn from.",
+      "date": "2026-09-20T20:10:53Z",
+      "source": "submissions/331684/RESULT.md#L6",
+      "files": [
+        {
+          "path": "submissions/331684/RESULT.md#L6"
+        },
+        {
+          "path": "submissions/331684/OFFICIAL_RESULT.md#L3"
+        }
+      ],
+      "record": "submission-331684",
+      "status": "adopted",
+      "directory": "submissions/331684",
+      "step": "2026-09-20T20:10:53Z"
+    },
+    {
+      "id": "dev-mean-refit",
+      "parent": "dev-covariance-correction",
+      "title": "Refit the mean model on the corrected trajectory",
+      "claim": "The mean encoder’s 45,200 parameters were refitted with the new covariance correction active. Birth parameters, covariance-edge weights and normalization stayed fixed. The refitted estimator became #331760.",
+      "date": "2026-09-21T15:13:48Z",
+      "source": "submissions/331760/OFFICIAL_RESULT.md#L3",
+      "files": [
+        {
+          "path": "submissions/331760/OFFICIAL_RESULT.md#L3"
+        },
+        {
+          "path": "experiments/birth-terms/birth-only-threshold-0-05-raises-pooled-adjusted-error/REEXAMINATION_INDEX_20260919.md#L433"
+        },
+        {
+          "path": "experiments/birth-terms/birth-only-threshold-0-05-raises-pooled-adjusted-error/REEXAMINATION_INDEX_20260919.md#L441"
+        }
+      ],
+      "record": "submission-331760",
+      "status": "adopted",
+      "directory": "submissions/331760",
+      "step": "2026-09-21T15:13:48Z"
+    },
+    {
+      "id": "dev-spaced-joins",
+      "parent": "dev-mean-refit",
+      "title": "Join older factors at layers 7, 10 and 13",
+      "claim": "Older cubic factors were joined every third layer. The same candidate added a per-row fourth-cumulant correction and a trace-gain correction. This combination became #331947 and retained the mean and covariance models.",
+      "date": "2026-09-23T05:46:45Z",
+      "source": "records/SUBMISSION_LEDGER.md#L709",
+      "files": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L709"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L710"
+        },
+        {
+          "path": "submissions/331947/estimator.py"
+        }
+      ],
+      "record": "submission-331947",
+      "status": "adopted",
+      "directory": "submissions/331947",
+      "step": "2026-09-23T05:46:45Z"
+    },
+    {
+      "id": "dev-joint-refit",
+      "parent": "dev-spaced-joins",
+      "title": "Fit the closure and recurrent encoder together",
+      "claim": "Joint fitting updated the closure parameters and the recurrent encoder on the current estimator. The arithmetic structure was unchanged for this refit, so its improvement came from the learned coefficients rather than a different runtime route.",
+      "date": "2026-09-23T16:26:18Z",
+      "source": "records/SUBMISSION_LEDGER.md#L719",
+      "files": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L719"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L720"
+        },
+        {
+          "path": "submissions/332037/estimator.py"
+        }
+      ],
+      "record": "submission-332037",
+      "status": "adopted",
+      "directory": "submissions/332037",
+      "step": "2026-09-23T16:26:18Z"
+    },
+    {
+      "id": "dev-nystrom-joins",
+      "parent": "dev-joint-refit",
+      "title": "Build the shared basis with a Nyström sketch",
+      "claim": "A Nyström sketch replaced the older join construction using selected Gram-matrix rows. The candidate also removed a residual-plane cross term and refitted its coefficients. This retained the compressed cubic state while making its updates cheaper.",
+      "date": "2026-09-25T06:22:22Z",
+      "source": "records/SUBMISSION_LEDGER.md#L864",
+      "files": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L864"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L871"
+        },
+        {
+          "path": "submissions/332246/estimator.py"
+        }
+      ],
+      "record": "submission-332246",
+      "status": "adopted",
+      "directory": "submissions/332246",
+      "step": "2026-09-25T06:22:22Z"
+    },
+    {
+      "id": "dev-local-fourth",
+      "parent": "dev-nystrom-joins",
+      "title": "Retain local fourth-order effects on young column pairs",
+      "claim": "Two new terms used the existing young signed pairs: a fourth-order column shift fed information into later births, and a local kurtosis correction improved each neuron’s fourth moment. They were added without refitting the learned model in #333435.",
+      "date": "2026-10-02T03:17:16Z",
+      "source": "records/SUBMISSION_LEDGER.md#L904",
+      "files": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L904"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L907"
+        },
+        {
+          "path": "submissions/333435/estimator.py"
+        }
+      ],
+      "record": "submission-333435",
+      "status": "adopted",
+      "directory": "submissions/333435",
+      "step": "2026-10-02T03:17:16Z"
+    },
+    {
+      "id": "dev-pair-norm-coupling",
+      "parent": "dev-local-fourth",
+      "title": "Carry norm-coupling coefficients on the same pairs",
+      "claim": "A derived norm-coupling correction was represented by one extra weight per column and one cross-weight per pair. It reused the cubic read instead of transporting a large extra matrix, preserving most of the useful correction at much lower cost.",
+      "date": "2026-10-02T14:52:36Z",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L312",
+      "files": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L312"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L320"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L915"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L916"
+        },
+        {
+          "path": "submissions/333559/estimator.py"
+        }
+      ],
+      "record": "submission-333559",
+      "status": "adopted",
+      "directory": "submissions/333559",
+      "step": "2026-10-02T14:52:36Z"
+    },
+    {
+      "id": "dev-norm-informed-mean",
+      "parent": "dev-pair-norm-coupling",
+      "title": "Let the mean model read the new fourth-order signal",
+      "claim": "After adding the young-pair quartic plane, one per-neuron norm-coupling statistic was supplied to the learned mean correction. Two fitted steps updated its new input weights while retaining the previously fitted physical coefficients.",
+      "date": "2026-10-02T19:48:59Z",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L444",
+      "files": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L444"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L448"
+        },
+        {
+          "path": "submissions/333607/estimator.py"
+        }
+      ],
+      "record": "submission-333607",
+      "status": "adopted",
+      "directory": "submissions/333607",
+      "step": "2026-10-02T19:48:59Z"
+    },
+    {
+      "id": "dev-corrected-gates",
+      "parent": "dev-norm-informed-mean",
+      "title": "Correct cubic transport for skewness and kurtosis",
+      "claim": "The cubic transport gate gained skewness and kurtosis corrections. After further fitting of the same estimator, this mathematical change was combined with exact transform caching and validated as #335633.",
+      "date": "2026-10-12T22:34:48Z",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L1684",
+      "files": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L1684"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L1660"
+        },
+        {
+          "path": "submissions/335633/estimator.py"
+        }
+      ],
+      "record": "submission-335633",
+      "status": "adopted",
+      "directory": "submissions/335633",
+      "step": "2026-10-12T22:34:48Z"
+    },
+    {
+      "id": "dev-late-k4",
+      "parent": "dev-corrected-gates",
+      "title": "Carry fourth-order corrections for older pairs",
+      "claim": "The local fourth-moment correction was extended to pairs three and four layers old, first at the output and then through layers 8–14. The resulting #335782 retained those older contributions alongside further fitted coefficients and runtime reductions.",
+      "date": "2026-10-13T12:59:29Z",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2093",
+      "files": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2093"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2095"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2085"
+        },
+        {
+          "path": "submissions/335782/estimator.py"
+        }
+      ],
+      "record": "submission-335782",
+      "status": "adopted",
+      "directory": "submissions/335782",
+      "step": "2026-10-13T12:59:29Z"
+    },
+    {
+      "id": "dev-feasible-mean",
+      "parent": "dev-late-k4",
+      "title": "Keep corrected means nonnegative",
+      "claim": "At layers 1–14, limit the learned change to max(delta, -mean) before updating both the mean and covariance. This keeps the updates consistent when the proposed mean would be negative. The submitted file also reuses covariance products to reduce arithmetic cost.",
+      "date": "2026-10-14",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2961",
+      "files": [
+        {
+          "path": "submissions/336075/README.md"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2991"
+        },
+        {
+          "path": "estimator/ANATOMY.md#L108"
+        },
+        {
+          "path": "submissions/337641/estimator.py#L24809"
+        },
+        {
+          "path": "submissions/337641/estimator.py#L17322"
+        },
+        {
+          "path": "submissions/337641/estimator.py#L24815"
+        }
+      ],
+      "record": "submission-336075",
+      "status": "adopted",
+      "directory": "submissions/336075",
+      "step": "2026-10-14"
+    },
+    {
+      "id": "dev-output-projection",
+      "parent": "dev-feasible-mean",
+      "title": "Use two directions for message and energy products",
+      "claim": "Approximate the squared-weight message product and three energy products with rank-two output projections, retaining their constant component exactly. Added to #336075 with a request repair, this change passes accuracy and runtime checks and remains in later versions.",
+      "date": "2026-10-14",
+      "source": "submissions/336101/estimator.py#L17623",
+      "files": [
+        {
+          "path": "submissions/336101/README.md"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L3138"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L3140"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L973"
+        },
+        {
+          "path": "submissions/336101/estimator.py#L17623"
+        },
+        {
+          "path": "submissions/336101/estimator.py#L17646"
+        },
+        {
+          "path": "submissions/336101/estimator.py#L17677"
+        }
+      ],
+      "record": "submission-336101",
+      "status": "adopted",
+      "directory": "submissions/336101",
+      "step": "2026-10-14"
+    },
+    {
+      "id": "dev-young-tail",
+      "parent": "dev-output-projection",
+      "title": "Approximate omitted young-factor reads with two directions",
+      "claim": "Use a two-direction completion for the omitted part of the recent third-moment factor read. The tested approximation slightly worsens raw error but saves enough arithmetic to improve the adjusted score. A request-count repair makes this version deployable.",
+      "date": "2026-10-15",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L3336",
+      "files": [
+        {
+          "path": "submissions/336178/README.md"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L3327"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L3376"
+        },
+        {
+          "path": "submissions/336125/README.md"
+        }
+      ],
+      "record": "submission-336178",
+      "status": "adopted",
+      "directory": "submissions/336178",
+      "step": "2026-10-15"
+    },
+    {
+      "id": "dev-join-sketch",
+      "parent": "dev-young-tail",
+      "title": "Build the shared basis from the strongest factor columns",
+      "claim": "Refine the old-cohort Nystrom basis using heavily weighted columns and a symmetric core. Later tests settle on 1,536 / 1,024 / 1,024 sketch columns at joins 7 / 10 / 13. All joined columns still contribute to the factor projection; the sketch only constructs the basis.",
+      "date": "2026-10-19",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5922",
+      "files": [
+        {
+          "path": "submissions/336854/README.md"
+        },
+        {
+          "path": "submissions/337028/README.md"
+        },
+        {
+          "path": "submissions/337065/README.md"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5067"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5887"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5924"
+        },
+        {
+          "path": "estimator/ANATOMY.md#L94"
+        },
+        {
+          "path": "submissions/337641/estimator.py#L24278"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5034"
+        },
+        {
+          "path": "submissions/337641/estimator.py#L24317"
+        },
+        {
+          "path": "submissions/337641/estimator.py#L24351"
+        }
+      ],
+      "record": "submission-337065",
+      "status": "adopted",
+      "directory": "submissions/337065",
+      "step": "2026-10-19"
+    },
+    {
+      "id": "dev-late-tail",
+      "parent": "dev-join-sketch",
+      "title": "Balance late-layer accuracy against read cost",
+      "claim": "Restrict the final third-moment read to rows near the ReLU threshold, then retain more young-factor information in layers 13–14 and old-factor information in layer 14. These are measured approximation choices: each is checked with its own accuracy loss or gain and compute cost.",
+      "date": "2026-10-19",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5964",
+      "files": [
+        {
+          "path": "submissions/337090/README.md"
+        },
+        {
+          "path": "submissions/337126/README.md"
+        },
+        {
+          "path": "submissions/337142/README.md"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5932"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5955"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5960"
+        },
+        {
+          "path": "submissions/337641/estimator.py#L24554"
+        }
+      ],
+      "record": "submission-337142",
+      "status": "adopted",
+      "directory": "submissions/337142",
+      "step": "2026-10-19"
+    },
+    {
+      "id": "dev-compressed-messages",
+      "parent": "dev-late-tail",
+      "title": "Reduce learned messages to eight channels",
+      "claim": "Distill the learned message representation into eight channels while preserving the larger recurrent state. The submitted version also restores the loader operations needed for reliable execution. This smaller message model becomes the parent of the next readout improvements.",
+      "date": "2026-10-20",
+      "source": "records/SUBMISSION_LEDGER.md#L1244",
+      "files": [
+        {
+          "path": "submissions/337422/README.md"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1253"
+        },
+        {
+          "path": "submissions/337393/README.md"
+        },
+        {
+          "path": "submissions/337421/README.md"
+        },
+        {
+          "path": "estimator/ANATOMY.md#L102"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1234"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1244"
+        }
+      ],
+      "record": "submission-337422",
+      "status": "adopted",
+      "directory": "submissions/337422",
+      "step": "2026-10-20"
+    },
+    {
+      "id": "dev-edge-readout",
+      "parent": "dev-compressed-messages",
+      "title": "Compress the covariance model and refit the mean readout",
+      "claim": "Reduce the covariance-correction model to eight hidden channels and fit a per-layer mean readout on 90 training networks. The combined model is tested on its own trajectory and becomes #337466, the baseline for the final hidden-feature readout experiments.",
+      "date": "2026-10-21",
+      "source": "records/SUBMISSION_LEDGER.md#L1367",
+      "files": [
+        {
+          "path": "submissions/337466/README.md"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1459"
+        },
+        {
+          "path": "submissions/337641/estimator.py#L25519"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1241"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1351"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1367"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1411"
+        }
+      ],
+      "record": "submission-337466",
+      "status": "adopted",
+      "directory": "submissions/337466",
+      "step": "2026-10-21"
+    },
+    {
+      "id": "dev-second-fit-rejected",
+      "parent": "dev-edge-readout",
+      "title": "A second fit on the older readout fails the full estimator",
+      "claim": "A parallel full-hidden readout branch improves cross-validation by 0.590%, but its actual adjusted score is 0.102% worse than #337506. Its gain against its own parent does not pay for the runtime-related arithmetic. This branch closes; it is distinct from the final 961-feature fit.",
+      "date": "2026-10-21",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7384",
+      "files": [
+        {
+          "path": "experiments/on-policy-readout/full-hidden-policy-second-fit-0-5898238461-cross-validation/README.md"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7307"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7308"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7385"
+        }
+      ],
+      "record": "2026-10-21-full-hidden-policy-second-fit-0-5898238461-cross-validation",
+      "status": "closed_measured",
+      "directory": "experiments/on-policy-readout/full-hidden-policy-second-fit-0-5898238461-cross-validation",
+      "step": "2026-10-21"
+    },
+    {
+      "id": "build-parent",
+      "parent": "dev-edge-readout",
+      "title": "Use the encoder’s first hidden layer in the readout",
+      "step": "First-hidden readout · #337506",
+      "claim": "Add the encoder’s first 128 hidden activations to its learned output correction. Combine this with paid runtime repairs and remove an unused object-count diagnostic. Submission #337506 becomes the common source for both final coefficient exports.",
+      "source": "records/TEAM_LOG_2026-10-01_to_10-22.md#L6763",
+      "files": [
+        {
+          "path": "submissions/337506/README.md"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L6750"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7045"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7132"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1759"
+        },
+        {
+          "path": "release/337619/seal_s1.5/EXPORTED_v1.json"
+        },
+        {
+          "path": "release/337641/seal_s1.35/EXPORTED_v1.json"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1729"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1748"
+        }
+      ],
+      "record": "submission-337506",
+      "status": "adopted",
+      "date": "2026-10-21",
+      "directory": "submissions/337506"
+    },
+    {
+      "id": "build-fit",
+      "parent": "build-parent",
+      "title": "Fit the output correction",
+      "step": "Shared readout fit",
+      "claim": "Run the parent on 90 training networks and fit an update to its output coefficients. The fit uses 961 features, ridge 0.03 and damping 0.5. Both releases use this same fit.",
+      "source": "release/common/readout/full90_BLOCKS_COEFFICIENTS_v1.json",
+      "files": [
+        {
+          "path": "release/common/readout/fit_blocks_full90_v1.py"
+        },
+        {
+          "path": "release/common/readout/run_capture_pipeline_v1.py"
+        },
+        {
+          "path": "release/337641/README.md#L23"
+        }
+      ],
+      "record": null,
+      "status": "solved",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "build-export-337619",
+      "parent": "build-fit",
+      "title": "Update coefficients ×1.5",
+      "step": "Variant 337619 · readout export",
+      "claim": "Add the fitted update to the output coefficients at strength 1.5. The encoder and other learned tensors are unchanged by this export.",
+      "source": "release/337619/seal_s1.5/EXPORTED_v1.json",
+      "files": [
+        {
+          "path": "release/common/readout/export_blocks_v1.py"
+        },
+        {
+          "path": "release/337619/seal_s1.5/candidate_first128_onpolicy_blocks_release_v1.py"
+        }
+      ],
+      "record": null,
+      "status": "solved",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "build-runtime-337619",
+      "parent": "build-export-337619",
+      "title": "Set the runtime configuration",
+      "step": "Variant 337619 · source assembly",
+      "claim": "Append the recorded runtime settings: grouped-read cap four, matrix-size threshold 8e9, and direct gather. The build manifest records exact input and output hashes.",
+      "source": "release/337619/build/BUILD_v1.json",
+      "files": [
+        {
+          "path": "release/337619/build/tail_sm40_cap4_size8e9_xsg_off.py"
+        }
+      ],
+      "record": null,
+      "status": "solved",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "build-final-337619",
+      "parent": "build-runtime-337619",
+      "title": "Released estimator #337619",
+      "step": "Released source · 100 of 100 networks graded",
+      "claim": "Package the assembled source. The archived public score is 1.4005566073702658e-9, with zero failed networks. Both sources were designated for private re-evaluation.",
+      "source": "submissions/337619/estimator.py",
+      "files": [
+        {
+          "path": "submissions/337619/README.md"
+        },
+        {
+          "path": "submissions/337619/submission.tar.gz"
+        },
+        {
+          "path": "estimator/REPRODUCE.md"
+        }
+      ],
+      "record": "submission-337619",
+      "status": "released",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "build-export-337641",
+      "parent": "build-fit",
+      "title": "Update coefficients ×1.35",
+      "step": "Variant 337641 · readout export",
+      "claim": "Add the fitted update to the output coefficients at strength 1.35. The encoder and other learned tensors are unchanged by this export.",
+      "source": "release/337641/seal_s1.35/EXPORTED_v1.json",
+      "files": [
+        {
+          "path": "release/common/readout/export_blocks_v1.py"
+        },
+        {
+          "path": "release/337641/seal_s1.35/candidate_first128_onpolicy_blocks_release_v1.py"
+        }
+      ],
+      "record": null,
+      "status": "solved",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "build-runtime-337641",
+      "parent": "build-export-337641",
+      "title": "Set the runtime configuration",
+      "step": "Variant 337641 · source assembly",
+      "claim": "Append the recorded runtime settings: grouped-read cap four, matrix-size threshold 8e9, and direct gather. The build manifest records exact input and output hashes.",
+      "source": "release/337641/build/BUILD_v1.json",
+      "files": [
+        {
+          "path": "release/337641/build/tail_sm40_cap4_size8e9_xsg_off.py"
+        }
+      ],
+      "record": null,
+      "status": "solved",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "build-final-337641",
+      "parent": "build-runtime-337641",
+      "title": "Released estimator #337641",
+      "step": "Released source · 100 of 100 networks graded",
+      "claim": "Remove the three inactive residual-meter function bodies, then package the source. The archived public score is 1.4006490071107744e-9, with zero failed networks. Both sources were designated for private re-evaluation.",
+      "source": "submissions/337641/estimator.py",
+      "files": [
+        {
+          "path": "submissions/337641/README.md"
+        },
+        {
+          "path": "submissions/337641/submission.tar.gz"
+        },
+        {
+          "path": "estimator/REPRODUCE.md"
+        }
+      ],
+      "record": "submission-337641",
+      "status": "released",
+      "date": "2026-10-21"
+    }
+  ],
+  "edges": [
+    {
+      "from": "P2R0",
+      "to": "P2R0D",
+      "type": "development_step",
+      "semantics": "problem_decomposition",
+      "explanation": "Display the analytic baseline directly under the estimation problem. The recorded Phase2 plan calls for measuring Gaussian/Hermite approximations before learned correction. This is an approach entry, not a code-parent relationship.",
+      "sources": [
+        {
+          "path": "records/research/2026-08-23-width-1024-scaling-screen-fixed-rank-carriers-fit-dense/MIGRATION_MATRIX.md#L23",
+          "label": "Recorded reason for starting with analytic approximations"
+        },
+        {
+          "path": "records/research/2026-08-23-width-1024-scaling-screen-fixed-rank-carriers-fit-dense/MIGRATION_MATRIX.md#L33",
+          "label": "Analytic hierarchy and later learned correction"
+        }
+      ]
+    },
+    {
+      "from": "P2R0D",
+      "to": "P2R0E",
+      "type": "development_step",
+      "semantics": "original_decomposition",
+      "explanation": "Retain the original recorded decomposition from the analytic approximations to third- and fourth-order recursive closure.",
+      "sources": [
+        {
+          "path": "graph/dependency_records/full-budget-recursive-high-order-closure.json#L4",
+          "label": "Original parent and closure question"
+        }
+      ]
+    },
+    {
+      "from": "P2R0E",
+      "to": "P2R0E3",
+      "type": "development_step",
+      "semantics": "original_decomposition",
+      "explanation": "Retain the original recorded decomposition identifying the concrete propagated cumulant state and its implementation.",
+      "sources": [
+        {
+          "path": "graph/dependency_records/propagated-k21-plus-quartic-tensor-state.json#L4",
+          "label": "Original parent and state specification"
+        }
+      ]
+    },
+    {
+      "from": "P2R0E3",
+      "to": "P2R0H7A",
+      "type": "development_step",
+      "semantics": "recorded_development",
+      "explanation": "The native correction pilot explicitly uses the near-floor-min Q24 estimator owned by E3. Its preregistration pins SHA256 26aca6ed..., which matches submissions/328277/estimator.py. The pilot trains the earlier transport-energy observer on that estimator’s own state.",
+      "sources": [
+        {
+          "path": "records/dependencies/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_native_transport_energy_pilot_v1/METER_PREREGISTRATION.json#L5",
+          "label": "Exact host source, hash and unchanged-output observation contract"
+        },
+        {
+          "path": "submissions/328317/run_transfer_pilot.py#L24",
+          "label": "Transport-energy observer source used for the pilot"
+        },
+        {
+          "path": "submissions/328317/README.md#L5",
+          "label": "Native pilot and hosted result"
+        }
+      ]
+    },
+    {
+      "from": "P2R0H7A",
+      "to": "P2R0H7B",
+      "type": "development_step",
+      "semantics": "recorded_development",
+      "explanation": "H7B is the separately fitted all-688 upgrade of the native pilot: 200 pilot rows were reused and 488 added. The handoff explicitly identifies the prior pilot and the upgrade, with exact submitted source hashes.",
+      "sources": [
+        {
+          "path": "submissions/328326/FABLE_HANDOFF_20260825.md#L14",
+          "label": "Final source identity and prior #328317 pilot"
+        },
+        {
+          "path": "submissions/328326/FABLE_HANDOFF_20260825.md#L27",
+          "label": "All-688 final-fit upgrade and mechanical runtime repair"
+        }
+      ]
+    },
+    {
+      "from": "P2R0H7B",
+      "to": "P2R0F2V",
+      "type": "development_step",
+      "semantics": "recorded_development",
+      "explanation": "The #328326 source was trimmed to seven pair-series terms and clamped, producing #328433; the unconditional eigensolve was then removed to produce #328439. Both build receipts bind their exact input and output hashes. The failed conditional-repair alternative is not on this path.",
+      "sources": [
+        {
+          "path": "submissions/328326/FABLE_HANDOFF_20260825.md#L21",
+          "label": "Original #328326 source hash"
+        },
+        {
+          "path": "records/dependencies/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_trim_card_v1/BUILD_RECEIPT.json#L2",
+          "label": "Exact trim/clamp input and output hashes"
+        },
+        {
+          "path": "records/dependencies/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_noeigh_card_v1/BUILD_RECEIPT.json#L2",
+          "label": "Exact #328433 input and eigensolve-removal output"
+        },
+        {
+          "path": "submissions/328439/README.md#L5",
+          "label": "Mathematical and measured meaning of the removal"
+        }
+      ]
+    },
+    {
+      "from": "P2R0F2V",
+      "to": "P2R0C1D9",
+      "type": "development_step",
+      "semantics": "recorded_development",
+      "explanation": "The depth-one cubic arena gate pins the no-eigensolve incumbent hash 373ad4d5... and its candidate hash f2ec257c..., matching #328439 and #328586. The local residual gate failed narrowly; the subsequent official grade is the recorded deployment result.",
+      "sources": [
+        {
+          "path": "records/dependencies/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_noeigh_card_v1/BUILD_RECEIPT.json#L7",
+          "label": "No-eigensolve source hash"
+        },
+        {
+          "path": "experiments/arithmetic-kernels/depth-1-third-cumulant-arena-deployed-submission-328586/D1_CANDIDATE_RESULT.json#L3",
+          "label": "Incumbent and depth-one candidate hashes"
+        },
+        {
+          "path": "submissions/328586/README.md#L5",
+          "label": "Official result and local-gate qualification"
+        }
+      ]
+    },
+    {
+      "from": "P2R0C1D9",
+      "to": "P2R0C1D14A",
+      "type": "development_step",
+      "semantics": "recorded_development",
+      "explanation": "The arena program progressed from depth one to depth three on the same no-eigensolve incumbent. D3 binds the D1 gate runner and the same incumbent hash; this is a recorded implementation progression, not a claim that the D3 file is appended to the D1 file.",
+      "sources": [
+        {
+          "path": "experiments/wall-and-residual/688-network-endpoint-action-head-depth-3-arena-measured/D3_CANDIDATE_RESULT.json#L17",
+          "label": "D1 runner, unchanged incumbent and D3 candidate hash"
+        },
+        {
+          "path": "submissions/328620/README.md#L5",
+          "label": "Passing depth-three estimator result"
+        }
+      ]
+    },
+    {
+      "from": "P2R0C1D14A",
+      "to": "P2R0C1D14B",
+      "type": "development_step",
+      "semantics": "recorded_development",
+      "explanation": "The D4 gate explicitly binds the prior D3 result and gate runner. Its candidate hash 6aedce54... matches #328622. These are the successive passing arena-depth variants of the same learned moment estimator.",
+      "sources": [
+        {
+          "path": "experiments/wall-and-residual/depth-4-third-cumulant-arena-full-estimator-successor-passed/D4_CANDIDATE_RESULT.json#L17",
+          "label": "D3 result/runner and exact D4 source hash"
+        },
+        {
+          "path": "submissions/328622/README.md#L5",
+          "label": "Passing depth-four estimator result"
+        }
+      ]
+    },
+    {
+      "from": "P2R0C1D14B",
+      "to": "dev-recursive-correction",
+      "type": "development_step",
+      "explanation": "The builder explicitly uses the instrumented D11 estimator, a derivative of #328622, and replaces its output-only correction with a correction inside the recursion. This is a recorded code development, not an exact-byte parent claim.",
+      "sources": [
+        {
+          "path": "experiments/flop-accounting/honest-learned-closure-variance-heads-noise-tests-separated-information/code/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g22_operator_features_v1/build_gnn_candidate.py#L1",
+          "label": "Builder states the change to the D11 estimator"
+        },
+        {
+          "path": "experiments/flop-accounting/honest-learned-closure-variance-heads-noise-tests-separated-information/code/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g22_operator_features_v1/build_gnn_candidate.py#L15",
+          "label": "Instrumented D11 source input"
+        },
+        {
+          "path": "experiments/error-attribution/accumulated-tracker-readout-reached-0-346-alone-0-811/LANE_g3_tracker.md#L304",
+          "label": "D11 uses the earlier P2R0F2J output correction"
+        },
+        {
+          "path": "experiments/error-attribution/accumulated-tracker-readout-reached-0-346-alone-0-811/LANE_g3_tracker.md#L936",
+          "label": "Variance-head mismatch found and corrected"
+        },
+        {
+          "path": "experiments/error-attribution/accumulated-tracker-readout-reached-0-346-alone-0-811/LANE_g3_tracker.md#L946",
+          "label": "Corrected candidate submitted as #329754"
+        }
+      ],
+      "omitted_intermediate_versions": []
+    },
+    {
+      "from": "dev-recursive-correction",
+      "to": "dev-signed-pair-state",
+      "type": "architecture_replacement",
+      "explanation": "This was an architecture replacement: the receipt explicitly describes a new implementation of the organizer’s SIMPLE K3 map, then paired cubic births and fresh training. It is not a file-level derivative of #329754.",
+      "sources": [
+        {
+          "path": "experiments/wall-and-residual/exact-kernel-resource-tradeoff/RESEARCH_RECEIPTS_2026_09_04.md#L8",
+          "label": "Independent implementation and covariance-shaped fourth moments"
+        },
+        {
+          "path": "experiments/wall-and-residual/exact-kernel-resource-tradeoff/RESEARCH_RECEIPTS_2026_09_04.md#L55",
+          "label": "Two signed cubes per birth"
+        },
+        {
+          "path": "experiments/wall-and-residual/exact-kernel-resource-tradeoff/RESEARCH_RECEIPTS_2026_09_04.md#L77",
+          "label": "Retraining the correction on the paired-column state"
+        },
+        {
+          "path": "submissions/329926/SUBMISSION_329926_PENDING.md#L7",
+          "label": "Later full-pair source and runtime-only repair"
+        }
+      ],
+      "omitted_intermediate_versions": []
+    },
+    {
+      "from": "dev-signed-pair-state",
+      "to": "dev-fitted-births",
+      "type": "development_step",
+      "explanation": "This milestone follows the paired-column estimator and its #329926 runtime repairs. The birth-direction study compares against that bank and identifies the exact submitted terminal candidate; intermediate runtime versions are omitted.",
+      "sources": [
+        {
+          "path": "experiments/birth-terms/four-fitted-birth-directions-pass-native40-independent14-adjusted-ratios/NATIVE40_RESULT_2026_09_08.md#L13",
+          "label": "Bank, zero-action and fitted-direction comparison"
+        },
+        {
+          "path": "experiments/birth-terms/four-fitted-birth-directions-pass-native40-independent14-adjusted-ratios/NATIVE40_RESULT_2026_09_08.md#L43",
+          "label": "Exact terminal source and previous #329926 bank"
+        },
+        {
+          "path": "submissions/330390/CONFIRMED_BANK_330390.md#L14",
+          "label": "Submitted source identity"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-329843",
+        "submission-329851",
+        "submission-329884",
+        "submission-329926"
+      ]
+    },
+    {
+      "from": "dev-fitted-births",
+      "to": "dev-composed-corrections",
+      "type": "development_step",
+      "explanation": "The composition record pins the existing mean-head parent and terminal birth model. This is a development milestone after #330390, not a claim that the earlier failed neural-birth pilot itself was submitted.",
+      "sources": [
+        {
+          "path": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40/SOURCE_BUILD_RESULT.md#L3",
+          "label": "Frozen composition and source identities"
+        },
+        {
+          "path": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40/NATIVE_TERMINAL_V2_RESULT.md#L3",
+          "label": "Combined estimator measured natively"
+        },
+        {
+          "path": "experiments/learned-correction/frozen-birth-direction-mean-head-neural-composition-passes-native40/PANEL_NATIVE_RESULT.md#L3",
+          "label": "Independent panel for the composition"
+        }
+      ],
+      "omitted_intermediate_versions": []
+    },
+    {
+      "from": "dev-composed-corrections",
+      "to": "dev-shared-basis",
+      "type": "development_step",
+      "explanation": "The recorded constructor uses the APUSH parent and preserves its existing mean encoder, neural birth correction and moment formulas. This summarized progression includes intervening aligned-product changes; it is not a direct-byte edge from the composition.",
+      "sources": [
+        {
+          "path": "records/research/2026-09-12-shared-rank-384-basis-cubic-cohorts-older-than-four/PROTOCOL.md#L10",
+          "label": "Exact APUSH parent and retained learned models"
+        },
+        {
+          "path": "records/research/2026-09-12-shared-rank-384-basis-cubic-cohorts-older-than-four/PROTOCOL.md#L17",
+          "label": "Rank-384 older-cohort representation"
+        },
+        {
+          "path": "experiments/arithmetic-kernels/broader-aligned-six-level-factor-propagation-improves-native40-adjusted/CHECK4_RESULT_20260910.md#L3",
+          "label": "Intervening APUSH implementation and measurement"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "broader aligned six-level propagation on the composed model"
+      ]
+    },
+    {
+      "from": "dev-shared-basis",
+      "to": "dev-shared-basis-timeout",
+      "type": "development_step",
+      "explanation": "This is the failed hosted version of the shared-basis estimator. It is a failed deployment attempt, not a rejection of the compressed representation.",
+      "sources": [
+        {
+          "path": "submissions/330840/FAILED_330840_20260912_PDT.md#L3",
+          "label": "Exact failed submission"
+        },
+        {
+          "path": "records/research/2026-09-13-batched-six-level-factor-propagation-pair-series-fusion-split/RECEIPTS.md#L3",
+          "label": "Frozen source and later timeout diagnosis"
+        }
+      ],
+      "omitted_intermediate_versions": []
+    },
+    {
+      "from": "dev-shared-basis",
+      "to": "dev-shared-runtime",
+      "type": "development_step",
+      "explanation": "The runtime study starts from the frozen shared-basis source c2c2ffad and records the changes leading to #330931. Failed #330840 and #330924 are preserved as implementation failures, rather than represented as successful parents.",
+      "sources": [
+        {
+          "path": "records/research/2026-09-13-batched-six-level-factor-propagation-pair-series-fusion-split/RECEIPTS.md#L3",
+          "label": "Exact frozen shared-basis input"
+        },
+        {
+          "path": "records/research/2026-09-13-batched-six-level-factor-propagation-pair-series-fusion-split/RECEIPTS.md#L35",
+          "label": "Second failed version and remote-call diagnosis"
+        },
+        {
+          "path": "records/research/2026-09-13-batched-six-level-factor-propagation-pair-series-fusion-split/RECEIPTS.md#L53",
+          "label": "Size rule and successful #330931 source"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-330924"
+      ]
+    },
+    {
+      "from": "dev-shared-runtime",
+      "to": "dev-full-moments",
+      "type": "development_step",
+      "explanation": "The direct parent is #331599, which follows #330931 through exact-cost product selection, a scalar final head and delayed coefficient rotations. These intermediate versions are summarized, not asserted to be absent.",
+      "sources": [
+        {
+          "path": "submissions/331584/README.md#L5",
+          "label": "Recorded changes relative to #330931"
+        },
+        {
+          "path": "submissions/331599/README.md#L5",
+          "label": "Delayed rotations after #331584"
+        },
+        {
+          "path": "submissions/331672/README.md#L5",
+          "label": "Full lower-moment change on exact #331599 parent"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-331584",
+        "submission-331599"
+      ]
+    },
+    {
+      "from": "dev-full-moments",
+      "to": "dev-covariance-correction",
+      "type": "build_step",
+      "explanation": "The record explicitly builds the covariance-edge correction on the #331672 full-moment trajectory. Lossless static parameter packing was applied before submission; it did not introduce a new fitted readout.",
+      "sources": [
+        {
+          "path": "submissions/331684/README.md#L5",
+          "label": "Full-moment parent, covariance correction and packing"
+        },
+        {
+          "path": "submissions/331684/RESULT.md#L6",
+          "label": "Correction implementation and measurements"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "lossless static packing after submission-331676 failed"
+      ]
+    },
+    {
+      "from": "dev-covariance-correction",
+      "to": "dev-mean-refit",
+      "type": "build_step",
+      "explanation": "The record explicitly names #331684 as the parent for the 11-key mean-encoder refit. This replaces learned coefficients while retaining the surrounding estimator.",
+      "sources": [
+        {
+          "path": "submissions/331760/README.md#L5",
+          "label": "Exact parent and fitted versus frozen parameters"
+        },
+        {
+          "path": "submissions/331760/OFFICIAL_RESULT.md#L3",
+          "label": "Hosted result"
+        }
+      ],
+      "omitted_intermediate_versions": []
+    },
+    {
+      "from": "dev-mean-refit",
+      "to": "dev-spaced-joins",
+      "type": "development_step",
+      "explanation": "This checkpoint follows the mean-encoder refit and the small message-to-covariance update in #331824. The ledger explicitly records its three mathematical changes on #331824; the intermediate update is summarized.",
+      "sources": [
+        {
+          "path": "submissions/331824/README.md#L5",
+          "label": "Intervening message-to-covariance fit"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L709",
+          "label": "Parent and new join/cumulant/gain terms"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-331824"
+      ]
+    },
+    {
+      "from": "dev-spaced-joins",
+      "to": "dev-joint-refit",
+      "type": "development_step",
+      "explanation": "The refit is explicitly applied to #332026. The ledger records #331947 → #331961 → #331992 → #332005 → #332026 before this checkpoint. These runtime, final-read and earlier-fit versions are summarized by this development edge.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L711",
+          "label": "First intermediate descendant of #331947"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L715",
+          "label": "Earlier closure fit on that descendant"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L717",
+          "label": "Runtime parent #332026"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L719",
+          "label": "Joint encoder/closure refit"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-331961",
+        "submission-331992",
+        "submission-332005",
+        "submission-332026"
+      ]
+    },
+    {
+      "from": "dev-joint-refit",
+      "to": "dev-nystrom-joins",
+      "type": "development_step",
+      "explanation": "The ledger records this as a combined change on S21s1, after the sequence of joint fits and product optimizations. It is a summarized development milestone, not the immediate byte child of #332037.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L724",
+          "label": "Continuation from #332037"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L864",
+          "label": "Exact S21s1-based sketch/cross-term/refit construction"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-332182",
+        "submission-332195",
+        "submission-332203",
+        "submission-332207",
+        "submission-332210",
+        "submission-332224",
+        "submission-332226",
+        "submission-332227",
+        "submission-332230",
+        "submission-332231",
+        "submission-332236",
+        "submission-332241"
+      ]
+    },
+    {
+      "from": "dev-nystrom-joins",
+      "to": "dev-local-fourth",
+      "type": "development_step",
+      "explanation": "The fourth-order terms were explicitly added to S36/#333429, a later descendant of the Nyström estimator. Intervening refits, precision changes, row selections and runtime improvements are summarized here.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L904",
+          "label": "Exact S36 plus fourth-order column shift and local kurtosis"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L907",
+          "label": "Hosted result for the added terms"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-332255",
+        "submission-332295",
+        "submission-332361",
+        "submission-332492",
+        "submission-332517",
+        "submission-332738",
+        "submission-332838",
+        "submission-333050",
+        "submission-333111",
+        "submission-333429"
+      ]
+    },
+    {
+      "from": "dev-local-fourth",
+      "to": "dev-pair-norm-coupling",
+      "type": "development_step",
+      "explanation": "The source records the column-pair representation and its port as S40/#333559 on S39. The intervening S38/S39 coefficient and representation changes are summarized; this is not a direct file-parent claim from #333435.",
+      "sources": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L312",
+          "label": "Column-pair representation and measured value"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L328",
+          "label": "Comparison with the full-matrix law"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L915",
+          "label": "Exact S39 plus norm-coupling construction"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-333481",
+        "submission-333528"
+      ]
+    },
+    {
+      "from": "dev-pair-norm-coupling",
+      "to": "dev-norm-informed-mean",
+      "type": "development_step",
+      "explanation": "The preceding S41/#333587 adds the fourth-chaos pair plane and fitted physical strengths. S42/#333607 then adds its norm-coupling diagonal input to the mean model; this edge explicitly summarizes that intermediate version.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L917",
+          "label": "S41 quartic plane and physical coefficient fit"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L444",
+          "label": "Learned diagonal input and fitted weights"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L450",
+          "label": "Submission of the combined estimator"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-333587"
+      ]
+    },
+    {
+      "from": "dev-norm-informed-mean",
+      "to": "dev-corrected-gates",
+      "type": "development_step",
+      "explanation": "The October12 stack explicitly combines the corrected transport gate with S51 and an independent exact caching change. The October10–12 joint refits and representation updates are summarized, not treated as one direct source edit.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L921",
+          "label": "Continuation with the same physical terms and joint fitting"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L1660",
+          "label": "S51-based gate/caching stack procedure"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L1684",
+          "label": "Submitted stacked estimator"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L1688",
+          "label": "Recorded hosted result"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-335147",
+        "submission-335213",
+        "submission-335259",
+        "submission-335340",
+        "submission-335411",
+        "submission-335451",
+        "submission-335505",
+        "submission-335621"
+      ]
+    },
+    {
+      "from": "dev-corrected-gates",
+      "to": "dev-late-k4",
+      "type": "development_step",
+      "explanation": "The recorded S54 stack retains the earlier gate and exact runtime improvements, includes the previously added final-layer age3/4 terms, and adds their inner-layer counterpart. S54’s intervening refits and exact reductions are summarized.",
+      "sources": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2085",
+          "label": "Retained deltas and S54 stack"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2087",
+          "label": "Older-pair implementation and parity"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2093",
+          "label": "S54 stack plus inner-layer older-pair term"
+        },
+        {
+          "path": "submissions/335782/README.md#L5",
+          "label": "Recorded released candidate"
+        }
+      ],
+      "omitted_intermediate_versions": [
+        "submission-335661",
+        "submission-335696",
+        "submission-335709"
+      ]
+    },
+    {
+      "from": "dev-late-k4",
+      "to": "dev-feasible-mean",
+      "type": "development_step",
+      "explanation": "Summarized retained development through #335894 and #335920. #336075 was built on #335920; this edge does not claim #335782 is its immediate byte parent.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L971",
+          "label": "Recorded #335920 base and feasible-mean addition"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L2961",
+          "label": "Exact #336075 submission"
+        }
+      ]
+    },
+    {
+      "from": "dev-feasible-mean",
+      "to": "dev-output-projection",
+      "type": "development_step",
+      "explanation": "The rank-two output projection was explicitly added on top of #336075, with a request-planner repair.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L973",
+          "label": "Rank-two projection on #336075"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L3140",
+          "label": "Retained projection in later refits"
+        }
+      ]
+    },
+    {
+      "from": "dev-output-projection",
+      "to": "dev-young-tail",
+      "type": "development_step",
+      "explanation": "The recorded sequence includes #336125, which changed the young-read arithmetic, before #336178 added the rank-two tail completion. This summarizes those two development steps.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L985",
+          "label": "Tail completion on #336125"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L3336",
+          "label": "Submitted two-direction completion"
+        }
+      ]
+    },
+    {
+      "from": "dev-young-tail",
+      "to": "dev-join-sketch",
+      "type": "development_step",
+      "explanation": "Summarized continuing estimator development, including intervening kernel and runtime repairs. The basis changes are documented at #336854, #337028 and #337065; these are not adjacent byte parents.",
+      "sources": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L3376",
+          "label": "Young-read change retained as the current base"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5067",
+          "label": "Heavy-column sketch comparison"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5887",
+          "label": "Symmetric landmark sketch on #336935"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5922",
+          "label": "Final sketch-size change on #337061"
+        }
+      ]
+    },
+    {
+      "from": "dev-join-sketch",
+      "to": "dev-late-tail",
+      "type": "development_step",
+      "explanation": "#337090 follows the sketch-size estimator with a terminal row cut. #337126 and #337142 then add successively more accurate late-layer tail handling.",
+      "sources": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5932",
+          "label": "Final-layer row-cut development"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5955",
+          "label": "Layer-14 addition on #337090"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L5964",
+          "label": "Layer-13 extension of #337126 physics"
+        }
+      ]
+    },
+    {
+      "from": "dev-late-tail",
+      "to": "dev-compressed-messages",
+      "type": "development_step",
+      "explanation": "Summarizes the continuing line through coefficient, Gram and runtime changes after #337142. The message-width-eight experiment uses that later estimator family and selective loader restoration; #337421 is its contemporary comparator, not an asserted immediate file parent.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1112",
+          "label": "Coefficient update on #337142"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1143",
+          "label": "Later Gram, coefficient and runtime stack"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1234",
+          "label": "Exact repaired message-width-eight source"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1244",
+          "label": "Message-width-eight submission"
+        }
+      ]
+    },
+    {
+      "from": "dev-compressed-messages",
+      "to": "dev-edge-readout",
+      "type": "development_step",
+      "explanation": "The edge-width-eight and per-layer 90-network readout experiments are evaluated against #337422, then combined into #337466.",
+      "sources": [
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1241",
+          "label": "Width-eight covariance model on current message-width-eight states"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1351",
+          "label": "Ninety-network per-layer mean fit"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1367",
+          "label": "Exact combined edge/readout source"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1411",
+          "label": "Submission of the combined #337466 estimator"
+        }
+      ]
+    },
+    {
+      "from": "dev-edge-readout",
+      "to": "build-parent",
+      "type": "development_step",
+      "explanation": "The final hidden-feature experiments extend the #337466 family, including an intermediate full-hidden readout. First-hidden features plus fully charged runtime repairs produce #337506; this summarizes the intervening experiment and runtime versions.",
+      "sources": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L6750",
+          "label": "First-hidden readout versus #337466 and its exact intermediate parent"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L6763",
+          "label": "Independent native comparison"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1729",
+          "label": "Exact submitted #337506 source"
+        },
+        {
+          "path": "records/SUBMISSION_LEDGER.md#L1748",
+          "label": "Graded #337506 result"
+        }
+      ]
+    },
+    {
+      "from": "dev-edge-readout",
+      "to": "dev-second-fit-rejected",
+      "type": "development_step",
+      "explanation": "Parallel older full-hidden readout branch from the #337466 family. Its tensor-only second fit does not include the first-hidden update in #337506; #337506 is the comparator, not its parent.",
+      "sources": [
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7307",
+          "label": "Older full-hidden source and no first-hidden stacking"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7308",
+          "label": "Sealed tensor-only export"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7384",
+          "label": "Actual comparison and rejection"
+        },
+        {
+          "path": "records/TEAM_LOG_2026-10-01_to_10-22.md#L7385",
+          "label": "Closed branch; distinct first-hidden on-policy lane"
+        }
+      ]
+    },
+    {
+      "from": "build-parent",
+      "to": "build-fit",
+      "type": "build_step",
+      "source": "release/common/readout/full90_BLOCKS_COEFFICIENTS_v1.json",
+      "explanation": "The archived build record identifies this input and the next exported source.",
+      "sources": [
+        {
+          "path": "release/common/readout/full90_BLOCKS_COEFFICIENTS_v1.json",
+          "label": "Archived build evidence"
+        }
+      ]
+    },
+    {
+      "from": "build-fit",
+      "to": "build-export-337619",
+      "type": "build_step",
+      "source": "release/337619/seal_s1.5/EXPORTED_v1.json",
+      "explanation": "The archived build record identifies this input and the next exported source.",
+      "sources": [
+        {
+          "path": "release/337619/seal_s1.5/EXPORTED_v1.json",
+          "label": "Archived build evidence"
+        }
+      ]
+    },
+    {
+      "from": "build-export-337619",
+      "to": "build-runtime-337619",
+      "type": "build_step",
+      "source": "release/337619/build/BUILD_v1.json",
+      "explanation": "The archived build record identifies this input and the next exported source.",
+      "sources": [
+        {
+          "path": "release/337619/build/BUILD_v1.json",
+          "label": "Archived build evidence"
+        }
+      ]
+    },
+    {
+      "from": "build-runtime-337619",
+      "to": "build-final-337619",
+      "type": "build_step",
+      "source": "submissions/337619/estimator.py",
+      "explanation": "The archived build record identifies this input and the next exported source.",
+      "sources": [
+        {
+          "path": "submissions/337619/estimator.py",
+          "label": "Archived build evidence"
+        }
+      ]
+    },
+    {
+      "from": "build-fit",
+      "to": "build-export-337641",
+      "type": "build_step",
+      "source": "release/337641/seal_s1.35/EXPORTED_v1.json",
+      "explanation": "The archived build record identifies this input and the next exported source.",
+      "sources": [
+        {
+          "path": "release/337641/seal_s1.35/EXPORTED_v1.json",
+          "label": "Archived build evidence"
+        }
+      ]
+    },
+    {
+      "from": "build-export-337641",
+      "to": "build-runtime-337641",
+      "type": "build_step",
+      "source": "release/337641/build/BUILD_v1.json",
+      "explanation": "The archived build record identifies this input and the next exported source.",
+      "sources": [
+        {
+          "path": "release/337641/build/BUILD_v1.json",
+          "label": "Archived build evidence"
+        }
+      ]
+    },
+    {
+      "from": "build-runtime-337641",
+      "to": "build-final-337641",
+      "type": "build_step",
+      "source": "submissions/337641/estimator.py",
+      "explanation": "The archived build record identifies this input and the next exported source.",
+      "sources": [
+        {
+          "path": "submissions/337641/estimator.py",
+          "label": "Archived build evidence"
+        }
+      ]
+    }
+  ],
+  "retained": [
+    {
+      "title": "Gaussian moment formulas",
+      "meaning": "Compute ReLU means and pair moments from mean and covariance.",
+      "source": "estimator/ANATOMY.md#L58"
+    },
+    {
+      "title": "Third- and fourth-order corrections",
+      "meaning": "Retain departures from the Gaussian approximation.",
+      "source": "estimator/ANATOMY.md#L66"
+    },
+    {
+      "title": "Signed-column propagation",
+      "meaning": "Carry recent third-order information and compress older columns.",
+      "source": "estimator/ANATOMY.md#L88"
+    },
+    {
+      "title": "Learned state and covariance corrections",
+      "meaning": "Correct the propagated estimate and feed the correction into subsequent layers.",
+      "source": "estimator/ANATOMY.md#L100"
+    },
+    {
+      "title": "On-policy readout and metered runtime",
+      "meaning": "Refit the readout on its own trajectory and fit the implementation to the computation and time limits.",
+      "source": "estimator/ANATOMY.md#L115"
+    }
+  ],
+  "anchor_evidence": {
+    "research_node": "P2R0C1D14B",
+    "submission": 328622,
+    "source": "submissions/328622/estimator.py",
+    "sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "instrumented_derivative": "experiments/flop-accounting/honest-learned-closure-variance-heads-noise-tests-separated-information/code/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_d11_util_halving_v1/estimator_cap.py",
+    "derivative_sha256": "ace56bf60b267666e4f2a6d8ae772a089f234ebc725f34a4798b2f9e8284cbc2",
+    "note": "Read-only hashing and source diff confirm that the instrumented D11 is modified, not byte-identical. Its builder explicitly names it as the input; the source ledger links the corrected candidate to #329754. No estimator was imported or executed."
+  },
+  "review": {
+    "new_or_updated_nodes": 27,
+    "anchor_edges": 9,
+    "display_parent_overrides": 7,
+    "independent_source_review": true,
+    "corrections_applied": 12
+  }
+}

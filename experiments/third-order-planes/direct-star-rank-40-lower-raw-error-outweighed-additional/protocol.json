@@ -1,0 +1,70 @@
+{
+  "utc": "2026-09-28T03:20:28.165739+00:00",
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection40_v1/candidate.py",
+    "sha256": "e47127deddb294bbb286206c81c17a25ed3fa34c01ce20558a401a69427b910a",
+    "bytes": 930345
+  },
+  "change": "\n# One opposing rank step: direct retained rank40, same deterministic Q1 projection.\n_LR_K = 40\n_TSR_SHAPES = _TSR_SHAPES + ((1024, 1024, 40), (40, 1024, 1024), (1024, 40, 1024))\n",
+  "hypothesis": "Global directrank24 lost raw0.639% while saving compute0.396%; test the opposing rank40 step once on current bank to see if recovered accuracy exceeds its higher compute. This retains rank40 rather than old randomized sketchK40/truncatedR32, which was historically tested and is not repeated.",
+  "controls": [
+    "hill_climb_star_projection32_train2_v1",
+    "hill_climb_star_projection32_train6_v1",
+    "hill_climb_star_projection32_extra8_candidate_v1"
+  ],
+  "train2_ranks": [
+    35,
+    100
+  ],
+  "train2_advance": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 2
+  },
+  "if_advance_fixed_blocks": [
+    [
+      36,
+      45,
+      52,
+      58,
+      64,
+      70
+    ],
+    [
+      3,
+      12,
+      40,
+      41,
+      43,
+      44,
+      57,
+      68
+    ]
+  ],
+  "train16_retention": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 10,
+    "ci95_upper_below": 0,
+    "additional14_gain_positive": true
+  },
+  "limits": {
+    "train2_seconds": 150,
+    "train6_seconds": 300,
+    "extra8_seconds": 360,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "serial": true
+  },
+  "one_fixed_source": true,
+  "no_automatic_extensions_or_rank_sweep": true,
+  "bank_policy": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/submission_policy_20260928_v1.json",
+    "sha256": "d069a04ed856331da19099e1ed86a3aa56bca81b56e8d2d09278fc7a6af793e7",
+    "bytes": 492
+  },
+  "notes": "Component retention is not release qualification; >=1% broad validation plus serving/resource/contract required before another submission. Source excludes the independent D3 prebind follow-up to isolate retainedrank change."
+}

@@ -1,0 +1,246 @@
+{
+  "schema": "fb-ec4-32-q24-one-attempt-phase2-board-promotion-scaffold-v1",
+  "status": "READY_ONE_ATTEMPT_Q24_BOARD_VALIDATION",
+  "created_at_utc": "2026-08-24T10:03:59Z",
+  "candidate": {
+    "count": 1,
+    "name": "Full V4 Q24",
+    "tag": "fb-ec4-full-v4-q24-b38cd865",
+    "source": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/estimator.py",
+      "bytes": 68115,
+      "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52"
+    },
+    "source_preregister": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/PREREGISTER.md",
+      "sha256": "a7b540865641d6168c50bcf2f50aff19a6c8be8f50458a97472deaeb658a314e"
+    },
+    "source_manifest": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/SOURCE_MANIFEST.json",
+      "sha256": "1627632a560e549a7df556dda07d8c9b8429815d43dbc47ff86735b856312e39"
+    },
+    "freeze_receipt": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/FREEZE_RECEIPT_Q24.json",
+      "sha256": "565093c418a656510cc1ac15b6d93cd50b104a122bf2d71586c41e32f693026d"
+    },
+    "independent_source_and_meter_audit": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/INDEPENDENT_SOURCE_AND_METER_AUDIT_Q24.json",
+      "sha256": "716bfc2afedff263f633f694009325233523e7d29ecf62521db91d0d844c52ef"
+    },
+    "canonical_v4_suite_action_envelope": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/INDEPENDENT_FULLWIDTH_COMPARATOR_AUDIT_Q24.json",
+      "sha256": "46e157583819efd0216ae6a416367326f481686beeb1302ad26acf8d3a333e5e",
+      "status": "PASS_FOR_ONE_EXPLORATORY_BOARD_PACKAGING_ATTEMPT_ONLY__RAW_MSE_AND_GENERAL_ROBUSTNESS_HOLD",
+      "final_prediction_disagreement_mse": 9.447567425721169e-17,
+      "registered_gate_pass": true
+    },
+    "archive": {
+      "path_from_repo_root": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_v1/submissions/fb-ec4-full-v4-q24-v1-b38cd865.tar.gz",
+      "bytes": 16850,
+      "sha256": "53962192f1d8eb07ba29e37c9d008a6ce1140b374e244fd3ae4c78c6f7b4a4b6",
+      "members_exact": [
+        {
+          "name": "estimator.py",
+          "type": "regular",
+          "bytes": 68115,
+          "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52"
+        },
+        {
+          "name": "manifest.json",
+          "type": "regular",
+          "bytes": 528,
+          "sha256": "c1beabc8e496012fe373142d1a963638f76b3abc299fbaeb187b9098af1f9292"
+        }
+      ]
+    }
+  },
+  "rationale_evidence": {
+    "board_attempt_328199": {
+      "path": "../fullbudget_k21_k4_closure_v4_board_promotion_v1/BOARD_ATTEMPT_328199_RESULT.json",
+      "sha256": "066574b553aecde40fd30213a362d3598efbf355b3b463b84af3282fd3b1aff8",
+      "submission_id": 328199,
+      "terminal_status": "FAILED",
+      "completed_mlps": 2,
+      "configured_mlps": 100,
+      "aggregate_raw_mse": null,
+      "completed_final_raw_mse": [7.661e-8, 7.071e-8],
+      "completed_only_mean_final_raw_mse": 7.366e-8,
+      "classification": "PARTIAL_E8_ACCURACY_EVIDENCE_ONLY__NOT_AN_AGGREGATE_BOARD_SCORE"
+    },
+    "independent_board_result_audit": {
+      "path": "../fullbudget_k21_k4_closure_v4_board_promotion_v1/INDEPENDENT_BOARD_RESULT_AUDIT.json",
+      "sha256": "455332232e76691d7a40349bbfbae890a3fc3fbbae8707fc4254debf6d609dc6"
+    },
+    "a1_meter_result": {
+      "path": "../fullbudget_k21_k4_closure_a1_no_cp4_v1/METER_RESULT.json",
+      "sha256": "276c34a9ad3c8f5ccaec42f98b970543b21275d2cf31955333714483b00c8e27",
+      "flop_reduction_fraction_vs_v4": 0.10824046556006678,
+      "backend_delta_s_vs_v4": 0.7140168910846114,
+      "wall_delta_s_vs_v4": 0.4547270843759179,
+      "classification": "LOCAL_RESOURCE_PASS__ROBUST_BOARD_WALL_CLAIM_HOLD"
+    },
+    "independent_a1_audit": {
+      "path": "../fullbudget_k21_k4_closure_a1_no_cp4_v1/INDEPENDENT_SOURCE_AND_METER_AUDIT_A1.json",
+      "sha256": "02d16c3f2bc1a6476dfb2ee18aa8a1add8ec8b8d5e7608f011d4923b54bc00ed"
+    }
+  },
+  "phase2_interface": {
+    "python": "3.11.5",
+    "whestbench": "0.16.0",
+    "flopscope": "0.12.0",
+    "numpy": "2.4.6",
+    "entrypoint_module": "estimator",
+    "entrypoint_class": "Estimator",
+    "production_width": 1024,
+    "production_depth": 16,
+    "budget_flops_max": 2199023255552,
+    "wall_time_s_strict_max": 120.0,
+    "residual_time_s_max": 0.4,
+    "descendant_rss_bytes_strict_max": 8589934592
+  },
+  "meter_gate": {
+    "path": "../meter_protocol/runs/fb_ec4_q24_full_v1_b38cd865_n1_s8_seed20260824/receipt.json",
+    "sha256": "d69fd338972386af2c45f120d2983d5036a9a52ae57845a01977658e4c21fd11",
+    "status": "PASS_PHASE2_SUBPROCESS_INTERFACE_AND_METER__ACCURACY_UNSCORED",
+    "flops_used": 2131249329109,
+    "operation_calls": 6878,
+    "wall_time_s": 29.222194833680987,
+    "backend_time_s": 28.354737606830895,
+    "residual_time_s": 0.29449143446981907,
+    "descendant_peak_rss_bytes": 4507058176,
+    "failed_mlps": 0,
+    "output_shape": [16, 1024],
+    "output_dtype": "float32",
+    "output_all_finite": true,
+    "literal_phase2_resource_pass": true,
+    "robust_local_backend_s_max": 30.0,
+    "robust_local_residual_s_max": 0.3,
+    "robust_wall_engineering_classification": "PASS_ROBUST_LOCAL_ENGINEERING_GATE"
+  },
+  "eligibility_boundary": {
+    "exploratory_board_validation": "READY_AFTER_REQUIRE_READY_VERIFIER__ONE_ATTEMPT_ONLY",
+    "scientific_promotion": "HOLD_PENDING_BOARD_AGGREGATE_AND_ANY_SEPARATE_Q24_ACCURACY_OR_MOMENT_GATES",
+    "working_source_is_not_frozen_evidence": true,
+    "partial_v4_rows_cannot_substitute_for_q24_aggregate": true
+  },
+  "primary_criterion": {
+    "candidate_count": 1,
+    "configured_mlps": 100,
+    "required_completed_mlps": 100,
+    "required_failed_mlps": 0,
+    "metric": "observed_unrounded_board_aggregate_raw_final_layer_mse",
+    "operator": "<",
+    "threshold": 1e-8,
+    "equality_passes": false,
+    "partial_rows_can_rescue": false,
+    "adjusted_or_secondary_metric_can_rescue": false
+  },
+  "outcome_law": {
+    "pass": "PASS only if 100/100 complete, zero failed, and finite aggregate raw final-layer MSE is strictly below 1e-8",
+    "nonpass": "Retain exact telemetry; no automatic retry or target-driven mutation",
+    "missing_nonfinite_failed_or_ambiguous_result": "NONPASS_DIAGNOSTIC",
+    "tuning": false,
+    "fallback": false,
+    "retry": false,
+    "regrade_farming": false
+  },
+  "authorization": {
+    "source": "Root-agent handoff of user's explicit authority to use up to ten submissions appropriately",
+    "max_attempts_this_preregistration": 1,
+    "artifact_prerequisites_satisfied": true,
+    "submission_authorized_while_hold": false,
+    "candidate_substitution": false,
+    "submission_executed_during_preparation": false,
+    "network_accessed_during_preparation": false,
+    "credentials_accessed_during_preparation": false,
+    "target_or_score_accessed_during_preparation": false
+  },
+  "command_template": {
+    "path": "SUBMISSION_COMMAND_TEMPLATE.json",
+    "archive_placeholder": "${ARCHIVE_PATH_FROM_REPO_ROOT}",
+    "description_placeholder": "${FINAL_DESCRIPTION}"
+  },
+  "submission": {
+    "working_directory": "/Users/matt/arc-white-box-estimation",
+    "command_argv": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/whest",
+      "submit",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_v1/submissions/fb-ec4-full-v4-q24-v1-b38cd865.tar.gz",
+      "--challenge",
+      "arc-white-box-estimation-challenge-2026",
+      "--description",
+      "fb-ec4-full-v4-q24-b38cd865 one-attempt wall-safe rich-closure validation v1",
+      "--watch",
+      "--watch-timeout",
+      "3600",
+      "--format",
+      "json"
+    ],
+    "attempt_state": "PREPARED_NOT_ATTEMPTED",
+    "submission_id": null,
+    "board_result_path": null,
+    "board_result_sha256": null
+  },
+  "attempt_classification": {
+    "local_preflight_before_remote_create": "LOCAL_PREFLIGHT_FAILURE_NO_ATTEMPT",
+    "remote_submission_id_or_platform_record": "ONE_ATTEMPT_CONSUMED",
+    "watch_timeout_after_submission_id": "ONE_ATTEMPT_CONSUMED",
+    "transport_failure_after_remote_create_request_without_conclusive_record": "AMBIGUOUS_POSSIBLE_ATTEMPT__NO_RETRY",
+    "current": "PREPARED_NOT_ATTEMPTED"
+  },
+  "required_final_fields": [
+    "candidate.name",
+    "candidate.tag",
+    "candidate.source.bytes",
+    "candidate.source.sha256",
+    "candidate.source_preregister.sha256",
+    "candidate.source_manifest.path",
+    "candidate.source_manifest.sha256",
+    "candidate.freeze_receipt.path",
+    "candidate.freeze_receipt.sha256",
+    "candidate.independent_source_and_meter_audit.path",
+    "candidate.independent_source_and_meter_audit.sha256",
+    "candidate.canonical_v4_suite_action_envelope.path",
+    "candidate.canonical_v4_suite_action_envelope.sha256",
+    "candidate.canonical_v4_suite_action_envelope.status",
+    "candidate.canonical_v4_suite_action_envelope.final_prediction_disagreement_mse",
+    "candidate.canonical_v4_suite_action_envelope.registered_gate_pass",
+    "meter_gate.path",
+    "meter_gate.sha256",
+    "meter_gate.status",
+    "meter_gate.flops_used",
+    "meter_gate.operation_calls",
+    "meter_gate.wall_time_s",
+    "meter_gate.backend_time_s",
+    "meter_gate.residual_time_s",
+    "meter_gate.descendant_peak_rss_bytes",
+    "meter_gate.failed_mlps",
+    "meter_gate.output_shape",
+    "meter_gate.output_dtype",
+    "meter_gate.output_all_finite",
+    "meter_gate.literal_phase2_resource_pass",
+    "meter_gate.robust_wall_engineering_classification",
+    "candidate.archive.path_from_repo_root",
+    "candidate.archive.bytes",
+    "candidate.archive.sha256",
+    "candidate.archive.members_exact[0].bytes",
+    "candidate.archive.members_exact[0].sha256",
+    "candidate.archive.members_exact[1].bytes",
+    "candidate.archive.members_exact[1].sha256",
+    "submission.command_argv"
+  ],
+  "forbidden_now": [
+    "TARGET_OR_DATASET_ACCESS",
+    "SCORE_OR_PRIVATE_BOARD_ACCESS",
+    "NETWORK_ACCESS",
+    "CREDENTIAL_ACCESS",
+    "PACKAGING",
+    "SUBMISSION",
+    "SOURCE_MUTATION_FROM_THIS_NAMESPACE",
+    "HASH_BINDING_FROM_UNFROZEN_WORKING_BYTES",
+    "TUNING",
+    "FALLBACK",
+    "RETRY",
+    "GRAPH_MUTATION"
+  ]
+}

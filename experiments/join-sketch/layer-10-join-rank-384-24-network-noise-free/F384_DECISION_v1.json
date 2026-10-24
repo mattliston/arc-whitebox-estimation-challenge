@@ -1,0 +1,114 @@
+{
+  "lane": "opus-f384",
+  "candidate": "e33563bc",
+  "reference": "2b10843a",
+  "science": {
+    "passed": false,
+    "rule": "noise-free net mean all24<0 AND last8<0",
+    "all24": {
+      "MSE": {
+        "mean": -1.5524658282441823,
+        "se": 0.3129400179043538,
+        "lower": 21,
+        "n": 24
+      },
+      "xMSE": {
+        "mean": -2.0813445618965627,
+        "se": 0.41229699561279193,
+        "lower": 21,
+        "n": 24
+      },
+      "bill": {
+        "mean": 1.6206868123664495,
+        "se": 0.015648332187656672,
+        "lower": 0,
+        "n": 24
+      },
+      "net": {
+        "mean": 0.06822098412226728,
+        "se": 0.3110192094849538,
+        "lower": 9,
+        "n": 24
+      },
+      "xnet": {
+        "mean": -0.4606577495301129,
+        "se": 0.4104263226533446,
+        "lower": 12,
+        "n": 24
+      },
+      "ops_delta": {
+        "mean": 383.8333333333333,
+        "se": 11.260046507141753,
+        "lower": 0,
+        "n": 24
+      }
+    },
+    "last8": {
+      "MSE": {
+        "mean": -1.0674844814508018,
+        "se": 0.4449036080220717,
+        "lower": 7,
+        "n": 8
+      },
+      "xMSE": {
+        "mean": -1.438307570957593,
+        "se": 0.6162212147393231,
+        "lower": 7,
+        "n": 8
+      },
+      "bill": {
+        "mean": 1.6108484944808006,
+        "se": 0.012557981725343465,
+        "lower": 0,
+        "n": 8
+      },
+      "net": {
+        "mean": 0.5433640130299987,
+        "se": 0.44545778879853465,
+        "lower": 1,
+        "n": 8
+      },
+      "xnet": {
+        "mean": 0.17254092352320738,
+        "se": 0.6170043848447206,
+        "lower": 2,
+        "n": 8
+      }
+    }
+  },
+  "production": {
+    "official120_judge": "FAIL",
+    "p_loss_pct": 22.44,
+    "first": 48747,
+    "warm": 46446,
+    "ref_2b108": {
+      "p_loss": 19.0,
+      "first": 48425,
+      "warm": 46170
+    },
+    "ref_b709": {
+      "p_loss": 19.79,
+      "first": 48417,
+      "warm": 46276
+    },
+    "worst_wall_s": 110.1,
+    "setup_s": 4.441,
+    "slow_setup_s": 4.585,
+    "bill_util_warm": 0.11156,
+    "extra_calls_setup_plus_2nets": {
+      "add": 276,
+      "subtract": 150,
+      "unstack": 76,
+      "reshape": 34,
+      "lam": 25,
+      "copyto": 14,
+      "transpose": 11,
+      "matmul": 6,
+      "empty": 4,
+      "zeros": 2
+    },
+    "setup_requests_identical": 19007
+  },
+  "repair_requirement": "~-250 warm requests on 2b108 base, ~-300+ on b709 base (19.79%) to reach <=20%; 71% of extra calls are Smirnov-circuit add/subtract on rank-384 shapes",
+  "judge_text": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_f384_v1/JUDGE_OFFICIAL120_f384_v1.txt"
+}

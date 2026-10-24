@@ -1,0 +1,49 @@
+{
+  "access": {
+    "estimator_calls": 0,
+    "fit_label_or_truth_array_opens": 0,
+    "mc_generation": 0,
+    "network_calls": 0,
+    "production_weight_or_feature_array_opens": 0,
+    "repository_data_or_cache_reads": 0,
+    "target_opens": 0,
+    "training_or_scoring_runs": 0
+  },
+  "commands": [
+    "python3 -m py_compile public_v34_physical_state_response_sentinel_v2r1/*.py",
+    "data_gate/.venv/bin/python verify_block_statistics.py",
+    "data_gate/.venv/bin/python verify_held_scorer_contract_reference.py",
+    "data_gate/.venv/bin/python verify_mc_block_reference.py",
+    "data_gate/.venv/bin/python verify_production_plumbing_synthetic.py"
+  ],
+  "implementation_freeze_sha256": "5a0d937711794ad7d53e1449faf54f67b49d21c110a57b2533fece39ae82f6eb",
+  "implementation_manifest_sha256": "efb093d59000f76be614c9268754fc589c09e243ac891b1902c43a633f332a22",
+  "production_plumbing_fixtures": [
+    "corrected_public_parent_single_raw_pass",
+    "capture_seam_counts_and_off_by_one",
+    "response_L1_start_and_weight_indexing",
+    "fused_deploy_equals_split_evidence_and_uses_one_state",
+    "mc_float32_propagation_and_block_boundary",
+    "artifact_O_EXCL_and_symlink_parent",
+    "numpy_deployment_inference_spelling",
+    "target_last_anti_replay_and_fixed_panel_fail_closed",
+    "response_freeze_serialization_and_exact_gate_keyset",
+    "fit_release_deep_implementation_freeze_rehash"
+  ],
+  "py_compile": "PASS_ALL_SOURCES",
+  "schema": "v34-v2r1-implementation-static-verification-v1",
+  "status": "PASS_SYNTHETIC_ONLY_NO_DATA_OR_EXECUTION_AUTHORITY",
+  "synthetic_fixture_totals": {
+    "block_statistics": 15,
+    "held_scorer_contract": 8,
+    "mc_block_reference": 6,
+    "production_plumbing": 10,
+    "total": 39
+  },
+  "verifier_sha256": {
+    "verify_block_statistics.py": "e8dcb7206b7b670bec2171d90eb9415728a93f7e8cfe693dbdbe9c762d88d572",
+    "verify_held_scorer_contract_reference.py": "6ea810f8a40d20edeaea2add53844457808be038543a8e5c847cfa659e63e86b",
+    "verify_mc_block_reference.py": "fc2e1fa2f36f06fcd9c19c74ac264051548e6eff256ff45996a6acf8d405782f",
+    "verify_production_plumbing_synthetic.py": "ca587473590ecb8a4ca32af1bc385fddb6565babb7014a765ecb0ab0afbe18ca"
+  }
+}

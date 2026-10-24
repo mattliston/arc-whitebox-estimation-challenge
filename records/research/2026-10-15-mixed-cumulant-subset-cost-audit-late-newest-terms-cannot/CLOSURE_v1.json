@@ -1,0 +1,50 @@
+{
+  "status": "CLOSED_NO_EVIDENCE_BACKED_CHEAP_HIGH_GAIN_SUBSET",
+  "source": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/k31m.py",
+  "source_sha256": "a606bc9b0dffc25a71598257cbd150b2d53422c4bbabf8a4249dbbbe045f7f75",
+  "measured_branch_isolation": {
+    "reference": "TEAM_LOG.md:370",
+    "networks": [
+      35,
+      651
+    ],
+    "all_mixed_MSE_percent": [
+      -2.0,
+      -3.2
+    ],
+    "MX1_only_MSE_percent": [
+      -2.5,
+      -3.4
+    ],
+    "MX2_MX3_MSE_percent": [
+      -0.6,
+      -0.5
+    ],
+    "MX1_all_layers_bill_prior_percent": 27,
+    "MX1_newest_cohort_all_layers_bill_prior_percent": [
+      5,
+      6
+    ]
+  },
+  "existing_subset_cost_assessment": {
+    "reference": "TEAM_LOG.md:1796",
+    "scope": "late-only plus newest cohorts",
+    "bill_prior_percent": 1.4,
+    "raw_MSE_gain_prior_percent": [
+      0.3,
+      0.8
+    ],
+    "measured": false
+  },
+  "source_mechanism": "theta=6*((E*Y)*d)@previous_pp[hubs,:]; read-only correction uses theta*Pold in existing read. E is transported newborn difference/gap, equal weight-row structure; no exact low-rank separability.",
+  "limitations": [
+    "Original e67_mixed and e71_mxpush result directories absent in current filesystem; no actual layer/cohort ablation outcomes available from bounded lookup.",
+    "Per-layer full-arm MSE trajectories would not isolate a subset causal benefit.",
+    "Late missing K31 is broadly distributed: last2 layers supply18% atL12 in old restart oracle, not evidence for>1.5% final-MSE benefit from two-layerMX1.",
+    "Historical costs and gains predate current physics; no new numeric gain claim."
+  ],
+  "distinction": "An exact layer/cohort restriction is distinct from failed MXH3/Wick/GCL approximations, but available evidence does not qualify one under<1%bill and>1.5%MSE targets.",
+  "model_calls": 0,
+  "captures": 0,
+  "sweeps": 0
+}

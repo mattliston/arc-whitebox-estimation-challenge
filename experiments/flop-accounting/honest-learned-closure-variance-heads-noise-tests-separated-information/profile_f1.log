@@ -1,0 +1,16 @@
+== F1 closed loop, r35 (every layer)
+  pre_covariance / fnp.outer(sigma, sigma),
+  fnp.outer(sigma, sigma)
+  covariance = raw_second - mean_outer
+  fnp.add(covariance, mean_outer, out=m11)
+  gate2[:, None] * gate64[:, None] * gate64[None, :] * pre_a,
+  gate2[:, None] * gate2[None, :] * pre_b,
+  candidate_u = fnp.concatenate([inherited_u, identity], axis=1)
+  fnp.outer(variance, variance) + 2.0 * covariance * covariance,
+  correlation = pre_covariance / fnp.outer(sigma, sigma)
+  fnp.outer(variance, variance) + 2.0 * pre_covariance * pre_covariance
+  k21o = fnp.asarray(pre_k21, dtype=fnp.float64) - fnp.diag(fnp.diag(pre_k21))
+  covariance = fnp.asarray(covariance, dtype=fnp.float64) - fnp.outer(_mc, _dc) - fnp.outer(_dc, _mc) - fnp.outer(_dc, _dc)
+layer: one-step error -> after the operator's correction (removal)
+carried-error profile: L1 6.08e-10 L2 9.56e-10 L3 2.62e-09 L4 5.96e-09 L5 1.04e-08 L6 1.52e-08 L7 2.26e-08 L8 2.92e-08 L9 4.10e-08 L10 5.30e-08 L11 6.59e-08 L12 7.98e-08 L13 8.56e-08 L14 8.41e-08 L15 7.53e-08
+PROFILE_F1_DONE

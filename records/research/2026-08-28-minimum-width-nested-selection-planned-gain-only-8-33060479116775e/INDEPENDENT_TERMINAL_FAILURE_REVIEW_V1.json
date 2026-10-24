@@ -1,0 +1,323 @@
+{
+  "schema": "public-q24-signed-pair-v4r2-oof-independent-terminal-failure-review-v1",
+  "status": "ACCEPT_AUTHENTICATED_V4R2_NESTED_OOF_FAILURE__CLOSE_SIGNED_PAIR_THREE_BANK_SPELLING_NO_RETRY",
+  "date": "2026-08-28",
+  "issued_utc": "2026-08-29T01:28:35Z",
+  "issued_by": "postrun_terminal_failure_independent_reviewer_v1",
+  "review_id": "q24-signed-pair-v4r2-oof-terminal-failure-independent-review-v1",
+  "reviewer_different_from_execution_and_PASS_seal_issuers": true,
+  "review_scope": "Genuine different-agent terminal scientific-failure review of the immutable V4R2 output JSON evidence and its control lineage. The review authenticates the runner, frozen package controls, authority chain, claim, full preflight, canonical RESULT, and four canonical selection receipts; independently replays all aggregate and fold MSEs plus per-fold and pooled H selection; and checks downstream absence/null state. MODELS.pt is lstat-only and is not opened, hashed, deserialized, loaded, or endorsed.",
+  "decision": "ACCEPT_THIS_ONE_SHOT_AS_A_FINAL_EXPERIMENTAL_FAILURE; DO_NOT_INVOKE_PASS_ONLY_SEAL_OR_REVIEW; DO_NOT_RETRY_REFIT_PACKAGE_BOARD_OR_SUBMIT",
+  "canonical_failure_review_path": "public_q24_signed_pair_v4r2_oof_terminal_failure_review_v1/INDEPENDENT_TERMINAL_FAILURE_REVIEW_V1.json",
+  "method": {
+    "independent_of_runner_execution": true,
+    "runner_or_postrun_sealer_imported": false,
+    "JSON_decode": "strict ASCII JSON with duplicate-key and nonfinite-constant rejection",
+    "canonical_byte_replay": "sort_keys compact ASCII plus one newline for claim, full preflight, RESULT, and all four selection receipts",
+    "root_snapshot": "SHA-256 before and after replay; all authenticated roots unchanged",
+    "aggregate_reducer": "NumPy 1.26.4 float64 mean over exact stored-row order",
+    "pooled_H_reducer": "CPython 3.11.5 math.fsum over outer folds 0..3 then stored-row order, divided by 2064",
+    "float_equality": "exact struct.pack(<d) binary64 equality",
+    "H_tie_law": "smallest H with MSE <= exact minimum*(1+0.0025); exact-zero branch not reached",
+    "model_boundary": "MODELS.pt metadata only; zero model payload bytes opened or hashed"
+  },
+  "authenticated_control_and_transaction_roots_sha256": {
+    "oof_v4r2_runner": "84004b59d4df82f6c4a7c7731021d46c21b0616bf107177ff094a59994e1a99b",
+    "oof_v4r2_package_manifest": "c5e0512c629730e8b732c5aadf253bf080013439ed98e6e8a8060d63e4e65cf0",
+    "oof_v4r2_static_verification": "d3640e040d0be6bc6372886a6296d7b9a2593bbd18faa8761e5aa43bdd837644",
+    "oof_v4r2_preregistration": "e96769b719665dbfb61a450b13cd222b22d3223698737da4cbeab7caf8291ba7",
+    "oof_v4r2_independent_static_review": "c15c3945c88ad07fa7a6cfa25dcb800958627dcb7db55e5ce3998b4029d7a02d",
+    "v1_science_runner": "fe88fac259998251feb014a2607a1a3978eb230e2369061a69778e03edc1dba0",
+    "execution_anchor": "29631d44b9503340a71d508eee1a255b6e42ac6ba262b4544b87cda011259b64",
+    "execution_anchor_issuance_receipt": "6412271ac33619b0944801ab185e51d9691be2a5f8579fdbcdbf2f7909f643a9",
+    "execution_anchor_review_request": "a1f6f125add4ed8271424eecf06fabd2e3afe6e6054767ebaa20198dbe98f18b",
+    "execution_anchor_independent_review": "638af46a1c097b3f0cf9679c9eab5f8c447be43fe57e3741ed4c88876fa70a82",
+    "consumed_target_capability": "6758a3c0f639c241ae730850bcffb2f95d76a17d664010373736ee4df5cf726a",
+    "target_capability_issuance_receipt": "d1809ea919a473dcd8e8fc2741218cd60425eb9032b0ad60e1463c37d0854d59",
+    "stored_exactly_one_CPU_command": "0184b77cfbef43523982fc7af3efc75c870b1f33a1b687bb3a5ee65cc35a1d60",
+    "final_release": "b81f489579114813ecea112f697f37009717ea00c63b8cde37d8fccd3a688a46",
+    "final_release_issuance_receipt": "a5780c6d8ee62b3bc8c3a361db7aed0f4e711633053519135dfd770fe12ab6aa",
+    "run_claim": "1af6353dc46b35b69fa9691a1882de554604577b9b1d9cac566ad3b8042feca6",
+    "full_preflight": "a423ddc5a8ad7dbb1772e63b890887e2bcdec95f0b6cc5af8a24701f0dd2e7c3"
+  },
+  "control_authentication_findings": {
+    "package_manifest_schema": "public-q24-signed-pair-nested-accuracy-package-manifest-v4r2",
+    "package_manifest_runner_preregistration_and_static_component_roots_match": true,
+    "independent_static_review_status": "GO_STATIC_PINNED_CPYTHON_3_11_5_EXACT_RUNTIME_V5_19_VECTOR_COMPATIBILITY__NO_EXECUTION_AUTHORITY",
+    "static_review_operational_authority_false": true,
+    "claim_schema": "public-q24-signed-pair-nested-accuracy-run-claim-v3",
+    "claim_status": "CLAIMED_BEFORE_ANY_MANIFEST_DYNAMIC_SOURCE_BANK_ROW_WEIGHT_OR_TARGET_BYTES__NO_RETRY",
+    "full_preflight_schema": "public-q24-signed-pair-nested-accuracy-full-preflight-v3",
+    "full_preflight_status": "PASS_POST_CLAIM_FULL_AUDIT__ZERO_TARGET_VALUES_DECODED",
+    "claim_preflight_result_authority_and_source_cross_bindings_exact": true,
+    "original_target_capability_absent": true,
+    "exactly_one_consumed_capability_present": true,
+    "OOF_private_partial_bundle_names": [],
+    "all_authenticated_roots_unchanged_after_replay": true
+  },
+  "output_inventory": {
+    "root": "public_q24_signed_pair_nested_accuracy_oof_v4r2/SIGNED_PAIR_NESTED_ACCURACY_OUTPUT_V3",
+    "exact_names": [
+      "RESULT.json",
+      "MODELS.pt",
+      "SELECTION_OUTER_FOLD_0.json",
+      "SELECTION_OUTER_FOLD_1.json",
+      "SELECTION_OUTER_FOLD_2.json",
+      "SELECTION_OUTER_FOLD_3.json"
+    ],
+    "all_members_regular_one_link_unique_inode": true,
+    "JSON_member_sha256": {
+      "RESULT.json": "44bdc51469d9701b7892ff88fe282452212729cd488e91bc676d3af4e6e3fd3c",
+      "SELECTION_OUTER_FOLD_0.json": "0b180257fc8aab4a4cb23cfc95757a888447c972159d16d1a9f69ad0ada601f9",
+      "SELECTION_OUTER_FOLD_1.json": "a46af91d01a9108f00f8b0f022e8e911962d8fc60eeecdb9333f38d0c4ed3d6b",
+      "SELECTION_OUTER_FOLD_2.json": "a43da843055dea7f45607a8da8c0292e6ea0e0bc3ec0dbd2fbc37aa4ae88fa78",
+      "SELECTION_OUTER_FOLD_3.json": "8165a01162719e55e7c2ca43fb7e7acef79009bd0b39d8c03bd854c09261e71c"
+    },
+    "JSON_members_canonical": true,
+    "selection_member_roots_equal_RESULT_bindings": true,
+    "MODELS_pt_metadata": {
+      "regular": true,
+      "links": 1,
+      "inode": 97790223,
+      "bytes": 9812825,
+      "opened_or_hashed": false,
+      "RESULT_asserted_models_sha256": "15403defb2343d9e6e0a364e8a11f1edd419919619cc8572ffaa0ffd9c92ff14",
+      "independently_authenticated_or_endorsed": false
+    },
+    "numerical_failure_verdict_independent_of_model_byte_authentication": true,
+    "full_six_member_directory_Merkle_independently_endorsed": false
+  },
+  "independent_accuracy_replay": {
+    "schema": "public-q24-signed-pair-nested-accuracy-oof-result-v3",
+    "stored_status": "FAIL_SIGNED_PAIR_FROZEN_NESTED_OOF__NO_RETRY",
+    "stored_decision": "CLOSE_THIS_SIGNED_PAIR_THREE_BANK_SPELLING__OPEN_SUPPORT_GE3_K6_CHILD__NO_RETRY",
+    "role_rank_order_exact_0_through_687": true,
+    "outer_held_folds_disjoint_exact_cover_688": true,
+    "aggregate_exact_binary64_recomputed": {
+      "networks": 688,
+      "pair_on_raw_mse": 3.024343612511056e-08,
+      "pair_zero_raw_mse": 3.025038382493197e-08,
+      "fold_J_raw_mse": 3.0403199818187463e-08
+    },
+    "folds_exact_binary64_recomputed": [
+      {
+        "outer_fold": 0,
+        "selected_H": 16,
+        "networks": 172,
+        "pair_on_raw_mse": 3.056159113022885e-08,
+        "pair_zero_raw_mse": 3.0564154269688406e-08,
+        "fold_J_raw_mse": 3.0922763842908875e-08
+      },
+      {
+        "outer_fold": 1,
+        "selected_H": 16,
+        "networks": 172,
+        "pair_on_raw_mse": 2.998386525610222e-08,
+        "pair_zero_raw_mse": 2.999271333859863e-08,
+        "fold_J_raw_mse": 3.00043442394378e-08
+      },
+      {
+        "outer_fold": 2,
+        "selected_H": 16,
+        "networks": 172,
+        "pair_on_raw_mse": 3.0214223966738585e-08,
+        "pair_zero_raw_mse": 3.022512909492656e-08,
+        "fold_J_raw_mse": 3.0386975528294596e-08
+      },
+      {
+        "outer_fold": 3,
+        "selected_H": 16,
+        "networks": 172,
+        "pair_on_raw_mse": 3.0214064147372585e-08,
+        "pair_zero_raw_mse": 3.021953859651427e-08,
+        "fold_J_raw_mse": 3.0298715662108606e-08
+      }
+    ],
+    "all_four_folds_pair_on_below_pair_zero": true,
+    "all_four_folds_pair_on_below_fold_J": true,
+    "aggregate_pair_zero_minus_pair_on": 6.9476998214079345e-12,
+    "aggregate_fold_J_minus_pair_on": 1.5976369307690381e-10,
+    "relative_gain_pair_on_vs_pair_zero": 0.00022967311296333807,
+    "relative_gain_pair_on_vs_fold_J": 0.00525483153195381,
+    "stored_gate_count": 7,
+    "true_gate_count": 6,
+    "sole_false_gate": "selected_pair_on_raw_strictly_below_1_2425668176231516e_8",
+    "failure_status_exactly_implied_by_frozen_gate_law": true,
+    "retry": false
+  },
+  "independent_H_selection_replay": {
+    "candidate_H": [
+      16,
+      64,
+      256
+    ],
+    "tie_tolerance": 0.0025,
+    "per_fold": [
+      {
+        "outer_fold": 0,
+        "pair_on_raw_mse_by_H": {
+          "16": 3.0525345716695466e-08,
+          "64": 3.052313320815544e-08,
+          "256": 3.052025321072699e-08
+        },
+        "exact_minimum_H": 256,
+        "H16_relative_excess_over_exact_minimum": 0.00016685660939042002,
+        "tie_law_selected_H": 16
+      },
+      {
+        "outer_fold": 1,
+        "pair_on_raw_mse_by_H": {
+          "16": 3.0624943854545735e-08,
+          "64": 3.062318136554026e-08,
+          "256": 3.061970519144124e-08
+        },
+        "exact_minimum_H": 256,
+        "H16_relative_excess_over_exact_minimum": 0.00017108796677645088,
+        "tie_law_selected_H": 16
+      },
+      {
+        "outer_fold": 2,
+        "pair_on_raw_mse_by_H": {
+          "16": 3.061835213404913e-08,
+          "64": 3.061403423679288e-08,
+          "256": 3.06105541060637e-08
+        },
+        "exact_minimum_H": 256,
+        "H16_relative_excess_over_exact_minimum": 0.0002547496513265468,
+        "tie_law_selected_H": 16
+      },
+      {
+        "outer_fold": 3,
+        "pair_on_raw_mse_by_H": {
+          "16": 3.049899193502467e-08,
+          "64": 3.04837987129184e-08,
+          "256": 3.0487500499688215e-08
+        },
+        "exact_minimum_H": 64,
+        "H16_relative_excess_over_exact_minimum": 0.0004984031763675123,
+        "tie_law_selected_H": 16
+      }
+    ],
+    "selected_H_by_outer_fold": [
+      16,
+      16,
+      16,
+      16
+    ],
+    "pooled_diagnostic_not_an_authoritative_H_receipt": {
+      "observation_count_per_H": 2064,
+      "pair_on_raw_mse_by_H": {
+        "16": 3.056690841007875e-08,
+        "64": 3.0561036880851747e-08,
+        "256": 3.055950325198004e-08
+      },
+      "exact_minimum_H": 256,
+      "H16_minus_H256": 7.405158098707605e-12,
+      "H16_relative_excess_over_H256": 0.00024231932167384507,
+      "tie_law_selected_H": 16,
+      "pooled_H_receipt_issued": false
+    }
+  },
+  "board_and_hurdle_comparison": {
+    "current_board_raw_mse": 2.9409071835573285e-08,
+    "current_board_value_source": "coordinator-provided current board baseline; arithmetic comparison only",
+    "frozen_raw_hurdle_strictly_below": 1.2425668176231516e-08,
+    "OOF_pair_on_minus_current_board": 8.34364289537275e-10,
+    "OOF_pair_on_relative_excess_over_current_board": 0.02837098342315003,
+    "OOF_pair_on_minus_hurdle": 1.7817767948879044e-08,
+    "fractional_reduction_required_from_OOF_pair_on_to_hurdle": 0.5891449594275858,
+    "OOF_improves_current_board_raw": false,
+    "OOF_clears_raw_hurdle": false
+  },
+  "downstream_absence_and_null_roots": {
+    "lstat_absent": {
+      "terminal_failure_exception_receipt": "public_q24_signed_pair_nested_accuracy_oof_v4r2/SIGNED_PAIR_NESTED_ACCURACY_TERMINAL_FAILURE_V3.json",
+      "PASS_seal_root": "public_q24_signed_pair_v4r2_oof_postrun_seal_instance_v1r2",
+      "PASS_review_and_H_root": "public_q24_signed_pair_v4r2_oof_postrun_review_v1r2",
+      "pooled_H_receipt": "public_q24_signed_pair_v4r2_oof_postrun_review_v1r2/POOLED_H_SELECTION_RECEIPT.json",
+      "all688_refit_output_v1r4": "public_q24_signed_pair_v4r1_all688_refit_runtime_v1r4/ALL688_REFIT_MODEL_OUTPUT_V1R4"
+    },
+    "PASS_seal_private_partial_names": [],
+    "PASS_review_private_partial_names": [],
+    "refit_authority_scaffolds_sha256": "7819fdc0fc9ce4b5760c970ff8f0e79e4b51373c48f05ab29f5c11f4201784ed",
+    "refit_runtime_contract_sha256": "933299984f59c8a8fb5935c9b040778e49765f09d83730492f167ecda9cc2b88",
+    "deployment_inference_future_bindings_hold_sha256": "0b1913e2336e788174c128d614353cf26e246b406609b82d6b4d631a5f97ba82",
+    "board_future_bindings_hold_sha256": "4ef4db8f743100b5c94cc5ed4a7491d534d49b6ff3d93780bb702eb1f773ad90",
+    "refit_anchor_review_capability_release_and_model_roots_all_null": true,
+    "deployment_export_parity_meter_package_and_submission_roots_all_null": true,
+    "board_package_archive_request_capability_and_submission_roots_all_null": true,
+    "PASS_only_postrun_static_GO_sha256": "e6f36e7c971a05a51a2e9670337cb4518051c0e13c2fe590ee5b3ed743e08239",
+    "PASS_only_seal_or_review_invoked": false
+  },
+  "experimentally_falsified_hypothesis": {
+    "hypothesis": "For the exact frozen signed-pair three-bank spelling, training law, four-fold split, candidate-H set, and 0.25% smallest-H tie law, the honestly selected pair-on estimator would clear raw MSE 1.2425668176231516e-8 and provide a viable lower-raw-MSE successor to the current board.",
+    "direct_evidence": [
+      "Exact recomputation gives pair_on_raw_mse 3.024343612511056e-8.",
+      "The sole false frozen gate is the strict raw hurdle gate; the RESULT status is the exact no-retry FAIL status.",
+      "The OOF raw MSE is 2.837098342315003% above the coordinator-provided current board raw MSE.",
+      "Clearing the raw hurdle would require a 58.91449594275858% reduction from this OOF value."
+    ],
+    "falsified_scope": "This falsifies only the exact frozen spelling and protocol. It does not falsify every signed interaction, support>=3 construction, K6 child, or different preregistered estimator family.",
+    "conclusion": "FALSIFIED_EXPERIMENTALLY__CLOSE_EXACT_SIGNED_PAIR_THREE_BANK_SPELLING__NO_RETRY"
+  },
+  "next_testable_science_leaves_no_execution_authority": [
+    {
+      "leaf_id": "support_ge3_K6_child",
+      "direct_evidence": "The immutable RESULT itself directs OPEN_SUPPORT_GE3_K6_CHILD; pair-on gains over pair-zero are directionally consistent but only 0.022967311296333807% aggregate, while the raw hurdle gap is 58.91449594275858%.",
+      "inference": "The frozen pair interaction is real but far too small in this representation; a higher-support closure basis is a more plausible source of step-change than retuning the same pair arm.",
+      "test": "Pre-register a genuinely new support>=3 K6 child with new authority and an honest held-out or nested protocol; primary endpoints are raw MSE versus 2.9409071835573285e-8 and the strict 1.2425668176231516e-8 hurdle. Do not reuse or retry the V4R2 one-shot transaction."
+    },
+    {
+      "leaf_id": "exact_minimum_H_selection_child",
+      "direct_evidence": "Exact minima are H256 in outer folds 0,1,2 and H64 in fold 3, but the frozen 0.25% tolerance selects H16 in all four; pooled H256 beats H16 by 7.405158098707605e-12 or 0.024231932167384507%.",
+      "inference": "The tie rule masks a reproducible larger-H preference, but its inner-OOF magnitude is much smaller than the 2.8371% board gap and is unlikely to solve the bottleneck alone; alternate-H outer-held performance remains unobserved.",
+      "test": "In a new preregistered spelling, compare the frozen tolerance law with exact-minimum or a narrower predeclared tolerance using fully nested outer evaluation. The primary contrast is outer-held raw MSE, not inner selection MSE."
+    },
+    {
+      "leaf_id": "J_representation_by_pair_arm_factorial",
+      "direct_evidence": "Pair-on beats fold-J by 0.525483153195381% aggregate, versus only 0.022967311296333807% over pair-zero, and both directions hold in all four outer folds.",
+      "inference": "Most available gain appears to come from the shared J/representation path rather than the signed pair-on switch, so the next bottleneck may be upstream representation capacity or its interaction with higher-support features.",
+      "test": "Pre-register a new 2x2 nested factorial: frozen versus enriched J representation crossed with pair-zero versus pair-on. Test the enriched-J main effect, pair interaction, and final raw hurdle without post-hoc arm choice."
+    },
+    {
+      "leaf_id": "target_blind_heterogeneity_gate",
+      "direct_evidence": "Pair-on wins against pair-zero on 62.93604651162791% of all networks, with fold win fractions 59.3023%, 68.0233%, 62.7907%, and 61.6279%, so benefits are heterogeneous rather than universal.",
+      "inference": "A target-blind covariate may identify where the signed correction helps, but choosing a gate from these OOF losses would be post-hoc leakage.",
+      "test": "Define any gate only from target-blind features in a new preregistration, freeze it before new labels are opened, and evaluate gated versus always-on pair correction on a fresh independent outer split."
+    }
+  ],
+  "direct_evidence_inference_boundary": {
+    "direct": "Authenticated byte roots, exact JSON schemas/statuses, recomputed MSEs, fold partitions, H selection, frozen gates, filesystem lstat state, and static null bindings.",
+    "inference": "Mechanism diagnosis and prioritization of support>=3, H-law, J-factorial, and heterogeneity-gate children. None is an empirical success claim.",
+    "new_science_execution_authorized": false
+  },
+  "access_accounting": {
+    "runner_control_claim_preflight_RESULT_and_selection_bytes_opened_or_hashed": true,
+    "MODELS_pt_payload_bytes_opened_or_hashed": 0,
+    "model_deserialization_or_loads": 0,
+    "bank_target_row_weight_or_prediction_bytes_opened": 0,
+    "training_refit_scoring_or_inference_runs": 0,
+    "PASS_seal_or_review_modes_invoked": 0,
+    "pooled_H_receipts_issued": 0,
+    "output_artifacts_mutated_or_deleted": 0,
+    "mps_executions": 0,
+    "network_board_or_submission_actions": 0,
+    "durable_files_written": 1
+  },
+  "authority": {
+    "retry": false,
+    "seal": false,
+    "review": false,
+    "pooled_H": false,
+    "model": false,
+    "refit_anchor": false,
+    "refit_execution": false,
+    "export": false,
+    "meter": false,
+    "package": false,
+    "board": false,
+    "network": false,
+    "submission": false,
+    "new_science_execution": false
+  }
+}

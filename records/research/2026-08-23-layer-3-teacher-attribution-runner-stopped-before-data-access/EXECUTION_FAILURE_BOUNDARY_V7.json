@@ -1,0 +1,45 @@
+{
+  "schema": "phase2-layer3-attribution-v7-execution-failure-boundary-v1",
+  "status": "CLOSED_PRECLAIM_SANDBOX_PROCESS_TABLE_DENIAL__INVOCATION_CONSUMED__NO_RETRY",
+  "execution_authority": false,
+  "retry_authority": false,
+  "release_id": "1f73a98254fd72168d79f2b9dce1e351978d6e770242a9d082916079906e7627",
+  "release_sha256": "ec8212289a1e2b04a8c7b09f49d2faa621902b94b38e207b9b3bf4d188ed3b0b",
+  "source_manifest_sha256": "e46539787d966807220d281e817c83858163d1e5fafe256832d572d79396d0f0",
+  "independent_runner_audit_sha256": "e32e160a81d2953a7890c521330d4f59d6bfb0f3341e31164e37e188a8212273",
+  "invocation_tombstone_sha256": "4afc677fe255291851ada832ee6ca6579fcd464daade4767c30c3f6b1bc96153",
+  "invocations_attempted": 1,
+  "launcher_exit_code": 1,
+  "failure_boundary": {
+    "phase": "first whole-process-group RSS sample immediately after worker creation",
+    "primary_exception": "PermissionError: [Errno 1] Operation not permitted: '/bin/ps'",
+    "secondary_exception": "PermissionError: [Errno 1] Operation not permitted during os.killpg process-group containment",
+    "scientific_code_reached": false,
+    "data_claim_created": false,
+    "physical_loader_import_authorized": false,
+    "physical_dataset_rows_decoded": 0,
+    "teacher_artifacts_generated": 0,
+    "target_values_decoded": 0,
+    "target_metrics_computed": 0,
+    "fits": 0,
+    "scores": 0
+  },
+  "post_failure_state": {
+    "root_release_present": true,
+    "invocation_tombstones_present": 1,
+    "data_claims_present": 0,
+    "staging_artifacts_present": 0,
+    "results_present": 0,
+    "targeted_escalated_process_check": "NO_PROCESS_MATCHING_v7_layer3_attribution_runner",
+    "orphan_worker_observed": false
+  },
+  "chronology": [
+    "root release validated",
+    "durable O_EXCL invocation tombstone created",
+    "worker process-group creation attempted",
+    "sandbox denied the launcher's first /bin/ps supervision call",
+    "launcher exited one; no data claim or result exists",
+    "separate escalated read-only pgrep found no remaining V7 process"
+  ],
+  "disposition": "The sole V7 invocation authority is permanently consumed. No retry, replacement release, resume, source patch, or variant is authorized. The target-free V7 source audit remains valid, but no scientific layer-3 attribution result was produced."
+}

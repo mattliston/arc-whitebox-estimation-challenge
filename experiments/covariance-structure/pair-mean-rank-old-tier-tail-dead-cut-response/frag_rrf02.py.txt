@@ -1,0 +1,22 @@
+
+
+# [opus-lead] CHEAP ARM: response-row roster floor 0.02 (instead of gate_floor 0.01) at layers 8-14; live roster and births keep 0.01.
+# The core calls select() three times per layer in a fixed order (live, response, births); the second call is the response roster.
+_RRF_FLOOR = 0.02
+_RRF_LAYERS = frozenset(range(8, 15))
+_RRF_STATE = [0, None]
+_RRF_PARENT_SELECT = select
+_RRF_PARENT_BEGIN = _w5_port_begin
+
+
+def _w5_port_begin(scope, network, layer, weight, previous):
+    _RRF_STATE[0] = 0
+    _RRF_STATE[1] = layer
+    return _RRF_PARENT_BEGIN(scope, network, layer, weight, previous)
+
+
+def select(score, floor):
+    _RRF_STATE[0] += 1
+    if _RRF_STATE[0] == 2 and _RRF_STATE[1] in _RRF_LAYERS:
+        floor = _RRF_FLOOR
+    return _RRF_PARENT_SELECT(score, floor)

@@ -1,0 +1,51 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_RESID",
+    "label": "Sub-resolution per-layer supply deficit",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 2,
+    "summary": "After the collective fix: the remaining deep plane error (~6.4% offline) accumulates from a ~1%/layer per-step deficit below single-wedge resolution (decomposition tree: plane-loop -0.082 + per-step -0.136 of the old -0.218 mode coefficient; kill-tensor shows carried distinct content supplies 2/3 of truth). Instrument: the 73-second projected-truth probe (mc_probe_tensor.py) at any layer.",
+    "terminal_criterion": "Identify the per-step generator's next component via probe regression; close deep rel toward the noise floor.",
+    "evidence": [
+      {
+        "date": "2026-08-30",
+        "tag": "single-step-decomposition-tree-complete",
+        "finding": "THE DEEP-MODE DECOMPOSITION TREE (r35, L12 mode coefficient): accumulated total -0.218 = plane-loop accumulation -0.082 (truth-planes-every-layer wedge removes it) + PER-STEP GENERATOR -0.136 (persists with truth planes; same rank-1 k3^2/v x m shape, sv1 share 0.47). L2-only truth injection: deep coef UNCHANGED (-0.2175) - not early-seeded; continuously regenerated. KILL-TENSOR wedge (drop carried distinct, keep truth planes): single-step error EXPLODES 0.067->0.402 rel, coef -0.401 - the carried distinct tensor supplies ~2/3 of what truth would; the mode = its RESIDUAL content deficit, accumulated inside the tensor (rides with content, fraction ~constant, magnitude tracks k3^2 state growth - matches alpha~1 dynamics fit with small fresh(l)). ELEVENTH HYPOTHESIS (structural case strongest yet): the completion has NO FOURTH-ORDER INSERTIONS - the first-order K22/K31/k4-pattern distinct emission (Q400/Q310/Q220 classes, connected filter) was never wired into the tensor; the ORACLE_FOURTH wedge fed only pair channels; shape = k4-row x a1-column; first-order (NOT width-suppressed, unlike kappa3^2). Wired tonight as TENSOR_K4=1 (Q211/K4T omitted - not carried); wedge running.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_oeall_r35.log",
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_kt_r35.log"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "tag": "morning-hold-generator-is-subresolution-accumulation",
+        "finding": "MORNING HOLD (09:30). TENSOR_K4 wedge (first-order K22/K31/k4 distinct insertions, exact coefficients, connected filter): NULL-to-slightly-negative (L12 0.0786 vs 0.0777, coef -0.2196 vs -0.218) - eleventh elimination. THE REFRAME that closes the morning: the dynamics fit put the per-layer fresh deficit at ~-0.01/layer in mode units (~1% of plane scale) - BELOW the resolution of any single-term wedge by construction; the -0.136 per-step generator is 10+ layers of never-decaying accumulation of it inside the carried tensor. Single 13-min wedges cannot identify a 1%/layer class; the DEFINITIVE INSTRUMENT is the one-layer truth-diff: MC-measure the TRUE distinct tensor at one deep layer (slab-accumulated third moments, ~30-60 min sustained MPS - needs Matt's sign-off under the machine-care rule), seed the recursion with full truth there, and read the fresh-emission deficit DIRECTLY as a tensor (SVD -> closed-form identification). All eleven eliminations, the decomposition tree, and both validated supply improvements (plane-so2 chain: held-out 14.5/11.7% = 2.347/2.362e-8) stand banked. Machine idle from 09:30.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_k4t_r35.log"
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "tag": "dictionary-regression-finds-Ck3-row-kernel-deficit",
+        "finding": "DICTIONARY REGRESSION on the single-step fresh deficit (truth-planes-every-layer run vs truth; 57-element analytic dictionary; greedy joint-layer OMP with stable-coefficient requirement): PICK 1 = C[i,j]*k3[i] (covariance row-weighted by skewness) removes 18.7% of step-deficit energy with a SMOOTH depth-growing coefficient (-0.203/-0.324/-0.339/-0.386 at L9/11/12/13). Since the run had TRUE plane/k3 inputs, the emission's k3-star (3,0)-channel KERNEL is ~30% weak, not its input. Secondary: k4 x k3/sd^3 outer (-0.11 to -0.14 stable, +1.6%). Next: derive the missing (3,0)-channel correction - candidates: the connected-vs-raw assembly of the star channel, the He-series normalization at the (3,0) edge, or a genuinely missing second star diagram; validate per-layer via the probe instrument, then wire like the kappa3^2 plane-half (the pattern that converts).",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_planes_rank0035_oeall.npz"
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "tag": "Ck3-pick-was-mostly-the-collective-mode",
+        "finding": "CLOSURE OF THE Ck3 LEAD: in the single-step frame with K3FIX on, the Ck3-row coefficient collapses ~70% (L9 -0.203->-0.119, L12 -0.339->-0.097, L13 -0.386->-0.131) and per-step rel improves 0.0552->0.0497 / 0.0667->0.0563 / 0.0701->0.0598. The dictionary's Ck3row pick was ~70% the collective mode's per-step face (kernel-defect hypothesis DOWNGRADED); the kappa3u-star family is sign-EXCLUDED (GC-columns made the step deficit worse: -0.34->-0.55). REMAINING per-step target: rel ~0.05-0.06 with a small smooth Ck3-ish residual (coef ~-0.10..-0.13) plus spread content - the supply map is now essentially complete: collective mode (solved) + this minor residual + measurement floors. Effort re-weights to the CARRIER invention and the chain-side collective derivation.",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/tensor_v4_oeall_k3fix_r35.log"
+        ]
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "After the big discoveries, what's left of the statistics error is small and mostly explained: we chased one more suspicious pattern here and proved ~70% of it was the already-solved group-swing effect appearing in a finer measurement; the true leftover is a minor, spread-out residue near the measuring noise. We keep the 73-second instrument to test any future guess in about a minute.\nThis node mattering less is good news: it means the map of what's broken is complete enough that the remaining effort belongs to the cheap-statistics invention (the carrier node) and to teaching the repair kit the group-swing trick, not to hunting more unknowns."
+  }
+}

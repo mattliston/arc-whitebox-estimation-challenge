@@ -1,0 +1,41 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_angular_v1/candidate.py",
+    "sha256": "939131d3748201c6a4a829e755635c270e85e73e034b67082316577245f63495",
+    "bytes": 978369
+  },
+  "identity": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_angular_v1/identity.py",
+    "sha256": "db6ddacc1f90e185afc9d1402b56116a70eefbf1d1d121e1350d0b91b7a11e57",
+    "bytes": 978370
+  },
+  "edits": [
+    {
+      "before": "        radial = 0.0\n",
+      "after": "        radial = -6.0 / (n + 2) if _ANGULAR_ENABLED else 0.0\n",
+      "occurrences": 1
+    },
+    {
+      "before": "        if False:\n            ec=(T21[None,:,:]",
+      "after": "        if _ANGULAR_ENABLED and r <= edge_order:\n            ec=(T21[None,:,:]",
+      "occurrences": 1
+    },
+    {
+      "before": "        return fnp.asarray(_e2_H(fnp.maximum(_e2_H(fnp.stack(means)), 0.0)), dtype=fnp.float32)\n",
+      "after": "        if _ANGULAR_ENABLED:\n            return fnp.asarray(_e2_H(fnp.maximum(_e2_H(_ANGULAR_MEAN_SCALE * _e2_H(fnp.stack(means))), 0.0)), dtype=fnp.float32)\n        return fnp.asarray(_e2_H(fnp.maximum(_e2_H(fnp.stack(means)), 0.0)), dtype=fnp.float32)\n",
+      "occurrences": 1
+    }
+  ],
+  "whole_source_inverse_exact": true,
+  "enabled_only_difference": true,
+  "constants": {
+    "width": 1024,
+    "mean_scale": 0.9997558892136928
+  },
+  "all_other_source_unchanged": true
+}

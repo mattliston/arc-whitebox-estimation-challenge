@@ -1,0 +1,41 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "saved_manifest": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1_train2_v1/manifest.json",
+    "sha256": "635b30e2a3aff26268ef4a06a5166aa205125752d4d8a388947ea7370195505f",
+    "bytes": 1119
+  },
+  "saved_rows": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1_train2_v1/rows.jsonl",
+    "sha256": "435b1473f89b98a8f5d3d2e2b1349045880ae3ce04c768e1c51f0a210a2ecf0c",
+    "bytes": 1467
+  },
+  "weight_manifest": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/manifest.json",
+    "sha256": "9a43423982924bcc7a0c5b87288b19ff42452c90c9cc7b7f590e565d1b276f50",
+    "bytes": 175037
+  },
+  "script": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_final_jensen_v1/screen_saved.py",
+    "sha256": "0dc3d3024c9a817709a811f2266ff8ccc9b2752c7e36f3902807b11ab921b813",
+    "bytes": 3492
+  },
+  "ranks": [
+    35,
+    100
+  ],
+  "formula": "Final output = FP32(max(saved FP32 final output, FP64 W15.T @ saved FP32 output14)); earlier outputs unchanged.",
+  "caveat": "Jensen is exact for true means, but the served previous mean is an estimate. This is a fixed hypothesis, not guaranteed improvement.",
+  "screen": "Saved-prediction two-network screen; no model run or native bill claim. No coefficients/windows or variants.",
+  "gates": {
+    "estimated_adjusted_pct_at_most": -0.1,
+    "wins_min": 1,
+    "max_regression_pct": 1
+  },
+  "conservative_extra_flops": 4000000,
+  "next_stage": "Only PASS licenses one real native N2 candidate; own native/boundary/N8 and >=1% S35 bank validation still required."
+}

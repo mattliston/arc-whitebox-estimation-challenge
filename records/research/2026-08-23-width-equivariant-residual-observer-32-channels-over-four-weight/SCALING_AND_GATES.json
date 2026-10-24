@@ -1,0 +1,159 @@
+{
+  "schema": "phase2-estimator-design-v1",
+  "status": "DESIGN__PROVISIONAL_SYNTHETIC_METER_OBSERVATION__AUTHORITATIVE_RERUN_REQUIRED__NO_PHASE2_TARGET_SCORE",
+  "shape": {
+    "width": 1024,
+    "depth": 16,
+    "transitions": 15,
+    "budget_flops": 2199023255552
+  },
+  "primary_recommendation": [
+    "correct full-covariance Hermite/Mehler R2 backbone",
+    "exact Gaussian marginal mean and variance",
+    "small sequence-trained direct mean residual observer",
+    "CP3 cap ladder only after residual attribution",
+    "redesigned TT only after CP discard attribution"
+  ],
+  "geometry_ratios_phase2_over_phase1": {
+    "budget": 8.084644321882353,
+    "weight_elements": 8.0,
+    "trajectory_cells": 2.0,
+    "fixed_rank_depth_width_squared": 8.0,
+    "fixed_rank_relative_to_budget": 0.9895302355289459,
+    "dense_cubic_transitions": 30.967741935483872,
+    "dense_cubic_relative_to_budget": 3.8304396214023715
+  },
+  "provisional_component_screens": [
+    {
+      "component": "correct_float64_order10_full_analytic_host",
+      "provisionally_observed_flops": 103923320832,
+      "provisionally_observed_budget_fraction": 0.047259,
+      "provisionally_observed_wall_seconds": 0.7787,
+      "provisionally_observed_residual_seconds": 0.0349,
+      "basis": "target-blind flopscope 0.12 invocation whose compact receipt lacks retained raw stdout and is stale relative to current source",
+      "receipt_required": true
+    },
+    {
+      "component": "power32_observer_old_geometry_scaled",
+      "estimated_flops": 3640000000,
+      "estimated_budget_fraction": 0.00166,
+      "basis": "Phase 1 extension multiplied by fixed-rank geometry ratio 8",
+      "receipt_required": true
+    },
+    {
+      "component": "CP3_cap512_K3_only_open_loop_provisional",
+      "provisionally_observed_increment_flops": 32538849282,
+      "provisionally_observed_total_flops": 136462170114,
+      "provisionally_observed_increment_budget_fraction": 0.014797,
+      "provisionally_observed_total_budget_fraction": 0.0620558,
+      "basis": "independent target-blind v0.12 subprocess invocation; raw stdout not retained, so common-driver rerun is required",
+      "receipt_required": true
+    },
+    {
+      "component": "CP3_cap512_full_K21_clean_source_estimate",
+      "estimated_increment_flops": 65000000000,
+      "estimated_total_flops": 169000000000,
+      "estimated_total_budget_fraction": 0.0769,
+      "basis": "K3-only observed structure plus 32.181B leading cost for two exact n-by-cap by cap-by-n K21 products over 15 nonempty layers",
+      "receipt_required": true
+    },
+    {
+      "component": "CP3_cap1024_K3_only_clean_source_estimate",
+      "estimated_increment_flops": 64888818688,
+      "estimated_total_flops": 168812139520,
+      "estimated_total_budget_fraction": 0.07676687324419618,
+      "basis": "exact static v0.12 source arithmetic plus provisional analytic base; common-driver receipt required",
+      "receipt_required": true
+    },
+    {
+      "component": "CP3_cap1536_K3_only_clean_source_estimate",
+      "estimated_increment_flops": 95095655424,
+      "estimated_total_flops": 199018976256,
+      "estimated_total_budget_fraction": 0.0905033522285521,
+      "basis": "exact static v0.12 source arithmetic plus provisional analytic base; frozen unconditional cap",
+      "receipt_required": true
+    },
+    {
+      "component": "CP3_cap1792_K3_only_conditional_meter_screen",
+      "estimated_increment_flops": 110199020544,
+      "estimated_total_flops": 214122341376,
+      "estimated_total_budget_fraction": 0.09737156750634313,
+      "estimated_score_floor_headroom_flops": 5779984179.2,
+      "basis": "exact static v0.12 source arithmetic plus provisional analytic base; admit only on authoritative pre-target meter pass",
+      "receipt_required": true
+    },
+    {
+      "component": "CP3_cap1024_full_K21_clean_source_estimate",
+      "estimated_increment_flops": 129000000000,
+      "estimated_total_flops": 233000000000,
+      "estimated_total_budget_fraction": 0.10596,
+      "basis": "about 64.393B factor pushes plus 64.393B exact K21 products and small grow/read overhead",
+      "receipt_required": true
+    },
+    {
+      "component": "old_dense_spectral_repair_15_transitions",
+      "estimated_flops": 323145400320,
+      "estimated_budget_fraction": 0.14695,
+      "basis": "20*n^3 + 64*n^2 + 1024*n + 32768 per transition",
+      "receipt_required": true
+    },
+    {
+      "component": "old_future_weight_action_geometry",
+      "estimated_flops": 930934000000,
+      "estimated_budget_fraction": 0.42334,
+      "basis": "legacy retained-row algebra at n=1024,d=16",
+      "receipt_required": true
+    },
+    {
+      "component": "naively_scaled_old_r16_host",
+      "estimated_flops": 2363500000000,
+      "estimated_budget_fraction": 1.0748,
+      "basis": "legacy complete-row scaling",
+      "receipt_required": true
+    },
+    {
+      "component": "naively_scaled_old_r22_host",
+      "estimated_flops": 2759500000000,
+      "estimated_budget_fraction": 1.2549,
+      "basis": "legacy complete-row scaling",
+      "receipt_required": true
+    }
+  ],
+  "analytic_order_ladder": [1, 2, 4, 6, 10],
+  "cp_cap_ladder_unconditional": [512, 1024, 1536],
+  "cp_cap_conditional_meter_only": 1792,
+  "cp_cap_excluded_without_separate_tradeoff": 2048,
+  "conditional_tt_rank_ladder": [8, 12, 16],
+  "training": {
+    "split_unit": "MLP_network",
+    "suggested_full1000_split": [800, 100, 100],
+    "selection_metric": "network-balanced held-out final-layer compute-adjusted score",
+    "auxiliary_metric": "all-layer MSE",
+    "teacher_labels": "public 1e9-sample all_layer_means",
+    "required_rollout": "full autonomous 16-layer recurrent rollout",
+    "offline_acceleration": "MPS batch 1-2 with checkpointing and actual memory monitoring"
+  },
+  "promotion_gates": {
+    "finite_output_shape": [16, 1024],
+    "max_flops": 2199023255552,
+    "target_residual_python_seconds": 0.3,
+    "hard_residual_python_seconds": 0.4,
+    "max_wall_seconds": 120.0,
+    "max_memory_mb": 8192,
+    "max_package_mib": 50,
+    "deterministic_replay": true,
+    "scientific": "strict improvement in locked network-balanced compute-adjusted score"
+  },
+  "resolved_analytic_source_audit": {
+    "file": "../analytic_hermite10_full_covariance/estimator.py",
+    "initial_issue": "an initial draft produced 1/(r!)^2 rather than 1/r! in the covariance series",
+    "current_resolution": "orthonormal coefficients use 1/sqrt(r!), correlation is unclipped, the omitted diagonal tail is restored, and v0.12 propagates covariance symmetry natively",
+    "bound_verifier_coefficient_max_abs_error": 1.381e-7,
+    "bound_verifier_error_source": "offline Abramowitz-Stegun CDF approximation",
+    "order10_bivariate_truncation_max_abs_at_abs_rho_0_8": 3.763e-5,
+    "native_symmetry_check": "PASS; v0.12 propagates the eye symmetry tag through the Schur updates and bills the next nary einsum at the symmetric rate",
+    "remote_symmetry_check": "PASS; client/server preserves the automatic symmetric type and charge without explicit as_symmetric",
+    "open_reference_qualification": "offline Abramowitz-Stegun CDF has about 6.97e-8 maximum error and should not be described as a strict float64 parity oracle",
+    "current_math_blocker": false
+  }
+}

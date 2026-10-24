@@ -1,0 +1,50 @@
+
+
+# BEGIN OPUS-LEAD GC DIAGNOSTIC v1 (2026-10-16; DIAGNOSTIC ONLY, never released): per predict, the cyclic garbage collector's
+# collections by generation (count, total and max pause in seconds, objects collected) and the counts at the end, appended as one
+# JSON line to $OPUS_GCD_OUT. Arm FREEZE (OPUS_GCD_FREEZE=1): gc.freeze() at the first predict's start (moves every object alive
+# after setup into the permanent generation, never scanned again). Predictions and FLOPs are unchanged by construction.
+import gc as _gcd
+import json as _gcd_json
+import os as _gcd_os
+import time as _gcd_time
+_GCD = dict(n=[0, 0, 0], t=[0.0, 0.0, 0.0], mx=[0.0, 0.0, 0.0], col=[0, 0, 0], t0=None, g=0, froze=False)
+
+
+def _gcd_cb(phase, info):
+    if phase == 'start':
+        _GCD['t0'] = _gcd_time.perf_counter()
+        _GCD['g'] = info['generation']
+    elif _GCD['t0'] is not None:
+        d = _gcd_time.perf_counter() - _GCD['t0']
+        g = _GCD['g']
+        _GCD['n'][g] += 1
+        _GCD['t'][g] += d
+        _GCD['mx'][g] = max(_GCD['mx'][g], d)
+        _GCD['col'][g] += info.get('collected', 0)
+        _GCD['t0'] = None
+
+
+_gcd.callbacks.append(_gcd_cb)
+_GCD_PREDICT = Estimator.predict
+
+
+def _gcd_predict(self, *args, **kwargs):
+    if _gcd_os.environ.get('OPUS_GCD_FREEZE') == '1' and not _GCD['froze']:
+        _gcd.freeze()
+        _GCD['froze'] = True
+    _GCD.update(n=[0, 0, 0], t=[0.0, 0.0, 0.0], mx=[0.0, 0.0, 0.0], col=[0, 0, 0])
+    start = _gcd_time.perf_counter()
+    try:
+        return _GCD_PREDICT(self, *args, **kwargs)
+    finally:
+        path = _gcd_os.environ.get('OPUS_GCD_OUT')
+        if path:
+            with open(path, 'a') as f:
+                f.write(_gcd_json.dumps(dict(n=_GCD['n'], t=_GCD['t'], mx=_GCD['mx'], col=_GCD['col'], count=list(_gcd.get_count()),
+                                             frozen=_gcd.get_freeze_count(), predict_s=_gcd_time.perf_counter() - start,
+                                             thresholds=list(_gcd.get_threshold()))) + '\n')
+
+
+Estimator.predict = _gcd_predict
+# END OPUS-LEAD GC DIAGNOSTIC v1

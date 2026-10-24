@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-11T00:43:48Z",
+  "status": "PASS",
+  "scope": "actual native helper vector/projection fixture only; no network/fit/gradient qualification",
+  "source_sha256": "06422496e5177c60a0a1a442c0fa448d97746fb7d7de4d5dda5190a807ab1eb9",
+  "script_sha256": "443f48492114235d011c70b0ac4d808bdf9cbccfc73be63242968de8f782bc83",
+  "setup": {
+    "flops": 512,
+    "requests": 2
+  },
+  "normalization_cases": [
+    {
+      "case": "missing",
+      "maxabs": 0.0,
+      "flops": 0,
+      "requests": 0
+    },
+    {
+      "case": "empty_roster",
+      "maxabs": 0.0,
+      "flops": 10269,
+      "requests": 19
+    },
+    {
+      "case": "empty_roster_nonzero_component",
+      "maxabs": 0.0,
+      "flops": 10269,
+      "requests": 19
+    },
+    {
+      "case": "zero_component",
+      "maxabs": 0.0,
+      "flops": 11855,
+      "requests": 19
+    },
+    {
+      "case": "constant_full",
+      "maxabs": 0.0,
+      "flops": 35855,
+      "requests": 19
+    },
+    {
+      "case": "sparse_with_exact_zero_inside",
+      "maxabs": 0.0,
+      "flops": 11855,
+      "requests": 19
+    },
+    {
+      "case": "invalid_std",
+      "maxabs": 0.0,
+      "flops": 11855,
+      "requests": 19
+    }
+  ],
+  "overlap_capture": {
+    "flops": 30654,
+    "requests": 43
+  },
+  "projection": {
+    "flops": 526336,
+    "requests": 3
+  },
+  "projection_shape": [
+    1024,
+    128
+  ],
+  "signature": "kn,kc->nc",
+  "operands": [
+    [
+      2,
+      1024
+    ],
+    [
+      2,
+      128
+    ]
+  ],
+  "exact_original_diagonal": true,
+  "outside_roster_exact_zero": true,
+  "actual_zero_inside_roster_retained": true,
+  "components_remain_separate": true,
+  "state_consumed_once": true,
+  "missing_capture_fails_closed": true,
+  "ownership_rejections": 3,
+  "exact_cancellation_index": 40,
+  "normalization_floor_scope": "vc and sigma supplied by native parent; source clamp is 1e-10"
+}

@@ -1,0 +1,40 @@
+# Append after the four-route hardware gate and setup-only dead-family filter.
+# Disable every statically registered push peel and the three fixed slow reads.
+# The existing gate still calls the original eligibility/cap function exactly once;
+# only its accepted return is suppressed. Original warm plan dictionaries survive.
+_HW_REPAIR_SLOW_ROUTES_V1 = _HW_REPAIR_SLOW_ROUTES_V1 | frozenset(
+    ('push', key) for key in _PEEL_PUSH_PLANS
+) | frozenset((
+    ('read', (1024, 4096, 960, 0)),
+    ('read', (992, 6144, 928, 0)),
+    ('read', (992, 6144, 896, 0)),
+))
+_DPS_DEAD_FAMILIES_V3 = frozenset((
+    'peel6_p10_5_16_5_tight',
+    'peel6_p10_5_5_21_tight',
+    'peel6_p10_5_5_26',
+    'peel6_p20_4_4_17',
+    'peel6_p20_5_11_5',
+    'peel6_p20_5_5_14',
+))
+_DPS_STATS_V3 = dict(runs=0, omitted_routes=0, omitted_families=0)
+
+def _dps_bind_v3(t0):
+    global _PEEL_PUSH_PLANS, _PEEL_READ_PLANS, _SMX_FAMILIES
+    saved_push, saved_read, saved_families = _PEEL_PUSH_PLANS, _PEEL_READ_PLANS, _SMX_FAMILIES
+    push = {}
+    read = {k:p for k,p in saved_read.items() if ('read',k) not in _HW_REPAIR_SLOW_ROUTES_V1}
+    assert not any(p[1] in _DPS_DEAD_FAMILIES_V3 for plans in (read,_SM12_PLANS) for p in plans.values())
+    families = {k:f for k,f in saved_families.items() if k not in _DPS_DEAD_FAMILIES_V3}
+    _PEEL_PUSH_PLANS, _PEEL_READ_PLANS, _SMX_FAMILIES = push, read, families
+    try:
+        # Bypass the previous setup filter, keeping the original setup chain.
+        result = _DPS_PARENT_BIND_V1(t0)
+        _DPS_STATS_V3.update(runs=_DPS_STATS_V3['runs']+1,
+            omitted_routes=len(saved_push)+len(saved_read)-len(read),
+            omitted_families=len(saved_families)-len(families))
+        return result
+    finally:
+        _PEEL_PUSH_PLANS, _PEEL_READ_PLANS, _SMX_FAMILIES = saved_push, saved_read, saved_families
+
+_ASH_PARENT_BIND = _dps_bind_v3

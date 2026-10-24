@@ -1,0 +1,38 @@
+{
+  "bindings": {
+    "builder_sha256": "41e3a047b9433cd721089cdea872ba92127c29bfaf4e2e7997e999cb1e27895b",
+    "candidate_source_sha256": "982775b3296709156e1d05c24d703a0982db8bab6dce83dc16744fb09361b066",
+    "d15_fail_terminal_result_sha256": "7571c8948ef992643642fb39731295b341fea9e7929aa8f9e53cbbe5c4623964",
+    "d4_result_sha256": "6d8e7cf98d45b1c667d7d16c373cf9935f96d1f07e44674ca8f9584d51c111d1",
+    "d4_source_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "gate_freeze_sha256": "b5b8a076ad4266985decf0f5485893b93b5a11c070bb0bbd3c0aff215043edb7",
+    "lock_sha256": "a3c7ece025b6514a76bf92149ef93d78f1fb346642ad283d63d0fd4e39a38ec1",
+    "packed_kernel_sha256": "bc23fe4f8a46bd194390b53523d63d5ab136fc1feb0240d589fcaf3fad681a37",
+    "packed_static_receipt_sha256": "832220c4c9467d8d57569649198e2465e97bc908ebb96103e549e683964c4b51",
+    "release_scaffold_sha256": "7fb9223b39e312eeb315ef03f231351238ec7b6f0fefa19d2f202bdb047e7dc7",
+    "release_sha256": "d4c5a6dfa01e6662ecff6c29ab6201da6ef86531f3319dcb6563566227efa324",
+    "runner_sha256": "b408eb096c8f185ffa59502231a20005460a68764ce9103795e57ef25e7cd23d"
+  },
+  "board_opened": false,
+  "call_order": [
+    35,
+    279,
+    35
+  ],
+  "d15_precedent_role": "STATIC_LIFETIME_ONLY__FULL_D15_RESULT_IS_FAIL_TERMINAL",
+  "network": false,
+  "public_components": [
+    "host",
+    "native_raw20",
+    "native_sigma",
+    "native_j_correction",
+    "final_public_prediction"
+  ],
+  "reason": "parent worker failed rc=1; stdout='{\"flops\": 1319871710583, \"ordinal\": 0, \"pass\": false, \"phase\": \"parent\", \"residual\": 0.5711876060813665, \"role_rank\": 35, \"rss\": 5930254336, \"total_calls\": 15416}\\n'; stderr='SymmetryLossWarning: Symmetry lost along dims (0, 1): true_divide \u2014 no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).\\n  correlation = pre_covariance / fnp.outer(sigma, sigma)\\n/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d11_cp3_arena_depth4_full_estimator_v1/estimator.py:1172: SymmetryLossWarning: Symmetry lost along dims (0, 1): add \u2014 no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).\\n  fnp.outer(variance, variance) + 2.0 * pre_covariance * pre_covariance\\n/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d11_cp3_arena_depth4_full_estimator_v1/estimator.py:8585: SymmetryLossWarning: Symmetry lost along dims (0, 1): add \u2014 no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).\\n  mixing = identity + 0.12 * fnp.tanh(\\nTraceback (most recent call last):\\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_d4_lifetime_packed_full_gate_v1/run_full_gate.py\", line 825, in <module>\\n    main()\\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_d4_lifetime_packed_full_gate_v1/run_full_gate.py\", line 814, in main\\n    worker_phase(args.worker, args.ticket, args.staging)\\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_d4_lifetime_packed_full_gate_v1/run_full_gate.py\", line 609, in worker_phase\\n    raise RuntimeError(f\"{phase} worker terminal call failure\")\\nRuntimeError: parent worker terminal call failure\\n'",
+  "reason_type": "RuntimeError",
+  "schema": "packed-d4-full-five-component-gate-result-v1",
+  "scores_opened": [],
+  "status": "FAIL_TERMINAL",
+  "submission": false,
+  "target_columns_opened": []
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "phase2-cp3-preregistered-cap-ladder-static-v1",
+  "status": "TARGET_BLIND_STATIC_SCREEN__COMMON_DRIVER_RECEIPTS_REQUIRED",
+  "shape": {
+    "width": 1024,
+    "depth": 16,
+    "budget_flops": 2199023255552,
+    "score_floor_flops": 219902325555.2
+  },
+  "provisional_analytic_base_flops": 103923320832,
+  "source_hashes": {
+    "512": "74d71023bfd35ac09d99e8572046d6467126084fe02a83efdc4f5804af76840a",
+    "1024": "321bd2183b63ba79e84e733b86d220b08d7a9ec0dd7d07da6d463f1b60bd7edc",
+    "1536": "b9297c28e97f32dd5b4e33e4df1dd297817fd163f6bcb118517c20a2940fdd40",
+    "1792": "035e3bd2fd08d3358f5424fc67f10281e5559e65fa9c6d6dce97791108b176dc"
+  },
+  "normalized_ast_equal_except_cap_and_docstrings": true,
+  "rows": [
+    {
+      "cap": 512,
+      "pushed_rank_sum": 7680,
+      "argsort_calls": 15,
+      "factor_push_flops": 32196526080,
+      "k3_read_core_flops": 31457280,
+      "grow_cast_gate_birth_truncate_flops": 310635520,
+      "fixed_identity_and_open_loop_readout_flops": 230400,
+      "static_accounted_cp_increment_flops": 32538849280,
+      "projected_total_using_provisional_analytic_base": 136462170112,
+      "projected_budget_fraction": 0.06205581035465002,
+      "projected_score_floor_headroom_flops": 83440155443.2
+    },
+    {
+      "cap": 1024,
+      "pushed_rank_sum": 15360,
+      "argsort_calls": 14,
+      "factor_push_flops": 64393052160,
+      "k3_read_core_flops": 62914560,
+      "grow_cast_gate_birth_truncate_flops": 432621568,
+      "fixed_identity_and_open_loop_readout_flops": 230400,
+      "static_accounted_cp_increment_flops": 64888818688,
+      "projected_total_using_provisional_analytic_base": 168812139520,
+      "projected_budget_fraction": 0.07676687324419618,
+      "projected_score_floor_headroom_flops": 51090186035.2
+    },
+    {
+      "cap": 1536,
+      "pushed_rank_sum": 22528,
+      "argsort_calls": 14,
+      "factor_push_flops": 94443143168,
+      "k3_read_core_flops": 92274688,
+      "grow_cast_gate_birth_truncate_flops": 560007168,
+      "fixed_identity_and_open_loop_readout_flops": 230400,
+      "static_accounted_cp_increment_flops": 95095655424,
+      "projected_total_using_provisional_analytic_base": 199018976256,
+      "projected_budget_fraction": 0.0905033522285521,
+      "projected_score_floor_headroom_flops": 20883349299.2
+    },
+    {
+      "cap": 1792,
+      "pushed_rank_sum": 26112,
+      "argsort_calls": 14,
+      "factor_push_flops": 109468188672,
+      "k3_read_core_flops": 106954752,
+      "grow_cast_gate_birth_truncate_flops": 623646720,
+      "fixed_identity_and_open_loop_readout_flops": 230400,
+      "static_accounted_cp_increment_flops": 110199020544,
+      "projected_total_using_provisional_analytic_base": 214122341376,
+      "projected_budget_fraction": 0.09737156750634313,
+      "projected_score_floor_headroom_flops": 5779984179.2,
+      "admission": "CONDITIONAL_COMMON_DRIVER_PASS_BEFORE_TARGET_OPENING"
+    }
+  ],
+  "cap512_crosscheck": {
+    "provisionally_observed_increment_flops": 32538849282,
+    "static_accounted_increment_flops": 32538849280,
+    "absolute_difference_flops": 2,
+    "authoritative_receipt": false
+  },
+  "ladder_policy": {
+    "frozen_unconditional_caps": [512, 1024, 1536],
+    "conditional_meter_only_cap": 1792,
+    "excluded_cap": 2048,
+    "adaptive_caps_after_target_opening": false
+  },
+  "access": {
+    "target_or_truth": 0,
+    "teacher": 0,
+    "score": 0
+  }
+}

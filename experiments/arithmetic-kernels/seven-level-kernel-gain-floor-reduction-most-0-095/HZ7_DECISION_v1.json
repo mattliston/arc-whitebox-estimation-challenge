@@ -1,0 +1,82 @@
+{
+  "status": "HZ7_FLOOR_PRICED_KEEP_0p03",
+  "lane": "opus-hz7",
+  "base": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_stack_v1/candidate_S2_f384_cb_gk4_t167r7_rqx_r1_v1.py",
+    "sha256": "9744cd9614df3cf3a90eda283074315b96c45025db206f94f68c017eb4d933c8",
+    "first": 48218,
+    "warm": 45997,
+    "f35": 244676462409,
+    "f100": 245214899940,
+    "worst": 108.95,
+    "mean": 100.99,
+    "ploss": 17.17
+  },
+  "method": "one normal boundary session per floor (ranks 35/100, platform-clock setup), projected against stored S42 bank legs exactly as the S2 official120 stage C (reproduced S2: mean 100.99, worst 108.95, P(loss) 17.17%); P(loss) via lead/runs/opus_tree_v1/ploss_v1.py",
+  "floors": {
+    "0.02": {
+      "dir": "bnd_g020_r2",
+      "mean": 102.22,
+      "worst": 110.27,
+      "first": 48713,
+      "warm": 46001,
+      "ploss": 18.91,
+      "f35": 244551773452,
+      "f100": 245214899940,
+      "bill_first_pct": -0.051,
+      "bill_warm_pct": 0.0,
+      "d_first": 495,
+      "d_warm": 4,
+      "d_worst_s": 1.32,
+      "gates": {
+        "ploss_le_19": true,
+        "worst_le_112": true
+      }
+    },
+    "0.01": {
+      "dir": "bnd_g010_r2",
+      "mean": 102.89,
+      "worst": 111.0,
+      "first": 48713,
+      "warm": 46147,
+      "ploss": 19.92,
+      "f35": 244551773452,
+      "f100": 244982494496,
+      "bill_first_pct": -0.051,
+      "bill_warm_pct": -0.0948,
+      "d_first": 495,
+      "d_warm": 150,
+      "d_worst_s": 2.05,
+      "gates": {
+        "ploss_le_19": false,
+        "worst_le_112": true
+      }
+    },
+    "0.005": {
+      "dir": "bnd_g005",
+      "mean": 103.1,
+      "worst": 111.22,
+      "first": 48927,
+      "warm": 46147,
+      "ploss": 20.97,
+      "f35": 244600627810,
+      "f100": 244982494496,
+      "bill_first_pct": -0.031,
+      "bill_warm_pct": -0.0948,
+      "d_first": 709,
+      "d_warm": 150,
+      "d_worst_s": 2.27,
+      "gates": {
+        "ploss_le_19": false,
+        "worst_le_112": true
+      }
+    }
+  },
+  "candidates": {
+    "0.02": "89f28482fad2546a2da1cce36eb28b92074575a8aaf7034852d0449760bd38b5",
+    "0.01": "9807b4ef5fe7922ccaccbafe6a770929afebf2ed973ee14987a5909a461a582e",
+    "0.005": "bf0f3c7838a7b1de804a5e5d2e6d30db650e5fc87247bd4e3259bc9cdfc54ae3"
+  },
+  "verdict": "Only 0.02 passes both gates, and it changes the warm network bill by exactly 0 (rank 100 flops identical; -0.051% on the cold first network only) for +1.74pp P(loss) and +1.3 s worst. 0.01/0.005 reach -0.095% warm but fail P(loss) (19.92/20.97%). The 10-11 estimate (-0.27% left) predates Smirnov/d7cp; on S2 the lever is <=0.1%. Keep 0.03.",
+  "note": "first r1 sessions of 0.02/0.01 were retired by guard swap rule (box memory pressure 34% free with other lanes); reruns sequential, memory-gated, exit 0"
+}

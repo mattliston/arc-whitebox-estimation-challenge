@@ -1,0 +1,45 @@
+{
+  "schema": "p2r0f3b1a.reverse_hermite.terminal_receipt.v1",
+  "node": "P2R0F3B1A",
+  "verdict": "CLOSE_RANK_COST_DICHOTOMY",
+  "terminal": true,
+  "result_sha256": "785d789a9ce588989f6ab070d84c6dfdf8ec4faaacc3eabf1bbe791fb49b70e6",
+  "bindings": {
+    "PREREGISTRATION.json": "dde466214752ab4959bb5af9e5ee5677a071c2c466b7cb7f1e3a4cb4b2b6b016",
+    "PREREGISTRATION_SEAL.json": "6a62d26ff1fd3d0538c8d440d6d80aa42ac2ab8658a0724d592d50355cd20054",
+    "run_discriminator.py": "ac38af712704b443c3a20c74e3dbe404c6600a5909e59de23c11ff7073086c9e",
+    "RESULT.json": "785d789a9ce588989f6ab070d84c6dfdf8ec4faaacc3eabf1bbe791fb49b70e6",
+    "ledger_rig.py": "c74c92862a3afad7e44a077c80f87fdd09c66be4f02718db24a21ea7b5f4a581",
+    "ledger_verify.py": "51e4d8aa9ead031871f2fb7c7913d7c165e03f7346eb408b76ebcf58a921e0cd"
+  },
+  "headline_evidence": {
+    "reverse_vs_forward_duhamel_max_relative_disagreement": 1.9244557334329387e-16,
+    "reverse_direction_creates_new_operator": false,
+    "K12_geometric_mean_MSE_improvement": 0.000131045125647072,
+    "K12_minimum_MSE_improvement": 2.985392585929201e-13,
+    "K12_maximum_MSE_improvement": 0.9784864905751234,
+    "K5_best_single_network_MSE_improvement": 1.4682954929865684,
+    "required_every_network_MSE_improvement": 3.0,
+    "finite_width_1_over_n_source_supported": false,
+    "finite_width_1_over_n_squared_residual_supported": false,
+    "compressed_extra_FLOPs_upper_bound": 222167040,
+    "compressed_cost_pass": true,
+    "full_degree5_scalar_coefficient_lower_bound": 9474438804480,
+    "full_degree5_rank_cost_pass": false
+  },
+  "strict_gate_notes": {
+    "baseline_reproduction_max_relative_error": 0.0,
+    "K4_bitwise_identity": true,
+    "source_identity_max_relative_error": 2.3709671831558255e-13,
+    "source_identity_threshold": 1e-13,
+    "source_identity_gate": "FAIL_STRICT_NUMERIC_TOLERANCE",
+    "interpretation": "This marginal numerical-tolerance failure is not load-bearing: accuracy, alignment, stability, degree-ladder, finite-width scaling, equivalence novelty, and full-rank cost independently fail by large margins."
+  },
+  "firewall": {
+    "development_targets_opened": 0,
+    "observer_fit_or_selection_artifacts_opened": 0,
+    "target_fits": 0,
+    "submissions_authorized": 0
+  },
+  "closure": "The only budget-cheap construction is exactly a first-order Duhamel sum and is empirically unstable/effect-worsening. A genuinely non-equivalent exact degree-5 scalar Hermite functional needs more coefficients than the full board FLOP budget before evaluation. Do not run this family on development targets."
+}

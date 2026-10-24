@@ -1,0 +1,11 @@
+
+# [opus-wall] residual plumbing: after setup, move every setup-time object to the permanent generation so the cyclic
+# collector stops rescanning them during predictions. No arithmetic, no flopscope call; predictions unchanged.
+_OPUS_GC_SETUP_PARENT = Estimator.setup
+def _opus_gc_setup(self, *a, **k):
+    try:
+        return _OPUS_GC_SETUP_PARENT(self, *a, **k)
+    finally:
+        _opus_gc.collect()
+        _opus_gc.freeze()
+Estimator.setup = _opus_gc_setup

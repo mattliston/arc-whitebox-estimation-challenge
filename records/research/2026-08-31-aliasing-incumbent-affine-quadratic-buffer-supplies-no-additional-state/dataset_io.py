@@ -1,0 +1,1351 @@
+"""On-disk I/O for whestbench datasets in HF-Parquet+sidecar format.
+
+Schema 3.0 layout:
+    <dataset_root>/
+    ├── data/<split>-NNNNN-of-MMMMM.parquet   # one row per MLP
+    ├── metadata.json                         # whestbench provenance
+    └── README.md                             # HF dataset card
+
+This module owns the schema constants, the HF Features factory, and
+helpers for reading/writing this layout.
+"""
+
+from __future__ import annotations
+
+import json
+import re
+from datetime import datetime, timezone
+from importlib.resources import files
+from pathlib import Path
+from typing import Any, Dict, Mapping, cast
+from typing import Sequence as _TypingSequence
+
+import yaml
+from datasets import Array2D, Array3D, Dataset, Features, Sequence, Value
+from huggingface_hub import DatasetCard, DatasetCardData
+from jinja2 import Template
+
+SCHEMA_VERSION = "3.0"
+SCHEMA_FORMAT = "hf-datasets-parquet"
+SEED_PROTOCOL_NAME = "whestbench_seedsequence_hierarchy"
+SEED_PROTOCOL_VERSION = "2.0"
+SEED_PROTOCOL_NAME_V3 = "whestbench_explicit_per_mlp_seeds"
+SEED_PROTOCOL_VERSION_V3 = "3.0"
+SEED_PROTOCOL_NAME_V4 = "whestbench_kdf_per_mlp_seeds"
+SEED_PROTOCOL_VERSION_V4 = "4.0"
+
+DEFAULT_SPLIT = "public"
+HOLDOUT_SPLIT = "holdout"
+
+_KNOWN_SEED_PROTOCOLS = {
+    (SEED_PROTOCOL_NAME, SEED_PROTOCOL_VERSION),  # 2.0
+    (SEED_PROTOCOL_NAME_V3, SEED_PROTOCOL_VERSION_V3),  # 3.0
+    (SEED_PROTOCOL_NAME_V4, SEED_PROTOCOL_VERSION_V4),  # 4.0
+}
+
+# Protocols whose per-MLP seeds live in the parquet ``mlp_seed`` column rather
+# than in a metadata ``seed`` field. 3.0 and 4.0 share this storage shape -- they
+# differ only in how the participant-facing seed is derived from that column --
+# so every metadata shape rule below keys off membership here, NOT off a single
+# protocol name. Omitting 4.0 would drop it into the 2.0 branch, which demands a
+# top-level 'seed' field, and every 4.0 dataset would fail validation.
+_EXPLICIT_PER_MLP_SEED_PROTOCOLS = {
+    (SEED_PROTOCOL_NAME_V3, SEED_PROTOCOL_VERSION_V3),
+    (SEED_PROTOCOL_NAME_V4, SEED_PROTOCOL_VERSION_V4),
+}
+
+PARQUET_SUBDIR = "data"
+METADATA_FILE = "metadata.json"
+README_FILE = "README.md"
+
+# Optional sibling tree of pre-prepared HuggingFace Arrow artifacts. When
+# present, `whestbench.load_dataset` prefers it over the parquet path because
+# `datasets.load_from_disk(...)` memory-maps the arrow files directly instead
+# of running parquet→arrow conversion on every cold cache. See:
+#  - `write_prepared_arrow_split` (produces it)
+#  - `dataset.load_dataset` (consumes it)
+PREPARED_ARROW_SUBDIR = "prepared"
+PREPARED_ARROW_FORMAT = "save_to_disk"  # i.e. produced by Dataset.save_to_disk()
+
+_SPLIT_NAME_RE = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$")
+
+
+def _validate_split_name(name: str) -> str:
+    """Validate that a split name conforms to the HF Hub convention.
+
+    Allowed: a lowercase ASCII letter, optionally followed by lowercase ASCII
+    letters, digits, and single hyphens. Every hyphen must be flanked by
+    alphanumeric characters — no leading, trailing, or consecutive hyphens.
+
+    Rejects empty strings, uppercase, underscores, whitespace, dots,
+    leading/trailing/consecutive hyphens, and other punctuation.
+    """
+    if not isinstance(name, str) or name == "":
+        raise ValueError("split name must be a non-empty string")
+    if not _SPLIT_NAME_RE.match(name):
+        raise ValueError(
+            f"split name {name!r} does not match [a-z][a-z0-9]*(-[a-z0-9]+)* "
+            f"(HF Hub split-name convention: lowercase ASCII, digits, single "
+            f"hyphens between alphanumeric runs)."
+        )
+    return name
+
+
+def _validate_config_name(name: str) -> str:
+    """Validate a HuggingFace dataset config name used by whestbench bakes.
+
+    We intentionally use the same conservative convention as split names:
+    lowercase ASCII, digits, and single hyphens after an initial lowercase
+    letter. This keeps local metadata, README frontmatter, and HF config names
+    predictable.
+    """
+    try:
+        return _validate_split_name(name)
+    except ValueError as exc:
+        raise ValueError(f"config name {name!r} is invalid: {exc}") from exc
+
+
+def _validate_mlp_seeds(seeds: "list[int]", n_mlps: int) -> None:
+    """Validate that mlp_seeds is a list of n_mlps distinct non-negative int63s.
+
+    Each seed must satisfy ``0 <= seed < 2**63`` (positive int64 range, so the
+    seeds fit in the parquet ``mlp_seed: int64`` column without wraparound).
+    Booleans are rejected even though they are technically int subtypes.
+    Duplicate seeds are rejected: two MLPs sharing a seed would be bit-identical,
+    almost certainly a user error.
+
+    Raises:
+        ValueError: on any rule violation, with a message identifying the
+            offending index.
+    """
+    if not isinstance(seeds, list):
+        raise ValueError(f"mlp_seeds must be a list; got {type(seeds).__name__}.")
+    if len(seeds) != n_mlps:
+        raise ValueError(f"mlp_seeds has length {len(seeds)}, expected n_mlps={n_mlps}.")
+    seen: dict[int, int] = {}
+    for i, s in enumerate(seeds):
+        # bool is a subclass of int; check explicitly.
+        if isinstance(s, bool) or not isinstance(s, int):
+            raise ValueError(f"mlp_seeds[{i}] must be an int; got {type(s).__name__}: {s!r}.")
+        if s < 0 or s >= (1 << 63):
+            raise ValueError(
+                f"mlp_seeds[{i}] = {s} is out of range [0, 2**63). "
+                f"Seeds must fit in an int64 column."
+            )
+        if s in seen:
+            raise ValueError(
+                f"mlp_seeds contains duplicate at indices [{seen[s]}, {i}]: "
+                f"both = {s}. Two MLPs with the same seed are bit-identical; "
+                f"likely a user error."
+            )
+        seen[s] = i
+
+
+def write_dataset_dir(
+    ds: Dataset,
+    *,
+    output_dir: "Path | str",
+    split: str,
+    metadata: Dict[str, Any],
+    num_shards: int = 1,
+) -> Path:
+    """Write a Dataset to <output_dir> in the canonical 3-file layout.
+
+    Layout:
+        <output_dir>/
+        ├── data/<split>-NNNNN-of-MMMMM.parquet
+        ├── metadata.json
+        └── README.md
+
+    Raises FileExistsError if output_dir already exists.
+    """
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=False)
+    data_dir = output_dir / PARQUET_SUBDIR
+    data_dir.mkdir()
+
+    if num_shards != 1:
+        raise NotImplementedError("multi-shard writes not implemented in schema 3.0")
+
+    parquet_path = data_dir / f"{split}-00000-of-00001.parquet"
+    ds.to_parquet(str(parquet_path))
+
+    (output_dir / METADATA_FILE).write_text(json.dumps(metadata, indent=2))
+    (output_dir / README_FILE).write_text(generate_readme(metadata, split=split, ds_size=len(ds)))
+    return output_dir
+
+
+def _size_category(n: int) -> str:
+    """Map an MLP count to HF's standard size_categories label."""
+    if n < 1_000:
+        return "n<1K"
+    if n < 10_000:
+        return "1K<n<10K"
+    if n < 100_000:
+        return "10K<n<100K"
+    return "100K<n<1M"
+
+
+def generate_readme(
+    metadata: Dict[str, Any],
+    *,
+    split: "str | None" = None,
+    splits: "Mapping[str, Any] | None" = None,
+    ds_size: int,
+    repo_id: "str | None" = None,
+    revision: "str | None" = None,
+    companion_repo: "str | None" = None,
+) -> str:
+    """Render the HF dataset card README.
+
+    Exactly one of `split` (single-split) or `splits` (multi-split) must be provided.
+
+    Args:
+        companion_repo: HF Hub repo id of the companion dataset (public ↔ evals
+            cross-link). When unset, the template falls back to the canonical
+            ``aicrowd/arc-whestbench-public-2026[-evals]`` names.
+    """
+    if (split is None) == (splits is None):
+        raise ValueError("generate_readme requires exactly one of `split` or `splits` to be set.")
+
+    template_path = files("whestbench") / "templates" / "dataset_card.md.j2"
+    body = Template(template_path.read_text()).render(
+        metadata=metadata,
+        split=split,
+        splits=splits,
+        ds_size=ds_size,
+        repo_id=repo_id or "<your-repo>",
+        revision=revision or "main",
+        companion_repo=companion_repo,
+    )
+
+    tags = [
+        "whestbench",
+        "alignment",
+        "neural-network-statistics",
+        "benchmark",
+        "white-box",
+    ]
+    if splits is not None:
+        tags.append("multi-split")
+
+    # For multi-split datasets, emit an explicit per-split `configs:` block.
+    # When metadata declares a default_split, the `default` config holds ONLY
+    # that split; every other split becomes its own named config. This is the
+    # key UX fix: with all splits previously under a single `default` config,
+    # `datasets.load_dataset(repo, split="mini")` was downloading every
+    # split's parquet files in the manifest (e.g. 4.66 GB for what should
+    # have been a 250 MB mini-only fetch). Per-split configs let HF resolve
+    # only the requested split's data_files.
+    #
+    # Without a default_split, fall back to the legacy single-`default`
+    # config containing all splits — preserves behaviour for old datasets
+    # baked before the field existed.
+    configs_block = None
+    if splits is None:
+        declared_config = metadata.get("config")
+        if isinstance(declared_config, str) and declared_config != "default":
+            effective_split = (
+                metadata.get("split") if isinstance(metadata.get("split"), str) else split
+            )
+            configs_block = [
+                {
+                    "config_name": declared_config,
+                    "data_files": [
+                        {"split": effective_split, "path": f"data/{effective_split}-*.parquet"},
+                    ],
+                }
+            ]
+    else:
+        metadata_splits = metadata.get("splits")
+        split_config_names: dict[str, str] = {}
+        if isinstance(metadata_splits, dict):
+            for name in splits:
+                info = metadata_splits.get(name)
+                if isinstance(info, dict) and isinstance(info.get("config"), str):
+                    split_config_names[name] = info["config"]
+
+        # Only honor explicit per-split `config` assignments when they actually
+        # DISTINGUISH the splits (>1 distinct config name). When every split
+        # carries the trivial "default" (the create_dataset / combine_split_datasets
+        # default), fall through to the default_split-driven config-per-split layout
+        # below. Otherwise that UX fix is silently shadowed: all splits lump under a
+        # single `default` config, so `load_dataset(repo, split=X)` fetches the WHOLE
+        # repo, and the generated `load_dataset(repo, "<split>", ...)` examples break
+        # (no such config exists).
+        if split_config_names and len(set(split_config_names.values())) > 1:
+            ordered_configs: list[dict[str, Any]] = []
+            config_to_files: dict[str, list[dict[str, str]]] = {}
+            config_order: list[str] = []
+            for name in splits:
+                config_name = split_config_names.get(name, "default")
+                if config_name not in config_to_files:
+                    config_to_files[config_name] = []
+                    config_order.append(config_name)
+                config_to_files[config_name].append(
+                    {"split": name, "path": f"data/{name}-*.parquet"}
+                )
+            if "default" in config_order:
+                config_order.remove("default")
+                config_order.insert(0, "default")
+            for config_name in config_order:
+                ordered_configs.append(
+                    {
+                        "config_name": config_name,
+                        "data_files": config_to_files[config_name],
+                    }
+                )
+            configs_block = ordered_configs
+        else:
+            declared_default = metadata.get("default_split")
+            if isinstance(declared_default, str) and declared_default in splits:
+                # New layout: one config per split. `default` config = default_split.
+                configs_block = [
+                    {
+                        "config_name": "default",
+                        "data_files": [
+                            {
+                                "split": declared_default,
+                                "path": f"data/{declared_default}-*.parquet",
+                            },
+                        ],
+                    }
+                ]
+                for name in splits:
+                    if name == declared_default:
+                        continue
+                    configs_block.append(
+                        {
+                            "config_name": name,
+                            "data_files": [
+                                {"split": name, "path": f"data/{name}-*.parquet"},
+                            ],
+                        }
+                    )
+            else:
+                # Legacy layout: all splits under one `default` config (no
+                # default_split declared, so we have no opinion on which split is
+                # canonical for `load_dataset(repo)` calls).
+                configs_block = [
+                    {
+                        "config_name": "default",
+                        "data_files": [
+                            {"split": name, "path": f"data/{name}-*.parquet"} for name in splits
+                        ],
+                    }
+                ]
+
+    card_data = DatasetCardData(
+        license="cc-by-4.0",
+        language=["code"],
+        tags=tags,
+        task_categories=["other"],
+        pretty_name=metadata.get(
+            "pretty_name", "WhestBench 2026: ARC White-Box Estimation Challenge"
+        ),
+        size_categories=[_size_category(ds_size)],
+        homepage="https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026",
+        repository="https://github.com/AIcrowd/whestbench",
+    )
+    # DatasetCardData accepts arbitrary extra YAML keys as attributes.
+    # Setting `configs` as an attribute (rather than via **kwargs) avoids a
+    # Pyright false-positive: the **kwargs unpack confuses the type checker into
+    # checking the list-of-dicts value against each named __init__ parameter.
+    if configs_block is not None:
+        card_data.configs = configs_block  # type: ignore[attr-defined]
+    yaml_str = yaml.dump(card_data.to_dict(), default_flow_style=False, allow_unicode=True)
+    full_content = f"---\n{yaml_str}---\n\n{body}"
+    return str(DatasetCard(full_content))
+
+
+def make_features(*, width: int, depth: int) -> Features:
+    """Return the per-row HF Features schema for a dataset with the given dims.
+
+    Each row is one MLP; shapes are fixed across a single dataset.
+    """
+    return Features(
+        {
+            "mlp_id": Value("int32"),
+            "mlp_name": Value("string"),
+            "mlp_seed": Value("int64"),
+            "weights": Array3D(shape=(depth, width, width), dtype="float32"),
+            "all_layer_means": Array2D(shape=(depth, width), dtype="float32"),
+            "final_means": Sequence(Value("float32"), length=width),
+            "avg_variance": Value("float64"),
+            "sampling_budget_breakdown": Value("string"),
+        }
+    )
+
+
+class InvalidDatasetError(ValueError):
+    """Raised when a dataset directory has missing/incompatible metadata."""
+
+
+def _validate_seed_protocol_v4_salt(seed_proto: Dict[str, Any]) -> None:
+    """Check that a 4.0 dataset declares a usable salt.
+
+    Validated at load time rather than at first derivation so a mis-specified
+    dataset fails on open, not part-way through a scoring run. This checks the
+    DECLARATION only -- the env var itself is resolved (and its digest verified)
+    by ``seeds.resolve_salt`` when a seed is actually derived, since the variable
+    may legitimately be set by the grader after validation.
+    """
+    source = seed_proto.get("salt_source", "metadata")
+    if source not in ("metadata", "env"):
+        raise InvalidDatasetError(
+            f"seed_protocol 4.0: salt_source must be 'metadata' or 'env'; got {source!r}."
+        )
+    if source == "metadata":
+        raw = seed_proto.get("salt")
+        if not raw:
+            raise InvalidDatasetError(
+                "seed_protocol 4.0: metadata is missing the 'salt' field. The "
+                "participant-facing seeds and MLP names cannot be derived without it."
+            )
+        if not isinstance(raw, str):
+            raise InvalidDatasetError(
+                f"seed_protocol 4.0: 'salt' must be a hex string; got {type(raw).__name__}."
+            )
+        try:
+            bytes.fromhex(raw)
+        except ValueError as exc:
+            raise InvalidDatasetError(f"seed_protocol 4.0: 'salt' is not valid hex: {exc}") from exc
+    elif "salt" in seed_proto:
+        raise InvalidDatasetError(
+            "seed_protocol 4.0: salt_source='env' but a 'salt' field is also present. "
+            "Remove the field -- shipping the salt defeats the point of withholding it."
+        )
+
+    digest = seed_proto.get("salt_digest")
+    if digest is not None and not isinstance(digest, str):
+        raise InvalidDatasetError(
+            f"seed_protocol 4.0: 'salt_digest' must be a string; got {type(digest).__name__}."
+        )
+    if source == "env" and not digest:
+        raise InvalidDatasetError(
+            "seed_protocol 4.0: salt_source='env' requires 'salt_digest' so a wrong "
+            "salt is caught immediately instead of silently deriving different seeds "
+            "and MLP names than the dataset was baked with."
+        )
+
+
+def metadata_file_hash(
+    path: "Path | str",
+    *,
+    revision: "str | None" = None,
+) -> str:
+    """Return the SHA-256 hex digest of a dataset's metadata.json.
+
+    Used for logging/reporting to identify a specific bake without loading the
+    full dataset. Deterministic given the same metadata bytes.
+
+    Accepts three forms of ``path``:
+
+    - **Local directory**: any path that exists on disk (or starts with ``./``,
+      ``/``, ``~/``, or a Windows drive letter). Reads
+      ``<path>/metadata.json`` from disk.
+    - **``hf://owner/repo[@revision]`` URL**: downloads ``metadata.json``
+      from the HF Hub repo (cached locally) and hashes its bytes.
+    - **Bare ``owner/repo``** with the ``revision`` kwarg explicitly set:
+      same as the hf:// form. Without ``revision`` falls back to the local
+      path interpretation.
+
+    Args:
+        path: Local dataset directory, hf:// URL, or bare ``owner/repo``.
+        revision: HF Hub git tag or commit SHA. Ignored for local paths.
+            If ``path`` is an ``hf://...@<rev>`` URL the embedded revision
+            wins over this kwarg.
+    """
+    import hashlib
+
+    path_str = str(path)
+    metadata_path = _resolve_metadata_json_path(path_str, revision=revision)
+    h = hashlib.sha256()
+    with metadata_path.open("rb") as f:
+        while chunk := f.read(8192):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _resolve_metadata_json_path(path_str: str, *, revision: "str | None") -> Path:
+    """Resolve a `--dataset`-shaped string to a local metadata.json path.
+
+    Centralises the local-vs-HF-Hub branch so callers don't have to repeat the
+    detection logic. Returns a Path to the (possibly HF-cached) metadata.json.
+    """
+    # 1. hf:// URL — parse and download.
+    if path_str.startswith("hf://"):
+        body = path_str[len("hf://") :]
+        if "@" in body:
+            repo_id, embedded_rev = body.rsplit("@", 1)
+            rev = revision or embedded_rev
+        else:
+            repo_id, rev = body, revision
+        return _hf_metadata_path(repo_id, rev)
+
+    # 2. Existing local directory — fast-path.
+    candidate = Path(path_str)
+    if candidate.exists():
+        return candidate / METADATA_FILE
+
+    # 3. Bare "owner/repo" with revision kwarg → treat as HF Hub.
+    if "/" in path_str and revision is not None:
+        return _hf_metadata_path(path_str, revision)
+
+    # 4. Fall through: assume local path (will raise FileNotFoundError on open
+    #    when the caller tries to read it — same as old behaviour).
+    return candidate / METADATA_FILE
+
+
+def _hf_metadata_path(repo_id: str, revision: "str | None") -> Path:
+    """Download metadata.json from HF Hub (cached) and return the local path."""
+    from huggingface_hub import hf_hub_download
+
+    return Path(
+        hf_hub_download(
+            repo_id=repo_id,
+            filename=METADATA_FILE,
+            repo_type="dataset",
+            revision=revision,
+        )
+    )
+
+
+def read_metadata(dataset_dir: "Path | str") -> Dict[str, Any]:
+    """Read and parse metadata.json from a dataset directory.
+
+    Raises InvalidDatasetError if the file is missing or unparseable.
+    Does NOT validate schema_version — call validate_metadata for that.
+    """
+    dataset_dir = Path(dataset_dir)
+    path = dataset_dir / METADATA_FILE
+    if not path.is_file():
+        raise InvalidDatasetError(
+            f"missing metadata.json at {path}. "
+            f"This may be a legacy .npz dataset (re-bake with `whest dataset bake`)."
+        )
+    try:
+        return json.loads(path.read_text())
+    except json.JSONDecodeError as exc:
+        raise InvalidDatasetError(f"metadata.json at {path} is not valid JSON: {exc}") from exc
+
+
+def validate_metadata(metadata: Dict[str, Any], *, allow_partial: bool = False) -> None:
+    """Validate that metadata is a valid whestbench dataset metadata dict.
+
+    Accepts:
+    - seed_protocol 2.0 (whestbench_seedsequence_hierarchy): top-level ``seed``
+      for single-split, per-split ``seed`` for multi-split.
+    - seed_protocol 3.0 (whestbench_explicit_per_mlp_seeds): NO ``seed`` field
+      anywhere; the parquet mlp_seed column is canonical.
+
+    The discriminator for single-split vs multi-split is the presence of the
+    ``splits`` KEY in metadata, not its value — ``"splits": null`` is invalid
+    multi-split, not a fallback to single-split.
+
+    ``allow_partial`` is meaningful only for the single-split shape; multi-split
+    datasets cannot be partial.
+
+    Raises:
+        InvalidDatasetError: on schema, partial-state, or protocol violations.
+    """
+    if "schema_version" not in metadata:
+        raise InvalidDatasetError(
+            "metadata is missing 'schema_version'. "
+            "If this is a legacy .npz dataset, re-bake with `whest dataset bake`."
+        )
+    if metadata["schema_version"] != SCHEMA_VERSION:
+        raise InvalidDatasetError(
+            f"schema_version is {metadata['schema_version']!r}, this whestbench "
+            f"requires {SCHEMA_VERSION!r}. Re-bake with `whest dataset bake`."
+        )
+
+    seed_proto = metadata.get("seed_protocol") or {}
+    proto_name = seed_proto.get("name")
+    proto_version = seed_proto.get("version")
+    if (proto_name, proto_version) not in _KNOWN_SEED_PROTOCOLS:
+        raise InvalidDatasetError(
+            f"unknown seed_protocol name={proto_name!r} / version={proto_version!r}. "
+            f"Known protocols: "
+            + ", ".join(f"{n!r}@{v!r}" for n, v in sorted(_KNOWN_SEED_PROTOCOLS))
+        )
+
+    # 3.0 and 4.0 share one metadata shape: no 'seed' field anywhere, because the
+    # per-MLP seeds live in the parquet. Only 2.0 carries a metadata seed.
+    has_explicit_per_mlp_seeds = (
+        proto_name,
+        proto_version,
+    ) in _EXPLICIT_PER_MLP_SEED_PROTOCOLS
+    proto_label = f"seed_protocol {proto_version}"
+
+    if proto_name == SEED_PROTOCOL_NAME_V4:
+        _validate_seed_protocol_v4_salt(seed_proto)
+
+    if "split" in metadata:
+        split_value = metadata["split"]
+        if not isinstance(split_value, str):
+            raise InvalidDatasetError(
+                f"'split' must be a string; got {type(split_value).__name__}."
+            )
+        try:
+            _validate_split_name(split_value)
+        except ValueError as exc:
+            raise InvalidDatasetError(f"invalid split metadata field: {exc}") from exc
+
+    if "config" in metadata:
+        config_value = metadata["config"]
+        if not isinstance(config_value, str):
+            raise InvalidDatasetError(
+                f"'config' must be a string; got {type(config_value).__name__}."
+            )
+        try:
+            _validate_config_name(config_value)
+        except ValueError as exc:
+            raise InvalidDatasetError(str(exc)) from exc
+
+    if "splits" in metadata:
+        # Multi-split shape. Discriminator is key presence; value must still be
+        # a non-empty dict (catches null, [], {}).
+        splits = metadata["splits"]
+        if not isinstance(splits, dict) or not splits:
+            raise InvalidDatasetError(
+                "multi-split metadata requires 'splits' to be a non-empty dict "
+                "with at least one entry."
+            )
+        if metadata.get("is_partial"):
+            raise InvalidDatasetError(
+                "multi-split datasets cannot also be partial; got is_partial=true "
+                "alongside a 'splits:' dict. Partials are always single-split — "
+                "merge each split's partials first, then combine with "
+                "`whest dataset combine-splits`."
+            )
+        if "n_mlps" in metadata:
+            raise InvalidDatasetError(
+                "multi-split metadata must not have top-level 'n_mlps'; "
+                "per-split n_mlps live under splits[<name>]."
+            )
+        # Optional default_split: if present, must be a string naming one of
+        # the splits. Honoured by `whest run` when --split is omitted.
+        if "default_split" in metadata:
+            default_split = metadata["default_split"]
+            if not isinstance(default_split, str):
+                raise InvalidDatasetError(
+                    f"'default_split' must be a string; got {type(default_split).__name__}."
+                )
+            if default_split not in splits:
+                raise InvalidDatasetError(
+                    f"'default_split'={default_split!r} is not one of the "
+                    f"dataset's splits {sorted(splits.keys())}."
+                )
+
+        # Optional prepared_splits: per-split sidecar to pre-arrow'd artifacts
+        # (datasets.save_to_disk output). Consumed by whestbench.load_dataset
+        # as a fast path that skips parquet→arrow conversion. Keys must be a
+        # subset of the dataset's splits; each value must be a dict with
+        # string fields {path, format}. The Arrow path is optional — if any
+        # validation here fails the load gracefully falls back to parquet.
+        if "prepared_splits" in metadata:
+            prep = metadata["prepared_splits"]
+            if not isinstance(prep, dict):
+                raise InvalidDatasetError(
+                    f"'prepared_splits' must be a dict; got {type(prep).__name__}."
+                )
+            for split_name, entry in prep.items():
+                if split_name not in splits:
+                    raise InvalidDatasetError(
+                        f"'prepared_splits[{split_name!r}]' references a split "
+                        f"that isn't in this dataset (have: "
+                        f"{sorted(splits.keys())})."
+                    )
+                if not isinstance(entry, dict):
+                    raise InvalidDatasetError(
+                        f"'prepared_splits[{split_name!r}]' must be a dict; "
+                        f"got {type(entry).__name__}."
+                    )
+                if not isinstance(entry.get("path"), str):
+                    raise InvalidDatasetError(
+                        f"'prepared_splits[{split_name!r}].path' must be a string."
+                    )
+                fmt = entry.get("format")
+                if fmt is not None and not isinstance(fmt, str):
+                    raise InvalidDatasetError(
+                        f"'prepared_splits[{split_name!r}].format' must be a string if present."
+                    )
+        if has_explicit_per_mlp_seeds:
+            if "seed" in metadata:
+                raise InvalidDatasetError(
+                    f"{proto_label}: multi-split metadata must not have a "
+                    "top-level 'seed' field; the parquet mlp_seed column is "
+                    "the canonical per-MLP seed record."
+                )
+        else:
+            if "seed" in metadata:
+                raise InvalidDatasetError(
+                    "multi-split metadata must not have top-level 'seed'; "
+                    "per-split seed lives under splits[<name>]."
+                )
+        for split_name, info in splits.items():
+            try:
+                _validate_split_name(split_name)
+            except ValueError as exc:
+                raise InvalidDatasetError(f"invalid split name in splits dict: {exc}") from exc
+            if not isinstance(info, dict):
+                raise InvalidDatasetError(
+                    f"splits[{split_name!r}] must be a dict; got {type(info).__name__}."
+                )
+            if "n_mlps" not in info:
+                raise InvalidDatasetError(
+                    f"splits[{split_name!r}] is missing required field 'n_mlps'."
+                )
+            if "config" in info:
+                config_value = info["config"]
+                if not isinstance(config_value, str):
+                    raise InvalidDatasetError(
+                        f"splits[{split_name!r}].config must be a string; "
+                        f"got {type(config_value).__name__}."
+                    )
+                try:
+                    _validate_config_name(config_value)
+                except ValueError as exc:
+                    raise InvalidDatasetError(
+                        f"invalid config in splits[{split_name!r}]: {exc}"
+                    ) from exc
+            if has_explicit_per_mlp_seeds:
+                if "seed" in info:
+                    raise InvalidDatasetError(
+                        f"{proto_label}: splits[{split_name!r}] must not "
+                        f"have a 'seed' field; the parquet mlp_seed column "
+                        f"is the canonical per-MLP seed record."
+                    )
+            else:
+                if "seed" not in info:
+                    raise InvalidDatasetError(
+                        f"splits[{split_name!r}] is missing required field 'seed'."
+                    )
+        return  # multi-split validated; skip the single-split partial check below
+
+    # Single-split shape.
+    if "n_mlps" not in metadata:
+        raise InvalidDatasetError("single-split metadata missing required field 'n_mlps'.")
+    if has_explicit_per_mlp_seeds:
+        if "seed" in metadata:
+            raise InvalidDatasetError(
+                f"{proto_label}: single-split metadata must not have a "
+                "top-level 'seed' field; the parquet mlp_seed column is "
+                "the canonical per-MLP seed record."
+            )
+    else:
+        if "seed" not in metadata:
+            raise InvalidDatasetError(
+                "seed_protocol 2.0: single-split metadata missing required top-level 'seed' field."
+            )
+
+    if metadata.get("is_partial") and not allow_partial:
+        mlp_range = metadata.get("mlp_range")
+        total = metadata.get("total_n_mlps")
+        raise InvalidDatasetError(
+            f"this is a partial dataset (mlp_range={mlp_range}, total_n_mlps={total}). "
+            f"Run `whest dataset merge <partials> --output <dir>` first."
+        )
+
+
+class MergeIncompatibleError(InvalidDatasetError):
+    """Raised when partials have incompatible bake parameters."""
+
+
+class MergeIncompleteError(InvalidDatasetError):
+    """Raised when partials don't cover [0, total_n_mlps) completely."""
+
+
+class MergeOverlapError(InvalidDatasetError):
+    """Raised when partial mlp_range values overlap."""
+
+
+class MergeCorruptError(InvalidDatasetError):
+    """Raised when a partial's row mlp_id values don't match its declared mlp_range."""
+
+
+_COMMON_FIELDS = ("seed", "n_samples", "width", "depth", "backend")
+
+
+def _collapse_hardware_fingerprints(
+    partials: "list[tuple[Path, Dict[str, Any], Any]]",
+) -> "list[Dict[str, Any]]":
+    """Group per-partial metadata by COARSE hardware signature.
+
+    The signature intentionally excludes ``cuda_driver_version`` and
+    ``os_release`` (kernel patch): those vary across pods in a fleet but do not
+    affect determinism guarantees under our pinned env. They're aggregated as
+    ``drivers_seen`` / ``kernels_seen`` per signature group.
+
+    Returns one entry per distinct (GPU, capability, torch, determinism env)
+    tuple, each carrying ``mlp_count`` + the representative full-detail fields
+    that DO affect bit-exactness.
+    """
+    from collections import defaultdict
+
+    def _sig(md: Dict[str, Any]) -> tuple:
+        """Determinism-affecting fields only.
+
+        Excludes host-inventory variations that don't affect bit-equivalence:
+        - `cpu_count_logical`, `ram_total_bytes` (host capacity)
+        - `cpu_brand` (always x86_64 in practice; not a determinism factor for
+          GPU bakes)
+        - `os_release` (kernel patch — aggregated as `kernels_seen`)
+
+        Includes:
+        - GPU (cuda_device_name + capability) — distinct SM archs can differ
+        - Code versions (torch, python, numpy, whestbench, flopscope) — affect
+          generated kernels / RNG implementations
+        - Determinism env (3 bake_config flags)
+        """
+        hw = md.get("hardware", {}) or {}
+        bc = md.get("bake_config", {}) or {}
+        return (
+            md.get("cuda_device_name"),
+            tuple(md.get("cuda_device_capability") or ()),
+            md.get("torch_version"),
+            md.get("device"),
+            hw.get("python_version"),
+            hw.get("numpy_version"),
+            md.get("whestbench_version"),
+            md.get("flopscope_version"),
+            bc.get("torch_use_deterministic_algorithms"),
+            bc.get("cudnn_deterministic"),
+            bc.get("cublas_workspace_config"),
+        )
+
+    groups: "defaultdict[tuple, list[Dict[str, Any]]]" = defaultdict(list)
+    for p in partials:
+        md = p[1]
+        groups[_sig(md)].append(md)
+
+    fingerprints: list[Dict[str, Any]] = []
+    for _key, mds in groups.items():
+        rep = mds[0]  # representative; signature fields are equal across the group
+        hw = rep.get("hardware", {}) or {}
+        bc = rep.get("bake_config", {}) or {}
+        drivers_set: set[str] = set()
+        for m in mds:
+            d = m.get("cuda_driver_version")
+            if isinstance(d, str):
+                drivers_set.add(d)
+        drivers: list[str] = sorted(drivers_set)
+        kernels_set: set[str] = set()
+        for m in mds:
+            k = (m.get("hardware", {}) or {}).get("os_release")
+            if isinstance(k, str):
+                kernels_set.add(k)
+        kernels: list[str] = sorted(kernels_set)
+        hostnames: list[str] = []
+        for m in mds:
+            h = (m.get("hardware", {}) or {}).get("hostname")
+            if isinstance(h, str) and h not in hostnames:
+                hostnames.append(h)
+            if len(hostnames) >= 3:
+                break
+        fp = {
+            "cuda_device_name": rep.get("cuda_device_name"),
+            "cuda_device_capability": rep.get("cuda_device_capability"),
+            "torch_version": rep.get("torch_version"),
+            "device": rep.get("device"),
+            "cpu_brand": hw.get("cpu_brand"),
+            "cpu_count_logical": hw.get("cpu_count_logical"),
+            "ram_total_bytes": hw.get("ram_total_bytes"),
+            "python_version": hw.get("python_version"),
+            "numpy_version": hw.get("numpy_version"),
+            "os": hw.get("os"),
+            "whestbench_version": rep.get("whestbench_version"),
+            "flopscope_version": rep.get("flopscope_version"),
+            "bake_config": bc or None,
+            "mlp_count": len(mds),
+            "drivers_seen": drivers,
+            "kernels_seen": kernels,
+            "representative_hostnames": hostnames,
+        }
+        # Drop None-valued keys to keep metadata.json clean.
+        fingerprints.append({k: v for k, v in fp.items() if v is not None and v != []})
+    return fingerprints
+
+
+def merge_datasets(
+    input_dirs: "list[Path | str]",
+    *,
+    output_dir: "Path | str",
+    cache_dir: "Path | str | None" = None,
+) -> Path:
+    """Concatenate partial bakes into a single canonical dataset directory.
+
+    Validates that all partials share compatible bake parameters and that
+    their mlp_range values cover [0, total_n_mlps) exactly once. Output
+    metadata strips per-partial fields and adds hardware_fingerprints and
+    merged_at_utc.
+
+    Bit-equivalent to a single-host bake with the same (seed, n_mlps, ...).
+
+    Args:
+        input_dirs: Paths to partial dataset directories.
+        output_dir: Destination directory; must not exist.
+        cache_dir: HF datasets cache to use for the per-partial loads. When
+            ``None`` (default), a temporary directory is created for the
+            duration of the call and removed before returning, so the global
+            ``~/.cache/huggingface/datasets/`` is not polluted by per-partial
+            entries keyed on the input dir basenames (fleet partials named
+            ``mlp-NNNN`` would otherwise leak N entries, ~2 MB each).
+
+    Raises:
+        MergeIncompatibleError: partials disagree on schema_version, seed,
+            n_samples, width, depth, backend, or total_n_mlps; or any input
+            is not a partial.
+        MergeIncompleteError: ranges don't cover [0, total_n_mlps) — gaps.
+        MergeOverlapError: ranges overlap.
+        MergeCorruptError: a partial's row mlp_ids don't match its declared
+            mlp_range.
+    """
+    import tempfile
+    from contextlib import nullcontext
+
+    from datasets import concatenate_datasets
+    from datasets import load_dataset as hf_load_dataset
+
+    output_dir = Path(output_dir)
+    if not input_dirs:
+        raise MergeIncompatibleError("merge_datasets requires at least one input directory")
+
+    cache_ctx = (
+        tempfile.TemporaryDirectory(prefix="whestbench-merge-")
+        if cache_dir is None
+        else nullcontext(str(cache_dir))
+    )
+    with cache_ctx as effective_cache_dir:
+        partials = []
+        for d in input_dirs:
+            d = Path(d)
+            md = read_metadata(d)
+            validate_metadata(md, allow_partial=True)
+            if not md.get("is_partial"):
+                raise MergeIncompatibleError(
+                    f"{d} is a complete (non-partial) dataset; merge_datasets only "
+                    f"accepts partials (is_partial=true)."
+                )
+            # Determine the split name from the parquet file present in data/
+            data_dir = d / PARQUET_SUBDIR
+            parquet_files = list(data_dir.glob("*.parquet"))
+            if len(parquet_files) != 1:
+                raise MergeIncompatibleError(
+                    f"{d} has {len(parquet_files)} parquet files; expected 1"
+                )
+            split_name = parquet_files[0].name.split("-")[0]
+            ds = hf_load_dataset(str(d), split=split_name, cache_dir=effective_cache_dir)
+            partials.append((d, md, ds, split_name))
+
+        # Validate all share the same common fields
+        first_md = partials[0][1]
+        for d, md, _, split_name in partials[1:]:
+            if split_name != partials[0][3]:
+                raise MergeIncompatibleError(
+                    f"{d} has split {split_name!r}, expected {partials[0][3]!r}"
+                )
+            if md["schema_version"] != first_md["schema_version"]:
+                raise MergeIncompatibleError(
+                    f"{d}: schema_version {md['schema_version']!r} != "
+                    f"{first_md['schema_version']!r}"
+                )
+            for f in _COMMON_FIELDS:
+                if md.get(f) != first_md.get(f):
+                    raise MergeIncompatibleError(f"{d}: {f}={md.get(f)!r} != {first_md.get(f)!r}")
+            if md["total_n_mlps"] != first_md["total_n_mlps"]:
+                raise MergeIncompatibleError(
+                    f"{d}: total_n_mlps={md['total_n_mlps']} != {first_md['total_n_mlps']}"
+                )
+
+        total = first_md["total_n_mlps"]
+        partials.sort(key=lambda p: p[1]["mlp_range"][0])
+
+        # Check coverage of [0, total)
+        expected_start = 0
+        for d, md, ds, _ in partials:
+            start, end = md["mlp_range"]
+            if start < expected_start:
+                raise MergeOverlapError(
+                    f"{d}: mlp_range starts at {start} but previous range ended at {expected_start}"
+                )
+            if start > expected_start:
+                raise MergeIncompleteError(
+                    f"gap: no partial covers MLPs [{expected_start}, {start})"
+                )
+            # Check internal mlp_id consistency
+            actual_ids = ds["mlp_id"]
+            expected_ids = list(range(start, end))
+            if actual_ids != expected_ids:
+                raise MergeCorruptError(
+                    f"{d}: mlp_id values {actual_ids[:5]}... don't match "
+                    f"declared range [{start}, {end})"
+                )
+            expected_start = end
+
+        if expected_start != total:
+            raise MergeIncompleteError(f"gap: no partial covers MLPs [{expected_start}, {total})")
+
+        # Concatenate in slice order
+        merged_ds = concatenate_datasets([p[2] for p in partials])
+
+        # Reconcile metadata
+        merged_md: Dict[str, Any] = {
+            k: v
+            for k, v in first_md.items()
+            if k not in ("is_partial", "mlp_range", "total_n_mlps", "hardware", "created_at_utc")
+        }
+        merged_md["n_mlps"] = total
+        merged_md["created_at_utc"] = min(p[1]["created_at_utc"] for p in partials)
+        merged_md["merged_at_utc"] = datetime.now(timezone.utc).isoformat()
+        merged_md["hardware_fingerprints"] = _collapse_hardware_fingerprints(partials)
+        merged_md["partials_count"] = len(partials)
+
+        write_dataset_dir(
+            merged_ds,
+            output_dir=output_dir,
+            split=partials[0][3],
+            metadata=merged_md,
+        )
+    return output_dir
+
+
+def write_prepared_arrow_split(
+    parquet_path: "Path | str | _TypingSequence[Path | str]",
+    output_dir: "Path | str",
+    *,
+    split: str,
+) -> Path:
+    """Materialise a split's parquet file(s) into a `Dataset.save_to_disk()` directory.
+
+    The output directory is what `datasets.load_from_disk(...)` accepts. We
+    upload it to HF under `prepared/<split>/` so participants can pull
+    pre-arrow'd data and skip the parquet→arrow conversion entirely on cold
+    cache.
+
+    Args:
+        parquet_path: Either a single parquet file or a list of parquet
+            files (multi-shard split, e.g. ``full-00000-of-00008.parquet``…).
+            All shards are concatenated by ``datasets.Dataset.from_parquet``
+            preserving the on-disk row order.
+        output_dir: Directory to create. Must not exist; written atomically
+            via a sibling `.staging` directory.
+        split: The HF split name to record inside the saved Dataset.
+
+    Returns:
+        Path to ``output_dir``.
+
+    Raises:
+        FileExistsError: ``output_dir`` already exists.
+        FileNotFoundError: any of the listed parquet files is missing.
+    """
+    import shutil
+
+    output_dir = Path(output_dir)
+    if isinstance(parquet_path, (str, Path)):
+        parquet_paths: list[Path] = [Path(parquet_path)]
+    else:
+        parquet_paths = sorted(Path(p) for p in parquet_path)
+    if not parquet_paths:
+        raise FileNotFoundError("write_prepared_arrow_split: empty parquet list")
+    if output_dir.exists():
+        raise FileExistsError(f"output_dir already exists: {output_dir}")
+    for p in parquet_paths:
+        if not p.is_file():
+            raise FileNotFoundError(f"parquet not found: {p}")
+
+    from datasets import Dataset, NamedSplit
+
+    # datasets.Dataset.from_parquet accepts either a single path string or a
+    # list of path strings (it concatenates shards in list order). We sort
+    # the shard list above to be insensitive to glob iteration order.
+    # The typeshed for from_parquet types the list overload as `list[PathLike]`
+    # (invariant), but the runtime accepts `list[str]`; cast through Any to
+    # silence pyright without runtime cost.
+    if len(parquet_paths) == 1:
+        parquet_arg: Any = str(parquet_paths[0])
+    else:
+        parquet_arg = cast(Any, [str(p) for p in parquet_paths])
+    ds = Dataset.from_parquet(parquet_arg, split=NamedSplit(split))
+
+    staging = output_dir.with_name(output_dir.name + ".staging")
+    if staging.exists():
+        shutil.rmtree(staging)
+    try:
+        ds.save_to_disk(str(staging))
+        staging.rename(output_dir)
+    except Exception:
+        if staging.exists():
+            shutil.rmtree(staging, ignore_errors=True)
+        raise
+    return output_dir
+
+
+def build_prepared_splits_for_directory(
+    dataset_dir: "Path | str",
+    *,
+    splits: "list[str]",
+    metadata: Dict[str, Any],
+) -> Dict[str, Dict[str, str]]:
+    """For each split, produce ``<dataset_dir>/prepared/<split>/`` from its parquet.
+
+    Returns a mapping suitable for the ``prepared_splits`` metadata block:
+
+        {
+          "<split>": {"path": "prepared/<split>", "format": "save_to_disk"},
+          ...
+        }
+
+    Mutates ``metadata['prepared_splits']`` in place. Callers should re-write
+    ``metadata.json`` and ``README.md`` after this returns.
+    """
+    dataset_dir = Path(dataset_dir)
+    prepared_root = dataset_dir / PREPARED_ARROW_SUBDIR
+    prepared_root.mkdir(exist_ok=True)
+
+    block: Dict[str, Dict[str, str]] = {}
+    for split in splits:
+        parquet_files = sorted((dataset_dir / PARQUET_SUBDIR).glob(f"{split}-*.parquet"))
+        if not parquet_files:
+            raise FileNotFoundError(
+                f"no parquet found for split {split!r} in {dataset_dir / PARQUET_SUBDIR}"
+            )
+        out = prepared_root / split
+        # `write_prepared_arrow_split` is idempotent against the staging dir
+        # but not against an existing target; clean it for re-runs.
+        if out.exists():
+            import shutil
+
+            shutil.rmtree(out)
+        # Pass the full shard list (single or multi); `write_prepared_arrow_split`
+        # handles both shapes.
+        write_prepared_arrow_split(parquet_files, out, split=split)
+        block[split] = {
+            "path": f"{PREPARED_ARROW_SUBDIR}/{split}",
+            "format": PREPARED_ARROW_FORMAT,
+        }
+    metadata["prepared_splits"] = block
+    return block
+
+
+def combine_split_datasets(
+    input_dirs: "list[Path | str]",
+    *,
+    output_dir: "Path | str",
+    default_split: "str | None" = None,
+    write_prepared_arrow: bool = True,
+) -> Path:
+    """Combine N complete single-split datasets into a multi-split dataset directory.
+
+    Each input must be a complete (non-partial) single-split schema-3.0 dataset
+    directory. Inputs must agree on schema_version, format, backend, seed_protocol,
+    width, depth, and n_samples. Split names (inferred from each input's single
+    parquet filename) must be pairwise distinct.
+
+    Output is a multi-split dataset directory with one parquet file per input
+    split, a multi-split metadata.json (``splits:`` dict), and a rendered README.
+
+    Args:
+        input_dirs: Paths to complete single-split dataset directories.
+        output_dir: Destination path; must not exist.
+        default_split: Optional name of the split that downstream consumers
+            should fall back to when a multi-split dataset is given without
+            an explicit ``--split``. Must be one of the present split names;
+            otherwise raises ``MergeIncompatibleError``. Recorded as
+            ``default_split`` at the top level of the multi-split
+            ``metadata.json``. ``whest run`` honours it when ``--split`` is
+            omitted on a multi-split dataset.
+        write_prepared_arrow: When True (default), also emits a
+            ``prepared/<split>/`` directory next to ``data/`` containing the
+            `Dataset.save_to_disk()` output for each split. The
+            ``prepared_splits`` block is added to ``metadata.json`` so
+            consumers (``whestbench.load_dataset``, ``whest run``) prefer
+            this pre-arrow'd path on HF Hub and skip the parquet→arrow
+            conversion entirely on cold cache. Set False to skip when the
+            prepare cost matters more than the runtime win (e.g. tests).
+
+    Returns:
+        Path to the output directory.
+
+    Raises:
+        MergeIncompatibleError: inputs disagree on invariants, contain a partial,
+            have duplicate split names, ``default_split`` is unknown, or input
+            list is empty.
+        FileExistsError: output_dir already exists.
+    """
+    import shutil
+
+    output_dir = Path(output_dir)
+    if output_dir.exists():
+        raise FileExistsError(f"output_dir already exists: {output_dir}")
+
+    if not input_dirs:
+        raise MergeIncompatibleError("combine_split_datasets requires at least one input directory")
+
+    # Read + validate each input; collect (path, metadata, split_name, config_name, parquet_path).
+    entries: list[tuple[Path, Dict[str, Any], str, str, Path]] = []
+    for d in input_dirs:
+        d = Path(d)
+        md = read_metadata(d)
+        validate_metadata(md, allow_partial=True)
+        if md.get("is_partial"):
+            raise MergeIncompatibleError(
+                f"{d}: is a partial dataset; combine_split_datasets requires "
+                f"complete single-split inputs. Run `whest dataset merge` first."
+            )
+        if "splits" in md:
+            raise MergeIncompatibleError(
+                f"{d}: is already a multi-split dataset; combine_split_datasets "
+                f"currently only accepts single-split inputs."
+            )
+        data_dir = d / PARQUET_SUBDIR
+        parquet_files = list(data_dir.glob("*.parquet"))
+        if len(parquet_files) != 1:
+            raise MergeIncompatibleError(
+                f"{d}: expected exactly one parquet file in data/, found {len(parquet_files)}."
+            )
+        split_name = parquet_files[0].name.split("-")[0]
+        try:
+            _validate_split_name(split_name)
+        except ValueError as exc:
+            raise MergeIncompatibleError(
+                f"{d}: split name {split_name!r} from parquet filename is invalid: {exc}"
+            ) from exc
+        config_name = md.get("config", "default")
+        if not isinstance(config_name, str):
+            raise MergeIncompatibleError(
+                f"{d}: config metadata field must be a string; got {type(config_name).__name__}."
+            )
+        try:
+            _validate_config_name(config_name)
+        except ValueError as exc:
+            raise MergeIncompatibleError(f"{d}: {exc}") from exc
+        entries.append((d, md, split_name, config_name, parquet_files[0]))
+
+    # Validate pairwise-distinct split names.
+    split_names = [e[2] for e in entries]
+    if len(set(split_names)) != len(split_names):
+        seen: set[str] = set()
+        for n in split_names:
+            if n in seen:
+                raise MergeIncompatibleError(
+                    f"duplicate split name {n!r} across inputs; each input must "
+                    f"contribute a distinct split."
+                )
+            seen.add(n)
+
+    # Validate default_split, if set, names one of the inputs.
+    if default_split is not None and default_split not in split_names:
+        raise MergeIncompatibleError(
+            f"default_split={default_split!r} is not one of the input splits {sorted(split_names)}."
+        )
+
+    # Validate invariants match across inputs.
+    first_md = entries[0][1]
+    invariants = ("schema_version", "format", "backend", "n_samples", "width", "depth")
+    for d, md, _, _, _ in entries[1:]:
+        for field in invariants:
+            if md.get(field) != first_md.get(field):
+                raise MergeIncompatibleError(
+                    f"{d}: {field}={md.get(field)!r} != {first_md.get(field)!r} "
+                    f"(from {entries[0][0]})."
+                )
+        if md.get("seed_protocol") != first_md.get("seed_protocol"):
+            raise MergeIncompatibleError(
+                f"{d}: seed_protocol={md.get('seed_protocol')!r} != "
+                f"{first_md.get('seed_protocol')!r}."
+            )
+
+    # Write atomically: stage in a temp dir, then rename.
+    staging = output_dir.with_name(output_dir.name + ".staging")
+    if staging.exists():
+        shutil.rmtree(staging)
+    try:
+        staging.mkdir(parents=True)
+        data_dst = staging / PARQUET_SUBDIR
+        data_dst.mkdir()
+        for _d, _md, _split_name, _config_name, parquet_path in entries:
+            shutil.copyfile(parquet_path, data_dst / parquet_path.name)
+
+        # Build the multi-split metadata.
+        from .hardware import collect_hardware_fingerprint
+
+        common = {
+            k: first_md[k]
+            for k in (
+                "schema_version",
+                "format",
+                "backend",
+                "seed_protocol",
+                "n_samples",
+                "width",
+                "depth",
+            )
+        }
+        splits_md: Dict[str, Dict[str, Any]] = {}
+        for _, md, split_name, config_name, _ in entries:
+            entry: Dict[str, Any] = {
+                "n_mlps": md["n_mlps"],
+                "created_at_utc": md["created_at_utc"],
+                "config": config_name,
+            }
+            # Under seed_protocol 2.0, include the per-split `seed` field.
+            # Under seed_protocol 3.0, there is no `seed` field (seeds are in parquet).
+            if "seed" in md:
+                entry["seed"] = md["seed"]
+            # Preserve hardware provenance from the bake. merge_datasets-style
+            # ``hardware_fingerprints`` (list) takes precedence; otherwise fold
+            # the single-host ``hardware`` dict into a one-element list.
+            if "hardware_fingerprints" in md:
+                entry["hardware_fingerprints"] = md["hardware_fingerprints"]
+            elif "hardware" in md:
+                entry["hardware_fingerprints"] = [md["hardware"]]
+            splits_md[split_name] = entry
+
+        combined_md: Dict[str, Any] = {
+            **common,
+            "created_at_utc": min(e[1]["created_at_utc"] for e in entries),
+            "hardware": collect_hardware_fingerprint(),
+            "splits": splits_md,
+        }
+        effective_default_split = default_split
+        if effective_default_split is None:
+            default_config_splits = [
+                split_name
+                for _d, _md, split_name, config_name, _parquet_path in entries
+                if config_name == "default"
+            ]
+            if len(default_config_splits) == 1:
+                effective_default_split = default_config_splits[0]
+        if effective_default_split is not None:
+            combined_md["default_split"] = effective_default_split
+
+        # Optionally produce prepared-Arrow artifacts under prepared/<split>/.
+        # These let `whestbench.load_dataset` skip parquet→arrow conversion
+        # on cold cache (see PREPARED_ARROW_* constants + load_dataset).
+        if write_prepared_arrow:
+            build_prepared_splits_for_directory(
+                staging,
+                splits=list(splits_md.keys()),
+                metadata=combined_md,
+            )
+
+        # Validate before writing.
+        validate_metadata(combined_md)
+
+        (staging / METADATA_FILE).write_text(json.dumps(combined_md, indent=2))
+
+        # Render README. Placeholder repo_id/revision get rewritten at push time.
+        ds_size = sum(splits_md[n]["n_mlps"] for n in splits_md)
+        (staging / README_FILE).write_text(
+            generate_readme(combined_md, splits=splits_md, ds_size=ds_size)
+        )
+
+        staging.rename(output_dir)
+    except Exception:
+        if staging.exists():
+            shutil.rmtree(staging, ignore_errors=True)
+        raise
+
+    return output_dir

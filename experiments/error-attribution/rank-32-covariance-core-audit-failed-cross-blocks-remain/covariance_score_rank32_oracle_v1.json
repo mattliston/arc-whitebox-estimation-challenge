@@ -1,0 +1,84 @@
+{
+  "passed": false,
+  "ordinal": 57,
+  "network": "gregory-wilson",
+  "role": "train",
+  "post_layer": 13,
+  "next_mean_layer": 14,
+  "fixed_rank": 32,
+  "geometry_byte_checks": {
+    "Cpre": true,
+    "sigma": true,
+    "alpha": true,
+    "pdf": true,
+    "gate": true,
+    "gaussian_mean": true
+  },
+  "input_basis_frozen_before_target_decode": true,
+  "input_basis_sha256": "7a3eec245651d8ada0d2ecead34370688dfffc184a18492814968ca303b617cc",
+  "qualification_checks": {
+    "raw_diagonal_max_ulps": 0.49971775710582733,
+    "affine_pre14_covariance_relative": 2.7379697240223754e-06,
+    "f32_storage_bound_over_error_rms": 0.0002747597046125479,
+    "passed": true
+  },
+  "identity": {
+    "global_index": 57,
+    "mlp_name": "gregory-wilson",
+    "n_samples": 100000000,
+    "sample_seed": 151321001905
+  },
+  "decoded_source_keys": [
+    "global_index",
+    "mlp_name",
+    "n_samples",
+    "sample_seed",
+    "mean",
+    "post_m2",
+    "M11",
+    "pre_mean",
+    "pre_M11"
+  ],
+  "target_covariance_rms": 0.00012254110770537816,
+  "target_covariance_energy": 0.01574575598748156,
+  "target_next_mean_rms": 5.022605012773154e-05,
+  "target_risk": 2.574438559082897e-09,
+  "beta": 0.9526583946204373,
+  "frozen_variance": 0.1516722801996885,
+  "risk_tilt_identity_relative": 2.220446049250313e-16,
+  "bases": {
+    "bank_geometry": {
+      "analytic_risk_residual_ratio": 0.8617067054464201,
+      "actual_W14_response_residual_ratio": 0.8236763701254719,
+      "ordinary_covariance_residual_ratio": 0.8928112990873339,
+      "trace_correction": 0.00015115720451447387,
+      "subspace_stationarity_relative": 3.190655501285733e-15,
+      "passed": false
+    },
+    "oracle_spectral": {
+      "analytic_risk_residual_ratio": 0.32844986532348225,
+      "actual_W14_response_residual_ratio": 0.3694621819946443,
+      "ordinary_covariance_residual_ratio": 0.13772025594055565,
+      "trace_correction": -1.5195483377123577e-05,
+      "subspace_stationarity_relative": 7.264362290272025e-15,
+      "passed": false
+    }
+  },
+  "tilted_error_frobenius_stable_rank": 10.927859410243666,
+  "tilted_bank_covariance_eigenvalue_range": [
+    -4.262639963297267e-06,
+    2.4285849418599743
+  ],
+  "tilted_bank_covariance_rank32_trace_fraction": 0.5326922084028533,
+  "source_sha256": "f2c79442c4adbf4e12a7db98f6a72a74c66d9c50872f99f8ff63599834d72670",
+  "provenance": {
+    "public_p2_third_cell_mini0057_v1.npz": "505cce285dd51f909c08d05676bc0a0ec77b4afaa6a4ce8f46d8b57ec3a9e715",
+    "public_p2_third_carry_inputs_v1.npz": "399a109f3135c50a8699b5e48f36b29853b5de5bbbc410b139f4c67644d0b78b"
+  },
+  "helper_sha256": "7e2e6c3feb7eac316184a1d0735f765d617d4639def37640969975844cc744f3",
+  "wall_s": 0.43954014778137207,
+  "peak_rss_bytes": 930627584,
+  "utc_finished": "2026-09-06T12:33:29.336120+00:00",
+  "qualification": "Single training-cell oracle representation audit of total covariance error. Bank basis fixed before decoding targets; core coefficients and oracle comparator use100M targets. No independent replica/noise correction, predictor, carrier write or closed-loop raw/adjusted score. No official1e9 gt_mean decoded;100M mean arrays decoded for centering, including unused rows. Fixed-basis optimum, not a global rank32 risk optimum.",
+  "output_sha256": "d57d9511acbb65d25ead1581e9f3d05a020842654ee3b51858219809007078ed"
+}

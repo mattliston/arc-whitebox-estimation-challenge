@@ -1,0 +1,65 @@
+{
+  "status": "CLOSED_EXACT_GAUSSIAN_REMAINDER_NO_MEANINGFUL_DISTINCT_LEVER",
+  "active_source_sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a",
+  "active_mechanism": {
+    "hidden": "L1–14GaussianR3 exactly; HF regroups rho1/rho2 local corrections and retainsrho3Gaussian. OriginalK21/K22mixedterms unchanged.",
+    "first_layer": "SeparateGaussianR6series, not exactanalytickernel; active_nonlin_first_gaussian atline16860.",
+    "terminal": "L15scalarpath skips pairkernel.",
+    "diagonal": "All pairmap diagonals overwrittenwithmarginalmoments."
+  },
+  "reference": "Price covariance integral; 16/32-nodeGaussLegendre agree<2e-18 onactualsavedmatrices; centeredanalyticReLUkernel independentlyverified.",
+  "receipt": "TRAIN16_EXACT_REMAINDER_v1.json",
+  "receipt_sha256": "6606c0d605704a2659e78af0ef34d19e33d19f5676e945f6e8759c7f38306c43",
+  "evidence": {
+    "rho_max": [
+      0.5681565604,
+      0.6035832341
+    ],
+    "rho_abs_q99": [
+      0.3028131446,
+      0.3276558062
+    ],
+    "exact_remainder_vs_r4_cosine": [
+      0.990907458,
+      0.9872039036
+    ],
+    "beyond_r4_next_mean_rms": [
+      2.1981550266e-8,
+      2.2327608301e-8
+    ],
+    "full_remainder_next_mean_rms": [
+      1.7303337453e-7,
+      1.4532689033e-7
+    ],
+    "relative_next_variance_rms": [
+      0.000004720082766,
+      0.000003999318713
+    ]
+  },
+  "prior_measured_failures": {
+    "all_channel_R4_adjusted_pct": 0.3169955758,
+    "covariance_only_R4_adjusted_pct": 0.215117,
+    "R2_full24_adjusted_pct": 0.142775
+  },
+  "judgment": "ExactlateGaussianremaindercloselyfollowsalreadyfailedR4; genuinelyhighertermsaretoosmalltosupport>=.5%gain. No candidate/modeljustification.",
+  "limitations": [
+    "SavedhistoricalS47eTRAIN16L13–14states, notcurrent1c913feedback.",
+    "W.T C W reconstructedwithoutcurrentdeadrowcut.",
+    "Localmeanresponseisadiagnostic,notfinalaccuracy.",
+    "No frozen2-nodequadraturetariffreceiptlocated; do nottreatpriorhandoffcostmentionasanactualmeasuredclosure."
+  ],
+  "ownership": {
+    "actual_exit_code": 0,
+    "tool_chunk": "301570",
+    "guard": "guard_v2.json",
+    "whole_group_retired": true,
+    "remaining_rows": [],
+    "preserved_import_failure": {
+      "guard": "guard_v1.json",
+      "actual_exit_code": 1,
+      "reason": "Unusedscipyimportunavailable;removedbeforemathran."
+    }
+  },
+  "models": 0,
+  "new_truth": 0
+}

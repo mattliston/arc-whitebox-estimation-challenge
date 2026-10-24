@@ -1,0 +1,55 @@
+{
+  "schema": "q24-certified-connected-shutdown-construction-pass-receipt-v1",
+  "status": "PASS_CONSTRUCTION_PROBE__SOURCE_BUILD_ONLY",
+  "created_at_utc": "2026-08-24T12:12:30Z",
+  "bindings": {
+    "parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "e538ed4c15f2d7bf08c5ad85dc7118793e54b78d4e670f1cbd18e71ecfc321ba"
+    },
+    "runner": {
+      "path": "run_probe.py",
+      "sha256": "b9b7f55183483cb355da698a011af749803652d4622e848c3f5ec8da131ecc58"
+    },
+    "results": {
+      "path": "runs/probe_v1/results.json",
+      "sha256": "5fe96611212de6beb5d785198d3f4635b46ea42169efa7257ebcf69e0e305bc7"
+    }
+  },
+  "gates": {
+    "certified_shutdown_activation_count": 2647,
+    "parent_finite_to_shutdown_nonfinite_regression_count": 0,
+    "parent_failure_recovered_count": 3,
+    "post_mask_nonzero_invalid_incident_target_count": 0,
+    "all_finite_pairs_within_parent_rms_and_maximum_scale": true,
+    "construction_pass": true
+  },
+  "interpretation": {
+    "supported": "The fixed certified-invalid connected-state shutdown is coherent enough to construct as an additive source candidate and subject to independent source, canonical-fixture, official-He, full-width, resource, and moment gates.",
+    "not_supported": "This bounded small/off-width probe does not establish Phase2 accuracy, public-tail causality, full-width stability, raw MSE improvement, resource compliance, or board authority.",
+    "important_caveat": "Several small-width parent and shutdown outputs are both very large. Passing the preregistered parent-scale gate prevents a new relative explosion but is not evidence those off-contract trajectories are scientifically accurate.",
+    "frozen_mechanism": "No epsilon, magnitude threshold, layer threshold, retry, target feedback, or fixture-specific branch may be introduced in the source successor."
+  },
+  "next_authority": {
+    "allowed": "one additive source candidate plus target-free static and small-fixture audit",
+    "withheld": [
+      "width1024 execution",
+      "literal resource meter",
+      "dataset or target access",
+      "raw-MSE scoring",
+      "packaging",
+      "submission",
+      "scientific promotion"
+    ]
+  },
+  "access": {
+    "dataset_rows": 0,
+    "target_or_truth_values": 0,
+    "scores": 0,
+    "full_width_1024_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "graph_edits": 0
+  }
+}

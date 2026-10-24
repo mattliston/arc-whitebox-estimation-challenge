@@ -1,0 +1,170 @@
+{
+ "tag": "quadverdict-v1",
+ "question": "can a deterministic quadrature/cubature (or exact-mean control-variate hybrid) compute m_16 = E[x_16] of the width-1024 depth-16 relu MLP to 1e-9-class MSE inside 2^41 flops?",
+ "feasible": false,
+ "route": "NONE reaches 1e-9. Best sampling-class rule at budget = Gaussian-equivalent affine control variate (Stein slope a_l = Phi(mu_l/s_l)), exact mean c_eff, MSE ~ 0.89x plain MC. All deterministic rules measured/bounded WORSE than plain MC at matched counts. The analytic closure (3.3e-8 fleet) dominates everything the quadrature class can offer; its bias cannot be repaired by sampling inside 2^41 (would need capture >= 99.9% vs measured <= 43% for any exactly-integrable surrogate family).",
+ "predicted_mse_at_budget": {
+  "row35_scale (vbar=6.6794e-02)": {
+   "plain_MC_at_65536": 1.0192029653605175e-06,
+   "antithetic_at_65536_pred": 9.152071899056286e-07,
+   "cv_affine_hybrid_at_budget": 9.023577746857988e-07,
+   "oracle_deg2_exact_surrogate": 6.452366760140208e-07,
+   "oracle_deg3_stroud_scrambled": 5.303993851469966e-07,
+   "oracle_deg16_exact_rule": 1.5753424769193344e-07,
+   "oracle_deg64_exact_rule": 2.850276942500284e-08,
+   "oracle_perfect_512dim_subspace": 3.76263259321323e-07,
+   "gh2_top2_hybrid_at_4096_measured": 0.0010106712867325063,
+   "lattice_4093x8_measured": 1.4092578684001793e-05,
+   "mc_16384_measured": 3.697382031035945e-06,
+   "cv_16384_measured": 3.1206342595036323e-06
+  },
+  "required_vr_for_1e-9": 0.0008809709293537471,
+  "required_capture_for_1e-9": 0.9991190290706462,
+  "required_capture_to_match_closure_3.3e-8_row35": 0.9709279593313264,
+  "note_fleet_scale": "rank-35 vbar is ~6.8x the fleet-average implied by the known plain-MC 1.5e-7@65k figure; fractions (captures, masses, VRs) are the transferable objects; cross-row spread below",
+  "cross_row_vbar": {
+   "36": 0.06433222300773186,
+   "120": 0.08617744720171949,
+   "234": 0.08173662585254825
+  },
+  "cross_row_capture_affine": {
+   "36": 0.19622554140962212,
+   "120": 0.1903186175035564,
+   "234": 0.20840909958716747
+  },
+  "cross_row_linear_mass": {
+   "36": 0.23051968457322133,
+   "120": 0.28158039331549317,
+   "234": 0.19482454271104854
+  }
+ },
+ "measured_smalln_exponent": {
+  "n64_d6": {
+   "MC": -0.9802963147515924,
+   "CV": -0.9889412797824678,
+   "ANTI": -0.999356786497547,
+   "GH2": -0.9480424725956765,
+   "LAT": -1.087185863436305
+  },
+  "real_1024_d16_MC": -1.0245450455068723,
+  "real_1024_d16_CV": -1.0278174239952473,
+  "fail_fast_best_rmse_gain": 1.6244109205289226,
+  "fail_fast_beats_3x": false
+ },
+ "active_spectrum_summary": {
+  "gradient_spectrum_k_at": {
+   "k_at_50pct": 132,
+   "k_at_90pct": 455,
+   "k_at_99pct": 751,
+   "k_at_99.9pct": 896
+  },
+  "conditional_capture_topk": {
+   "8": 0.06526273274432781,
+   "32": 0.10150961191851526,
+   "128": 0.2766019398133224,
+   "512": 0.6308259766608614
+  },
+  "hermite_mass_measured_rank35": {
+   "mass_le_1": 0.2242948845522292,
+   "mass_le_2": 0.4315652458788055,
+   "mass_le_4": 0.4795939541253384,
+   "mass_le_8": 0.7650505938536067,
+   "mass_le_16": 0.8454338801533906,
+   "mass_le_32": 0.9381840756177084,
+   "mass_le_64": 0.9720342557922987
+  },
+  "hermite_mass_above_64": 0.02796574420770126,
+  "linear_mass_three_ways": {
+   "richardson_curve": 0.22229492740327791,
+   "stein_debiased": 0.2111192148491045,
+   "affine_capture_paired": 0.2050490326254727,
+   "optimal_beta_capture": 0.2063231226066382
+  },
+  "annealed_vs_real": {
+   "annealed_M1_16": 0.0070166229253157564,
+   "real_M1_16": 0.2242948845522292,
+   "annealed_median_degree_16": 120,
+   "per_layer_linear_mass_real": [
+    0.7337345924522247,
+    0.5957701683533481,
+    0.5077514520001475,
+    0.44573932538807476,
+    0.3995804407017121,
+    0.3586682872134112,
+    0.33341733302862053,
+    0.3108333062022344,
+    0.2952669912071966,
+    0.26924501124471717,
+    0.26252161987423356,
+    0.24725755041698494,
+    0.24073960018214993,
+    0.23106009381968043,
+    0.2215215569352098,
+    0.22229492740327791
+   ],
+   "layer1_exact_agreement": 0.7337345924522247
+  }
+ },
+ "budget_frame": {
+  "B": 2199023255552,
+  "forward_flops": 33554432,
+  "n_plain": 65536,
+  "affine_eval_flops": 2099200,
+  "precompose_flops": 32279363584,
+  "calibration_forwards": 2048,
+  "n_pairs": 58844
+ },
+ "verification": {
+  "ensemble_annealed_law_n64": {
+   "measured_mean": [
+    0.7325253325459345,
+    0.6009882044133068,
+    0.5221662286198797,
+    0.46410229054710356,
+    0.42296243818125423,
+    0.3965608436568593
+   ],
+   "predicted": [
+    0.733471,
+    0.537979707841,
+    0.3945925142898461,
+    0.2894221660486877,
+    0.212282765553897,
+    0.1557032523335824
+   ],
+   "fixed_net_sd": [
+    0.005978026303644919,
+    0.013062997655465158,
+    0.018105860561527482,
+    0.016906919402425925,
+    0.025212333240555558,
+    0.03302732236633798
+   ]
+  },
+  "n64_truth_floor": 1.2246134724159121e-08,
+  "n64_predictions": {
+   "vr_cv_direct_paired": 0.6213729307389366,
+   "vr_anti_pred_1_plus_chat_m1": 0.8072621270312118,
+   "gh2_pred_factor_worse": 62.08,
+   "note": "written before reading race results"
+  },
+  "n64_ratios_at_4096": {
+   "CV": 0.5881177440639185,
+   "ANTI": 0.7570464271537318,
+   "GH2": 33.359855483046125,
+   "LAT_4093_vs_MC4096": 0.3789729383458792
+  },
+  "orientation_check": {
+   "rel_rms_col_convention": 4.663976884626826e-05,
+   "rel_rms_row_convention": 0.03177083728233164
+  },
+  "mc_scaling_check_2048": {
+   "measured": 3.741729724755666e-05,
+   "predicted": 3.260229845654105e-05
+  },
+  "curve_null_rho0": {
+   "value": 0.0048918400595150515,
+   "se": 0.007193238194750305
+  }
+ }
+}

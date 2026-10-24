@@ -1,0 +1,65 @@
+{
+  "schema": "s34-terminal-full-star-v1",
+  "root_selected": true,
+  "baseline": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "hypothesis": "Restore complete discarded star content in the terminal third-moment read; no later approximation propagates the change.",
+  "change": "Only override _flms_star_diagonal: replace rank32 factor contraction by the existing paid _mm(w.T,A32).",
+  "formula": "For each retained terminal weight column w, sum_j ((w.T@A32)[j]*w[j])*w[j].",
+  "sole_caller": "_l15_rowcut_k3",
+  "layers": [
+    15
+  ],
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "terminal_row_selection_unchanged": true,
+  "terminal_cp_and_b_carriers_unchanged": true,
+  "hidden_layer_star_factors_unchanged": true,
+  "learned_literals_and_dials_unchanged": true,
+  "wrappers_captures_reset_unchanged": true,
+  "scratch_arena_and_setup_keys_unchanged": true,
+  "reduction": "Same FP32 products and float64 row sum; _mm may change rounding relative to the factor route.",
+  "exactness": "Full stored star contraction in real arithmetic; stored star itself remains an approximation.",
+  "cost": {
+    "dense_product_upper_flops": 2147483648,
+    "removed_factor_cost_not_subtracted": true,
+    "actual_paid_bill_required": true,
+    "no_extra_global_arena": true
+  },
+  "prior_related_failures_remain_closed": true,
+  "prior_context": "All-layer rank-one consumer residual repair failed CI; spherical scalar trace completion failed N2. This is a full terminal operator replacement, not either correction or a retuned coefficient.",
+  "duplicate_review": "Bounded existing star study filenames/protocols and analyst RESULT sections32/36: no exact terminal full-star study found.",
+  "roster": [
+    35,
+    100
+  ],
+  "fit_or_sweep": false,
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 1,
+    "max_per_network_regression_pct": 1.0
+  },
+  "scope": "native2_only",
+  "boundary_authorized": false,
+  "broad_authorized": false,
+  "serving_qualified": false,
+  "numpy_torch_or_model_executed": false
+}

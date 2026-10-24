@@ -1,0 +1,103 @@
+{
+  "schema": "fb-ec4-32-a1-no-cp4-exact-static-delta-receipt-v1",
+  "status": "PASS_EXACT_BRANCH_MATCHED_FLOPSCOPE_DELTA__LITERAL_METER_STILL_REQUIRED",
+  "verified_at_utc": "2026-08-24T09:50:42Z",
+  "candidate": {
+    "path": "estimator.py",
+    "bytes": 63205,
+    "sha256": "5b222ef4f8120adb9443da5c2a1f89c79085a768ac2aef10c61c18413ef6a025"
+  },
+  "parent": {
+    "path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+    "bytes": 68698,
+    "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "literal_flops": 2179742954469,
+    "literal_calls": 6878
+  },
+  "verifier": {
+    "path": "verify_exact_static_delta.py",
+    "bytes": 9774,
+    "sha256": "e5ee247a763251cdd5054c3c30d919283bb68daf1bcc108ab93531b002e7098b",
+    "command": "data_gate/.venv/bin/python -B fullbudget_k21_k4_closure_a1_no_cp4_v1/verify_exact_static_delta.py"
+  },
+  "method": {
+    "rank_branch_equivalence": "cap=2n gives rank n at W2, rank 2n at W3 through W16, and thirteen candidate-rank-3n truncations, exactly matching width1024/cap2048 control flow",
+    "fit_widths": [2, 4, 8, 16, 32],
+    "heldout_width": 64,
+    "basis": ["n^3", "n^2", "n*log2(n)", "n", "1"],
+    "every_operation_formula_heldout_exact": true,
+    "total_formula_heldout_exact": true,
+    "call_deletion_constant_on_all_six_widths": 925,
+    "full_shape_runs": 0
+  },
+  "measurements": [
+    {"width": 2, "parent_flops": 2667107, "candidate_flops": 2656008, "deletion_flops": 11099, "deletion_calls": 925},
+    {"width": 4, "parent_flops": 7022433, "candidate_flops": 6974972, "deletion_flops": 47461, "deletion_calls": 925},
+    {"width": 8, "parent_flops": 21166973, "candidate_flops": 20930388, "deletion_flops": 236585, "deletion_calls": 925},
+    {"width": 16, "parent_flops": 73655253, "candidate_flops": 72283076, "deletion_flops": 1372177, "deletion_calls": 925},
+    {"width": 32, "parent_flops": 295145285, "candidate_flops": 286131108, "deletion_flops": 9014177, "deletion_calls": 925},
+    {"width": 64, "parent_flops": 1361927589, "candidate_flops": 1297399652, "deletion_flops": 64527937, "deletion_calls": 925}
+  ],
+  "exact_operation_laws": {
+    "coefficient_basis": ["n^3", "n^2", "n*log2(n)", "n", "1"],
+    "add": [0, 56, 0, 60, 0],
+    "argsort": [0, 0, 156, 312, 0],
+    "asarray": [0, 108, 0, 120, 0],
+    "concatenate": [0, 42, 0, 42, 0],
+    "einsum": [160, -54, 0, 0, 0],
+    "getitem": [0, 156, 0, 156, 0],
+    "matmul": [58, 29, 0, -15, 0],
+    "multiply": [0, 404, 0, 216, 1],
+    "negative": [0, 0, 0, 39, 0],
+    "subtract": [0, 112, 0, 86, 0],
+    "sum": [0, 39, 0, -39, 0],
+    "where": [0, 880, 0, 0, 0],
+    "total": [218, 1772, 156, 977, 1],
+    "total_formula": "218*n^3 + 1772*n^2 + 156*n*log2(n) + 977*n + 1"
+  },
+  "production": {
+    "width": 1024,
+    "depth": 16,
+    "capped_resets": 13,
+    "operation_deletion_flops": {
+      "add": 58781696,
+      "argsort": 1916928,
+      "asarray": 113369088,
+      "concatenate": 44083200,
+      "einsum": 171742068736,
+      "getitem": 163737600,
+      "matmul": 62307419136,
+      "multiply": 423845889,
+      "negative": 39936,
+      "subtract": 117528576,
+      "sum": 40854528,
+      "where": 922746880
+    },
+    "deletion_flops": 235936392193,
+    "candidate_projected_flops": 1943806562276,
+    "deletion_fraction_of_parent": 0.10824046556006678,
+    "candidate_fraction_of_2pow41": 0.8839408848307357,
+    "candidate_headroom_flops": 255216693276,
+    "deletion_calls": 925,
+    "candidate_projected_calls": 5953,
+    "projected_removed_persistent_cp4_payload_bytes": 8396800,
+    "projected_removed_uncapped_live_candidate_payload_bytes": 12595200,
+    "conservative_removed_cp4_working_memory_upper_bound": "less than 96 MiB",
+    "literal_meter_still_required": true
+  },
+  "supersession": {
+    "older_declared_cp4_projection_flops": 234507794432,
+    "additional_exact_deletion_flops": 1428597761,
+    "reason": "the source-bound per-operation replay includes all casts, gathers, masks, and exact V4 spelling rather than only the older enumerated CP4 projection"
+  },
+  "access_counters": {
+    "dataset_members_opened": 0,
+    "targets_opened": 0,
+    "scores_computed": 0,
+    "fits": 0,
+    "samples": 0,
+    "submissions": 0,
+    "graph_edits": 0,
+    "full_shape_runs": 0
+  }
+}

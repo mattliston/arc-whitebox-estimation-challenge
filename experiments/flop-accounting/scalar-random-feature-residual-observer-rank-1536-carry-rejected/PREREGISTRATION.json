@@ -1,0 +1,103 @@
+{
+  "schema": "public-cp1536-scalar-transport-rff-cv-preregistration-v1",
+  "status": "frozen-before-cv-metrics",
+  "node": "P2R0C1D",
+  "question": "Can a deterministic scalar physical-transport residual observer turn the already-metered CP1536 host into a raw-MSE-below-1e-7 estimator while remaining below the Phase-2 0.1 score-floor compute threshold?",
+  "parent_evidence": {
+    "cp1536_host_validation_raw_mse": 3.6693895708594937e-06,
+    "cp1536_local_tree_student_validation_raw_mse": 1.2647840414609557e-06,
+    "local_student_interpretation": "The prior negative student had no weight-matrix transport and therefore did not test a physical recurrent correction.",
+    "untrained_high_capacity_reference": {
+      "architecture": "CP1536 H128/P4/C256 recurrent Hermite observer",
+      "literal_common_driver_flops": 209904700250,
+      "fraction_of_phase2_budget": 0.09545290950260803,
+      "accuracy_status": "never trained or scored"
+    },
+    "evidence_sha256": {
+      "cp1536_addendum": "ddf65b6f334ddc383cad160838a647103ba66b31369998361099e8f89ac31829",
+      "dual_distill_results": "b44ab4719714748a7041478339f1c82bfc1c110098cc25570e2cf671c6548b38",
+      "v3_common_driver_meters": "07b7ea981656bcba5d4529d7e07c565b3af8625420c502abe7ff9e733f6b2c62",
+      "v3_static_meter_estimate": "1a1c9971c0abc1cdfc185d03f59ec7e465843f6032948d4c4911dfe596f90a7c"
+    }
+  },
+  "data": {
+    "role": "observer_fit",
+    "networks": 688,
+    "group_key": "mlp_id",
+    "folds": 4,
+    "fold_assignment": "blake2s32('1753358438:' + decimal_mlp_id), little-endian modulo 4",
+    "fit_neuron_sample_per_network_per_layer": 32,
+    "fit_neuron_sample_rule": "sorted PCG64(1368231781 xor uint64(mlp_id)).choice(1024, 32, replace=False)",
+    "held_metric_neurons": 1024,
+    "observer_selection": "forbidden",
+    "public_board_names_or_identity_join": "forbidden",
+    "q24_host_or_trajectory": "not accessed",
+    "selection_policy": "No architecture, width, random map, ridge, clip, fold, checkpoint, or threshold is selected from CV results."
+  },
+  "architecture": {
+    "name": "CP1536 scalar physical-transport fixed-random-feature observer",
+    "host": "frozen analytic Hermite-10 CP1536 host",
+    "first_corrected_zero_based_layer": 1,
+    "local_input": "depth coordinate plus the 19 standardized CP1536 target-blind raw-local columns",
+    "recurrent_input": "cdf_l * (correction_(l-1) @ W_l), divided by sigma_l and clipped to [-8,8]",
+    "random_features": 128,
+    "random_map": "per-layer PCG64 seed 1592654542 + layer; iid normal weights with std 0.45 and iid uniform[-1,1] biases; tanh activation",
+    "readout": "per-layer ridge on intercept, 21 direct inputs, and 128 fixed tanh features",
+    "ridge": 0.001,
+    "ridge_intercept_penalty": 0.0,
+    "normalized_correction_clip": [
+      -0.03125,
+      0.03125
+    ],
+    "training_transport": "teacher-forced with the true previous-layer CP1536 residual",
+    "deployment_transport": "autonomous with the observer's previous predicted correction",
+    "runtime_sampling": false,
+    "deterministic": true
+  },
+  "metrics": {
+    "primary": "network-weighted four-fold out-of-fold autonomous final-layer raw MSE over all 688*1024 held entries",
+    "capacity_diagnostic": "network-weighted four-fold out-of-fold teacher-forced final-layer raw MSE",
+    "baselines": [
+      "out-of-fold CP1536 host final-layer raw MSE",
+      "per-layer host, teacher-forced, and autonomous raw MSE",
+      "per-fold and per-network final-layer raw MSE"
+    ],
+    "finite_guard": "every complete autonomous and teacher-forced trajectory must be finite"
+  },
+  "decision_gates": {
+    "fatal_finite": "all 688 out-of-fold autonomous trajectories are finite",
+    "primary": "out-of-fold autonomous final-layer raw MSE < 1e-7",
+    "capacity": "out-of-fold teacher-forced final-layer raw MSE < 1e-7",
+    "promotion": "If primary passes, freeze the fold evidence and build/literally meter a single deployable all-688 fit of this exact architecture before any board submission.",
+    "teacher_only": "If capacity passes but primary fails, close this exact teacher-trained autonomous spelling and promote exposure-trained recurrent fitting as the concrete successor.",
+    "failure": "If capacity fails, close this exact scalar fixed-random-feature form; do not close the broader already-metered H128/P4 recurrent observer."
+  },
+  "projected_deployment_flops": {
+    "status": "target-independent conservative static projection; literal FlopScope meter required only after an accuracy pass",
+    "phase2_budget": 2199023255552,
+    "score_floor_largest_integer": 219902325555,
+    "parts": {
+      "cp1536_host": 199018976258,
+      "local_extraction_bound": 268435456,
+      "local_standardization": 655360,
+      "scalar_transport": 31441920,
+      "message_gate_normalize_clip": 122880,
+      "rff_projection": 85983232,
+      "rff_bias": 2097152,
+      "tanh_reserve": 134217728,
+      "linear_readout": 4898816,
+      "decode_finite_clip_reserve": 1310720
+    },
+    "total": 199548139522,
+    "fraction_of_phase2_budget": 0.09074398782195203,
+    "score_floor_margin": 20354186033,
+    "adjusted_multiplier_if_meter_confirms_projection": 0.1
+  },
+  "resource_bound": {
+    "threads": 2,
+    "maximum_rss_bytes": 8589934592,
+    "maximum_experiment_storage_bytes": 1073741824,
+    "execution_priority": "nice +10 while the primary full-688 autonomous-state CV is live"
+  },
+  "scope_boundary": "This is a protected observer_fit cross-validation discriminator, not a literal deployment meter, observer_selection result, board estimate, or proof about every cheap deterministic architecture."
+}

@@ -1,0 +1,140 @@
+{
+  "schema": "q24-cs3b-corrected-hybrid-lowrank-design-receipt-v1",
+  "status": "CONDITIONAL_PASS_CORRECTED_DESIGN_CHAIN__ELIGIBLE_FOR_SEPARATE_SOURCE_BUILD_RELEASE",
+  "created_at_utc": "2026-08-24T14:13:00Z",
+  "bindings": {
+    "original_preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "dde30939ef271523a7bda593903d9377da8372ffd56d0fa1684c479d9a9c9e5f",
+      "standalone_status": "HOLD_UNDERBILLED_FP64_ADVANCED_GATHERS"
+    },
+    "null_division_correction": {
+      "path": "PREREGISTER_CORRECTION_V1.md",
+      "sha256": "4f95cdc324e31459e7e700c54c68f47d8164eca261286a93521f0df9880de253"
+    },
+    "resource_law_correction": {
+      "path": "RESOURCE_LAW_CORRECTION_V1.md",
+      "sha256": "e61c0db7624477a20b35ddb8cca21face00513e6961951914e91d83b2089dc03"
+    },
+    "null_nonfinite_clarification": {
+      "path": "NULL_NONFINITE_CLARIFICATION_V1.md",
+      "sha256": "89cc4e0fe35d9cdbf0e412006a191cfc5dcac374a8bfbcee976dc80d6a93b9f7"
+    },
+    "design_derivation": {
+      "path": "DESIGN.md",
+      "sha256": "a44ee5ce1c3f5e6cf0a29d6885d4e42e76e1349b8790ab37a0196b1cd13c50d0",
+      "resource_formula_status": "SUPERSEDED_BY_RESOURCE_LAW_CORRECTION_V1"
+    },
+    "independent_corrected_design_audit": {
+      "path": "INDEPENDENT_CORRECTED_DESIGN_AUDIT_CS3B_V1.json",
+      "sha256": "f458c9dbae04e3c7745380a459a074f380f894321eb3ce612a4caac9f5b39a39",
+      "status_exact": "CONDITIONAL_PASS_CORRECTED_DESIGN_CHAIN__SOURCE_REMAINS_HELD_PENDING_COHERENT_AUTHOR_RECEIPT"
+    },
+    "stale_fail_closed_handoff_scaffold": {
+      "path": "SOURCE_BUILDER_HANDOFF_SCAFFOLD_V1.json",
+      "sha256": "6e759ea2085d924fe3a61fc32d3c27be8b8048e350f571fb4e4ac11bb415cce4",
+      "status": "SUPERSEDED_BLOCKED_SCAFFOLD__OLD_GATHER_LAW_MUST_NOT_BE_USED"
+    },
+    "dense_cs3_holds": {
+      "author_hold_sha256": "9ab43dd3e385f0bf043e23668ef0eb5563f32f4c5e913fcdd4e6a5e64cb5ca70",
+      "independent_hold_sha256": "060cfbab98c85f7f9d46d49edd29726a985ae50fbc2c85b47660a35704a178db"
+    },
+    "cs2_parent": {
+      "estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+      "source_hold_sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c",
+      "independent_strict_audit_sha256": "cba8bfbb437f32aa377ca72da74b9504894e6380429e2acf0e5a059d7ef8afcb",
+      "literal_meter_terminal_audit_sha256": "a136f4031c14b354a00d983e249a406b5c03642a202042032e9f426034c836cc"
+    }
+  },
+  "authoritative_chain_order": [
+    "PREREGISTER.md for algebra state seams certificate inlining and gates",
+    "PREREGISTER_CORRECTION_V1.md for exact-null denominator/1.0 division and no null call delta",
+    "RESOURCE_LAW_CORRECTION_V1.md for fp64 gather billing Lr_star selector and crossover",
+    "NULL_NONFINITE_CLARIFICATION_V1.md for ordinary-parent nonfinite behavior",
+    "INDEPENDENT_CORRECTED_DESIGN_AUDIT_CS3B_V1.json for independent conditional pass"
+  ],
+  "selected_algorithm": {
+    "states": ["NOMINAL", "LOWRANK64", "DENSE32"],
+    "all_valid": "reuse bool(fnp.all(valid_high_order)); alias existing fp64 pre_covariance and pre_variance",
+    "invalid_index": "fnp.flatnonzero(fnp.invert(valid_high_order)); r=idx.shape[0]",
+    "left_reuse": "pre_left=W64.T@C; Q=pre_left@W64 with parent grouping unchanged",
+    "lowrank": "Qmask=((Q-U.T@B)-A@U)+U.T@(G@U) using five frozen fp64 matmuls without symmetry assumption",
+    "dense": "frozen S32 current mask and two-fp32-GEMM one-layer push",
+    "reset_lifetime": "consume localized state once and overwrite from next repaired covariance and certificate",
+    "ordinary_and_final_wick": "use the same selected pairing covariance and variance"
+  },
+  "corrected_resource_law": {
+    "lowrank_flops": "Lr_star(r,w)=16*r*w^2+4*r^2*w+8*w^2+20*r*w+8*r^2+2*w",
+    "lowrank_calls": 18,
+    "dense_comparator_flops": "D0(w)=4*w^3+8*w^2",
+    "executed_dense_flops": "Dh(w)=D0(w)+2*w",
+    "executed_dense_calls": 10,
+    "selector": "LOWRANK64 iff Lr_star(r,w)<=D0(w); otherwise DENSE32",
+    "mixed_delta_flops": "sum(Lr_star over lowrank resets)+a_d*Dh-112",
+    "mixed_delta_calls": "18*a_l+10*a_d-14",
+    "width1024": {
+      "largest_lowrank_r": 241,
+      "Lr_star_r241": 4294999816,
+      "Lr_star_r242": 4313779744,
+      "D0": 4303355904,
+      "Dh": 4303357952,
+      "all14_worst_projected_total_flops": 2191899544519,
+      "budget_percent": 99.67605112792626,
+      "headroom_flops": 7123711033
+    },
+    "smallwidth_fatal_witnesses": {
+      "w5_r1": "DENSE32",
+      "w128_r30": "DENSE32"
+    },
+    "literal_source_meter": null
+  },
+  "null_face": {
+    "meaning": "only the off-diagonal K22 fitting plane is null; the full Wick tensor may be nonzero",
+    "coefficient": "represented +0.0 unique minimum-norm fit",
+    "exact_spelling": "if bool(denominator) use numerator/denominator else denominator/1.0",
+    "extra_flops_or_calls": 0,
+    "nonfinite_behavior": "follow unchanged ordinary parent division; no fatality assumption and no rescue"
+  },
+  "certificate_inlining": {
+    "classification": "AUTHORIZED_ONLY_AS_BYTE_AND_OPERATION_EQUIVALENT_SOURCE_TRANSFORMATION",
+    "operation_ledger_calls_per_reset": 154,
+    "helper_frames_removed_per_reset": 68,
+    "helper_frames_removed_over14": 952,
+    "tracked_calls_removed": 0,
+    "tracked_flops_removed": 0,
+    "mask_change_allowed": false,
+    "residual_improvement_claimed": false
+  },
+  "source_build_gates": {
+    "exact_parent_hash_required": true,
+    "new_additive_namespace_required": true,
+    "unrelated_ast_frozen": true,
+    "certificate_exact_equivalence_required": true,
+    "corrected_law_only": true,
+    "nonsymmetric_factors_only": true,
+    "candidate_bytes_frozen_before_probe": true,
+    "source_probe_only_after_freeze": true,
+    "fullwidth_meter_targets_board_package_submission_graph": "SEPARATELY_HELD"
+  },
+  "interpretation": {
+    "strongest_claim": "independently audited source-ready corrected design and resource-law handoff",
+    "not_claimed": [
+      "candidate correctness",
+      "represented bit equivalence to dense fp64",
+      "width-1024 stability",
+      "literal resource or residual pass",
+      "e-8 output disagreement",
+      "raw-MSE improvement",
+      "promotion readiness"
+    ]
+  },
+  "access": {
+    "cs3b_candidate_source_files_at_receipt": 0,
+    "estimator_or_fullwidth_runs": 0,
+    "targets_teachers_scores_public_rows_or_private_state": 0,
+    "packages": 0,
+    "submissions": 0,
+    "network_or_credentials": 0,
+    "canonical_graph_edits": 0
+  }
+}

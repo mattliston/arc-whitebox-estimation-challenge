@@ -1,0 +1,39 @@
+{
+  "status": "PREREGISTERED_BEFORE_ANY_ACCURACY_DATA",
+  "utc": "2026-10-16T04:25:01.681717Z",
+  "lane": "opus-u64late",
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_u64late_v1/cand_2b108_gb128r_u64late_v1.py",
+    "sha256": "d1ec06f5ba420ff3a88ecf2391e4bd0cb1f62f0d2a2cd6d797ed9da2f2b30c2b"
+  },
+  "fragment_sha256": "dcd0a62daee9a45a7fc8da5514978bcf4f4dd7e17ee125f91e07d9a3eaa1ea24",
+  "base_control": "2b108 + GB128r fragment (cand_2b108_frag_gb128r_v1.py 4c484ee4); controls reused: A80 seeds = opus_r256vgb_v1/res/gb128r_<seed> (dial_judge_v2), S8 seeds = opus_joinx_v1/screen_FRAG/native_<seed> (screen_judge_opus_v1); candidate arm run with the same judge per seed set",
+  "seeds": [
+    7103080,
+    7103081,
+    7103082,
+    7103083,
+    7103084,
+    7103085,
+    7103086,
+    7103087,
+    7103088,
+    7103089,
+    7103090,
+    7103091,
+    7103092,
+    7103093,
+    7103094,
+    7103095,
+    7103248,
+    7103249,
+    7103250,
+    7103251,
+    7103252,
+    7103253,
+    7103254,
+    7103255
+  ],
+  "metric": "per seed: noise-free cross-half U log change (final layer, mc_post_A/B) + bill log change (util floor 0.1) vs GB128r = net",
+  "rule": "PASS iff mean net over all 24 seeds < 0 AND mean net over the last 8 seeds in ascending order (7103248-7103255) < 0; no other setting evaluated on these seeds"
+}

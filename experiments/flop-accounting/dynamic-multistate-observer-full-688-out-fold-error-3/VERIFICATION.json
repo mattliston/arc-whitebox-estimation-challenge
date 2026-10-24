@@ -1,0 +1,70 @@
+{
+  "schema": "public-full688-dynamic-multistate-residual-cv-verification-v1",
+  "status": "PASS",
+  "scope": "Artifact-level hash, split, coverage, aggregation, gate, and cost verification",
+  "bindings": {
+    "preregistration_sha256": "e2ab8490303fa23a84759946f5a57c2d78cd022038feeb61787a68cdccad9fe9",
+    "program_sha256": "8871ac10f3f122d9231652e3618c888bdc69b71cc0de44ffa00a79630258225d",
+    "run_manifest_sha256": "702daa9deb54ca8b4b6a954d35b1090818f6b60a1d12c01464ff56cefe456feb",
+    "seal_sha256": "b1e59fc818f9b296c216bbc2d11781bf153fcf202b4521f87e1e8370d3a1b818",
+    "cv_results_sha256": "ddaf1ede02733eb4429dcaf003ff65f8d9fba2460352e8deba4fb54a3c111dbf",
+    "verifier_sha256": "9919abacc64b379a7470a3493c637bf9d9b1b975195cfce484c685adcf08c515",
+    "rss_amendment_sha256": "610ef5fc4be1aecc28d25696065b19b118d5f6876cf4a8fda3635c5e99049a3a",
+    "cache_rebind_amendment_sha256": "e2b6aac371bd1d4631cbcd0f77b1c7a1cb5c31ee0472b0ecb95ccbcc776075ea"
+  },
+  "fold_receipts": [
+    {
+      "fold": 0,
+      "result_sha256": "5e73444ba28d12a60f3d8b37954a519e73f0b1218884636d26bbeac36ec9eeb8",
+      "model_sha256": "187d3b63b701b744a31b5d09163095a3daa478151122adc03a1784bb04c70645"
+    },
+    {
+      "fold": 1,
+      "result_sha256": "fb7b49a56fa135f133446414da6841c334883f33dab95cbac8e8052f1e0a2733",
+      "model_sha256": "8b927a4c3ce8b84f0f47d777fe65f6878b09019589beeeff8f5eab8af0dda291"
+    },
+    {
+      "fold": 2,
+      "result_sha256": "f592e1c2dca77bd0059e7c269812f4e1c8d7d2ae3fba284fbcff6b358fef544b",
+      "model_sha256": "c87083e785b0681926d9f08371bc946a7c422e7f26d4aa535d16767817015267"
+    },
+    {
+      "fold": 3,
+      "result_sha256": "e88c49b7b69441be965aeb110148db00a79d18068d59caeb1236720309a99ecf",
+      "model_sha256": "74dc81d2b7c0b19e1b7a93d1d3744d6792dad1ce990fa80df9159e47f3e33aaa"
+    }
+  ],
+  "checks": {
+    "validation_networks_exactly_once": 688,
+    "fold_validation_sets_disjoint": true,
+    "each_training_set_is_validation_complement": true,
+    "all_fold_rollouts_finite": true,
+    "all_fold_schedules_match_preregistration": true,
+    "all_11_data_derived_tails_repaired": true,
+    "observer_selection_targets_opened": 0,
+    "weighted_aggregation_recomputed": true,
+    "decision_gates_recomputed": true,
+    "cost_arithmetic_recomputed": true
+  },
+  "metrics": {
+    "oof_host_final_mse": 9.115992600417403e-8,
+    "oof_autonomous_final_mse": 3.2969476163272226e-8,
+    "oof_primary_only_teacher_intervention_final_mse": 1.6552633757383804e-7,
+    "autonomous_ratio_to_host": 0.3616663330964378,
+    "improvement_vs_scalar_exposure_fraction": 0.05013647179248412,
+    "improvement_vs_two_auxiliary_exposure_fraction": 0.04486975191373548,
+    "miss_fraction_vs_primary_gate": 0.05540392023668814,
+    "ratio_to_stretch_target": 3.2969476163272224
+  },
+  "decision_gates": {
+    "finite_all_autonomous_rollouts": true,
+    "primary_below_3_123872816e_8": false,
+    "stretch_below_1e_8": false
+  },
+  "cost": {
+    "host_plus_correction_upper_estimate": 2127898096573,
+    "phase2_budget": 2200000000000,
+    "headroom_under_upper_estimate": 72101903427,
+    "literal_meter_not_run_because_accuracy_gate_failed": true
+  }
+}

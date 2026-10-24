@@ -1,0 +1,24 @@
+{
+  "status": "MEASURED_NO_CANDIDATE",
+  "candidate": "S2t e0553d2e",
+  "seed": 7103248,
+  "readonly_proof": "both probes: total FLOPs 242,358,522,607 and prediction bytes identical to the uninstrumented S2t diag",
+  "young_push_GF": 77.06,
+  "young_push_pct_bill": 31.8,
+  "total_bank_push_pct_bill": 45.91,
+  "finding": "young bank energy rank is low only through the pair-common part c (r99.9 660->227); the pair differences h (1.05-13.6% of energy) are high-rank (r99.9 914->666); a Y truncation at its r99.9 keeps c at 99.96-99.97% but h at only 92.2-99.4% (L7-14: 92.2-96.5%); h carries the third-cumulant signal (T120)",
+  "savings_estimate": {
+    "naive_r99_pct_bill": 21.2,
+    "naive_r999_pct_bill": 10.3,
+    "h_preserving_r999_pct_bill": 0.8,
+    "model": "push r basis columns + reconstruct explicit columns (consumers need pp^2, pp^3 elementwise) at the measured fast-matmul efficiency 0.40-0.47"
+  },
+  "verdict": "not compressible without the closed early-join accuracy loss (+10.7% MSE for -4.5% bill, T115-T120); h-preserving compression saves <1% of bill",
+  "files": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_ybank_v1/ybank_probe_v1.py": "8ce2d5beefd7df5ee5d9436f77bd7f4628c085eacb1d5e962b35293331598a76",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_ybank_v1/ybank_probe_v2.py": "260de6af3bb16eb23d693665545ef01c46369c6b9708b693e39bd808e4a8e22d",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_ybank_v1/ybank_7103248_v1.json": "6de0137dab1775dba736b43f23c5665ed7d9f91de644716eaacde0df0699012f",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_ybank_v1/ybank_7103248_v2.json": "9e5860f7f668826c8f03a2d8793f6f6be8ac461684c08f10fe9dad4504707b82"
+  },
+  "owned_processes_retired": true
+}

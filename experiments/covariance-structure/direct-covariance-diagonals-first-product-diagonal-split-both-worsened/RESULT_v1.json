@@ -1,0 +1,127 @@
+{
+  "status": "FIXED_TWO_NETWORK_DIRECT_COVARIANCE_DIAGONAL_SCREEN",
+  "candidate_sha256": "ca3700c70a7c64ae58f8ba7ce7b8361a34ee034c3cb92cd32609308704a4c96b",
+  "baseline_submission": 336935,
+  "baseline_adjusted": 1.4468565569762618e-09,
+  "rows": [
+    {
+      "rank": 35,
+      "raw_pct": 0.42427049849385057,
+      "bill_pct_vs_science": 0.01762225648700433,
+      "adjusted_pct_vs_science": 0.44196752101630654,
+      "bill_pct_vs_runtime": 0.01762225648700433,
+      "flops": 238878970836,
+      "control_flops": 238836882388,
+      "runtime_control_flops": 238836882388,
+      "requests": 44297,
+      "requests_delta_vs_science": 56,
+      "requests_delta_vs_runtime": 56,
+      "requests_delta_vs_fusion": 326,
+      "wall_s": 39.118975415825844,
+      "control_runtime_wall_s": 37.59155387617648,
+      "residual_instructions": 2397975273,
+      "nonfinite": 0,
+      "rescue": {
+        "calls": 0,
+        "elements": 0
+      },
+      "fusion_state": {},
+      "covdiag_state": {
+        "calls": 14,
+        "layers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "retired": true
+      },
+      "prediction_rms": 2.4822836351581834e-06,
+      "max_abs_dy": 1.52587890625e-05,
+      "guard": {
+        "completed": true,
+        "whole_group_retired": true,
+        "max_rss_bytes": 6663061504,
+        "max_footprint_bytes": 6460840152,
+        "min_pressure_free_pct": 59,
+        "elapsed_s": 42.53380237519741
+      }
+    },
+    {
+      "rank": 200,
+      "raw_pct": 0.27103511993358254,
+      "bill_pct_vs_science": 0.15989922697212666,
+      "adjusted_pct_vs_science": 0.43136772996730244,
+      "bill_pct_vs_runtime": 0.15831463500499687,
+      "flops": 257701886370,
+      "control_flops": 257290480880,
+      "runtime_control_flops": 257294551440,
+      "requests": 44518,
+      "requests_delta_vs_science": 1320,
+      "requests_delta_vs_runtime": 1258,
+      "requests_delta_vs_fusion": 1592,
+      "wall_s": 37.41004575043917,
+      "control_runtime_wall_s": 35.59181175008416,
+      "residual_instructions": 2399749243,
+      "nonfinite": 0,
+      "rescue": {
+        "calls": 0,
+        "elements": 0
+      },
+      "fusion_state": {},
+      "covdiag_state": {
+        "calls": 14,
+        "layers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "retired": true
+      },
+      "prediction_rms": 2.5803094380440506e-06,
+      "max_abs_dy": 1.9550323486328125e-05,
+      "guard": {
+        "completed": true,
+        "whole_group_retired": true,
+        "max_rss_bytes": 7009533952,
+        "max_footprint_bytes": 6807001592,
+        "min_pressure_free_pct": 58,
+        "elapsed_s": 40.7919845841825
+      }
+    }
+  ],
+  "mean": {
+    "raw_pct": 0.34765280921371655,
+    "bill_pct_vs_science": 0.0887607417295655,
+    "adjusted_pct_vs_science": 0.4366676254918045,
+    "requests_delta_vs_runtime": 657
+  },
+  "conditional_cold_biased_adjusted": 1.4531745111478823e-09,
+  "caveats": [
+    "Both ranks ran in separate fresh processes. Rank35 matches cold control; rank200 control is warm, so its charged bill and request comparison include extra cold aliases.",
+    "The historical estimated cold200 bill bias is approximately +0.14 percentage points; it is not subtracted from measured results.",
+    "Only hidden covariance diagonals are replaced by direct float32-factor products accumulated in float64; no byte-equivalence claim.",
+    "This fixed2 screen does not establish population accuracy or final release eligibility."
+  ]
+}

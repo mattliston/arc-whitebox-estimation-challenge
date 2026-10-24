@@ -1,0 +1,18 @@
+# [opus-hunt2] bill-structure hunt for >= 1% levers on S2tr 46e9315d (2026-10-16, teammate fork)
+Map: opus_solo_v1/probe_charges_s2tr_7103256.json (258.58 GF: matmul 79.2%, transform add/sub 15.1%, multiply 1.7%, split 1.2%, reshape 1.0%, qr 0.5%, copyto 0.4%).
+| lever | mechanism | priced | verdict |
+|---|---|---|---|
+| alt-basis coverage | every tree path (_ipt_forward_a/b_ab, _ipt_leaf_unwind_ab, _ks_unwind, _hzt_forward_a/_hzd_forward_b, bb_batch via side()/c_side, class forward:9361) runs the same basis+ops (3 core ops/level per side, 6 decode/level, 1 basis op/level per side on level-1 views) | 0.00% | no gap |
+| Smirnov kernel depth+1 | all 10 bb_batch classes (L4 P40, L5 P20, L6 P10) have dims that are odd multiples of 32 at the next depth (288, 1984, 1696, 1408, 352, 1120...); padding to 2^(L+1) costs more than it saves | 0.00% | infeasible |
+| depth frontier (all tree classes) | GEMM(2mkn-mn) + transform model deltas for every class divisible by 2^(L+1): ~100 small moves, largest -0.06% | -0.42% paper total, each move costs wall (+CPU) and new prebind keys | below bar (matches the Sept frontier's unshipped -0.4%) |
+| duplicate forward transforms | probe_treuse_v1.py: 629 forwards/net; repeats of the same operand object: A 8/141, B 3/167 (~0.1% of bill) | ~0.1% | ruled out |
+| float64 work | 0.632 GF charged with float64 dtypes | 0.24% total, spread over 8 sites | nothing |
+| einsum / dense 2-D matmuls | einsum 0.36% (thin forms); dense matmuls 1.86% = thin products (k=128, n=16) where trees cannot apply | 0 | nothing |
+| view/binding bill (split/reshape/copyto/stack/getitem) | ~2.3% gross in a PB_ALL cold network; Sept law: warm binding ~1.1-1.3%, column-keying ceiling 0.83%, realistic 0.5-0.7% at +1.5-5 s CPU | <= 0.7% | below bar, CPU-walled |
+| join QR -> Cholesky-QR | linalg.qr 3 calls (832x384, 864x384) 1.32 GF = 0.51%; CholQR ~0.27 GF/call -> saves ~0.5 GF | 0.2%, f32 conditioning risk | below bar |
+VERDICT: no >= 0.5% zero-MSE bill-structure lever exists in this census; the kernel stack is at its FLOP floor (alt basis everywhere, SM40 + Winograd on the Smirnov products, depth frontier within 0.4%). Nothing built.
+
+## Follow-up (lead): depth-move fragment on the clean chassis — NOT BUILT, by the numbers (depth_moves_v1.json)
+- The live depth rules already value CPU and requests at ZERO: cand_s5.py lines 13480-13491 set _DR_MU = 0, _READ6_MU = 0, _KS_PRICE = 0, _HZ_PRICE = 0, _HZG_PRICE = 0. Every path (_rule_depth 5399 -> _M64_RULE 4431 with _DR_FORCE/_DR_CACHE, _read6_take, _ks_plan/_hz_plan, hzg, d7) therefore already picks the bill-minimal depth inside its OPTION SET; what keeps the remaining classes at depth 5/6 is the option set / frame availability (pushes with m < 1024: options (4, 5) only; reads with k <= 1024 never reach _packed_read6 (gate 1024 < k); hz k-split needs k >= 2048; d7 dims 896/1024 only). No knob fragment can move them; each move is a new frame/path with new (kind, L, rows, cols) keys.
+- Netted at the clean chassis's request price (0.21% of bill per 1,000 requests = 543 KF/request; +18 requests per extra level on an unfused push/read, ~+80 for a k-split hz move): all 55 feasible bill-saving moves = -1.093 GF bill (-0.42%) but +6,668 requests and +12.6 s backend -> NET +0.98% (a loss). Only 15 moves are net-positive: -0.189 GF = -0.073% of bill for +520 requests (S5's whole residual headroom is ~580) and +1.9 s CPU; only 3 clear the 0.02%-each bar (-0.023, -0.010, -0.009%).
+- Conclusion: the depth frontier on the clean chassis is REQUEST-bound, not wall-bound; wall headroom cannot be spent here. Native pricing skipped (natives left to roster-kernel).

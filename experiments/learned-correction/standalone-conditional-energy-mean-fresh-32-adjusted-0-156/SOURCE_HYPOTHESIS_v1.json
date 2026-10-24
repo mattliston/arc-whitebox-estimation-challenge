@@ -1,0 +1,44 @@
+{
+  "status": "HELD_HIGHER_ACCURACY_RISK_SOURCE_ONLY_NO_PORT_OR_SCIENCE",
+  "arm": "Incremental E1 mean closure atop prospectively qualified fixed E23; one fixed alternative.",
+  "formula": "E1_jc = sum_i(W_ij\u00b2) * mean_i(SRC1_ic\u00b2); original E23 formulas and all signed messages unchanged.",
+  "source": "Current S56 e7d85276, active gnn_step->energy; existing E23 helper mode2 preserves exact E1.",
+  "conditional_math": "Given current W squared column norm S and prior source square X, exact Gaussian conditional mean is S*mean(X); conditional covariance2*S\u00b2/(n+2)*Cov_population(X). Nonnegative closure keeps log1p stable; this is no output accuracy bound.",
+  "sensitivity_prior": "Source-only diagnostic assumes previous state iidN(0,I), affine SRC_q=Aqstate+bq. Cov(SRC\u00b2)=2*Celementwise\u00b2+4*b*bT*C forC=AqAqT. Linearize log1p at expected energy. This hypothetical prior is not fitted or evaluated on networks.",
+  "sensitivity": {
+    "E1": {
+      "encoder_frobenius": 2.9867306957533017,
+      "encoder_spectral": 1.296084387114318,
+      "typical_energy": 1.0472460883599093,
+      "linearized_encoder_noise_norm": 0.09771167699007927
+    },
+    "E2": {
+      "typical_energy": 0.012220088440757629,
+      "linearized_encoder_noise_norm": 0.009494917923627746
+    },
+    "E3": {
+      "typical_energy": 0.00015494747663326113,
+      "linearized_encoder_noise_norm": 0.000644530729315197
+    }
+  },
+  "conclusion": "E1 mean closure may be substantially riskier than E23: ~10\u00d7E2 and~152\u00d7E3 encoder perturbation amplitude in the stated source-only prior. Do not infer qualification from E23 outcomes. Root prioritized M2; no full E1 port needed now.",
+  "cost": {
+    "incremental_to_E23": "31n\u00b2\u221231n per layer, -2 warm charged calls; n1024,15layers.",
+    "projection_flops": 487111680,
+    "status": "Tiny-calibrated projection, not measured fullnativegain. Independent composition accuracy/counters remain required."
+  },
+  "prior_tiny_failure": {
+    "path": "tiny_e1_increment_v1.py",
+    "cause": "First-ever librarydispatch added2 charged calls to baseline before exactOFF; bytes/FLOPs matched. Warm-equal-state v3 correctsfixture only. Fresh-process OFF/native bill+ops stillmandatory.",
+    "diagnostic": "TINY_INCREMENT_DIAGNOSTIC_v2.json records unasserted exact_zero field; do not treat that diagnostic field as a certificate. Corrected v3 asserts warm-only equality."
+  },
+  "requirements": [
+    "E23 must qualify and exactchosenparent must be frozen.",
+    "New exclusive freshallocation, no1112\u20131127reuse or partialoutcomes.",
+    "Both fullTorch/native compositionzero and measuredprice/fresh/OOS/nativeD/lateststackgates if everactivated."
+  ],
+  "pins": {
+    "fragment_energy_e1_INCREMENT_UNVALIDATED_v2.py": "ab28a9b93fdf208d92da288bffc8ed527471b7cdc274a9de6fe19a0006afef43",
+    "tiny_e1_increment_v3.py": "984fbbb20dbda74c6c601a82e49dfe78d97602dcca33671712bbec3c8307af6a"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N1_2F_BETA",
+    "label": "N1.2f integration scale beta_v - SOLVED at instrument level (0.82 -> 0.40, +11.7 on r35; frozen on 3 nets)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "solved",
+    "priority": 3,
+    "summary": "The consumption betas were LOO-fit for an older supply; on the deploy-frame supply beta_v ~ 0.40 (r35 0.40, r100 0.435; frozen 0.40 sign-stable on 35/100/150). Per-window betas <= +0.5 (not a lever). k3/k4 betas unstable across nets -> v-only.",
+    "terminal_criterion": "Solved; re-fit by panel LOO when the supply changes (SUB-5).",
+    "evidence": [
+      {
+        "claim": "beta sweeps.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/optbeta_sweep_all_variants.log + experiments/p2_width1024_depth16/public_g19_attribution_v1/optbeta_panel_dep.log"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "One tuning number was left over from an older version and was twice too large; re-tuning it turns a useless correction into a 10-15% one."
+  }
+}

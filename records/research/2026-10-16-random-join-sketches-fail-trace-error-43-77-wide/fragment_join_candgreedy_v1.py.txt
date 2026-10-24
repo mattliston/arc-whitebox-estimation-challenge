@@ -1,0 +1,64 @@
+
+
+# BEGIN OPUS-SKETCHGB FRAGMENT join_candidate_greedy_v1 (2026-10-16; append LAST, AFTER the GB128r fragment greedy_join_pivots_gb128r_2b108lineage_v1).
+# Same Nystrom pivot QUALITY as the greedy join, at static cost shape: ONE wide product Yc = G[:, C] over the top rank+_OSK_M rows by the
+# Gram diagonal (the static join's own product form, just wider), then block pivoted Cholesky on the small candidate Gram Gc = Yc[C, :]
+# (exact, no further J products), then Y = Yc[:, chosen]. QR, the one-solve core and every downstream consumer are unchanged code.
+# Offline (6 captured joins, exact Gram): GB128's pivots lie within the top rank+87 by diagonal; candidates +64 reproduce GB128 (overlap
+# 0.992) and finer blocks inside them beat it (trace error vs static: GB128 -5.6%, cand64/b64 -6.9%, cand64/b32 -9.0%).
+# Plain same-dtype ops only (billing-safe, flopscope 0.12.2): small loop products are plain fnp.matmul; no out=, no dtype=, no einsum.
+assert _OJX_MODE == 'gb128' and callable(_ojx_greedy) and callable(_shared_old384_mm)
+_OSK_M = 64            # extra candidates beyond the join rank
+_OSK_B = 32            # greedy block size inside the candidates
+_OSK_STATS = dict(joins=0, blocks=0, fallback=0)
+_OSK_EYE = {}
+
+
+def _osk_eye(b):
+    e = _OSK_EYE.get(b)
+    if e is None:
+        e = _OSK_EYE[b] = fnp.eye(b, dtype=fnp.float32)
+    return e
+
+
+def _osk_select(J, weight, Qp, core, d, rank, hold):
+    _OSK_STATS['joins'] += 1
+    N = min(rank + _OSK_M, int(J.shape[0]))
+    negd = hold(-d)
+    cand = hold(fnp.sort(hold(hold(fnp.argsort(negd, kind='stable'))[:N])))
+    Yc = hold(_shared_old384_mm(J, hold(hold(weight[:, None]) * hold(hold(J[cand, :]).T))))
+    if Qp is not None:
+        Yc = hold(Yc + hold(_shared_old384_mm(Qp, hold(_shared_old384_mm(core, hold(hold(Qp[cand, :]).T))))))
+    Gc = hold(Yc[cand, :])                      # candidate Gram (symmetric): row block P is the column block P
+    nd = hold(negd[cand])                       # minus the residual diagonal; chosen positions are set to +inf
+    nblk = -(-rank // _OSK_B)
+    Ps, LT = [], None
+    for t in range(nblk):
+        b = min(_OSK_B, rank - t * _OSK_B)
+        P = hold(hold(fnp.argsort(nd, kind='stable'))[:b])
+        Ps.append(P)
+        if t == nblk - 1:
+            break
+        fnp.put(nd, P, fnp.inf)
+        CrT = hold(Gc[P, :])
+        if LT is not None:
+            CrT = hold(CrT - hold(fnp.matmul(hold(hold(LT[:, P]).T), LT)))
+        S = hold(CrT[:, P])
+        S = hold(S + hold(_osk_eye(b) * hold(fnp.trace(S) * (1e-5 / b))))
+        try:
+            Lc = fnp.linalg.cholesky(S)
+        except Exception:                       # indefinite block: the rest by the current residual order
+            _OSK_STATS['fallback'] += 1
+            rest = rank - sum(int(x.shape[0]) for x in Ps)
+            Ps.append(hold(hold(fnp.argsort(nd, kind='stable'))[:rest]))
+            break
+        _OSK_STATS['blocks'] += 1
+        LtT = hold(fnp.linalg.solve(Lc, CrT))
+        nd = hold(nd + hold(fnp.sum(hold(LtT * LtT), axis=0)))
+        LT = LtT if LT is None else hold(fnp.concatenate([LT, LtT], axis=0))
+    pos = hold(fnp.sort(hold(fnp.concatenate(Ps))))
+    return hold(cand[pos]), hold(Yc[:, pos])
+
+
+_ojx_greedy = _osk_select
+# END OPUS-SKETCHGB FRAGMENT join_candidate_greedy_v1

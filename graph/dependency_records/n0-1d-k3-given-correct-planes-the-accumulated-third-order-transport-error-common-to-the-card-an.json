@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N0_1D_K3_GIVEN_PLANES",
+    "label": "N0.1d k3 GIVEN correct planes: the accumulated third-order transport error common to the card and the full-tensor engine (4.5-6.5% at L6-14); truth k3 on the plane host -> 1.08e-8; perpendicular to the operator",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "With truth planes the card's per-unit k3 error is 4.4-6.5% (L6-14) = the engine's; forcing truth k3 on the truth-plane host takes r35 2.08e-8 -> 1.085e-8 (r100 2.97e-8 -> 1.93e-8); on the engine-plane host 3.32e-8 -> 2.05e-8. Judge: +0.43 perpendicular to the operator (ceiling 19% of the deployed MSE on r35). The engine's one-step is exact (0.85%); the 6% is accumulated transport: candidates = second-order Edgeworth (kappa3^2 class, SECOND_ORDER), fourth-order insertions into the distinct completion (TENSOR_K4), the (2,1,1) cum4 feed (-15% of the k3 error, T-11), triangle words. Engine chain 3 (truth fourth-order + each switch) prices them. T-74/T-74b: the card's k3 given planes has NO scale defect (ratio 1.00 +- 0.005); the residual is unit-specific. SECOND_ORDER -8% rel, TENSOR_K4 0; both third-order feeds together -19% of the plane host (1.70e-8); the residual carry hurts (arena drops). T-85b: the skew-plane error (truth - card K21, 8-13% at depth) has no simple structure (best candidate planes corr <= 0.48: v m^T, v k3^T); fourth-order fix takes it to ~9%, feeds to ~9.4%; the consumer route needs ~3%. T-89/T-89d: the engine's fourth-order plane chain runs in-card (k22_chain.py, RETRO_K22_CHAIN; planes match the engine to corr 0.9999; host 3.09e-8 F2J off, one card run per net); with the feed and the relaxed-arena carry the card's skew is engine-class (per-unit k3 error 3-6% at every layer, no scale bias). The refit on that host removes only 10% (valid-40 3.23e-8): the refit door is closed.",
+    "terminal_criterion": "Closed when a derived, GEMM-class term takes the card's k3 error given planes to <= 3% at depth on two nets, or all engine truncations are priced and none does.",
+    "evidence": [
+      {
+        "claim": "T-73/T-73b decomposition; engine tables.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-73/T-73b + experiments/p2_width1024_depth16/public_g29_bond_kernel_v1/engine_ablation_table_r35.txt"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "With the planes right, the next thing wrong is how the third-order information accumulates layer by layer; fixing it exactly would halve the remaining error again, and the candidates are named terms in the engine's expansion."
+  }
+}

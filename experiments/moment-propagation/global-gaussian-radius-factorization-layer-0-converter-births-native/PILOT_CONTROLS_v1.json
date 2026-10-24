@@ -1,0 +1,121 @@
+{
+  "status": "READY_NO_NEW_CONTROLS_REQUIRED",
+  "fixed_ranks": [
+    35,
+    100
+  ],
+  "control_source": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/candidate_setup_repair_v18c.py",
+  "control_source_sha256": "3e333d59c518f434a11699e168ca9110b17b779480a5b287c0887cd88ef90ce4",
+  "control_session": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/boundary_v18c_sdk_v1",
+  "client_sdk": "0.12.3",
+  "python": "3.10.20 (main, Jun 11 2026, 03:55:32) [Clang 22.1.3 ]",
+  "boundary_harness": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/boundary_run_sdk_v1.py",
+  "wrapper_python": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/env310_v1/bin/python",
+  "client_python": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/boundary310_v1/bin/python",
+  "server_python": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/server310_openblas_v1/bin/python",
+  "matching_flags": [
+    "--setup-slowdown",
+    "1.3"
+  ],
+  "existing_grader": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_compute_v1/peel_boundary_v1/grade_predictions_v1.py",
+  "grading_formula": "U=mean((candidate.reshape(16,1024)[15].astype(float64)-A[mc_post][15])*(candidate.reshape(16,1024)[15].astype(float64)-B[mc_post][15])); raw_pct=100*(U/control_U-1)",
+  "note": "Use same two-rank order in one boundary session to match cold/warm controls. Existing grader uses identical formula but hardcodes fresh/pu truth paths and old S2tr controls; point a versioned adapter at this manifest or calculate offline. No new test runner required. Numeric comparisons require this same current-SDK backend, not old native controls.",
+  "rows": [
+    {
+      "rank": 35,
+      "phase": "cold",
+      "prediction": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/boundary_v18c_sdk_v1/pred_35.bin",
+      "prediction_sha256": "9e0095e1e2daf1acb8ab339e64478719a14ac96e1fc11ef732190c55dae5d0b5",
+      "shape": [
+        16,
+        1024
+      ],
+      "dtype": "<f4",
+      "truths": [
+        {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g19_attribution_v1/mps_truth_rank0035_P32M.npz",
+          "sha256": "0876a4a5484259896bdff5d273962dd274c5442e197ccf37bbc274df07c1d193",
+          "rank": 35,
+          "P": 32000000,
+          "key": "mc_post"
+        },
+        {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g19_attribution_v1/mps_truth_rank0035_indep32M.npz",
+          "sha256": "fc0f039cb4f54542c640bb51f72f74a7090cdff2272cd8bcc9552e6fcce807cd",
+          "rank": 35,
+          "P": 32000000,
+          "key": "mc_post"
+        }
+      ],
+      "control_U": 1.1391515301543845e-08,
+      "control_U_by_layer": [
+        -6.919432346718206e-10,
+        -1.2729105148987022e-09,
+        -1.2277268941068662e-09,
+        -7.543208823288768e-11,
+        3.287583615054674e-10,
+        1.4494303512834403e-09,
+        3.0154900504614513e-09,
+        3.554961771064574e-09,
+        4.340884744971357e-09,
+        5.080773506434597e-09,
+        6.152980931340836e-09,
+        8.057866945371332e-09,
+        9.50399027733476e-09,
+        1.0393695385061362e-08,
+        1.1367117765770717e-08,
+        1.1391515301543845e-08
+      ],
+      "control_flops": 244037948519,
+      "control_requests": 49553
+    },
+    {
+      "rank": 100,
+      "phase": "warm",
+      "prediction": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/boundary_v18c_sdk_v1/pred_100.bin",
+      "prediction_sha256": "6647e81d762ae982fa006c5d5e877874bc392312b00bd14813ee0c12aa2b839b",
+      "shape": [
+        16,
+        1024
+      ],
+      "dtype": "<f4",
+      "truths": [
+        {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g19_attribution_v1/mps_truth_rank0100_P32M.npz",
+          "sha256": "9f4576dac4bd435ed0d0016d49d1851065db89084553b56280b894c207d558a2",
+          "rank": 100,
+          "P": 32000000,
+          "key": "mc_post"
+        },
+        {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g19_attribution_v1/mps_truth_rank0100_indep32M.npz",
+          "sha256": "abf93fd56d3b405e2d51f253dbaa42e1eedee0801e67754fd27ea0fa5fbfe659",
+          "rank": 100,
+          "P": 32000000,
+          "key": "mc_post"
+        }
+      ],
+      "control_U": 1.324831445406559e-08,
+      "control_U_by_layer": [
+        1.8792117672481914e-09,
+        1.3058547540994456e-09,
+        5.765586724232101e-10,
+        5.521690310904424e-10,
+        9.205296467601863e-10,
+        1.4014222558445503e-09,
+        1.7201667448130273e-09,
+        2.5472332533114868e-09,
+        3.8193329668961455e-09,
+        5.425514338743347e-09,
+        7.446026598631234e-09,
+        8.014683422356883e-09,
+        9.768815004288202e-09,
+        1.0717813087701608e-08,
+        1.0659433098056821e-08,
+        1.324831445406559e-08
+      ],
+      "control_flops": 243510883029,
+      "control_requests": 43648
+    }
+  ]
+}

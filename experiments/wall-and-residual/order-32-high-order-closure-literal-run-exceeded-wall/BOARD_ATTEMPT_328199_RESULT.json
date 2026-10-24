@@ -1,0 +1,136 @@
+{
+  "schema": "arc_whestbench.board_attempt_result.v1",
+  "recorded_at_utc": "2026-08-24T09:31:28Z",
+  "challenge_slug": "arc-white-box-estimation-challenge-2026",
+  "round": "Phase 2",
+  "participant": {
+    "id": 497075,
+    "username": "mliston"
+  },
+  "submission": {
+    "id": 328199,
+    "created_at": "2026-08-24T09:10:02.596Z",
+    "status": "FAILED",
+    "grading_status_cd": "failed",
+    "grading_message": "<p>Error : Error while scoring your submission</p>\n",
+    "score": null,
+    "score_secondary": null,
+    "attempt_consumed": true,
+    "numeric_aggregate_board_score_obtained": false
+  },
+  "candidate": {
+    "name": "fb_ec4_32_v4_3ddddd87",
+    "archive_path": "../../../../../submissions/fb-ec4-32-v4-3ddddd87.tar.gz",
+    "archive_sha256": "2df56c53253494fc75da3de8a0a7bd29d0bf2b97fa8f052bd2378ba7534d5a82",
+    "estimator_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "source_manifest_sha256": "0cad2cc4491fbb22de5dbf021612fac9d5dccd2c2dcb1f4e963314d0c90580bf",
+    "freeze_receipt_sha256": "b730a3e21ba1d297de4b4be6c938cf842f955d951fd008518971cc0fafd8295e",
+    "source_audit_sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d",
+    "local_meter_receipt_sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017"
+  },
+  "evaluation": {
+    "schema_version": "2.0",
+    "state": "failed",
+    "phase": "failed",
+    "started_at": "2026-08-24T09:13:00Z",
+    "updated_at": "2026-08-24T09:22:28Z",
+    "completed_at": "2026-08-24T09:22:28Z",
+    "config_snapshot": {
+      "n_mlps": 100,
+      "width": 1024,
+      "depth": 16,
+      "flop_budget": 2199023255552
+    },
+    "smoke_test_result": {
+      "passed": true,
+      "duration_ms": 98.77245300000936,
+      "worker_passes": 10,
+      "worker_failures": 0,
+      "error_code": null
+    },
+    "progress": {
+      "total_mlps": 100,
+      "mlps_completed": 2,
+      "mlps_failed": 98,
+      "mlps_in_flight": 0,
+      "pct_complete": 100.0
+    },
+    "row_state_counts": {
+      "completed": 2,
+      "failed": 98
+    },
+    "error_code_counts": {
+      "TIME_EXHAUSTED": 12,
+      "null": 88
+    },
+    "failed_rows_with_no_telemetry_or_error_code": 86,
+    "aggregate": null
+  },
+  "completed_rows": [
+    {
+      "mlp_index": 0,
+      "mlp_name": "natasha-heath",
+      "final_layer_mse": 7.661e-08,
+      "all_layers_mse": 3.093e-08,
+      "adjusted_final_layer_score": 7.594e-08,
+      "flops_used": 2179759731685,
+      "participant_predict_wall_s": 119.41478967799998,
+      "participant_roundtrip_wall_s": 119.78697032300002,
+      "backend_s": 116.965546986,
+      "flopscope_overhead_s": 2.3883392959999696,
+      "residual_s": 0.0609033960000005
+    },
+    {
+      "mlp_index": 12,
+      "mlp_name": "david-webb",
+      "final_layer_mse": 7.071e-08,
+      "all_layers_mse": 3.054e-08,
+      "adjusted_final_layer_score": 7.009e-08,
+      "flops_used": 2179759731685,
+      "participant_predict_wall_s": 118.92704962300002,
+      "participant_roundtrip_wall_s": 119.298868274,
+      "backend_s": 116.449683607,
+      "flopscope_overhead_s": 2.414021537000025,
+      "residual_s": 0.06334447899999418
+    }
+  ],
+  "partial_completed_only_summary": {
+    "n": 2,
+    "mean_final_layer_mse": 7.366e-08,
+    "mean_all_layers_mse": 3.0735e-08,
+    "mean_adjusted_final_layer_score": 7.3015e-08,
+    "classification": "PARTIAL_E8_ACCURACY_EVIDENCE_ONLY__NOT_AN_AGGREGATE_BOARD_SCORE"
+  },
+  "explicit_time_exhaustions": [
+    {"mlp_index": 1, "mlp_name": "caitlin-kemp", "flops_used": 2069524789220, "participant_predict_wall_s": 118.450632432, "participant_roundtrip_wall_s": 120.89666785700001},
+    {"mlp_index": 3, "mlp_name": "brandon-chen", "flops_used": 1863398499296, "participant_predict_wall_s": 119.86570718, "participant_roundtrip_wall_s": 122.31062004},
+    {"mlp_index": 4, "mlp_name": "nicholas-gonzalez", "flops_used": 1883040445408, "participant_predict_wall_s": 117.825774346, "participant_roundtrip_wall_s": 120.30922392300002},
+    {"mlp_index": 5, "mlp_name": "thomas-anderson", "flops_used": 2069524789220, "participant_predict_wall_s": 117.839773552, "participant_roundtrip_wall_s": 120.25183381299999},
+    {"mlp_index": 8, "mlp_name": "tina-garcia", "flops_used": 1863398499296, "participant_predict_wall_s": 120.024141603, "participant_roundtrip_wall_s": 122.41716462699998},
+    {"mlp_index": 9, "mlp_name": "alicia-levy", "flops_used": 1863398499296, "participant_predict_wall_s": 122.90238854500001, "participant_roundtrip_wall_s": 125.30999673600002},
+    {"mlp_index": 10, "mlp_name": "jennifer-miller", "flops_used": 1863398499296, "participant_predict_wall_s": 118.306075972, "participant_roundtrip_wall_s": 120.68868724600003},
+    {"mlp_index": 11, "mlp_name": "richard-contreras", "flops_used": 2069524789220, "participant_predict_wall_s": 124.569543556, "participant_roundtrip_wall_s": 127.11919622199997},
+    {"mlp_index": 15, "mlp_name": "travis-ward", "flops_used": 2025135354848, "participant_predict_wall_s": 117.82947498, "participant_roundtrip_wall_s": 120.25282353299997},
+    {"mlp_index": 16, "mlp_name": "tanya-bennett", "flops_used": 2069524789220, "participant_predict_wall_s": 121.239402359, "participant_roundtrip_wall_s": 123.70239420899998},
+    {"mlp_index": 17, "mlp_name": "joseph-vega", "flops_used": 2069524789220, "participant_predict_wall_s": 120.469649307, "participant_roundtrip_wall_s": 122.93377006600002},
+    {"mlp_index": 18, "mlp_name": "amy-young", "flops_used": 1863398499296, "participant_predict_wall_s": 118.943195061, "participant_roundtrip_wall_s": 121.28266913699997}
+  ],
+  "verdict": {
+    "accuracy": "PARTIAL_PASS_E8_CLASS_ON_TWO_COMPLETED_PUBLIC_MLPS",
+    "operational": "FAIL_BOARD_WALL_TIME",
+    "scientific_promotion": "HOLD_NO_AGGREGATE_SCORE",
+    "same_archive_retry": "FORBIDDEN_WITHOUT_NEW_EVIDENCE",
+    "next_action": "BUILD_AND_METER_A_WALL_SAFE_ANALYTIC_SUCCESSOR; A1_NO_CP4_IS_THE_PREREGISTERED_FIRST_ARM"
+  },
+  "evidence_sources": {
+    "authenticated_api": "GET https://www.aicrowd.com/api/v1/submissions/328199",
+    "public_evaluation_page": "https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026/submissions/328199",
+    "retrieval_note": "The authenticated status API supplied terminal status and generic grading message. The anonymous public page embedded the evaluation schema, smoke result, per-MLP state/telemetry, and partial public scores. No private scores or sealed targets were accessed."
+  },
+  "access_accounting": {
+    "board_submissions_created": 1,
+    "numeric_board_scores_obtained": 0,
+    "target_values_opened_locally": 0,
+    "private_scores_accessed": 0
+  }
+}

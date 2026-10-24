@@ -1,0 +1,126 @@
+{
+  "status": "SOURCE_ONLY_FIXED_75_PERCENT_PAIR_WIDTH_VIRTUAL_TARIFF",
+  "source_sha256": "e406e64b67df590b61f887d2abfb481c7937df4ee069f230b61bed69b324b81c",
+  "detail": [
+    {
+      "seed": 136,
+      "layer": 10,
+      "pair_width": 5856,
+      "rows": 672,
+      "flops": 2625277945,
+      "ops": 458
+    },
+    {
+      "seed": 136,
+      "layer": 11,
+      "pair_width": 5856,
+      "rows": 672,
+      "flops": 2364929983,
+      "ops": 244
+    },
+    {
+      "seed": 136,
+      "layer": 12,
+      "pair_width": 5856,
+      "rows": 640,
+      "flops": 2296590170,
+      "ops": 249
+    },
+    {
+      "seed": 136,
+      "layer": 10,
+      "pair_width": 4416,
+      "rows": 672,
+      "flops": 2026250514,
+      "ops": 285
+    },
+    {
+      "seed": 136,
+      "layer": 11,
+      "pair_width": 4416,
+      "rows": 672,
+      "flops": 1762572465,
+      "ops": 176
+    },
+    {
+      "seed": 136,
+      "layer": 12,
+      "pair_width": 4416,
+      "rows": 640,
+      "flops": 2074068029,
+      "ops": 298
+    },
+    {
+      "seed": 137,
+      "layer": 10,
+      "pair_width": 5856,
+      "rows": 768,
+      "flops": 2873652072,
+      "ops": 405
+    },
+    {
+      "seed": 137,
+      "layer": 11,
+      "pair_width": 5856,
+      "rows": 704,
+      "flops": 2437015075,
+      "ops": 214
+    },
+    {
+      "seed": 137,
+      "layer": 12,
+      "pair_width": 5856,
+      "rows": 672,
+      "flops": 2364929983,
+      "ops": 244
+    },
+    {
+      "seed": 137,
+      "layer": 10,
+      "pair_width": 4416,
+      "rows": 768,
+      "flops": 2263206738,
+      "ops": 428
+    },
+    {
+      "seed": 137,
+      "layer": 11,
+      "pair_width": 4416,
+      "rows": 704,
+      "flops": 2087839696,
+      "ops": 312
+    },
+    {
+      "seed": 137,
+      "layer": 12,
+      "pair_width": 4416,
+      "rows": 672,
+      "flops": 1810226970,
+      "ops": 214
+    }
+  ],
+  "summary": [
+    {
+      "seed": 136,
+      "parent": 7286798098,
+      "pruned": 5862891008,
+      "credit": 1423907090,
+      "percent_of247G": 0.5764806032388664,
+      "parent_ops": 951,
+      "pruned_ops": 759
+    },
+    {
+      "seed": 137,
+      "parent": 7675597130,
+      "pruned": 6161273404,
+      "credit": 1514323726,
+      "percent_of247G": 0.6130865287449393,
+      "parent_ops": 863,
+      "pruned_ops": 954
+    }
+  ],
+  "mean_credit": 1469115408.0,
+  "numerical_payload_bytes": 536,
+  "scope": "Only old UVP inner L10-12, original full NP left/reconstruction/state/outer product retained. Price includes cold first right-tree then two same-frame reuses. Excludes new selection/norm/sort/gather overhead; no model or outcome selection.",
+  "selection_note": "Native5856pairwidth ->ceil(.75*5856/64)*64=4416. Saved651tensororacle width5888 also gives4416."
+}

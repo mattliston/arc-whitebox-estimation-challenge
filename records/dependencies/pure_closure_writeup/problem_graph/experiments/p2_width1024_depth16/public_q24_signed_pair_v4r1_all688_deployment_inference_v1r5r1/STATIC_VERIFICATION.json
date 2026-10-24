@@ -1,0 +1,502 @@
+{
+  "J_state_exact_order": [
+    "source_weight",
+    "source_bias",
+    "gate_weight",
+    "gate_bias",
+    "transport_delta",
+    "mix_delta",
+    "centers",
+    "scales",
+    "layer_rms",
+    "trunk.0.weight",
+    "trunk.0.bias",
+    "trunk.2.weight",
+    "trunk.2.bias"
+  ],
+  "access_accounting": {
+    "MPS_executions": 0,
+    "live_banks_rows_weights_targets_models_scores_opened": 0,
+    "live_estimator_or_MLP_executions": 0,
+    "network_or_submission_actions": 0,
+    "synthetic_model_receipt_seal_review_and_tapes_only": true
+  },
+  "adapter_sources": {
+    "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+    "estimator_source_template.py": "bc7e12e50a56eef4dc3c5d638ceb978748e31d8bc34e06ba6c5564a1b30d5d99",
+    "export_archive_builder.py": "579f2bdec738f54f070d588c4e263ed7333e4cd2e69d10dd2cdfe9d881337d57",
+    "live_output_contract.py": "9cd5c2e8ecfbcbc631ae82d2806dcb7eb50cda174759089e2a31ab3e98018497"
+  },
+  "adversarial_fixture_count": 114,
+  "adversarial_fixtures_rejected": [
+    "live export gate before all supplied path access",
+    "wrong model magic",
+    "trailing model byte",
+    "corrupt tensor payload",
+    "correctly hashed nonfinite",
+    "correctly hashed zero_scale",
+    "correctly hashed under_r_l",
+    "extra model header field",
+    "wrong architecture depth",
+    "float architecture depth alias",
+    "float architecture width alias",
+    "float virtual outer stream alias",
+    "float pair-layer alias",
+    "float action-layer alias",
+    "wrong J state order",
+    "wrong pair state order",
+    "MPS model lane",
+    "wrong runtime review source root",
+    "wrong selection map keys",
+    "float native weight byte count",
+    "wrong J batch-order digest",
+    "wrong pair batch-order digest",
+    "reordered inventory",
+    "float descriptor shape",
+    "boolean descriptor offset",
+    "float descriptor nbytes",
+    "extra descriptor field",
+    "duplicate descriptor name",
+    "noncanonical model header",
+    "boolean selected-H",
+    "fully rehashed four-artifact wrong batch-order digest bundle",
+    "wrong receipt schema",
+    "extra receipt field",
+    "wrong receipt model hash",
+    "wrong receipt inventory hash",
+    "short J trace",
+    "wrong pair trace label",
+    "resource telemetry accuracy veto",
+    "wrong native row root",
+    "wrong native weight bytes",
+    "float target-decode count alias",
+    "integer CPU boolean alias",
+    "negative-zero J objective",
+    "negative-zero preflight wall",
+    "duplicated telemetry epoch float alias",
+    "wrong runtime version",
+    "float CPython version alias",
+    "wrong execution stack root",
+    "wrong preauthentication status",
+    "float preauthentication node-count alias",
+    "wrong FD replay node count",
+    "float FD replay node-count alias",
+    "wrong runtime source inventory",
+    "native closure not armed",
+    "native closure integer boolean alias",
+    "native closure float generation alias",
+    "wrong loaded image count",
+    "float mapped-image vnode scalar alias",
+    "malformed mapped system UUID",
+    "unbound protected read",
+    "noncanonical training receipt",
+    "wrong seal schema",
+    "wrong seal model hash",
+    "wrong seal receipt hash",
+    "wrong seal selected-H",
+    "seal export authority",
+    "seal integer false-authority alias",
+    "noncanonical model seal",
+    "wrong model review schema",
+    "model review scaffold status",
+    "HOLD model-review status",
+    "REJECT model-review decision",
+    "arbitrary nonempty model-review status",
+    "arbitrary nonempty model-review decision",
+    "same-agent model review",
+    "integer different-agent boolean alias",
+    "wrong review model hash",
+    "wrong review runtime root",
+    "float mapped-image count alias",
+    "incomplete review finding",
+    "integer true review-finding alias",
+    "integer model-replay boolean alias",
+    "review inference access",
+    "integer review access false alias",
+    "review export authority",
+    "integer review authority false alias",
+    "noncanonical review timestamp",
+    "bound HOLD-REJECT model review cannot reach render",
+    "seal-review capability mismatch",
+    "wrong export selected-bank binding",
+    "wrong export model-review decision binding",
+    "meter negative-zero wall_seconds",
+    "meter negative-zero residual_wall_seconds",
+    "meter integer false alias in runtime MPS_used",
+    "meter float aliases in row shape",
+    "meter float alias in aggregate networks",
+    "meter float alias in aggregate maximum_flops",
+    "meter integer true alias in aggregate repeat boolean",
+    "meter integer false alias in accuracy boundary",
+    "meter integer true alias in accuracy boundary",
+    "meter integer false alias in authority",
+    "live meter gate before nonexistent path access",
+    "invalid UTC timestamp Z",
+    "invalid UTC timestamp not-a-dateZ",
+    "invalid UTC timestamp 2026-99-99T99:99:99Z",
+    "reversed archive inventory",
+    "extra archive member",
+    "archive symlink",
+    "archive traversal",
+    "trailing gzip bytes",
+    "concatenated gzip stream",
+    "altered gzip XFL",
+    "altered gzip OS",
+    "GNU tar encoding"
+  ],
+  "archive_scaffold": {
+    "archive_bytes": 34366,
+    "archive_sha256": "6e1ebda1aa3a9e20ef8b024529203c70bd8c95e4858e34e151c76f20540a0b15",
+    "estimator_sha256": "6bb6ef52f4d386f5ed71cfc069902b08ba70fb35d17afedc48553799389599a8",
+    "exact_members": [
+      "estimator.py",
+      "manifest.json"
+    ],
+    "manifest_sha256": "9df109c9626110ec7aa271da22a8e61e9c310a72f4ea35020fd2d65484ac2a01",
+    "package_authorized": false,
+    "pinned_whestbench_validate_package_still_required": true,
+    "schema": "public-q24-signed-pair-all688-two-file-archive-validation-v1r3",
+    "status": "PASS_EXACT_CANONICAL_DETERMINISTIC_TWO_FILE_BYTES__NO_PACKAGE_AUTHORITY",
+    "submission_authorized": false
+  },
+  "authority": {
+    "accuracy": false,
+    "export": false,
+    "meter": false,
+    "model": false,
+    "network": false,
+    "package": false,
+    "submission": false
+  },
+  "future_export_bindings_all_null": true,
+  "future_model_bindings_all_null": true,
+  "future_package_gate_bindings_all_null": true,
+  "independent_exact_v1r3_22_tensor_gold_inventory": true,
+  "independently_recomputed_batch_order_int32_sha256": {
+    "J": "affbed56980f9243316a1f26e27e6c9fccab08747d2f6679d3c6eeab1579b3bf",
+    "pair_H16": "238ad030f3bc8077c2db6a78490c68e6afe800a450dd6cd97c719e795e175a2d",
+    "pair_H256": "4a257b6241f97c3ddaf5209bd310898705b2261fc65fa1f81891442cbfb8ccb1",
+    "pair_H64": "87445d97fb3228064acd43882a4407849818d2ec662299454753fc13802f504d"
+  },
+  "live_export_rejected_before_any_supplied_path_access": true,
+  "meter_receipt_source_sha256": "f954be73f8052f3eb09413975706d9442cf550ab487d54b4215ac77680c5bd26",
+  "null_skeleton_public_import_rejected_before_payload_or_MLP_access": true,
+  "pair_state_aggregate_exact_order": [
+    "pair/state/U",
+    "pair/state/b",
+    "pair/state/V",
+    "pair/state/c",
+    "pair/state/d"
+  ],
+  "preserved_v1r4_semantic_file_sha256": {
+    "METER_CONTRACT.json": "f9d05501d2e0d0a379d01c142388f79373f9ce57fbd0841c8c64b761381c0058",
+    "V1R2_HOLD_BINDING.json": "1230ba647915da619438843a5b2f59f4c6a357d9bb737c224ba83c54b8eb8869",
+    "V1R3_HOLD_BINDING.json": "ffb1fe41d28712a76c3b005c01589a85ee26b74fbda3ac01d36146bbabf88e38",
+    "V1_HOLD_BINDING.json": "f7b586262b1746c708e4fdabba2e20579952cb7d928cb44d531ab43345dbbda1",
+    "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+    "export_archive_builder.py": "579f2bdec738f54f070d588c4e263ed7333e4cd2e69d10dd2cdfe9d881337d57",
+    "meter_receipt.py": "f954be73f8052f3eb09413975706d9442cf550ab487d54b4215ac77680c5bd26",
+    "synthetic_parity.py": "2b7f53cfa9ac0c4879bfb914fdc63fab9060a6a17a0e87bd35813c0bc2e98011"
+  },
+  "rendered_synthetic_import_exact_22_float32_C_arrays": true,
+  "resource_meter_scaffold": {
+    "live_meter_pre_path_access_hold": true,
+    "over_limit_fixture_valid_without_accuracy_rejection": true,
+    "over_limit_operational_package_admission": false,
+    "within_limit_fixture_valid": true
+  },
+  "resource_telemetry_changes_or_vetoes_accuracy": false,
+  "runtime_v1r4_lineage_exact": true,
+  "schema": "public-q24-signed-pair-all688-deployment-static-verification-v1r5r1",
+  "source_bindings": {
+    "fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_min_v1/estimator.py": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d",
+    "public_q24_native_transport_energy_pilot_v1/instrumented_estimator.py": "f539889324fb82cc1ded35a41c8b5a359014d9ddac52eab62949257e8e58a0ef",
+    "public_q24_signed_pair_three_bank_runtime_v5/parent_capture.py": "10ed893bbd50257f21b434fb90e95185026bdf73740b3b6590a001cc1fecc425",
+    "public_q24_signed_pair_three_bank_runtime_v5/signed_pair_literal.py": "20a50cc065c0a9fc3c22fe5b5e178771b2b1fefeacc4a8a68ea48748fb2d2a57"
+  },
+  "status": "PASS_V1R5R1_ACCESS_ACCOUNTING_REPAIR__V1R5_SCIENCE_AND_RUNTIME_V1R4_LINEAGE_EXACT__ALL_LIVE_GATES_HOLD",
+  "synthetic_live_bundle": {
+    "deterministic_render": true,
+    "model_seal_sha256": "a3eeec87f1f00d7f7e675b54620d3265029de8ad11af64df6c0b19b3d08b2cc7",
+    "model_sha256": "60df1c7df2cf65f2cadc82ec2d35ce4db4b0df524b67cf073e436d4c1f6f4daf",
+    "model_tensor_inventory_sha256": "e5a8829e1a676ddcd4b6ff628b5c2793a23ceb9b100d2658b988f8f8ab4fe36c",
+    "refit_model_review_sha256": "298c7d13132be747bdcf7d89cfd0eb8ad263fe7bfff7ed7da539a09a4ca8cf1e",
+    "refit_receipt_sha256": "bd5673d8c515eb33ad179fe6d5598b658a124ac66b8783d774c8cd9b20b903a5",
+    "rendered_estimator_sha256": "6bb6ef52f4d386f5ed71cfc069902b08ba70fb35d17afedc48553799389599a8",
+    "selected_H": 64,
+    "tensor_count": 22,
+    "unique_tensor_names": 22
+  },
+  "synthetic_parity": {
+    "absolute_tolerance": 3e-06,
+    "access_accounting": {
+      "MPS_used": false,
+      "banks_rows_weights_targets_models_scores_opened": 0,
+      "live_estimator_or_mlp_executions": 0,
+      "synthetic_arrays_only": true
+    },
+    "authority": {
+      "accuracy": false,
+      "export": false,
+      "package": false,
+      "refit": false,
+      "submission": false
+    },
+    "candidate_H": [
+      16,
+      64,
+      256
+    ],
+    "cases": 6,
+    "critical_floor": 9.313225746154785e-10,
+    "final_composition_zero_boundary_byte_exact": true,
+    "input_dtypes": [
+      "float32",
+      "float64"
+    ],
+    "max_abs_all_seams": 6.198883056640625e-06,
+    "max_rel_all_seams": 0.00014548823760139653,
+    "observations": [
+      {
+        "H": 16,
+        "critical_floor_values_present": true,
+        "input_dtype": "float32",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.1368683772161603e-13,
+            "max_rel": 1.2125998215962512e-05
+          },
+          "j32": {
+            "max_abs": 2.2737367544323206e-13,
+            "max_rel": 2.041818484378557e-06
+          },
+          "x36": {
+            "max_abs": 4.76837158203125e-07,
+            "max_rel": 0.00014548823760139653
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 16,
+        "critical_floor_values_present": true,
+        "input_dtype": "float64",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.4210854715202004e-13,
+            "max_rel": 1.1232815925868448e-05
+          },
+          "j32": {
+            "max_abs": 3.410605131648481e-13,
+            "max_rel": 6.011214521811892e-07
+          },
+          "x36": {
+            "max_abs": 4.76837158203125e-07,
+            "max_rel": 7.835406252827348e-05
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 64,
+        "critical_floor_values_present": true,
+        "input_dtype": "float32",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 7.460698725481052e-14,
+            "max_rel": 4.585382426104999e-06
+          },
+          "j32": {
+            "max_abs": 2.2737367544323206e-13,
+            "max_rel": 3.153146761639447e-07
+          },
+          "x36": {
+            "max_abs": 3.814697265625e-06,
+            "max_rel": 5.563879118717157e-06
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 64,
+        "critical_floor_values_present": true,
+        "input_dtype": "float64",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.1368683772161603e-13,
+            "max_rel": 7.920782427073966e-06
+          },
+          "j32": {
+            "max_abs": 4.547473508864641e-13,
+            "max_rel": 2.1669705722506994e-07
+          },
+          "x36": {
+            "max_abs": 2.7939677238464355e-09,
+            "max_rel": 0.00011256812053696462
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 256,
+        "critical_floor_values_present": true,
+        "input_dtype": "float32",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.1368683772161603e-13,
+            "max_rel": 3.7030976165999355e-05
+          },
+          "j32": {
+            "max_abs": 2.2737367544323206e-13,
+            "max_rel": 1.7798831818170693e-06
+          },
+          "x36": {
+            "max_abs": 1.7881393432617188e-07,
+            "max_rel": 0.00011283386184560445
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 256,
+        "critical_floor_values_present": true,
+        "input_dtype": "float64",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.1368683772161603e-13,
+            "max_rel": 3.17036143078124e-05
+          },
+          "j32": {
+            "max_abs": 4.547473508864641e-13,
+            "max_rel": 1.2415843858347638e-06
+          },
+          "x36": {
+            "max_abs": 6.198883056640625e-06,
+            "max_rel": 3.361488601612338e-06
+          }
+        },
+        "unit_permutation_checked": true
+      }
+    ],
+    "relative_tolerance": 2e-05,
+    "schema": "public-q24-signed-pair-all688-deployment-synthetic-parity-v1",
+    "status": "PASS_ISOLATED_SYNTHETIC_TORCH_CPU_VS_LITERAL__NO_EMPIRICAL_ACCESS",
+    "width": 9
+  },
+  "upstream_reviewed_static_bindings": {
+    "deployment_inference_v1_hold_review_sha256": "bf1690e2492b7000fe887cd52baba52b71bfb8721017f296b7b475626c3a6263",
+    "deployment_inference_v1r1_manifest_sha256": "4cc656d483a5c7d5331d03d4b91cc1ceb99594805c456e98a26180003760d89d",
+    "deployment_inference_v1r1_review_sha256": "7e765482718dcd90452be2744b102d056a2881dca80e0670af97bd9206185c22",
+    "deployment_inference_v1r2_hold_manifest_sha256": "c0b58414a19e40efe1551d3a62ba43e2e64155dadb5f93a64d91e4a9154b2b13",
+    "deployment_inference_v1r2_hold_review_sha256": "c936c47f5abf7d536876c5a37f9ed88f942c785806a59e243d0d86213b969408",
+    "deployment_inference_v1r3_hold_manifest_sha256": "9825ca3745a4f575dbcf3de5d0ad008273a0ec0c4e69669ab3f91f0cd5824b51",
+    "deployment_inference_v1r3_hold_review_sha256": "748f7487e8b247e2745fdf2a28d2d9209180d8a6f8c5f8a155d9a8c13acbe7ea",
+    "deployment_inference_v1r4_manifest_sha256": "f6aa8809954db46435301505db84c6105f7e585f3f61c59cb0409e4bc0965601",
+    "deployment_inference_v1r4_review_sha256": "8f12be68bc3dfcab06acb05c9868bdd9cab645258f999620b1f4bec312e66c6e",
+    "exact_live_output_inventory_and_schemas_bound": true,
+    "refit_runtime_v1r4_manifest_sha256": "d211a742b80085f4a7fa9c3885689a9c52c3ebe0df3c70e83336af2aa153935f",
+    "refit_runtime_v1r4_review_sha256": "69b28b93d04fd8b8e5753b0708aaac2a5005c5360a54aebfcdef2f41c808dc33"
+  },
+  "v1r3_hold_meter_witnesses_rejected": 10,
+  "v1r5_control_scaffolds": {
+    "empirical_model_source_null_count": 15,
+    "empirical_model_source_null_keys": [
+      "bank_generation_receipt_sha256",
+      "bank_post_generation_seal_review_sha256",
+      "bank_post_generation_seal_sha256",
+      "native_weight_payload_aggregate_sha256",
+      "native_weight_payload_bytes_hashed",
+      "oof_independent_review_sha256",
+      "oof_models_sha256",
+      "oof_output_seal_sha256",
+      "oof_result_sha256",
+      "pair_on_mse_vector_float64_le_sha256",
+      "pooled_H_receipt_sha256",
+      "role_rank_int32_le_sha256",
+      "selected_A15_zero_sha256",
+      "selected_bank_sha256",
+      "selection_receipt_sha256"
+    ],
+    "exact_source_binding_key_count": 53,
+    "precaller_gate": {
+      "caller_path_protocol_events": [],
+      "filesystem_access": false,
+      "live_model_access": false,
+      "live_null_root_gate_rejected": true,
+      "numerical_execution": false,
+      "runtime_v1r4_static_root_count": 20,
+      "status": "PASS_REVIEWED_RUNTIME_AND_LIVE_NULLS_REJECT_BEFORE_CALLER_PATH_COERCION"
+    },
+    "reviewed_runtime_package_root_count": 5,
+    "reviewed_runtime_source_root_count": 15
+  },
+  "v1r5r1_access_accounting_repair": {
+    "V1R5_HOLD_BINDING.json": "c7ac5f760d6045b259230dbf47148dedde59c1ac3ca795acda3fe8e4620e723c",
+    "canonical_suite_coverage_per_successful_replay": {
+      "adversarial_fixture_classes": 114,
+      "exact_source_binding_key_checks": 53,
+      "runtime_null_gate_self_tests": 1,
+      "synthetic_torch_CPU_parity_cases": 6
+    },
+    "construction_access_receipt_sha256": "0fe14c35e7af384995b09f003a58384a83ecc050acc17991c415ff3ed92fb7e7",
+    "cumulative_development_lower_bounds": {
+      "failed_dependency_preflight_invocations_at_least": 1,
+      "full_static_verifier_successful_replays_at_least": 6,
+      "runtime_null_gate_passes_at_least": 6,
+      "static_53_key_inventory_passes_at_least": 6,
+      "synthetic_torch_CPU_parity_cases_completed_at_least": 36,
+      "v1r5_freeze_invocations_at_least": 2,
+      "v1r5_freeze_replay_failures_detected_at_least": 1,
+      "v1r5_freeze_replay_passes_at_least": 1
+    },
+    "exact_lifetime_invocation_count_asserted": false,
+    "inherited_v1r5_byte_identical_file_count": 19,
+    "inherited_v1r5_byte_identical_files": {
+      "EXPORT_CONTRACT.json": "a8c6b933505b2861140497d0b7dc8784f93226aa597625635047003a1309117b",
+      "FUTURE_BINDINGS_HOLD.json": "c8dddea9287f8662f953ecdcdb6b372b96be0c276a693def38cf6edd71342c45",
+      "FUTURE_MODEL_SOURCE_BINDINGS.json": "6d11ee9b706348d4a79f2464321f4d41d3eeaa43a450f4cdad96938d9a5ab0cf",
+      "KNOWN_BLOCKERS.json": "924a5951945d408047c0457ae915c1f7aec67843761b8825f30fba5058ce8e99",
+      "METER_CONTRACT.json": "f9d05501d2e0d0a379d01c142388f79373f9ce57fbd0841c8c64b761381c0058",
+      "PRESERVED_V1R4_SEMANTICS.json": "7ca5546e08ebf231101c68e1a707d47801d533fe7d80d9f4c98ab260e9dfdd1c",
+      "RUNTIME_V1R4_BINDINGS.json": "ebe82627f2dfd051a845b73ebb4f1bb469182505f8a285d2e205083228cbb414",
+      "UPSTREAM_V1R4_BINDING.json": "5925dff97ee386e4e0328e49fbc024aabe064912671df15669a3c82d45a793a3",
+      "V1R2_HOLD_BINDING.json": "1230ba647915da619438843a5b2f59f4c6a357d9bb737c224ba83c54b8eb8869",
+      "V1R3_HOLD_BINDING.json": "ffb1fe41d28712a76c3b005c01589a85ee26b74fbda3ac01d36146bbabf88e38",
+      "V1_HOLD_BINDING.json": "f7b586262b1746c708e4fdabba2e20579952cb7d928cb44d531ab43345dbbda1",
+      "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+      "estimator_source_template.py": "bc7e12e50a56eef4dc3c5d638ceb978748e31d8bc34e06ba6c5564a1b30d5d99",
+      "export_archive_builder.py": "579f2bdec738f54f070d588c4e263ed7333e4cd2e69d10dd2cdfe9d881337d57",
+      "live_output_contract.py": "9cd5c2e8ecfbcbc631ae82d2806dcb7eb50cda174759089e2a31ab3e98018497",
+      "meter_receipt.py": "f954be73f8052f3eb09413975706d9442cf550ab487d54b4215ac77680c5bd26",
+      "runtime_v1r4_gate.py": "899208a88581a6dfe4dd89d7309844bfc5d841bb0cf3e8f1f606a902e63a5733",
+      "synthetic_parity.py": "2b7f53cfa9ac0c4879bfb914fdc63fab9060a6a17a0e87bd35813c0bc2e98011",
+      "verify_static.py": "8d8e0ace8b6bdf293b50f8cff4157d7aa4c2541f343b897d4f045a79cbba7026"
+    },
+    "parent_hold_review_sha256": "7327eb88b331d34e467983a50b5cd26dbb47e7e1cae908dad3e34d52687bdd21",
+    "parent_manifest_sha256": "994750f1f0312e37d69555c19067c9ea81a25d3a1a394d413c655cc0989b50e3"
+  }
+}

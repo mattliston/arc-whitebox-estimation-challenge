@@ -1,0 +1,26 @@
+{
+  "schema": "p2r0f2j-q24-native-all688-final-fit-run-manifest-v1",
+  "status": "authorized-observer-fit-final-fit-after-transfer-pass",
+  "node": "P2R0H7B",
+  "program": "run_final_fit.py",
+  "interpreter": "/Users/matt/anaconda3/bin/python3",
+  "nice_priority": 10,
+  "inputs": {
+    "pilot_rows": "../public_q24_native_transport_energy_pilot_v1/runs/native_rows_v1",
+    "pilot_rank_interval_inclusive": [35, 234],
+    "fresh_rows": "runs/native_rows_remaining_v1",
+    "fresh_rank_blocks_inclusive": [[0, 34], [235, 687]],
+    "target_bundle": "../data_gate/sealed_role_target_bundle/observer_fit.parquet",
+    "feature_manifest": "../learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/manifest.json"
+  },
+  "training": {
+    "all_rows": 688,
+    "validation_rows": 0,
+    "fixed_epoch": 6,
+    "selection": "none"
+  },
+  "outputs": ["FINAL_MODEL.pt", "FINAL_FIT_RESULT.json"],
+  "observer_selection_reads": 0,
+  "name_or_board_joins": 0,
+  "network_or_submission": false
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "q24-nonlinear-transported-raw20-head-preregistration-v1",
+  "status": "FROZEN_BEFORE_ANY_NONLINEAR_Z_TARGET_OPEN",
+  "purpose": "Test whether nonlinear interactions with an exact transported raw20 state bank improve q10:q15 reconstruction beyond the promoted all688 22-input q-head.",
+  "data_contract": {
+    "role": "observer_fit",
+    "networks": 688,
+    "native_rows": "all frozen target-free Q24 native rows, role ranks 0:687",
+    "targets": "sealed observer_fit mlp_id and all_layer_means only",
+    "observer_selection_targets": "forbidden",
+    "names": "forbidden",
+    "board_or_submission_feedback": "forbidden"
+  },
+  "frozen_candidate": {
+    "architecture": "42 -> 64 SiLU -> 64 SiLU -> six layer-specific scalar heads",
+    "parameters": 7302,
+    "original_features": "standardized raw20 + alpha=.75 J state/rms + local J innovation/(sigma*rms)",
+    "new_features": "twenty per-coordinate standardized transported raw20 states Z_l",
+    "recurrence": "Z_2=standardized_raw20_2; Z_l=Phi_l*(W_l.T@Z_(l-1))+standardized_raw20_l for l=3:15",
+    "read_layers_zero_based": [10, 11, 12, 13, 14, 15],
+    "normalization": "per-layer/channel center and RMS over all688 target-free Z values; clamp at +/-8",
+    "target": "exact teacher-local delta_q at layers10:15",
+    "loss": "mean six-layer squared source error normalized by training-fold q_rms",
+    "samples_per_layer_per_network": 256,
+    "networks_per_step": 4,
+    "fixed_epoch": 13,
+    "scheduler_horizon_epochs": 14,
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 0.00002,
+    "gradient_clip": 5.0,
+    "seed": 1362178069
+  },
+  "comparison": {
+    "authority": "the exact persisted 22-input full688 four-fold OOF result; its arm is not retrained",
+    "base_result_sha256": "87d22be8d48d7c73821c02bb3562b3e8ad67955022df0e2185c2f94838e87a25",
+    "base_model_sha256": "d57407e0534e0be8b29a8b3f8bb80f617e83671584ddb32af757a3631e0fc58f",
+    "base_oof_relative_gain_vs_incumbent": 0.0163566,
+    "fold_assignment_sha256": "0f8619f00185aa5413e06c2b9aad8c1f2a6743ec8c628994bbbc9ca25fec047c",
+    "fold_sizes": [172, 172, 172, 172],
+    "checkpoint_selection": false
+  },
+  "promotion_gate": {
+    "primary_metric": "pooled final-layer raw MSE across all688 OOF predictions",
+    "minimum_relative_gain_over_exact_22input_oof": 0.0025,
+    "minimum_improving_folds": 3,
+    "minimum_paired_network_z": 2.0,
+    "minimum_network_win_fraction": 0.55,
+    "minimum_each_fold_network_win_fraction": 0.5,
+    "legacy_protected40_must_not_worsen": true,
+    "rationale": "0.25% clears the prior linear transported-bank gain of 0.228% and requires broad network transfer"
+  },
+  "target_blind_shrink_diagnostic": {
+    "uses_targets": false,
+    "fields": [
+      "previous-state RMS",
+      "transport-message RMS",
+      "current-source RMS",
+      "combined-state RMS",
+      "transport contraction ratio",
+      "transport/source RMS ratio",
+      "per-layer/channel Z scales",
+      "standardized +/-8 clip fraction"
+    ],
+    "selection_use": "diagnostic only; it cannot change recurrence, architecture, folds, epoch, or gate"
+  },
+  "deployability_upper_bound": {
+    "incremental_bank_transport_flops": 545259520,
+    "incremental_bank_source_add_flops": 286720,
+    "incremental_first_layer_widening_flops_vs_22input_head": 15728640,
+    "incremental_z_read_standardization_flops": 491520,
+    "incremental_total_flops_vs_22input_head": 561766400,
+    "incremental_live_z_state_bytes_float32": 81920,
+    "six_layer_z_cache_bytes_if_materialized": 491520,
+    "incremental_model_parameter_bytes_float32": 5120,
+    "training_z_cache_bytes": 338165760,
+    "maximum_process_rss_bytes": 8589934592
+  },
+  "outcome_law": {
+    "success": "persist one all688 epoch13 scientific model only after every OOF gate passes",
+    "failure": "persist result and close nonlinear transported-bank lane",
+    "board_submission": false,
+    "deployment_integration": false
+  },
+  "bindings": {
+    "program_sha256": "032d994d45d0255d46ec09b5dca4fdff9f9baa3273972082e75014e0501dee96",
+    "base_program_sha256": "7ffaae1a3d03a7d1f3fcfe3e9026d1674892c52291f7899978ff379f8da78cd2",
+    "base_preregistration_sha256": "8014f6eb7368f5d161929549f7e4e0893f30f24418cfd57644a1ce7fea9e220c",
+    "base_result_sha256": "87d22be8d48d7c73821c02bb3562b3e8ad67955022df0e2185c2f94838e87a25",
+    "base_model_sha256": "d57407e0534e0be8b29a8b3f8bb80f617e83671584ddb32af757a3631e0fc58f",
+    "ridge_result_sha256": "3672e604cc4907bd6ab46f44ce55290a90f27def1dece6558c83490bd08f7e2f",
+    "j_source_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "q_source_sha256": "1e4c906936f4685bd800f922ded6c582af8213ecad1fbe41da651faff82be9c3"
+  }
+}

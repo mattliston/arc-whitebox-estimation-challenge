@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-20T21:43:00Z",
+  "status": "INDEPENDENT_SOURCE_AND_EXISTING_OFFICIAL_TINY_PROVENANCE_PASS",
+  "root_mapping": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/RUNTIME_GROUPED_CANDIDATES_PREPARED_v1.json",
+  "root_mapping_sha256": "2cf1afd30fc6215205d72b414fbab4602cb5f0975d3f11ac891026eb74515738",
+  "tested_fixture": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/check_materialize_v1.py",
+  "tested_fixture_sha256": "f0d77e7c134abb4203931c7201d6111f2ca19eb348aa73cc3efa110f963dfc35",
+  "ap_checker": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/check_smcompact_ap_v1.py",
+  "ap_checker_sha256": "3773928db9cb16cec868847e917beeabc8b509a54a9b47345dae46faf6615cfa",
+  "receipts": [
+    {
+      "check": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/SMDIRECT_COMPACT_CHECK_v1.json",
+      "check_sha256": "01542f5b0fc06a019190409715fc1ae8a9daed074410df02aa21873bb5d99a82",
+      "prepared": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/SMDIRECT_COMPACT_PREPARED_v1.json",
+      "prepared_sha256": "b440c2f4ea46d6a1fef0855ad1ae07a8a679e3ca880049db843e13d58ffc2106",
+      "cases": 36,
+      "projected_rank35_saved_calls": 44
+    },
+    {
+      "check": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/SMDIRECT_COMPACT_AP_CHECK_v1.json",
+      "check_sha256": "a46b617469c4d92aabf7de3a8064ce3bbdd79cc977b559788d603b82e3a3f534",
+      "prepared": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/SMDIRECT_COMPACT_AP_PREPARED_v1.json",
+      "prepared_sha256": "a6ac979e2d0ea9f622dc38e973b4c0f2cafeec908124e40cadd89afe8191a673",
+      "cases": 36,
+      "projected_rank35_saved_calls": 72
+    }
+  ],
+  "variants": [
+    {
+      "tag": "micro_copyall_ecut_rt_astra",
+      "science_sha256": "08fd3570afb75659be86bcf32fa966dab24f7c0a219ad4c796d0dfd0584ee57f",
+      "release_sha256": "10d0ca41d3a18f0392685cbd781c68c42aaf48e20cb85d3af8ef1874111839ff",
+      "exact_builder_ast": true,
+      "fixture_core_and_plan_literals_unchanged": true,
+      "last_live_functions_are_compact_ap": true,
+      "pair_before_compaction": true,
+      "science_release_only_science_cap": true,
+      "nogov_last": true
+    },
+    {
+      "tag": "micro_copyall_ecut_eh14_rt_astra",
+      "science_sha256": "3233908abad69085a3278602c0fb08421cc6553f6e5bfdb20e977522bd61b626",
+      "release_sha256": "94f3007acf15ac8471739847cc455a65cce9d51b41322c96cc0266e5aeb366af",
+      "exact_builder_ast": true,
+      "fixture_core_and_plan_literals_unchanged": true,
+      "last_live_functions_are_compact_ap": true,
+      "pair_before_compaction": true,
+      "science_release_only_science_cap": true,
+      "nogov_last": true
+    },
+    {
+      "tag": "micro_copyall_ecut_gk4p_rt_astra",
+      "science_sha256": "310c1f2a215e20e4d1a9fe87af18d12dba37fd27d3b2a5f336ec2928d8db4ca7",
+      "release_sha256": "a3e79962dae55e6b1f8046899b82f165068579e89123747ca17beac212e2f4d2",
+      "exact_builder_ast": true,
+      "fixture_core_and_plan_literals_unchanged": true,
+      "last_live_functions_are_compact_ap": true,
+      "pair_before_compaction": true,
+      "science_release_only_science_cap": true,
+      "nogov_last": true
+    },
+    {
+      "tag": "micro_copyall_ecut_eh14_gk4p_rt_astra",
+      "science_sha256": "7c49fbb211566d4a0626758a5d979c56612cd8ed67a7ffe01326b6009895600d",
+      "release_sha256": "0d664d4f4307657adeb4b9b3bf0ecc9dbb45f40104912dc6c6a1459eff873992",
+      "exact_builder_ast": true,
+      "fixture_core_and_plan_literals_unchanged": true,
+      "last_live_functions_are_compact_ap": true,
+      "pair_before_compaction": true,
+      "science_release_only_science_cap": true,
+      "nogov_last": true
+    }
+  ],
+  "findings": [
+    "Each group retains its original full scratch offset; only independent private nodes use its dense prefix. Downstream refs use matching compact views.",
+    "Output indices are fixed; all arithmetic retains its operator and operand order. Independent-node scheduling changes, not arithmetic reassociation.",
+    "New key o20_direct_compact_ap_v1 separates old compiled programs. Runtime and actual precompiler use the same live globals.",
+    "Ops/programs retain owners and operands. Output striding is handled by basic views; tiny checks preserve all padding outside output views.",
+    "Fixture plan literals and precompile classes/functions exactly match all four final sources. COPY_ALL contains the exact tested parent direct tail.",
+    "FG does not bind SM functions. Pair refreshes only pair/nonlinear context identities. Neither conflicts with compaction; no-governor tail is last."
+  ],
+  "remaining_gaps": [
+    "Whole-network numerical/bill parity and actual owner lifetime under the remote 0.12.3 boundary are not established by tiny tests.",
+    "72 fewer arithmetic calls is a projection for the saved rank35 circuit mix, not a measured production request or wall reduction.",
+    "Original setup/release gates still apply; source equivalence alone is not full32 qualification."
+  ]
+}

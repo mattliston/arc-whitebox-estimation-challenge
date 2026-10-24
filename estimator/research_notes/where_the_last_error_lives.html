@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>47 · Where the remaining error comes from</title>
+<style>
+:root{--bg:#fbfaf8;--panel:#f3f1ec;--ink:#1d212a;--ink2:#575d6b;--line:#e3e0d9;--axis:#c3c2b7;--muted:#898781;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s1t:#1c5cab}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15171c;--panel:#1d2026;--ink:#e8e7e2;--ink2:#9ba0ac;--line:#2b2e36;--axis:#383835;--muted:#898781;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s1t:#7fb3f0}}
+:root[data-theme="dark"]{--bg:#15171c;--panel:#1d2026;--ink:#e8e7e2;--ink2:#9ba0ac;--line:#2b2e36;--axis:#383835;--muted:#898781;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s1t:#7fb3f0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}.wide{max-width:980px;margin:0 auto;padding:0 20px}
+h1,h2{font-family:"STIX Two Text",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.2;margin:0;text-wrap:balance}
+h1{font-size:40px;letter-spacing:-.01em}h2{font-size:26px;margin-top:6px}
+p{margin:14px 0}.lead{font-size:18.5px}
+.sans,.eyebrow,.chip,figcaption,th,.legend,details summary,svg text,#tt{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink2)}
+header{padding:56px 0 6px}.dek{font-size:19.5px;font-style:italic;color:var(--ink2);margin-top:14px;text-wrap:balance}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}.chip{font-size:11.5px;padding:5px 10px;border:1px solid var(--line);border-radius:3px;color:var(--ink2)}.chip b{color:var(--ink);font-weight:600}
+section{padding:30px 0 6px}.sec-head{border-top:1px solid var(--line);padding-top:18px}.sec-head .eyebrow{display:block;margin-bottom:6px}
+.eq{font-family:"STIX Two Text",Georgia,serif;font-size:18px;line-height:1.9;padding:14px 20px;margin:16px 0;background:var(--panel);border-radius:4px;overflow-x:auto;white-space:nowrap}
+var{font-style:italic}
+figure{margin:24px 0}figure svg{display:block;width:100%;height:auto}
+.fig-frame{border:1px solid var(--line);border-radius:6px;padding:16px 12px 8px;overflow-x:auto;background:var(--bg)}.fig-frame svg{min-width:640px}
+figcaption{font-size:12.5px;line-height:1.55;color:var(--ink2);margin-top:10px;padding:0 4px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:0 4px 10px;font-size:12px;color:var(--ink2)}
+.legend i{display:inline-block;vertical-align:middle;margin-right:7px}
+.k-rect{width:12px;height:12px;border-radius:2px}.k-line{width:22px;height:0;border-top:2.5px solid}.k-thin{width:22px;height:0;border-top:1px solid;opacity:.55}
+svg text{fill:var(--ink)}svg .t2{fill:var(--ink2)}svg .b{font-weight:600}svg .cap{letter-spacing:.1em}
+svg .grid{stroke:var(--line);stroke-width:1}svg .axis{stroke:var(--axis);stroke-width:1}svg .ref{stroke:var(--ink2);stroke-width:1}
+svg .m-us{fill:var(--s1)}svg .m-other{fill:var(--muted)}svg .m-s1{fill:var(--s1)}svg .m-s2{fill:var(--s2)}svg .m-s3{fill:var(--s3)}svg .pale{opacity:.33}
+svg .mk-comb{stroke:var(--ink);stroke-width:2}
+svg .l-thin{fill:none;stroke:var(--s1);stroke-width:1;opacity:.22}svg .l-mean,svg .l-s1{fill:none;stroke:var(--s1);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+svg .l-floor,svg .l-s2{fill:none;stroke:var(--s2);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+svg .dot-mean,svg .dot-s1{fill:var(--s1);stroke:var(--bg);stroke-width:2}svg .dot-s2{fill:var(--s2);stroke:var(--bg);stroke-width:2}
+svg .cross{stroke:var(--ink2);stroke-width:1}svg .hit{fill:transparent;outline:none}svg .hit:hover,svg .hit:focus{fill:var(--ink);fill-opacity:.05}
+svg .bx{fill:var(--bg);stroke:var(--ink2);stroke-width:1.2}svg .bx.s1{stroke:var(--s1);stroke-width:2.2}svg .bx.s2{stroke:var(--s2);stroke-width:2.2}svg .bx.s3{stroke:var(--s3);stroke-width:2.2}svg .bx.strong{stroke:var(--ink);stroke-width:2}
+svg .flow{stroke:var(--ink2);stroke-width:1.3;fill:none}svg .ahead{fill:var(--ink2)}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+th{font-size:11px;letter-spacing:.04em;color:var(--ink2);text-align:left;font-weight:600;border-bottom:1px solid var(--ink2);padding:6px 10px 6px 0;vertical-align:bottom}
+td{border-bottom:1px solid var(--line);padding:7px 10px 7px 0;vertical-align:top}
+td.num,th.num{text-align:right;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;font-variant-numeric:tabular-nums}td.num{white-space:nowrap}th.num{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:11px}
+table.small td{font-size:12.5px;padding:5px 8px 5px 0}table.small td.num{font-size:12px}
+.tscroll{overflow-x:auto}.dim{color:var(--ink2);font-size:.85em}
+details{margin:12px 0 4px;border:1px solid var(--line);border-radius:4px;padding:8px 14px}details summary{font-size:12px;cursor:pointer;color:var(--ink2)}
+.note{background:var(--panel);border-radius:4px;padding:12px 18px;margin:18px 0;font-size:15.5px}
+#tt{position:fixed;z-index:10;display:none;max-width:320px;background:var(--ink);color:var(--bg);font-size:12px;line-height:1.5;padding:8px 11px;border-radius:4px;pointer-events:none;white-space:pre-line}
+footer{border-top:1px solid var(--line);margin-top:44px;padding:22px 0 64px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:12px;line-height:1.75;color:var(--ink2)}
+footer code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;overflow-wrap:anywhere}.nw{white-space:nowrap}
+a{color:var(--s1t)}
+@media (max-width:640px){h1{font-size:31px}body{font-size:16px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <span class="eyebrow">ARC white-box estimation · explainer 47 · measured 1 October 2026</span>
+  <h1>Where the remaining error comes from</h1>
+  <p class="dek">Our final-layer error is <span class="nw">1.712e-8</span>. Almost none of it is made at the last layer: each layer from 5 to 15 adds 1.6 to <span class="nw">3.8e-9</span> of new error through three per-unit inputs of one formula, and about 83% of every layer's error is passed on to the next.</p>
+  <div class="chips">
+    <span class="chip">board entry <b>#333111</b> · <b><span class="nw">2.067e-9</span></b> · 5th place</span>
+    <span class="chip">final-layer error <b><span class="nw">1.712e-8</span></b></span>
+    <span class="chip">budget share <b>12.1%</b></span>
+    <span class="chip">per-layer profile on <b>40</b> networks</span>
+    <span class="chip">input diagnostics on <b>4</b> networks</span>
+  </div>
+  <p>The competition gives a random network with 16 layers of 1,024 ReLU units and asks for the average output of every unit when the input is Gaussian noise. The score of one network is the mean-squared error of the 1,024 final-layer averages, multiplied by the share of the compute budget used, with a minimum share of 10%. Each entry is run on 100 networks; the board shows the average over the 50 whose scores are public, and lower is better. Every number below says what it is, on which networks it was measured and against what.</p>
+</header>
+<section><div class="wrap sec-head"><span class="eyebrow">01 · the board</span><h2>Where we are on the board today</h2></div><div class="wrap"><p><span class="lead">We are fifth with an adjusted score of <span class="nw">2.067e-9</span>; first place is <span class="nw">1.629e-9</span> (J2W) and third place is <span class="nw">1.844e-9</span> (Luna).</span> The adjusted score is the final-layer error multiplied by the share of the compute budget used. We have the largest error of the top five (<span class="nw">1.712e-8</span>) and the second-smallest budget share (12.1%). marius_binner has the smallest error by a wide margin (<span class="nw">1.140e-8</span>) and the largest budget share (14.5%). J2W is first because its budget share (11.0%) is closest to the 10% minimum.</p></div><figure class="wide"><div class="fig-frame"><div class="legend"><span><i class="k-rect" style="background:var(--s1)"></i>us</span><span><i class="k-rect" style="background:var(--muted)"></i>the four teams ahead of us</span></div><svg viewBox="0 0 920 252" role="img" aria-label="Top five teams: adjusted score equals final-layer error times budget share. We are fifth at 2.067e-9 with the largest error, 1.712e-8, and the second-smallest budget share, 12.1 percent.">
+<text x="150.0" y="65.5" class="tk" text-anchor="end" font-size="12" >1  J2W</text>
+<text x="150.0" y="99.5" class="tk" text-anchor="end" font-size="12" >2  marius_binner</text>
+<text x="150.0" y="133.5" class="tk" text-anchor="end" font-size="12" >3  Luna</text>
+<text x="150.0" y="167.5" class="tk" text-anchor="end" font-size="12" >4  suliman_tadros</text>
+<text x="150.0" y="201.5" class="tk b" text-anchor="end" font-size="12" >5  us</text>
+<text x="168.0" y="18.0" class="tk b" text-anchor="start" font-size="12.5" >adjusted score</text>
+<text x="168.0" y="33.0" class="t2" text-anchor="start" font-size="10.5" >×1e-9, lower is better</text>
+<line x1="168.0" y1="46.0" x2="168.0" y2="212.0" class="grid"/>
+<text x="168.0" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >0</text>
+<line x1="246.4" y1="46.0" x2="246.4" y2="212.0" class="grid"/>
+<text x="246.4" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >1</text>
+<line x1="324.8" y1="46.0" x2="324.8" y2="212.0" class="grid"/>
+<text x="324.8" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >2</text>
+<line x1="168.0" y1="46.0" x2="168.0" y2="212.0" class="axis"/>
+<path d="M168.0,54.0 h123.7 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-123.7 z" class="m-other"/>
+<text x="301.7" y="65.5" class="tk" text-anchor="start" font-size="11.5" >1.629</text>
+<path d="M168.0,88.0 h125.5 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-125.5 z" class="m-other"/>
+<text x="303.5" y="99.5" class="tk" text-anchor="start" font-size="11.5" >1.652</text>
+<path d="M168.0,122.0 h140.5 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-140.5 z" class="m-other"/>
+<text x="318.5" y="133.5" class="tk" text-anchor="start" font-size="11.5" >1.844</text>
+<path d="M168.0,156.0 h150.2 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-150.2 z" class="m-other"/>
+<text x="328.2" y="167.5" class="tk" text-anchor="start" font-size="11.5" >1.966</text>
+<path d="M168.0,190.0 h158.1 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-158.1 z" class="m-us"/>
+<text x="336.1" y="201.5" class="tk b" text-anchor="start" font-size="11.5" >2.067</text>
+<text x="430.0" y="18.0" class="tk b" text-anchor="start" font-size="12.5" >final-layer error</text>
+<text x="430.0" y="33.0" class="t2" text-anchor="start" font-size="10.5" >×1e-8</text>
+<line x1="430.0" y1="46.0" x2="430.0" y2="212.0" class="grid"/>
+<text x="430.0" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >0</text>
+<line x1="525.0" y1="46.0" x2="525.0" y2="212.0" class="grid"/>
+<text x="525.0" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >1</text>
+<line x1="620.0" y1="46.0" x2="620.0" y2="212.0" class="grid"/>
+<text x="620.0" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >2</text>
+<line x1="430.0" y1="46.0" x2="430.0" y2="212.0" class="axis"/>
+<path d="M430.0,54.0 h136.9 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-136.9 z" class="m-other"/>
+<text x="576.9" y="65.5" class="tk" text-anchor="start" font-size="11.5" >1.483</text>
+<path d="M430.0,88.0 h104.3 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-104.3 z" class="m-other"/>
+<text x="544.3" y="99.5" class="tk" text-anchor="start" font-size="11.5" >1.140</text>
+<path d="M430.0,122.0 h130.1 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-130.1 z" class="m-other"/>
+<text x="570.1" y="133.5" class="tk" text-anchor="start" font-size="11.5" >1.412</text>
+<path d="M430.0,156.0 h145.7 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-145.7 z" class="m-other"/>
+<text x="585.7" y="167.5" class="tk" text-anchor="start" font-size="11.5" >1.575</text>
+<path d="M430.0,190.0 h158.7 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-158.7 z" class="m-us"/>
+<text x="598.7" y="201.5" class="tk b" text-anchor="start" font-size="11.5" >1.712</text>
+<text x="688.0" y="18.0" class="tk b" text-anchor="start" font-size="12.5" >budget share</text>
+<text x="688.0" y="33.0" class="t2" text-anchor="start" font-size="10.5" >% of the compute budget, minimum 10</text>
+<line x1="688.0" y1="46.0" x2="688.0" y2="212.0" class="grid"/>
+<text x="688.0" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >0</text>
+<line x1="743.0" y1="46.0" x2="743.0" y2="212.0" class="grid"/>
+<text x="743.0" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >5</text>
+<line x1="798.0" y1="46.0" x2="798.0" y2="212.0" class="grid"/>
+<text x="798.0" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >10</text>
+<line x1="853.0" y1="46.0" x2="853.0" y2="212.0" class="grid"/>
+<text x="853.0" y="228.0" class="t2" text-anchor="middle" font-size="10.5" >15</text>
+<line x1="798.0" y1="42.0" x2="798.0" y2="212.0" class="ref"/>
+<text x="802.0" y="242.0" class="t2" text-anchor="middle" font-size="10.5" >minimum 10%</text>
+<line x1="688.0" y1="46.0" x2="688.0" y2="212.0" class="axis"/>
+<path d="M688.0,54.0 h116.9 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-116.9 z" class="m-other"/>
+<text x="814.9" y="65.5" class="tk" text-anchor="start" font-size="11.5" >11.0</text>
+<path d="M688.0,88.0 h155.3 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-155.3 z" class="m-other"/>
+<text x="853.3" y="99.5" class="tk" text-anchor="start" font-size="11.5" >14.5</text>
+<path d="M688.0,122.0 h139.6 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-139.6 z" class="m-other"/>
+<text x="837.6" y="133.5" class="tk" text-anchor="start" font-size="11.5" >13.1</text>
+<path d="M688.0,156.0 h133.3 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-133.3 z" class="m-other"/>
+<text x="831.3" y="167.5" class="tk" text-anchor="start" font-size="11.5" >12.5</text>
+<path d="M688.0,190.0 h128.8 a4,4 0 0 1 4,4 v6.0 a4,4 0 0 1 -4,4 h-128.8 z" class="m-us"/>
+<text x="826.8" y="201.5" class="tk b" text-anchor="start" font-size="11.5" >12.1</text>
+<text x="399.0" y="134.0" class="tk" text-anchor="middle" font-size="22" >=</text>
+<text x="660.0" y="134.0" class="tk" text-anchor="middle" font-size="22" >×</text>
+</svg></div><figcaption>Board entries read from the public submission pages on 1 October 2026 at 20:32 UTC (the best graded entry of each team). Each score is the average over the 50 public board networks of error × budget share, which is why the product of the two averages shown here differs from the score in the last digit. Run times are over all 100 networks of the run.</figcaption><details><summary>Table: the five entries and their change in 72 hours</summary><div class="tscroll"><div class="tscroll"><table class=""><thead><tr><th class="">team (board entry)</th><th class="num">adjusted score</th><th class="num">final-layer error</th><th class="num">all-layer error</th><th class="num">error averaged over layers 0 to 14</th><th class="num">budget share</th><th class="num">run time per network, mean / longest</th><th class="num">score, change in 72 h</th><th class="num">error, change in 72 h</th></tr></thead><tbody><tr><td class="">J2W <span class="dim">#333322</span></td><td class="num"><span class="nw">1.629e-9</span></td><td class="num"><span class="nw">1.483e-8</span></td><td class="num"><span class="nw">6.59e-9</span></td><td class="num"><span class="nw">6.04e-9</span></td><td class="num">11.0%</td><td class="num">95 s / 104 s</td><td class="num">-3.3%</td><td class="num">-2.9%</td></tr><tr><td class="">marius_binner <span class="dim">#333355</span></td><td class="num"><span class="nw">1.652e-9</span></td><td class="num"><span class="nw">1.140e-8</span></td><td class="num"><span class="nw">4.74e-9</span></td><td class="num"><span class="nw">4.30e-9</span></td><td class="num">14.5%</td><td class="num">82 s / 93 s</td><td class="num">-20.5%</td><td class="num">-17.7%</td></tr><tr><td class="">Luna <span class="dim">#333152</span></td><td class="num"><span class="nw">1.844e-9</span></td><td class="num"><span class="nw">1.412e-8</span></td><td class="num"><span class="nw">5.75e-9</span></td><td class="num"><span class="nw">5.19e-9</span></td><td class="num">13.1%</td><td class="num">90 s / 110 s</td><td class="num">-3.3%</td><td class="num">-0.7%</td></tr><tr><td class="">suliman_tadros <span class="dim">#333278</span></td><td class="num"><span class="nw">1.966e-9</span></td><td class="num"><span class="nw">1.575e-8</span></td><td class="num"><span class="nw">6.40e-9</span></td><td class="num"><span class="nw">5.78e-9</span></td><td class="num">12.5%</td><td class="num">77 s / 87 s</td><td class="num">-4.0%</td><td class="num">-0.2%</td></tr><tr><td class=""><b>us</b> <span class="dim">#333111</span></td><td class="num"><span class="nw">2.067e-9</span></td><td class="num"><span class="nw">1.712e-8</span></td><td class="num"><span class="nw">6.78e-9</span></td><td class="num"><span class="nw">6.09e-9</span></td><td class="num">12.1%</td><td class="num">82 s / 95 s</td><td class="num">-2.3%</td><td class="num">+0.7%</td></tr></tbody></table></div></div></details></figure><div class="wrap"><p>The board also publishes the error averaged over all 16 layers, which shows where each team is more accurate than we are. Averaged over layers 0 to 14, J2W's error is 99% of ours and its final-layer error is 87% of ours: its whole accuracy advantage is at the last layer. marius_binner is at 71% and 67%, Luna at 85% and 82%, suliman_tadros at 95% and 92%: more accurate at every layer.</p></div><div class="wrap"><p>Our gap to first place is 27%: 15% comes from the error and 10% from the budget share. Reaching <span class="nw">2.0e-9</span> needs our score to fall by 3.3%, third place needs 10.8%, and <span class="nw">1.0e-9</span> needs 51.6%.</p></div><div class="wrap"><p>In the 72 hours before the reading, marius_binner lowered its error by 17.7% and its score by 20.5% over 24 graded entries, with the budget share down 3.4%. J2W lowered its score by 3.3%, through a 2.9% lower error. Luna (3.3%), suliman_tadros (4.0%) and we (2.3%) lowered ours almost entirely through a smaller budget share.</p></div></section>
+<section><div class="wrap sec-head"><span class="eyebrow">02 · the estimator</span><h2>What the estimator carries from layer to layer</h2></div><div class="wrap"><p><span class="lead">The estimator never runs the network on sample inputs: it carries a description of the distribution of each layer's outputs and updates that description with formulas, one layer at a time.</span> It carries five things.</p></div><div class="wrap"><ol><li>The mean of each of the 1,024 units.</li><li>The covariance of every pair of units, a table of 1,024 × 1,024 numbers.</li><li>Third-order structure (how lopsided each unit's distribution is), stored as a bank of columns: two new columns for every unit that is close to its switching point at each layer, pushed through the weights at every later layer, with the older columns compressed to 384, 320 and 384 directions at layers 7, 10 and 13.</li><li>Fourth-order structure (how heavy the tails are) as one number per layer, used for all units alike.</li><li>A learned correction: a small network with about 45,000 trained parameters that adjusts each unit's mean at each layer.</li></ol></div><figure class="wide"><div class="fig-frame"><div class="legend"><span><i class="k-rect" style="background:transparent;border:2.2px solid var(--s1)"></i>variance input</span><span><i class="k-rect" style="background:transparent;border:2.2px solid var(--s2)"></i>skew input</span><span><i class="k-rect" style="background:transparent;border:2.2px solid var(--s3)"></i>kurtosis input</span></div><svg viewBox="0 0 920 356" role="img" aria-label="One layer step: the carried mean, covariance, third-order column bank and fourth-order number are multiplied by the layer weights to give each unit's input mean, spread, skew and kurtosis; a formula turns these into the mean after the ReLU; a learned correction is added; the result is carried to the next layer.">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahead"/></marker></defs>
+<text x="14.0" y="20.0" class="t2 cap" text-anchor="start" font-size="10.5" >CARRIED FROM LAYER n − 1</text>
+<text x="346.0" y="20.0" class="t2 cap" text-anchor="start" font-size="10.5" >INPUTS OF EACH UNIT AT LAYER n</text>
+<text x="676.0" y="20.0" class="t2 cap" text-anchor="start" font-size="10.5" >OUTPUT OF LAYER n</text>
+<rect x="14" y="36" width="236" height="54" rx="5" class="bx"/>
+<text x="26.0" y="58.0" class="tk b" text-anchor="start" font-size="12" >mean of each unit</text>
+<text x="26.0" y="76.0" class="t2" text-anchor="start" font-size="10.8" >1,024 numbers</text>
+<rect x="14" y="104" width="236" height="54" rx="5" class="bx"/>
+<text x="26.0" y="126.0" class="tk b" text-anchor="start" font-size="12" >covariance of every pair of units</text>
+<text x="26.0" y="144.0" class="t2" text-anchor="start" font-size="10.8" >1,024 × 1,024 numbers</text>
+<rect x="14" y="172" width="236" height="54" rx="5" class="bx"/>
+<text x="26.0" y="194.0" class="tk b" text-anchor="start" font-size="12" >third order: a bank of columns</text>
+<text x="26.0" y="212.0" class="t2" text-anchor="start" font-size="10.8" >new columns added at every layer</text>
+<rect x="14" y="240" width="236" height="54" rx="5" class="bx"/>
+<text x="26.0" y="262.0" class="tk b" text-anchor="start" font-size="12" >fourth order</text>
+<text x="26.0" y="280.0" class="t2" text-anchor="start" font-size="10.8" >1 number per layer</text>
+<rect x="346" y="36" width="232" height="54" rx="5" class="bx"/>
+<text x="358.0" y="58.0" class="tk b" text-anchor="start" font-size="12" >input mean  μ</text>
+<text x="358.0" y="76.0" class="t2" text-anchor="start" font-size="10.8" >per unit</text>
+<line x1="253" y1="63.0" x2="343" y2="63.0" class="flow" marker-end="url(#ah)"/>
+<text x="298.0" y="56.0" class="t2" text-anchor="middle" font-size="10.5" >× weights</text>
+<rect x="346" y="104" width="232" height="54" rx="5" class="bx s1"/>
+<text x="358.0" y="126.0" class="tk b" text-anchor="start" font-size="12" >input spread  σ</text>
+<text x="358.0" y="144.0" class="t2" text-anchor="start" font-size="10.8" >per unit, read from the covariance</text>
+<line x1="253" y1="131.0" x2="343" y2="131.0" class="flow" marker-end="url(#ah)"/>
+<text x="298.0" y="124.0" class="t2" text-anchor="middle" font-size="10.5" >× weights</text>
+<rect x="346" y="172" width="232" height="54" rx="5" class="bx s2"/>
+<text x="358.0" y="194.0" class="tk b" text-anchor="start" font-size="12" >input skew</text>
+<text x="358.0" y="212.0" class="t2" text-anchor="start" font-size="10.8" >per unit, read from the bank</text>
+<line x1="253" y1="199.0" x2="343" y2="199.0" class="flow" marker-end="url(#ah)"/>
+<text x="298.0" y="192.0" class="t2" text-anchor="middle" font-size="10.5" >× weights</text>
+<rect x="346" y="240" width="232" height="54" rx="5" class="bx s3"/>
+<text x="358.0" y="262.0" class="tk b" text-anchor="start" font-size="12" >input kurtosis</text>
+<text x="358.0" y="280.0" class="t2" text-anchor="start" font-size="10.8" >the same value for all units</text>
+<line x1="253" y1="267.0" x2="343" y2="267.0" class="flow" marker-end="url(#ah)"/>
+<text x="298.0" y="260.0" class="t2" text-anchor="middle" font-size="10.5" >× weights</text>
+<rect x="676" y="70" width="230" height="54" rx="5" class="bx"/>
+<text x="688.0" y="92.0" class="tk b" text-anchor="start" font-size="12" >formula for the mean</text>
+<text x="688.0" y="110.0" class="t2" text-anchor="start" font-size="10.8" >of a ReLU unit (section 4)</text>
+<path d="M578,63.0 C628,63.0 624,97 673,97" class="flow" marker-end="url(#ah)" fill="none"/>
+<path d="M578,131.0 C628,131.0 624,97 673,97" class="flow" marker-end="url(#ah)" fill="none"/>
+<path d="M578,199.0 C628,199.0 624,97 673,97" class="flow" marker-end="url(#ah)" fill="none"/>
+<path d="M578,267.0 C628,267.0 624,97 673,97" class="flow" marker-end="url(#ah)" fill="none"/>
+<rect x="676" y="156" width="230" height="54" rx="5" class="bx"/>
+<text x="688.0" y="178.0" class="tk b" text-anchor="start" font-size="12" >+ learned correction</text>
+<text x="688.0" y="196.0" class="t2" text-anchor="start" font-size="10.8" >network with 45,000 parameters</text>
+<line x1="791.0" y1="126" x2="791.0" y2="153" class="flow" marker-end="url(#ah)"/>
+<rect x="676" y="242" width="230" height="54" rx="5" class="bx strong"/>
+<text x="688.0" y="264.0" class="tk b" text-anchor="start" font-size="12" >mean of each unit after layer n</text>
+<text x="688.0" y="282.0" class="t2" text-anchor="start" font-size="10.8" >this is what is scored at layer 15</text>
+<line x1="791.0" y1="212" x2="791.0" y2="239" class="flow" marker-end="url(#ah)"/>
+<path d="M791.0,298 V330 H132 V298" class="flow" marker-end="url(#ah)" fill="none"/>
+<text x="400.0" y="324.0" class="t2" text-anchor="middle" font-size="10.8" >carried to layer n + 1, together with the updated covariance, bank and fourth-order number</text>
+</svg></div><figcaption>One layer step. The three inputs with coloured outlines are the ones whose errors sections 4 to 6 measure; the same colours are used in the chart of section 4. The covariance, the bank and the fourth-order number are updated in the same step by matching formulas for pairs of units.</figcaption></figure><div class="wrap"><p>Of the compute bill, 77% goes to the third-order bank (43% for pushing the columns through the weights, 34% for reading pair values out of them), 11% to the covariance and the third-order remainder, 5% to the final-layer skew and the pair formulas, and 3% to the learned parts (counted on a slightly earlier version of the estimator).</p></div></section>
+<section><div class="wrap sec-head"><span class="eyebrow">03 · error by layer</span><h2>The error grows by about <span class="nw">1.2e-9</span> per layer</h2></div><div class="wrap"><p><span class="lead">The error is zero at the first layer and grows by about <span class="nw">1.2e-9</span> per layer, to <span class="nw">17.2e-9</span> at the last layer.</span> This is the estimator that is on the board, run on 40 validation networks that were not used for training, measured against the organizers' reference values, which they computed from <span class="nw">1e9</span> sample inputs per network. The step from one layer to the next grows from <span class="nw">0.5e-9</span> at layer 3 to <span class="nw">1.8e-9</span> at layer 15. The 40 networks end between <span class="nw">13.2e-9</span> and <span class="nw">22.3e-9</span>; their mean, <span class="nw">1.72e-8</span>, matches the <span class="nw">1.712e-8</span> of the 50 public board networks.</p></div><figure class="wide"><div class="fig-frame"><div class="legend"><span><i class="k-thin" style="border-color:var(--s1)"></i>each of 40 validation networks</span><span><i class="k-line" style="border-color:var(--s1)"></i>mean of the 40</span><span><i class="k-line" style="border-color:var(--s2)"></i>noise floor of the organizers' truth</span></div><svg viewBox="0 0 920 392" role="img" aria-label="Error of the board estimator at each layer on 40 validation networks. The mean rises from 0.7e-9 at layer 0, which is the noise of the truth, to 17.2e-9 at layer 15, about 1.2e-9 per layer.">
+<line x1="62.0" y1="326.0" x2="838.0" y2="326.0" class="axis"/>
+<text x="54.0" y="330.0" class="t2" text-anchor="end" font-size="11" >0</text>
+<line x1="62.0" y1="275.7" x2="838.0" y2="275.7" class="grid"/>
+<text x="54.0" y="279.7" class="t2" text-anchor="end" font-size="11" >4</text>
+<line x1="62.0" y1="225.3" x2="838.0" y2="225.3" class="grid"/>
+<text x="54.0" y="229.3" class="t2" text-anchor="end" font-size="11" >8</text>
+<line x1="62.0" y1="175.0" x2="838.0" y2="175.0" class="grid"/>
+<text x="54.0" y="179.0" class="t2" text-anchor="end" font-size="11" >12</text>
+<line x1="62.0" y1="124.7" x2="838.0" y2="124.7" class="grid"/>
+<text x="54.0" y="128.7" class="t2" text-anchor="end" font-size="11" >16</text>
+<line x1="62.0" y1="74.3" x2="838.0" y2="74.3" class="grid"/>
+<text x="54.0" y="78.3" class="t2" text-anchor="end" font-size="11" >20</text>
+<line x1="62.0" y1="24.0" x2="838.0" y2="24.0" class="grid"/>
+<text x="54.0" y="28.0" class="t2" text-anchor="end" font-size="11" >24</text>
+<text x="62.0" y="344.0" class="t2" text-anchor="middle" font-size="11" >0</text>
+<text x="113.7" y="344.0" class="t2" text-anchor="middle" font-size="11" >1</text>
+<text x="165.5" y="344.0" class="t2" text-anchor="middle" font-size="11" >2</text>
+<text x="217.2" y="344.0" class="t2" text-anchor="middle" font-size="11" >3</text>
+<text x="268.9" y="344.0" class="t2" text-anchor="middle" font-size="11" >4</text>
+<text x="320.7" y="344.0" class="t2" text-anchor="middle" font-size="11" >5</text>
+<text x="372.4" y="344.0" class="t2" text-anchor="middle" font-size="11" >6</text>
+<text x="424.1" y="344.0" class="t2" text-anchor="middle" font-size="11" >7</text>
+<text x="475.9" y="344.0" class="t2" text-anchor="middle" font-size="11" >8</text>
+<text x="527.6" y="344.0" class="t2" text-anchor="middle" font-size="11" >9</text>
+<text x="579.3" y="344.0" class="t2" text-anchor="middle" font-size="11" >10</text>
+<text x="631.1" y="344.0" class="t2" text-anchor="middle" font-size="11" >11</text>
+<text x="682.8" y="344.0" class="t2" text-anchor="middle" font-size="11" >12</text>
+<text x="734.5" y="344.0" class="t2" text-anchor="middle" font-size="11" >13</text>
+<text x="786.3" y="344.0" class="t2" text-anchor="middle" font-size="11" >14</text>
+<text x="838.0" y="344.0" class="t2" text-anchor="middle" font-size="11" >15</text>
+<text x="450.0" y="366.0" class="t2" text-anchor="middle" font-size="11.5" >layer (0 = first, 15 = last; only layer 15 is scored)</text>
+<text x="16.0" y="175.0" class="t2" text-anchor="middle" font-size="11.5" transform="rotate(-90 16 175.0)">mean-squared error of the unit means (×1e-9)</text>
+<path d="M62.0,317.9 L113.7,318.5 L165.5,314.4 L217.2,309.4 L268.9,300.6 L320.7,290.9 L372.4,279.0 L424.1,260.1 L475.9,243.0 L527.6,230.8 L579.3,207.1 L631.1,178.4 L682.8,165.7 L734.5,142.5 L786.3,122.6 L838.0,116.3" class="l-thin" />
+<path d="M62.0,317.8 L113.7,318.4 L165.5,316.5 L217.2,310.2 L268.9,301.5 L320.7,287.7 L372.4,277.7 L424.1,261.1 L475.9,246.4 L527.6,233.1 L579.3,230.0 L631.1,212.1 L682.8,190.6 L734.5,181.8 L786.3,172.8 L838.0,145.3" class="l-thin" />
+<path d="M62.0,317.6 L113.7,318.7 L165.5,316.0 L217.2,310.4 L268.9,301.9 L320.7,293.5 L372.4,277.5 L424.1,262.4 L475.9,245.4 L527.6,224.5 L579.3,201.8 L631.1,184.4 L682.8,162.7 L734.5,154.1 L786.3,115.4 L838.0,90.0" class="l-thin" />
+<path d="M62.0,317.1 L113.7,317.4 L165.5,314.8 L217.2,308.4 L268.9,299.3 L320.7,290.0 L372.4,275.5 L424.1,260.9 L475.9,240.1 L527.6,220.3 L579.3,201.6 L631.1,186.5 L682.8,153.9 L734.5,149.3 L786.3,135.8 L838.0,109.6" class="l-thin" />
+<path d="M62.0,317.5 L113.7,318.5 L165.5,315.6 L217.2,308.8 L268.9,299.6 L320.7,290.6 L372.4,280.6 L424.1,272.5 L475.9,245.1 L527.6,220.7 L579.3,207.3 L631.1,188.4 L682.8,150.2 L734.5,126.0 L786.3,98.5 L838.0,45.5" class="l-thin" />
+<path d="M62.0,317.7 L113.7,318.7 L165.5,315.8 L217.2,311.5 L268.9,305.1 L320.7,293.4 L372.4,277.9 L424.1,263.6 L475.9,245.8 L527.6,232.2 L579.3,203.1 L631.1,191.2 L682.8,175.6 L734.5,163.6 L786.3,134.8 L838.0,117.6" class="l-thin" />
+<path d="M62.0,318.3 L113.7,317.9 L165.5,314.7 L217.2,307.5 L268.9,297.8 L320.7,287.8 L372.4,268.6 L424.1,253.6 L475.9,237.5 L527.6,221.1 L579.3,206.8 L631.1,202.0 L682.8,174.5 L734.5,167.9 L786.3,135.6 L838.0,118.3" class="l-thin" />
+<path d="M62.0,317.0 L113.7,317.4 L165.5,315.7 L217.2,309.0 L268.9,298.6 L320.7,285.9 L372.4,279.6 L424.1,262.8 L475.9,249.4 L527.6,237.2 L579.3,219.6 L631.1,203.5 L682.8,178.3 L734.5,174.6 L786.3,163.8 L838.0,147.1" class="l-thin" />
+<path d="M62.0,317.4 L113.7,319.4 L165.5,316.2 L217.2,310.9 L268.9,303.0 L320.7,293.3 L372.4,282.8 L424.1,269.6 L475.9,256.1 L527.6,229.1 L579.3,212.7 L631.1,207.2 L682.8,183.8 L734.5,156.7 L786.3,147.0 L838.0,99.6" class="l-thin" />
+<path d="M62.0,317.5 L113.7,317.9 L165.5,315.4 L217.2,309.8 L268.9,299.4 L320.7,286.1 L372.4,270.8 L424.1,254.0 L475.9,244.6 L527.6,229.9 L579.3,210.2 L631.1,193.9 L682.8,169.2 L734.5,155.6 L786.3,147.5 L838.0,128.1" class="l-thin" />
+<path d="M62.0,318.3 L113.7,318.7 L165.5,315.2 L217.2,309.7 L268.9,301.5 L320.7,292.3 L372.4,279.9 L424.1,263.7 L475.9,254.5 L527.6,247.4 L579.3,235.1 L631.1,207.9 L682.8,180.0 L734.5,162.6 L786.3,161.0 L838.0,152.3" class="l-thin" />
+<path d="M62.0,316.8 L113.7,317.2 L165.5,314.5 L217.2,308.0 L268.9,300.1 L320.7,285.2 L372.4,273.3 L424.1,260.2 L475.9,250.6 L527.6,244.7 L579.3,233.0 L631.1,221.2 L682.8,209.3 L734.5,182.2 L786.3,181.4 L838.0,136.0" class="l-thin" />
+<path d="M62.0,317.1 L113.7,317.7 L165.5,314.6 L217.2,310.4 L268.9,304.8 L320.7,292.5 L372.4,282.2 L424.1,272.2 L475.9,256.8 L527.6,237.2 L579.3,211.5 L631.1,190.0 L682.8,173.2 L734.5,141.2 L786.3,111.4 L838.0,97.3" class="l-thin" />
+<path d="M62.0,318.2 L113.7,318.8 L165.5,315.3 L217.2,308.6 L268.9,301.9 L320.7,292.4 L372.4,280.1 L424.1,267.4 L475.9,252.9 L527.6,241.3 L579.3,223.6 L631.1,208.8 L682.8,184.9 L734.5,166.1 L786.3,135.8 L838.0,97.6" class="l-thin" />
+<path d="M62.0,317.1 L113.7,317.5 L165.5,315.3 L217.2,309.2 L268.9,300.4 L320.7,290.6 L372.4,276.7 L424.1,264.2 L475.9,251.3 L527.6,235.2 L579.3,216.1 L631.1,197.5 L682.8,190.4 L734.5,173.0 L786.3,151.4 L838.0,144.8" class="l-thin" />
+<path d="M62.0,316.9 L113.7,317.6 L165.5,315.0 L217.2,310.3 L268.9,302.3 L320.7,290.8 L372.4,280.1 L424.1,266.1 L475.9,261.0 L527.6,245.2 L579.3,230.0 L631.1,211.9 L682.8,184.8 L734.5,155.3 L786.3,140.7 L838.0,109.0" class="l-thin" />
+<path d="M62.0,317.7 L113.7,318.9 L165.5,315.6 L217.2,310.0 L268.9,301.6 L320.7,295.6 L372.4,280.7 L424.1,266.3 L475.9,253.1 L527.6,233.2 L579.3,206.5 L631.1,186.3 L682.8,168.2 L734.5,147.2 L786.3,128.4 L838.0,116.7" class="l-thin" />
+<path d="M62.0,317.7 L113.7,318.7 L165.5,315.1 L217.2,310.1 L268.9,301.7 L320.7,290.3 L372.4,280.4 L424.1,267.7 L475.9,255.9 L527.6,231.5 L579.3,224.6 L631.1,209.2 L682.8,202.7 L734.5,176.6 L786.3,167.7 L838.0,159.5" class="l-thin" />
+<path d="M62.0,317.9 L113.7,318.3 L165.5,315.1 L217.2,309.4 L268.9,299.7 L320.7,286.2 L372.4,275.7 L424.1,265.0 L475.9,253.5 L527.6,237.6 L579.3,225.9 L631.1,192.0 L682.8,171.2 L734.5,153.6 L786.3,122.4 L838.0,77.3" class="l-thin" />
+<path d="M62.0,316.8 L113.7,317.9 L165.5,315.0 L217.2,309.4 L268.9,300.0 L320.7,290.8 L372.4,286.0 L424.1,271.1 L475.9,247.1 L527.6,220.6 L579.3,203.2 L631.1,179.6 L682.8,147.5 L734.5,116.1 L786.3,90.6 L838.0,72.2" class="l-thin" />
+<path d="M62.0,316.3 L113.7,318.0 L165.5,315.7 L217.2,310.9 L268.9,299.2 L320.7,288.8 L372.4,272.1 L424.1,257.2 L475.9,243.3 L527.6,237.5 L579.3,214.7 L631.1,183.6 L682.8,165.9 L734.5,132.7 L786.3,134.4 L838.0,82.1" class="l-thin" />
+<path d="M62.0,317.2 L113.7,318.0 L165.5,314.9 L217.2,309.8 L268.9,301.9 L320.7,290.5 L372.4,281.6 L424.1,269.5 L475.9,258.6 L527.6,245.5 L579.3,227.9 L631.1,203.0 L682.8,162.1 L734.5,159.2 L786.3,121.2 L838.0,118.0" class="l-thin" />
+<path d="M62.0,317.6 L113.7,318.6 L165.5,315.6 L217.2,310.9 L268.9,301.3 L320.7,291.4 L372.4,273.5 L424.1,259.0 L475.9,233.3 L527.6,222.3 L579.3,215.4 L631.1,196.3 L682.8,159.8 L734.5,135.4 L786.3,91.4 L838.0,84.7" class="l-thin" />
+<path d="M62.0,316.2 L113.7,317.4 L165.5,315.2 L217.2,309.9 L268.9,302.8 L320.7,293.0 L372.4,280.3 L424.1,272.8 L475.9,253.8 L527.6,246.8 L579.3,232.1 L631.1,226.4 L682.8,215.1 L734.5,187.8 L786.3,171.9 L838.0,153.0" class="l-thin" />
+<path d="M62.0,317.3 L113.7,318.1 L165.5,315.1 L217.2,309.4 L268.9,303.5 L320.7,292.1 L372.4,279.2 L424.1,267.9 L475.9,251.6 L527.6,244.2 L579.3,218.0 L631.1,213.9 L682.8,180.8 L734.5,148.9 L786.3,136.3 L838.0,107.9" class="l-thin" />
+<path d="M62.0,317.5 L113.7,318.2 L165.5,314.9 L217.2,310.0 L268.9,302.0 L320.7,289.0 L372.4,279.6 L424.1,261.4 L475.9,247.7 L527.6,231.8 L579.3,205.8 L631.1,179.0 L682.8,156.8 L734.5,109.1 L786.3,97.6 L838.0,62.1" class="l-thin" />
+<path d="M62.0,316.9 L113.7,318.6 L165.5,316.7 L217.2,309.9 L268.9,302.2 L320.7,291.1 L372.4,280.2 L424.1,269.6 L475.9,260.5 L527.6,241.7 L579.3,226.0 L631.1,190.4 L682.8,183.0 L734.5,150.5 L786.3,119.8 L838.0,85.3" class="l-thin" />
+<path d="M62.0,316.9 L113.7,317.2 L165.5,314.9 L217.2,308.5 L268.9,299.4 L320.7,289.6 L372.4,278.1 L424.1,270.8 L475.9,250.0 L527.6,221.5 L579.3,218.1 L631.1,195.0 L682.8,166.7 L734.5,162.0 L786.3,164.7 L838.0,148.1" class="l-thin" />
+<path d="M62.0,317.6 L113.7,318.5 L165.5,315.7 L217.2,310.8 L268.9,300.3 L320.7,290.7 L372.4,280.4 L424.1,269.7 L475.9,245.8 L527.6,225.7 L579.3,202.7 L631.1,157.9 L682.8,145.0 L734.5,122.1 L786.3,67.6 L838.0,68.9" class="l-thin" />
+<path d="M62.0,318.0 L113.7,316.9 L165.5,314.1 L217.2,308.0 L268.9,300.9 L320.7,290.3 L372.4,275.7 L424.1,259.5 L475.9,238.6 L527.6,216.9 L579.3,201.9 L631.1,181.6 L682.8,170.4 L734.5,133.4 L786.3,109.2 L838.0,65.0" class="l-thin" />
+<path d="M62.0,317.5 L113.7,319.0 L165.5,316.1 L217.2,310.1 L268.9,303.1 L320.7,291.7 L372.4,281.6 L424.1,268.4 L475.9,253.3 L527.6,240.1 L579.3,222.3 L631.1,191.0 L682.8,174.5 L734.5,127.7 L786.3,110.9 L838.0,88.0" class="l-thin" />
+<path d="M62.0,317.7 L113.7,318.5 L165.5,315.5 L217.2,308.3 L268.9,301.9 L320.7,290.6 L372.4,278.0 L424.1,259.4 L475.9,243.9 L527.6,236.9 L579.3,219.7 L631.1,196.7 L682.8,182.0 L734.5,166.2 L786.3,160.8 L838.0,146.0" class="l-thin" />
+<path d="M62.0,316.8 L113.7,317.7 L165.5,313.3 L217.2,309.1 L268.9,302.7 L320.7,292.0 L372.4,278.7 L424.1,265.1 L475.9,249.7 L527.6,236.0 L579.3,222.2 L631.1,202.3 L682.8,178.9 L734.5,143.5 L786.3,138.2 L838.0,123.8" class="l-thin" />
+<path d="M62.0,317.9 L113.7,317.9 L165.5,315.0 L217.2,308.4 L268.9,298.7 L320.7,290.4 L372.4,278.7 L424.1,267.0 L475.9,256.7 L527.6,226.4 L579.3,215.3 L631.1,194.7 L682.8,181.6 L734.5,152.9 L786.3,120.4 L838.0,108.5" class="l-thin" />
+<path d="M62.0,317.5 L113.7,318.6 L165.5,315.2 L217.2,308.4 L268.9,300.5 L320.7,292.9 L372.4,280.1 L424.1,266.0 L475.9,253.5 L527.6,241.1 L579.3,223.4 L631.1,194.4 L682.8,177.6 L734.5,166.6 L786.3,149.4 L838.0,138.5" class="l-thin" />
+<path d="M62.0,318.1 L113.7,318.9 L165.5,315.8 L217.2,310.0 L268.9,299.8 L320.7,294.3 L372.4,282.7 L424.1,271.7 L475.9,257.7 L527.6,242.1 L579.3,222.8 L631.1,184.1 L682.8,156.0 L734.5,134.7 L786.3,102.6 L838.0,83.9" class="l-thin" />
+<path d="M62.0,318.2 L113.7,318.6 L165.5,316.1 L217.2,311.1 L268.9,302.7 L320.7,292.6 L372.4,279.9 L424.1,267.7 L475.9,255.6 L527.6,246.6 L579.3,223.2 L631.1,216.4 L682.8,171.8 L734.5,162.1 L786.3,165.1 L838.0,120.9" class="l-thin" />
+<path d="M62.0,316.2 L113.7,317.2 L165.5,315.1 L217.2,307.6 L268.9,297.1 L320.7,284.3 L372.4,274.9 L424.1,257.5 L475.9,245.8 L527.6,219.6 L579.3,202.2 L631.1,184.1 L682.8,186.9 L734.5,150.4 L786.3,128.2 L838.0,93.7" class="l-thin" />
+<path d="M62.0,316.9 L113.7,317.4 L165.5,315.6 L217.2,310.4 L268.9,301.7 L320.7,294.2 L372.4,280.6 L424.1,265.7 L475.9,248.4 L527.6,233.9 L579.3,221.9 L631.1,199.7 L682.8,190.0 L734.5,154.8 L786.3,134.8 L838.0,126.5" class="l-thin" />
+<path d="M62.0,316.9 L113.7,318.7 L165.5,315.5 L217.2,310.8 L268.9,302.8 L320.7,289.3 L372.4,275.6 L424.1,270.7 L475.9,250.8 L527.6,234.0 L579.3,217.5 L631.1,201.4 L682.8,183.7 L734.5,161.7 L786.3,141.6 L838.0,118.8" class="l-thin" />
+<path d="M62.0,317.4 L113.7,319.7 L165.5,321.1 L217.2,322.1 L268.9,322.7 L320.7,323.2 L372.4,323.6 L424.1,323.9 L475.9,324.1 L527.6,324.4 L579.3,324.6 L631.1,324.7 L682.8,324.8 L734.5,324.9 L786.3,325.0 L838.0,325.1" class="l-floor" />
+<path d="M62.0,317.4 L113.7,318.2 L165.5,315.3 L217.2,309.6 L268.9,301.1 L320.7,290.6 L372.4,278.4 L424.1,265.0 L475.9,249.7 L527.6,233.6 L579.3,216.6 L631.1,196.1 L682.8,175.1 L734.5,152.7 L786.3,133.3 L838.0,110.1" class="l-mean" />
+<circle cx="838.0" cy="110.1" r="5" class="dot-mean"/>
+<text x="848.0" y="114.1" class="tk b" text-anchor="start" font-size="12" >mean 17.2</text>
+<text x="848.0" y="320.1" class="tk" text-anchor="start" font-size="11.5" >floor 0.07</text>
+<text x="848.0" y="49.5" class="t2" text-anchor="start" font-size="11" >highest 22.3</text>
+<text x="848.0" y="163.5" class="t2" text-anchor="start" font-size="11" >lowest 13.2</text>
+<line x1="0" y1="24" x2="0" y2="326" class="cross" id="cross3" visibility="hidden"/>
+<rect x="36.2" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="62.0" data-tip="layer 0
+mean of 40 networks: 0.68e-9
+lowest / highest network: 0.61 / 0.78e-9
+noise floor of the truth: 0.68e-9"/>
+<rect x="87.9" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="113.7" data-tip="layer 1
+mean of 40 networks: 0.62e-9
+lowest / highest network: 0.52 / 0.73e-9
+noise floor of the truth: 0.50e-9"/>
+<rect x="139.7" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="165.5" data-tip="layer 2
+mean of 40 networks: 0.85e-9
+lowest / highest network: 0.74 / 1.01e-9
+noise floor of the truth: 0.39e-9"/>
+<rect x="191.4" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="217.2" data-tip="layer 3
+mean of 40 networks: 1.30e-9
+lowest / highest network: 1.15 / 1.47e-9
+noise floor of the truth: 0.31e-9"/>
+<rect x="243.1" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="268.9" data-tip="layer 4
+mean of 40 networks: 1.98e-9
+lowest / highest network: 1.66 / 2.30e-9
+noise floor of the truth: 0.26e-9"/>
+<rect x="294.9" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="320.7" data-tip="layer 5
+mean of 40 networks: 2.81e-9
+lowest / highest network: 2.41 / 3.31e-9
+noise floor of the truth: 0.22e-9"/>
+<rect x="346.6" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="372.4" data-tip="layer 6
+mean of 40 networks: 3.78e-9
+lowest / highest network: 3.18 / 4.56e-9
+noise floor of the truth: 0.19e-9"/>
+<rect x="398.3" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="424.1" data-tip="layer 7
+mean of 40 networks: 4.84e-9
+lowest / highest network: 4.23 / 5.76e-9
+noise floor of the truth: 0.17e-9"/>
+<rect x="450.1" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="475.9" data-tip="layer 8
+mean of 40 networks: 6.06e-9
+lowest / highest network: 5.16 / 7.36e-9
+noise floor of the truth: 0.15e-9"/>
+<rect x="501.8" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="527.6" data-tip="layer 9
+mean of 40 networks: 7.34e-9
+lowest / highest network: 6.25 / 8.67e-9
+noise floor of the truth: 0.13e-9"/>
+<rect x="553.5" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="579.3" data-tip="layer 10
+mean of 40 networks: 8.70e-9
+lowest / highest network: 7.23 / 9.89e-9
+noise floor of the truth: 0.11e-9"/>
+<rect x="605.3" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="631.1" data-tip="layer 11
+mean of 40 networks: 10.32e-9
+lowest / highest network: 7.92 / 13.36e-9
+noise floor of the truth: 0.10e-9"/>
+<rect x="657.0" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="682.8" data-tip="layer 12
+mean of 40 networks: 11.99e-9
+lowest / highest network: 8.81 / 14.38e-9
+noise floor of the truth: 0.09e-9"/>
+<rect x="708.7" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="734.5" data-tip="layer 13
+mean of 40 networks: 13.77e-9
+lowest / highest network: 10.98 / 17.24e-9
+noise floor of the truth: 0.08e-9"/>
+<rect x="760.5" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="786.3" data-tip="layer 14
+mean of 40 networks: 15.32e-9
+lowest / highest network: 11.49 / 20.54e-9
+noise floor of the truth: 0.08e-9"/>
+<rect x="812.2" y="24" width="51.6" height="302" class="hit" tabindex="0" data-cross="cross3" data-x="838.0" data-tip="layer 15
+mean of 40 networks: 17.16e-9
+lowest / highest network: 13.23 / 22.29e-9
+noise floor of the truth: 0.07e-9"/>
+</svg></div><figcaption>Per-layer error of the estimator on the board (entry #333111). The noise floor is the mean variance of a unit's output divided by <span class="nw">1e9</span>, computed on networks 35, 100, 37 and 39. Only layer 15 counts for the score.</figcaption><details><summary>Table of the plotted values (×<span class="nw">1e-9</span>)</summary><div class="tscroll"><table class="small"><thead><tr><th class="">layer</th><th class="num">0</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th><th class="num">6</th><th class="num">7</th><th class="num">8</th><th class="num">9</th><th class="num">10</th><th class="num">11</th><th class="num">12</th><th class="num">13</th><th class="num">14</th><th class="num">15</th></tr></thead><tbody><tr><td class="">mean of 40 networks</td><td class="num">0.68</td><td class="num">0.62</td><td class="num">0.85</td><td class="num">1.30</td><td class="num">1.98</td><td class="num">2.81</td><td class="num">3.78</td><td class="num">4.84</td><td class="num">6.06</td><td class="num">7.34</td><td class="num">8.70</td><td class="num">10.32</td><td class="num">11.99</td><td class="num">13.77</td><td class="num">15.32</td><td class="num">17.16</td></tr><tr><td class="">lowest network</td><td class="num">0.61</td><td class="num">0.52</td><td class="num">0.74</td><td class="num">1.15</td><td class="num">1.66</td><td class="num">2.41</td><td class="num">3.18</td><td class="num">4.23</td><td class="num">5.16</td><td class="num">6.25</td><td class="num">7.23</td><td class="num">7.92</td><td class="num">8.81</td><td class="num">10.98</td><td class="num">11.49</td><td class="num">13.23</td></tr><tr><td class="">highest network</td><td class="num">0.78</td><td class="num">0.73</td><td class="num">1.01</td><td class="num">1.47</td><td class="num">2.30</td><td class="num">3.31</td><td class="num">4.56</td><td class="num">5.76</td><td class="num">7.36</td><td class="num">8.67</td><td class="num">9.89</td><td class="num">13.36</td><td class="num">14.38</td><td class="num">17.24</td><td class="num">20.54</td><td class="num">22.29</td></tr><tr><td class="">noise floor of the truth</td><td class="num">0.68</td><td class="num">0.50</td><td class="num">0.39</td><td class="num">0.31</td><td class="num">0.26</td><td class="num">0.22</td><td class="num">0.19</td><td class="num">0.17</td><td class="num">0.15</td><td class="num">0.13</td><td class="num">0.11</td><td class="num">0.10</td><td class="num">0.09</td><td class="num">0.08</td><td class="num">0.08</td><td class="num">0.07</td></tr></tbody></table></div></details></figure><div class="wrap"><p>At layer 0 the estimator is exact, because the input is Gaussian; the <span class="nw">0.68e-9</span> measured there is the sampling noise of the reference values. That noise falls to <span class="nw">0.07e-9</span> at layer 15 because the unit outputs get smaller with depth, so from layer 5 on more than 90% of the measured error is real.</p></div><div class="wrap"><p>Each layer's error has two parts. About 83% of the previous layer's error is passed on (80% to 86% at layers 7 to 15), and new error is added: <span class="nw">2.0e-9</span> at layer 7, rising to <span class="nw">3.8e-9</span> at layer 15. The learned correction then removes 3% to 5% of the total at each of layers 6 to 15. At layer 15 on the research copy: <span class="nw">11.5e-9</span> carried in, <span class="nw">3.8e-9</span> new, <span class="nw">15.8e-9</span> before the learned correction, <span class="nw">15.0e-9</span> after it (the board version on the same four networks: <span class="nw">15.2e-9</span>). Because 83% is passed on at each step, an error made at layer 10 still counts about 39% at layer 15, and one made at layer 5 about 15%.</p></div><div class="wrap"><div class="note">These per-layer parts were measured on the research copy of the estimator, the version used for training, on networks 35, 100, 37 and 39, because the board version does not expose its per-unit inputs. The research copy leaves out a few cost-saving approximations of the board version: its final-layer error is 0.7% to 3.4% lower than the board version's on networks 39, 37 and 35 and 0.6% higher on network 100, with the same per-unit error pattern (correlation 0.99). Every error number that does not need those inputs is from the board version. Networks 35 and 100 were used for training the learned parts; 37 and 39 were not, and the four give the same results.</div></div></section>
+<section><div class="wrap sec-head"><span class="eyebrow">04 · the three inputs</span><h2>Three wrong inputs produce the new error</h2></div><div class="wrap"><p><span class="lead">The new error at each layer comes from three per-unit inputs of one formula, the variance, the skew and the kurtosis of each unit's input; the formula itself is accurate.</span> The mean output of a ReLU unit depends on four properties of its input: the mean <var>μ</var>, the standard deviation <var>σ</var>, the skew (lopsidedness) and the excess kurtosis (tail weight). With <var>a</var> = <var>μ</var>/<var>σ</var>, <var>φ</var> the bell curve and <var>Φ</var> its running total, the estimator uses</p></div><div class="wrap"><div class="eq">mean after ReLU = <var>σ</var>·[<var>a</var>·<var>Φ</var>(<var>a</var>) + <var>φ</var>(<var>a</var>)] − <var>σ</var>·skew·<var>a</var>·<var>φ</var>(<var>a</var>)/6 + <var>σ</var>·kurtosis·(<var>a</var>² − 1)·<var>φ</var>(<var>a</var>)/24</div></div><div class="wrap"><p>Fed with the true four inputs, this formula is wrong by less than <span class="nw">0.1e-9</span> at every layer from 4 to 15 (networks 35 and 100; the true inputs come from two independent runs of 32 million samples each, so their sampling noise cancels in the comparison). Fed with the estimator's own inputs, each of layers 10 to 15 adds 1.5 to <span class="nw">2.0e-9</span> through the variance, 0.8 to <span class="nw">1.2e-9</span> through the skew and 1.0 to <span class="nw">1.3e-9</span> through the kurtosis (mean of four networks). The three partly cancel, so the combined new error is 2.7 to <span class="nw">3.8e-9</span>, about 15% less than their sum.</p></div><figure class="wide"><div class="fig-frame"><div class="legend"><span><i class="k-rect" style="background:var(--s1)"></i>wrong variance</span><span><i class="k-rect" style="background:var(--s2)"></i>wrong skew</span><span><i class="k-rect" style="background:var(--s3)"></i>wrong kurtosis</span><span><i class="k-line" style="border-color:var(--ink);border-top-width:2px"></i>the three combined (they partly cancel)</span><span><i class="k-rect" style="background:var(--s1);opacity:.33"></i>pale: not above the noise of the true values</span></div><svg viewBox="0 0 920 372" role="img" aria-label="New error added at each layer by wrong variance, skew and kurtosis inputs, mean of four networks. At layer 15: variance 2.0, skew 1.2, kurtosis 1.3, combined 3.8, in units of 1e-9.">
+<line x1="62.0" y1="306.0" x2="812.0" y2="306.0" class="axis"/>
+<text x="54.0" y="310.0" class="t2" text-anchor="end" font-size="11" >0</text>
+<line x1="62.0" y1="249.6" x2="812.0" y2="249.6" class="grid"/>
+<text x="54.0" y="253.6" class="t2" text-anchor="end" font-size="11" >1</text>
+<line x1="62.0" y1="193.2" x2="812.0" y2="193.2" class="grid"/>
+<text x="54.0" y="197.2" class="t2" text-anchor="end" font-size="11" >2</text>
+<line x1="62.0" y1="136.8" x2="812.0" y2="136.8" class="grid"/>
+<text x="54.0" y="140.8" class="t2" text-anchor="end" font-size="11" >3</text>
+<line x1="62.0" y1="80.4" x2="812.0" y2="80.4" class="grid"/>
+<text x="54.0" y="84.4" class="t2" text-anchor="end" font-size="11" >4</text>
+<line x1="62.0" y1="24.0" x2="812.0" y2="24.0" class="grid"/>
+<text x="54.0" y="28.0" class="t2" text-anchor="end" font-size="11" >5</text>
+<text x="437.0" y="346.0" class="t2" text-anchor="middle" font-size="11.5" >layer</text>
+<text x="16.0" y="165.0" class="t2" text-anchor="middle" font-size="11.5" transform="rotate(-90 16 165.0)">new mean-squared error added at this layer (×1e-9)</text>
+<text x="87.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >1</text>
+
+<rect x="75.0" y="304.7" width="24.0" height="1.3" class="m-s2 pale" />
+<path d="M75.0,302.7 v-2.6 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v2.6 z" class="m-s3 pale" />
+<rect x="60.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 1
+variance: 0.00e-9 (at the noise floor)
+skew: 0.02e-9 (at the noise floor)
+kurtosis: 0.15e-9 (at the noise floor)
+combined: 0.52e-9
+carried in from layer 0: 0.00e-9"/>
+<text x="137.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >2</text>
+<rect x="125.0" y="300.0" width="24.0" height="6.0" class="m-s1 pale" />
+<rect x="125.0" y="295.7" width="24.0" height="2.3" class="m-s2 pale" />
+<path d="M125.0,293.7 v-9.3 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v9.3 z" class="m-s3" />
+<rect x="110.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 2
+variance: 0.11e-9 (at the noise floor)
+skew: 0.08e-9 (at the noise floor)
+kurtosis: 0.27e-9
+combined: 0.68e-9
+carried in from layer 1: 0.05e-9"/>
+<text x="187.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >3</text>
+<rect x="175.0" y="291.8" width="24.0" height="14.2" class="m-s1 pale" />
+<rect x="175.0" y="281.7" width="24.0" height="8.1" class="m-s2 pale" />
+<path d="M175.0,279.7 v-17.0 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v17.0 z" class="m-s3" />
+<rect x="160.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 3
+variance: 0.25e-9 (at the noise floor)
+skew: 0.18e-9 (at the noise floor)
+kurtosis: 0.41e-9
+combined: 0.96e-9
+carried in from layer 2: 0.29e-9"/>
+<text x="237.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >4</text>
+<rect x="225.0" y="282.0" width="24.0" height="24.0" class="m-s1 pale" />
+<rect x="225.0" y="267.0" width="24.0" height="13.0" class="m-s2" />
+<path d="M225.0,265.0 v-24.2 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v24.2 z" class="m-s3" />
+<rect x="210.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 4
+variance: 0.43e-9 (at the noise floor)
+skew: 0.27e-9
+kurtosis: 0.54e-9
+combined: 1.26e-9
+carried in from layer 3: 0.73e-9"/>
+<text x="287.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >5</text>
+<rect x="275.0" y="270.7" width="24.0" height="35.3" class="m-s1 pale" />
+<rect x="275.0" y="250.3" width="24.0" height="18.3" class="m-s2" />
+<path d="M275.0,248.3 v-29.1 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v29.1 z" class="m-s3" />
+<rect x="260.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 5
+variance: 0.63e-9 (at the noise floor)
+skew: 0.36e-9
+kurtosis: 0.62e-9
+combined: 1.60e-9
+carried in from layer 4: 1.22e-9"/>
+<text x="337.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >6</text>
+<rect x="325.0" y="259.9" width="24.0" height="46.1" class="m-s1" />
+<rect x="325.0" y="235.0" width="24.0" height="22.9" class="m-s2" />
+<path d="M325.0,233.0 v-34.8 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v34.8 z" class="m-s3" />
+<line x1="320.0" y1="201.8" x2="354.0" y2="201.8" class="mk-comb"/>
+<rect x="310.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 6
+variance: 0.82e-9
+skew: 0.44e-9
+kurtosis: 0.72e-9
+combined: 1.85e-9
+carried in from layer 5: 1.90e-9"/>
+<text x="387.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >7</text>
+<rect x="375.0" y="252.4" width="24.0" height="53.6" class="m-s1" />
+<rect x="375.0" y="220.4" width="24.0" height="30.0" class="m-s2" />
+<path d="M375.0,218.4 v-40.9 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v40.9 z" class="m-s3" />
+<line x1="370.0" y1="190.7" x2="404.0" y2="190.7" class="mk-comb"/>
+<rect x="360.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 7
+variance: 0.95e-9
+skew: 0.57e-9
+kurtosis: 0.83e-9
+combined: 2.04e-9
+carried in from layer 6: 2.82e-9"/>
+<text x="437.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >8</text>
+<rect x="425.0" y="243.9" width="24.0" height="62.1" class="m-s1" />
+<rect x="425.0" y="205.6" width="24.0" height="36.3" class="m-s2" />
+<path d="M425.0,203.6 v-43.7 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v43.7 z" class="m-s3" />
+<line x1="420.0" y1="166.0" x2="454.0" y2="166.0" class="mk-comb"/>
+<rect x="410.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 8
+variance: 1.10e-9
+skew: 0.68e-9
+kurtosis: 0.88e-9
+combined: 2.48e-9
+carried in from layer 7: 3.85e-9"/>
+<text x="487.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >9</text>
+<rect x="475.0" y="234.5" width="24.0" height="71.5" class="m-s1" />
+<rect x="475.0" y="195.6" width="24.0" height="36.9" class="m-s2" />
+<path d="M475.0,193.6 v-50.5 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v50.5 z" class="m-s3" />
+<line x1="470.0" y1="166.0" x2="504.0" y2="166.0" class="mk-comb"/>
+<rect x="460.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 9
+variance: 1.27e-9
+skew: 0.69e-9
+kurtosis: 1.00e-9
+combined: 2.48e-9
+carried in from layer 8: 4.88e-9"/>
+<text x="537.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >10</text>
+<rect x="525.0" y="223.9" width="24.0" height="82.1" class="m-s1" />
+<rect x="525.0" y="177.8" width="24.0" height="44.1" class="m-s2" />
+<path d="M525.0,175.8 v-52.2 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v52.2 z" class="m-s3" />
+<line x1="520.0" y1="151.4" x2="554.0" y2="151.4" class="mk-comb"/>
+<rect x="510.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 10
+variance: 1.46e-9
+skew: 0.82e-9
+kurtosis: 1.03e-9
+combined: 2.74e-9
+carried in from layer 9: 6.02e-9"/>
+<text x="587.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >11</text>
+<rect x="575.0" y="221.2" width="24.0" height="84.8" class="m-s1" />
+<rect x="575.0" y="170.5" width="24.0" height="48.7" class="m-s2" />
+<path d="M575.0,168.5 v-53.9 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v53.9 z" class="m-s3" />
+<line x1="570.0" y1="132.7" x2="604.0" y2="132.7" class="mk-comb"/>
+<rect x="560.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 11
+variance: 1.50e-9
+skew: 0.90e-9
+kurtosis: 1.06e-9
+combined: 3.07e-9
+carried in from layer 10: 7.37e-9"/>
+<text x="637.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >12</text>
+<rect x="625.0" y="209.9" width="24.0" height="96.1" class="m-s1" />
+<rect x="625.0" y="154.4" width="24.0" height="53.5" class="m-s2" />
+<path d="M625.0,152.4 v-59.7 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v59.7 z" class="m-s3" />
+<line x1="620.0" y1="127.3" x2="654.0" y2="127.3" class="mk-comb"/>
+<rect x="610.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 12
+variance: 1.70e-9
+skew: 0.98e-9
+kurtosis: 1.17e-9
+combined: 3.17e-9
+carried in from layer 11: 8.60e-9"/>
+<text x="687.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >13</text>
+<rect x="675.0" y="195.0" width="24.0" height="111.0" class="m-s1" />
+<rect x="675.0" y="135.8" width="24.0" height="57.3" class="m-s2" />
+<path d="M675.0,133.8 v-59.3 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v59.3 z" class="m-s3" />
+<line x1="670.0" y1="102.0" x2="704.0" y2="102.0" class="mk-comb"/>
+<rect x="660.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 13
+variance: 1.97e-9
+skew: 1.05e-9
+kurtosis: 1.16e-9
+combined: 3.62e-9
+carried in from layer 12: 9.49e-9"/>
+<text x="737.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >14</text>
+<rect x="725.0" y="195.0" width="24.0" height="111.0" class="m-s1" />
+<rect x="725.0" y="128.6" width="24.0" height="64.4" class="m-s2" />
+<path d="M725.0,126.6 v-63.3 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v63.3 z" class="m-s3" />
+<line x1="720.0" y1="93.7" x2="754.0" y2="93.7" class="mk-comb"/>
+<rect x="710.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 14
+variance: 1.97e-9
+skew: 1.18e-9
+kurtosis: 1.23e-9
+combined: 3.76e-9
+carried in from layer 13: 10.59e-9"/>
+<text x="787.0" y="324.0" class="t2" text-anchor="middle" font-size="11" >15</text>
+<rect x="775.0" y="193.7" width="24.0" height="112.3" class="m-s1" />
+<rect x="775.0" y="125.7" width="24.0" height="66.1" class="m-s2" />
+<path d="M775.0,123.7 v-67.4 a4,4 0 0 1 4,-4 h16.0 a4,4 0 0 1 4,4 v67.4 z" class="m-s3" />
+<line x1="770.0" y1="91.0" x2="804.0" y2="91.0" class="mk-comb"/>
+<rect x="760.0" y="24.0" width="54.0" height="282.0" class="hit" tabindex="0" data-tip="layer 15
+variance: 1.99e-9
+skew: 1.21e-9
+kurtosis: 1.30e-9
+combined: 3.81e-9
+carried in from layer 14: 11.54e-9"/>
+<text x="811.0" y="60.3" class="tk" text-anchor="start" font-size="11.5" >sum 4.5</text>
+<text x="811.0" y="95.0" class="tk b" text-anchor="start" font-size="11.5" >combined 3.8</text>
+</svg></div><figcaption>New error added at each layer, by input, mean of networks 35, 100, 37 and 39 (research copy of the estimator). Each value is the mean over the 1,024 units of the squared change of the unit mean caused by that input's error. True inputs: 32 million samples per network (16 million for networks 37 and 39); their noise is subtracted, and a segment is drawn pale where the measured value is less than twice that noise.</figcaption><details><summary>Table: the error budget of every layer</summary><div class="tscroll"><div class="tscroll"><table class="small"><thead><tr><th class="">layer</th><th class="num">carried in</th><th class="num">variance</th><th class="num">skew</th><th class="num">kurtosis</th><th class="num">three combined</th><th class="num">research copy, before learned correction</th><th class="num">research copy, after learned correction</th><th class="num">board version, same four networks</th><th class="num">learned correction removes</th><th class="num">share of previous layer's error carried in</th></tr></thead><tbody><tr><td class="">1</td><td class="num">0.00</td><td class="num">0.00 *</td><td class="num">0.02 *</td><td class="num">0.15 *</td><td class="num">0.52 *</td><td class="num">0.64</td><td class="num">0.61</td><td class="num">0.61</td><td class="num">21% *</td><td class="num"></td></tr><tr><td class="">2</td><td class="num">0.05</td><td class="num">0.11 *</td><td class="num">0.08 *</td><td class="num">0.27</td><td class="num">0.68 *</td><td class="num">0.88</td><td class="num">0.82</td><td class="num">0.82</td><td class="num">14%</td><td class="num">50%</td></tr><tr><td class="">3</td><td class="num">0.29</td><td class="num">0.25 *</td><td class="num">0.18 *</td><td class="num">0.41</td><td class="num">0.96 *</td><td class="num">1.37</td><td class="num">1.26</td><td class="num">1.26</td><td class="num">10%</td><td class="num">69%</td></tr><tr><td class="">4</td><td class="num">0.73</td><td class="num">0.43 *</td><td class="num">0.27</td><td class="num">0.54</td><td class="num">1.26 *</td><td class="num">2.07</td><td class="num">1.94</td><td class="num">1.94</td><td class="num">7%</td><td class="num">77%</td></tr><tr><td class="">5</td><td class="num">1.22</td><td class="num">0.63 *</td><td class="num">0.36</td><td class="num">0.62</td><td class="num">1.60 *</td><td class="num">2.94</td><td class="num">2.79</td><td class="num">2.79</td><td class="num">6%</td><td class="num">72%</td></tr><tr><td class="">6</td><td class="num">1.90</td><td class="num">0.82</td><td class="num">0.44</td><td class="num">0.72</td><td class="num">1.85</td><td class="num">3.89</td><td class="num">3.77</td><td class="num">3.77</td><td class="num">4%</td><td class="num">74%</td></tr><tr><td class="">7</td><td class="num">2.82</td><td class="num">0.95</td><td class="num">0.57</td><td class="num">0.83</td><td class="num">2.04</td><td class="num">5.05</td><td class="num">4.93</td><td class="num">4.95</td><td class="num">3%</td><td class="num">80%</td></tr><tr><td class="">8</td><td class="num">3.85</td><td class="num">1.10</td><td class="num">0.68</td><td class="num">0.88</td><td class="num">2.48</td><td class="num">6.51</td><td class="num">6.23</td><td class="num">6.28</td><td class="num">4%</td><td class="num">81%</td></tr><tr><td class="">9</td><td class="num">4.88</td><td class="num">1.27</td><td class="num">0.69</td><td class="num">1.00</td><td class="num">2.48</td><td class="num">7.46</td><td class="num">7.26</td><td class="num">7.38</td><td class="num">3%</td><td class="num">80%</td></tr><tr><td class="">10</td><td class="num">6.02</td><td class="num">1.46</td><td class="num">0.82</td><td class="num">1.03</td><td class="num">2.74</td><td class="num">8.96</td><td class="num">8.69</td><td class="num">8.80</td><td class="num">3%</td><td class="num">84%</td></tr><tr><td class="">11</td><td class="num">7.37</td><td class="num">1.50</td><td class="num">0.90</td><td class="num">1.06</td><td class="num">3.07</td><td class="num">10.62</td><td class="num">10.31</td><td class="num">10.39</td><td class="num">3%</td><td class="num">86%</td></tr><tr><td class="">12</td><td class="num">8.60</td><td class="num">1.70</td><td class="num">0.98</td><td class="num">1.17</td><td class="num">3.17</td><td class="num">12.05</td><td class="num">11.62</td><td class="num">11.84</td><td class="num">4%</td><td class="num">85%</td></tr><tr><td class="">13</td><td class="num">9.49</td><td class="num">1.97</td><td class="num">1.05</td><td class="num">1.16</td><td class="num">3.62</td><td class="num">13.49</td><td class="num">12.92</td><td class="num">13.09</td><td class="num">4%</td><td class="num">82%</td></tr><tr><td class="">14</td><td class="num">10.59</td><td class="num">1.97</td><td class="num">1.18</td><td class="num">1.23</td><td class="num">3.76</td><td class="num">14.21</td><td class="num">13.79</td><td class="num">13.95</td><td class="num">3%</td><td class="num">82%</td></tr><tr><td class="">15</td><td class="num">11.54</td><td class="num">1.99</td><td class="num">1.21</td><td class="num">1.30</td><td class="num">3.81</td><td class="num">15.76</td><td class="num">15.00</td><td class="num">15.22</td><td class="num">5%</td><td class="num">85%</td></tr></tbody></table></div><p class="dim sans" style="font-size:12px">All error columns in units of <span class="nw">1e-9</span>. * = not above the noise of the true values.</p></div></details></figure><div class="wrap"><p><b>Variance.</b> Each unit's variance is off by 0.09% to 0.18% at layers 10 to 15 (root-mean-square over units; the noise of the true values is 0.025%). The variance is read from the carried covariance table, and that table's error builds up with depth: on network 35 its off-diagonal part is off by 0.5% after layer 6, 0.7% after layer 10 and 0.9% after layer 13. About a third of that error at layer 13 (37%) is a single direction close to the mean vector, but that direction causes little of the per-unit variance error: removing the 16 largest error directions would still leave 51% of it, and removing 64 would leave 23%. The error is spread over hundreds of directions.</p></div><div class="wrap"><p><b>Skew.</b> The estimator's per-unit skew follows the true skew closely (correlation 0.998 at layer 15 on networks 35 and 100), and what is missing is 4% to 6% of the unit-to-unit spread of the true skew at layers 10 to 15 (1.5% at layer 1). The bank that produces this skew is where 77% of the compute goes.</p></div><div class="wrap"><p><b>Kurtosis.</b> The estimator gives every unit of a layer the same kurtosis (0.060 at layer 15). The true values average 0.064 and differ from unit to unit with a spread of 0.016. At layers 8 to 15 the single value is also 5% to 9% below the true average; that offset accounts for 5% to 17% of the kurtosis error and the missing unit-to-unit differences for the rest.</p></div><div class="wrap"><details><summary>Table: how wrong each input is, by layer</summary><div class="tscroll"><table class="small"><thead><tr><th class="">layer</th><th class="num">variance: relative error per unit</th><th class="num">skew: error as a share of the true unit-to-unit spread</th><th class="num">kurtosis: value the estimator uses</th><th class="num">kurtosis: true average</th><th class="num">kurtosis: true unit-to-unit spread</th></tr></thead><tbody><tr><td class="">1</td><td class="num">0.031%</td><td class="num">1.5%</td><td class="num">0.0094</td><td class="num">0.0096</td><td class="num">0.0009</td></tr><tr><td class="">3</td><td class="num">0.032%</td><td class="num">2.4%</td><td class="num">0.0211</td><td class="num">0.0215</td><td class="num">0.0024</td></tr><tr><td class="">5</td><td class="num">0.043%</td><td class="num">2.8%</td><td class="num">0.0301</td><td class="num">0.0311</td><td class="num">0.0041</td></tr><tr><td class="">7</td><td class="num">0.059%</td><td class="num">3.4%</td><td class="num">0.0371</td><td class="num">0.0388</td><td class="num">0.0061</td></tr><tr><td class="">9</td><td class="num">0.083%</td><td class="num">3.8%</td><td class="num">0.0422</td><td class="num">0.0453</td><td class="num">0.0083</td></tr><tr><td class="">11</td><td class="num">0.107%</td><td class="num">4.6%</td><td class="num">0.0485</td><td class="num">0.0525</td><td class="num">0.0108</td></tr><tr><td class="">13</td><td class="num">0.137%</td><td class="num">5.3%</td><td class="num">0.0531</td><td class="num">0.0578</td><td class="num">0.0131</td></tr><tr><td class="">15</td><td class="num">0.178%</td><td class="num">6.3%</td><td class="num">0.0605</td><td class="num">0.0639</td><td class="num">0.0161</td></tr></tbody></table></div></details></div><div class="wrap"><p><b>A direct test.</b> On the research copy, replacing the three inputs by their true values at every layer and switching the learned correction off brings the final-layer error from <span class="nw">17.2e-9</span> to <span class="nw">0.8e-9</span> (mean of four networks; <span class="nw">0.2e-9</span> to <span class="nw">1.4e-9</span> per network). The three inputs therefore account for about 95% of the error. With the learned correction left on, the same replacement gives <span class="nw">4.9e-9</span> instead of <span class="nw">15.0e-9</span>: the learned correction was trained against the wrong inputs, and with correct inputs it adds error of its own. One input at a time, learned correction on: true variances lower the final error by 34% (25% to 43% on the four networks), true kurtoses by 7% (0% to 14%), true skews by 0% on average (from 11% lower to 4% higher). The single-input results are small or zero because the three errors partly cancel each other and the learned correction is tuned to all three together.</p></div><div class="wrap"><p><b>The last layer alone.</b> Making the three inputs exact at layer 15 only, with everything before it unchanged, lowers the final-layer error of the research copy by 20% (<span class="nw">15.0e-9</span> to <span class="nw">12.0e-9</span>, mean of four networks); the variance alone gives 8%, the kurtosis 4% and the skew 2%. For comparison, J2W's final-layer error is 13% below ours while its error at the earlier layers equals ours (section 1). The remaining 80% is error carried in from the earlier layers.</p></div><div class="wrap"><div class="tscroll"><table class=""><thead><tr><th class="">inputs replaced by their true values at every layer</th><th class="num">learned correction on: final-layer error</th><th class="num">change</th><th class="num">learned correction off: final-layer error</th><th class="num">change</th></tr></thead><tbody><tr><td class="">none (the estimator as it is)</td><td class="num"><span class="nw">15.0e-9</span></td><td class="num"></td><td class="num"><span class="nw">17.2e-9</span></td><td class="num">+15%</td></tr><tr><td class="">variance</td><td class="num"><span class="nw">9.9e-9</span></td><td class="num">−34%</td><td class="num"><span class="nw">12.4e-9</span></td><td class="num">−17%</td></tr><tr><td class="">skew</td><td class="num"><span class="nw">15.0e-9</span></td><td class="num">0%</td><td class="num"><span class="nw">14.1e-9</span></td><td class="num">−6%</td></tr><tr><td class="">kurtosis</td><td class="num"><span class="nw">13.9e-9</span></td><td class="num">−7%</td><td class="num"><span class="nw">14.8e-9</span></td><td class="num">−1%</td></tr><tr><td class="">variance and skew</td><td class="num"><span class="nw">8.7e-9</span></td><td class="num">−42%</td><td class="num"><span class="nw">6.8e-9</span></td><td class="num">−55%</td></tr><tr><td class="">variance and kurtosis</td><td class="num"><span class="nw">7.5e-9</span></td><td class="num">−50%</td><td class="num"><span class="nw">7.6e-9</span></td><td class="num">−49%</td></tr><tr><td class="">skew and kurtosis</td><td class="num"><span class="nw">12.7e-9</span></td><td class="num">−15%</td><td class="num"><span class="nw">10.6e-9</span></td><td class="num">−29%</td></tr><tr><td class="">all three</td><td class="num"><span class="nw">4.9e-9</span></td><td class="num">−67%</td><td class="num"><span class="nw">0.8e-9</span></td><td class="num">−95%</td></tr></tbody></table></div><p class="dim sans" style="font-size:12px">Final-layer error on the research copy, mean of networks 35, 100, 37 and 39; changes are against the research copy as it is (<span class="nw">15.0e-9</span>; the board version on the same networks: <span class="nw">15.2e-9</span>). The test cannot be run on the board version, which does not expose these inputs. Only the input of the mean formula is replaced; the covariance and the third-order bank keep their own values. The true variances carry sampling noise, which adds 0.6 to <span class="nw">1.4e-9</span> to the runs that use them; that amount is removed by comparing runs that use one and two independent sets of true values.</p></div></section>
+<section><div class="wrap sec-head"><span class="eyebrow">05 · the shared part</span><h2>The collective gain mode</h2></div><div class="wrap"><p><span class="lead">Most of the skew and most of the average kurtosis have one common cause: for a given input the whole previous layer is a little larger or smaller than usual, and that scales the fluctuation of every unit of the next layer up or down together.</span> This shared scaling is called the collective gain mode.</p></div><div class="wrap"><p>The measurement: run 16 million sample inputs through each of four networks, sort the inputs into 16 groups by the length of the previous layer's output vector, and compute each unit's skew and kurtosis inside the groups. At layer 15 the average excess kurtosis is 0.064 over all inputs and 0.000 inside the groups (between −0.002 and +0.003 on the four networks). The unit-to-unit spread of the skew is 0.106 over all inputs and 0.036 inside the groups, so grouping removes 87% to 90% of the skew variance.</p></div><figure class="wide"><div class="fig-frame"><div class="legend"><span><i class="k-line" style="border-color:var(--s1)"></i>over all inputs</span><span><i class="k-line" style="border-color:var(--s2)"></i>inside groups of inputs with equal previous-layer norm</span></div><svg viewBox="0 0 920 318" role="img" aria-label="Skew and kurtosis of unit inputs by layer, over all inputs and inside groups of inputs with equal previous-layer norm, mean of four networks. Grouping removes most of the skew spread and brings the average kurtosis to zero (part of that is the fixed-norm constraint), but not the unit-to-unit spread of the kurtosis.">
+<text x="24.0" y="22.0" class="tk b" text-anchor="start" font-size="12" >Skew: spread across units</text>
+<line x1="54.0" y1="250.0" x2="250.0" y2="250.0" class="axis"/>
+<text x="47.0" y="254.0" class="t2" text-anchor="end" font-size="10.5" >0.00</text>
+<line x1="54.0" y1="182.0" x2="250.0" y2="182.0" class="grid"/>
+<text x="47.0" y="186.0" class="t2" text-anchor="end" font-size="10.5" >0.04</text>
+<line x1="54.0" y1="114.0" x2="250.0" y2="114.0" class="grid"/>
+<text x="47.0" y="118.0" class="t2" text-anchor="end" font-size="10.5" >0.08</text>
+<line x1="54.0" y1="46.0" x2="250.0" y2="46.0" class="grid"/>
+<text x="47.0" y="50.0" class="t2" text-anchor="end" font-size="10.5" >0.12</text>
+<text x="54.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >1</text>
+<text x="110.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >5</text>
+<text x="180.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >10</text>
+<text x="250.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >15</text>
+<text x="152.0" y="286.0" class="t2" text-anchor="middle" font-size="11" >layer</text>
+<path d="M54.0,233.6 L68.0,223.5 L82.0,212.9 L96.0,201.1 L110.0,187.2 L124.0,173.5 L138.0,161.4 L152.0,147.6 L166.0,135.5 L180.0,128.3 L194.0,115.2 L208.0,103.4 L222.0,92.4 L236.0,79.8 L250.0,69.8" class="l-s1" />
+<path d="M54.0,239.7 L68.0,235.1 L82.0,230.5 L96.0,226.0 L110.0,222.1 L124.0,217.6 L138.0,214.1 L152.0,211.5 L166.0,207.9 L180.0,204.6 L194.0,201.2 L208.0,198.5 L222.0,194.9 L236.0,192.4 L250.0,188.3" class="l-s2" />
+<circle cx="250.0" cy="69.8" r="4.5" class="dot-s1"/><circle cx="250.0" cy="188.3" r="4.5" class="dot-s2"/>
+<text x="259.0" y="73.8" class="tk" text-anchor="start" font-size="11.5" >0.106</text>
+<text x="259.0" y="192.3" class="tk" text-anchor="start" font-size="11.5" >0.036</text>
+<line x1="0" y1="46" x2="0" y2="250" class="cross" id="cross50" visibility="hidden"/>
+<rect x="47.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="54.0" data-tip="layer 1
+all inputs: 0.0097
+inside groups of equal norm: 0.0060"/>
+<rect x="61.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="68.0" data-tip="layer 2
+all inputs: 0.0156
+inside groups of equal norm: 0.0087"/>
+<rect x="75.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="82.0" data-tip="layer 3
+all inputs: 0.0219
+inside groups of equal norm: 0.0115"/>
+<rect x="89.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="96.0" data-tip="layer 4
+all inputs: 0.0287
+inside groups of equal norm: 0.0141"/>
+<rect x="103.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="110.0" data-tip="layer 5
+all inputs: 0.0370
+inside groups of equal norm: 0.0164"/>
+<rect x="117.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="124.0" data-tip="layer 6
+all inputs: 0.0450
+inside groups of equal norm: 0.0191"/>
+<rect x="131.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="138.0" data-tip="layer 7
+all inputs: 0.0521
+inside groups of equal norm: 0.0211"/>
+<rect x="145.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="152.0" data-tip="layer 8
+all inputs: 0.0602
+inside groups of equal norm: 0.0227"/>
+<rect x="159.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="166.0" data-tip="layer 9
+all inputs: 0.0673
+inside groups of equal norm: 0.0247"/>
+<rect x="173.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="180.0" data-tip="layer 10
+all inputs: 0.0716
+inside groups of equal norm: 0.0267"/>
+<rect x="187.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="194.0" data-tip="layer 11
+all inputs: 0.0793
+inside groups of equal norm: 0.0287"/>
+<rect x="201.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="208.0" data-tip="layer 12
+all inputs: 0.0862
+inside groups of equal norm: 0.0303"/>
+<rect x="215.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="222.0" data-tip="layer 13
+all inputs: 0.0927
+inside groups of equal norm: 0.0324"/>
+<rect x="229.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="236.0" data-tip="layer 14
+all inputs: 0.1001
+inside groups of equal norm: 0.0339"/>
+<rect x="243.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross50" data-x="250.0" data-tip="layer 15
+all inputs: 0.1060
+inside groups of equal norm: 0.0363"/>
+<text x="330.0" y="22.0" class="tk b" text-anchor="start" font-size="12" >Excess kurtosis: mean over units</text>
+<line x1="360.0" y1="220.1" x2="556.0" y2="220.1" class="axis"/>
+<text x="353.0" y="224.1" class="t2" text-anchor="end" font-size="10.5" >0.00</text>
+<line x1="360.0" y1="170.4" x2="556.0" y2="170.4" class="grid"/>
+<text x="353.0" y="174.4" class="t2" text-anchor="end" font-size="10.5" >0.02</text>
+<line x1="360.0" y1="120.6" x2="556.0" y2="120.6" class="grid"/>
+<text x="353.0" y="124.6" class="t2" text-anchor="end" font-size="10.5" >0.04</text>
+<line x1="360.0" y1="70.9" x2="556.0" y2="70.9" class="grid"/>
+<text x="353.0" y="74.9" class="t2" text-anchor="end" font-size="10.5" >0.06</text>
+<text x="360.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >1</text>
+<text x="416.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >5</text>
+<text x="486.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >10</text>
+<text x="556.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >15</text>
+<text x="458.0" y="286.0" class="t2" text-anchor="middle" font-size="11" >layer</text>
+<path d="M360.0,196.3 L374.0,179.9 L388.0,166.5 L402.0,154.3 L416.0,142.6 L430.0,132.0 L444.0,123.5 L458.0,115.6 L472.0,107.3 L486.0,99.2 L500.0,89.6 L514.0,84.0 L528.0,76.3 L542.0,68.0 L556.0,61.2" class="l-s1" />
+<path d="M360.0,239.4 L374.0,241.7 L388.0,241.6 L402.0,242.3 L416.0,240.9 L430.0,237.1 L444.0,235.0 L458.0,235.6 L472.0,231.6 L486.0,231.9 L500.0,229.5 L514.0,226.3 L528.0,224.0 L542.0,224.0 L556.0,220.3" class="l-s2" />
+<circle cx="556.0" cy="61.2" r="4.5" class="dot-s1"/><circle cx="556.0" cy="220.3" r="4.5" class="dot-s2"/>
+<text x="565.0" y="65.2" class="tk" text-anchor="start" font-size="11.5" >0.064</text>
+<text x="565.0" y="224.3" class="tk" text-anchor="start" font-size="11.5" >0.000</text>
+<line x1="0" y1="46" x2="0" y2="250" class="cross" id="cross51" visibility="hidden"/>
+<rect x="353.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="360.0" data-tip="layer 1
+all inputs: 0.0096
+inside groups of equal norm: -0.0077"/>
+<rect x="367.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="374.0" data-tip="layer 2
+all inputs: 0.0162
+inside groups of equal norm: -0.0087"/>
+<rect x="381.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="388.0" data-tip="layer 3
+all inputs: 0.0216
+inside groups of equal norm: -0.0086"/>
+<rect x="395.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="402.0" data-tip="layer 4
+all inputs: 0.0265
+inside groups of equal norm: -0.0089"/>
+<rect x="409.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="416.0" data-tip="layer 5
+all inputs: 0.0312
+inside groups of equal norm: -0.0083"/>
+<rect x="423.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="430.0" data-tip="layer 6
+all inputs: 0.0354
+inside groups of equal norm: -0.0068"/>
+<rect x="437.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="444.0" data-tip="layer 7
+all inputs: 0.0388
+inside groups of equal norm: -0.0060"/>
+<rect x="451.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="458.0" data-tip="layer 8
+all inputs: 0.0420
+inside groups of equal norm: -0.0062"/>
+<rect x="465.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="472.0" data-tip="layer 9
+all inputs: 0.0453
+inside groups of equal norm: -0.0046"/>
+<rect x="479.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="486.0" data-tip="layer 10
+all inputs: 0.0486
+inside groups of equal norm: -0.0047"/>
+<rect x="493.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="500.0" data-tip="layer 11
+all inputs: 0.0525
+inside groups of equal norm: -0.0037"/>
+<rect x="507.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="514.0" data-tip="layer 12
+all inputs: 0.0547
+inside groups of equal norm: -0.0025"/>
+<rect x="521.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="528.0" data-tip="layer 13
+all inputs: 0.0578
+inside groups of equal norm: -0.0015"/>
+<rect x="535.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="542.0" data-tip="layer 14
+all inputs: 0.0612
+inside groups of equal norm: -0.0016"/>
+<rect x="549.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross51" data-x="556.0" data-tip="layer 15
+all inputs: 0.0639
+inside groups of equal norm: -0.0001"/>
+<text x="636.0" y="22.0" class="tk b" text-anchor="start" font-size="12" >Excess kurtosis: spread across units</text>
+<line x1="666.0" y1="250.0" x2="862.0" y2="250.0" class="axis"/>
+<text x="659.0" y="254.0" class="t2" text-anchor="end" font-size="10.5" >0.000</text>
+<line x1="666.0" y1="199.0" x2="862.0" y2="199.0" class="grid"/>
+<text x="659.0" y="203.0" class="t2" text-anchor="end" font-size="10.5" >0.005</text>
+<line x1="666.0" y1="148.0" x2="862.0" y2="148.0" class="grid"/>
+<text x="659.0" y="152.0" class="t2" text-anchor="end" font-size="10.5" >0.010</text>
+<line x1="666.0" y1="97.0" x2="862.0" y2="97.0" class="grid"/>
+<text x="659.0" y="101.0" class="t2" text-anchor="end" font-size="10.5" >0.015</text>
+<line x1="666.0" y1="46.0" x2="862.0" y2="46.0" class="grid"/>
+<text x="659.0" y="50.0" class="t2" text-anchor="end" font-size="10.5" >0.020</text>
+<text x="666.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >1</text>
+<text x="722.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >5</text>
+<text x="792.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >10</text>
+<text x="862.0" y="267.0" class="t2" text-anchor="middle" font-size="10.5" >15</text>
+<text x="764.0" y="286.0" class="t2" text-anchor="middle" font-size="11" >layer</text>
+<path d="M666.0,241.1 L680.0,233.3 L694.0,225.2 L708.0,217.1 L722.0,207.3 L736.0,198.4 L750.0,187.5 L764.0,176.0 L778.0,165.1 L792.0,153.8 L806.0,140.3 L820.0,127.4 L834.0,116.9 L848.0,98.6 L862.0,86.4" class="l-s1" />
+<path d="M666.0,240.8 L680.0,231.2 L694.0,221.3 L708.0,211.0 L722.0,201.4 L736.0,191.8 L750.0,180.3 L764.0,172.1 L778.0,161.5 L792.0,152.0 L806.0,140.4 L820.0,129.7 L834.0,125.5 L848.0,110.5 L862.0,104.0" class="l-s2" />
+<circle cx="862.0" cy="86.4" r="4.5" class="dot-s1"/><circle cx="862.0" cy="104.0" r="4.5" class="dot-s2"/>
+<text x="871.0" y="90.4" class="tk" text-anchor="start" font-size="11.5" >0.016</text>
+<text x="871.0" y="108.0" class="tk" text-anchor="start" font-size="11.5" >0.014</text>
+<line x1="0" y1="46" x2="0" y2="250" class="cross" id="cross52" visibility="hidden"/>
+<rect x="659.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="666.0" data-tip="layer 1
+all inputs: 0.0009
+inside groups of equal norm: 0.0009"/>
+<rect x="673.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="680.0" data-tip="layer 2
+all inputs: 0.0016
+inside groups of equal norm: 0.0018"/>
+<rect x="687.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="694.0" data-tip="layer 3
+all inputs: 0.0024
+inside groups of equal norm: 0.0028"/>
+<rect x="701.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="708.0" data-tip="layer 4
+all inputs: 0.0032
+inside groups of equal norm: 0.0038"/>
+<rect x="715.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="722.0" data-tip="layer 5
+all inputs: 0.0042
+inside groups of equal norm: 0.0048"/>
+<rect x="729.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="736.0" data-tip="layer 6
+all inputs: 0.0051
+inside groups of equal norm: 0.0057"/>
+<rect x="743.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="750.0" data-tip="layer 7
+all inputs: 0.0061
+inside groups of equal norm: 0.0068"/>
+<rect x="757.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="764.0" data-tip="layer 8
+all inputs: 0.0073
+inside groups of equal norm: 0.0076"/>
+<rect x="771.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="778.0" data-tip="layer 9
+all inputs: 0.0083
+inside groups of equal norm: 0.0087"/>
+<rect x="785.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="792.0" data-tip="layer 10
+all inputs: 0.0094
+inside groups of equal norm: 0.0096"/>
+<rect x="799.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="806.0" data-tip="layer 11
+all inputs: 0.0108
+inside groups of equal norm: 0.0107"/>
+<rect x="813.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="820.0" data-tip="layer 12
+all inputs: 0.0120
+inside groups of equal norm: 0.0118"/>
+<rect x="827.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="834.0" data-tip="layer 13
+all inputs: 0.0131
+inside groups of equal norm: 0.0122"/>
+<rect x="841.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="848.0" data-tip="layer 14
+all inputs: 0.0148
+inside groups of equal norm: 0.0137"/>
+<rect x="855.0" y="46" width="14" height="204" class="hit" tabindex="0" data-cross="cross52" data-x="862.0" data-tip="layer 15
+all inputs: 0.0160
+inside groups of equal norm: 0.0143"/>
+</svg></div><figcaption>Skew and excess kurtosis of the unit inputs at each layer, mean of networks 35, 100, 37 and 39, 16 million samples per network, 16 groups. The sampling noise of one unit is 0.0006 for the skew and 0.0012 for the kurtosis and is subtracted from the spreads. The three panels have different vertical scales.</figcaption><details><summary>Table of the plotted values</summary><div class="tscroll"><table class="small"><thead><tr><th class="">layer</th><th class="num">skew spread, all inputs</th><th class="num">skew spread, inside groups</th><th class="num">average kurtosis, all inputs</th><th class="num">average kurtosis, inside groups</th><th class="num">kurtosis spread, all inputs</th><th class="num">kurtosis spread, inside groups</th></tr></thead><tbody><tr><td class="">1</td><td class="num">0.0097</td><td class="num">0.0060</td><td class="num">+0.0096</td><td class="num">-0.0077</td><td class="num">0.0009</td><td class="num">0.0009</td></tr><tr><td class="">2</td><td class="num">0.0156</td><td class="num">0.0087</td><td class="num">+0.0162</td><td class="num">-0.0087</td><td class="num">0.0016</td><td class="num">0.0018</td></tr><tr><td class="">3</td><td class="num">0.0219</td><td class="num">0.0115</td><td class="num">+0.0216</td><td class="num">-0.0086</td><td class="num">0.0024</td><td class="num">0.0028</td></tr><tr><td class="">4</td><td class="num">0.0287</td><td class="num">0.0141</td><td class="num">+0.0265</td><td class="num">-0.0089</td><td class="num">0.0032</td><td class="num">0.0038</td></tr><tr><td class="">5</td><td class="num">0.0370</td><td class="num">0.0164</td><td class="num">+0.0312</td><td class="num">-0.0083</td><td class="num">0.0042</td><td class="num">0.0048</td></tr><tr><td class="">6</td><td class="num">0.0450</td><td class="num">0.0191</td><td class="num">+0.0354</td><td class="num">-0.0068</td><td class="num">0.0051</td><td class="num">0.0057</td></tr><tr><td class="">7</td><td class="num">0.0521</td><td class="num">0.0211</td><td class="num">+0.0388</td><td class="num">-0.0060</td><td class="num">0.0061</td><td class="num">0.0068</td></tr><tr><td class="">8</td><td class="num">0.0602</td><td class="num">0.0227</td><td class="num">+0.0420</td><td class="num">-0.0062</td><td class="num">0.0073</td><td class="num">0.0076</td></tr><tr><td class="">9</td><td class="num">0.0673</td><td class="num">0.0247</td><td class="num">+0.0453</td><td class="num">-0.0046</td><td class="num">0.0083</td><td class="num">0.0087</td></tr><tr><td class="">10</td><td class="num">0.0716</td><td class="num">0.0267</td><td class="num">+0.0486</td><td class="num">-0.0047</td><td class="num">0.0094</td><td class="num">0.0096</td></tr><tr><td class="">11</td><td class="num">0.0793</td><td class="num">0.0287</td><td class="num">+0.0525</td><td class="num">-0.0037</td><td class="num">0.0108</td><td class="num">0.0107</td></tr><tr><td class="">12</td><td class="num">0.0862</td><td class="num">0.0303</td><td class="num">+0.0547</td><td class="num">-0.0025</td><td class="num">0.0120</td><td class="num">0.0118</td></tr><tr><td class="">13</td><td class="num">0.0927</td><td class="num">0.0324</td><td class="num">+0.0578</td><td class="num">-0.0015</td><td class="num">0.0131</td><td class="num">0.0122</td></tr><tr><td class="">14</td><td class="num">0.1001</td><td class="num">0.0339</td><td class="num">+0.0612</td><td class="num">-0.0016</td><td class="num">0.0148</td><td class="num">0.0137</td></tr><tr><td class="">15</td><td class="num">0.1060</td><td class="num">0.0363</td><td class="num">+0.0639</td><td class="num">-0.0001</td><td class="num">0.0160</td><td class="num">0.0143</td></tr></tbody></table></div></details></figure><div class="wrap"><p>The zero for the kurtosis overstates the effect. Holding the length of a vector fixed lowers the excess kurtosis of any projection of it by itself, by about 6 divided by the width (0.006 here), and that is what the groups show at layer 0, where there is nothing else: -0.0057. So the 0.000 at layer 15 is a remaining positive kurtosis cancelled by this constraint. A cleaner removal of the shared scaling, dividing each sample by its projection on the mean vector, leaves an average excess kurtosis of 0.012 to 0.019 at layers 6 to 15 (network 35, 16 million samples), against 0.033 to 0.061 without it. The shared scaling therefore accounts for about two thirds to four fifths of the average kurtosis, not all of it.</p></div><div class="wrap"><p>What grouping does not remove is specific to each network. The unit-to-unit spread of the kurtosis is 0.016 over all inputs and still 0.014 inside the groups, and a skew spread of 0.036 remains.</p></div><div class="wrap"><p>The estimator's errors are in that network-specific part. Its skew error cannot be explained as a wrong size of the shared part or of the rest: a fit of the error on both explains at most 8% of it with equal weight on every unit and at most 17% with the weights that matter for the mean (four networks, layers 1 to 15). The estimator carries a separate vector for the shared part; it holds 35% to 48% of that part at layers 10 to 15, and the column bank holds the remainder.</p></div></section>
+<section><div class="wrap sec-head"><span class="eyebrow">06 · the limit of per-unit carriers</span><h2>One number per unit cannot carry what is missing</h2></div><div class="wrap"><p><span class="lead">Even the true kurtosis of every unit at one layer predicts at most 20% of the unit-to-unit differences in kurtosis at the next layer, and for skew less than 2%.</span> So storing one more number per unit cannot carry what is missing: the information is in fourth-order relations between pairs of units, and carrying those is estimated to add 50% to 80% to the compute bill (an earlier team estimate, not re-measured today).</p></div><div class="wrap"><p>The test used networks 35 and 100 with true values from 32 million samples. The true per-unit values of one layer were pushed through the next layer's weights in four ways (by each upstream unit's share of the variance, with and without the ReLU's response, by squared-weight shares and by absolute shares), and the true values of the next layer were fitted with all of them together. The fit explains 5% to 20% (R² 0.05 to 0.20) across layers 2 to 15. A second independent 32-million-sample estimate of the target correlates 0.87 to 0.996 with the first, so sampling noise is not what limits the fit.</p></div><div class="wrap"><details><summary>Table: fit quality for every pair of layers</summary><div class="tscroll"><table class="small"><thead><tr><th class="">from layer → to layer</th><th class="num">kurtosis, network 35: R²</th><th class="num">kurtosis, network 100: R²</th><th class="num">skew, network 35: R²</th><th class="num">skew, network 100: R²</th><th class="num">two independent truths of the target agree (correlation, network 35)</th></tr></thead><tbody><tr><td class="">2 → 3</td><td class="num">0.09</td><td class="num">0.08</td><td class="num">0.002</td><td class="num">0.001</td><td class="num">0.872</td></tr><tr><td class="">3 → 4</td><td class="num">0.05</td><td class="num">0.05</td><td class="num">0.001</td><td class="num">0.002</td><td class="num">0.925</td></tr><tr><td class="">4 → 5</td><td class="num">0.06</td><td class="num">0.06</td><td class="num">0.001</td><td class="num">0.007</td><td class="num">0.949</td></tr><tr><td class="">5 → 6</td><td class="num">0.08</td><td class="num">0.11</td><td class="num">0.003</td><td class="num">0.001</td><td class="num">0.969</td></tr><tr><td class="">6 → 7</td><td class="num">0.09</td><td class="num">0.12</td><td class="num">0.003</td><td class="num">0.003</td><td class="num">0.978</td></tr><tr><td class="">7 → 8</td><td class="num">0.10</td><td class="num">0.11</td><td class="num">0.005</td><td class="num">0.001</td><td class="num">0.984</td></tr><tr><td class="">8 → 9</td><td class="num">0.12</td><td class="num">0.13</td><td class="num">0.017</td><td class="num">0.009</td><td class="num">0.987</td></tr><tr><td class="">9 → 10</td><td class="num">0.13</td><td class="num">0.14</td><td class="num">0.003</td><td class="num">0.001</td><td class="num">0.991</td></tr><tr><td class="">10 → 11</td><td class="num">0.15</td><td class="num">0.10</td><td class="num">0.008</td><td class="num">0.015</td><td class="num">0.992</td></tr><tr><td class="">11 → 12</td><td class="num">0.16</td><td class="num">0.16</td><td class="num">0.009</td><td class="num">0.001</td><td class="num">0.994</td></tr><tr><td class="">12 → 13</td><td class="num">0.12</td><td class="num">0.10</td><td class="num">0.016</td><td class="num">0.006</td><td class="num">0.995</td></tr><tr><td class="">13 → 14</td><td class="num">0.18</td><td class="num">0.12</td><td class="num">0.002</td><td class="num">0.005</td><td class="num">0.996</td></tr><tr><td class="">14 → 15</td><td class="num">0.17</td><td class="num">0.20</td><td class="num">0.006</td><td class="num">0.001</td><td class="num">0.996</td></tr></tbody></table></div></details></div></section>
+<section><div class="wrap sec-head"><span class="eyebrow">07 · what happens next</span><h2>What the team is doing, and what <span class="nw">1e-9</span> would need</h2></div><div class="wrap"><p><span class="lead">Two things are running: long training of the 45,000 learned parameters, which lowers the error at the same budget, and a reduction of the compute bill toward the 10% minimum. Neither reaches <span class="nw">1e-9</span>, and no route to <span class="nw">1e-9</span> was found today.</span></p></div><div class="wrap"><div class="tscroll"><table class=""><thead><tr><th class="">case</th><th class="num">final-layer error</th><th class="num">budget share</th><th class="num">adjusted score</th><th class="num">place on today's board</th></tr></thead><tbody><tr><td class="">today (our board entry)</td><td class="num"><span class="nw">1.712e-8</span></td><td class="num">12.1%</td><td class="num"><span class="nw">2.067e-9</span></td><td class="num">5th</td></tr><tr><td class="">our error, budget share at the 10% minimum</td><td class="num"><span class="nw">1.712e-8</span></td><td class="num">10.0%</td><td class="num"><span class="nw">1.712e-9</span></td><td class="num">3rd</td></tr><tr><td class="">the current target: a bill cut worth 3.5%, error unchanged</td><td class="num"><span class="nw">1.712e-8</span></td><td class="num">11.7%</td><td class="num"><span class="nw">1.995e-9</span></td><td class="num">5th</td></tr><tr><td class="">the best error on the board (marius_binner) at our budget share</td><td class="num"><span class="nw">1.140e-8</span></td><td class="num">12.1%</td><td class="num"><span class="nw">1.377e-9</span></td><td class="num">1st</td></tr><tr><td class="">the best error on the board at the 10% minimum</td><td class="num"><span class="nw">1.140e-8</span></td><td class="num">10.0%</td><td class="num"><span class="nw">1.140e-9</span></td><td class="num">1st</td></tr><tr><td class=""><span class="nw">1e-9</span>: an error 42% below ours, at the 10% minimum</td><td class="num"><span class="nw">1.000e-8</span></td><td class="num">10.0%</td><td class="num"><span class="nw">1.000e-9</span></td><td class="num">1st</td></tr></tbody></table></div></div><div class="wrap"><p><b>Training.</b> The learned correction now removes 13% of the final-layer error (research copy, four networks: <span class="nw">17.2e-9</span> without it, <span class="nw">15.0e-9</span> with it). Our earlier trainings ran a few hundred optimiser steps each. One gradient on one network takes 26 seconds on one processor core, so thousands of steps per day are possible, on 640 training networks. marius_binner's 17.7% lower error in 72 hours at a nearly unchanged budget share, in 24 small steps, is what long training of learned parameters would look like; we do not know its method.</p></div><div class="wrap"><p><b>Bill.</b> Our budget share is 12.1%. At the 10% minimum, with today's error, the score would be <span class="nw">1.712e-9</span>, which would be 3rd place today. The current target is a bill cut worth 3.5% at unchanged error, which reaches <span class="nw">1.995e-9</span>: below <span class="nw">2.0e-9</span>, and still 5th place.</p></div><div class="wrap"><p><b>What <span class="nw">1e-9</span> needs.</b> At the 10% minimum it needs a final-layer error of <span class="nw">1.0e-8</span>: 42% below ours and 12% below the best error on the board. The measurements above say how much that is. True variances alone, with no retraining, would give −34%; true variances and kurtoses together −50%. So <span class="nw">1e-9</span> requires removing most of two of the three input errors, or all three by about half. We have no affordable way to do that. The variance error is spread over hundreds of directions of the covariance table. The skew error is 4% to 6% of a quantity that already takes 77% of the bill. The per-unit kurtosis needs carriers for pairs of units. Sampling the network does not help at this accuracy: the 10% minimum budget pays for about 6,600 full forward passes, which estimate a unit mean with a mean-squared error of about <span class="nw">1e-5</span>, about 600 times our <span class="nw">1.71e-8</span>.</p></div><div class="wrap"><p>What is left to try is therefore training (how far it goes is not known until it has run) and the bill. If training gave what marius_binner got in three days and the bill reached the minimum, the score would be about <span class="nw">1.409e-9</span>: 1st place today, and still 41% above <span class="nw">1e-9</span>.</p></div></section>
+<footer class="wrap">
+  <b>How the numbers were measured.</b> Board: public submission pages, ids 332296 to 333396, read 1 October 2026 at 20:32 UTC. Per-layer error: the saved predictions of the estimator on the board, on 40 validation networks, against the organizers' <span class="nw">1e9</span>-sample reference values.
+  Input errors: the research copy of the estimator on networks 35, 100, 37, 39 against Monte Carlo estimates of each unit's input variance, skew and kurtosis (32 million samples, two independent runs, for 35 and 100; 16 million for 37 and 39).
+  Collective gain mode: 16 million samples per network, four networks. Covariance error: network 35, against a 32-million-sample covariance with its two halves as the noise reference.<br>
+  Scripts, tables and raw outputs: <code>pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/analyst/</code> (<code>RESULT.md</code> lists every file). This page is generated by <code>a8_build_explainer.py</code> in that folder.
+</footer>
+<div id="tt" role="status"></div>
+<script>
+(function(){var tt=document.getElementById('tt');
+function show(e,el){tt.textContent=el.getAttribute('data-tip');tt.style.display='block';var r=el.getBoundingClientRect();
+ var x=(e&&e.clientX!==undefined&&e.clientX)?e.clientX+14:r.left+r.width/2+10,y=(e&&e.clientY!==undefined&&e.clientY)?e.clientY+14:r.top+20;
+ if(x+tt.offsetWidth>window.innerWidth-8)x=Math.max(8,x-tt.offsetWidth-28);if(y+tt.offsetHeight>window.innerHeight-8)y=Math.max(8,y-tt.offsetHeight-28);
+ tt.style.left=x+'px';tt.style.top=y+'px';var c=el.getAttribute('data-cross');
+ if(c){var l=document.getElementById(c);l.setAttribute('x1',el.getAttribute('data-x'));l.setAttribute('x2',el.getAttribute('data-x'));l.setAttribute('visibility','visible');}}
+function hide(el){tt.style.display='none';var c=el.getAttribute('data-cross');if(c)document.getElementById(c).setAttribute('visibility','hidden');}
+document.querySelectorAll('.hit').forEach(function(el){el.addEventListener('pointermove',function(e){show(e,el)});el.addEventListener('pointerleave',function(){hide(el)});
+ el.addEventListener('focus',function(){show(null,el)});el.addEventListener('blur',function(){hide(el)});});})();
+</script>
+</body>
+</html>

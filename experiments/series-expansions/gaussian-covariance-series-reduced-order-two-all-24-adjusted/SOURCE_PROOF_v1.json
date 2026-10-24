@@ -1,0 +1,29 @@
+{
+  "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_terminal_mlp16_v1/candidate_QR_terminal_mlp_ON_HELD_v1.py",
+  "parent_sha256": "bac3a67b29283091c59dc4e3df968105ec49fdb68be32ad7e68f95fa8129403f",
+  "candidate_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_r2_stack_v1/candidate_QR_MLP_gaussian_R2_HELD_v1.py",
+  "candidate_sha256": "518cb85d21465d87f2301c7e31c6d491fb097202dfc22865b2b96441d2933060",
+  "builder_sha256": "47c7507a34e163c9c3f2f83a436192ce41f824ef688c8f516ccdffccd3d4878a",
+  "exact_inverse_to_parent": true,
+  "replacements": [
+    [
+      "    hold(fnp.sum(X, axis=0, out=z0))\n    # Gaussian is fully consumed",
+      "    hold(fnp.sum(X[:2], axis=0, out=z0))  # GR2: Gaussian orders1,2 only; shared T22 products retained.\n    # Gaussian is fully consumed"
+    ],
+    [
+      "        _e2_hold.append(fnp.sum(X, axis=0, out=Z0))   # ans",
+      "        _e2_hold.append(fnp.sum(X[:2], axis=0, out=Z0))   # GR2: Gaussian-only fallback; all non-Gaussian work retained."
+    ]
+  ],
+  "modified_functions": [
+    "_psp_series (active GTR definition)",
+    "_nonlinear_pair_batch (nonpacked fallback)"
+  ],
+  "unchanged": [
+    "All F/G products, including shared F2G2/F3G3 used by T22.",
+    "All Z1..Z4 mixed/local cumulant computations and final ordered sum.",
+    "Every scalar mean/variance/cumulant and exact diagonal overwrite.",
+    "L0 first-Gaussian path, L15 scalar path, QR refinement, terminal MLP and all source captures."
+  ],
+  "qualification": "Source-only. Downstream states change; no first15 parity claim. No native calls authorized here."
+}

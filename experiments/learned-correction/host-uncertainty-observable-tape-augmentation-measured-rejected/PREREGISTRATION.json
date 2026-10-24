@@ -1,0 +1,115 @@
+{
+  "schema": "public-aug7-source-observable-tape-preregistration-v1",
+  "node": "P2R0F2Q",
+  "stage": "generation",
+  "status": "frozen-before-any-generation",
+  "question": "Produce seven additional lawful, target-free, per-unit source observables for the cp1792 development tape, bit-parity-preserving the sealed v3 host rollout, so exactly one widened retrain of the frozen J architecture can test whether source-side information moves the 3.233e-8 observer plateau.",
+  "authority": {
+    "p_closure_decomposition_sha256": "9ced4d4bdf72428e769b0945720ff571348a0d9629364f7839e74ccabe0c1290",
+    "successor_proposal": "public_full688_fullrank_roundtrip_residual_cv_v1/ONE_GRAPH_READY_SUCCESSOR_PROPOSAL.json",
+    "graph_gate": "P2_HOST_OBSERVABLE_TAPE_AUGMENTATION_DESIGN_GATE (P2R0F2P, P2R0F2N, P2R0F2M all closed_measured)"
+  },
+  "information_novelty_screen": {
+    "rule": "A new channel must not be a deterministic per-unit function of the existing 20 channels.",
+    "rejected_candidate": "The Hermite-series diagonal load fraction was rejected because the series diagonal equals the sum of squared Hermite coefficients, a pure function of alpha (channel 3) given channels 6 and 11.",
+    "accepted_basis": "The seven accepted channels draw on three objects the sealed tape never exports: the discarded CP3 components at each cap event, the tenth correlation power's row coupling, and the correlation-matrix row structure beyond its three exported moments."
+  },
+  "frozen_source_chain": {
+    "host_base": "learned_residual_observer_design/v3/estimator.py",
+    "host_base_sha256": "f8d48e5fc05d4de53173302e6fd8334c46908dd659a39baaebf2b534f5bdbea6",
+    "tape_reference_worker": "learned_residual_observer_design/v4_launch/flopscope_nonzero_worker.py",
+    "tape_reference_worker_sha256": "d25c245bd1bc0b4aa9b6b2fa5ea0ec79b169a8e6beaf73c86542be04b6131656",
+    "sealed_v3_store": "learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3",
+    "cap": 1792,
+    "immutability": "The sealed v3 store is never written; this package writes only its own new directory."
+  },
+  "channel_definitions": {
+    "convention": "All computations replicate the v3 _host_tape loop operation-for-operation in flopscope.numpy under one BudgetContext(2^41) per row with BASE._CP_CAP=1792; new quantities use separate variables and never mutate host state. Channels are computed in float64 and stored as float32, exactly like raw32.",
+    "indexing": "Layer index l is 0-based over 16 layers. The cap event at the end of layer l-1 defines the discarded component set D(l) entering layer l; D(0) is empty and D(l) is empty when no cap event occurred.",
+    "channels": [
+      {
+        "index": 20,
+        "name": "discarded_k3_signed",
+        "definition": "With (lambda_D, p_D, q_D) the components discarded at the end of layer l-1 (columns in layer l-1 unit basis), pushed_pD = transpose(W32_l) @ p_D, pushed_qD = transpose(W32_l) @ q_D, k3D = 3*((pushed_pD*pushed_pD*pushed_qD) @ lambda_D); channel = k3D / max(sigma^3, 1e-45). Zero vector when D(l) is empty."
+      },
+      {
+        "index": 21,
+        "name": "discarded_k3_absolute",
+        "definition": "3*((|pushed_pD*pushed_pD*pushed_qD|) @ |lambda_D|) / max(sigma^3, 1e-45). Zero vector when D(l) is empty."
+      },
+      {
+        "index": 22,
+        "name": "covariance_series_order10_row_share",
+        "definition": "With c10 = Hermite coefficient order 10 and P10 = elementwise tenth power of the correlation matrix (the final correlation_power of the series loop), channel = (c10 * (P10 @ c10)) / max(series_diag, 2^-40) where series_diag = sum over orders 1..10 of the squared Hermite coefficients."
+      },
+      {
+        "index": 23,
+        "name": "max_offdiagonal_abs_correlation",
+        "definition": "max over j of |rho_ij| with the exact unit diagonal removed by subtracting the identity from |rho| before the row maximum."
+      },
+      {
+        "index": 24,
+        "name": "coincident_bond_degree",
+        "definition": "count over j of (|rho_ij| - identity_ij) > 0.9, divided by 1024."
+      },
+      {
+        "index": 25,
+        "name": "rho2_neighbor_skew",
+        "definition": "((rho*rho) @ (k3/max(sigma^3,1e-45))) / 1024, using the same per-unit k3 vector as existing channel 10."
+      },
+      {
+        "index": 26,
+        "name": "rho2_neighbor_alpha",
+        "definition": "((rho*rho) @ alpha) / 1024."
+      }
+    ]
+  },
+  "parity_law": {
+    "requirement": "For every row, the recomputed 20-channel raw32, host, and sigma arrays must reproduce the sealed v3 row's recorded array_sha256 values exactly, and every one of the 16 recomputed entering-CP state hashes must equal the sealed row manifest's entering_cp_state_hashes.",
+    "on_any_mismatch": "Abort the entire generation; no partial store is used for any training.",
+    "meaning": "This proves the augmentation is purely additive observation over the identical host rollout, and it is the generation stage's positive control."
+  },
+  "storage_layout": {
+    "output_root": "public_aug7_source_observable_tape_v1/rows/observer_fit/{rank:04d}/",
+    "files_per_row": ["aug7_locals.npy float32 [16,1024,7]", "row_manifest.json"],
+    "row_manifest_binds": ["v3 row_manifest sha256", "weights raw sha256", "parity booleans", "entering-hash match count 16", "aug7 array sha256", "flops_used", "wall_seconds"],
+    "weights_and_original_channels": "Never duplicated; consumers join this store with the sealed v3 store by role_rank and mlp_id.",
+    "resumability": "Completed rows are skipped by verifying their existing manifest; partial rows are regenerated."
+  },
+  "scope_and_firewalls": {
+    "role": "observer_fit",
+    "rows": 688,
+    "targets_read": 0,
+    "observer_selection_opened": 0,
+    "public_name_joins": 0,
+    "network_access": 0,
+    "target_free": "The generator reads only weights and sealed v3 receipts; no target file is opened at any point."
+  },
+  "resources": {
+    "processes": 1,
+    "nice_level": 10,
+    "threads": 2,
+    "maximum_rss_bytes": 8589934592,
+    "maximum_new_storage_bytes": 2147483648,
+    "estimated_wall_per_row_seconds": 3.0,
+    "flop_context_budget_per_row": 2199023255552
+  },
+  "generation_gate": {
+    "mode": "all",
+    "rows_complete": 688,
+    "parity_pass_all_rows": true,
+    "entering_hash_matches_all_rows": 16,
+    "all_channels_finite": true,
+    "fail": "Close the generation attempt with a defect receipt; do not train on any partial or parity-failed store."
+  },
+  "native_analog_map_and_transfer_firewall": {
+    "frame_fact": "The cp1792 development host (learned_residual_observer_design/v3/estimator.py, HERMITE_ORDER 10, CP3-only, cap 1792) and the Q24 deployment host (fullbudget_k21_k4_closure_q24_manual_rho_hybrid_*_v1/estimator.py, Q24 Mehler terms 0..24, CP3 cap 16384 never reached, CP4 cap 2048, PSD repair) are different estimators. The Q24-native instrumented tape (public_q24_native_transport_energy_pilot_v1/instrumented_estimator.py, sha f539889324fb82cc1ded35a41c8b5a359014d9ddac52eab62949257e8e58a0ef) already hardcodes channel 2 retained_fraction to 1.0 because CP3 never truncates natively.",
+    "per_channel_native_analogs": {
+      "20_21_discarded_k3": "No literal native CP3 analog (cap never binds). The native instances of the same discarded-higher-order-mass mechanism are the CP4 dropped planes materialized exactly at _cp4_reset lines 969-973 (13 cap events per forward, currently discarded), the cubic star k21_target - cp_post_k21 at _reset_stars line 1132, and the quartic star at lines 1158-1171.",
+      "22_series_order10_row_share": "Native analog: the t=24 Mehler slice of the _g_four_all einsum (last kept term, materialized in pair_left/pair_right/powers[24]); terms t=25..30 are additionally computable natively without new Hermite work because the coefficient table already carries q<=38.",
+      "23_26_correlation_graph": "Direct native analogs: the Q24 fusion correlation matrix exists at _q24_context (clipped to [-1,1] at lines 457-461); identical row-structure channels are computable there."
+    },
+    "two_stage_law": "This development-frame arm is a capacity screen only. A pass licenses exactly one separately preregistered NATIVE augmentation stage (instrumented-estimator export of the native-instance observables plus a ~6.1-hour 688-row retape at 3 workers x 2 threads, nice 10) with its own seal, audit, and gates. No development-frame result, pass or fail, licenses any deployment claim or any change to the banked H7B submission chain."
+  },
+  "one_arm_law_downstream": "Exactly one widened retrain of the frozen J architecture (separately preregistered CV package) may consume this store; no channel-subset sweeps."
+}

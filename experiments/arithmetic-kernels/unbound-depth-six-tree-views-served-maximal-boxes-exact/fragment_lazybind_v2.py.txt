@@ -1,0 +1,130 @@
+
+
+# BEGIN [opus-lazybind] BOX VIEWS v2 (2026-10-16; append LAST on GOV_v3 0640c0cf). A depth-6 A or B tree that setup never binds (its key
+# is not in _PB_SINGLE) used to be bound inside predict by reshaping its arena region (billed at 7^6 r c), plus its level-1 view
+# (reshape) and its quadrant view (reshape) at first load. Setup now reshapes ONE maximal tree per side, leaf (R, C) = (16, 48) for A
+# and (16, 64) for B (the whole region), with its level-1 view and quadrant view; such a key's tree is that box's [..., :r, :c] slice and
+# its level-1 / quadrant views are the box's views sliced the same way (free views, same elements, a strided leaf). Keys that setup
+# binds keep the packed layout in every bind (v2: the keys setup ACTUALLY bound in this process, recorded during setup, so a key in
+# _PB_SINGLE that the setup wall left unbound is boxed too); each key keeps one layout for the whole process (shape-keyed caches). The C side and the
+# u/v leg B trees (256 / 384 rows, which the UBC/UBX caches copy) stay as they were.
+_LB_ON = True
+_LB_SPEC = {0: (16, 48), 1: (16, 64)}                       # kind -> box leaf (R, C) at depth 6
+_LB_SETUP_KEYS = set()                                      # keys _ipt_side bound during setup (packed for good)
+_LB_SETUP = [False]
+_LB_BOX = {}                                                # kind -> dict(arena, start, R, C, T, V1, quad)
+_LB_OF = {}                                                 # id(view) -> (view, kind, r, c) for views cut from a box
+_LB_OF_CAP = 4096
+_LB_STATS = dict(boxes=0, tree=0, level1=0, quad=0)
+_LB_PARENT_VIEW = _ipt_view
+_LB_PARENT_LV1 = _lvf_rs_level1
+_LB_PARENT_QUAD = _l3_quad
+_LB_PARENT_PB = _pb_bind
+_PB_CACHES = tuple(_PB_CACHES) + ('_LB_BOX', '_LB_OF')
+
+
+def _lb_note(view, kind, r, c):
+    if len(_LB_OF) >= _LB_OF_CAP:
+        _LB_OF.pop(next(iter(_LB_OF)))
+    _LB_OF[id(view)] = (view, kind, r, c)
+
+
+def _lb_make_boxes():
+    if not _LB_ON or _SCRATCH is None or _LB_BOX:
+        return
+    arena = _SCRATCH[0]
+    L = 6
+    region = _IPT_REGION[L]
+    nr = L - 1
+    for kind, (R, C) in _LB_SPEC.items():
+        if 7 ** L * R * C > region[kind]:
+            continue
+        start = (0, region[0])[kind]
+        T = _LB_PARENT_VIEW(arena, start, (7,) * L + (R, C))
+        data = slice(0, 7, 2) if kind == 0 else slice(0, 4)
+        V1 = fnp.reshape(T[(data,) * nr], (2, 2) * nr + (7, R, C))
+        base = list(range(2 * nr)) + list(range(2 * nr, 2 * nr + 3))
+        G = fnp.transpose(V1, [base[x] for x in _rs_nat_perm(L, 0)])
+        D = G[0:7:2] if kind == 0 else G[0:4]
+        Q = fnp.reshape(D, (2, 2) + tuple(int(x) for x in G.shape[1:]))
+        quad = fnp.transpose(Q, [0] + list(range(2, L + 2)) + [1] + list(range(L + 2, 2 * L + 2)))
+        _LB_BOX[kind] = dict(arena=arena, start=start, R=R, C=C, T=T, V1=V1, quad=quad, keep=(G, D, Q))
+        _LB_STATS['boxes'] += 1
+
+
+def _pb_bind(t0):
+    _LB_SETUP[0] = True
+    try:
+        _LB_PARENT_PB(t0)
+    finally:
+        _LB_SETUP[0] = False
+    _lb_make_boxes()
+
+
+_LB_PARENT_SIDE = _ipt_side
+_LB_IN_SIDE = [None]
+
+
+def _ipt_side(kind, L, rows, cols):
+    # marks the key being bound, so only its own tree view (and no other caller of _ipt_view) can come from a box
+    if _LB_SETUP[0]:
+        _LB_SETUP_KEYS.add((kind, L, rows, cols))
+    saved = _LB_IN_SIDE[0]
+    _LB_IN_SIDE[0] = (kind, L, rows, cols)
+    try:
+        return _LB_PARENT_SIDE(kind, L, rows, cols)
+    finally:
+        _LB_IN_SIDE[0] = saved
+
+
+def _ipt_view(arena, start, shape):
+    if (_LB_ON and _LB_BOX and _SCRATCH is not None and arena is _SCRATCH[0] and len(shape) == 8
+            and tuple(shape[:6]) == (7,) * 6):
+        region = _IPT_REGION[6]
+        kind = 0 if start == 0 else 1 if start == region[0] else None
+        box = _LB_BOX.get(kind) if kind is not None else None
+        r, c = int(shape[6]), int(shape[7])
+        if (box is not None and box['arena'] is arena and box['start'] == start and r <= box['R'] and c <= box['C']
+                and _LB_IN_SIDE[0] == (kind, 6, 64 * r, 64 * c)
+                and not _LB_SETUP[0] and (kind, 6, 64 * r, 64 * c) not in _LB_SETUP_KEYS
+                and not (kind == 1 and 64 * r in (256, 384))):
+            view = box['T'][..., :r, :c]
+            _BH_HOLD.append(view)
+            _lb_note(view, kind, r, c)
+            _LB_STATS['tree'] += 1
+            return view
+    return _LB_PARENT_VIEW(arena, start, shape)
+
+
+def _lvf_rs_level1(kind, L, T, tail):
+    got = _LB_OF.get(id(T))
+    if got is None or got[0] is not T or L != 6 or len(tail) != 2 or got[1] != kind:
+        return _LB_PARENT_LV1(kind, L, T, tail)
+    _view, _kind, r, c = got
+    if (r, c) != (int(tail[0]), int(tail[1])):
+        return _LB_PARENT_LV1(kind, L, T, tail)
+    V1 = _LB_BOX[kind]['V1'][..., :r, :c]
+    nr = L - 1
+    swap = list(range(2 * nr))
+    base = swap + list(range(2 * nr, 2 * nr + 1 + len(tail)))
+    Vn = fnp.transpose(V1, [base[x] for x in _rs_nat_perm(L, 0)])
+    groups = [Vn]
+    _lb_note(Vn, kind, r, c)
+    _LB_STATS['level1'] += 1
+    return [(fnp.unstack(G, axis=0), [G, None]) for G in groups], groups
+
+
+def _l3_quad(slot, kind, L):
+    G = slot[0]
+    got = _LB_OF.get(id(G)) if G is not None else None
+    if got is None or got[0] is not G or L != 6 or got[1] != kind or kind not in _LB_BOX:
+        return _LB_PARENT_QUAD(slot, kind, L)
+    _view, _kind, r, c = got
+    f = slice(None)
+    quad = _LB_BOX[kind]['quad'][(f,) * L + (slice(0, r),) + (f,) * L + (slice(0, c),)]
+    _BH_HOLD.append(G)
+    slot[0] = None; slot[1] = quad
+    _L3_STATS['quads'] += 1
+    _LB_STATS['quad'] += 1
+    return quad
+# END [opus-lazybind] BOX VIEWS v2

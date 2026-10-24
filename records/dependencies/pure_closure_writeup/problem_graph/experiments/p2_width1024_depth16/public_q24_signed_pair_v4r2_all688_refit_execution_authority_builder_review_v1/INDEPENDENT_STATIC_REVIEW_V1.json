@@ -1,0 +1,124 @@
+{
+  "access_accounting": {
+    "bank_target_row_weight_model_or_score_payloads_opened": 0,
+    "live_oof_output_temp_result_models_or_selection_payloads_opened": 0,
+    "network_accesses": 0,
+    "numerical_training_inference_or_scoring_runs": 0,
+    "protected_archive_or_array_payloads_opened": 0
+  },
+  "authorization": {
+    "anchor_issue": false,
+    "anchor_review_issue": false,
+    "bank_open": false,
+    "capability_issue": false,
+    "execution": false,
+    "final_release_issue": false,
+    "model_open": false,
+    "package": false,
+    "refit": false,
+    "submission": false,
+    "target_open": false
+  },
+  "cross_interpreter_replay": {
+    "cpython_3_11_5_adversarial_pass": true,
+    "cpython_3_11_5_freeze_pass": true,
+    "cpython_3_11_5_static_pass": true,
+    "cpython_3_13_3_adversarial_pass": true,
+    "cpython_3_13_3_freeze_pass": true,
+    "cpython_3_13_3_static_pass": true,
+    "outputs_byte_identical_across_interpreters": true
+  },
+  "date": "2026-08-28",
+  "decision": "HOLD_FROZEN_BUILDER_V1__EXACT_RUNTIME_V1R4_CANNOT_ACCEPT_OR_EXECUTE_ITS_ISSUED_CHAIN",
+  "issued_by": "independent_refit_execution_authority_reviewer_v1",
+  "issued_utc": "2026-08-28T17:47:43Z",
+  "material_defects": [
+    {
+      "builder_anchor_runtime_review_sha256": "69b28b93d04fd8b8e5753b0708aaac2a5005c5360a54aebfcdef2f41c808dc33",
+      "consequence": "The builder can emit an internally valid V1R3-wire anchor/review/capability/release chain, but the exact runner named by that final release rejects the anchor and fails its first pre-caller gate before reading the release or capability. The emitted chain therefore cannot authorize an execution of the exact Runtime V1R4 body it binds.",
+      "direct_cross_version_replay": "Runtime_V1R4.validate_anchor(builder_make_anchor_synthetic_output) -> RefitError: runtime independent review root/path changed",
+      "exact_runtime_runner_sha256": "99866353e1798f103cdaffe6d3dc45b1c4a45849253caf158dc8bdc90512f0fe",
+      "id": "RUNTIME_V1R4_NULL_BINDING_INTEROPERABILITY_BREAK",
+      "release_pins_the_rejecting_runner": true,
+      "required_repair": "Introduce and independently review a non-circular runtime binding mechanism or successor runtime that can consume the reviewed runtime root plus the five empirical and four authority roots while preserving authenticated execution. Update the release contract to bind the actually executable runner, and add a direct builder-output-to-runtime validate_anchor/validate_authority_chain/pre-caller replay before freeze.",
+      "runtime_live_authority_roots_null": 4,
+      "runtime_live_empirical_roots_null": 5,
+      "runtime_reviewed_runtime_static_review_sha256_constant": null,
+      "severity": "BLOCKING"
+    }
+  ],
+  "package_component_inventory": {
+    "all_package_files_inspected": 18,
+    "freeze_inventory_component_count": 16,
+    "manifest_component_count": 16,
+    "manifest_inventory_exact": true
+  },
+  "path_and_inode_safety": {
+    "all_frozen_manifest_components_regular_one_link": true,
+    "all_frozen_manifest_component_inodes_unique": true,
+    "builder_fixed_static_and_live_metadata_readers_reject_symlink_components": true,
+    "builder_fixed_static_and_live_metadata_readers_require_regular_one_link_files": true,
+    "exclusive_authority_file_creation_uses_O_EXCL_and_O_NOFOLLOW": true,
+    "no_separate_static_path_or_inode_blocker_found": true
+  },
+  "review_id": "q24-signed-pair-v4r2-all688-refit-execution-authority-builder-v1-independent-static-hold",
+  "review_scope": "Frozen static builder bytes, exact upstream control roots, Runtime V1R4 wire and validator interoperability, synthetic adversaries, freeze replay, request gates, publication controls, and null authority boundary only; no live OOF output, temp, RESULT, MODELS, selection, bank, target, row, weight, model, score, archive, or numerical payload access.",
+  "reviewed_frozen_sha256": {
+    "ANCHOR_ISSUANCE_REQUEST_SCAFFOLD.json": "3d8f49d8b887fca08efc98eb73ef21d3ba3141c96cb503638a29700f974f09ff",
+    "ANCHOR_REVIEW_SCAFFOLD.json": "a96254c8e3e2445c0378ec903f5a403ae935abd7fc739cf93432c00a794a7ee6",
+    "AUTHORITY_DAG_SCAFFOLD.json": "fe17142c589675c9e7fbe56c2ecfcb212ecc06f97360065dbdd6094444eb99b7",
+    "BINDINGS_HOLD.json": "b295effd243f79942caa3c8fe0ac849c8e4f0f46755b02e86f914253db679f16",
+    "CAPABILITY_ISSUANCE_REQUEST_SCAFFOLD.json": "9347f1a68b4bc2d02f78202e8ca2407e159fc1ac0e232dfdd8a2b6c7eb42ac65",
+    "EXACT_TARGET_CAPABILITY_CONTRACT.json": "19b3adad2397d448fa26e281857965aa56222e6c793d64daf0a4877734ccb94e",
+    "FREEZE_RECEIPT.json": "d508ea1b3f69c17cce0584acee387469cc7c011232a7595f6f499231ab3654c4",
+    "FREEZE_VERIFICATION.json": "bd2162db874c3117edb022cbd07351dfa5487c26a82910c240f908e51faf771c",
+    "INDEPENDENT_REVIEW_REQUEST.md": "070b71b66232eada068d57b8a5f8cfa0cd1283e752f927265ab7f9fa04cdc8d5",
+    "LIVE_GATE_CONTRACT.json": "8970204f1b0c64761b12025dd4feab2cca7723172a7bf755808acee6c768c8da",
+    "PACKAGE_MANIFEST.json": "15f7427bf0b6ad72b17eeec0d3ce4100d40f013515c9368041569cccb9650073",
+    "README.md": "76a40fa56692574cb5fe7dcd9765eaf168b1046516454bb0891a521ff5ab9ac5",
+    "RELEASE_ISSUANCE_REQUEST_SCAFFOLD.json": "ca230acd3c88c6643819d9de3580c152519c7e217730509365f2a9dab70d2295",
+    "STATIC_LINEAGE_BINDINGS.json": "3ca526529577b28e1ec596c2e9c06b671bb313f5bc2e571a282cda12c6f008b6",
+    "STATIC_VERIFICATION.json": "a59a12776a5b637c37e1eb2650967e5e8a6f9353908b23e19454ec26e2c1eb64",
+    "adversarial_fixtures.py": "6efbc4c4fc833f1aeb817195edd4ad7415e31b85d7a61fd698c59f088573f6b5",
+    "refit_execution_authority_builder_v4r2.py": "d1589aa235e9e2c23833affbb201ad9f102a498d5100032a9e8ab78955177e93",
+    "verify_freeze.py": "3bf0ac766b5e1ee4126738b1fb7542db35d83d2ede6ad61636b2dbbd326ddb0b",
+    "verify_static.py": "e2052b2af7864ecbeb49cc5612a612ce1eb7470915db53e7fef595f5996935bd"
+  },
+  "reviewer_different_from_package_author": true,
+  "runtime_interoperability": {
+    "builder_anchor_embeds_runtime_v1r4_go": true,
+    "builder_and_runtime_v1r3_wire_keysets_match": true,
+    "builder_uses_runtime_expected_static_bindings_exactly": true,
+    "direct_builder_anchor_acceptance_by_exact_runtime_v1r4": false,
+    "exact_runtime_has_no_post_definition_assignment_or_input_channel_for_required_roots": true,
+    "exact_runtime_precaller_gate_can_pass_with_builder_outputs": false,
+    "interoperable": false,
+    "runtime_final_release_root_self_binding_cycle_unresolved": true
+  },
+  "schema": "public-q24-signed-pair-v4r2-all688-refit-execution-authority-independent-static-review-v1",
+  "static_lineage": {
+    "all_33_upstream_roots_rehashed_exactly": true,
+    "deployment_prep_v1r2_independent_review_sha256": "edba20c8c357722cc54fe98e58c81bb2983425d6565ef4500eaf9bda0a7bc19b",
+    "oof_v4r2_authority_bindings_sha256": "0c87cedd05e52f9464bef179a6c961be0c392bd194a37452a79cd9a1ac846743",
+    "oof_v4r2_independent_static_review_sha256": "c15c3945c88ad07fa7a6cfa25dcb800958627dcb7db55e5ce3998b4029d7a02d",
+    "oof_v4r2_package_manifest_sha256": "c5e0512c629730e8b732c5aadf253bf080013439ed98e6e8a8060d63e4e65cf0",
+    "postrun_v4r2_v1r1_independent_static_review_sha256": "c1c2c479898ddaf13c5626fc35595737dcec50fa8c1f331f3eca003aa34bb90c",
+    "postrun_v4r2_v1r1_package_manifest_sha256": "e8b10df6c712b7f2b80106da766d52f633d0bc6652b4325941669da4261ee057",
+    "reviewed_v5_consumer_handoff_sha256": "470e25cfc27bc7828a2ea202914b0acab8b8451406c615804da1d714a5e738ca",
+    "runtime_v1r4_independent_static_review_sha256": "69b28b93d04fd8b8e5753b0708aaac2a5005c5360a54aebfcdef2f41c808dc33",
+    "runtime_v1r4_package_manifest_sha256": "d211a742b80085f4a7fa9c3885689a9c52c3ebe0df3c70e83336af2aa153935f"
+  },
+  "static_verification": {
+    "adversarial_fixture_count": 44,
+    "all_adversarial_fixtures_pass": true,
+    "cpu_only_mps_false_one_run_no_retry_contract": true,
+    "five_empirical_roots_exact_and_null": true,
+    "five_minute_issuance_request_checks_present": true,
+    "four_authority_roots_exact_and_null": true,
+    "frozen_static_and_freeze_replays_pass": true,
+    "metadata_loader_does_not_reference_result_or_models_payload_paths": true,
+    "root_shape_gate_precedes_the_only_live_metadata_loader": true,
+    "supplied_frozen_roots_rehash_exactly": true
+  },
+  "status": "HOLD_RUNTIME_V1R4_VALIDATOR_INTEROPERABILITY_FAILURE__NO_LIVE_AUTHORITY"
+}

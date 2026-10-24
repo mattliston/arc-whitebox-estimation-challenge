@@ -1,0 +1,82 @@
+{
+  "schema": "p2r0c1d4-d3-read-only-failure-decomposition-v1",
+  "status": "complete-read-only-no-new-target-open",
+  "conclusion": "D3 failed from a causal recurrence-interface and observability mismatch, not numerical recurrent instability or a small hard-row tail: the CP16384 recursive host incurs large error at L1 while the frozen D3 corrector hard-zeros L0/L1 and seeds L2 with zero messages.",
+  "bindings": {
+    "d3_terminal_recovery_path": "../public_cp16384_dynamic_multistate_pilot_v1/runs/protected160_40_v1/TERMINAL_RECOVERY.json",
+    "d3_terminal_recovery_sha256": "404bb2a4f1bb3eebb7f3d961bcad0aa098d1e4c866fcd3e139cec9138c42d792",
+    "d3_partial_result_path": "../public_cp16384_dynamic_multistate_pilot_v1/runs/protected160_40_v1/.RESULT.json.28259.tmp",
+    "d3_partial_result_sha256": "f487c7c360b066549263f5b8506aeb5a55ece637e944ebd17fa844d693282121",
+    "d3_program_path": "../public_cp16384_dynamic_multistate_pilot_v1/run_protected_pilot.py",
+    "d3_program_sha256": "f673a3420a87f09eb21e7a5ef1f939335f100a377e2f7689c01bd4717843c520",
+    "prior_dynamic4_cv_path": "../public_full688_dynamic_multistate_residual_cv_v1/CV_RESULTS.json",
+    "prior_dynamic4_cv_sha256": "ddaf1ede02733eb4429dcaf003ff65f8d9fba2460352e8deba4fb54a3c111dbf",
+    "prior_patched_error_path": "../public_full688_dynamic_multistate_residual_cv_v1/cache/patched_error.npy",
+    "prior_patched_error_sha256": "1414515cfbb098e731e4f00d3f4ba7a310f17ac96e886846cd08aaaa0a679ca1",
+    "prior_raw_sufficient_stats_path": "../public_full688_dynamic_multistate_residual_cv_v1/cache/raw_sufficient_stats.npz",
+    "prior_raw_sufficient_stats_sha256": "1648a140768cdc254a7bb6957dcb8e82f4271118bc64b552bb08de294ec62208",
+    "cp16384_mini100_path": "../fullbudget_joint_score_v2/receipts/results/fullbudget-joint-mini100-v2.joint-raw-mse.json",
+    "cp16384_mini100_sha256": "b9f11dad7f3998b4639ecdf8628931f1f3457cddeacbd10e5ffe2ea7f0ccf721"
+  },
+  "exact_recoverable_d3_host_candidate_layers": {
+    "layers": [0, 1],
+    "host_mse": [6.766513145801956e-10, 2.1912555573764805e-8],
+    "candidate_mse": [6.766513145801956e-10, 2.1912555573764805e-8],
+    "gain_fraction": [0.0, 0.0],
+    "reason_later_host_curve_unavailable": "The original JSON serialization failed on numpy.bool_ inside the decision prefix before the host and training_trace suffix; TERMINAL_RECOVERY truthfully marks both suffixes unrecoverable without reopening targets."
+  },
+  "same40_prior_context": {
+    "prior_q24_host_l1_mse": 5.899027712478449e-10,
+    "d3_host_l1_ratio_to_prior": 37.146046,
+    "prior_q24_host_final_mse": 9.16547889880824e-8,
+    "prior_q24_dynamic4_final_mse": 3.1873063837168237e-8,
+    "prior_host_to_candidate_gain_fraction": 0.652249,
+    "prior_candidate_wins": 40,
+    "networks": 40
+  },
+  "d3_protected40": {
+    "final_mse": 7.429439793913384e-7,
+    "minimum": 5.549247351086295e-7,
+    "q25": 6.790609162027882e-7,
+    "median": 7.405658892157029e-7,
+    "q75": 8.101834045986426e-7,
+    "maximum": 9.962728694436744e-7,
+    "coefficient_of_variation": 0.12501028024407548,
+    "all_finite": true,
+    "rows_passing_raw_gate": 0,
+    "best_ratio_to_gate": 15.6735,
+    "worst_ratio_to_gate": 28.1391,
+    "top5_error_share": 0.150608,
+    "interpretation": "Population-wide miss, not tail domination."
+  },
+  "cross_roster_cp16384_host_gain_proxy": {
+    "warning": "This is not the lost same-40 host curve; it compares the D3 eval candidate curve to the independently sealed CP16384 recursive-mean mini100 host curve.",
+    "selected_layers": [2, 4, 8, 12, 15],
+    "host_mse": [1.362119439968423e-7, 3.4789826539766237e-7, 6.121443677464503e-7, 8.023588703301556e-7, 9.340196551564291e-7],
+    "candidate_mse": [8.393103556860944e-8, 2.3888788693285326e-7, 4.6638993208287916e-7, 6.340114608820157e-7, 7.429439793913384e-7],
+    "gain_fraction": [0.3838, 0.3133, 0.2381, 0.2098, 0.2046]
+  },
+  "teacher_or_local_ceiling": {
+    "d3_ceiling_stored": false,
+    "prior_teacher_forced_is_valid_ceiling": false,
+    "prior_teacher_forced_final_mse": 1.6552633757383804e-7,
+    "prior_state_independent_local_final_mse": 3.908100560611721e-8,
+    "prior_dynamic4_final_mse": 3.2969476163272226e-8,
+    "local_worse_networks": 686,
+    "total_networks": 688,
+    "interpretation": "Physical recurrence is useful and finite in the prior regime; D3 does not support a generic recurrence-instability diagnosis."
+  },
+  "frozen_successor_hypothesis": {
+    "node": "P2R0C1D4",
+    "sole_causal_change": "FIRST_CORRECTED_LAYER changes from 2 to 1. The L1 target-blind source is then carried through the unchanged four-state physical recurrence into L2 and later layers.",
+    "why_material": "D3 made the entire L1 residual uncorrectable and provided L2 no carried state even though this host's error begins at L1.",
+    "not_changed": ["host prediction path", "raw20/sigma tape", "hidden width", "four-state cell", "optimizer", "epochs", "exposure schedule", "seed"]
+  },
+  "scope": {
+    "new_target_values_opened": 0,
+    "observer_selection_targets_opened": 0,
+    "name_or_board_join": false,
+    "training_or_rollout_performed": false,
+    "canonical_graph_edited": false
+  }
+}

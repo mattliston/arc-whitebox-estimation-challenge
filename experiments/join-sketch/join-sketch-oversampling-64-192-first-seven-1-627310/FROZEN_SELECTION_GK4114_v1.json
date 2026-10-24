@@ -1,0 +1,148 @@
+{
+  "utc": "2026-10-20T21:27:03Z",
+  "status": "FROZEN_FRESH4_SELECTION_REQUIRES_CURRENT32",
+  "chosen_index": 4,
+  "chosen_prespecified_setting": {
+    "_GSK": 0.9,
+    "_GK4": 1.14,
+    "_GQ33_CONST": {},
+    "_GSK_CONST": {}
+  },
+  "candidate_sha256": "51aec0294ab23ced8280cfd104d6ebc97647585904721822c4b96be3049af6d5",
+  "reference_submission": 337393,
+  "reference_sha256": "fd8739582ffdd04decc5fe6bbb2f99fb0b3dc02a2ee786d684bd21bbf52d974d",
+  "actual_paired_bank": {
+    "mean_pct": -0.6169460796021986,
+    "se_pct": 0.2884183388940228,
+    "lower": 3,
+    "n": 4
+  },
+  "incremental_default": {
+    "mean_pct": -0.2638962472005485,
+    "se_pct": 0.1360256776049234,
+    "lower": 4,
+    "n": 4
+  },
+  "selected_reason": "Only prespecified arm favorable on all4 fresh networks; every leave-one-seed-out incremental mean remains negative. Native bill identical to default eachseed.",
+  "worst_leave_one_out_mean_pct": -0.16134522829191664,
+  "no_gsk_change": true,
+  "no_off_grid_fit": true,
+  "no_store_or_held25_used": true,
+  "scored_predictions_count": 28,
+  "all_cross_half_U_reconstructed_exactly": true,
+  "guards": [
+    {
+      "role_seed": "bank_seed7100092",
+      "completed": true,
+      "exit_code": 0,
+      "error": null,
+      "whole_group_retired": true,
+      "max_footprint_bytes": 4105442848,
+      "max_rss_bytes": 6086623232,
+      "min_pressure_free_pct": 48,
+      "elapsed_s": 92.12398837506771
+    },
+    {
+      "role_seed": "bank_seed7100093",
+      "completed": true,
+      "exit_code": 0,
+      "error": null,
+      "whole_group_retired": true,
+      "max_footprint_bytes": 4436187664,
+      "max_rss_bytes": 6116589568,
+      "min_pressure_free_pct": 59,
+      "elapsed_s": 110.68833879195154
+    },
+    {
+      "role_seed": "bank_seed7100094",
+      "completed": true,
+      "exit_code": 0,
+      "error": null,
+      "whole_group_retired": true,
+      "max_footprint_bytes": 4642871536,
+      "max_rss_bytes": 7326007296,
+      "min_pressure_free_pct": 47,
+      "elapsed_s": 100.18076658435166
+    },
+    {
+      "role_seed": "bank_seed7100095",
+      "completed": true,
+      "exit_code": 0,
+      "error": null,
+      "whole_group_retired": true,
+      "max_footprint_bytes": 4443134288,
+      "max_rss_bytes": 7151730688,
+      "min_pressure_free_pct": 70,
+      "elapsed_s": 96.1776587087661
+    },
+    {
+      "role_seed": "screen_seed7100092",
+      "completed": true,
+      "exit_code": 0,
+      "error": null,
+      "whole_group_retired": true,
+      "max_footprint_bytes": 5166815592,
+      "max_rss_bytes": 7215890432,
+      "min_pressure_free_pct": 47,
+      "elapsed_s": 326.482482958585
+    },
+    {
+      "role_seed": "screen_seed7100093",
+      "completed": true,
+      "exit_code": 0,
+      "error": null,
+      "whole_group_retired": true,
+      "max_footprint_bytes": 5094153008,
+      "max_rss_bytes": 8022687744,
+      "min_pressure_free_pct": 45,
+      "elapsed_s": 390.74419562518597
+    },
+    {
+      "role_seed": "screen_seed7100094",
+      "completed": true,
+      "exit_code": 0,
+      "error": null,
+      "whole_group_retired": true,
+      "max_footprint_bytes": 6010068144,
+      "max_rss_bytes": 8211431424,
+      "min_pressure_free_pct": 44,
+      "elapsed_s": 358.91783729195595
+    },
+    {
+      "role_seed": "screen_seed7100095",
+      "completed": true,
+      "exit_code": 0,
+      "error": null,
+      "whole_group_retired": true,
+      "max_footprint_bytes": 5557410800,
+      "max_rss_bytes": 7323385856,
+      "min_pressure_free_pct": 42,
+      "elapsed_s": 359.3484130818397
+    }
+  ],
+  "response_diagnostic": {
+    "mixed_prediction_relative_norm": [
+      0.7045953610932496,
+      0.7380353100494776,
+      0.7810527355839828,
+      0.6437413566504425
+    ],
+    "linear_pair_proxy_error_raw_pct": [
+      -0.2206675180379081,
+      0.19521864293959432,
+      -0.6543235899127994,
+      1.4422270116183948
+    ],
+    "inference": "Mixedresponse and nonsmooth curvature make off-grid quadratic steps/additive prediction stacks unsupported; select measuredendpoint only."
+  },
+  "receipts_sha256": {
+    "RESULT_FRESH4_v1.json": "c99b47910d9900b43237ea0edda63758608f21b372752b0360c327d70dcdcd0e",
+    "RESPONSE_DIAGNOSTIC_v1.json": "79f3c2f611601aa36f8d5d293be6ba9785d32f2de3c07025c91f55befdc124a2",
+    "CACHE_AST_PROOF_v1.json": "9f64b011234ee847c1700e5fd5441599253fd5eb48fb79596aae388fb2a9ffba"
+  },
+  "limitations": [
+    "Four-network selected arm remains noisy and selected among5 nondefault comparisons. Not full32 qualification.",
+    "Do not add standalone EH gains to this score; actual combination requires its own native prediction/judge.",
+    "Standalone constant1.14 must be bound before cache construction; runtime screen resets bothwidth-only caches eachsetting."
+  ]
+}

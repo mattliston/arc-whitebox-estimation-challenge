@@ -1,0 +1,36 @@
+
+
+# BEGIN OPUS-LEAD SMIRNOV COVERAGE DIAGNOSTIC v1 (2026-10-16; DIAGNOSTIC ONLY, never released): every young read that reaches the
+# Smirnov dispatch is logged with its plan key (m, k, n, rank), whether the table holds it, its layer and its dtype. One JSON line per
+# predict to $OPUS_SMCOV_OUT. Predictions and FLOPs unchanged (the wrapper only observes).
+import json as _smc_json
+import os as _smc_os
+_SMC_PREV = _RTT_PARENT_READ
+_SMC_LOG = []
+
+
+def _smc_read(left, young_right, lam, live_indices, state):
+    old = int(state['columns'])
+    key = (int(left.shape[0]), int(young_right.shape[1]), int(young_right.shape[0]), int(state['pre_basis'].shape[1]) if old else 0)
+    _SMC_LOG.append(dict(key=list(key), hit=key in _ASTRA_SM40_PLANS, layer=state.get('layer', None) if hasattr(state, 'get') else None,
+                         dtype=str(left.dtype), old=old))
+    return _SMC_PREV(left, young_right, lam, live_indices, state)
+
+
+_RTT_PARENT_READ = _smc_read
+_SMC_PREDICT = Estimator.predict
+
+
+def _smc_predict(self, *args, **kwargs):
+    del _SMC_LOG[:]
+    try:
+        return _SMC_PREDICT(self, *args, **kwargs)
+    finally:
+        path = _smc_os.environ.get('OPUS_SMCOV_OUT')
+        if path:
+            with open(path, 'a') as f:
+                f.write(_smc_json.dumps(dict(reads=_SMC_LOG, sm40_calls=_ASTRA_SM40_STATS.get('calls'))) + '\n')
+
+
+Estimator.predict = _smc_predict
+# END OPUS-LEAD SMIRNOV COVERAGE DIAGNOSTIC v1

@@ -1,0 +1,74 @@
+{
+  "access_counters": {
+    "banks_created": 0,
+    "numerical_parent_source_or_adapter_imports": 0,
+    "real_rows_executed": 0,
+    "row_manifests_opened": 0,
+    "targets_opened": 0,
+    "weights_opened": 0
+  },
+  "schema": "public-q24-three-bank-runtime-flopscope-reset-verification-v5",
+  "source_semantics": {
+    "budget_context_exit_records_global_accumulator": true,
+    "budget_module_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/flopscope/_budget.py",
+    "budget_module_sha256": "ad9e78172bd0e8175533d4aae75b67df749d96ecc1ca868135eb3d781e542d01",
+    "global_record_retains_diagnostic_op_log": true,
+    "public_reset_clears_records_rollup_diagnostic_locations_and_caches": true,
+    "public_reset_rebaselines_live_contexts": true
+  },
+  "static_placement": {
+    "adapter_budget_context_call_sites": 1,
+    "adapter_reset_call_sites": 0,
+    "context_close_before_detached_summary": true,
+    "detached_summary_before_exact_meter_construction": true,
+    "exact_meters_and_output_receipt_before_runner_validation": true,
+    "reset_inside_meter": false,
+    "reset_is_final_loop_statement": true,
+    "row_order": [
+      "adapter_return_after_context_close_and_receipt_construction",
+      "runner_validate_row_result",
+      "runner_append_row_receipt",
+      "optional_progress_print",
+      "flopscope_budget_reset",
+      "next_row_budget_context"
+    ],
+    "runner_reset_call_sites": 1,
+    "runner_reset_receiver": "session_flopscope_module_identity"
+  },
+  "status": "PASS_STATIC_AND_SYNTHETIC_NO_REAL_EXECUTION",
+  "synthetic_invariance": {
+    "budget_reset_calls": 1000,
+    "closed_context_full_summaries_preserved": 1000,
+    "completed_contexts": 1000,
+    "context_complete_flops_after_reset_values": [
+      6
+    ],
+    "detached_complete_flops_values": [
+      6
+    ],
+    "detached_summaries_preserved": 1000,
+    "diagnostic_retention_bound": "AT_MOST_ONE_COMPLETED_ROW",
+    "final_global_accumulator_records": 0,
+    "materialized_receipts_and_outputs_preserved": 1000,
+    "max_global_accumulator_records_after_reset": 0,
+    "max_global_accumulator_records_before_reset": 1,
+    "max_global_diagnostic_oprecords_before_reset": 1,
+    "memory_bounded_against_per_row_accumulator_growth": true,
+    "output_ndarray_byte_hashes_preserved": 1000,
+    "output_values_after_reset": [
+      3.0
+    ],
+    "resets_per_completed_context": 1
+  },
+  "synthetic_loop_adversaries": {
+    "each_of_eight_successful_rows_has_one_reset": true,
+    "eight_successful_rows_reset_calls": 8,
+    "failed_or_unvalidated_row_reset_calls": 0,
+    "non_progress_successful_row_reset_calls": 1,
+    "progress_boundary_rank7_reset_calls": 1,
+    "reset_failure_stops_before_next_generate": true,
+    "reset_observed_no_active_budget_context": true,
+    "reset_uses_exact_session_flopscope_module_identity": true,
+    "validated_append_progress_reset_order": true
+  }
+}

@@ -1,0 +1,31 @@
+archive release/runs/fable_hgfh_r0p03_s15_cap4s8e9_clean_f66cb28b_v1/submission.tar.gz sha256 55a93ef002c20419b17c53d1f4bfc1fd7269d9da97d0b6f6fdbbc7086d4a7017 bytes 3160319
+estimator sha256 f66cb28baf0c018f25bb749d14ce9e9aedbb47b8f2acd408680cad169485d557 lines 25741 | manifest ['f66cb28baf0c018f25bb749d14ce9e9aedbb47b8f2acd408680cad169485d557'] | entrypoint {'module': 'estimator', 'class': 'Estimator'}
+imports ['base64', 'flopscope', 'flopscope.numpy', 'gc', 'math', 'time', 'whestbench', 'zlib']
+FAIL imports outside the allowed set: ['gc']
+  eye L900: _pe34 = _PE34_BY_LAYER.get(_PHYS_LAYER[0])   # opus-engineer2 a62 pe3 / pe4 by layer (make_pe34_v1.py): torch's e3 x (1 + pe3[l]), e4 x (1 + pe4[l])
+  eye L3348: if _S19_K4BAND is not None and l >= 1:   # PT-33 S19: per-unit k4 x band L1-7/8-11/12-15 (covhunter; torch pair_in, k4_15)
+  eye L3421: if _S19_BSCALE is not None:   # PT-33 S19: carried b x bscale after the b-fix, before trace_post (covhunter; torch b_post)
+  eye L3494: else:   # PT-33 S19: carried CP weights x s_carry, newborn x s_new (covhunter; torch state_out)
+  eye L3971: if '_k31_row_scale' in (_e2_append_inline((_e2_value_inline := globals())) or _e2_value_inline) else None)   # PT-33 S19: torch GN remainder keeps the configure
+  eye L6655: # L14, the L15 star diagonal. The porter's no-refit torch test found rank truncation of that plane is not a cliff (rank 32: +0.37%
+  eye L6661: # wrong directions (k=48 without power steps: final MSE +4.5..+10.9% on 35/100/37/39 against torch's exact rank-32 truncation
+  eye L7183: # ablation survivor, fable_analyst_v1/RESULT.md sec. 36: raw +0.002% on torch VALID16). Full native saving (engineer2 census of S23 r100):
+  eye L7643: if '_k31_row_scale' in (_e2_append_inline((_e2_value_inline := globals())) or _e2_value_inline) else None)   # PT-33 S19: torch GN remainder keeps the configure
+  eye L10856: # held to the end of the call and lower-case einsum subscripts): native port of the lead's K4L rule (O/K4L_SPEC.md, torch reference
+  eye L10870: # loc = 0 exactly; they get no correction and are left out of the beta sums (the torch reference has no row cuts).
+  eye L13727: # plane strengths by cohort age may differ by READ layer (the torch k31l instances read their leaves nkl1 / nkl2 / nkl3 at the layer
+  eye L13766: # BEGIN OPUS-ENGINEER a62 K4 FAMILY (2026-10-12 00:1xZ; S50 arm fk4; trainer 10-11 23:5xZ): the torch card scales the radial k4 by band(l) +
+  eye L17131: if _S19_K4BAND is not None and l >= 1:   # PT-33 S19: per-unit k4 x band L1-7/8-11/12-15 (covhunter; torch pair_in, k4_15)
+  eye L17206: if _S19_BSCALE is not None:   # PT-33 S19: carried b x bscale after the b-fix, before trace_post (covhunter; torch b_post)
+  eye L17279: else:   # PT-33 S19: carried CP weights x s_carry, newborn x s_new (covhunter; torch state_out)
+  eye L17481: if _S19_K4BAND is not None and l >= 1:   # PT-33 S19: per-unit k4 x band L1-7/8-11/12-15 (covhunter; torch pair_in, k4_15)
+  eye L17558: if _S19_BSCALE is not None:   # PT-33 S19: carried b x bscale after the b-fix, before trace_post (covhunter; torch b_post)
+  eye L17631: else:   # PT-33 S19: carried CP weights x s_carry, newborn x s_new (covhunter; torch state_out)
+  eye L22634: if _S19_K4BAND is not None and l >= 1:   # PT-33 S19: per-unit k4 x band L1-7/8-11/12-15 (covhunter; torch pair_in, k4_15)
+  eye L22711: if _S19_BSCALE is not None:   # PT-33 S19: carried b x bscale after the b-fix, before trace_post (covhunter; torch b_post)
+  eye L22785: else:   # PT-33 S19: carried CP weights x s_carry, newborn x s_new (covhunter; torch state_out)
+  eye L24798: if _S19_K4BAND is not None and l >= 1:   # PT-33 S19: per-unit k4 x band L1-7/8-11/12-15 (covhunter; torch pair_in, k4_15)
+  eye L24875: if _S19_BSCALE is not None:   # PT-33 S19: carried b x bscale after the b-fix, before trace_post (covhunter; torch b_post)
+  eye L24949: else:   # PT-33 S19: carried CP weights x s_carry, newborn x s_new (covhunter; torch state_out)
+einsum calls 91, signatures 23 (reference 23)
+PREFIRE FAILED | new signatures: 0

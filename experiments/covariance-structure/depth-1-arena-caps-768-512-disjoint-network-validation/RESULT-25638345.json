@@ -1,0 +1,46 @@
+{
+  "schema": "q24-cp4-cap-adaptive-two-rank-bracket-result-v1",
+  "status": "COMPLETE_SELECTED_CAP768",
+  "role_ranks": [35, 279],
+  "selection_rule": "strictly improve rank35, rank279, and pooled final-layer MSE at each step",
+  "starting_cap768": {
+    "rank35_final_mse": 2.712799717582664e-8,
+    "rank279_final_mse": 3.211417387511561e-8,
+    "pooled_final_mse": 2.9621085525471125e-8,
+    "structural_flop_saving_vs_cap2048": 103776627200
+  },
+  "cap512": {
+    "status": "STEP_REVERSED",
+    "rank35_final_mse": 2.716873956124801e-8,
+    "rank279_final_mse": 3.2001284077357714e-8,
+    "pooled_final_mse": 2.9585011819302862e-8,
+    "pooled_gain_vs_cap768": 0.0012178387634458143,
+    "both_rank_gate": false,
+    "structural_flop_saving_vs_cap2048": 125843312640,
+    "score_sha256": "64d369626d96e141f6afdff45b26bc2ce220621f7a91228522c5ae44ee37f5dd"
+  },
+  "cap640": {
+    "status": "STEP_REVERSED",
+    "rank35_final_mse": 2.7179269477198488e-8,
+    "rank279_final_mse": 3.203084528906695e-8,
+    "pooled_final_mse": 2.960505738313272e-8,
+    "pooled_gain_vs_cap768": 0.000541105839103103,
+    "both_rank_gate": false,
+    "structural_flop_saving_vs_cap2048": 114809969920,
+    "score_sha256": "01bec8cd515dcd8aef398a1842f72f3369209d41f0db2b1ab4477af87d1c9a58"
+  },
+  "unrun_by_preregistered_law": ["cap384", "cap256"],
+  "selection": {
+    "selected_cap": 768,
+    "reason": "cap512 reversed rank35; cap640 bracket also reversed rank35; cap768 remains the smallest tested cap with strict improvement on both ranks and pooled versus its predecessor",
+    "disjoint_16_network_validation_licensed": true,
+    "direct_cap_integration_licensed": false,
+    "board_submission": false
+  },
+  "bindings": {
+    "preregistration_sha256": "6cb74cff24f014ef5fe101c4f8ddebff6ec4eb8a083bac116237e64aaec38f35",
+    "predecessor_two_rank_result_sha256": "2c8b489633e180b8dfed90bd39d8f216f0c660d3b660ec39b9b85049436a90f7",
+    "cap512_score_sha256": "64d369626d96e141f6afdff45b26bc2ce220621f7a91228522c5ae44ee37f5dd",
+    "cap640_score_sha256": "01bec8cd515dcd8aef398a1842f72f3369209d41f0db2b1ab4477af87d1c9a58"
+  }
+}

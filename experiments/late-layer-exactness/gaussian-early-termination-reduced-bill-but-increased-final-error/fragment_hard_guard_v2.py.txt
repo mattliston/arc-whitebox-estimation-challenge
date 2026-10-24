@@ -1,0 +1,88 @@
+
+
+# BEGIN [opus-lead] HARD RESIDUAL GUARD v2 (2026-10-17; append LAST): a construction-level bound on the participant residual. At the start
+# of every layer from 6 on, the live residual (public meter, fail-soft reader) divided by the share of the network's requests already
+# issued projects the final residual; if the projection exceeds _HRG_T the remaining layers are finished by a cheap Gaussian tail (tree
+# covariance pushes, the same pair map with zero third/fourth-order tables, the scalar map at the last layer: ~200 requests per layer
+# instead of ~2,700), so the residual stops growing within one layer of the decision. The tail runs inside the prediction's own contexts
+# (the core wrapper catches the signal), reads the exact layer state from the core's frame, and keeps the FHM bookkeeping consistent.
+# At nominal speed the projection never crosses the threshold (controlled-class record: worst excursion 1.057 of median .349 -> .369 <
+# .380), so predictions, bill and requests are byte-identical to the parent; on a slow host the network returns a degraded prediction
+# instead of a zero one.
+import sys as _hrg_sys
+_HRG_T = 0.380
+_HRG_F = {6: 0.3139, 7: 0.3848, 8: 0.4468, 9: 0.5187, 10: 0.6184, 11: 0.6933, 12: 0.7688, 13: 0.8664, 14: 0.9482, 15: 0.985}
+_HRG_STATS = dict(predicts=0, tails=0, last=None, tail_layers=0)
+
+
+class _HrgTail(Exception):
+    def __init__(self, layer, residual, projected, means, m, C):
+        Exception.__init__(self, 'residual guard: layer %d residual %.4f projected %.4f' % (layer, residual, projected))
+        self.layer, self.residual, self.projected = layer, residual, projected
+        self.means, self.m, self.C = means, m, C
+
+
+_HRG_PARENT_BEGIN = _w5_port_begin
+
+
+def _hrg_trigger(layer, residual, share):
+    return residual / share > _HRG_T
+
+
+def _w5_port_begin(scope, network, layer, weight, previous):
+    share = _HRG_F.get(layer)
+    if share is not None:
+        residual = _fast_rescue_live_residual()
+        if residual is not None and _hrg_trigger(layer, residual, share):
+            local = _hrg_sys._getframe(1).f_locals
+            means, m, C = local.get('means'), local.get('m'), local.get('C')
+            if type(means) is list and len(means) == layer and m is not None and C is not None:
+                raise _HrgTail(layer, residual, residual / share, list(means), m, C)
+    return _HRG_PARENT_BEGIN(scope, network, layer, weight, previous)
+
+
+def _hrg_finish(mlp, tail):
+    f64, f32 = fnp.float64, fnp.float32
+    rows = list(tail.means)
+    m = tail.m
+    C32 = fnp.asarray(tail.C, dtype=f32)
+    n, depth = int(mlp.width), int(mlp.depth)
+    zero_matrix, zero_vector = fnp.zeros((n, n), dtype=f64), fnp.zeros(n, dtype=f64)
+    for k in range(tail.layer, depth):
+        _PHYS_LAYER[0] = k
+        w32 = fnp.asarray(mlp.weights[k], dtype=f32)
+        mu = fnp.asarray(w32.T, dtype=f64) @ m
+        Cw = _mm(C32, w32)
+        if k == depth - 1:
+            v = fnp.maximum(fnp.sum(w32 * Cw, axis=0, dtype=f64), 1e-10)
+            m_last, aux = nonlinear_scalar(mu, v, zero_vector, zero_vector)
+            rows.append(m_last)
+            break
+        Cpre = fnp.asarray(_mm(w32.T, Cw), dtype=f64)
+        m, C, target, radial_new, aux = nonlinear(mu, Cpre, zero_matrix, zero_vector, None, 'covariance')
+        C32 = fnp.asarray(C, dtype=f32)
+        rows.append(m)
+        _HRG_STATS['tail_layers'] += 1
+    return fnp.asarray(fnp.maximum(fnp.stack(rows), 0.0), dtype=f32)
+
+
+_HRG_PARENT_CORE = _astra_fhm_core
+
+
+def _hrg_core(mlp, *args, **kwargs):
+    _HRG_STATS['predicts'] += 1
+    try:
+        return _HRG_PARENT_CORE(mlp, *args, **kwargs)
+    except _HrgTail as tail:
+        _HRG_STATS['tails'] += 1
+        _HRG_STATS['last'] = (tail.layer, round(tail.residual, 4), round(tail.projected, 4))
+        answer = _hrg_finish(mlp, tail)
+        layers, changed = _ASTRA_FHM_STATS['layers'], _ASTRA_FHM_STATS['changed_rows']
+        for k in range(len(layers) + 1, 15):
+            layers.append(k)
+            changed.append([k, -1])
+        return answer
+
+
+_ASTRA_FHM_ACTIVE_CORE = _tr_clearing(_hrg_core)
+# END [opus-lead] HARD RESIDUAL GUARD v2

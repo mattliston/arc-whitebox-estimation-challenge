@@ -1,0 +1,32 @@
+{
+  "schema": "q24-native-all688-final-workspace-v4-meter-preregistration-v1",
+  "status": "frozen-before-run",
+  "node": "P2R0H7B_RESIDUAL_WORKSPACE_V4",
+  "authority": "User explicitly authorized getting the final H7B residual below 0.4 seconds and submitting it before handoff; root delegated local optimization, metering, and packaging but retained network submission authority.",
+  "policy": {
+    "call_order": [35, 279, 35],
+    "one_persistent_estimator_instance": true,
+    "thread_limit": 2,
+    "phase2_flop_budget_each_call": 2199023255552,
+    "wall_limit_seconds_each_call": 120.0,
+    "residual_limit_seconds_each_call_strict": 0.4,
+    "rss_limit_bytes_each_call": 8589934592,
+    "require_all_three_non_residual_gates": true,
+    "require_all_three_residual_gates": true,
+    "require_all_three_exact_output_hashes": true,
+    "require_repeated_rank35_exact": true,
+    "aggregate_selection": "conjunction only; no median, best-of, retry, or post-hoc choice"
+  },
+  "expected": {
+    "rank35_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+    "rank279_output_sha256": "db57adf6c8e448ccf39e40ecefb4ba298fcc701536596987182fdfc550657aee",
+    "first_call_flops": 2132366833051,
+    "expected_flops_by_call": [2132366833051, 2123756968456, 2132363680256],
+    "shape": [16, 1024],
+    "dtype": "<f4"
+  },
+  "independent_sequential_parity_receipt_sha256": "81a1054b84073439ebaf20af87c6689d6bf99c845ff3a9245f2947b131bd89d9",
+  "target_columns_opened": [],
+  "observer_selection_opened": false,
+  "name_or_board_join": false
+}

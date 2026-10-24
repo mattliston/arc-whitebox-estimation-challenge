@@ -1,0 +1,74 @@
+{
+  "status": "CLOSED_BELOW_0_5_PERCENT_FREE_OUTER_GATE",
+  "scheme": "3x4x7 rank63 rational",
+  "primary": "https://arxiv.org/html/2506.13242v7",
+  "author_data": "https://github.com/jgdumas/plinopt/tree/main/data",
+  "author_inspection": [
+    {
+      "part": "L",
+      "header": "63 12 R",
+      "nnz": 213,
+      "coefficients": [
+        "-1",
+        "1"
+      ],
+      "max_absolute_coefficient": "1"
+    },
+    {
+      "part": "R",
+      "header": "63 28 R",
+      "nnz": 348,
+      "coefficients": [
+        "-1",
+        "-1/2",
+        "1",
+        "1/2"
+      ],
+      "max_absolute_coefficient": "1"
+    },
+    {
+      "part": "P",
+      "header": "21 63 R",
+      "nnz": 174,
+      "coefficients": [
+        "-1",
+        "1"
+      ],
+      "max_absolute_coefficient": "1"
+    }
+  ],
+  "free_outer_cap750_mean_pct": 0.39837947010411856,
+  "free_outer_cap750_max_pct": 0.48674022631988156,
+  "unpeeled_mean_pct": 0.7587073214390003,
+  "eligible_peel_mean_pct": 0.3951820245405278,
+  "product_density": {
+    "rank63": "63/84 =3/4",
+    "smirnov40": "40/54 =20/27",
+    "ratio": "81/80: rank63 has1.25% more products per block volume"
+  },
+  "scope": {
+    "permutations": 6,
+    "child_depths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "arena_floats": 391602176,
+    "shape_count": 264,
+    "coverage": "Saved8push/24read historical roster repriced on exactv17, cap replay matched8 in layer order"
+  },
+  "optimistic_assumptions": [
+    "Free outer linear arithmetic and basis conversion",
+    "Free packing,padding,transposes and output ownership",
+    "Best tensorpermutation and childdepth chosen per shape",
+    "Unchanged oldfactor construction excluded on both sides"
+  ],
+  "limitations": [
+    "This is a bound over existingL3\u20136batchedWinograd children, not a theorem excluding all conceivable rank63 hybrids.",
+    "Saved frequencies and denominators are historical, not a fresh model evaluation."
+  ],
+  "models": 0,
+  "executor_built": false,
+  "sealed_source_changed": false
+}

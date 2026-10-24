@@ -1,0 +1,103 @@
+{
+  "status": "SAVED_TRAIN_ONLY_GAUSSIAN_EXACT_REMAINDER_DIAGNOSTIC",
+  "rows": [
+    {
+      "layer": 13,
+      "rho_abs_quantiles": {
+        "q0": 3.993117777823335e-07,
+        "q50": 0.07968813630375661,
+        "q90": 0.19335459391642276,
+        "q99": 0.3028131446189981,
+        "q99_9": 0.386275139259923,
+        "max": 0.5681565604388579
+      },
+      "rho_abs_gt_half": 30,
+      "alpha_abs_quantiles": [
+        0.001452050188122316,
+        2.0444482344392196,
+        4.7460213686386785,
+        6.652369019574913,
+        8.220419277520314
+      ],
+      "price_integral16_vs32_max": 1.8973538018496328e-18,
+      "price_integral16_vs32_rms": 1.5698525993092378e-20,
+      "exact_remainder_frobenius": 0.0002660950372326542,
+      "r4_frobenius": 0.00025637534529984724,
+      "beyond_r4_frobenius": 3.653850846590263e-05,
+      "exact_vs_r4_cosine": 0.990907458044809,
+      "exact_next_variance_rms": 7.253269165272649e-07,
+      "r4_next_variance_rms": 6.956891955308377e-07,
+      "beyond_r4_next_variance_rms": 1.074839834791701e-07,
+      "exact_next_mean_displacement_rms": 1.7303337452860038e-07,
+      "r4_next_mean_displacement_rms": 1.6847728060639826e-07,
+      "beyond_r4_next_mean_displacement_rms": 2.198155026598381e-08,
+      "exact_vs_r4_next_mean_cosine": 0.9920686829654757,
+      "relative_next_variance_rms": 4.720082765985855e-06,
+      "source_snapshots": [
+        {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t128_cdump/t128_C_16_L13.npz",
+          "sha256": "5439aa438a445ec58358edff595e96b0c4a57ebe6dd25da83cc1d09c8ecab276"
+        },
+        {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t128_cdump/t128_C_16_L14.npz",
+          "sha256": "4183d90acfa08c67f169cecc573ed17d61a638cb81da7fb9277c59a2c7df87a1"
+        }
+      ]
+    },
+    {
+      "layer": 14,
+      "rho_abs_quantiles": {
+        "q0": 3.43616704549119e-08,
+        "q50": 0.08588584918473785,
+        "q90": 0.20880142190378215,
+        "q99": 0.32765580618258916,
+        "q99_9": 0.4206799108520018,
+        "max": 0.6035832341237973
+      },
+      "rho_abs_gt_half": 84,
+      "alpha_abs_quantiles": [
+        0.003032458773621658,
+        2.4170390761304708,
+        5.164232108498224,
+        7.072482191644647,
+        7.691998194255708
+      ],
+      "price_integral16_vs32_max": 1.1824579943670033e-18,
+      "price_integral16_vs32_rms": 1.3210315013397627e-20,
+      "exact_remainder_frobenius": 0.00022027097580486297,
+      "r4_frobenius": 0.00021294115748560067,
+      "beyond_r4_frobenius": 3.541358229263754e-05,
+      "exact_vs_r4_cosine": 0.9872039035852779,
+      "exact_next_variance_rms": 6.215427336636692e-07,
+      "r4_next_variance_rms": 5.987268587569857e-07,
+      "beyond_r4_next_variance_rms": 1.0065835653238503e-07,
+      "exact_next_mean_displacement_rms": 1.4532689033117348e-07,
+      "r4_next_mean_displacement_rms": 1.3896922729947033e-07,
+      "beyond_r4_next_mean_displacement_rms": 2.2327608300621612e-08,
+      "exact_vs_r4_next_mean_cosine": 0.9886585711962652,
+      "relative_next_variance_rms": 3.9993187134280316e-06,
+      "source_snapshots": [
+        {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t128_cdump/t128_C_16_L14.npz",
+          "sha256": "4183d90acfa08c67f169cecc573ed17d61a638cb81da7fb9277c59a2c7df87a1"
+        },
+        {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t128_cdump/t128_C_16_L15.npz",
+          "sha256": "862183608c06d30b86db281ed6748249742250ca9a4044ca2ac0ddc4bf363d64"
+        }
+      ]
+    }
+  ],
+  "seconds": 1.0967489164322615,
+  "centered_analytic_max_error": 4.163336342344337e-17,
+  "formula": "Cov/s_i/s_j = rho*Phi(ai)*Phi(aj) + rho^2 integral_0^1 (1-u)*phi2(ai,aj;rho*u)du; subtract R3 exactly, restore diagonal zero.",
+  "source_sha256": "25847d885ec8cfe64ba04c32bfd9b88ea97e79218740e5caf9645a97b89d7cd3",
+  "models": 0,
+  "new_truth": 0,
+  "limits": [
+    "Historical S47e TRAIN16 saved covariance, not current1c913 state.",
+    "Input covariance formed as exact W.T C W without current deadrow cut; Gaussian kernel formula is current active R3.",
+    "32-node quadrature is an offline reference, not a deployment-cost claim.",
+    "Local Gaussian sensitivity is not final accuracy."
+  ]
+}

@@ -1,0 +1,715 @@
+{
+  "bindings": {
+    "parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "preregister_sha256": "85038b2b53d8ebdbb1e2915adef257d5e7e8d3d9587d61f6382e76132b1534d5",
+    "runner_sha256": "2c37c363155ac2b709de00a0d7a949a33a43106592e0df88daa7509bf2468b2d"
+  },
+  "gates": {
+    "all_repaired_post_A_and_B_represented_nonnegative": false,
+    "mechanism_pass": false,
+    "no_parent_finite_to_repair_nonfinite_regression": false,
+    "parent_failure_recovered_count": 0,
+    "repair_activation_count": 4741
+  },
+  "rows": [
+    {
+      "finite_pair_disagreement": {
+        "all_layer_mse": 0.0,
+        "final_layer_mse": 0.0,
+        "maximum_absolute_difference": 0.0
+      },
+      "fixture": "identity_width8_float32",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 17173677,
+        "outcome": "FINITE",
+        "output_sha256": "6faa838c43e63803a332d2cd867f391c96fe5f2ced0a6429b9a168f0ebb59600",
+        "shape": [
+          16,
+          8
+        ]
+      },
+      "repair": {
+        "calls": 7488,
+        "dtype": "float32",
+        "flops": 17187357,
+        "outcome": "FINITE",
+        "output_sha256": "6faa838c43e63803a332d2cd867f391c96fe5f2ced0a6429b9a168f0ebb59600",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "shape": [
+          16,
+          8
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": {
+        "all_layer_mse": 0.0,
+        "final_layer_mse": 0.0,
+        "maximum_absolute_difference": 0.0
+      },
+      "fixture": "near_identity_seed20260823_scale0p02_float32",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 17173677,
+        "outcome": "FINITE",
+        "output_sha256": "2a58c4d3266e65d7ca968fdde6f199eeb41809fec39659ae371fd9b7c28cbacc",
+        "shape": [
+          16,
+          8
+        ]
+      },
+      "repair": {
+        "calls": 7488,
+        "dtype": "float32",
+        "flops": 17187357,
+        "outcome": "FINITE",
+        "output_sha256": "2a58c4d3266e65d7ca968fdde6f199eeb41809fec39659ae371fd9b7c28cbacc",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "shape": [
+          16,
+          8
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": null,
+      "fixture": "qr_seed20260823_scale0p35_float64",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 17173549,
+        "outcome": "FINITE",
+        "output_sha256": "7259324666b6ed7686bcfab48a997cca00e637f18e4281e0140ca280c2476698",
+        "shape": [
+          16,
+          8
+        ]
+      },
+      "repair": {
+        "exception_message": "Eigenvalues did not converge",
+        "exception_type": "LinAlgError",
+        "outcome": "EXCEPTION",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          1,
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": {
+        "all_layer_mse": 2128.8037187021987,
+        "final_layer_mse": 5.444496682862088e-08,
+        "maximum_absolute_difference": 489.56130981445307
+      },
+      "fixture": "pure_normal_seed17_scale0p12_float32",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 17173677,
+        "outcome": "FINITE",
+        "output_sha256": "570f77994aed411a5e0d9af04169ff7bb3c4e5594ee8b5df887f84c4f1a1e5ca",
+        "shape": [
+          16,
+          8
+        ]
+      },
+      "repair": {
+        "calls": 7488,
+        "dtype": "float32",
+        "flops": 17187357,
+        "outcome": "FINITE",
+        "output_sha256": "54fb3c5fad8bca9688d14bda7f1accff83fb6ea4e3f273e1848a49846800a670",
+        "post_negative_A_counts_by_reset": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          0,
+          2,
+          0,
+          1,
+          1,
+          1,
+          2,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          2,
+          1,
+          3,
+          2,
+          4,
+          2,
+          4,
+          2,
+          1
+        ],
+        "repair_counts_by_reset": [
+          0,
+          1,
+          5,
+          6,
+          6,
+          8,
+          7,
+          7,
+          8,
+          8,
+          8,
+          8,
+          8,
+          7,
+          8
+        ],
+        "shape": [
+          16,
+          8
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width32_seed20260825",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 257172021,
+        "outcome": "FINITE",
+        "output_sha256": "71b1cc8d62308be8f68eb7d9264d6906022b08fe96a99ac8a02019b425e27d8e",
+        "shape": [
+          16,
+          32
+        ]
+      },
+      "repair": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          1,
+          0,
+          2,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          1,
+          4,
+          3,
+          24,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width32_seed20260826",
+      "parent": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION"
+      },
+      "repair": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          1,
+          2,
+          1,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          4,
+          9,
+          20,
+          28,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width64_seed20260825",
+      "parent": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION"
+      },
+      "repair": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          10,
+          10,
+          7,
+          11,
+          8,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          9,
+          10,
+          9,
+          6,
+          15,
+          11,
+          12,
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          0,
+          1,
+          6,
+          44,
+          48,
+          49,
+          49,
+          54,
+          63,
+          63,
+          64,
+          64,
+          64,
+          64
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width64_seed20260826",
+      "parent": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION"
+      },
+      "repair": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          10,
+          7,
+          6,
+          10,
+          3,
+          8,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          0,
+          0,
+          8,
+          7,
+          7,
+          8,
+          13,
+          20,
+          16,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          0,
+          3,
+          52,
+          46,
+          57,
+          64,
+          64,
+          64,
+          64,
+          64,
+          64,
+          64,
+          64,
+          64
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width128_seed20260825",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 7395322197,
+        "outcome": "FINITE",
+        "output_sha256": "0e6bd1cfd84a0be998e595f211d389ee1e5b93f9504f83ce9568aab919078d0c",
+        "shape": [
+          16,
+          128
+        ]
+      },
+      "repair": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9,
+          14,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          15,
+          18,
+          34,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          81,
+          112,
+          112,
+          128,
+          128,
+          128,
+          128,
+          128,
+          128,
+          128
+        ]
+      }
+    },
+    {
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width128_seed20260826",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 7395322197,
+        "outcome": "FINITE",
+        "output_sha256": "ba138d458b091a804ba18fa596fc7665f4b01eb87d48198fc85be2517d5334d4",
+        "shape": [
+          16,
+          128
+        ]
+      },
+      "repair": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION",
+        "post_negative_A_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          14,
+          8,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "post_negative_B_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          23,
+          23,
+          29,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "repair_counts_by_reset": [
+          0,
+          0,
+          0,
+          2,
+          93,
+          93,
+          114,
+          128,
+          128,
+          128,
+          128,
+          128,
+          128,
+          128,
+          128
+        ]
+      }
+    }
+  ],
+  "schema": "q24-two-point-moment-repair-target-free-probe-v1",
+  "scope": {
+    "dataset_rows": 0,
+    "full_width_1024_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "targets": 0,
+    "truth": 0
+  },
+  "status": "REJECT_MECHANISM_PROBE"
+}

@@ -1,0 +1,49 @@
+{
+  "status": "CLOSED_EQUAL_F16_F32_TARIFF",
+  "flopscope": "0.12.0",
+  "dtype_rates": {
+    "float16": 1.0,
+    "float32": 1.0,
+    "float64": 2.0
+  },
+  "rows": [
+    {
+      "case": "f16",
+      "flops": 300,
+      "ops": 1,
+      "dtype": "float16"
+    },
+    {
+      "case": "f32",
+      "flops": 300,
+      "ops": 1,
+      "dtype": "float32"
+    },
+    {
+      "case": "mixed",
+      "flops": 300,
+      "ops": 1,
+      "dtype": "float32"
+    },
+    {
+      "case": "f16_dtype_f32",
+      "error": "TypeError: matmul() got an unexpected keyword argument 'dtype'"
+    },
+    {
+      "case": "f16_out_f32",
+      "flops": 300,
+      "ops": 1,
+      "dtype": "float32"
+    },
+    {
+      "case": "f32_out_f16",
+      "flops": 300,
+      "ops": 1,
+      "dtype": "float16"
+    }
+  ],
+  "official_local_weights": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/lib/python3.11/site-packages/flopscope/data/default_weights.json",
+  "weights_sha256": "f729bc47f07c080b8c7b9d7b045e5663f0af313669b4c2a962b5a9044a94cb7a",
+  "no_models": true,
+  "no_environment_changes": true
+}

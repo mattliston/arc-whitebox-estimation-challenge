@@ -1,0 +1,86 @@
+{
+  "steps": [
+    [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/fastgate_pin_v1.py",
+      "--check",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/fastgate_pin_v1.json",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_qhfl_safe_source_v1/candidate_qhfl_safe_HELD_v1.py",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_qhfl_safe_delivery_v1/boundary/numerical_v1/final_normal",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_qhfl_safe_delivery_v1/boundary/numerical_v1/final_slow"
+    ],
+    {
+      "action": "exclusive_byte_identical_copy_of_complete_pinned_count_directory",
+      "src": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_qhfl_safe_delivery_v1/boundary/numerical_v1/final_normal",
+      "dst": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/fg_qhflsafe_20261015_astra_v1_safe_n_src/C0"
+    },
+    [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/stage_c_boundary.py",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_qhfl_safe_source_v1/candidate_qhfl_safe_HELD_v1.py",
+      "c_qhflsafe_20261015_astra_v1_safe",
+      "--from-run",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/fg_qhflsafe_20261015_astra_v1_safe_n_src",
+      "--short-setup",
+      "--legs",
+      "C",
+      "--parent-from",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_S42_bank_legs_heavy"
+    ],
+    {
+      "action": "exclusive_byte_identical_copy_of_complete_pinned_count_directory",
+      "src": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_qhfl_safe_delivery_v1/boundary/numerical_v1/final_slow",
+      "dst": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/fg_qhflsafe_20261015_astra_v1_safe_s_src/C0"
+    },
+    [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/stage_c_boundary.py",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_qhfl_safe_source_v1/candidate_qhfl_safe_HELD_v1.py",
+      "qhflsafe_20261015_astra_v1_safe_slow",
+      "--from-run",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/fg_qhflsafe_20261015_astra_v1_safe_s_src",
+      "--setup-slowdown",
+      "1.3",
+      "--legs",
+      "C",
+      "--parent-from",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_S42_bank_legs_heavy"
+    ],
+    [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/designation_judge.py",
+      "qhflsafe_20261015_astra_v1_safe",
+      "--pair",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_qhflsafe_20261015_astra_v1_safe",
+      "--slow",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/qhflsafe_20261015_astra_v1_safe_slow",
+      "--worker",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/none",
+      "--first-priced"
+    ],
+    [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/release_gate_v4.py",
+      "qhflsafe_20261015_astra_v1_safe",
+      "--stage-a",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_qhflsafe_20261015_astra_v1",
+      "--pair",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_qhflsafe_20261015_astra_v1_safe",
+      "--slow",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/qhflsafe_20261015_astra_v1_safe_slow",
+      "--judge",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/judge_qhflsafe_20261015_astra_v1_safe.txt",
+      "--allow-missing-worker",
+      "--first-priced"
+    ]
+  ],
+  "no_numerical_calls": true,
+  "requires": "Root-approved all-owned retirement and runtime/seal/native-ten acceptance; execute in release cwd, exclusive destinations.",
+  "comparison": "Native ten exact-source science reuse requires prospective root interpretation; no old baseline rounding-parity substitution.",
+  "no_fire_authority": true
+}

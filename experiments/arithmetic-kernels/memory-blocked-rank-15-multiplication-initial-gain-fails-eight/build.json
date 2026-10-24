@@ -1,0 +1,69 @@
+{
+  "source_only": true,
+  "numerical_execution": false,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_exact_bundle_v1/candidate.py",
+    "sha256": "3651f482c3b4369228aab6741d9f40c3011b3ee155db78a51d247bfb6f215ba7",
+    "bytes": 938308
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_hk15_blocked_v2/candidate.py",
+    "sha256": "6649ddcf4ddcd6e3067db69a0e971f273e052278b8e658ff10bb6c655644871c",
+    "bytes": 1080246
+  },
+  "inputs": {
+    "order": [
+      "constants.py",
+      "kernel_blocked.py",
+      "setup.py",
+      "dispatcher.py"
+    ],
+    "files": {
+      "constants.py": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_hk15_blocked_v2/constants.py",
+        "sha256": "b3a001c593ebe7e4ea80fc4c9ac399a72d078c20d009710d5a26f417f2bc729d",
+        "bytes": 108417
+      },
+      "kernel_blocked.py": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_hk15_blocked_v2/kernel_blocked.py",
+        "sha256": "c9c87cb4680d165c3c908e086dcd49cac2ccab5b552a9e31e7036cb6d76a3f3c",
+        "bytes": 17127
+      },
+      "setup.py": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_hk15_blocked_v2/setup.py",
+        "sha256": "e98565c1e6c4a756668ed8fa2c8ec3a7a6ebe9dc95f9893292a8a90c10b43504",
+        "bytes": 6436
+      },
+      "dispatcher.py": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_hk15_blocked_v2/dispatcher.py",
+        "sha256": "391c78119efa10c7e5dc5bdd28b30dcd9f1d47ec08daa745e06427e3a6195ab6",
+        "bytes": 9918
+      }
+    }
+  },
+  "assembly_inputs": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_hk15_blocked_v2/assembly_inputs.json",
+    "sha256": "5a8e4daa199a18490376ce7881931277388c8e9aae9121055ce485739211f32d",
+    "bytes": 1406
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_hk15_blocked_v2/build_candidate.py",
+    "sha256": "d2b456304ba703cf1bdc0925498c5a8cf2be115d4b1fcee4b6a3faf962376735",
+    "bytes": 2674
+  },
+  "capacity_edits": [
+    {
+      "before": "if tail + numel <= int(arena.shape[0]):",
+      "after": "if tail + numel <= min(391602176, int(arena.shape[0])):"
+    },
+    {
+      "before": "tail + 7 * (u_stop - u_start) // 3 <= int(arena.shape[0])",
+      "after": "tail + 7 * (u_stop - u_start) // 3 <= min(391602176, int(arena.shape[0]))"
+    }
+  ],
+  "old_capacity_policy_preserved": 391602176,
+  "patched_prefix_inverse_exact": true,
+  "appended_fragments_only_after_two_metadata_edits": true,
+  "qualified": false,
+  "submitted": false
+}

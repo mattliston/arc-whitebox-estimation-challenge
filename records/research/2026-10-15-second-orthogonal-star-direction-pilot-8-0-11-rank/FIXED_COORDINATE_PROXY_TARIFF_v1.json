@@ -1,0 +1,33 @@
+{
+  "quality": {
+    "rows": 864,
+    "original320_lost_energy": 0.0002960124497621841,
+    "ritz320_lost_energy": 0.00020990132744735934,
+    "coordinate320_lost_energy": 0.000292911637031934,
+    "ritz_improvement_fraction_retained": 0.0360094334726405,
+    "common256": {
+      "original_lost": 0.0011965063534583598,
+      "ritz_lost": 0.0008064185214197161,
+      "coordinate_lost": 0.0011880667340425921
+    },
+    "coordinate_order": "stable descending diag(core); same384 sketch/QR; principal core axes gathered consistently"
+  },
+  "isolated_tariffs": [
+    {
+      "method": "full_RR_reference",
+      "flops": 1233036160,
+      "ops": 10
+    },
+    {
+      "method": "coordinate_subset",
+      "flops": 1545984,
+      "ops": 7
+    }
+  ],
+  "saved_flops_vs_generic_RR": 1231490176,
+  "saved_percent_of_258G": 0.47732177364341083,
+  "qualification": "Historical S39 native651 saved operands, no current-model accuracy claim. Full RR rotation tariff here is generic FNP matmul; incumbent tree kernel can make it cheaper, so savings is an upper estimate. Oversketch384/Y/QR/core extra work shared and not credited as saved. No model/truth/capture.",
+  "archive_sha256": "f8d64aec21a167a21e7afd330f82d2acd3c2b508422e6158acb35a295647787d",
+  "source_sha256": "d089b499d4917fe351ca98a6eafaed7cbdce7dbb2a853ff271c26b5072a53cb7",
+  "elapsed_seconds": 0.8964220006018877
+}

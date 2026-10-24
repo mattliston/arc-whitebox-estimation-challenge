@@ -1,0 +1,115 @@
+{
+  "schema": "s34-firstjoin6-rank448-v1",
+  "root_selected": true,
+  "baseline": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "join_schedule": {
+    "6": [
+      0,
+      2
+    ],
+    "10": [
+      3,
+      5
+    ],
+    "13": [
+      6,
+      8
+    ]
+  },
+  "ranks": {
+    "6": 448,
+    "10": 320,
+    "13": 384
+  },
+  "sole_allocation_change": "Versus S34: first join L7/rank384 to L6/rank448; same cohorts0-2. Later L10/rank320 and L13/rank384 unchanged.",
+  "hypothesis": "One extra 64-column rank block may recover fidelity lost by the failed L6/rank384 pilot while retaining some measured earlier-join cost savings.",
+  "accuracy_risk": "Earlier rank448 projection still changes all later states; greater rank need not improve adjusted score and no gain is promised.",
+  "cost_evidence_scope": "Failed S34 L6/rank384 N2 saved 1.949019% bill but worsened raw 2.653327%; rank448 increases its cost by an unmeasured amount.",
+  "training_selection": {
+    "assessment": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_firstjoin6_v1/native2_assessment.json",
+      "sha256": "b8afddc65e58b2738501878f0a19053ffc073556b675defca1f4db4129c594ee",
+      "bytes": 15509
+    },
+    "run_guard": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_firstjoin6_v1/native2_guard.json",
+      "sha256": "1ce72dca6020a59a497bcf2eca9619fb9df6977fcd9c1ac1d81763e19f250da5",
+      "bytes": 1070
+    },
+    "assessment_guard": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_firstjoin6_v1/native2_assess_guard.json",
+      "sha256": "c2fbb27cb4bf2a60f1174a82993732c1d32aa0e0531cb6eddaf40c877f569979",
+      "bytes": 1085
+    },
+    "config": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_firstjoin6_v1/native_screen.json",
+      "sha256": "1b05a833d374d734121a02d54c96c416a1f61f2d3b4f876a11068479d9e22a87",
+      "bytes": 23525
+    },
+    "raw_pct": 2.6533266689909407,
+    "adjusted_pct": 0.652776941600175,
+    "bill_pct": -1.9490190425648146,
+    "adjusted_wins": 1,
+    "max_per_network_regression_pct": 3.905551592814205,
+    "prior_failed_result_preserved": true,
+    "selection_uses_TRAIN_outcomes": true,
+    "selection_type": "Explicit root-selected post-outcome rank/fidelity tradeoff, one rank448 endpoint; not a blind confirmatory test."
+  },
+  "rank_flow": {
+    "6": 448,
+    "7": 448,
+    "8": 448,
+    "9": 448,
+    "10": 320,
+    "13": 384
+  },
+  "source_checks": {
+    "first_join_uses_Fj": true,
+    "strict_rank_key_present": true,
+    "unchanged_cohort_intervals_contiguous": true,
+    "current_newborn_not_joined": true,
+    "materialize_layer10_unchanged": true,
+    "lazy_layer13_unchanged": true,
+    "consolidate_empty_previous_join_unused": true,
+    "layer6_OTT_YNT_fallback_unchanged": true,
+    "original_runtime_guards_preserved": true,
+    "dynamic_rank448_QR_core_layout_carry": true,
+    "layer10_overlap_shape": [
+      320,
+      448
+    ],
+    "layer10_materializes_rank320_before_lazy13": true,
+    "constant384_virtual_envelope_only_lazy13": true
+  },
+  "all_other_source_bytes_unchanged": true,
+  "arithmetic_coefficients_unchanged": true,
+  "scratch_setup_and_cache_rules_unchanged": true,
+  "no_new_arithmetic_fixture": true,
+  "no_rank_or_schedule_sweep": true,
+  "native2_roster": [
+    35,
+    100
+  ],
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 1,
+    "max_per_network_regression_pct": 1.0
+  },
+  "scope": "native2_only",
+  "boundary_authorized": false,
+  "broad_authorized": false,
+  "serving_qualified": false,
+  "numpy_torch_or_model_executed": false
+}

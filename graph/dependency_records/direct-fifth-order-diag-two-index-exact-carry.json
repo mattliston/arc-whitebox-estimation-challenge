@@ -1,0 +1,17 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F3B2A",
+    "label": "Direct fifth-order diag/two-index exact carry",
+    "kind": "phase2_mean_channel_program",
+    "status": "closed_measured",
+    "summary": "Closed only for the implemented direct fifth-order spelling. The diag, K41, and K32 push chains verify to <=3.776008120484528e-16, yet adding them autonomously is violently unstable across both n=16, depth-5, 20M-antithetic-MC seeds: C -> D MSE is 0.0019371902666675653 -> 0.11720815944570878 and 0.0889081513905304 -> 644.8317168674707; the kappa6-free E spelling is worse again at 92.51253102041694 and 73436.32971540386. One-step teacher forcing can improve, so this is an autonomous partial-state instability result, not a proof that all higher-order carry is useless. The advertised T5 width-power and T6 n=1024 cost sections were not implemented in the receipt and are not claimed here.",
+    "terminal_criterion": "Closed by two-seed autonomous small-n failure with exact chain and connected-assembly verification.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_exact_ledger_v1/LEDGER_VERIFY_RESULTS.json"
+    ],
+    "decomposition_children": []
+  }
+}

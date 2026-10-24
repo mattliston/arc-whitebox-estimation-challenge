@@ -1,0 +1,55 @@
+{
+ "stage": "A",
+ "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/variants/s46e_f89b8951_primary/candidate.py",
+ "candidate_sha256": "f89b89511e62eb5474348bcbfbd7cfedce1a4bbd03de8efa5a9a4fa230266fe5",
+ "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_s46e_f89b8951_primary/submission.tar.gz",
+ "gates": {
+  "contract": true,
+  "package": true,
+  "validate_package": true,
+  "archive_contents": true,
+  "no_numpy_import": true,
+  "einsum_signatures_proven": true,
+  "einsum_no_new_repeated_operand": true,
+  "python310": true
+ },
+ "passed": true,
+ "einsum_signatures": {
+  "ij,i,j->ij": 3,
+  "ij,i->ij": 5,
+  "lsjab,ak,bk->lsjk": 1,
+  "alsqj,lsjk,lk->aqsk": 1,
+  "a,sq,k->aqsk": 1,
+  "ij,ij->i": 2,
+  "i,ij->ij": 5,
+  "<non-literal>": 1,
+  "i,j->ij": 1,
+  "ij,aj->aij": 1,
+  ",i,ij->ij": 1,
+  "aj,j,j->aj": 1,
+  "i,ji->ij": 6,
+  "i,i,i->i": 1,
+  "i,j,ij->ij": 2,
+  "oab,ak,bk->ok": 1,
+  "kn,kc->nc": 2,
+  "ij,ij,j->ij": 1,
+  "ij,c->ijc": 3,
+  "ik,ik->k": 1,
+  "ai,aj->ij": 1,
+  "ij,ij,j->i": 1,
+  "ij,ij,i->j": 1
+ },
+ "new_einsum_signatures": [
+  "a,sq,k->aqsk",
+  "alsqj,lsjk,lk->aqsk",
+  "kn,kc->nc"
+ ],
+ "reviewed_einsum_signatures": [
+  "a,sq,k->aqsk",
+  "alsqj,lsjk,lk->aqsk",
+  "kn,kc->nc"
+ ],
+ "new_repeated_operand_einsums": [],
+ "uploaded": false,
+ "line": "[A package] PASS: source 1155036 bytes sha f89b89511e62; contract output shape [2, 4]; archive 515932 bytes sha 50a8c1a3d631; einsum signatures 23, new vs proven source: 3 ['alsqj,lsjk,lk->aqsk' at line 10734 on (C['mixb'], _e2_H(numer * scale), source); 'a,sq,k->aqsk' at line 10736 on (C['theta'], C['rule'], A); 'kn,kc->nc' at line 11203 on (Z, K['u']); 'kn,kc->nc' at line 12373 on (Z, K['u'])], read and passed in --reviewed: ['a,sq,k->aqsk', 'alsqj,lsjk,lk->aqsk', 'kn,kc->nc']; under Python 3.10: compiles, no 3.11-only name (3.10.20 []); failed: none; NOT uploaded"
+}

@@ -1,0 +1,17 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N1_2B_PUSHREAD",
+    "label": "N1.2b CARRY of the pushed residual's DISTINCT entries — THE MECHANISM (host -7.9%/-5.0%, F2J-on +3.9%/+18%, +17% util)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "The card reads only marginals from its CP3 state (_cp_k3) and materializes no n-by-n plane except through _cp_post_read; the engine pushes the full plane exactly. Dense plane read from CP-16384 costs ~3.4e10 flops/layer (+22% util over 14 layers) if not already paid. T-28: the card stores R = k21_target - CP-plane as a star pushed exactly once (_push_cubic :1134) and DROPS the distinct entries that push generates; the engine keeps them. Carrying them in-host (window L1-6): host (F2J-off) -7.9% r35 / -5.0% r100, sign-stable; F2J-on +3.9% / +18.1% (the learned source undoes it); half strength -0.67% full card; top-256/512 rows +162/+95% (coherent object, cannot be row-thinned); +17% util (6144 CP terms); deep windows harmful (+79..+570%). Fix path: RANK compression of the carried residual (TT24/Tucker, T-22) + F2J joint refit (~4.2 h CPU, run_joint_refit.py). Ceiling of exact third-order carry: v-arm ~10-15% (all-oracle 7.5%) - a rung. T-31: confirmed from three sides (A: emission null; B: gate-only carry keeps 7.9 of 10.6 with per-layer fidelity unchanged; truth post-plane slices change nothing). Next rungs (B): (a) CP gate+push carry of the plane-residual distinct entries -> +8-10% deployable at the card's CP3 cost class; (b) raise that carried content's multi-push fidelity toward the truth plane - each +0.1 per-layer dv correlation ~ +5-6 points of the 35-point ceiling; scale property to preserve: deep-layer beta flat 0.83-0.93. T-34: rank (Tucker) compression of the carried residual is DEAD too (plane error 0.85-0.96 at L1-5); rows dead (T-28). The deployable carry stays at +17% util. T-37: under the independent truth the engine's v-arm is 8.5 and its k3-arm 14.7 - the k3 diagonal of the carried tensor is the larger prize. T-63: engine deploy-frame states injected in-card on top of both tables: F2J off best 2.87e-8 (r35, 6% above the board), r100 no improvement; deployed payload on: collapse; perpendicular alignment +0.09..+0.28 -> the engine route is closed at the board level.",
+    "terminal_criterion": "Closed when the ablation (emission-only vs emission+exact push) is measured and the read's bill is known.",
+    "evidence": [],
+    "decomposition_children": [],
+    "goal_path_summary": "Whether the estimator also needs to look at the whole per-layer table rather than just its diagonal, and what that costs."
+  }
+}

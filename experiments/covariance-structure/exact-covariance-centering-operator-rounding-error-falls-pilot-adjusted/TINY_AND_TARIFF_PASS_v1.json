@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "candidate_sha256": "d300cc36b849580c778c44e9b6f603f6643f93dafd6ce828fd710eb959d35499",
+  "source_sha256": "7fb64457c748c8e7d2ef4b780d182aced5e6315d46762ef687271f9029fe1ba9",
+  "parent_sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a",
+  "import_context_identity_pass": true,
+  "only_two_existing_functions_changed": true,
+  "all_existing_lines_preserved": true,
+  "L0_and_terminal_diagonal_source_exact": true,
+  "cases": [
+    {
+      "case": "full_roster_fallback",
+      "shape": [
+        8,
+        6
+      ],
+      "retained": 8,
+      "routes": [
+        "first",
+        "sym"
+      ],
+      "max_error": 3.800461948616496e-09,
+      "OFF_parent_byte_exact": true,
+      "STAR_byte_exact": true,
+      "Cpre_exact_widening": true,
+      "inputs_unchanged": true
+    },
+    {
+      "case": "padded_fallback",
+      "shape": [
+        8,
+        6
+      ],
+      "retained": 4,
+      "routes": [
+        "first",
+        "sym"
+      ],
+      "max_error": 3.542586970300965e-10,
+      "OFF_parent_byte_exact": true,
+      "STAR_byte_exact": true,
+      "Cpre_exact_widening": true,
+      "inputs_unchanged": true
+    },
+    {
+      "case": "direct_tiles",
+      "shape": [
+        8,
+        6
+      ],
+      "retained": 4,
+      "routes": [
+        "first",
+        "tiles"
+      ],
+      "max_error": 1.418386623322325e-09,
+      "OFF_parent_byte_exact": true,
+      "STAR_byte_exact": true,
+      "Cpre_exact_widening": true,
+      "inputs_unchanged": true
+    },
+    {
+      "case": "direct_sym",
+      "shape": [
+        8,
+        6
+      ],
+      "retained": 4,
+      "routes": [
+        "first",
+        "sym"
+      ],
+      "max_error": 4.806084519075327e-10,
+      "OFF_parent_byte_exact": true,
+      "STAR_byte_exact": true,
+      "Cpre_exact_widening": true,
+      "inputs_unchanged": true
+    },
+    {
+      "case": "specialized_psdm",
+      "shape": [
+        1024,
+        1024
+      ],
+      "retained": 64,
+      "routes": [
+        "first",
+        "sym"
+      ],
+      "max_error": 1.429709881595187e-07,
+      "OFF_parent_byte_exact": true,
+      "STAR_byte_exact": true,
+      "Cpre_exact_widening": true,
+      "inputs_unchanged": true
+    }
+  ],
+  "OFF_nonhidden_m0_identity_zero_ops": true,
+  "normal_exception_cleanup": true,
+  "tariff": {
+    "flops_per_full_hidden": 10486785,
+    "ops_per_hidden": 13,
+    "full14_upper_flops": 146814990,
+    "full14_upper_percent": 0.060633217193032836
+  },
+  "new_setup_keys": 0,
+  "new_einsum_signatures": 0,
+  "seconds": 2.701187666505575,
+  "peak_rss_bytes": 451313664,
+  "full_model_calls": 0
+}

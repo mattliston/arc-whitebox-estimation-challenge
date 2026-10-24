@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "reviewer": "astra gain_frontier",
+  "utc": "2026-10-15T20:22:44.404800+00:00",
+  "source_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_read_energy_feature23_v1/candidate_energy23_HELD_v3.py",
+  "source_sha256": "26666d0a33764f27022ebd1c9abf8841ea124a062b1f01854b21a03672fd2ac7",
+  "kernel_sha256": "d9bccbf4051276e993b568c41c4487955487b8005a17f01322977a1f2112ee21",
+  "parent_sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a",
+  "tiny_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_read_energy_feature23_v1/TINY_INTEGRATION_v3.json",
+  "tiny_sha256": "2097e40de53c4078756216ba6ea4cd7008a581978419f9e8c9f208576495a146",
+  "tariff_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_read_energy_feature23_v1/COMPUTE_ENERGY23_TARIFF_v3.json",
+  "tariff_sha256": "0dd47a9c68f6873891ecdc39e8ce3666bba8f2adc65d2373f202b2a62231c9fe",
+  "independent_checks": {
+    "exact_source_inverse": true,
+    "all_dense_context_aliases": true,
+    "features_line201": true,
+    "nonlinear_line844": true,
+    "final_refined_Q_used": true,
+    "changed_reads_only": true,
+    "L7_through14_only": true,
+    "physical_read_and_old_inner_unchanged": true,
+    "authoritative_complete_cohort_partner_permutation": true,
+    "weighted_signed_lambda_no_equal_magnitude_assumption": true,
+    "both_partners_supply_twice_cross": true,
+    "global_row_column_diagonal_pair_energy_removed": true,
+    "row_variance_squared_and_column_variance_normalization": true,
+    "feature23_only_before_sqrt": true,
+    "all_other_feature_lines_exact_parent": true,
+    "no_clipping_or_fitted_scale": true,
+    "pending_predict_and_exception_cleanup": true,
+    "no_new_einsum_signatures": true,
+    "no_models_or_repeated_tiny": true
+  },
+  "limitations": [
+    "Pair-energy approximation omits cross-pair correlations and cross against current full K21.",
+    "Saved QR prefix cross evidence is a proxy, not exact current full-tail fidelity.",
+    "F64 energy summation can have tiny cancellation roundoff; focused exact/near cancellation tiny passed without clipping."
+  ],
+  "decision": "Qualified for the fixed delegated native pilot, not an accuracy claim."
+}

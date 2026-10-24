@@ -1,0 +1,159 @@
+{
+  "schema": "q24-connected-shutdown-pairing-complete-design-receipt-v1",
+  "status": "DESIGN_CONFIRMED_BY_SEPARATELY_PREREGISTERED_SOURCE_PROBE__IMMUTABLE_HOLD",
+  "created_at_utc": "2026-08-24T12:31:49Z",
+  "reconciled_at_utc": "2026-08-24T12:35:52Z",
+  "bindings": {
+    "preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "3f95c1920ff609265e7d50567c713a891a6ecc315da801ef3cc5723eda37541a"
+    },
+    "design": {
+      "path": "DESIGN.md",
+      "sha256": "34796387f4d8d68e89e530e9a9b24e7a264110a6bdfd8a59bf4b6358087af27c"
+    },
+    "post_source_reconciliation": {
+      "path": "POST_SOURCE_RECONCILIATION_V1.md",
+      "sha256": "e588e74ba8376233d42e4b2f40c4ad1bdf6fb53b86ff90bf22f80d73e2b2ddb0"
+    },
+    "manual_rho_parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "manual_rho_independent_audit_sha256": "b583911142d523e16ee2208289a8b79137669d256e45432877cf3bdf3785efc6",
+    "manual_rho_literal_meter_result_sha256": "82e55b8308d0d30924f6aa76648bb140cef329b86a92cb39e168c0c7fb9b5488",
+    "certified_moment_receipt_sha256": "4a7929243f8813fc56be4b2fb9cf97970bd1766678d0d3dad86a856dc6578dcb",
+    "certified_moment_independent_audit_sha256": "bb5ff2c82106f03cdce31e39026e5e666ad9d74c8d5cade2aeccfd7cfec764ee",
+    "two_point_rejection_receipt_sha256": "5b9af5b607b9102d2140bc92a643e9ab626c35e0ff7bead530d6e8abb247a519",
+    "marginal_gaussian_rejection_receipt_sha256": "855819aeda1021c536136290402c45fd154c6d46c754505a34ef4e41565d6d0b",
+    "connected_shutdown_probe": {
+      "preregister_sha256": "e538ed4c15f2d7bf08c5ad85dc7118793e54b78d4e670f1cbd18e71ecfc321ba",
+      "results_sha256": "5fe96611212de6beb5d785198d3f4635b46ea42169efa7257ebcf69e0e305bc7",
+      "pass_receipt_sha256": "1c3c18670d9f06554b1488499c45e4b85a2f8d3e0c0efd263c0b08b2c84d9b6b"
+    },
+    "rejected_first_source": {
+      "estimator_sha256": "2532e58b76fd839d699b089c11e729d958f33edc1499816e9c75ac590b6aef2c",
+      "hold_receipt_sha256": "4ee1d35434ec0dabb85f1846856f04c4dfc0cc46292aad82ceb4cc72c72dac96"
+    },
+    "carrier_complete_cs2_source": {
+      "estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+      "preregister_sha256": "e83d1bfd6578556853af6ad1b6a9de3f35a2f45869a1262b99241d12653928c0",
+      "runner_sha256": "d9e9e423103037058254d8d06e837fb8426f46ab6b2898ea47c7dab91c448aea",
+      "source_probe_result_sha256": "c4c8231c17a68f89916fea5fdf87f9dd0fa52be34ad47d03fbe3ab4d0e21bb7f",
+      "source_hold_sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c"
+    },
+    "stieltjes_redteam_receipt_sha256": "79c4087923e4d18b41420203c3a1bd93e95af3ab5634058ea97357b4ef19aee0",
+    "board_result_receipt_sha256": "d8b488eddee2cd0c70aaaa75d53d1b519a75ccdbfdfbda7e78fb7896b7c48d1b",
+    "independent_board_audit_sha256": "3a50f5cee86af8fff225ec5bda965cc6f35abd98a8278e7b37e111cb570b3f5e"
+  },
+  "mechanism_comparison": {
+    "stieltjes_completion_preserving_r1_r2": {
+      "decision": "NOT_SELECTED",
+      "proof_boundary": "feasibility requires r3>=r2^2/r1 and r4>=r2^3/r1^2, so near-zero r1 with positive floor-dominated r2 forces reciprocal growth",
+      "measured_boundary_form": "REJECTED_TWO_POINT_RECURSIVE_FORM"
+    },
+    "marginal_gaussian_fallback": {
+      "decision": "NOT_SELECTED",
+      "reason": "marginal-only replacement leaves pair moments and compact carriers inconsistent; the frozen spelling introduced three finiteness regressions and a catastrophic finite disagreement"
+    },
+    "preactivation_incident_cumulant_recompute": {
+      "decision": "DEFERRED_FALLBACK",
+      "reason": "coherent within the truncated input state but more invasive, unmeasured, changes the current row, and has a conservative all-active increment of 1721355972 FLOPs"
+    },
+    "output_side_connected_shutdown_pairing_complete": {
+      "decision": "SELECTED_NEXT_ARM",
+      "reason": "smallest arm extending the only construction-pass mechanism while closing its identified global pairing carrier seam"
+    }
+  },
+  "selected_intervention": {
+    "trigger": "CERT_NEG_A_OR_CERT_NEG_B_FROM_FROZEN_OUTWARD_STORED_TUPLE_DAG",
+    "current_raw_mean_and_lower_state_changed": false,
+    "invalid_incident_connected_targets_zeroed": [
+      "K21",
+      "K31",
+      "K22"
+    ],
+    "invalid_K4_zeroed": true,
+    "cp3_post_gate_masked": true,
+    "cp3_birth_masked": true,
+    "cp4_post_gate_masked": true,
+    "pairing_rule": "pairing_alpha=0 on any activated recursive reset before quartic construction",
+    "h1_pairing_rule": "unchanged nominal pairing_alpha",
+    "final_layer_action": "none; no outgoing carrier exists",
+    "fitted_thresholds": 0,
+    "public_row_or_score_inputs": 0
+  },
+  "source_seams": {
+    "univariate_edgeworth_parent_lines": "395-446",
+    "q24_context_parent_lines": "449-482 unchanged",
+    "reset_parent_lines": "1266-1339",
+    "recursive_consumer_parent_lines": "1490-1564",
+    "pairing_function": "_reset_stars",
+    "carrier_gap_closed": "global covariance-pairing alpha previously reconstructed invalid-incident K22 and cancellation-dependent quartic state",
+    "carrier_mask_that_was_already_sufficient": "masked gate/birth suppresses effective CP3/CP4 inherited and birth contributions; verify weighted carriers rather than raw zero-coefficient factor columns"
+  },
+  "cost_projection": {
+    "phase2_budget_flops": 2199023255552,
+    "manual_rho_parent_flops": 2131280786389,
+    "source_ready_delta_law": "350*w^2 + 4634*w + 98",
+    "source_ready_call_delta": 2296,
+    "width1024_projected_incremental_flops": 371746914,
+    "width1024_projected_total_flops": 2131652533303,
+    "width1024_projected_budget_percent": 96.93633425299595,
+    "width1024_projected_headroom_flops": 67370722249,
+    "width1024_projected_calls": 9504,
+    "instrumentation_inclusive_upper_increment": 827513856,
+    "instrumentation_inclusive_upper_total_on_manual_rho": 2132108300245,
+    "instrumentation_inclusive_upper_budget_percent": 96.95706013394556,
+    "instrumentation_inclusive_upper_headroom": 66914955307,
+    "claim_boundary": "exact small-width CS2 polynomial projection only; no successor literal full-shape meter, wall, residual, or RSS result"
+  },
+  "separately_frozen_source_probe": {
+    "fixture_count": 10,
+    "activation_count": 2327,
+    "parent_finite_regression_count": 0,
+    "parent_failure_recovered_count": 3,
+    "stored_carrier_invariant_violation_count": 0,
+    "no_activation_output_byte_parity": true,
+    "finite_pair_parent_scale_gate": true,
+    "independent_source_audit": false,
+    "full_width_literal_meter": false
+  },
+  "frozen_gates": {
+    "fixtures": "exact ten target-free fixtures bound in PREREGISTER.md",
+    "activation_required": true,
+    "no_parent_finite_regression": true,
+    "returned_target_exact_incident_zero": true,
+    "stored_cp3_plus_cubic_exact_incident_zero": true,
+    "stored_cp4_plus_quartic_plus_pairing_exact_incident_zero": true,
+    "identity_and_signed_permutation_one_push_mask": true,
+    "pairing_alpha_exact_zero_on_activated_reset": true,
+    "no_activation_parent_byte_parity": true,
+    "finite_pair_parent_scale_guard": true,
+    "two_repeat_byte_determinism": true,
+    "tiny_width_exact_delta_law": true,
+    "fullshape_resource_gate": "HELD_SEPARATE"
+  },
+  "interpretation": {
+    "strongest_claim": "source-ready preregistered design for the smallest carrier-complete connected-state shutdown successor",
+    "not_claimed": [
+      "raw marginal repair",
+      "joint probability law",
+      "cause of the public tail",
+      "raw-MSE improvement",
+      "full-width stability",
+      "literal resource compliance",
+      "runtime compliance",
+      "promotion readiness"
+    ],
+    "known_tradeoff": "any activated reset globally discards valid-valid residual K22 information carried by the scalar pairing channel"
+  },
+  "access": {
+    "dataset_rows": 0,
+    "targets_or_truth_values": 0,
+    "public_row_weights_or_identities_used": 0,
+    "scores_used_as_design_inputs": 0,
+    "full_width_1024_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "canonical_graph_edits": 0,
+    "estimator_source_edits_in_this_namespace": 0
+  }
+}

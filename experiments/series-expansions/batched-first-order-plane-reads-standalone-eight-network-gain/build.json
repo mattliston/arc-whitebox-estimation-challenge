@@ -1,0 +1,75 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_plane_e1_v1/candidate.py",
+    "sha256": "6ac194efda6491b48f86eca074493c503f9312c6fd9e667105f378ee7637d6f9",
+    "bytes": 955056
+  },
+  "parent_build": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_plane_e1_v1/build.json",
+    "sha256": "ec80c09535a9138a2523305b3894b3cc493ba2c7decce63aa2d2fcf380540b74",
+    "bytes": 7961
+  },
+  "comparator": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_symdiag128_v1/candidate.py",
+    "sha256": "88683ee1ae144556393ba83e013ba975c63a2b91469fce5c6aee9f8f0c4db5d6",
+    "bytes": 955150
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_plane_e1_gnbatch_v2/candidate.py",
+    "sha256": "06538586dd306df2b00986f43cc85afd39d515a12c8977f4da6fa9c539ed91b1",
+    "bytes": 956581
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_plane_e1_gnbatch_v2/build.py",
+    "sha256": "4e4c9f35b6fd1c91939e8bcef72fb32c379bec87904ab80e1d7845ecbc665b37",
+    "bytes": 4056
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_plane_e1_gnbatch_v2/fragment.py",
+    "sha256": "5a8cd815808cbe4e860479972e4894ca9b3f90b527ead38b96d3bc4774336d0a",
+    "bytes": 1752
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_plane_e1_gnbatch_v2/PROTOCOL.md",
+    "sha256": "038a11b7d425ce61ea640784e35df97fec50a6ce72634d4ee6eff3f208f9a16c",
+    "bytes": 4592
+  },
+  "primitive": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_plane_e1_gnbatch_v2/probe.py",
+    "sha256": "08a5b3a409151832d9f6276e87fb0cc9327eb6b50674b5df1c7569cd9edef609",
+    "bytes": 9441
+  },
+  "policy": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_policy_20260928_v2.json",
+    "sha256": "26e99f9a54d97a4d6fca11ac477056219f7acf351d5f7327df9b6ff7cf898fa6",
+    "bytes": 742
+  },
+  "edits": [
+    {
+      "label": "active_gn_channel_batch",
+      "before": "def _gn_dcov(l, mu, Cpre, K21, k4, aux):\n    pr = _E2_LAYER.get('pair')\n    if pr is None or pr.get('aux') is not aux or aux['pre_cov'] is not Cpre or aux.get('pre_k3') is None:\n        return _G5_OLD_GN_DCOV(l, mu, Cpre, K21, k4, aux)\n    _g5st = _e2_pair_state(int(mu.shape[0]))\n    _e2_H = _E2Hold()   # E2: temporaries of this call, released together (one hidden free trip)\n    th = _GN_KNOBS\n    s = aux['sigma']; a = aux['alpha']\n    v = aux['pre_v']   # G5: = diag(Cpre), the pair map's\n    A1, A2, A3, A4, A5 = fnp.unstack(_e2_H(_g5st['FT'][1:6, 0]))   # G5: the pair map stacked aa.astype(float32) = derivatives(a, pdf, g, mg/s, 6) rows into FT[:, 0]\n    ss = pr['ss']   # G5: = outer(s, s)\n    rho = _g5st['P16'][0]   # G5: = (Cpre / ss) with a zero diagonal, cast: the pair map's rho.astype(float32) / 1\n    # E1: the GN plane read uses the same retained r=0,1 terms.\n    k3 = aux['pre_k3']   # G5: = diag(K21)\n    kink = (_e2_H(fnp.abs(a)) < 1.5).astype(fnp.float64)\n    dK21 = _e2_H(_g5_rowmul(_ps32(_e2_H(_g5_schain(th['iso'], kink, k3)) / v), _ps_pre32(Cpre))) + _e2_H(_g5_rowmul(_ps32(_e2_H(th['k21n']) * _e2_H(1 - kink)), _ps_k2132(K21)))\n    dT21 = dK21 / _e2_H(_g5_outer(_ps32(v), _ps32(s)))\n    t4 = _e2_H(fnp.broadcast_to(k4, (len(mu),))) / _e2_H(v ** 2)\n    r31 = ((_k31_row_scale_gn(mu, k3, v) if _S19_GN_TORCH else _k31_row_scale(mu, k3, v))\n           if '_k31_row_scale' in _e2_H(globals()) else None)   # PT-33 S19: torch GN remainder keeps the configure-time 0.85/0.5\n    dT31 = _g5_rowmul(_e2_H(_e2_H(_g5_chain(t4, r31, _g5c(th['k31'], 'float64')) if r31 is not None else _e2_H(th['k31']) * t4).astype(fnp.float32)), rho)   # G5: k31*(t4*r31) = (t4*r31)*k31\n    t21a = _e2_H(fnp.outer(A2, A1)) + _e2_H(rho * _e2_H(fnp.outer(A3, A2)))\n    t31a = _e2_H(fnp.outer(A3, A1)) + _e2_H(rho * _e2_H(fnp.outer(A4, A2)))\n    X = _e2_H(_e2_H(dT21 * t21a) / 2) + _e2_H(_e2_H(dT31 * t31a) / 6)\n    dcov = _e2_H(_e2_H(X + _e2_H(X.T)) * pr['ss32']).astype(fnp.float64)\n    fnp.fill_diagonal(dcov, 0)\n    return dcov",
+      "after": "def _gn_dcov(l, mu, Cpre, K21, k4, aux):\n    pr = _E2_LAYER.get('pair')\n    if pr is None or pr.get('aux') is not aux or aux['pre_cov'] is not Cpre or aux.get('pre_k3') is None:\n        return _G5_OLD_GN_DCOV(l, mu, Cpre, K21, k4, aux)\n    _g5st = _e2_pair_state(int(mu.shape[0]))\n    _e2_H = _E2Hold()   # E2: temporaries of this call, released together (one hidden free trip)\n    th = _GN_KNOBS\n    s = aux['sigma']; a = aux['alpha']\n    v = aux['pre_v']   # G5: = diag(Cpre), the pair map's\n    _e1gn = _e1gn_state(_g5st, int(mu.shape[0]))\n    ss = pr['ss']   # G5: = outer(s, s)\n    rho = _g5st['P16'][0]   # G5: = (Cpre / ss) with a zero diagonal, cast: the pair map's rho.astype(float32) / 1\n    # E1: the GN plane read uses the same retained r=0,1 terms.\n    k3 = aux['pre_k3']   # G5: = diag(K21)\n    kink = (_e2_H(fnp.abs(a)) < 1.5).astype(fnp.float64)\n    dK21 = _e2_H(_g5_rowmul(_ps32(_e2_H(_g5_schain(th['iso'], kink, k3)) / v), _ps_pre32(Cpre))) + _e2_H(_g5_rowmul(_ps32(_e2_H(th['k21n']) * _e2_H(1 - kink)), _ps_k2132(K21)))\n    _e2_H(fnp.divide(dK21, _e2_H(_g5_outer(_ps32(v), _ps32(s))), out=_e1gn['D0']))\n    t4 = _e2_H(fnp.broadcast_to(k4, (len(mu),))) / _e2_H(v ** 2)\n    r31 = ((_k31_row_scale_gn(mu, k3, v) if _S19_GN_TORCH else _k31_row_scale(mu, k3, v))\n           if '_k31_row_scale' in _e2_H(globals()) else None)   # PT-33 S19: torch GN remainder keeps the configure-time 0.85/0.5\n    _e2_H(fnp.multiply(_e2_H(_e2_H(_g5_chain(t4, r31, _g5c(th['k31'], 'float64')) if r31 is not None else _e2_H(th['k31']) * t4).astype(fnp.float32)), _e1gn['rhoT'], out=_e1gn['D1T']))   # same weight_i * rho_ij, no einsum out-copy\n    X = _e1gn_contract(_e1gn, rho, _e2_H)\n    dcov = _e2_H(_e2_H(X + _e2_H(X.T)) * pr['ss32']).astype(fnp.float64)\n    fnp.fill_diagonal(dcov, 0)\n    return dcov"
+    }
+  ],
+  "suffix_bytes": 1753,
+  "source_inverse_exact": true,
+  "all_unlisted_source_bytes_unchanged": true,
+  "changed_function_asts": [
+    [
+      "_gn_dcov",
+      7571
+    ]
+  ],
+  "gn_calls": 13,
+  "warm_arithmetic_calls_before": 13,
+  "warm_arithmetic_calls_after": 7,
+  "warm_view_calls_removed": 2,
+  "projected_explicit_calls_saved": 104,
+  "warm_arithmetic_flops_unchanged": true,
+  "new_arena_allocation": false,
+  "borrowed_scratch_elements": 6291456,
+  "once_reshape_flops": 6291456,
+  "source_only": true,
+  "numerical_execution": false,
+  "execution_authorized": false
+}

@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-21T02:04:33Z",
+  "kind": "CURRENT777A_SHARED64_TERMINAL_PROPAGATED_MEAN_RESPONSE",
+  "reference_submission": 337422,
+  "train": [
+    35,
+    150,
+    200,
+    250
+  ],
+  "validation_or_held_truth_access": false,
+  "source_sha256": "777a73b6d13ef0e1e51d70d4c0dc61f21b4c7287813e336c82c37ec7188ba510",
+  "capture": "Target-free full1024 rows of state64,hidden2,normalizedgate,sigma,delta; immutable original source",
+  "linearization": "J_l=mask_l*(gate_l[:,None]*(W_l.T@J_(l-1)) + sigma_l*rms_l*gain_l*state_l), J_0=0",
+  "fitting": "Terminal layer15 ONLY against TRAIN4 truth mean; equal per-network relative-error weighting by cross-half u0; no local-innovation proxy objective",
+  "coefficients": 64,
+  "shared_layers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "ridge": 0.1,
+  "damping": 0.5,
+  "cross_validation": "Four leave-one-network-out refits; standardization and networkweights train-only in each fold",
+  "gate": "LOO mean relative terminal cross-half error change <=-.1%, >=3/4 improve; all positive baselines, finite source and physical response",
+  "no_parameter_norm_cap": true,
+  "diagnostic": "Report physical step/output scale and proxy residual; downstream covariance/recurrent feedback omitted so native32 required",
+  "validation": "Freeze full coefficients before any native validation or held25 read; no grid or outcome-driven damping",
+  "deployment": "Only head[1:16] constants updated, no runtime arithmetic changes",
+  "independent_of": "Localinnovation fb4bbca4 and hidden128complement; no fitting to their native outcome"
+}

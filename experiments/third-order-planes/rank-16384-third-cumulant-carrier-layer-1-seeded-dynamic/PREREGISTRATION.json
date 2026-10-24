@@ -1,0 +1,104 @@
+{
+  "schema": "p2r0c1d4-protected160-40-preregistration-v1",
+  "status": "frozen-before-host-generation-and-target-metrics",
+  "graph_child": "P2R0C1D4",
+  "hypothesis": "D3 failed because CP16384 recursive-host error begins at L1 while the correction is hard-zero through L1 and receives no carried message at L2; seeding the otherwise unchanged dynamic four-state correction at L1 can preserve sub-1e-8 adjusted-score potential.",
+  "failure_decomposition": {
+    "path": "D3_FAILURE_DECOMPOSITION.json",
+    "sha256": "c9bf028abd9692707e2bd9f95056f0187a7c371182d0636243fcbefa5975a403",
+    "d3_terminal_recovery_sha256": "404bb2a4f1bb3eebb7f3d961bcad0aa098d1e4c866fcd3e139cec9138c42d792",
+    "d3_partial_result_sha256": "f487c7c360b066549263f5b8506aeb5a55ece637e944ebd17fa844d693282121"
+  },
+  "host_roster": {
+    "role": "observer_fit",
+    "ordered_role_ranks_inclusive": [200, 399],
+    "count": 200,
+    "source": "one literal integrated CP16384 recursive-host/raw20/sigma run for each frozen role rank",
+    "feature_manifest_sha256": "9a43423982924bcc7a0c5b87288b19ff42452c90c9cc7b7f590e565d1b276f50",
+    "name_or_board_join": false
+  },
+  "split": {
+    "group_key": "mlp_id",
+    "train_role_ranks": [200, 359],
+    "train_networks": 160,
+    "eval_role_ranks": [360, 399],
+    "eval_networks": 40,
+    "protected_eval_opened_during_training": false,
+    "prior_d3_eval_ranks_reused": false
+  },
+  "host": {
+    "rank_scope_helper_sha256": "09022af8b0c045d0ab98f951e3f7c47a3ec4d67213a4e4214e72c5c0ab739478",
+    "sealed_base_helper_sha256": "f9e39975c3892adefceb2d749536d65b9e9d5216cf4e7148195d41f9225044a8",
+    "exact_source_sha256": "361c87cba008987c117871bf9892beecce75911634798ed7ad3fa26fd8ee5814",
+    "instrumented_source_sha256": "76a87a1d161db9583dd318971b2688079d1919579d7a900fa9ec1a0230318105",
+    "meter_result_sha256": "6d7afc4af1e8a9a77d7e3611f56830e19955ed917775b9c93a225a419917826c",
+    "prediction_byte_parity_to_exact_source": true,
+    "literal_integrated_host_tape_flops": 620447502338,
+    "tape": "raw20[16,1024,20] and sigma[16,1024] emitted from the same deployment-faithful CP16384 recursive host invocation"
+  },
+  "architecture": {
+    "source_sha256": "8871ac10f3f122d9231652e3618c888bdc69b71cc0de44ffa00a79630258225d",
+    "class": "DynamicMultiStateResidual",
+    "channels": 4,
+    "hidden": 96,
+    "parameters": 24832,
+    "first_corrected_layer": 1,
+    "sole_causal_change_from_d3": "FIRST_CORRECTED_LAYER: 2 -> 1",
+    "l1_observable_source_channels": ["alpha", "reported/sigma", "(reported-gaussian)/sigma", "k3/sigma^3"],
+    "recurrence": "unchanged four Phi*(state@W) channels plus dynamic local damping, mixing, and source; L1 state is physically transported into L2",
+    "post_tape_correction_upper_flops": 699338752
+  },
+  "training": {
+    "seed": 1753358438,
+    "threads": 2,
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 0.00002,
+    "auxiliary_state_penalty": 0.00002,
+    "identity_penalty": 0.0005,
+    "gradient_clip": 5.0,
+    "fits": 1,
+    "hyperparameter_sweeps": 0,
+    "retries": 0
+  },
+  "cost": {
+    "phase2_budget": 2199023255552,
+    "literal_integrated_host_tape": 620447502338,
+    "d3_post_tape_correction_upper": 652201984,
+    "extra_l1_cell_upper": 38752256,
+    "extra_l1_to_l2_four_channel_transport_upper": 8384512,
+    "post_tape_correction_upper": 699338752,
+    "integrated_host_tape_plus_correction_upper": 621146841090,
+    "score_multiplier": "0.2824648804971729987300932407379150390625",
+    "admission_ceiling_exclusive": 666987623541,
+    "admitted_before_target_fit": true
+  },
+  "decision_gate": {
+    "mode": "all",
+    "metric": "autonomous final-layer raw MSE over the 40 protected eval networks",
+    "complete_eval_rows_required": 40,
+    "finite_full_rollout_required": true,
+    "raw_mse_strictly_below": "3.5402631231177368555906471767710946105625633e-8",
+    "projected_adjusted_score_strictly_below": 1e-8,
+    "on_pass": "promote the exact D4 spelling to full fourfold evaluation",
+    "on_fail": "close only this protected D4 L1-seeded spelling"
+  },
+  "launch_interlock": {
+    "required_receipt": "HEAVY_LANE_RELEASE.json",
+    "required_upstream": "terminal F2J",
+    "default_runner_mode": "no launch; --launch is explicit",
+    "target_free_smoke_required_before_launch": true
+  },
+  "role_firewall": {
+    "target_role": "observer_fit",
+    "metric_role_ranks": [200, 399],
+    "target_projection": ["mlp_id", "all_layer_means"],
+    "target_rows_used": 200,
+    "observer_selection_targets_opened": 0,
+    "public_names_opened_or_joined": 0,
+    "board_data_opened_or_joined": 0
+  }
+}

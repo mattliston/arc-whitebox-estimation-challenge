@@ -1,0 +1,136 @@
+{
+  "schema": "q24-ng-k6-difference-replica-block-static-preregistration-v1",
+  "date": "2026-08-27",
+  "status": "STATIC_ONLY_HOLD_BEFORE_SOURCE_GATE",
+  "emitted_object": "True preactivation connected K6 action restricted to coordinate support at least three; not the matched-Gaussian-subtracted hidden-state K6_NG quotient.",
+  "fixed_state": {
+    "width": 1024,
+    "depth": 16,
+    "source_action_transitions": 15,
+    "difference_pool_sizes": {
+      "A": 512,
+      "B": 192,
+      "C": 128
+    },
+    "independent_gaussian_path_count": 1664,
+    "replica_terms": [
+      {
+        "multiplicity": [6],
+        "rank": 512,
+        "coefficient_per_term": "1/(2*512)"
+      },
+      {
+        "multiplicity": [4, 2],
+        "rank": 192,
+        "coefficient_per_term": "-15/(2*192)"
+      },
+      {
+        "multiplicity": [2, 2, 2],
+        "rank": 128,
+        "coefficient_per_term": "15/128"
+      }
+    ],
+    "support_sectors": [
+      "411",
+      "321",
+      "222",
+      "3111",
+      "2211",
+      "21111",
+      "111111"
+    ],
+    "packed_rows_by_total_degree": {
+      "1": 1280,
+      "2": 1856,
+      "3": 1984,
+      "4": 1856,
+      "5": 1280,
+      "6": 832
+    },
+    "map_row_units": 9088,
+    "added_action_gemm_calls": 90,
+    "coefficient": 1.0,
+    "site_rule": "all 15 transitions"
+  },
+  "replica_custody": {
+    "all_1664_inputs_mutually_independent": true,
+    "each_difference_uses_two_distinct_paths": true,
+    "42_uses_independent_A_and_B_factors": true,
+    "222_uses_independent_A_B_and_C_factors": true,
+    "cross_type_pool_reuse_changes_covariance_not_expectation": true,
+    "seed_source": "grader-supplied mlp.seed xor a frozen lane constant",
+    "target_or_name_derived_seed": false
+  },
+  "exact_identities": {
+    "difference_law": "cum6(X-X')=2*cum6(X)",
+    "replica_decomposition": "cum6(X)=0.5*M6(D)-7.5*Sym(M4(D) tensor M2(D))+15*Sym(M2(D)^tensor3)",
+    "support_projector": "F_lambda - 0.5*sum_alpha binom(lambda,alpha)*(P_alpha*P_(lambda-alpha)-P_lambda) + (n-2)*P_lambda",
+    "unbiasedness_scope": "Population-unbiased for the complete true support-3+ connected K6 action at every propagated layer.",
+    "not_claimed": "No exact subtraction of cum6(ReLU G) for matched Gaussian G; do not label this state K6_NG."
+  },
+  "overlap_policy": {
+    "gaussian_mixed_d6_shell": "diagnostic control only; never stack",
+    "gaussian_higher_path_shells": "diagnostic controls only; never stack",
+    "activation_rule": "A future complete-source provider replaces all experimental G8/G16 degree-six shells.",
+    "live_d4_overlap": "No G8/G16 shell is deployed. D4's disconnected 1/2 L3^2 term is not connected L6."
+  },
+  "deployment_cost_cap": {
+    "phase2_budget": 2199023255552,
+    "d4_max_flops": 1356595288584,
+    "enumerated_incremental_core_flops": 625985232896,
+    "fixed_padding_flops": 2786811904,
+    "incremental_admission_cap_flops": 628772044800,
+    "combined_max_flops": 1985367333384,
+    "combined_utilization": 0.9028405354,
+    "margin_to_budget_flops": 213655922168,
+    "official_meter_still_required": true
+  },
+  "memory_cap": {
+    "packed_d4_projected_peak_bytes": 5411373056,
+    "explicit_incremental_simultaneous_bytes": 220053504,
+    "incremental_arena_cap_bytes": 268435456,
+    "combined_projected_peak_bytes": 5679808512,
+    "margin_to_8gib_bytes": 2910126080,
+    "official_rss_still_required": true
+  },
+  "source_gate": {
+    "role_ranks": [0, 343, 687],
+    "layers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "sectors": ["411", "321", "222", "3111", "2211", "21111", "111111"],
+    "split_rule": "two disjoint equal halves of every frozen pool",
+    "signal": "S=<y1,y2>",
+    "noise": "N=||y1-y2||^2/2",
+    "pass_rule": "S>0 and N/S<=1/9 independently in all 315 cells",
+    "pooling_or_rescue": false,
+    "rank_seed_layer_sector_or_coefficient_retry": false,
+    "failure": "Close this spelling before D4 integration or target access."
+  },
+  "resource_gate": {
+    "zero_amplitude_five_component_parity": true,
+    "full_official_flops_below_2pow41": true,
+    "peak_rss_below_8gib": true,
+    "residual_seconds_strictly_below": 0.4,
+    "no_scalar_coercion_item_or_remote_truth_branch_inside_layers": true,
+    "matched_parent_protocol": "lean A/B/A with absolute and differential residual",
+    "version_warning": "Local whestbench 0.16 / FlopScope 0.12 sync residual is not directly comparable to current evaluator 0.15 / FlopScope 0.11.",
+    "harness_diagnostics_are_not_estimator_overhead": true
+  },
+  "nonadaptive_target_outcomes": {
+    "raw_mse_at_most_to_beat_banked_d4_adjusted": 1.9755664581e-8,
+    "required_raw_reduction_fraction_from_d4": 0.328246,
+    "raw_mse_strictly_below_to_beat_live_leader": 8.4999328972e-9,
+    "target_gate_requires_separate_root_authorization": true
+  },
+  "access": {
+    "rows_opened": 0,
+    "weights_opened": 0,
+    "targets_opened": 0,
+    "scores_computed": 0,
+    "estimators_or_fixtures_called": 0,
+    "source_gates_run": 0,
+    "graph_edits": 0,
+    "releases": 0,
+    "submissions": 0
+  }
+}
+

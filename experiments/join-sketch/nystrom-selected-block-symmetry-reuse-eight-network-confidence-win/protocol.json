@@ -1,0 +1,228 @@
+{
+  "schema": "s34-nystrom-blocksym-gn-scan-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "change": "Only new-J Nystrom contribution: nonselected rows use existing mm routing; selected weighted Gram uses three D5 upper strips/full diagonal blocks and paid mirrored copies. Old Qp/core term is source-identical.",
+  "formula": "G = J_selected diag(weight) J_selected.T; nonselected = J_other diag(weight) J_selected.T.",
+  "rounding": "Real-arithmetic identity; D5 and symmetry copying alter FP32 rounding and may affect Nystrom conditioning. Original approximate-candidate gates apply.",
+  "companions": [
+    {
+      "fragment": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_gn_pair_reuse_v1/fragment_cached_v2.py",
+        "sha256": "546974ee1e54bd543c4b3ed389406d4bbaa56dcc11a44deac1f9330647f5ba3d",
+        "bytes": 503
+      },
+      "native2": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_gn_pair_reuse_v1/native2_assessment.json",
+        "sha256": "71fea40ca9d0b7a4d1733c907bca9ae380381451f21f43e501e7943fd3f3d926",
+        "bytes": 15596
+      },
+      "protocol": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_gn_pair_reuse_v1/protocol.json",
+        "sha256": "6d6fd8abee189a8e8eb190b56046e6c3e271c00f3094bf791479b1b0b73f4742",
+        "bytes": 1411
+      }
+    },
+    {
+      "fragment": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_oldtier_scan_elision_v1/fragment.py",
+        "sha256": "1fc78706a4f0fe0a6c59c25e9087e87ce7c2df1abda828359d1089e012aa6b1c",
+        "bytes": 236
+      },
+      "native2": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_oldtier_scan_elision_v1/native2_assessment.json",
+        "sha256": "4c5e0fc50c3129a96ad2ab4bbc8754415703dbac4c722f8b6529c6b1b2271989",
+        "bytes": 15706
+      },
+      "protocol": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_oldtier_scan_elision_v1/protocol.json",
+        "sha256": "949872e770d4c6bc3ee53039a4376c92207b7db21082f600d8c88f2e66a429c1",
+        "bytes": 1366
+      }
+    }
+  ],
+  "companion_semantics": "GN reuses identical current pair bonds. Scan elision preserves dtype but removes intermediate isfinite/all early exceptions; final all16 finite checks and all other source guards remain.",
+  "no_isolated_nystrom_gain_claim": true,
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "first_changed_join": 7,
+  "arena_size_unchanged": true,
+  "tr_cache_cleared_before_and_after_each_forced_product": true,
+  "prebind_keys": [
+    [
+      0,
+      5,
+      64,
+      5568
+    ],
+    [
+      0,
+      5,
+      128,
+      4672
+    ],
+    [
+      0,
+      5,
+      128,
+      5568
+    ],
+    [
+      0,
+      5,
+      128,
+      6144
+    ],
+    [
+      1,
+      5,
+      4672,
+      128
+    ],
+    [
+      1,
+      5,
+      4672,
+      256
+    ],
+    [
+      1,
+      5,
+      4672,
+      384
+    ],
+    [
+      1,
+      5,
+      5568,
+      64
+    ],
+    [
+      1,
+      5,
+      5568,
+      192
+    ],
+    [
+      1,
+      5,
+      5568,
+      320
+    ],
+    [
+      1,
+      5,
+      6144,
+      128
+    ],
+    [
+      1,
+      5,
+      6144,
+      256
+    ],
+    [
+      2,
+      5,
+      64,
+      64
+    ],
+    [
+      2,
+      5,
+      128,
+      128
+    ],
+    [
+      2,
+      5,
+      128,
+      192
+    ],
+    [
+      2,
+      5,
+      128,
+      256
+    ],
+    [
+      2,
+      5,
+      128,
+      320
+    ],
+    [
+      2,
+      5,
+      128,
+      384
+    ],
+    [
+      0,
+      6,
+      448,
+      4672
+    ],
+    [
+      0,
+      6,
+      512,
+      5568
+    ],
+    [
+      1,
+      6,
+      5568,
+      320
+    ],
+    [
+      2,
+      6,
+      448,
+      384
+    ],
+    [
+      2,
+      6,
+      512,
+      320
+    ]
+  ],
+  "setup_counts": {
+    "bound": 705,
+    "lvfuse": 672,
+    "psdb_fused": 9
+  },
+  "price": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_nystrom_blocksym_gn_v1/price.json",
+    "sha256": "6215cccfc39069aa6eadac88ec65432899fe8c9bd0030964b15bc2d143c7e0d3",
+    "bytes": 2463
+  },
+  "source_inverse_exact": true,
+  "changed_parent_functions": [
+    "_shared_old384_push"
+  ],
+  "all_value_operations_paid": true,
+  "roster": [
+    35,
+    100
+  ],
+  "scope": "native2_only",
+  "fit_or_sweep": false,
+  "boundary_authorized": false,
+  "broad_qualified": false,
+  "serving_qualified": false,
+  "submitted": false,
+  "model_executed": false
+}

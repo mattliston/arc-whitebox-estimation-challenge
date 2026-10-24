@@ -1,0 +1,133 @@
+{
+  "schema": "phase2-public-prelaunch-source-audit-v1",
+  "as_of_utc": "2026-08-23T22:30:00Z",
+  "status": "PASS_PUBLIC_ASSET_AUTHORITY__OFFICIAL_LAUNCH_PENDING",
+  "launch_status": {
+    "submissions_open": false,
+    "official_announcement_published": false,
+    "organizer_state": "public assets released informally; evaluator security review pending",
+    "deadline_state": "old deadline not authoritative; organizer said it will shift"
+  },
+  "dataset": {
+    "repository": "aicrowd/arc-whestbench-public-2026",
+    "revision": "v2-phase2",
+    "url": "https://huggingface.co/datasets/aicrowd/arc-whestbench-public-2026",
+    "width": 1024,
+    "depth": 16,
+    "weight_shape": [16, 1024, 1024],
+    "prediction_shape": [16, 1024],
+    "weights_dtype": "float32",
+    "biases": false,
+    "activation_after_every_matrix": "relu",
+    "weight_distribution": "N(0, 2/width)",
+    "input_distribution": "N(0, I_width)",
+    "ground_truth_samples_per_mlp": 1000000000,
+    "schema_version": "3.0",
+    "seed_protocol": "whestbench_explicit_per_mlp_seeds/3.0",
+    "mini_mlps": 100,
+    "full_mlps": 1000,
+    "mini_and_full_disjoint": true,
+    "total_bytes_reported": 77000000000,
+    "license": "CC-BY-4.0"
+  },
+  "round": {
+    "flop_budget_per_mlp": 2199023255552,
+    "forward_flops_per_sample": 33554432,
+    "naive_forward_sample_upper_bound": 65536,
+    "score": "final_layer_raw_mse * max(0.1, flops_used / flop_budget)",
+    "primary_scored_layer": 16,
+    "all_layer_mse_is_diagnostic": true,
+    "lambda_flops_per_second": 0,
+    "residual_wall_time_limit_s": 0.4,
+    "predict_wall_time_limit_s": 120.0,
+    "setup_time_limit_s": 5.0,
+    "estimator_memory_limit_mb": 8192,
+    "submission_size_limit_mib": 50,
+    "submission_file_limit": 50,
+    "failure_multiplier": 1.0,
+    "failure_prediction": "zeros"
+  },
+  "software": {
+    "whestbench": {
+      "version": "0.16.0",
+      "tag": "v0.16.0",
+      "commit": "8f0cb19a92eae7f88139e2f3810a392cf7a5b95e",
+      "url": "https://github.com/AIcrowd/whestbench"
+    },
+    "flopscope": {
+      "version": "0.12.0",
+      "tag": "v0.12.0",
+      "commit": "2b8682e354379c50bc24145675356b8bb87fe6b3",
+      "url": "https://github.com/AIcrowd/flopscope"
+    },
+    "starterkit": {
+      "commit": "a435189affdf57ac42a5973e19eb09755cc9dcc6",
+      "url": "https://github.com/AIcrowd/whest-starterkit",
+      "phase2_ready": false,
+      "warning": "current main still pins Phase 1 whestbench/flopscope versions and geometry"
+    },
+    "required_relationship": "whestbench>=0.16,<0.17 with flopscope>=0.12,<0.13; client/server meter versions must match"
+  },
+  "execution_contract": {
+    "submitted_numerical_backend": "flopscope client only",
+    "standard_library_control_flow_allowed": true,
+    "offline_training_and_shipped_data_allowed": true,
+    "mps_allowed_in_submission": false,
+    "mps_allowed_offline": true,
+    "prohibited": [
+      "vendored numpy/scipy/BLAS/LAPACK",
+      "compiled kernels",
+      "ctypes/cffi",
+      "threads/subprocesses/multiprocessing/asyncio",
+      "computation concurrent with a flopscope request",
+      "meter interference"
+    ],
+    "remote_unsupported_ops": [
+      "apply_along_axis",
+      "apply_over_axes",
+      "fromfunction",
+      "fromiter",
+      "frompyfunc"
+    ]
+  },
+  "forum_sources": [
+    {
+      "topic": 18196,
+      "url": "https://discourse.aicrowd.com/t/phase-2-official-start-date-and-details/18196",
+      "role": "organizer launch-status authority"
+    },
+    {
+      "topic": 18186,
+      "url": "https://discourse.aicrowd.com/t/phase-2-starting/18186",
+      "role": "organizer delay/deadline clarification"
+    },
+    {
+      "topic": 18193,
+      "url": "https://discourse.aicrowd.com/t/phase-1-solution-ideas-for-phase-2-and-the-honest-public-frontier-all-methods-combined-and-explained/18193",
+      "role": "participant Phase 1 frontier and Phase 2 ideas"
+    },
+    {
+      "topic": 18177,
+      "url": "https://discourse.aicrowd.com/t/bitter-lesson-pilled-sampling-free-propagator-yielding-1-5e-5-raw-mse/18177",
+      "role": "participant sampling-free propagator plus width/depth crossover comments",
+      "comments_reviewed": true
+    }
+  ],
+  "external_replication": {
+    "repository": "https://github.com/jamesrahenry/arc-whitebox-replication",
+    "commit": "8d6cd4f4f6ec6672914bc002350f6a40da92ca84",
+    "path": "analytic_vs_sampling",
+    "status": "participant evidence; independently replay before promotion",
+    "phase1_shape_ratio_analytic_mse_over_matched_mc": 1.04,
+    "phase2_shape_ratio_analytic_mse_over_matched_mc": 0.12,
+    "phase2_shape_mean_analytic_mse_external_random_nets": 0.0000041557361515618575,
+    "phase2_shape_mean_matched_mc_mse_external_random_nets": 0.00003491733000660605,
+    "matched_mc_samples": 2048
+  },
+  "caveats": [
+    "Versioned public assets are the current technical authority but the official launch can still change rules.",
+    "The AIcrowd challenge overview contains stale Phase 1 technical text; use pinned v0.16.0/v0.12.0 documents.",
+    "The starter-kit main branch is not yet a safe Phase 2 dependency authority.",
+    "A dataset-free local run uses too few truth samples to resolve a 1e-7 target; use the baked v2-phase2 dataset."
+  ]
+}

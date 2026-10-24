@@ -1,0 +1,19 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N3_K4",
+    "label": "N3 fourth-cumulant channel dk4_l - DEFECT FOUND: k4 13->63% low from the CP4 cap (N3.1); pays jointly with v and k3 in-card",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "The CP4 carrier's diagonal + K22/K31 planes; engine k4 supply 0.0 at any beta. Blocked on the fourth-order leaf. T-43: k4 pays jointly with v and k3 inside the card (v+k3+k4 forced -> noise floor). Unblocked; its required accuracy is on the ladder. T-44: the card's k4 is systematically under-scaled by the CP4 cap (see N3.1). Fix path: rescale test -> orphan-diagonal carry / cap ladder -> F2J refit.",
+    "terminal_criterion": "Unblocks with N1.2d; closed when only_k4 at optimal beta is frozen-stable.",
+    "evidence": [],
+    "decomposition_children": [
+      "P2R0G19B_MECH_N3_1_CP4_CAP_DEFECT"
+    ],
+    "goal_path_summary": "Each neuron's kurtosis, worth a further ~8% at perfect inputs."
+  }
+}

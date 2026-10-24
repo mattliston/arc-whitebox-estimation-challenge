@@ -1,0 +1,59 @@
+{
+  "schema": "public-cp1536-scalar-transport-rff-cv-run-manifest-v1",
+  "status": "authorized_not_started",
+  "node": "P2R0C1D1",
+  "parent_node": "P2R0C1D",
+  "run_id": "cp1536_scalar_transport_rff_cv_688_v1",
+  "authorization": "authorized by the user's standing request to run the deterministic estimator on the lawful public organizer dataset and diagnose/fix the architecture",
+  "bound_artifacts": {
+    "preregistration": {
+      "path": "PREREGISTRATION.json",
+      "sha256": "03278bbb334055c92fe57f2ff649829b17a180232728eb6b729995344ca8881a"
+    },
+    "program": {
+      "path": "run_experiment.py",
+      "sha256": "955b24cfebaf59fae21b4b87fb9e17883b9f1b4ec9719a2a1d49922960111f57"
+    },
+    "seal": {
+      "path": "PREREGISTRATION_SEAL.json",
+      "sha256": "1c92039cddb5029e807c666e13ba6fbbb63b60678759b0596180e49ebe50c777"
+    }
+  },
+  "command": [
+    "nice",
+    "-n",
+    "10",
+    "/Users/matt/anaconda3/bin/python3",
+    "-B",
+    "run_experiment.py"
+  ],
+  "working_directory": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_scalar_transport_rff_cv_v1",
+  "allowed_access": {
+    "target_role": "observer_fit",
+    "role_ranks": [
+      0,
+      687
+    ],
+    "target_blind_feature_role": "observer_fit",
+    "weights": true
+  },
+  "forbidden_access": [
+    "observer_selection targets",
+    "private or sealed benchmark roles",
+    "Q24 output trajectories",
+    "public-board names or identity joins"
+  ],
+  "resource_cap": {
+    "threads": 2,
+    "maximum_rss_bytes": 8589934592,
+    "maximum_storage_bytes": 1073741824,
+    "priority_nice": 10
+  },
+  "expected_outputs": [
+    "cache/MANIFEST.json",
+    "CV_RESULTS.json",
+    "verification.json",
+    "graph_delta.json"
+  ],
+  "launch_hold": "Do not start the weight-stream pass until the root confirms its primary four-fold CV workers are stable."
+}

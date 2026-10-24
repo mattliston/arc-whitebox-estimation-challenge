@@ -1,0 +1,81 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G18A",
+    "label": "Native22 late-q capacity ceiling",
+    "kind": "capacity_result",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The immutable exactly-once four-fold independent256 primary arm is a valid terminal failure. Its local q MSE is 5.298375774407814e-9 and its endpoint MSE is 2.988906304823771e-8 versus fold-J base 3.048918630419429e-8: a 1.968315% base improvement that closes only 2.464820% of the base-to-exact-q-oracle gap. The absolute local gate <=1.375544984492742e-9 and strict endpoint gate <1.2427319908150922e-8 both fail. The shared256 diagnostic is marginally better but is frozen diagnostic-only, also fails the absolute gates, and is nonselectable after results. This is a closed_measured missing-information boundary for native22, with no retry. A post-terminal observational trace, explicitly not a new gate, also shows normalized training q loss ending near 0.969-0.974, so even fit rows explain only about 2-3% of normalized q energy.",
+    "terminal_criterion": "Closed for the exact native22 independent256 capacity spelling under its immutable no-retry contract. Do not rerun, retune, select shared256, fit all 688, integrate, package, or submit. This closes native22 capacity only; it does not close q distillation or the distinct signed-pair Q1 information source.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_CAPACITY_PREREGISTRATION_V1.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/native22_capacity_runner.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_EXECUTION_RELEASE_V1.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_CAPACITY_OUTPUT_V1/RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_CAPACITY_OUTPUT_V1/MODELS.pt",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_TERMINAL_AUDIT_V1.json"
+    ],
+    "evidence_bindings": [
+      {
+        "role": "execution_release",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_EXECUTION_RELEASE_V1.json",
+        "sha256": "fbeee9b10e5597d981ce26586a59b59d8fcefe1b44e13c7fef7b75cf30c34f32"
+      },
+      {
+        "role": "result",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_CAPACITY_OUTPUT_V1/RESULT.json",
+        "sha256": "5c940c501c383fe65e9e4b5dda103ba287797d0cb18ed22bc6314588f37245fd"
+      },
+      {
+        "role": "models_hash_only",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_CAPACITY_OUTPUT_V1/MODELS.pt",
+        "sha256": "cff45c489c743f5de31454875e7dedfeb7d5a0fb9102663bd756b91dea482ee4"
+      },
+      {
+        "role": "independent_terminal_audit",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_TERMINAL_AUDIT_V1.json",
+        "sha256": "5f3bcd094257a644c2a9ecb243d6bc357634b711be8d40ee3089a1d75cd8a62f"
+      },
+      {
+        "role": "preregistration",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/NATIVE22_CAPACITY_PREREGISTRATION_V1.json",
+        "sha256": "955857d97f6de2e01c19941b85bb8bf10882c36c94431f0a51ab744a35cdd54f"
+      },
+      {
+        "role": "runner",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_qinnovation_distillation_v1/native22_capacity_runner.py",
+        "sha256": "6edae2a20052aec3ca375d8c07fad5be0a6c040481423cfe0f9fb335f19feb2e"
+      }
+    ],
+    "observational_training_trace": {
+      "classification": "post_terminal_observational_only__not_a_new_gate",
+      "models_sha256": "cff45c489c743f5de31454875e7dedfeb7d5a0fb9102663bd756b91dea482ee4",
+      "normalized_q_loss_start_approximate_range": [
+        0.995,
+        0.999
+      ],
+      "independent256_final_by_fold": [
+        0.96997,
+        0.97444,
+        0.97341,
+        0.97146
+      ],
+      "shared256_final_by_fold": [
+        0.96917,
+        0.97355,
+        0.97216,
+        0.97057
+      ],
+      "late_curve_movement_per_epoch_approximate_range": [
+        0.0002,
+        0.0004
+      ],
+      "interpretation": "Even fit data explains only about 2-3% of normalized q energy, reinforcing the missing-information classification rather than a held-only overfit diagnosis. Shared256 remains diagnostic-only and nonselectable.",
+      "authority": "Observational trace only; creates no gate, retry, model selection, execution, integration, package, or submission authority."
+    },
+    "decomposition_children": []
+  }
+}

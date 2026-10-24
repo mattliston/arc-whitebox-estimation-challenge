@@ -1,0 +1,153 @@
+{
+  "architecture": {
+    "channels": 4,
+    "deployment_truth_inputs": 0,
+    "energy_observable": "Phi^2*(s^2@W^2)",
+    "first_corrected_layer": 2,
+    "hidden": 96,
+    "input_features": 43,
+    "parameters": 26272,
+    "raw_channels": 27,
+    "signed_transport": "Phi*(s@W)"
+  },
+  "capacity_only_pending_native_stage": true,
+  "cost": {
+    "aug_native_observable_reserve": 500000000,
+    "authority": "conservative capacity-stage admission; the exact native ledger is deferred to the native stage's own preregistration",
+    "correction_upper_estimate": 1188593664,
+    "exact_scoring_budget": 2199023255552,
+    "headroom_below_exact_2pow41": 65642524167,
+    "local_cell_dense_plus_special_reserve": 583819264,
+    "mean_plus_energy_transport_upper": 217997312,
+    "native_q24_host_tape_baseline": 2131692137721,
+    "native_total_upper": 2133380731385,
+    "output_addition": 16384,
+    "parameter_count": 26272,
+    "raw_materialization_reserve_27ch": 385875968,
+    "raw_standardization": 884736,
+    "within_exact_2pow41": true
+  },
+  "decision_gate": {
+    "conjunctive_pass": false,
+    "every_outer_fold_below_1_1e_8": false,
+    "finite_all_688_outer_oof_rollouts": true,
+    "maximum_per_network_below_1e_7": false,
+    "observer_selection_targets_opened_zero": true,
+    "oof_final_mse_below_1e_8": false
+  },
+  "fold_results": [
+    {
+      "autonomous_final_mse": 3.133901799755427e-08,
+      "fold": 0,
+      "host_final_mse": 9.065270147577671e-08,
+      "maximum_per_network_final_mse": 4.2767178814305095e-08,
+      "model_sha256": "3859742d13501d61945827e1ec7165fdee1100e40e8c99a6fbd8468c660186ac",
+      "result_sha256": "843086bd43cd44e596b5d203a4c085ef55a6eb3c47dd284df5ad2588d6ec2876",
+      "valid_networks": 147
+    },
+    {
+      "autonomous_final_mse": 3.2867247050703037e-08,
+      "fold": 1,
+      "host_final_mse": 9.228464256469024e-08,
+      "maximum_per_network_final_mse": 3.3988262727543796e-07,
+      "model_sha256": "23a5386feb39aa4edd956f8a004ba672b840bd9f5ff1aa485385fc8ab01cb84d",
+      "result_sha256": "4023da01f7855e3b3d41e38e7a20bbb7c2ca019eda68e908e0a718acaebc8926",
+      "valid_networks": 172
+    },
+    {
+      "autonomous_final_mse": 3.348512461669868e-08,
+      "fold": 2,
+      "host_final_mse": 9.145150645608908e-08,
+      "maximum_per_network_final_mse": 2.392211620966226e-07,
+      "model_sha256": "087dcb601e809da406a983d36a7083ae55374311a7ec651a7b6ca04a9f54ed40",
+      "result_sha256": "84109d34d63cbdde26e9fe5a59b69d1b18f00ec93800d0515297f9b8b68716fc",
+      "valid_networks": 171
+    },
+    {
+      "autonomous_final_mse": 3.150099938086221e-08,
+      "fold": 3,
+      "host_final_mse": 9.030765580209394e-08,
+      "maximum_per_network_final_mse": 2.916347706789031e-07,
+      "model_sha256": "2e9e3e5d7456c5f773f9d8d1095bdc59d17d19006d46fd955fca094bcb1f4902",
+      "result_sha256": "cd243f0368f3ed1ff52537ec50c9a6456edbc434662d9b732a098fe5e2731c32",
+      "valid_networks": 198
+    }
+  ],
+  "folds": 4,
+  "group_key": "mlp_id",
+  "j_baseline": {
+    "oof_final_mse": 3.2334958229470984e-08,
+    "source": "public_full688_transport_energy_coherence_cv_v1/CV_RESULTS.json"
+  },
+  "network_access": 0,
+  "node": "P2R0F2Q",
+  "observer_fit_networks": 688,
+  "observer_selection_targets_opened": 0,
+  "oof": {
+    "autonomous_final_mse": 3.230109930992383e-08,
+    "autonomous_layer_mse": [
+      6.81930450375131e-10,
+      6.019929004370853e-10,
+      8.864625115686287e-10,
+      1.9038530389642322e-09,
+      3.6252052266421333e-09,
+      5.743100805435115e-09,
+      8.050650183663247e-09,
+      1.0491368913537649e-08,
+      1.2934358880160924e-08,
+      1.5456235083355303e-08,
+      1.7989673958493784e-08,
+      2.056210251173453e-08,
+      2.314550120617183e-08,
+      2.5830798033804274e-08,
+      2.8362430575127107e-08,
+      3.230109930992383e-08
+    ],
+    "autonomous_ratio_to_host": 0.3543344178279042,
+    "host_final_mse": 9.115992600417403e-08,
+    "host_layer_mse": [
+      6.81930450375131e-10,
+      6.019929004370853e-10,
+      1.03900858362207e-09,
+      2.7151794985170306e-09,
+      5.852448668771472e-09,
+      1.0291133024551269e-08,
+      1.5810678088779633e-08,
+      2.234832050557086e-08,
+      2.9472445897537363e-08,
+      3.7338579530465225e-08,
+      4.5747455196665415e-08,
+      5.4430938345714485e-08,
+      6.33033988317353e-08,
+      7.250457289346736e-08,
+      8.14920080189007e-08,
+      9.115992600417403e-08
+    ],
+    "maximum_mlp_id": 364,
+    "maximum_per_network_final_mse": 3.3988262727543796e-07,
+    "maximum_role_rank": 643
+  },
+  "preregistration_sha256": "5cd9a7fb822ffe6b9a17736433cb9db2ef2f269ecbe728278b6aca2663821cae",
+  "program_sha256": "3e7b23c7b448982cfb95b9bd1adf03c6fc85d36f9ab3888264d2637791dfb07e",
+  "public_name_joins": 0,
+  "run_manifest_sha256": "232706a6fd8e5d8a87572d4af3c85a16c29afa5b8831bef0101842c8bf64187a",
+  "schema": "public-full688-aug7-widened-j-cv-v1",
+  "seal_sha256": "c4fd14fc62357e2e113128cce05331011c6abd4b9f9df487a1b8823b58a235ce",
+  "status": "complete",
+  "training": {
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "fixed_final_checkpoint": true,
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "own_primary_state_exposure_schedule": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.0
+    ]
+  },
+  "training_release_sha256": "13ff5ed5dc1a251ec037158552d75c5db457e1bbeb1d1d4af9d5f2a924dfb33b"
+}

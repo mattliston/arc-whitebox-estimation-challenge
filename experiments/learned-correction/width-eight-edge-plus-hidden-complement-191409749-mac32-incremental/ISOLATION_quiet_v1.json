@@ -1,0 +1,97 @@
+{
+  "start_utc": "2026-10-21T05:06:00Z",
+  "phase": "quiet",
+  "status": "QUIET_PHASE_PASS_REVIEW_REQUIRED",
+  "manifest": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/edge8_complement_release_v1/MANIFEST_v1.json",
+  "manifest_sha256": "fa2bab97fa0fec06eab61e237d1dc15adbb0827a03c6993c3fbb3b24f3ce3975",
+  "runner_sha256": "a2c70ffcd145342d893f4fd3a8fd32d11b85d22feebeec4d0116029f5ef174ed",
+  "helper_sha256": "cc6f457db1297877a4b2c09b0d95489d5cd40d26e749ca5151b098d4f8911b84",
+  "reference_submission": 337466,
+  "candidate_release_sha256": "4685e1454ebd2d9607fcd88b64cc1d8435050761212efd1902b04d3f83151a46",
+  "no_auto_fire": true,
+  "no_capacity_guard_queue_source_mutation": true,
+  "runs": [
+    {
+      "label": "bank",
+      "command": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py",
+        "--record",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/hidden_complement90_v1/edge8_complement_quiet_v1/bank/GUARD_v1.json",
+        "--seconds",
+        "125",
+        "--footprint-limit",
+        "7500000000",
+        "--rss-backstop",
+        "7500000000",
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/dual_thread_boundary_v3/boundary_run_dual_v3.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_astra_o21_edge8_local90_per_layer960_v1.py",
+        "35,150,200",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/hidden_complement90_v1/edge8_complement_quiet_v1/bank",
+        "--short-setup"
+      ],
+      "returncode": 0,
+      "log": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/hidden_complement90_v1/edge8_complement_quiet_v1/bank/run.log",
+      "end_utc": "2026-10-21T05:07:57Z"
+    },
+    {
+      "label": "candidate",
+      "command": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py",
+        "--record",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/hidden_complement90_v1/edge8_complement_quiet_v1/candidate/GUARD_v1.json",
+        "--seconds",
+        "125",
+        "--footprint-limit",
+        "7500000000",
+        "--rss-backstop",
+        "7500000000",
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/dual_thread_boundary_v3/boundary_run_dual_v3.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_astra_o21_edge8_hidden_complement90_v1.py",
+        "35,150,200",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/hidden_complement90_v1/edge8_complement_quiet_v1/candidate",
+        "--short-setup"
+      ],
+      "returncode": 0,
+      "log": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/hidden_complement90_v1/edge8_complement_quiet_v1/candidate/run.log",
+      "end_utc": "2026-10-21T05:09:53Z"
+    },
+    {
+      "label": "analyze",
+      "command": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/edge8_complement_release_v1/analyze_quiet_v1.py",
+        "--manifest",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/edge8_complement_release_v1/MANIFEST_v1.json"
+      ],
+      "returncode": 0,
+      "log": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/hidden_complement90_v1/edge8_complement_quiet_v1/analyze.log",
+      "end_utc": "2026-10-21T05:09:53Z"
+    }
+  ],
+  "paused": {
+    "77740": {
+      "ppid": 55141,
+      "started": "Tue Oct 20 11:29:44 2026",
+      "state": "Ss",
+      "command": "bash run_queue_astra_v6.sh 5 science32_rel_v4a_m15 queue_v14.txt"
+    }
+  },
+  "drained_utc": "2026-10-21T05:06:00Z",
+  "free_pct_before": 80,
+  "end_utc": "2026-10-21T05:09:53Z",
+  "pause_elapsed_s": 232.78328995779157,
+  "resumed": [
+    77740
+  ],
+  "exitcode": 0,
+  "free_pct_after": 80
+}

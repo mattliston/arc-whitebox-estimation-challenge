@@ -1,0 +1,37 @@
+{
+  "status": "CLOSED_TERMINAL_FIXED_METRIC_NO_NATIVE",
+  "candidate_scope": "Fixed full encoder response Gram M2 only; no production candidate built.",
+  "reason": "No terminal MSE gain, even exact dense M2 diagnostic is slightly adverse. Substantial encoder approximation improvement does not establish terminal error improvement.",
+  "result_sha256": "777674ca4045e55f271695fd5823d68440b09dddabb53831fc5e32564d1d4dd8",
+  "raw_geometric_MSE_pct": 0.007096259047122217,
+  "log_SE_pct": 0.003014384682650373,
+  "wins": 10,
+  "improving_blocks": 0,
+  "encoder_error2_recovery_pct": 24.870938300011126,
+  "dense_M2_oracle_geometric_MSE_pct": 0.005860999321755777,
+  "prior_distinction": "Earlier diagonal column-norm M2+E candidate closed fixed2 +.0418496% adjusted; this uses full E.T@E and M2 only.",
+  "provenance": "Historical QR TRAIN32 terminal M2 only. GNN/HCF literals equal v17, but saved upstream physical states and exact W3 differ from v17.",
+  "limitation": "Does not establish an all-layer current-v17 closure; earlier M2 affects recurrent learned states/physical edge sources. No current-native validation inferred.",
+  "proof_maxima": {
+    "message_max_abs_error": 8.940696716308594e-07,
+    "hidden1_max_abs_error": 9.5367431640625e-07,
+    "delta_max_abs_error": 2.1827872842550278e-10
+  },
+  "resources": {
+    "seconds": 1.2507076244801283,
+    "max_rss_bytes": 264011776,
+    "no_fit": true,
+    "no_new_truth": true,
+    "no_GPU": true,
+    "no_native": true
+  },
+  "estimated_cost": {
+    "per_layer_f64_flops": 17408,
+    "all15_layers_f64_flops": 261120,
+    "per_layer_matmul_requests": 3,
+    "basis_rank": 2,
+    "dominant_products_unchanged": true,
+    "constant_root_setup": true,
+    "not_actual_public_tariff": true
+  }
+}

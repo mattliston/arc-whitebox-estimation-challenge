@@ -1,0 +1,18 @@
+{
+  "lane": "opus-frees",
+  "q1": {
+    "answer": "NO residual cost",
+    "source": "flopscope client 0.12.0 _connection.Connection._flush_pending_frees: called inside send_recv dispatch_span, docstring: bills as flopscope overhead, not participant residual; finalizers only enqueue ids",
+    "regression": {
+      "rows": 140,
+      "corr_requests_free_trips": -0.073,
+      "residual_cycles_per_request": 59744,
+      "residual_cycles_per_free_trip": -11295,
+      "residual_instr_per_request": 47862,
+      "residual_instr_per_free_trip": -3029
+    },
+    "judge": "designation_judge --primary prices P(loss) from rows requests only (first/warm); free trips excluded"
+  },
+  "q2": "free-batching NOT built: buys ~0 residual / P(loss); only overhead wall (~4.8K trips x tens of us ~0.1-0.2 s/network, not binding)",
+  "headroom_note": "the ~600 first-network-equivalent headroom for GB128r must come from REQUESTS (~60K residual cycles each)"
+}

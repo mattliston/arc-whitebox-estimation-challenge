@@ -1,0 +1,35 @@
+{
+  "schema": "public-gaussian-secant-transport-discriminator-preregistration-v1",
+  "status": "frozen-before-metrics",
+  "question": "Does replacing the autonomous tangent Phi*(e@W) mean transport by the exact target-free Gaussian ReLU secant explain a material part of the autonomous-state gap?",
+  "hypothesis": {
+    "control": "The frozen exposure-trained H64 model and its original tangent transport.",
+    "intervention": "At each corrected layer compute dmu=e_prev@W and transport F(mu+dmu,sigma)-F(mu,sigma), where F(mu,sigma)=sigma*(phi(mu/sigma)+(mu/sigma)*Phi(mu/sigma)); keep the frozen local network, gains, host, features, and weights unchanged.",
+    "causal_read": "A material improvement implicates missing Gaussian mean-map curvature. No improvement closes this curvature mechanism and points instead to a missing variance/covariance or other typed state."
+  },
+  "scope": {
+    "role": "observer_fit",
+    "fit_targets_reused_for_frozen_normalization_only": [0, 160],
+    "development_evaluation": [160, 200],
+    "observer_selection_targets_opened": 0,
+    "observer_fit_targets_at_or_above_rank_200_opened": 0,
+    "threads": 2,
+    "training_or_parameter_fit": false,
+    "validation_retuning": false,
+    "runs": 1
+  },
+  "frozen_parent": {
+    "program_sha256": "5c16a68bb907b0e3c945bce883a877c99743fb40fffca3d8039054fd2eb566e1",
+    "model_sha256": "c998c4410bf36d3b4f1152c45d86fd4c654c7e05abe85e297f07b15f16d58cc7",
+    "result_sha256": "fe2f2f3c8cfa890d416b520f443fbbe475ea8fabafbd16956006a9154b100440",
+    "autonomous_final_mse": 3.4709697955756664e-8
+  },
+  "stop_gates": {
+    "finite_full_rollout": true,
+    "primary_secant_final_mse_below": 3.297421305796883e-8,
+    "primary_meaning": "at least 5% below the frozen parent autonomous result",
+    "secondary_better_than_parent": 3.4709697955756664e-8,
+    "stretch_below": 1e-8,
+    "promotion_rule": "Promote the exact secant mechanism to full-688 only if the primary 5% gate passes; otherwise stop this mechanism after the single development evaluation."
+  }
+}

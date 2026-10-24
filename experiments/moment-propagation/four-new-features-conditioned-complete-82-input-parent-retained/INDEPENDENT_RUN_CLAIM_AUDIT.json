@@ -1,0 +1,51 @@
+{
+  "schema": "owned-l3-l3square-fold0-independent-run-claim-audit-v1",
+  "auditor_role": "h4_reverse_adjoint",
+  "status": "PASS_DURABLE_ONE_SHOT_CLAIM__LIVE_RUN_RESULT_PENDING",
+  "date": "2026-08-31",
+  "bindings": {
+    "claim_sha256": "09d6d1b0bc0b4e0271eb06b682d904998a6aab6fcfc2757b930f10b384902901",
+    "runner_sha256": "a6c891cd19b62e1d48280308d4607fefd2a9f8d6d2eaf4a0277dc230c5af6cc5",
+    "release_sha256": "16715386a00d64347a20d1d4e85ecf5410d2c4d86abe79179c6dab78d3ec622b",
+    "claim_contract_sha256": "09cb93a6381b3ecc80196529f5fca055be0bf148c8ce6448226da1946f2de11a",
+    "preregistration_sha256": "b3d7197b0410f93096fa32d8c018f0e4037bc710e1d5de5da43f84e220b9c624",
+    "h4_runner_audit_sha256": "a5010c9595885ff8a944464c0acb16ea82b2c8f2af8aebfc0c6ad34cc138391a",
+    "cubic_runner_audit_sha256": "341785c61a6746d17760d3fb5e1969552420fe3c4db0f2d2beec313643f7e739",
+    "target_bundle_sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7"
+  },
+  "claim": {
+    "owner_pid": 35716,
+    "claimed_utc": "2026-08-31T17:29:49.869772Z",
+    "sentinel_fold": 0,
+    "one_shot_no_retry": true,
+    "joint_four_field_arm_only": true,
+    "feature_subset_or_retry_authorized": false,
+    "target_blind_cache_rows_verified": 1376,
+    "native_storage_bytes_verified": 992217088,
+    "target_free_minimum_layer_conditional_rank": 4,
+    "derived_feature_cache_written": false,
+    "target_bundle_bytes_hashed_before_claim_without_semantic_decode": true,
+    "target_values_decoded_before_claim": 0
+  },
+  "artifact_state_at_audit": {
+    "result_present": false,
+    "models_present": false,
+    "postclaim_terminal_failure_present": false,
+    "pretarget_terminal_closure_present": false
+  },
+  "checks": {
+    "binding_chain": "PASS: runner, preregistration, release, claim contract, both independent audits, generator, parent result, and target hash reproduce the frozen values",
+    "preclaim_rank_gate": "PASS: all six full-parent82 conditional Schur slices have minimum numerical rank 4",
+    "target_chronology": "PASS: target bundle byte hashing is disclosed as integrity-only and semantic decoded-value count before claim is zero",
+    "cache_and_persistence": "PASS: exactly 1376 frozen target-blind rows verified, no derived cache written, and claim reports the exclusive one-shot terminal law",
+    "authority": "PASS: fold0 only, joint four-field source-on/source-zero transaction, no retry and no remaining-fold authority"
+  },
+  "access": {
+    "target_values_opened_or_decoded": 0,
+    "target_blind_cache_rows_opened": 0,
+    "training_or_scoring_runs": 0,
+    "derived_feature_caches_created": 0,
+    "estimator_calls": 0
+  },
+  "decision": "LIVE_RUN_MAY_CONTINUE_UNDER_ITS_EXISTING_CLAIM__AWAIT_EXCLUSIVE_RESULT_OR_TERMINAL_FAILURE"
+}

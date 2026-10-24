@@ -1,0 +1,70 @@
+{
+  "status": "CLOSED_ON_INDEPENDENT_TENSOR_ORACLE_FIDELITY_NO_MODEL",
+  "detail": [
+    {
+      "label": "one_combined_initial_NP_Gram",
+      "flops": 1454880947,
+      "ops": 195,
+      "shape": [
+        320,
+        320
+      ]
+    },
+    {
+      "label": "NP_apply_L10",
+      "flops": 137410560,
+      "ops": 1,
+      "shape": [
+        672,
+        320
+      ]
+    },
+    {
+      "label": "NP_coreset_update_L10",
+      "flops": 105881280,
+      "ops": 7,
+      "shape": [
+        320,
+        320
+      ]
+    },
+    {
+      "label": "NP_apply_L11",
+      "flops": 137410560,
+      "ops": 1,
+      "shape": [
+        672,
+        320
+      ]
+    },
+    {
+      "label": "NP_coreset_update_L11",
+      "flops": 105881280,
+      "ops": 7,
+      "shape": [
+        320,
+        320
+      ]
+    },
+    {
+      "label": "NP_apply_L12",
+      "flops": 130867200,
+      "ops": 1,
+      "shape": [
+        640,
+        320
+      ]
+    }
+  ],
+  "NP_amortized_total": 2072331827,
+  "raw_credit_before_NP": 4436619470,
+  "amortized_net_credit": 2364287643,
+  "amortized_percent_of247G": 0.9572014748987854,
+  "caveats": [
+    "Representative136 row counts with651 pair width, not a full network forecast",
+    "NP update uses approximate coreset cubic tensor, not exact NP preservation",
+    "Immutable effective F and correct lambda carry factor required; L13 join rebuild excluded from L10-12 scope",
+    "No native model, fitting or source candidate"
+  ],
+  "numerical_payload_bytes": 164
+}

@@ -1,0 +1,32 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F2M",
+    "label": "Full-width learned backward-adjoint state CV",
+    "kind": "phase2_bidirectional_adjoint_state_cv",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The independently verified fourfold full-688 backward-adjoint result is finite at OOF final MSE 3.233766009119748e-8, a 0.008355853% regression versus J's 3.2334958229470984e-8. Its maximum per-network MSE is 3.3816765796841085e-7, so both the frozen mean and maximum gates fail. Fold direction splits 2–2, 98.699% of paired movement cancels, and all four >1e-7 breaches survive; this free backward feature path does not impose a globally consistent residual smoother. The exact result, verification, and one-successor decomposition are bound at SHA-256 1c8fc334b1ba20fba82a82ced63361c9ff42ad079bb9a7ec54a5b1c9d7e2ce7b, a69e5f5b417486ba3f55583c6db096bca2233798df7064e0fcad1587d472f071, and 8ee24497e1bd763ec1f4c001af4a0ae74b558c7ee888fddf351f2ad0249b7fdb.",
+    "terminal_criterion": "Closed for this exact learned full-width backward-adjoint six-epoch spelling because verified OOF mean is not below 2.9672528546945005e-8 and maximum per-network final MSE is not below 1e-7. Preserve only the materially different rank-16 cross-unit residual-covariance successor P2R0F2N.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_bidirectional_adjoint_smoother_design_v1/DIAGNOSTIC_RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_bidirectional_adjoint_smoother_design_v1/DESIGN_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_bidirectional_adjoint_smoother_design_v1/reproduce_readonly_diagnostic.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/PREREGISTRATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/run_experiment.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/RUN_MANIFEST.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/PREREGISTRATION_SEAL.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/SMOKE_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/TRAINING_RELEASE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/CV_RESULTS.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/VERIFICATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/M_VS_J_OOF_DECOMPOSITION_AND_ONE_SUCCESSOR.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/analyze_m_vs_j.py"
+    ],
+    "decomposition_children": [
+      "P2R0F2N"
+    ]
+  }
+}

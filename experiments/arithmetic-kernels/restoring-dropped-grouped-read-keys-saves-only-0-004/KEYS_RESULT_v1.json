@@ -1,0 +1,30 @@
+{
+  "lane": "opus-keys",
+  "base": "S6-exact e0943bb3 (92 keys, 2b108 key space)",
+  "rule": "include only if bill saving >= 0.05%% and P(loss) <= ~18%%",
+  "A_restore_L6g4_13": {
+    "fragment": "fragment_keys_A_l6g4_v1.py.txt fb5c5cce",
+    "cand": "4d099466",
+    "native": {
+      "s7103248": {
+        "bill_pct": -0.004,
+        "ops": 217,
+        "mse_plain_pct": 0.082,
+        "first_diff_layer": 4,
+        "max_abs_diff": 1.3e-05
+      },
+      "s7103250": {
+        "bill_pct": -0.004,
+        "ops": 217,
+        "mse_plain_pct": -0.227
+      }
+    }
+  },
+  "B_restore_L6g4_plus_b709_62": {
+    "fragment": "fragment_keys_B_l6g4_b709_v1.py.txt 59075c1d",
+    "cand": "46ef40a4",
+    "native": "identical to A on both seeds (b709 keys not dispatched)"
+  },
+  "verdict": "NEITHER INCLUDED: ~-0.004%% bill for +217 requests; boundary pairs not run",
+  "finding": "VN native +0.43%% bill vs 2b108 was mostly cb_lazy_v2 moving compactB frame-view FLOPs (~808M = ~0.34%%) from setup into each process FIRST network; native fresh-process screens charge it every time, the platform only on first networks (~6/100). Cross-lineage native bill comparisons (cb_lazy vs non-cb_lazy) are biased by ~+0.34%%."
+}

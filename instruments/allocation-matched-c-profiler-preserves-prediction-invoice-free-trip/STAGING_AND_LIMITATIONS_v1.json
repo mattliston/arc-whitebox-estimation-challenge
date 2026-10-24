@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-21T08:03:33Z",
+  "staged_utc": "2026-10-21T08:01:21Z",
+  "recipe_sha256": "ea46d28a61c1bc375ac540893c287374828eb4ea676adc5451ba4e7b7979b6c1",
+  "remote_file_pins_verified": 15,
+  "output_absent": true,
+  "launched": false,
+  "originals_preserved": true,
+  "root_source_and_slot_review_required": true,
+  "observer_limitation_addendum": "Candidate functions such as destructors can be invoked inside official SDK spans. C-profile self time includes them; such rows must be excluded from outside-SDK hypotheses absent caller-context proof. Never sum all candidate self times as residual. Actual changes still need fresh quiet timing.",
+  "drafts_preserved": [
+    "DRAFT_ALLOCATION_FAILURES_v1.json",
+    "profile_candidate_cprofile_unprimed_v1.py",
+    "profile_candidate_cprofile_primed_v1.py",
+    "profile_candidate_cprofile_builtins_off_v1.py"
+  ],
+  "final_reasoned_mechanism": "No Python callback allocation per event, matched state construction and start/stop calls in both arms, module-owned output state. Synthetic finalizer/free-batch schedules exact with unchanged GC thresholds."
+}

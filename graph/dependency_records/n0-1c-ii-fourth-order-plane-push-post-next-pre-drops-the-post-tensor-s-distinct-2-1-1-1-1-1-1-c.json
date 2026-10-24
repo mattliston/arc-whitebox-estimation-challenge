@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N0_1C_II_PUSH",
+    "label": "N0.1c-ii fourth-order plane PUSH (post -> next pre): drops the post tensor's distinct (2,1,1)/(1,1,1,1) content - K22 25-32%, K31 ~95% missing; the 1024^4 born-content wall",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 2,
+    "summary": "From truth post planes, the plane-supported push (fourth_push_1024; the same class of pushes the card's quartic star uses) reproduces the next pre-planes with K22 rel 25 / 32%, K31 94 / 96%, k4 28 / 37% (L8->9 / L12->13). The missing part is uncorrelated with the pushed planes (not a rescale), 52-65% rank-8, and comes from the post tensor's distinct fourth-order classes = the born 4-path words (T-49: +121-134% of kappa4; block patterns GEMM-class carry 33% / 49%; interleaved patterns 1024^4). The correlation matrices are not low-rank (rank 32 ~ 80% of energy) and sketches need ~10^3 probes, so the interleaved words stay 1024^4: the same wall the card's CP4 (2048 symmetric terms for a ~10^6-term pair-centered object) loses half of. Deployable planes top out near engine-K22 (emission + block push) + the card's K31: host ~3.1e-8 (r35) F2J-off vs truth planes 2.08e-8. T-83/T-84/T-85b: the GEMM-class block-pattern born-word feed (certified vs a dense sum, 2e-14) is ~1% of the missing fourth-order content at 1024 with corr 0.07-0.09 (rho^3 scaling at rho 0.05-0.1) - the born-word feed and the learned-multiplier idea are dead; CP4 rank 4096/8192 leaves the planes unchanged (0.56/0.43 of truth); the card's fourth-order planes are alpha x (v v^T + 2 C∘C) with a least-squares alpha that converges at 40-60% of truth (alpha := 1 explodes, alpha x0.5 -> 0.15). The deployable fix is the engine plane chain (K22 0.92-0.98), in-span. T-90..T-97b (cost): the CP3 arena push is 0.27 of the budget and is load-bearing (cap 4096 explodes the raw 10x with the sealed arena and with a plain push); f16 is billed as f32; the cohort spectra decay (99% energy at rank 300 -> 105 with age) but a billed low-rank bank costs more than it saves (0.84 util at the accurate schedule; birth-only truncation loses the plane). Cost floor of this architecture ~0.5 at raw ~2.9e-8.",
+    "terminal_criterion": "Closed when a GEMM-class push recovers >= 70% of the missing K22/K31 content on two nets, or the interleaved-word wall is proven irreducible at 1024 (then the plane accuracy ladder ends at engine-K22).",
+    "evidence": [
+      {
+        "claim": "T-76..T-77d.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-76..T-77d + experiments/p2_width1024_depth16/public_g29_bond_kernel_v1/push_residual_rank0035_L*.npz"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "The other half - carrying fourth-order statistics from one layer to the next - loses the part that lives on four different neurons at once; computing it exactly costs as much as the whole budget per layer, and it is not compressible by rank. This is where the truth-class planes (worth 2.1e-8 alone) are out of reach."
+  }
+}

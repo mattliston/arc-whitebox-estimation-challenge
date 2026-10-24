@@ -1,0 +1,39 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_radial_metric14_v1/candidate.py",
+    "sha256": "99802913fbf858c311cdd94bf77eca8e7b8d0d0f501afd184f2c56903a11980a",
+    "bytes": 972212
+  },
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_read7_scan_v1/candidate.py",
+    "sha256": "2212448b123d4be2dadf9c4c8642b49ad1cb3e073a1cc49684e4fc083a19c14f",
+    "bytes": 972032
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_radial_metric14_v1/build.py",
+    "sha256": "87e2487b3c3a434646777c39a206d55bbe65081d70582a038f5562c47a6e8ea3",
+    "bytes": 7254
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_radial_metric14_v1/protocol.json",
+    "sha256": "0987a14c2d587de1ce0ce884ebde988dae8b6b240a2f80fd29bdf3144fcfb1f0",
+    "bytes": 2404
+  },
+  "source_diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_radial_metric14_v1/source_diff.patch",
+    "sha256": "12f3e91414cc58b0228821898706e7de3cfceaf78fc7965bf37cf921103dc8f3",
+    "bytes": 944
+  },
+  "source_inverse_exact": true,
+  "changed_parent_functions": [
+    "_predict_binary"
+  ],
+  "before": "            radial = radial_new\n",
+  "after": "            radial = radial_new\n            if l == 14 and metric == 'covariance':\n                _rmt_den = fnp.trace(C) ** 2 + 2 * fnp.sum(C * C)\n                radial = radial_new * (denominator / _rmt_den)\n",
+  "symbolic": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_radial_metric14_v1/symbolic_result.json",
+    "sha256": "597810d1abab90beb581d488a2c1ff9dc0e81a6acdc88cf9d40d17fae761a985",
+    "bytes": 599
+  },
+  "model_executed": false
+}

@@ -1,0 +1,27 @@
+{
+  "frame_alignment_retraction": "The deployed banked card scores 2.958e-8 on the dev pilot rows and 2.941e-8 on the private board: the frames are ALIGNED for deployed cards. The earlier 'floor maps to board about 1.0e-8' arithmetic paired the raw dev host with the deployed board card and is RETRACTED. The board sits essentially AT the about 3.1e-8 information floor already (frozen-corrector in-sample flattery explains the 2.958 versus refit 3.133 gap: these 200 rows are in the frozen corrector's training set; the private board confirms about 2.94e-8 out of sample).",
+  "mechanism": "The banked card's frozen J-derived transport corrector was trained on the base host's errors and removes about 65 percent of them; the carrier analytically removes an overlapping 36 percent. Composing both double-removes the shared component, so the deployed output over-corrects: 3.974e-8 versus the banked card's 2.958e-8 on the same rows. The preregistration's licensing thresholds were mis-specified against the RAW host baseline; the ablation-baseline-must-be-the-shipped-arm law applied at fire time caught it, and the offline deployed-base scoring (frozen corrector applied to the sealed base tapes, clamped) turned the estimate into a measurement.",
+  "node": "P2R0F3A",
+  "pilot_numbers": {
+    "combined_deployed_mean": 3.974326011909195e-08,
+    "deployed_banked_mean_same_rows": 2.9584230504637675e-08,
+    "raw_host_base_mean": 9.039435724162652e-08,
+    "vs_deployed_banked": 0.3433934038900126,
+    "vs_raw_host": -0.5603347229644307,
+    "wins_vs_raw_host": "200/200",
+    "worst_budget_margin": 23907072779
+  },
+  "receipts": {
+    "audit_chain": [
+      "AUDIT_RECEIPT.json",
+      "AUDIT_RECEIPT_v2.json",
+      "AUDIT_RECEIPT_v3.json"
+    ],
+    "pilot_raw_result": "PILOT_RAW_RESULT.json",
+    "seal": "PREREGISTRATION_SEAL_v3.json"
+  },
+  "schema": "combined-pilot-closure-v1",
+  "strategic_consequence": "Both goal thresholds - adjusted below 2e-8 and raw below 1e-8 - require breaking the information floor itself, not stacking host-side removals of tape-reconstructable error: the carrier removed a nearly purely reconstructable component (refit floor moved only 3.133e-8 -> 3.124e-8). The floor components are the born-error majority uncorrelated with every exported observable; the carrier METHOD (measure-first, fidelity probe, exact-transport carrier, sealed pilot) now exists to aim at the next analytic approximation whose error is floor-resident (candidates: the Gaussian-copula/Mehler truncation bias, CP3/CP4 truncation drops). Safe modest bank available but sub-bar: banked + t7 trim + clamp at about 2.70e-8 adjusted (-5.1 percent, familiar ops only).",
+  "targets_read": "stage-2 lawful truth only (rows 35..234 final layer)",
+  "verdict": "DO_NOT_FIRE__DEPLOYED_BASELINE_REGRESSION"
+}

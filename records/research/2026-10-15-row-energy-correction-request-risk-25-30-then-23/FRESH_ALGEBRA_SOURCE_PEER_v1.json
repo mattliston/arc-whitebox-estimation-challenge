@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "reviewer": "fresh_algebra",
+  "scope": "source/lifetime and exact inverse; actual FNP tiny owned by larger_accuracy",
+  "candidate_sha256": "507355ec4d4d76f725ae83ef4fc57fdacc19bb622c90e214453dad50791832a4",
+  "parent_sha256": "b5268d4d55fab95c3929e09bd9956f5092efc7b39184b0bb3faac0dcaef256e4",
+  "exact_parent_inverse": true,
+  "only_changed_functions": [
+    "_uvp_recon",
+    "_uvp_inner",
+    "_astra_bcc_uvrecon"
+  ],
+  "findings": [
+    "Tiled admission proves complete positive consecutive roster; same width and order on each view.",
+    "fnp.split only creates basic views; arithmetic operation sequence and destinations remain identical.",
+    "Input and output view references are local and released before prior parent cleanup and subsequent products.",
+    "No persistent physics values, cache, owner, or state changes.",
+    "Fallback retains original slicing for gaps, empty and zero-width blocks."
+  ],
+  "utc": "2026-10-15T22:45:47.675583+00:00"
+}

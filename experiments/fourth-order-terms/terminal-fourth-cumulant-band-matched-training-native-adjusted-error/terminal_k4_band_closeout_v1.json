@@ -1,0 +1,67 @@
+{
+  "asof_utc": "2026-09-26T23:58:33.162459+00:00",
+  "status": "Closed at fixed native TRAIN2 gate; no TRAIN6, fit, held-out, bundle or submission",
+  "candidate_sha256": "19a09dd89b8bc76240910328d1f67da2e5d52d7a92fda4e255136b0baa7e43e4",
+  "terminal_band": 0.9595022755753744,
+  "adjusted_pct": 0.28022904807303295,
+  "raw_pct": 0.28030244723618036,
+  "adjusted_wins": 0,
+  "extra_flops_per_network": [
+    2048,
+    2048
+  ],
+  "prefix_parity": [
+    {
+      "rank": 35,
+      "first15_layers_byte_exact": true,
+      "final_change_rms": 5.051716115677196e-06
+    },
+    {
+      "rank": 100,
+      "first15_layers_byte_exact": true,
+      "final_change_rms": 5.099002249350759e-06
+    }
+  ],
+  "source_semantic_finding": "Training joint2t applies k4c at terminal k4_15. Native early return skips it; build_s19_dials documents terminal behavior but patches only the later branch.",
+  "future_training": "A future training mirror must explicitly represent the deployed unscaled terminal-k4 behavior. Do not assume joint2t is fully native-consistent merely from its header. Other known native/Torch differences still require qualification.",
+  "decision": "Preserve the verified current bank. Source consistency alone did not improve actual score. No multiplier, sign, head or layer sweep follows.",
+  "qualification": "Two repeatedly used training networks only; no held-out or generalization claim.",
+  "guard": {
+    "pid": 50078,
+    "command": [
+      "../astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python",
+      "native_eval.py",
+      "candidate_terminal_k4_band_v1.py",
+      "35,100",
+      "terminal_k4_band_train2_v1"
+    ],
+    "initial_swap_bytes": 2370043904.0,
+    "rss_trigger_bytes": 7500000000,
+    "poll_sleep_s": 0.05,
+    "max_rss_bytes": 5144182784,
+    "max_swap_growth_bytes": 0,
+    "completed": true,
+    "error": null,
+    "samples": 612,
+    "maximum_sample_interval_s": 0.0806273752823472,
+    "minimum_sample_interval_s": 0.06667516753077507,
+    "exit_code": 0,
+    "remaining_rows": [],
+    "elapsed_s": 45.50970700010657,
+    "whole_group_retired": true
+  },
+  "source_evidence": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/s6bcard_joint2t.py",
+      "sha256": "ffc1b3e094ee41121d3115d2f06deb3291aeabf117cfed30b3ecfcbca367a20a"
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/refit6b/s6bcard_loop5js.py",
+      "sha256": "81f9cfcd2e6f5998bfb12083ffec06ed6e5efe0f6aec4d25e41e3d161463ca8d"
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_porter_v1/build_s19_dials.py",
+      "sha256": "274c32cedefd9ecdd5101f32b68d0ebe9dc6e6e130110a00482aa2eb65846f8c"
+    }
+  ]
+}

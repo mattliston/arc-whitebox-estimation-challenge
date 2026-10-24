@@ -1,0 +1,164 @@
+{
+  "decision": "CLOSED_EXTRA_STABLE_B_CACHE_NO_MATERIAL_SAVING",
+  "actual_stats": [
+    {
+      "seed": 16,
+      "UBC": {
+        "generations": 1,
+        "eligible": 22,
+        "hits": 18,
+        "misses": 4,
+        "stores": 4,
+        "copies": 0,
+        "copy_elements": 0,
+        "copied_bytes": 0,
+        "max_resident_bytes": 389653488,
+        "uncached": 0,
+        "peak_cache_bytes": 389653488,
+        "hit_slots": {
+          "u:0": 5,
+          "v:0": 5,
+          "v:4096": 4,
+          "ut:0": 0,
+          "vt:0": 0,
+          "u:4096": 4
+        },
+        "retired": true,
+        "retained_cache_bytes": 0,
+        "live_cache_bytes": 0
+      },
+      "UBX": {
+        "products": 10,
+        "hits": 12,
+        "stores": 5,
+        "uncached": 1,
+        "skipped": 4,
+        "strip_hits": 8
+      },
+      "L7": {
+        "products": 3,
+        "hits": 4,
+        "stores": 2,
+        "uncached": 0
+      }
+    },
+    {
+      "seed": 7100136,
+      "UBC": {
+        "generations": 1,
+        "eligible": 22,
+        "hits": 18,
+        "misses": 4,
+        "stores": 4,
+        "copies": 0,
+        "copy_elements": 0,
+        "copied_bytes": 0,
+        "max_resident_bytes": 389653488,
+        "uncached": 0,
+        "peak_cache_bytes": 389653488,
+        "hit_slots": {
+          "u:0": 5,
+          "v:0": 5,
+          "v:4096": 4,
+          "ut:0": 0,
+          "vt:0": 0,
+          "u:4096": 4
+        },
+        "retired": true,
+        "retained_cache_bytes": 0,
+        "live_cache_bytes": 0
+      },
+      "UBX": {
+        "products": 10,
+        "hits": 16,
+        "stores": 4,
+        "uncached": 0,
+        "skipped": 4,
+        "strip_hits": 4
+      },
+      "L7": {
+        "products": 3,
+        "hits": 4,
+        "stores": 2,
+        "uncached": 0
+      }
+    },
+    {
+      "seed": 7100137,
+      "UBC": {
+        "generations": 1,
+        "eligible": 23,
+        "hits": 19,
+        "misses": 4,
+        "stores": 4,
+        "copies": 0,
+        "copy_elements": 0,
+        "copied_bytes": 0,
+        "max_resident_bytes": 389653488,
+        "uncached": 0,
+        "peak_cache_bytes": 389653488,
+        "hit_slots": {
+          "u:0": 5,
+          "v:0": 5,
+          "v:4096": 5,
+          "ut:0": 0,
+          "vt:0": 0,
+          "u:4096": 4
+        },
+        "retired": true,
+        "retained_cache_bytes": 0,
+        "live_cache_bytes": 0
+      },
+      "UBX": {
+        "products": 10,
+        "hits": 16,
+        "stores": 4,
+        "uncached": 0,
+        "skipped": 4,
+        "strip_hits": 12
+      },
+      "L7": {
+        "products": 3,
+        "hits": 4,
+        "stores": 2,
+        "uncached": 0
+      }
+    }
+  ],
+  "exact_virtual_tariff": [
+    {
+      "seed": 7100136,
+      "saved_flops": 0,
+      "pct_257G": 0.0
+    },
+    {
+      "seed": 7100137,
+      "saved_flops": 0,
+      "pct_257G": 0.0
+    },
+    {
+      "seed": 16,
+      "saved_flops": -5181440,
+      "pct_257G": -0.002016124513618677
+    }
+  ],
+  "UBC": "All four reconstruction slots already admitted: u/v4096 mains and both tails;389653488 bytes<512M, zero uncached. Four-entry cap is not binding for this frame. Both L7 trees also cached.",
+  "UBX": "136/137 all eligible trees stored. TRAIN16 lone uncached entry is first/last use: +500MB stores it but creates no further hit, adding5.181M binding FLOPs.",
+  "history": "SN2/UBC-Xv3 already added u tail, raised store cap3to4 and cached both L7 reconstruction packets; current UBcluster owned-tree code already removes initial cache copies without raising caps.",
+  "recent_fallback_bound": {
+    "scope": "One extra500MB tree serving recent frame only L13/L14 could save at most one repeat of its forward, before binding/storage; other recent operands need their own identity proof.",
+    "forward_to_tree_elements_ratio": 1.0870385638636963,
+    "optimistic_one_repeat_flops": 135879820.48296204,
+    "pct_257G": 0.05287152547975176
+  },
+  "no_models_or_captures": true,
+  "no_memory_cap_change": true,
+  "evidence_sha256": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_difference_read_capture_v1/run_capture_train16_v2/native_16_capture.json": "e3397ee673efd977966c7ef19b1965ae9cd6ef4030f6ee8732b93b419914bb8f",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_young_read7_v1/run_yr7_prebind_v2/native_7100136_ON.json": "c1977ee6f51bea836887257cbdb58ec40af98751b42e6a98dfb313258aada716",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_young_read7_v1/run_yr7_prebind_v2/native_7100137_ON.json": "1871e2f9853567acc5f5415c4ee3bf866c90ad7e3c86bd02dfd7fb279659a5e0",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_cache_cap_audit_v1/EXTRA_UBX500_TARIFF_v1.json": "559ecabccea0949049741d632f0b06262742a78de0375a3765a1c7b21c27ed13",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_cache_cap_audit_v1/price_extra_ubx500_v1.py": "f76a471804da3aae827a00174c9bd6de81928e947058a83f099588746b05252b",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_ubcluster_peer_review_v1/REVIEW_RESULT_v1.json": "ec80dfce5776fd0bfa6f1dc5738065e72cf61bf52495c5d5163fc26d590e3abc"
+  }
+}

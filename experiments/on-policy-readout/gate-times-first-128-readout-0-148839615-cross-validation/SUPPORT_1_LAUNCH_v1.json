@@ -1,0 +1,156 @@
+{
+  "utc": "2026-10-21T10:40:26Z",
+  "index": 1,
+  "name": "onpolicy_first128_second_selftest_v1",
+  "pid": 255497,
+  "startticks": 4614778,
+  "command": [
+    "/home/arcworker/arc-envs/judge/bin/python",
+    "-B",
+    "/home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py",
+    "--receipt",
+    "/home/arcworker/arc-runs/onpolicy_first128_second_selftest_v1_GUARD_v1.json",
+    "--state-dir",
+    "/home/arcworker/arc-runs/admission",
+    "--max-active",
+    "36",
+    "--cgroup-root",
+    "/sys/fs/cgroup/arc-estimator-v5",
+    "--",
+    "/home/arcworker/arc-envs/judge/bin/python",
+    "-B",
+    "/home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/fit_second_step_v1.py",
+    "--self-test"
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "ARC_BLAS_THREADS": "1"
+  },
+  "script_sha256": "0be01ac095b186fb9e3aed5513e8ff4825d04df00406305099f30764ef989011",
+  "launcher_sha256": "4c5be4471ef9edb6b91abf9ce36ae9b8de6cf82b46574ed5a477bef5064d06c0",
+  "root_review_sha256": "ea4c673bb1ff10d6f571213a6143c5d6cba1d2196b72387c4b91d7f8957959f9",
+  "ops_clearance_sha256": "ef149ce188067c3ae1f163553f74f7a510b8ee18d4265e69ea5631f4dd92bbac",
+  "prior_supports": [
+    {
+      "path": "/home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/SUPPORT_0_FINAL_v1.json",
+      "sha256": "22128dbfe01be3f8c143cb6541bb8e28e3052b52039418be3d101ae29ef98e99"
+    }
+  ],
+  "preflight": {
+    "utc": "2026-10-21T10:40:26Z",
+    "truth_guards": [
+      " 255054 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py --receipt /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109015/chunk_015_GUARD.json --state-dir /home/arcworker/arc-runs/admission --max-active 36 --cgroup-root /sys/fs/cgroup/arc-estimator-v5 -- /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109015 --index 15 --out /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109015",
+      " 255064 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py --receipt /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109013/chunk_015_GUARD.json --state-dir /home/arcworker/arc-runs/admission --max-active 36 --cgroup-root /sys/fs/cgroup/arc-estimator-v5 -- /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109013 --index 15 --out /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109013",
+      " 255075 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py --receipt /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109016/chunk_015_GUARD.json --state-dir /home/arcworker/arc-runs/admission --max-active 36 --cgroup-root /sys/fs/cgroup/arc-estimator-v5 -- /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109016 --index 15 --out /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109016",
+      " 255145 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py --receipt /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109019/chunk_009_GUARD.json --state-dir /home/arcworker/arc-runs/admission --max-active 36 --cgroup-root /sys/fs/cgroup/arc-estimator-v5 -- /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109019 --index 9 --out /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109019",
+      " 255156 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py --receipt /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109017/chunk_009_GUARD.json --state-dir /home/arcworker/arc-runs/admission --max-active 36 --cgroup-root /sys/fs/cgroup/arc-estimator-v5 -- /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109017 --index 9 --out /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109017",
+      " 255166 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py --receipt /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109018/chunk_009_GUARD.json --state-dir /home/arcworker/arc-runs/admission --max-active 36 --cgroup-root /sys/fs/cgroup/arc-estimator-v5 -- /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109018 --index 9 --out /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109018",
+      " 255179 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py --receipt /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109020/chunk_009_GUARD.json --state-dir /home/arcworker/arc-runs/admission --max-active 36 --cgroup-root /sys/fs/cgroup/arc-estimator-v5 -- /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109020 --index 9 --out /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109020",
+      " 255439 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py --receipt /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109014/chunk_016_GUARD.json --state-dir /home/arcworker/arc-runs/admission --max-active 36 --cgroup-root /sys/fs/cgroup/arc-estimator-v5 -- /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109014 --index 16 --out /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109014"
+    ],
+    "truth_workers": [
+      " 255056 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109015 --index 15 --out /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109015",
+      " 255067 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109013 --index 15 --out /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109013",
+      " 255077 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109016 --index 15 --out /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109016",
+      " 255147 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109019 --index 9 --out /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109019",
+      " 255158 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109017 --index 9 --out /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109017",
+      " 255169 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109018 --index 9 --out /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109018",
+      " 255181 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109020 --index 9 --out /home/arcworker/arc-runs/fresh12_additional_middle4_cpu_chunks_v1/seed7109020",
+      " 255441 /home/arcworker/arc-envs/judge/bin/python -B /home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_fresh8_cpu_v1/truth_chunk_cpu_additional12_v1.py --seed 7109014 --index 16 --out /home/arcworker/arc-runs/fresh12_additional_initial4_cpu_chunks_v1/seed7109014"
+    ],
+    "parent_events": {
+      "low": 0,
+      "high": 0,
+      "max": 8033,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "parent_local_events": {
+      "low": 0,
+      "high": 0,
+      "max": 128,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "live_child_events": {
+      "arc-255054-4599861": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "arc-255064-4600874": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "arc-255145-4603901": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "arc-255179-4606531": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "arc-255166-4605520": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "arc-255439-4614422": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "arc-255156-4605316": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "arc-255075-4601887": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "memory": {
+      "MemAvailable": 183734587392,
+      "SwapTotal": 0
+    },
+    "parent_current": 31233445888
+  },
+  "no_preparer_capture_fullfit_model_prediction_or_truth": true,
+  "no_retry": true
+}

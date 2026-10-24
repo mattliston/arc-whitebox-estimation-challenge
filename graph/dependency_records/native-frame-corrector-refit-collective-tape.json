@@ -1,0 +1,23 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_REFIT",
+    "label": "Native-frame corrector refit (collective tape)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "Refit the deployed card's F2J transport corrector with THREE collective-tracker features added to its input tape (raw20 -> 23), computed from the card's OWN states (native frame, train/deploy consistent; export verified: L12 K3S 9.88 vs 9.92). PRIOR: the aug-7 F2Q arm measured null (+0.10%) with the preregistered wrong-frame caveat - 'the native-frame instance resolves that ambiguity'; this IS that instance, and its channels encode the measured dominant deficit (the card carries 1.5% of collective kappa3) rather than generic observables (aug-7 max residual-correlation 0.046). Feature generation running (688 nets, 4 CPU workers, ~26 s/net).",
+    "terminal_criterion": "Refit OOF materially beats the F2J baseline AND the packaged card clears a meaningful adjusted gain on the 8-net panel - or a measured null that, being native-frame, closes the information-cap question honestly.",
+    "evidence": [
+      {
+        "claim": "SENTINEL-FAIL (honest null): fold-0 refit 3.1100e-8 vs matched baseline 3.1543e-8 = -1.40% under the preregistered halve gate; native-frame resolution of the aug-7 F2Q wrong-frame caveat - the collective tape adds ~nothing the corrector can use",
+        "historical_reference": "experiments/p2_width1024_depth16/public_f2q_native_collective_cv_v1/{PREREGISTER.md,CORPUS_MANIFEST.json,folds/fold_0.json,REFIT_RESULT.json}",
+        "receipt_status": "legacy descriptive reference; not current graph authority"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "The deployed card = a physics engine plus a learned corrector that removes 69% of the engine's error. Every attempt to hand-inject our collective-skewness discovery into the engine made things worse, because the corrector was trained around the old engine. This node does it the right way round: give the CORRECTOR the collective information as three new input signals and retrain it, so it learns how to use what the card is missing (98.5% of the biggest known error).\nA similar idea with generic signals failed before - but with a recorded caveat that wrong-frame signals made the test ambiguous, and ours are exactly the right-frame version aimed at a specific measured hole. If the refit works, it goes straight through the local screen and the 8-network panel to a submission; if it fails, it settles honestly whether the corrector is information-capped.\nRESOLVED 08-31: sentinel-fail at -1.40%. The corrector information-cap question is closed in the native frame: collective-tracker features do not move the corrector. Raw gains must come from in-card closure physics, not corrector inputs."
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "fb-ec4-v4-rejected-cp4-dropped-layout-scratch-v1",
+  "status": "REJECTED__DO_NOT_ARCHIVE_PREREGISTER_METER_FREEZE_OR_SUBMIT",
+  "date": "2026-08-24",
+  "candidate": {
+    "temporary_path": "/private/tmp/estimator_521_sparse_resetarena_cp3_compact_cp4scratch.py",
+    "bytes": 70177,
+    "sha256": "8d7e5c9fcb70d0a6212f4b17485e750b3cb3c7217d628b285993c240d3bb16c9",
+    "archived_as_deployment_source": false,
+    "derived_from_frozen_v4_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+  },
+  "failed_gate": {
+    "helper": "_cp4_reset",
+    "width": 8,
+    "inherited_rank": 2048,
+    "cap_active": true,
+    "quantity": "retained B plane after top-energy drop",
+    "mismatched_entries": 39,
+    "total_entries": 64,
+    "max_absolute_difference": 2.220446049250313e-16,
+    "reference": "frozen V4 fresh compact temporaries applied to advanced-indexed dropped factors",
+    "candidate_layout": "fixed C-contiguous persistent CP4 scratch",
+    "cause": "candidate_u[:, drop] has an advanced-indexed layout whose contraction order differs from the fixed C-contiguous scratch; copying the dropped factors into that scratch changes floating-point accumulation in the retained B-plane computation"
+  },
+  "chronology": [
+    "the author candidate passed the four fixed width-8 depth-16 fixtures, direct contiguous CP4-read rank checks, and ordinary poison/reuse checks",
+    "those small depth fixtures did not activate the CP4 rank cap and therefore did not exercise the dropped-factor layout",
+    "independent strict audit exercised a cap-active width-8 inherited-rank-2048 reset and found the retained B-plane mismatch",
+    "the candidate was placed on HOLD and rejected before archive, preregistration, literal meter, freeze, packaging, or submission"
+  ],
+  "non_authoritative_design_projection": {
+    "production_flops_delta_vs_frozen_v4": 0,
+    "production_call_delta_vs_frozen_v4": 4,
+    "transient_allocation_bytes_claimed_removed": 914358272,
+    "persistent_bytes_claimed_added": 25165824,
+    "note": "These engineering projections do not override the failed scientific parity gate and authorize no promotion."
+  },
+  "repair_requirement": {
+    "allowed_directions": [
+      "use layout-aware persistent scratch whose active view reproduces the frozen advanced-indexed operand layout and accumulation order",
+      "retain the exact fresh-temporary path for cap-dropped factors while using scratch only for layouts proven bytewise equivalent"
+    ],
+    "required_regressions": [
+      "bytewise cap-active _cp4_reset tests with inherited rank 2048 and top-energy drops",
+      "C-order and advanced-indexed/F-like dropped-factor layout sweeps across signed zeros and random ranks",
+      "all four fixed depth-16 fixtures",
+      "poison, alias, lifetime, exact FLOP-ledger, memory, and pinned FlopScope 0.12.0 API gates"
+    ],
+    "acceptance": "No corrected successor may be metered unless all cap-active retained A/B planes are bytewise equal to frozen V4."
+  },
+  "authority": {
+    "literal_meter_launched": false,
+    "targets_or_dataset_accessed": false,
+    "accuracy_or_mse_claimed": false,
+    "submission_authorized": false,
+    "problem_graph_mutated_here": false,
+    "frozen_v4_mutated": false
+  }
+}

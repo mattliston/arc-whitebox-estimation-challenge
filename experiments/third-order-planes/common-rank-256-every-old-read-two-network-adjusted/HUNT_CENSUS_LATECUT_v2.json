@@ -1,0 +1,73 @@
+{
+  "status": "HUNT_CENSUS_AND_LATE_CUT_v2",
+  "supersedes_nothing": true,
+  "prior": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/HUNT_PILOT_DECISION_v1.json",
+    "sha256": "a42e4539be1844b705bd76aa987728086756ea8921df2d39f38f440f539bf590"
+  },
+  "warm_census": {
+    "source": "b709 b7090c35",
+    "process": "one Estimator, 7103247 cold then 7103248 warm",
+    "file": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/census_b709warmfull.json",
+    "sha256": "dee8d87ca50aa6dbab0f3879ede93977b47c84d6110c90696aa7e9e94a1ade30",
+    "judge": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/census_judge_v2.py",
+    "warm_7103248_pct": {
+      "push:newborn-bank": 32.46,
+      "read:young(smirnov+yr7+other)": 26.29,
+      "star(_dc_cov_star)": 9.67,
+      "push:join(other)": 8.8,
+      "push:capture": 8.03,
+      "read:old-inner": 7.55,
+      "other": 7.13,
+      "l15-k3": 0.1
+    },
+    "by_op_pct": {
+      "matmul": 79.3,
+      "add": 8.8,
+      "subtract": 6.6,
+      "multiply": 1.8
+    },
+    "kernels_pct": {
+      "_ipt_leaf_unwind_ab": 33.0,
+      "_hz_leaf": 21.6,
+      "bb_batch(Smirnov)": 16.95,
+      "_d7_product_kpad": 5.2
+    }
+  },
+  "u64_profile_9seeds_layer9to15_mean_log_pct": [
+    0.0,
+    0.0,
+    0.276,
+    0.618,
+    0.815,
+    0.864,
+    0.866
+  ],
+  "u64_L13_14_increment_idx15_minus_idx13": {
+    "mean": 0.05,
+    "sd": 0.8,
+    "n": 9,
+    "note": "paired per seed; late 64-cut worth only ~0.24% warm bill"
+  },
+  "VL192": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/candidate_hunt_VL192_late_v1.py",
+    "sha256": "5aca243e934b6124f535622a28f3a08202332e94cd27f1ae4311d17a4fd9aac9",
+    "scope": "U64 cut only at L13-14, keep192 (into common256)",
+    "rows": [
+      {
+        "seed": 7103248,
+        "MSE": 2.2522,
+        "bill": -0.4758,
+        "net": 1.7764
+      },
+      {
+        "seed": 7103247,
+        "MSE": 2.4741,
+        "bill": -0.5031,
+        "net": 1.971
+      }
+    ],
+    "verdict": "CLOSED"
+  },
+  "verdict": "Read truncation family exhausted: L10-12 cuts create persisting damage; common256 coordinates essential at L13-14; only late 64-cut (0.24%) is near-neutral."
+}

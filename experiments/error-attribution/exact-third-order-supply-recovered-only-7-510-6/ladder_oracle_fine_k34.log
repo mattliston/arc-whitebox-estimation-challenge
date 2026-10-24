@@ -1,0 +1,65 @@
+r35 [_dep_o4] fine low-β k3/k4: k3@0.1=2.9 k3@0.2=3.7 k3@0.45=-2.8 k4@0.05=1.9 k4@0.1=3.4 k4@0.25=5.7 k4@0.35=5.2
+r35 [_dep_ok3] fine low-β k3/k4: k3@0.1=4.4 k3@0.2=6.8 k3@0.45=3.9 k4@0.05=0.5 k4@0.1=0.6 k4@0.25=-2.0 k4@0.35=-6.1
+r35 [_dep] fine low-β k3/k4: k3@0.1=2.0 k3@0.2=2.1 k3@0.45=-6.3 k4@0.05=0.5 k4@0.1=0.6 k4@0.25=-2.1 k4@0.35=-6.3
+r35 [_dep] joint@(BV=0.4,BK3=0.2,BK4=0.1): reduction 14.4 only_v 10.6 only_k3 2.1 only_k4 0.6
+r35 [_dep_o4] joint@(BV=0.3,BK3=0.2,BK4=0.25): reduction 18.7 only_v 7.4 only_k3 3.7 only_k4 5.7
+r35 [_dep_ok3] joint@(BV=0.3,BK3=0.2,BK4=0.1): reduction 17.0 only_v 7.9 only_k3 6.8 only_k4 0.6
+r35 [_dep] CONSUME=finalonly only_v: β0.4=1.9 β0.82=-2.0 β1.0=-5.6 β1.5=-21.2 β2.0=-45.4 β3.0=-119.5
+r35 [_dep_perp] only_v: β0.4=10.6 β0.6=7.9 β0.82=-1.2 β1.0=-13.4 β1.2=-31.9
+r35 [_dep_colldv] only_v: β0.4=0.0 β0.6=0.0 β0.82=0.1 β1.0=0.1 β1.2=0.1
+r35 [_dep_perp1] only_v: β0.4=10.7 β0.6=8.5 β0.82=0.3 β1.0=-10.9 β1.2=-28.2
+r35 [_dep] per-layer isolation only_v@β0.4: L2=-0.1 L3=0.0 L4=-0.7 L5=0.4 L6=0.0 L7=-2.3 L8=0.9 L9=-0.2 L10=1.5 L11=2.3 L12=1.1 L13=2.0 L14=2.8 L15=1.9
+r35 [_dep onlyL7] β sweep only_v: β0.2=-1.1 β0.4=-2.3 β0.6=-3.7 β0.8=-5.2 β1.0=-6.9 β1.3=-9.7
+r35 [_dep onlyL11] β sweep only_v: β0.2=1.4 β0.4=2.3 β0.6=2.8 β0.8=2.9 β1.0=2.6 β1.3=1.3
+r35 [_dep onlyL14] β sweep only_v: β0.2=2.0 β0.4=2.8 β0.6=2.7 β0.8=1.5 β1.0=-0.8 β1.3=-6.2
+r35 [_true] per-layer isolation only_v@β1.0: L2=-0.1 L3=0.4 L4=0.5 L5=-4.1 L6=0.4 L7=-2.2 L8=6.0 L9=3.0 L10=0.4 L11=4.2 L12=7.1 L13=4.7 L14=0.9 L15=3.9
+layer | per-layer corr(dvhat,truth) | transported corr(T dvhat, T truth) | ||T truth||/||truth|| | ||T dvhat||/||dvhat|| | corr(T truth, resid) | corr(T dvhat, resid)
+L 2 | +0.033 | -0.210 | 0.00 | 0.10 | -0.065 | -0.103
+L 3 | +0.192 | +0.305 | 0.02 | 0.10 | +0.050 | +0.028
+L 4 | +0.359 | +0.566 | 0.03 | 0.14 | +0.058 | -0.123
+L 5 | +0.501 | +0.604 | 0.06 | 0.15 | -0.085 | +0.065
+L 6 | +0.578 | +0.632 | 0.06 | 0.17 | +0.070 | +0.021
+L 7 | +0.665 | +0.678 | 0.07 | 0.19 | +0.010 | -0.157
+L 8 | +0.698 | +0.663 | 0.09 | 0.21 | +0.215 | +0.091
+L 9 | +0.705 | +0.703 | 0.09 | 0.26 | +0.157 | +0.022
+L10 | +0.732 | +0.759 | 0.12 | 0.32 | +0.122 | +0.108
+L11 | +0.804 | +0.702 | 0.11 | 0.29 | +0.188 | +0.149
+L12 | +0.815 | +0.736 | 0.13 | 0.35 | +0.241 | +0.102
+L13 | +0.824 | +0.704 | 0.14 | 0.33 | +0.212 | +0.124
+L14 | +0.827 | +0.727 | 0.13 | 0.38 | +0.172 | +0.147
+L15 | +0.840 | +0.755 | 0.17 | 0.42 | +0.239 | +0.116
+=== error vs mean-sensitivity s_u = pdf(alpha)/(2 sd) (host frame), per layer, 5 s-quantile bins (low->high)
+L5 plain corr 0.501  s-weighted corr 0.488 | bin0: s~0.01 truth 4.3e-04 err 3.7e-04 c 0.51 | bin1: s~0.06 truth 3.7e-04 err 3.1e-04 c 0.56 | bin2: s~0.14 truth 3.6e-04 err 3.2e-04 c 0.46 | bin3: s~0.21 truth 3.5e-04 err 3.1e-04 c 0.49 | bin4: s~0.26 truth 3.6e-04 err 3.1e-04 c 0.50
+L9 plain corr 0.705  s-weighted corr 0.662 | bin0: s~0.00 truth 5.6e-04 err 4.0e-04 c 0.71 | bin1: s~0.01 truth 3.7e-04 err 2.7e-04 c 0.71 | bin2: s~0.08 truth 3.6e-04 err 2.7e-04 c 0.70 | bin3: s~0.21 truth 3.1e-04 err 2.4e-04 c 0.63 | bin4: s~0.34 truth 3.4e-04 err 2.5e-04 c 0.66
+L13 plain corr 0.824  s-weighted corr 0.680 | bin0: s~0.00 truth 7.0e-04 err 3.5e-04 c 0.87 | bin1: s~0.01 truth 4.0e-04 err 2.4e-04 c 0.82 | bin2: s~0.08 truth 2.9e-04 err 2.2e-04 c 0.72 | bin3: s~0.25 truth 2.7e-04 err 2.1e-04 c 0.66 | bin4: s~0.44 truth 2.9e-04 err 2.1e-04 c 0.72
+L15 plain corr 0.840  s-weighted corr 0.733 | bin0: s~0.00 truth 7.7e-04 err 3.7e-04 c 0.87 | bin1: s~0.00 truth 4.0e-04 err 2.7e-04 c 0.80 | bin2: s~0.04 truth 3.4e-04 err 2.4e-04 c 0.75 | bin3: s~0.23 truth 3.0e-04 err 2.2e-04 c 0.71 | bin4: s~0.47 truth 3.1e-04 err 2.1e-04 c 0.74
+=== per-layer beta fit (in-sample bound) from transported per-layer r-vectors
+14 free betas: [-4.75 -0.22 -0.71  0.32  0.29 -0.5   0.44 -0.02  0.08  0.32  0.25  0.18
+  0.19  0.15] -> only_v 21.0%
+single beta 0.160 -> 10.6%
+drop L4,L7 single beta 0.182 -> 13.6%
+linear-in-depth beta (a,c)=[0.007 0.19 ] -> 11.2%
+r35 coherence: corr(S_truth,resid)=0.527 value@beta1=23.4% | corr(S_dv,S_truth)=0.701 beta=0.84 | coherent gain truth ||S||^2/sum||T_l||^2=1.02 dvhat=0.93
+per-layer: corr(T dv_l, S_truth) vs corr(T truth_l, S_truth): L2:-0.06/+0.01 L3:-0.02/+0.12 L4:-0.07/+0.03 L5:+0.10/+0.11 L6:+0.05/+0.15 L7:+0.08/+0.17 L8:+0.15/+0.20 L9:+0.17/+0.27 L10:+0.25/+0.31 L11:+0.19/+0.23 L12:+0.10/+0.23 L13:+0.32/+0.46 L14:+0.29/+0.41 L15:+0.37/+0.51
+=== per-layer beta vector, LOO across 35/100/150 (fit on two, test on third)
+14free    LOO: test r35: 10.2% | test r100: -0.0% | test r150: 3.6%   (in-sample 21.0/22.2/30.1)
+quad      LOO: test r35: 11.8% | test r100: 7.4% | test r150: 8.6%   (in-sample 13.3/15.7/11.1)
+single    LOO: test r35: 10.6% | test r100: 15.1% | test r150: 7.6%   (in-sample 10.6/15.4/7.9)
+dropL4L7  LOO: test r35: 13.4% | test r100: 14.8% | test r150: 7.5%   (in-sample 13.6/15.0/8.1)
+r35 [_true = truth-K21 planes through the tangent] only_v: β0.5=34.8 β0.82=32.8 β1.0=23.4 β1.2=5.8
+per-layer corr(dvhat, truth dv) | beta:
+L3 _dep: +0.192 b +1.00 | _dep_opl: +0.181 b +1.23 | _true: +0.531 b +0.99
+L5 _dep: +0.501 b +0.83 | _dep_opl: +0.498 b +0.93 | _true: +0.832 b +0.99
+L7 _dep: +0.665 b +0.89 | _dep_opl: +0.667 b +0.94 | _true: +0.934 b +1.00
+L9 _dep: +0.705 b +0.87 | _dep_opl: +0.716 b +0.87 | _true: +0.964 b +0.99
+L11 _dep: +0.804 b +0.93 | _dep_opl: +0.816 b +0.86 | _true: +0.980 b +0.99
+L13 _dep: +0.824 b +0.87 | _dep_opl: +0.841 b +0.80 | _true: +0.984 b +1.01
+L15 _dep: +0.840 b +0.93 | _dep_opl: +0.861 b +0.77 | _true: +0.986 b +1.01
+r35 [_true] per-layer isolation only_v@β0.5: L2=-0.0 L3=0.3 L4=0.4 L5=-1.7 L6=0.7 L7=-0.4 L8=4.0 L9=2.8 L10=2.0 L11=3.9 L12=6.2 L13=5.7 L14=4.0 L15=7.5
+r35 [_true_pairs = truth K21+K22+K31 planes through the tangent] only_v: β0.3=26.1 β0.5=34.3 β0.7=35.0 β0.82=31.8 β1.0=22.1
+r35 [_true planes + truth-k3u/k4u arms (TP=_dep_o4_ok3_opl)] BV=0.5 BK3=0.2 BK4=0.16: joint 48.5 only_v 34.8 only_k3 6.8 only_k4 4.8
+r35 [_true planes + truth-k3u/k4u arms (TP=_dep_o4_ok3_opl)] BV=0.5 BK3=0.33 BK4=0.25: joint 51.2 only_v 34.8 only_k3 6.8 only_k4 5.7
+r35 [_true planes + truth-k3u/k4u arms (TP=_dep_o4_ok3_opl)] BV=0.7 BK3=0.2 BK4=0.16: joint 50.1 only_v 35.8 only_k3 6.8 only_k4 4.8
+r35 [_true planes + truth-k3u/k4u arms (TP=_dep_o4_ok3_opl)] BV=0.7 BK3=0.33 BK4=0.25: joint 53.3 only_v 35.8 only_k3 6.8 only_k4 5.7
+r35 [_true planes + truth-k3u/k4u arms (TP=_dep_o4_ok3_opl)] BV=0.5 BK3=0.0 BK4=0.0: joint 34.8 only_v 34.8 only_k3 0.0 only_k4 0.0
+{'corrected_mse_nc': 7.09164284981325e-09, 'reduction_pct': 73.5, 'only_k4': 7.8, 'opt_beta_k4': 0.275, 'only_k4_at_opt': 9.4, 'only_k3': 10.0, 'opt_beta_k3': 0.258, 'only_k3_at_opt': 10.8, 'only_v': 47.4, 'opt_beta_v': 0.734, 'only_v_at_opt': 48.0, 'joint_opt_betas': [0.24, 0.367, 0.779], 'joint_at_opt': 74.6}

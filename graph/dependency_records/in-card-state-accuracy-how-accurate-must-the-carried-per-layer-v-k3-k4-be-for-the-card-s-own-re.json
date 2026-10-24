@@ -1,0 +1,24 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N0_STATE_ACCURACY",
+    "label": "N0 IN-CARD STATE ACCURACY: how accurate must the carried per-layer (v, k3, k4) be for the card's own recursion to pay - the accuracy-versus-payoff ladder (running)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "T-43 (frame-free): forcing 32M-truth per-layer v, k3, k4 into the card's OWN recursion puts the host at the independent-draw noise floor on r35 (-1.4e-9) and r100 (+1.9e-9) vs deployed 2.7e-8; mean and off-diagonal covariance add nothing; v alone removes 18% of the host error, v+k3+k4 ~100% (joint, nonlinear). The post-hoc linear consumption frame (whose ceilings read 37-68%) is retired for value. Card today: v 0.3-1% error, k3 6-11%, k4 unmeasured; engine-class carry k3 4-6%; cum4 (2,1,1) feed cuts k3 error ~15% at L8-14. Running (teammate A): truth + controlled noise per state and truth + s*(host - truth), F2J off, independent scoring, r35/r100 -> the accuracy each state needs for Matt's bank (-49%) and the goal (-66%). 32M independent scoring draws generating. T-44 (review): instruments cleared of coding bugs; ranked in-card tests: price states by window; k4 cap fix; CP4 cap ladder; skew fixes together with the k4 fix; F2J refit on MPS with corrected states as tape features; engine k3u in-card via gate-only carry. Seed caution: the 32M truth contains the 8M draw and indep32M contains indep4M. LADDER (T-45/T-47, both nets, indep32M frame): truth (v,k3,k4) -> 1.6-1.7e-9 (93-94% cut); structured halving of the card's real errors -> 2.0-2.25e-8 (beats the deployed card 18-22% F2J-off, +32% F2J-on on r35), quartering -> 5.3-6.1e-9 (goal); iid v noise 0.1% erases the gain (v supplies must be structured or near-exact); k3 tolerates ~2-4%, k4 ~10%. T-56 position: two frozen tables halve the host error on both nets; next (teammate A): attribution of the remaining host error among v / k3-residual / k4-residual, and whether v or the k4 residual has a frozen-table-able universal structure. NIGHT VERDICT (T-63): every cheap route closed with receipts; the exact open problem is N0.1.",
+    "terminal_criterion": "Closed when the ladder names the binding state and its required accuracy on both nets, and an in-card mechanism is priced to reach it.",
+    "evidence": [
+      {
+        "claim": "Teacher-forcing table + ladder (pending).",
+        "receipt": "experiments/p2_width1024_depth16/public_g23_k3_supply_v1/LANE.md section 13 + experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-43"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_MECH_N0_1_OPEN_PROBLEM"
+    ],
+    "goal_path_summary": "Proved the estimator would be essentially exact if its per-layer variances, skews and kurtoses were right - so the whole problem is now: how right do they have to be, and what is the cheapest way to get them there inside the estimator."
+  }
+}

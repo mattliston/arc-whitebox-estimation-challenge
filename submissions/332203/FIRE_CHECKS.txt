@@ -1,0 +1,20 @@
+FIRE CHECKS S14 = S13 (#332195) + tree six-level reads (E-55, bit-exact) + deadcut rows rounded to 64 + m64 (engineer E-54..E-57), 2026-09-24 14:53
+file /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_fire_v1/fire_candS14/candS14_S13_tree_r6_m64_mem.py
+sha256 9003e5368e7fc27849ba969056f3700fbac0206143297cae92762aa55f408b8f (engineer candS14_mem.py 9003e536...)
+validate: Validation passed in 145ms
+einsum gate vs fired S13: VERDICT PASS: 0 new repeated-operand einsum site(s), 0 new symmetric-tag call(s) vs ref
+import lines new vs S13: (empty = none)
+recipe rebuild sha 9003e5368e7fc27849ba969056f3700fbac0206143297cae92762aa55f408b8f (must equal the fire file)
+recipe: fired S11 -> build_colpack -> build_deadcut --round=64 -> build_m64.py -> build_read6.py q -> build_ipt_v3.py -> cat + ipt_read6_fragment.py
+client/server smoke: 2 of 2 nets OK (fable_porter_v1/cz_S14_census.json)
+VALID40 vs S13 rows: raw (pooled MSE ratio): -0.013%  95% CI [-0.102%, +0.075%]  wins 20/40 (ties 0) util: mean 0.167602 vs 0.169183 (-0.935%); pooled util (= pooled flops) -0.935%  95% CI [-0.978%, -0.892%] adjusted (pooled): -0.948%  95% CI [-1.052%, -0.844%]  wins 40/40; per-net min -1.70% median -0.93% max -0.16% 
+bar: {"verdict": "PASS", "pooled_adjusted_pct": -0.948, "ci": [-1.052, -0.844], "wins": 40, "n": 40, "errors": 0, "bar": {"max_pct": -0.7, "ci_excludes_0": true, "min_wins": 26}, "clears_3e9_bar_minus_1p6": false} | pooled raw vs S13 -0.013% on 40 nets -> RAW PASS (|raw| <= 0.1%)
+engineer gate record: fable_engineer_v1/gate_S14_checks.txt (cs_probe byte-identical to in-process on r35/r100; user CPU pair vs S13 flops -0.950%, user +4.52%)
+--- appended 2026-09-24 15:11: engineer confirmed the exact post-stage commands: ipt_read6_fragment.py is a plain append (python base.rstrip('
+') + '
+' + fragment, byte-equivalent to cat since every base ends in one newline); build_m64.py <in> <out> (paths only) must run BEFORE build_read6.py (it edits the live _mm's padded-six line, absent from read6's wrapper); build_ipt_v3.py <in> <out>. Matches the recipe above.
+--- appended 2026-09-24 15:11: RESIDUAL GATE (lead 15:0x; fable_porter_v1/residual_gate_S14.sh, stack/residual_gate_S14.txt): paired S13 vs S14, 3 concurrent client/server reps, nets 35 cold/100/37:
+  r35 (cold): S13 mean 0.471 max 0.539 s | S14 mean 0.458 max 0.530 s | delta mean -0.013 s  (reps S13 [0.472, 0.403, 0.539], S14 [0.453, 0.391, 0.53])
+  r100: S13 mean 0.470 max 0.506 s | S14 mean 0.458 max 0.494 s | delta mean -0.012 s  (reps S13 [0.436, 0.506, 0.468], S14 [0.41, 0.494, 0.469])
+  r37: S13 mean 0.440 max 0.504 s | S14 mean 0.437 max 0.496 s | delta mean -0.004 s  (reps S13 [0.418, 0.504, 0.399], S14 [0.432, 0.496, 0.382])
+  cold delta -0.013 s (rule <= +0.03 s) | projected platform max = S13's 0.28 s + delta = 0.267 s (rule <= 0.33 s) -> RESIDUAL GATE PASS

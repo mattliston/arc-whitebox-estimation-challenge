@@ -1,0 +1,1379 @@
+{
+  "accounting": {
+    "cold_view_binding_reshape_bill": 1919598592,
+    "d5_exact_calls_35_279_35": [
+      1320876655991,
+      1359519832584,
+      1320873503232
+    ],
+    "d5_materialized_depth4_roster_bill": 594693332992,
+    "d6_arena_depth4_roster_bill": 591553830912,
+    "dense_roster_bill": 966086623232,
+    "formula": {
+      "cold_call": "D5 bill - reconstruction assembly copies - paired-left stack + both persistent arena-view binding reshapes",
+      "d5_depth4": "7^4*mm(m/16,k/16,n/16) + sum(l=0..3) 7^l*11*(m*k+k*n+m*n)/4^(l+1)",
+      "d6_depth4": "7^4*mm(m/16,k/16,n/16) + sum(l=0..3) 7^l*(11*(m*k+k*n)+7*m*n)/4^(l+1)",
+      "dense_matmul": "m*n*(2*k-1)",
+      "warm_call": "D5 bill - reconstruction assembly copies - paired-left stack"
+    },
+    "incumbent_exact_calls_35_279_35": [
+      1692484904311,
+      1731128080904,
+      1692481751552
+    ],
+    "net_saving_vs_d5": {
+      "cold_call0": 1240875008,
+      "warm_calls1_and2": 3160473600
+    },
+    "paired_common_left_stack_saving_per_prediction": 20971520,
+    "projected_d6_calls_35_279_35": [
+      1319635780983,
+      1356359358984,
+      1317713029632
+    ],
+    "projected_incumbent_minus_d6": [
+      372849123328,
+      374768721920,
+      374768721920
+    ],
+    "projection_disclaimer": "Static literal formula only. A separately sealed meter smoke must measure these bills; no execution is authorized here.",
+    "reconstruction_assembly_copy_saving_per_prediction": 3139502080,
+    "roster": {
+      "final_k3_read_excluded": true,
+      "leaf_batch_matmul_dispatches_per_prediction": 58,
+      "leaf_products_per_dispatch": 2401,
+      "push_channel_contractions": 30,
+      "read_channel_contractions": 28,
+      "shapes": [
+        [
+          1024,
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024,
+          2048
+        ],
+        [
+          1024,
+          1024,
+          2048
+        ],
+        [
+          1024,
+          1024,
+          3072
+        ],
+        [
+          1024,
+          1024,
+          3072
+        ],
+        [
+          1024,
+          1024,
+          4096
+        ],
+        [
+          1024,
+          1024,
+          4096
+        ],
+        [
+          1024,
+          1024,
+          5120
+        ],
+        [
+          1024,
+          1024,
+          5120
+        ],
+        [
+          1024,
+          1024,
+          6144
+        ],
+        [
+          1024,
+          1024,
+          6144
+        ],
+        [
+          1024,
+          1024,
+          7168
+        ],
+        [
+          1024,
+          1024,
+          7168
+        ],
+        [
+          1024,
+          1024,
+          8192
+        ],
+        [
+          1024,
+          1024,
+          8192
+        ],
+        [
+          1024,
+          1024,
+          9216
+        ],
+        [
+          1024,
+          1024,
+          9216
+        ],
+        [
+          1024,
+          1024,
+          10240
+        ],
+        [
+          1024,
+          1024,
+          10240
+        ],
+        [
+          1024,
+          1024,
+          11264
+        ],
+        [
+          1024,
+          1024,
+          11264
+        ],
+        [
+          1024,
+          1024,
+          12288
+        ],
+        [
+          1024,
+          1024,
+          12288
+        ],
+        [
+          1024,
+          1024,
+          13312
+        ],
+        [
+          1024,
+          1024,
+          13312
+        ],
+        [
+          1024,
+          1024,
+          14336
+        ],
+        [
+          1024,
+          1024,
+          14336
+        ],
+        [
+          1024,
+          1024,
+          15360
+        ],
+        [
+          1024,
+          1024,
+          15360
+        ],
+        [
+          1024,
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024,
+          1024
+        ],
+        [
+          1024,
+          2048,
+          1024
+        ],
+        [
+          1024,
+          2048,
+          1024
+        ],
+        [
+          1024,
+          3072,
+          1024
+        ],
+        [
+          1024,
+          3072,
+          1024
+        ],
+        [
+          1024,
+          4096,
+          1024
+        ],
+        [
+          1024,
+          4096,
+          1024
+        ],
+        [
+          1024,
+          5120,
+          1024
+        ],
+        [
+          1024,
+          5120,
+          1024
+        ],
+        [
+          1024,
+          6144,
+          1024
+        ],
+        [
+          1024,
+          6144,
+          1024
+        ],
+        [
+          1024,
+          7168,
+          1024
+        ],
+        [
+          1024,
+          7168,
+          1024
+        ],
+        [
+          1024,
+          8192,
+          1024
+        ],
+        [
+          1024,
+          8192,
+          1024
+        ],
+        [
+          1024,
+          9216,
+          1024
+        ],
+        [
+          1024,
+          9216,
+          1024
+        ],
+        [
+          1024,
+          10240,
+          1024
+        ],
+        [
+          1024,
+          10240,
+          1024
+        ],
+        [
+          1024,
+          11264,
+          1024
+        ],
+        [
+          1024,
+          11264,
+          1024
+        ],
+        [
+          1024,
+          12288,
+          1024
+        ],
+        [
+          1024,
+          12288,
+          1024
+        ],
+        [
+          1024,
+          13312,
+          1024
+        ],
+        [
+          1024,
+          13312,
+          1024
+        ],
+        [
+          1024,
+          14336,
+          1024
+        ],
+        [
+          1024,
+          14336,
+          1024
+        ]
+      ],
+      "total_channel_contractions": 58
+    }
+  },
+  "arena": {
+    "allocation_count": 1,
+    "anchor_plus_push_arena_bytes": 6798163968,
+    "dtype": "float32",
+    "future_smoke_absolute_peak_strictly_below_bytes": 7516192768,
+    "future_smoke_increment_cap_bytes": 3913531392,
+    "incumbent_anchor_bytes": 3421503488,
+    "layouts_share_same_flat_arena": true,
+    "levels": 4,
+    "push": {
+      "a_elements": 1048576,
+      "alias_overlap_policy": "Only views naming the same physical_region may overlap; they are temporally disjoint by the frozen schedule.",
+      "b_elements": 15728640,
+      "c_elements": 15728640,
+      "matrix_shape": [
+        1024,
+        1024,
+        15360
+      ],
+      "mode": "push",
+      "physical_bytes_float32": 3376660480,
+      "physical_elements": 844165120,
+      "physical_regions": [
+        {
+          "elements": 1835008,
+          "name": "operand_a_level1",
+          "start": 0,
+          "stop": 1835008
+        },
+        {
+          "elements": 27525120,
+          "name": "operand_b_level1",
+          "start": 1835008,
+          "stop": 29360128
+        },
+        {
+          "elements": 3211264,
+          "name": "operand_a_level2",
+          "start": 29360128,
+          "stop": 32571392
+        },
+        {
+          "elements": 48168960,
+          "name": "operand_b_level2",
+          "start": 32571392,
+          "stop": 80740352
+        },
+        {
+          "elements": 5619712,
+          "name": "operand_a_level3",
+          "start": 80740352,
+          "stop": 86360064
+        },
+        {
+          "elements": 84295680,
+          "name": "operand_b_level3",
+          "start": 86360064,
+          "stop": 170655744
+        },
+        {
+          "elements": 9834496,
+          "name": "operand_a_level4",
+          "start": 170655744,
+          "stop": 180490240
+        },
+        {
+          "elements": 147517440,
+          "name": "operand_b_level4",
+          "start": 180490240,
+          "stop": 328007680
+        },
+        {
+          "elements": 84295680,
+          "name": "dependency_s_t_reused",
+          "start": 328007680,
+          "stop": 412303360
+        },
+        {
+          "elements": 147517440,
+          "name": "leaf_products",
+          "start": 412303360,
+          "stop": 559820800
+        },
+        {
+          "elements": 84295680,
+          "name": "reconstruction_product_bank0",
+          "start": 559820800,
+          "stop": 644116480
+        },
+        {
+          "elements": 84295680,
+          "name": "reconstruction_product_bank1",
+          "start": 644116480,
+          "stop": 728412160
+        },
+        {
+          "elements": 84295680,
+          "name": "reconstruction_u_scratch",
+          "start": 728412160,
+          "stop": 812707840
+        },
+        {
+          "elements": 15728640,
+          "name": "output_bank0",
+          "start": 812707840,
+          "stop": 828436480
+        },
+        {
+          "elements": 15728640,
+          "name": "output_bank1",
+          "start": 828436480,
+          "stop": 844165120
+        }
+      ],
+      "physical_regions_contiguous_and_nonoverlapping": true,
+      "view_binding_reshape_bill": 986193920,
+      "view_specs": [
+        {
+          "elements": 1835008,
+          "name": "operand_a_level1",
+          "physical_region": "operand_a_level1",
+          "purpose": "transformed_operand_a",
+          "shape": [
+            7,
+            512,
+            512
+          ],
+          "start": 0,
+          "stop": 1835008
+        },
+        {
+          "elements": 27525120,
+          "name": "operand_b_level1",
+          "physical_region": "operand_b_level1",
+          "purpose": "transformed_operand_b",
+          "shape": [
+            7,
+            512,
+            7680
+          ],
+          "start": 1835008,
+          "stop": 29360128
+        },
+        {
+          "elements": 3211264,
+          "name": "operand_a_level2",
+          "physical_region": "operand_a_level2",
+          "purpose": "transformed_operand_a",
+          "shape": [
+            7,
+            7,
+            256,
+            256
+          ],
+          "start": 29360128,
+          "stop": 32571392
+        },
+        {
+          "elements": 48168960,
+          "name": "operand_b_level2",
+          "physical_region": "operand_b_level2",
+          "purpose": "transformed_operand_b",
+          "shape": [
+            7,
+            7,
+            256,
+            3840
+          ],
+          "start": 32571392,
+          "stop": 80740352
+        },
+        {
+          "elements": 5619712,
+          "name": "operand_a_level3",
+          "physical_region": "operand_a_level3",
+          "purpose": "transformed_operand_a",
+          "shape": [
+            7,
+            7,
+            7,
+            128,
+            128
+          ],
+          "start": 80740352,
+          "stop": 86360064
+        },
+        {
+          "elements": 84295680,
+          "name": "operand_b_level3",
+          "physical_region": "operand_b_level3",
+          "purpose": "transformed_operand_b",
+          "shape": [
+            7,
+            7,
+            7,
+            128,
+            1920
+          ],
+          "start": 86360064,
+          "stop": 170655744
+        },
+        {
+          "elements": 9834496,
+          "name": "operand_a_level4",
+          "physical_region": "operand_a_level4",
+          "purpose": "transformed_operand_a",
+          "shape": [
+            7,
+            7,
+            7,
+            7,
+            64,
+            64
+          ],
+          "start": 170655744,
+          "stop": 180490240
+        },
+        {
+          "elements": 147517440,
+          "name": "operand_b_level4",
+          "physical_region": "operand_b_level4",
+          "purpose": "transformed_operand_b",
+          "shape": [
+            7,
+            7,
+            7,
+            7,
+            64,
+            960
+          ],
+          "start": 180490240,
+          "stop": 328007680
+        },
+        {
+          "elements": 1048576,
+          "name": "dependency_s_level1",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_S_dependencies_sequential_before_T",
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "start": 328007680,
+          "stop": 329056256
+        },
+        {
+          "elements": 1835008,
+          "name": "dependency_s_level2",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_S_dependencies_sequential_before_T",
+          "shape": [
+            4,
+            7,
+            256,
+            256
+          ],
+          "start": 328007680,
+          "stop": 329842688
+        },
+        {
+          "elements": 3211264,
+          "name": "dependency_s_level3",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_S_dependencies_sequential_before_T",
+          "shape": [
+            4,
+            7,
+            7,
+            128,
+            128
+          ],
+          "start": 328007680,
+          "stop": 331218944
+        },
+        {
+          "elements": 5619712,
+          "name": "dependency_s_level4",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_S_dependencies_sequential_before_T",
+          "shape": [
+            4,
+            7,
+            7,
+            7,
+            64,
+            64
+          ],
+          "start": 328007680,
+          "stop": 333627392
+        },
+        {
+          "elements": 15728640,
+          "name": "dependency_t_level1",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_T_dependencies_after_A_destination_is_filled",
+          "shape": [
+            4,
+            512,
+            7680
+          ],
+          "start": 328007680,
+          "stop": 343736320
+        },
+        {
+          "elements": 27525120,
+          "name": "dependency_t_level2",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_T_dependencies_after_A_destination_is_filled",
+          "shape": [
+            4,
+            7,
+            256,
+            3840
+          ],
+          "start": 328007680,
+          "stop": 355532800
+        },
+        {
+          "elements": 48168960,
+          "name": "dependency_t_level3",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_T_dependencies_after_A_destination_is_filled",
+          "shape": [
+            4,
+            7,
+            7,
+            128,
+            1920
+          ],
+          "start": 328007680,
+          "stop": 376176640
+        },
+        {
+          "elements": 84295680,
+          "name": "dependency_t_level4",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_T_dependencies_after_A_destination_is_filled",
+          "shape": [
+            4,
+            7,
+            7,
+            7,
+            64,
+            960
+          ],
+          "start": 328007680,
+          "stop": 412303360
+        },
+        {
+          "elements": 147517440,
+          "name": "leaf_products",
+          "physical_region": "leaf_products",
+          "purpose": "single_2401_leaf_batch",
+          "shape": [
+            7,
+            7,
+            7,
+            7,
+            64,
+            960
+          ],
+          "start": 412303360,
+          "stop": 559820800
+        },
+        {
+          "elements": 84295680,
+          "name": "product_level3_bank0",
+          "physical_region": "reconstruction_product_bank0",
+          "purpose": "reconstruct_level4_to_level3",
+          "shape": [
+            7,
+            7,
+            7,
+            128,
+            1920
+          ],
+          "start": 559820800,
+          "stop": 644116480
+        },
+        {
+          "elements": 48168960,
+          "name": "product_level2_bank1",
+          "physical_region": "reconstruction_product_bank1",
+          "purpose": "reconstruct_level3_to_level2",
+          "shape": [
+            7,
+            7,
+            256,
+            3840
+          ],
+          "start": 644116480,
+          "stop": 692285440
+        },
+        {
+          "elements": 27525120,
+          "name": "product_level1_bank0",
+          "physical_region": "reconstruction_product_bank0",
+          "purpose": "reconstruct_level2_to_level1",
+          "shape": [
+            7,
+            512,
+            7680
+          ],
+          "start": 559820800,
+          "stop": 587345920
+        },
+        {
+          "elements": 63221760,
+          "name": "u234_reconstruct_level4",
+          "physical_region": "reconstruction_u_scratch",
+          "purpose": "reused_U2_U3_U4_dependencies",
+          "shape": [
+            3,
+            7,
+            7,
+            7,
+            64,
+            960
+          ],
+          "start": 728412160,
+          "stop": 791633920
+        },
+        {
+          "elements": 36126720,
+          "name": "u234_reconstruct_level3",
+          "physical_region": "reconstruction_u_scratch",
+          "purpose": "reused_U2_U3_U4_dependencies",
+          "shape": [
+            3,
+            7,
+            7,
+            128,
+            1920
+          ],
+          "start": 728412160,
+          "stop": 764538880
+        },
+        {
+          "elements": 20643840,
+          "name": "u234_reconstruct_level2",
+          "physical_region": "reconstruction_u_scratch",
+          "purpose": "reused_U2_U3_U4_dependencies",
+          "shape": [
+            3,
+            7,
+            256,
+            3840
+          ],
+          "start": 728412160,
+          "stop": 749056000
+        },
+        {
+          "elements": 11796480,
+          "name": "u234_reconstruct_level1",
+          "physical_region": "reconstruction_u_scratch",
+          "purpose": "reused_U2_U3_U4_dependencies",
+          "shape": [
+            3,
+            512,
+            7680
+          ],
+          "start": 728412160,
+          "stop": 740208640
+        },
+        {
+          "elements": 15728640,
+          "name": "output_bank0",
+          "physical_region": "output_bank0",
+          "purpose": "first_sequential_channel_result_or_reserved_push_output",
+          "shape": [
+            1024,
+            15360
+          ],
+          "start": 812707840,
+          "stop": 828436480
+        },
+        {
+          "elements": 15728640,
+          "name": "output_bank1",
+          "physical_region": "output_bank1",
+          "purpose": "second_sequential_channel_result_or_reserved_push_output",
+          "shape": [
+            1024,
+            15360
+          ],
+          "start": 828436480,
+          "stop": 844165120
+        }
+      ]
+    },
+    "q": "7/4",
+    "read": {
+      "a_elements": 14680064,
+      "alias_overlap_policy": "Only views naming the same physical_region may overlap; they are temporally disjoint by the frozen schedule.",
+      "b_elements": 14680064,
+      "c_elements": 1048576,
+      "matrix_shape": [
+        1024,
+        14336,
+        1024
+      ],
+      "mode": "read",
+      "physical_bytes_float32": 2725920768,
+      "physical_elements": 681480192,
+      "physical_regions": [
+        {
+          "elements": 25690112,
+          "name": "operand_a_level1",
+          "start": 0,
+          "stop": 25690112
+        },
+        {
+          "elements": 25690112,
+          "name": "operand_b_level1",
+          "start": 25690112,
+          "stop": 51380224
+        },
+        {
+          "elements": 44957696,
+          "name": "operand_a_level2",
+          "start": 51380224,
+          "stop": 96337920
+        },
+        {
+          "elements": 44957696,
+          "name": "operand_b_level2",
+          "start": 96337920,
+          "stop": 141295616
+        },
+        {
+          "elements": 78675968,
+          "name": "operand_a_level3",
+          "start": 141295616,
+          "stop": 219971584
+        },
+        {
+          "elements": 78675968,
+          "name": "operand_b_level3",
+          "start": 219971584,
+          "stop": 298647552
+        },
+        {
+          "elements": 137682944,
+          "name": "operand_a_level4",
+          "start": 298647552,
+          "stop": 436330496
+        },
+        {
+          "elements": 137682944,
+          "name": "operand_b_level4",
+          "start": 436330496,
+          "stop": 574013440
+        },
+        {
+          "elements": 78675968,
+          "name": "dependency_s_t_reused",
+          "start": 574013440,
+          "stop": 652689408
+        },
+        {
+          "elements": 9834496,
+          "name": "leaf_products",
+          "start": 652689408,
+          "stop": 662523904
+        },
+        {
+          "elements": 5619712,
+          "name": "reconstruction_product_bank0",
+          "start": 662523904,
+          "stop": 668143616
+        },
+        {
+          "elements": 5619712,
+          "name": "reconstruction_product_bank1",
+          "start": 668143616,
+          "stop": 673763328
+        },
+        {
+          "elements": 5619712,
+          "name": "reconstruction_u_scratch",
+          "start": 673763328,
+          "stop": 679383040
+        },
+        {
+          "elements": 1048576,
+          "name": "output_bank0",
+          "start": 679383040,
+          "stop": 680431616
+        },
+        {
+          "elements": 1048576,
+          "name": "output_bank1",
+          "start": 680431616,
+          "stop": 681480192
+        }
+      ],
+      "physical_regions_contiguous_and_nonoverlapping": true,
+      "view_binding_reshape_bill": 933404672,
+      "view_specs": [
+        {
+          "elements": 25690112,
+          "name": "operand_a_level1",
+          "physical_region": "operand_a_level1",
+          "purpose": "transformed_operand_a",
+          "shape": [
+            7,
+            512,
+            7168
+          ],
+          "start": 0,
+          "stop": 25690112
+        },
+        {
+          "elements": 25690112,
+          "name": "operand_b_level1",
+          "physical_region": "operand_b_level1",
+          "purpose": "transformed_operand_b",
+          "shape": [
+            7,
+            7168,
+            512
+          ],
+          "start": 25690112,
+          "stop": 51380224
+        },
+        {
+          "elements": 44957696,
+          "name": "operand_a_level2",
+          "physical_region": "operand_a_level2",
+          "purpose": "transformed_operand_a",
+          "shape": [
+            7,
+            7,
+            256,
+            3584
+          ],
+          "start": 51380224,
+          "stop": 96337920
+        },
+        {
+          "elements": 44957696,
+          "name": "operand_b_level2",
+          "physical_region": "operand_b_level2",
+          "purpose": "transformed_operand_b",
+          "shape": [
+            7,
+            7,
+            3584,
+            256
+          ],
+          "start": 96337920,
+          "stop": 141295616
+        },
+        {
+          "elements": 78675968,
+          "name": "operand_a_level3",
+          "physical_region": "operand_a_level3",
+          "purpose": "transformed_operand_a",
+          "shape": [
+            7,
+            7,
+            7,
+            128,
+            1792
+          ],
+          "start": 141295616,
+          "stop": 219971584
+        },
+        {
+          "elements": 78675968,
+          "name": "operand_b_level3",
+          "physical_region": "operand_b_level3",
+          "purpose": "transformed_operand_b",
+          "shape": [
+            7,
+            7,
+            7,
+            1792,
+            128
+          ],
+          "start": 219971584,
+          "stop": 298647552
+        },
+        {
+          "elements": 137682944,
+          "name": "operand_a_level4",
+          "physical_region": "operand_a_level4",
+          "purpose": "transformed_operand_a",
+          "shape": [
+            7,
+            7,
+            7,
+            7,
+            64,
+            896
+          ],
+          "start": 298647552,
+          "stop": 436330496
+        },
+        {
+          "elements": 137682944,
+          "name": "operand_b_level4",
+          "physical_region": "operand_b_level4",
+          "purpose": "transformed_operand_b",
+          "shape": [
+            7,
+            7,
+            7,
+            7,
+            896,
+            64
+          ],
+          "start": 436330496,
+          "stop": 574013440
+        },
+        {
+          "elements": 14680064,
+          "name": "dependency_s_level1",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_S_dependencies_sequential_before_T",
+          "shape": [
+            4,
+            512,
+            7168
+          ],
+          "start": 574013440,
+          "stop": 588693504
+        },
+        {
+          "elements": 25690112,
+          "name": "dependency_s_level2",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_S_dependencies_sequential_before_T",
+          "shape": [
+            4,
+            7,
+            256,
+            3584
+          ],
+          "start": 574013440,
+          "stop": 599703552
+        },
+        {
+          "elements": 44957696,
+          "name": "dependency_s_level3",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_S_dependencies_sequential_before_T",
+          "shape": [
+            4,
+            7,
+            7,
+            128,
+            1792
+          ],
+          "start": 574013440,
+          "stop": 618971136
+        },
+        {
+          "elements": 78675968,
+          "name": "dependency_s_level4",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_S_dependencies_sequential_before_T",
+          "shape": [
+            4,
+            7,
+            7,
+            7,
+            64,
+            896
+          ],
+          "start": 574013440,
+          "stop": 652689408
+        },
+        {
+          "elements": 14680064,
+          "name": "dependency_t_level1",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_T_dependencies_after_A_destination_is_filled",
+          "shape": [
+            4,
+            7168,
+            512
+          ],
+          "start": 574013440,
+          "stop": 588693504
+        },
+        {
+          "elements": 25690112,
+          "name": "dependency_t_level2",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_T_dependencies_after_A_destination_is_filled",
+          "shape": [
+            4,
+            7,
+            3584,
+            256
+          ],
+          "start": 574013440,
+          "stop": 599703552
+        },
+        {
+          "elements": 44957696,
+          "name": "dependency_t_level3",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_T_dependencies_after_A_destination_is_filled",
+          "shape": [
+            4,
+            7,
+            7,
+            1792,
+            128
+          ],
+          "start": 574013440,
+          "stop": 618971136
+        },
+        {
+          "elements": 78675968,
+          "name": "dependency_t_level4",
+          "physical_region": "dependency_s_t_reused",
+          "purpose": "four_T_dependencies_after_A_destination_is_filled",
+          "shape": [
+            4,
+            7,
+            7,
+            7,
+            896,
+            64
+          ],
+          "start": 574013440,
+          "stop": 652689408
+        },
+        {
+          "elements": 9834496,
+          "name": "leaf_products",
+          "physical_region": "leaf_products",
+          "purpose": "single_2401_leaf_batch",
+          "shape": [
+            7,
+            7,
+            7,
+            7,
+            64,
+            64
+          ],
+          "start": 652689408,
+          "stop": 662523904
+        },
+        {
+          "elements": 5619712,
+          "name": "product_level3_bank0",
+          "physical_region": "reconstruction_product_bank0",
+          "purpose": "reconstruct_level4_to_level3",
+          "shape": [
+            7,
+            7,
+            7,
+            128,
+            128
+          ],
+          "start": 662523904,
+          "stop": 668143616
+        },
+        {
+          "elements": 3211264,
+          "name": "product_level2_bank1",
+          "physical_region": "reconstruction_product_bank1",
+          "purpose": "reconstruct_level3_to_level2",
+          "shape": [
+            7,
+            7,
+            256,
+            256
+          ],
+          "start": 668143616,
+          "stop": 671354880
+        },
+        {
+          "elements": 1835008,
+          "name": "product_level1_bank0",
+          "physical_region": "reconstruction_product_bank0",
+          "purpose": "reconstruct_level2_to_level1",
+          "shape": [
+            7,
+            512,
+            512
+          ],
+          "start": 662523904,
+          "stop": 664358912
+        },
+        {
+          "elements": 4214784,
+          "name": "u234_reconstruct_level4",
+          "physical_region": "reconstruction_u_scratch",
+          "purpose": "reused_U2_U3_U4_dependencies",
+          "shape": [
+            3,
+            7,
+            7,
+            7,
+            64,
+            64
+          ],
+          "start": 673763328,
+          "stop": 677978112
+        },
+        {
+          "elements": 2408448,
+          "name": "u234_reconstruct_level3",
+          "physical_region": "reconstruction_u_scratch",
+          "purpose": "reused_U2_U3_U4_dependencies",
+          "shape": [
+            3,
+            7,
+            7,
+            128,
+            128
+          ],
+          "start": 673763328,
+          "stop": 676171776
+        },
+        {
+          "elements": 1376256,
+          "name": "u234_reconstruct_level2",
+          "physical_region": "reconstruction_u_scratch",
+          "purpose": "reused_U2_U3_U4_dependencies",
+          "shape": [
+            3,
+            7,
+            256,
+            256
+          ],
+          "start": 673763328,
+          "stop": 675139584
+        },
+        {
+          "elements": 786432,
+          "name": "u234_reconstruct_level1",
+          "physical_region": "reconstruction_u_scratch",
+          "purpose": "reused_U2_U3_U4_dependencies",
+          "shape": [
+            3,
+            512,
+            512
+          ],
+          "start": 673763328,
+          "stop": 674549760
+        },
+        {
+          "elements": 1048576,
+          "name": "output_bank0",
+          "physical_region": "output_bank0",
+          "purpose": "first_sequential_channel_result_or_reserved_push_output",
+          "shape": [
+            1024,
+            1024
+          ],
+          "start": 679383040,
+          "stop": 680431616
+        },
+        {
+          "elements": 1048576,
+          "name": "output_bank1",
+          "physical_region": "output_bank1",
+          "purpose": "second_sequential_channel_result_or_reserved_push_output",
+          "shape": [
+            1024,
+            1024
+          ],
+          "start": 680431616,
+          "stop": 681480192
+        }
+      ]
+    },
+    "sealed_formula": "sum(j=1..4)(7/4)^j(A+B) + (7/4)^3 max(A,B) + (7/4)^4 C + 3(7/4)^3 C + 2C",
+    "single_flat_arena_bytes": 3376660480,
+    "single_flat_arena_elements": 844165120,
+    "static_margin_below_8gib_bytes": 1791770624
+  },
+  "authority": {
+    "incumbent_source_sha256": "373ad4d55edbc7fd0f6aa7e9bedafe41e283f2685e5002c8b46ac44c05ebcdd7",
+    "independent_design_audit_sha256": "df76169237166cf685ca9e0474643d1d668dcc2ae762f5e9e57af0e6b8afd6f2",
+    "independent_design_verifier_sha256": "58f28d61bcb7047f84d254d5785e7c10ffd6707e6a8e3d61f634d53546933855",
+    "sealed_design_sha256": "808a41b8fa1429e1efaf978cd3f17f18ecf7ae7f21c20a9359546922b3696da7"
+  },
+  "candidate": {
+    "mechanical_builder": "build_candidate.py",
+    "mechanical_builder_sha256": "302e2ca5f3c3a437ed3fb348dae4fc5318efc7e5ba59387793d918270298a8dc",
+    "source": "estimator.py",
+    "source_diff": "SOURCE_DIFF.patch",
+    "source_diff_sha256": "73dd4e286bf09160abc41102c080607aabbf981c8bd3822ce37250e9a663df58",
+    "source_sha256": "e9ebe9abebe4d632e20d81396aea2bc64a511277d88bc6fd13fb6a80721ffd58",
+    "transform": "exact unique anchored replacements only"
+  },
+  "date": "2026-08-26",
+  "execution_authority": {
+    "common_driver_call": false,
+    "exact_shape_smoke": false,
+    "fixture_call": false,
+    "production_submission_network": false,
+    "source_build": true,
+    "static_verification": true,
+    "targets_scores_names_board": false,
+    "tiny_synthetic_kernel_smoke": false
+  },
+  "label": "sequential-channel fully preallocated depth-4 Winograd arena",
+  "liveness": {
+    "channel_schedule": "strictly sequential channel0 then channel1",
+    "dummy_billed_work": false,
+    "forbidden_absent": [
+      "recursive kernel call",
+      "fnp.stack in CP3 arena functions",
+      "fnp.block in CP3 arena functions",
+      "fnp.concatenate in CP3 arena functions",
+      "implicit full-size CP3 expression temporary",
+      "paired-channel CP3 tree",
+      "extra persistent read plane",
+      "tensordot",
+      "einsum in CP3 arena functions"
+    ],
+    "large_dynamic_allocations": [],
+    "leaf_schedule": "one 2401-way batched matmul per channel contraction",
+    "reconstruction_schedule": "leaf -> bank0(level3) -> bank1(level2) -> bank0(level1) -> out",
+    "reserved_push_output_slices_are_unwritten": true,
+    "top_output_written_directly": true,
+    "transform_schedule": "level1..4; S dependencies then A destination; reuse same physical scratch for T then B destination",
+    "u_schedule": "U1,U2,U3,U4,U5,U6,U7 in frozen D5 law order"
+  },
+  "node": "P2R0C1D6",
+  "schema": "p2r0c1d6-accounting-liveness-v1",
+  "serialization_guard": {
+    "filename": "verify_serialization_guard.py",
+    "must_create_runtime_result": false,
+    "must_import_or_call_estimator": false,
+    "required": true
+  },
+  "status": "FROZEN_PRE_STATIC_REVIEW_NO_EXECUTION"
+}

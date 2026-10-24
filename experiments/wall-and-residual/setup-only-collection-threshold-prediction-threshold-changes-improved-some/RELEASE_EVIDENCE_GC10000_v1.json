@@ -1,0 +1,35 @@
+{
+  "status": "STATIC_PEER_PASS_RUNTIME_GATES_PENDING",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/repair_gc10000_v1/candidate_restore13_gc10000_HELD_v1.py",
+  "sha256": "b86d81c1f6573992d468c4f640d89e032943b0bd929f1e7220bbf250df99911e",
+  "parent": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_bill_v1/setup_restore13_v1/candidate_union_setup_restore13_HELD_v1.py",
+  "parent_sha256": "090b85f138b4762ef5055239fdf641c3c124bd67735a236cc01994446583283b",
+  "prior_evidence": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/RELEASE_EVIDENCE_090B85F1_v1.json",
+    "sha256": "1d921909d024c03a0fd22723f820104f86f3de003ce5f0de6b09dd20419ddad7"
+  },
+  "exact_delta": "Only prediction generation0 threshold7000\u219210000 in _gcy_predict_v1; generation1=20, incominggen2, finally restoration unchanged.",
+  "preserved": [
+    "All estimator arithmetic, data layouts, dtypes, kernel routes, caps, shapes and owned buffers.",
+    "PB649 order/class, restored13 original observed RF binds, remaining deferred IO/unused roots.",
+    "SetupGC14000/20, full end-of-setup collection/freeze and full end-of-prediction collection/freeze."
+  ],
+  "source_assertions": {
+    "changed_top_level_nodes": [
+      "_gcy_predict_v1"
+    ],
+    "all_other_AST_nodes_identical": true,
+    "arithmetic_identical": true
+  },
+  "limits_unchanged": {
+    "min_free_pct": 50,
+    "max_memory_bytes": 7500000000,
+    "residual_median_s": 0.3452224775,
+    "residual_max_s": 0.390682602,
+    "wall_s": 118,
+    "setup_s": 4.6
+  },
+  "qualification": "GC cadence can change peak memory and residual timing; source equivalence is not a measured runtime PASS. Root owns exact-SHA both-mode gate, completed official fullfive, high-memory cold259, byte parity, packaging/fire.",
+  "sdk_calls": 0,
+  "models": 0
+}

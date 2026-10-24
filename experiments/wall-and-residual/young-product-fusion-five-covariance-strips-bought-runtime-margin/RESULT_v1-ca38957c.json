@@ -1,0 +1,217 @@
+{
+  "status": "FIXED_TWO_NETWORK_RUNTIME_COMPONENT_DIAGNOSTIC_NOT_QUALIFIED",
+  "candidate_sha256": "a41895cf5d6186e299a30cec33b8792f3610aa96aef5d90f924d15acf1117851",
+  "baseline_submission": 336935,
+  "baseline_adjusted": 1.4468565569762618e-09,
+  "rows": [
+    {
+      "rank": 35,
+      "raw_pct": -0.044095748390948764,
+      "bill_pct_vs_science": 0.223702477464105,
+      "adjusted_pct_vs_science": 0.17950808579154653,
+      "bill_pct_vs_runtime": 0.223702477464105,
+      "flops": 239371166411,
+      "control_flops": 238836882388,
+      "runtime_control_flops": 238836882388,
+      "requests": 42948,
+      "requests_delta_vs_science": -1293,
+      "requests_delta_vs_runtime": -1293,
+      "requests_delta_vs_fusion": -1023,
+      "wall_s": 39.40539070777595,
+      "control_runtime_wall_s": 37.59155387617648,
+      "residual_instructions": 2320396154,
+      "nonfinite": 0,
+      "rescue": {
+        "calls": 0,
+        "elements": 0
+      },
+      "fusion_state": {
+        "left": 108831,
+        "accepted": 4,
+        "selected": [
+          [
+            [
+              896,
+              832,
+              896,
+              9504
+            ],
+            [
+              -10310382,
+              62
+            ]
+          ],
+          [
+            [
+              960,
+              896,
+              832,
+              5344
+            ],
+            [
+              -4290891,
+              68
+            ]
+          ],
+          [
+            [
+              960,
+              896,
+              864,
+              6688
+            ],
+            [
+              10812667,
+              77
+            ]
+          ],
+          [
+            [
+              896,
+              832,
+              832,
+              4576
+            ],
+            [
+              -5289896,
+              46
+            ]
+          ]
+        ]
+      },
+      "margin_state": {
+        "left": 0,
+        "calls": 5,
+        "inners": [
+          960,
+          960,
+          896,
+          960,
+          960
+        ],
+        "retired": true
+      },
+      "prediction_rms": 7.89680885462756e-07,
+      "max_abs_dy": 6.67572021484375e-06,
+      "guard": {
+        "completed": true,
+        "whole_group_retired": true,
+        "max_rss_bytes": 6613712896,
+        "max_footprint_bytes": 6390946176,
+        "min_pressure_free_pct": 57,
+        "elapsed_s": 42.83888000063598
+      }
+    },
+    {
+      "rank": 200,
+      "raw_pct": 0.16646031875571232,
+      "bill_pct_vs_science": 0.31414482076270733,
+      "adjusted_pct_vs_science": 0.48112806598841207,
+      "bill_pct_vs_runtime": 0.3125577885342512,
+      "flops": 258098745600,
+      "control_flops": 257290480880,
+      "runtime_control_flops": 257294551440,
+      "requests": 42933,
+      "requests_delta_vs_science": -265,
+      "requests_delta_vs_runtime": -327,
+      "requests_delta_vs_fusion": 7,
+      "wall_s": 37.8403397500515,
+      "control_runtime_wall_s": 35.59181175008416,
+      "residual_instructions": 2314603325,
+      "nonfinite": 0,
+      "rescue": {
+        "calls": 0,
+        "elements": 0
+      },
+      "fusion_state": {
+        "left": 231433,
+        "accepted": 4,
+        "selected": [
+          [
+            [
+              960,
+              896,
+              928,
+              5728
+            ],
+            [
+              -12764076,
+              83
+            ]
+          ],
+          [
+            [
+              960,
+              896,
+              864,
+              7168
+            ],
+            [
+              10397947,
+              77
+            ]
+          ],
+          [
+            [
+              960,
+              896,
+              832,
+              8576
+            ],
+            [
+              -7004491,
+              52
+            ]
+          ],
+          [
+            [
+              896,
+              896,
+              864,
+              4960
+            ],
+            [
+              33100194,
+              99
+            ]
+          ]
+        ]
+      },
+      "margin_state": {
+        "left": 0,
+        "calls": 5,
+        "inners": [
+          960,
+          960,
+          960,
+          960,
+          896
+        ],
+        "retired": true
+      },
+      "prediction_rms": 1.1705813509944423e-06,
+      "max_abs_dy": 1.0579824447631836e-05,
+      "guard": {
+        "completed": true,
+        "whole_group_retired": true,
+        "max_rss_bytes": 6862077952,
+        "max_footprint_bytes": 6657628568,
+        "min_pressure_free_pct": 57,
+        "elapsed_s": 41.2792454585433
+      }
+    }
+  ],
+  "mean": {
+    "raw_pct": 0.06118228518238178,
+    "bill_pct_vs_science": 0.26892364911340616,
+    "adjusted_pct_vs_science": 0.3303180758899793,
+    "requests_delta_vs_runtime": -810
+  },
+  "conditional_cold_biased_adjusted": 1.4516357857161536e-09,
+  "caveats": [
+    "Both ranks ran in separate fresh processes. Rank35 matches cold control; rank200 control is warm, so its charged bill and request comparison include extra cold aliases.",
+    "The historical estimated cold200 bill bias is approximately +0.14 percentage points; it is not subtracted from measured results.",
+    "Two-strip and fusion preserve real arithmetic content but change floating point product grouping. No byte-equivalence or new science validation claim.",
+    "This component deliberately pays compute to restore runtime margin. These two ordinary native runs do not establish hosted residual cushion or final release eligibility."
+  ]
+}

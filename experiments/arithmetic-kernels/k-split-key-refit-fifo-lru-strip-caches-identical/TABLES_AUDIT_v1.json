@@ -1,0 +1,42 @@
+{
+  "status": "AUDIT_DONE_TARGET_NOT_REACHED_SMALL_EXACT_REFIT_AVAILABLE",
+  "base": "S4 c775ed46",
+  "tables": {
+    "_PB_SINGLE": "STALE before refit (VN+H128: 138/649 unused) -> refit already in S4 (hunter) and S3pp; the big one",
+    "_KS_ACC_MN": "STALE: 26 of 40 entries unused by 20 census networks, 24 used shapes unlisted -> refit to 36 used-by->=2 shapes (fragment_ks_acc_refit_v1)",
+    "IPT tree caps A/B/C 320/352/320": "fit: 20-network worker life reaches 254/321/260 distinct keys (B at 91%)",
+    "frame caches (_BH_*, packed, read5, A/B/O frames)": "unused (0 entries) in the S4 lineage: no cost",
+    "strip-kernel caches _HZ_SIDES/_HZ_VIEWS/_HZG_VIEWS (caps 384/96/128)": "FIFO and full by network ~4-5/5/8 of a worker life (+59/+15/+13 entries per network): late-network rebuilds cost requests (zero FLOPs); LRU fragment hz_lru_v1 is exact; local measurement impossible beyond 3 networks (guard RSS backstop at ~4 GB footprint), identical through 3",
+    "_HZD_VIEWS 512, _OT_QV 4096, _RQD 256": "fit",
+    "Smirnov PLANS (exact-shape keys)": "not stale for S4 (R256 does not change read shapes); coverage expansion is the known b709 wall/bill trade"
+  },
+  "measured_vs_S4": {
+    "first": [
+      47908,
+      47892,
+      -16
+    ],
+    "warm": [
+      45745,
+      45737,
+      -8
+    ],
+    "flops_first_pct": -0.0323,
+    "flops_warm_pct": -0.0293,
+    "p_loss": [
+      14.86,
+      14.78
+    ],
+    "predictions": "byte-identical (35, 100)",
+    "official120": "ALL PASS (setup 4.443s, slow 4.580s, worst 103.9s)"
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_tables_v1/candidate_S4_tables_v1.py",
+    "sha256": "eca4991e1e3dfd5d18a02c0c0fb8328106ac03feac5bb7f27a08ba417b2fa841"
+  },
+  "fragments": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_tables_v1/fragment_ks_acc_refit_v1.py.txt": "487bc952e9b2046e291131dd4cea0d2794c1ac3843f6f82df0248376c691d951",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_tables_v1/fragment_hz_lru_v1.py.txt": "d813090736c7233c6682aec67574fa0d5c5c10afc573ac062e7d04e1e40aa44b"
+  },
+  "owned_processes_retired": true
+}

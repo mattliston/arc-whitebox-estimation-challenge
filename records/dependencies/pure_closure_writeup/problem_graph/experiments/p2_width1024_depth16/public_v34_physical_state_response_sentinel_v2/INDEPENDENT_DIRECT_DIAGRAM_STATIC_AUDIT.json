@@ -1,0 +1,138 @@
+{
+  "schema": "v34-physical-state-response-v2-independent-direct-diagram-static-audit-v1",
+  "date": "2026-08-31",
+  "status": "PASS_STATIC_ALGEBRA__EXPERIMENTAL_HOLD_RANK35_WAS_PREEXPOSED__V2_MUST_NOT_EXECUTE",
+  "bindings": {
+    "design_sha256": "6db96ef9c3fd59b87dddab46f2466102fa16a425dd27afa6b8d819aa4c95379a",
+    "design_freeze_sha256": "5632879f9a741ac72d701af182c98aa607060d8ef58dd2fa3c80f7e089d033d5",
+    "provider_algebra_sha256": "17545cc2741838674ba87a870905ccf55902841cd121c47e96fb1651d3dbd3c6",
+    "static_verifier_sha256": "17cb235bfa476ae72b33bfbfa73442404c53521e1298dd99a4d47316104cdcb5",
+    "static_verification_receipt_sha256": "e3c16e43d71aef6a62bc23d063a99c10c8f6d0d221792c0c38065947e3154f77",
+    "independent_post_q_cross_audit_sha256": "f7d02a28ed1b5e5996a7738ef962593784fff770283752e2266e5a49a7e8a72f",
+    "perfect_state_ceiling_sha256": "4a476a61364476a3eb9d625c0831aeb580ae4575893a7abe8291aa2884de50e5",
+    "perfect_state_recurrence_source_sha256": "63cf25f83aab4d2dbd5c808bcebf0c57980e278a75fdbbbf9c2cd07e1ea08cb1",
+    "literal_d11_source_sha256": "ace56bf60b267666e4f2a6d8ae772a089f234ebc725f34a4798b2f9e8284cbc2",
+    "direct_provider_terminal_result_sha256": "e1ed27d0882dddb09698da78d167f7e34096ce44742b210b64792a3d20babd7f",
+    "four_field_terminal_result_sha256": "d84c5831d3392961d04fcf23323794ca75858190924672aa21c4e496731b98f5",
+    "four_field_cached_interpretation_sha256": "e6c8f44f88f8165f330e36642647d1388b598148bf9f24663f8ac369f82d3696",
+    "four_field_h4_terminal_audit_sha256": "46927c94a87ce76ceecf1158cb3d40edc7dc1c6a10351b49d5a9eda59c51c1cd"
+  },
+  "static_checks": {
+    "activation_interlock": {
+      "status": "PASS",
+      "detail": "v2 correctly replaces the unreachable v1 oracle-failure premise with exact-q capacity PASS plus the two terminal target-blind provider FAIL receipts; it grants no inherited authority"
+    },
+    "four_fields_three_splits": {
+      "status": "PASS_WITH_SCOPE",
+      "external_fields_beyond_native20": [
+        "pre_k4/sigma^4",
+        "((W^2).T@(raw2_univariate-diag(M11_pair_before_overwrite)))/sigma_target^2",
+        "diag(cp_pre_k21)/sigma^3",
+        "cp4_pre_provider_diagonal/sigma^4"
+      ],
+      "provider_split_coordinate_count": 3,
+      "detail": "native20 already supplies total standardized k3 but not total standardized k4; at fixed degree totals the variance, CP3, and CP4 redistribution fibers are independent, so fewer than three split reads leave a nonzero fiber direction invisible. This proves minimality for the typed V/K3/K4 mechanism, not universal source sufficiency"
+    },
+    "literal_d11_seams": {
+      "status": "PASS_STATIC",
+      "detail": "cp_pre_k21 and cp4_pre_provider_planes exist before their provider sums; M11 pair diagonal and authoritative raw2 coexist before _copy_with_diagonal; weight2 is already live. Final k3/k4 use the existing diagonal specializations. No new dense plane is algebraically required"
+    },
+    "exact_first_reset": {
+      "status": "PASS",
+      "detail": "the exact bivariate Gaussian ReLU raw-second diagonal equals univariate raw2, hence e2_0=uV_1=0 and no first variance matvec is chargeable"
+    },
+    "provider_algebra": {
+      "status": "PASS_STATIC_SOURCE_REVIEW",
+      "detail": "provider_fields.py implements the row/column gauge W^2.T@e2, standardized CP3/CP4 reads, the 24-field interface, component-pure EDG2 substitutions, and independent previous/target permutation equivariance. Its EDG2 Hermite signs and coefficients match the frozen perfect-state source"
+    },
+    "shared_head": {
+      "status": "PASS_CONTRACT",
+      "architecture": "Linear(24,32)-ReLU-Linear(32,3)",
+      "parameter_count": 899,
+      "output_order": [
+        "(truth_pre_v-host_v)/sigma^2",
+        "(truth_pre_k3-host_k3)/sigma^3",
+        "(truth_pre_k4-host_k4)/sigma^4"
+      ],
+      "detail": "loss and checkpoint law use only physical state gaps, with no q, endpoint, residual, network-ID, observer-selection, or board supervision"
+    },
+    "nine_fit_one_held_data_law": {
+      "status": "FAIL_AS_CONFIRMATORY_FALSIFIER__DESCRIPTIVE_DIAGNOSTIC_ONLY",
+      "fit_networks": [100, 150, 200, 250, 300, 400, 500, 600, 650],
+      "held_network": 35,
+      "fit_nodes": 138240,
+      "detail": "the written fit-only normalization and fixed-epoch law is internally sound, but rank35 is not a fresh holdout: its exact corrected oracle, LOO betas, and selection as the favorable held network were exposed before this freeze. The 9/1 split can check algebraic parity only and cannot provide an unbiased experimental falsifier"
+    },
+    "l1_response_compiler": {
+      "status": "PASS_EXACT",
+      "detail": "with r0=0 the l=1 transport is zero; for each later layer linearity gives sum_a beta_a[phi(r_a W)+s_a]=phi[(sum_a beta_a r_a)W]+sum_a beta_a s_a. At exact gaps the component sources equal the frozen perfect-state sources, so induction reproduces the rank35 oracle column"
+    },
+    "rank35_beta_binding": {
+      "status": "PASS",
+      "perfect_receipt_order": ["k4", "k3", "v"],
+      "compiler_order": ["v", "k3", "k4"],
+      "compiler_betas": [0.8273280548817595, 0.32346157239952833, 0.15489222117700333],
+      "rank35_exact_oracle_corrected_mse": 7.153517343378912e-9
+    },
+    "held_gates": {
+      "status": "PASS_MATHEMATICAL_THRESHOLDS__INVALID_AS_FRESH_CONFIRMATORY_GATES",
+      "minimum_combined_response_cosine": 0.983459,
+      "minimum_cosine_squared": 0.967192,
+      "maximum_combined_response_rms_error": 3.79871e-6,
+      "held_noise_corrected_mse_strictly_below": 1e-8,
+      "component_response_dot_exact_nonnegative": true,
+      "source_on_strictly_beats_source_zero_endpoint": true,
+      "detail": "z_hat and z_star are explicitly the combined endpoint correction vectors and the RMS threshold equals sqrt(1e-8)-sqrt(9.254687418209847e-9), but the rank35 oracle/response information was already visible. These gates are descriptive and must not authorize execution or a scientific pass claim"
+    },
+    "resource_census": {
+      "status": "PASS",
+      "squared_weight_matvecs": 14,
+      "signed_weight_response_matvecs": 14,
+      "dense_action_flops": 58691584,
+      "head_affine_operations": 26542080,
+      "relu_comparisons": 491520,
+      "scalar_response_reserve_operations": 4915200,
+      "total_arithmetic_upper_comparisons_separate": 90148864,
+      "total_operations_including_comparisons": 90640384,
+      "dense_gemm_equivalents_upper_comparisons_separate": 0.04199934355153884,
+      "parameter_bytes_float32": 3596,
+      "workspace_upper_bytes": 262144,
+      "detail": "valid only under literal live-operand reuse and one-layer streaming; recomputation, all-layer storage, or a new plane requires remetering"
+    }
+  },
+  "implementation_boundary": {
+    "runner_present": false,
+    "fit_release_present": false,
+    "held_claim_contract_present": false,
+    "target_manifest_binding_present": false,
+    "model_or_normalization_freeze_logic_present": false,
+    "source_zero_byte_replay_implemented": false,
+    "noise_corrected_scoring_implemented": false,
+    "implementation_level_target_purity_certified": false,
+    "rank35_oracle_and_loo_information_preexposed_before_freeze": true,
+    "v2_rank35_execution_scientifically_valid": false,
+    "execution_ready": false,
+    "required_next_audit": "Do not build or release a rank35 v2 runner. An append-only V2R1 successor must hash-select a fresh held network under a rule frozen before any new state-label generation/open, separately seal the fit and held MC state manifests, and then receive independent audits of target roles, materialization chronology, exact L1 compiler indices/orientation, source-zero identity, noise subtraction, gates, claims, stop law, and resources"
+  },
+  "access": {
+    "target_rows_opened_or_decoded": 0,
+    "native_or_derived_cache_rows_opened": 0,
+    "derived_feature_or_state_caches_created": 0,
+    "estimator_calls": 0,
+    "training_or_scoring_runs": 0,
+    "network_or_submission_calls": 0
+  },
+  "authority": {
+    "target": false,
+    "cache": false,
+    "training": false,
+    "held_network": false,
+    "execution": false,
+    "integration": false,
+    "meter": false,
+    "package": false,
+    "board": false,
+    "submission": false
+  },
+  "decision": "ALGEBRA_AND_RESOURCE_SHELL_PASS__CLOSE_V2_RANK35_AS_CONFIRMATORY_EXECUTION__REQUIRE_APPEND_ONLY_V2R1_WITH_FRESH_HASH_SELECTED_HELD_NET_AND_SEALED_LABELS"
+}

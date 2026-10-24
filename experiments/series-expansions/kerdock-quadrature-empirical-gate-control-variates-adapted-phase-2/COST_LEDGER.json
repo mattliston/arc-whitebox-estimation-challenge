@@ -1,0 +1,248 @@
+{
+  "access": {
+    "board_or_deployment_truth_opened": 0,
+    "estimators_run": 0,
+    "fixture_calls": 0,
+    "network_names_opened": 0,
+    "observer_selection_opened": 0,
+    "submissions": 0,
+    "targets_opened": 0
+  },
+  "combined_with_d1_fixtures": {
+    "N65536_h7": [
+      {
+        "combined_core_flops": 1943937250679,
+        "d1_flops": 1574162015607,
+        "fixture_index": 0,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 255086004873
+      },
+      {
+        "combined_core_flops": 1982378052104,
+        "d1_flops": 1612602817032,
+        "fixture_index": 1,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 216645203448
+      },
+      {
+        "combined_core_flops": 1943731722752,
+        "d1_flops": 1573956487680,
+        "fixture_index": 2,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 255291532800
+      }
+    ],
+    "N65536_h8": [
+      {
+        "combined_core_flops": 2010619175287,
+        "d1_flops": 1574162015607,
+        "fixture_index": 0,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 188404080265
+      },
+      {
+        "combined_core_flops": 2049059976712,
+        "d1_flops": 1612602817032,
+        "fixture_index": 1,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 149963278840
+      },
+      {
+        "combined_core_flops": 2010413647360,
+        "d1_flops": 1573956487680,
+        "fixture_index": 2,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 188609608192
+      }
+    ],
+    "N65536_h9": [
+      {
+        "combined_core_flops": 2077301099895,
+        "d1_flops": 1574162015607,
+        "fixture_index": 0,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 121722155657
+      },
+      {
+        "combined_core_flops": 2115741901320,
+        "d1_flops": 1612602817032,
+        "fixture_index": 1,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 83281354232
+      },
+      {
+        "combined_core_flops": 2077095571968,
+        "d1_flops": 1573956487680,
+        "fixture_index": 2,
+        "hard_budget_pass": true,
+        "remaining_to_2pow41": 121927683584
+      }
+    ]
+  },
+  "design": {
+    "N32768": "two independent randomized blocks, each 8 real Kerdock bases plus antipodes",
+    "N65536": "two independent randomized blocks, each 16 real Kerdock bases plus antipodes",
+    "bias_boundary": "split-block disagreement estimates orientation variance but cannot certify common degree>=4 cubature bias; any winning query must pass the frozen 2e-5 action-weighted error gate on allowed development data",
+    "degree_exactness": "every antipodal union of orthonormal bases is exact through degree 3; these proper subsets are not spherical 5-designs",
+    "fourth_moment_ratio_each_b16_split_block": 21.666666666666664,
+    "fourth_moment_ratio_full_b32": 11.0
+  },
+  "full_depth_N32768_core": {
+    "bases": 16,
+    "each_full_layer_after_h2": 33360342016,
+    "endpoint_one_based": 16,
+    "independent_orientation_take": 8388608,
+    "layer1_sign_fwht_relu": 209715200,
+    "layer2_positive_antipodal_two_compositions_relu": 19075675136,
+    "paths": 32768,
+    "total": 486330178560
+  },
+  "full_depth_closure_anchor_cv": {
+    "conclusion": "direct final-output sampling and closure-plus-constant anchoring remain closed; only internal connected innovations into the complete-action suffix survive",
+    "degree64_oracle_at_N65536_mse": 2.850276942500284e-08,
+    "exact_affine_lift": "exists, but an antipodal/Kerdock rule integrates it exactly, so E[g]+Q[f-g]=Q[f] identically",
+    "feasible_N32768_full_depth_core_flops": 486330178560,
+    "measured_affine_capture": 0.2050490326254727,
+    "nonlinear_exact_mean_lift": "absent",
+    "required_capture_for_raw_1e_8_at_N32768": 0.9950941701350421,
+    "required_residual_variance_ratio_for_raw_1e_8_at_N32768": 0.00490582986495793,
+    "required_supplier_interface": "a cheap pointwise nonlinear g(x;W), an analytic proof that E[g] equals the deployed closure output coordinatewise, and residual-variance capture high enough to pass the target under the chosen structured rule",
+    "row35_plain_iid_mse_at_N32768": 2.03839111328125e-06,
+    "status": "closed_under_current_host"
+  },
+  "incremental_readouts": {
+    "complete_symmetric_rank13_action_receipt": {
+      "h2_through_h7_query_plus_reference_flops": 11905242258,
+      "h2_through_h9_query_plus_reference_flops": 15873656344,
+      "prefix_generation_and_endpoint_action_construction_included": false
+    },
+    "literal_dense_projection_h2_h7": {
+      "32768": {
+        "13": 5231935488,
+        "6": 2414739456,
+        "8": 3219652608
+      },
+      "65536": {
+        "13": 10463870976,
+        "6": 4829478912,
+        "8": 6439305216
+      }
+    },
+    "marginal_mean_cov_k3_k4_k5": {
+      "N32768_h2_h16": 5033256960,
+      "N32768_h2_h7": 2013302784,
+      "N65536_h2_h7": 4026568704,
+      "N65536_h2_h9": 5368758272
+    },
+    "shared_sample_reuse": "one propagated point cloud supplies every registered layer/ray; covariance, k3, k4, k5 and k3^2/k3*k4/k3^3 are accumulated immediately after each ReLU and need no additional network propagation"
+  },
+  "layerwise_frontiers": {
+    "N65536_through_h7_then_N16384_through_h16": {
+      "each_suffix_layer_flops": 16699550720,
+      "prefix_endpoint_one_based": 7,
+      "prefix_flops": 369775235072,
+      "prefix_paths": 65536,
+      "suffix_layers": 9,
+      "suffix_paths": 16384,
+      "total": 520071191552
+    },
+    "N65536_through_h9_then_N8192_through_h16": {
+      "each_suffix_layer_flops": 8369155072,
+      "prefix_endpoint_one_based": 9,
+      "prefix_flops": 503139084288,
+      "prefix_paths": 65536,
+      "suffix_layers": 7,
+      "suffix_paths": 8192,
+      "total": 561723169792
+    },
+    "allocation_rule": "choose nested antipodal basis blocks; endpoint-action variance and downstream Duhamel gain must determine which blocks survive, so no accuracy-optimal schedule is asserted before the action receipt",
+    "uniform_N32768_through_h16": {
+      "each_suffix_layer_flops": 33360342016,
+      "prefix_endpoint_one_based": 16,
+      "prefix_flops": 486330178560,
+      "prefix_paths": 32768,
+      "suffix_layers": 0,
+      "suffix_paths": 32768,
+      "total": 486330178560
+    }
+  },
+  "meter_law": {
+    "budget": 2199023255552,
+    "dense_comparator_same_product": 137371844608,
+    "full_N65536_width1024_product": 66614815744,
+    "implementation": "Phase-1-style pre-bound float32 arenas; four A transforms, four B transforms, seven C reconstructions; row tiles cap memory; no stack/concatenate/copy arithmetic",
+    "ratio_to_dense": 0.48492335481182447,
+    "recurrence": "T_d(M,K,N)=7*T_(d-1)(M/2,K/2,N/2)+M*K+K*N+7*M*N/4; T_0=M*N*(2*K-1)",
+    "row_tile": 2048,
+    "width": 1024,
+    "winograd_levels": 6
+  },
+  "no_double_count_law": "At layer l estimate only the teacher-forced local connected defect: sampled post-ReLU action coordinate minus the incumbent one-step prediction evaluated from that same empirical pre-state. The endpoint lane applies its full-state future Duhamel action once. Never sum repeated accumulated-state resets.",
+  "old_scalar_suffix_ceiling": {
+    "decision": "closed for the old scalar recurrence; a sampled source is useful only through the new complete-action/resummed suffix",
+    "exact_h2_through_h7_mean_residual_resets_mse": 3.3897455206496917e-08,
+    "exact_h2_through_h9_mean_residual_resets_mse": 3.16038750480864e-08,
+    "scope": "full width mean-residual state only, not a marginal or joint cumulant re-anchor",
+    "single_exact_h7_mean_residual_reset_mse": 3.3897455206496917e-08
+  },
+  "prefix_core": {
+    "N65536_h7": {
+      "bases": 32,
+      "each_full_layer_after_h2": 66681924608,
+      "endpoint_one_based": 7,
+      "independent_orientation_take": 8388608,
+      "layer1_sign_fwht_relu": 411041792,
+      "layer2_positive_antipodal_two_compositions_relu": 35954570240,
+      "paths": 65536,
+      "total": 369775235072
+    },
+    "N65536_h8": {
+      "bases": 32,
+      "each_full_layer_after_h2": 66681924608,
+      "endpoint_one_based": 8,
+      "independent_orientation_take": 8388608,
+      "layer1_sign_fwht_relu": 411041792,
+      "layer2_positive_antipodal_two_compositions_relu": 35954570240,
+      "paths": 65536,
+      "total": 436457159680
+    },
+    "N65536_h9": {
+      "bases": 32,
+      "each_full_layer_after_h2": 66681924608,
+      "endpoint_one_based": 9,
+      "independent_orientation_take": 8388608,
+      "layer1_sign_fwht_relu": 411041792,
+      "layer2_positive_antipodal_two_compositions_relu": 35954570240,
+      "paths": 65536,
+      "total": 503139084288
+    }
+  },
+  "provenance": {
+    "dependencies": {
+      "complete_action_interface": {
+        "path": "p2r0f3b2b6_fused_directional_innovation_action_v1/RECEIPT.json",
+        "sha256": "04c2c18ddf6281cfdaa14d0cfaea0730415b8f9410f3341400e20bbc788bb6d6"
+      },
+      "d1_candidate": {
+        "path": "p2r0c1d9_cp3_arena_depth1_full_estimator_v1/D1_CANDIDATE_RESULT.json",
+        "sha256": "56212fc97101fd1d6054899c57393fbc5dc0ecaa6bbe57decf91d233c0b2594d"
+      },
+      "multilayer_ceiling": {
+        "path": "p2r0g1_kerdock_multilayer_anchor_ceiling_v1/RESULT.json",
+        "sha256": "a96828887522e8e412cfb53a9d39d2dd39d3ca561a43c1e66d52f27f73f78ca5"
+      },
+      "quadrature_verdict": {
+        "path": "public_quadrature_derivation_v1/QUADRATURE_VERDICT.json",
+        "sha256": "fd99ba5597293a2e10c98602acc884c498bf761faf8c8100ad44ad2743dbd41f"
+      },
+      "single_h7_ceiling": {
+        "path": "p2r0g1_kerdock_h7_anchor_ceiling_v1/RESULT.json",
+        "sha256": "4f4e2798021796ab735f3ae631b61cd67494e2bb279fc8630ef9e7de905f661e"
+      }
+    },
+    "phase1_pdf_sha256": "c64ed2e42aff61c16fe95b615911499109bded2f70d00b7510095ddc2b7846c3",
+    "program_sha256": "2ed09bfca4771fd4069c1770f948fa3308ee03219647d53ee966a55c21ee6933"
+  },
+  "schema": "p2r0g1-kerdock-prefix-cost-ledger-v1",
+  "status": "complete"
+}

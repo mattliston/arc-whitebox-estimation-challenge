@@ -1,0 +1,101 @@
+{
+  "architecture": {
+    "arm": "recurrent",
+    "cell_width": 256,
+    "hidden_channels": 128,
+    "host_cap": 1536,
+    "message_powers": 4,
+    "parameters": 171017,
+    "runtime": "AcceleratedResidualObserver with streamed four-polynomial Hermite transport",
+    "tile_rows": 128
+  },
+  "data_boundary": {
+    "allowed_role": "observer_fit only",
+    "forbidden": [
+      "observer_selection",
+      "observer_audit",
+      "observer_lockbox",
+      "public/private board names or joins",
+      "Q24 trajectories",
+      "network access"
+    ],
+    "target_bundle": "../data_gate/sealed_role_target_bundle/observer_fit.parquet",
+    "target_blind_features": "../learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit"
+  },
+  "decision": {
+    "primary_gate": "protected final-layer raw MSE < 1e-7",
+    "promote_full_architecture_if": "primary gate passes",
+    "promote_longer_fixed_training_if": "primary gate fails but protected raw MSE <= 5e-7 or training diagnostics establish a still-steep improving trajectory",
+    "scope_of_negative": "A failure closes this exact four-epoch discriminator only. It does not close the previously untrained H128/P4/C256 architecture unless optimization and fit diagnostics separately establish a capacity ceiling."
+  },
+  "evaluation": {
+    "checkpoint_selection": "none",
+    "held_evaluations": 1,
+    "held_fold": 0,
+    "metrics": [
+      "protected aggregate final-layer raw MSE",
+      "protected aggregate per-layer raw MSE",
+      "paired host MSE",
+      "finite complete recurrent rollout",
+      "fixed 32-training-row diagnostic final-layer MSE"
+    ],
+    "primary_metric": "protected aggregate final-layer raw MSE at the fixed epoch-4 state"
+  },
+  "graph_binding": {
+    "node": "P2R0C1D2",
+    "parent": "P2R0C1D",
+    "question": "Can the materially different, already-metered recurrent-Hermite observer cross raw MSE 1e-7 at sub-10-percent Phase-2 compute?"
+  },
+  "meter": {
+    "hard_score_floor_max_flops": 219902325555,
+    "literal_common_driver_flops": 209904700250,
+    "phase2_budget_flops": 2199023255552,
+    "utilization_fraction": 0.09545402617405419
+  },
+  "preprocessing": {
+    "normalization": "train-fold-only deterministic rank-order parallel-Welford merges over x02:x20; population standard deviation floored at 2^-20",
+    "residual_scales": "train-fold-only per-layer RMS(host-target), population denominator, floored at 2^-20",
+    "standardization": "frozen observer standardize_raw_features law; clamp [-8,8] and exact depth coordinate"
+  },
+  "resources": {
+    "maximum_rss_bytes": 8589934592,
+    "maximum_storage_bytes": 1073741824,
+    "threads": 1,
+    "requested_niceness": 10
+  },
+  "schema": "p2r0c1d2-cp1536-h128-p4-recurrent-discriminator-prereg-v1",
+  "source_authorities": {
+    "common_driver_meters_sha256": "07b7ea981656bcba5d4529d7e07c565b3af8625420c502abe7ff9e733f6b2c62",
+    "fused_observer_v6_sha256": "964fc8bb78f442ba1448d615770dbf915a7acf4503480520c87d0e0a2dd49350",
+    "observer_model_v3_sha256": "e70fa563bbbfe6f4e3b8952ede47eeba2c9e1ca0c2507cbc96ce541c0547bbd5",
+    "runtime_projection_v6_sha256": "c70129f7ad875ed4083a03b1267f7f9be40fbc71ff80d5ccb88dd46c8829c84c",
+    "static_meter_estimate_v3_sha256": "1a1c9971c0abc1cdfc185d03f59ec7e465843f6032948d4c4911dfe596f90a7c",
+    "training_spec_v6_sha256": "0595c14dc78feafef5602e3ff3c62b809c374f83e9da7547585ec8ab57a351a8"
+  },
+  "split": {
+    "fold_function": "little_endian_uint32(blake2s(\"1753358438:<mlp_id>\", digest_size=4)) mod 4",
+    "fold_seed": 1753358438,
+    "held_fold": 0,
+    "held_rows": 147,
+    "train_folds": [
+      1,
+      2,
+      3
+    ],
+    "train_rows": 541
+  },
+  "status": "frozen-before-any-protected-metric",
+  "training": {
+    "batch_size_complete_networks": 2,
+    "batching": "filter frozen V3 688-position epoch permutation to train ranks; the final odd row uses the same single-network loss",
+    "epochs": 4,
+    "gradient_clip_norm": 1.0,
+    "initialization_seed": 4671727249568777182,
+    "loss": "frozen exact_training_loss: final normalized MSE + 0.25 all-layer normalized MSE + 1e-4 correction energy + 1e-4 hidden energy",
+    "optimizer": "frozen V3 AdamW(lr=1e-3, betas=[0.9,0.999], eps=1e-8, weight_decay=1e-5)",
+    "restarts": 0,
+    "scheduler": null,
+    "source_mask": "frozen deterministic V3 1/20 optional-block mask",
+    "training_progress_metrics": "training loss and gradient norm only; no protected target metric before the fixed terminal state"
+  }
+}

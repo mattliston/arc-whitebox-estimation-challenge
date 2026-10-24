@@ -1,0 +1,171 @@
+{
+  "schema": "phase2-fullbudget-joint-mini100-independent-post-open-audit-v2",
+  "status": "PASS_INDEPENDENT_COMPLETED_V2_FULLBUDGET_JOINT_SCORE_AUDIT",
+  "audited_at_utc": "2026-08-24T02:56:33Z",
+  "auditor": "/root/fullbudget_sampling_audit/joint_scorer_pre_audit",
+  "scope": "FROZEN_V2_RELEASE_CLAIM_RESULT_AND_BOUND_RECEIPTS_ONLY__NO_TARGET_REOPEN",
+  "canonical_artifacts": {
+    "root_release_path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_joint_score_v2/ROOT_SINGLE_TARGET_OPEN_RELEASE_V2.json",
+    "root_release_file_sha256": "b4fef10307f4523262743090d17105877a7f7a7207865252a8ef94b7c93ab69d",
+    "root_release_payload_sha256": "96651969b6e08347f03491eb85766a99fc58e77b9beda41f0c68663a2b93d008",
+    "release_id": "b78267b9058f5c9676d4fe0b67b1334d111abcedfab65a06c59f96d9e1f401e5",
+    "one_use_claim_path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_joint_score_v2/receipts/claims/fullbudget-joint-mini100-v2.one-use-target-claim.json",
+    "one_use_claim_file_sha256": "cdf91caee16b74be16251a4a7359d83886d97671c994a48c61db3bf969d92a21",
+    "one_use_claim_payload_sha256": "d74d2e62546f60f2f99eefcb806ddd15fe5a8cb59f25998845393ec879c3b0d1",
+    "result_path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_joint_score_v2/receipts/results/fullbudget-joint-mini100-v2.joint-raw-mse.json",
+    "result_file_sha256": "b9f11dad7f3998b4639ecdf8628931f1f3457cddeacbd10e5ffe2ea7f0ccf721",
+    "result_payload_sha256": "5c2fd866b8f9a353ebfdf7ddf49930053acafd03cb7a5aa2bb2e6bab6f938df6",
+    "candidate_metrics_canonical_sha256": "6a89c5e817f9c0b9fa179b8677b157fb124cfdd98278bf29e230a2f623d112ee",
+    "rankings_canonical_sha256": "7abad21d27df5de51aba23c596a9ce4cab75a0a22ff8d368c4fa5ed289bc77f9"
+  },
+  "linkage_and_chronology": {
+    "release_claim_result_release_id_equal": true,
+    "claim_binds_release_file_and_payload": true,
+    "result_binds_release_file_payload_and_id": true,
+    "result_binds_claim_file_and_payload": true,
+    "claim_created_at_utc": "2026-08-24T02:52:27.062398+00:00",
+    "result_completed_at_utc": "2026-08-24T02:52:30.198659+00:00",
+    "release_precedes_claim_precedes_result": true,
+    "claim_file_count": 1,
+    "result_file_count": 1,
+    "fresh_v2_openings_performed": 1,
+    "v1_retry_or_resume_performed": false
+  },
+  "frozen_provenance": {
+    "v2_scorer_sha256": "fc19261ed69a536a56c8f238bb75306b1b81a23e21662e238c76043133e1fbb3",
+    "v2_bindings_sha256": "8c1657969a296b3a992e69f8c96e7813e730b62268b027a310067762ffe75a82",
+    "independent_v2_scorer_audit_sha256": "fb94ad751693f384bb25f8d990881d67c1909a57a7a74b34c42f58f57c5caa83",
+    "synthetic_iterator_receipt_sha256": "cc682be912b85fd88bcbcf3615cf626870967deb4be5d2cafdbc581a08d0a659",
+    "static_preparation_receipt_sha256": "129f2fac1d2cf898427397ada5af2275b74372662aa4967de74c411ef0e4eeb5",
+    "authority_sha256": "b33aea75ee83be5cc7c2778aefd4cc35d731dcd702d8b258269fc2c895ef4ec5",
+    "v1_scoring_core_sha256": "6a64c5f876bb470a64cac5583b28a0b03e0bfd03bb224139f0e8d1fd6a2323a7",
+    "v1_consumed_claim_sha256": "1c7435b05fc265ddbfd9ee291400683c444694621a1049cefccf55628ea17716",
+    "v1_terminal_failure_receipt_sha256": "208efb13574332f76bbf403c118564ea5fe31da4e9ae72744611c39ecce3109a",
+    "v1_terminal_result_absent": true,
+    "exact_environment": {
+      "python_executable_resolved": "/Users/matt/anaconda3/bin/python3.11",
+      "required_invocation_executable": "/Users/matt/anaconda3/bin/python3",
+      "python_version": "3.11.5",
+      "numpy_version": "1.26.4",
+      "pyarrow_version": "11.0.0",
+      "pyarrow_conda_record_sha256": "1f5cdd60a456e0e3bab94683da2784b934449f440fee4a7337518c75e14900aa"
+    }
+  },
+  "dataset_access": {
+    "repository": "aicrowd/arc-whestbench-public-2026",
+    "revision": "v2-phase2",
+    "commit": "ce926b7d1ced65faa668c01b94a43f8c4f43783d",
+    "split": "mini",
+    "rows": 100,
+    "target_rows_decoded": 100,
+    "target_float32_values_decoded": 1638400,
+    "physically_projected_columns": [
+      "mlp_id",
+      "mlp_name",
+      "mlp_seed",
+      "all_layer_means"
+    ],
+    "weights_decoded": 0,
+    "targets_persisted": 0
+  },
+  "exact_candidate_roster": [
+    "incumbent_cp1792",
+    "sobol_raw_n64512",
+    "iid_paired_whitened_n64000",
+    "cap16384",
+    "cap16384_layer2_mean_carry",
+    "cap16384_recursive_mean_carry"
+  ],
+  "incumbent": "incumbent_cp1792",
+  "arithmetic_audit": {
+    "candidate_count": 6,
+    "per_layer_raw_mse_values_checked": 96,
+    "final_layer_raw_mse_values_checked": 6,
+    "all_layer_raw_mse_values_checked": 6,
+    "per_layer_delta_values_checked": 96,
+    "per_layer_ratio_values_checked": 96,
+    "final_and_all_delta_values_checked": 12,
+    "final_and_all_ratio_values_checked": 12,
+    "paired_summary_objects_checked": 108,
+    "paired_count_triplets_sum_to_100": 108,
+    "paired_standard_error_equals_sample_std_over_sqrt_100": 108,
+    "paired_final_summary_equals_layer_15_summary": 6,
+    "paired_strict_zero_tie_rule_verified": true,
+    "paired_extrema_mean_median_and_count_sign_consistency_verified": true,
+    "ranking_lists_recomputed": 2,
+    "official_flop_fractions_recomputed": 6,
+    "exact_flop_budget_per_mlp": 2199023255552,
+    "primary_metric": "raw_mse",
+    "official_0p1_adjustment_used_as_primary": false,
+    "floating_relationship_rel_tolerance": 1e-14,
+    "floating_relationship_abs_tolerance": 1e-20,
+    "all_persisted_arithmetic_checks_passed": true,
+    "paired_per_row_source_vectors_not_persisted_and_production_targets_not_reopened": true
+  },
+  "candidate_raw_mse": {
+    "incumbent_cp1792": {
+      "final_layer": 0.000003722402415224689,
+      "all_layers": 0.000001920413376561686
+    },
+    "sobol_raw_n64512": {
+      "final_layer": 7.555354468651681e-7,
+      "all_layers": 0.000001147282471386777
+    },
+    "iid_paired_whitened_n64000": {
+      "final_layer": 6.648608832965987e-7,
+      "all_layers": 9.300978554221737e-7
+    },
+    "cap16384": {
+      "final_layer": 0.0000035989996088739297,
+      "all_layers": 0.0000018209133217787385
+    },
+    "cap16384_layer2_mean_carry": {
+      "final_layer": 0.0000032909202609834,
+      "all_layers": 0.0000016268452269826077
+    },
+    "cap16384_recursive_mean_carry": {
+      "final_layer": 9.340196551564291e-7,
+      "all_layers": 5.293963582531012e-7
+    }
+  },
+  "rankings": {
+    "final_raw_mse_best_to_worst": [
+      "iid_paired_whitened_n64000",
+      "sobol_raw_n64512",
+      "cap16384_recursive_mean_carry",
+      "cap16384_layer2_mean_carry",
+      "cap16384",
+      "incumbent_cp1792"
+    ],
+    "all_layer_raw_mse_best_to_worst": [
+      "cap16384_recursive_mean_carry",
+      "iid_paired_whitened_n64000",
+      "sobol_raw_n64512",
+      "cap16384_layer2_mean_carry",
+      "cap16384",
+      "incumbent_cp1792"
+    ]
+  },
+  "best_results": {
+    "best_final_candidate": "iid_paired_whitened_n64000",
+    "best_final_raw_mse": 6.648608832965987e-7,
+    "best_all_layer_candidate": "cap16384_recursive_mean_carry",
+    "best_all_layer_raw_mse": 5.293963582531012e-7
+  },
+  "adaptive_work": {
+    "fits": 0,
+    "refits": 0,
+    "sweeps": 0,
+    "retries": 0,
+    "alternate_candidates": 0
+  },
+  "audit_method": {
+    "production_target_parquet_reopened": false,
+    "scorer_rerun": false,
+    "target_iterator_rerun": false,
+    "canonical_release_claim_and_result_hashes_recomputed": true,
+    "persisted_result_arithmetic_recomputed": true,
+    "prediction_provenance_compared_to_frozen_bundle_bindings": true
+  },
+  "this_receipt_is_execution_retry_resume_or_target_authority": false
+}

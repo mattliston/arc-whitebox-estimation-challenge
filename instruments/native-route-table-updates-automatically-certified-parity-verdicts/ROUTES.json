@@ -1,0 +1,87 @@
+{
+ "utc": "2026-10-12T22:53:40Z",
+ "note": "route table for rule (b) (data; read by the make files at each round's arm stage; a change is a logged rewrite with the old one archived). per_layer: bands 1-6 / 7-10 / 11-14 / all; all_only: the all band; pending: per layer only after the engineer's S51 parity PASS line, out on FAILED, else all; bands: a family's own native band list (k4: lead / radlab / engineer 16:5xZ, _S19_K4BAND 1-7 / 8-11 / 12-14 + _K4_15). | 2026-10-12T17:36:33Z: x2a1 REVERTED (the updater matched a quoted verdict string in the engineer's 17:22:55Z announcement, not a verdict line; engineer 17:3xZ). | 2026-10-12T17:44:09Z: k21n / rsy moved from pending to per_layer (their S51 PORT PARITY PASSED lines are real verdict lines, 08:05:29Z / 08:20:41Z), so no make file needs a TEAM_LOG substring match for them any more (lead 17:3xZ: anchor every trigger). | 2026-10-12T22:53:06Z: bscale_0 VETOED by the lead (rule (b'), D 0.24 / 0.28): bscale back to all_only as in ROUTES.json.archived_20261012T224956Z; k22 [14,14] kept (D 1.00 / 1.00).",
+ "per_layer": [
+  "iso",
+  "nfs",
+  "nkl1",
+  "nkl2",
+  "nkl3",
+  "k4la1",
+  "kc",
+  "s_carry",
+  "k21n",
+  "rsy"
+ ],
+ "all_only": [
+  "bscale",
+  "X1",
+  "ssb",
+  "nfd",
+  "n6b",
+  "n6r",
+  "n6d"
+ ],
+ "pending": {},
+ "bands": {
+  "k4": [
+   [
+    1,
+    7
+   ],
+   [
+    8,
+    11
+   ],
+   [
+    12,
+    14
+   ],
+   [
+    15,
+    15
+   ],
+   [
+    0,
+    15
+   ]
+  ],
+  "k22": [
+   [
+    14,
+    14
+   ]
+  ],
+  "x2a1": [
+   [
+    7,
+    7
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    8,
+    10
+   ],
+   [
+    11,
+    14
+   ],
+   [
+    0,
+    15
+   ]
+  ]
+ },
+ "applied_parity": [
+  "k22_14",
+  "x2a1_7"
+ ],
+ "vetoed": {
+  "bscale_0": "lead 22:50:09Z: rule (b') D = 2 s c - s^2 = 0.24 / 0.28 < 0.5 (s 1.24 / 1.30, c 0.718 / 0.757); bscale restored to all_only (its archived entry)"
+ },
+ "rule_b_prime": "lead 22:50:09Z: a route enters only if its ROUTE PARITY line PASSED and D = 2 s c - s^2 >= 0.5 on both parity networks (routes_update_v4)",
+ "rejected_b_prime": {}
+}

@@ -1,0 +1,96 @@
+{
+  "utc": "2026-10-21T10:37:06Z",
+  "status": "METADATA_ONLY_PREPARATION_FIXTURES_PASS_NO_337506_VERDICT",
+  "script": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/hosted337506_runtime_v1/audit_hosted_v1.py",
+  "script_sha256": "8a0832140b8efd124e459417aa483cbd51b47289f1fbc9761a60290cff8c9d31",
+  "reference_raws": [
+    {
+      "id": 337466,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/public_337466_v2/raw_20261021T045554Z.json",
+      "sha256": "5d5cb926fca7e645bcd92d58f81db6ee42848d3e1c889227f2f6bdb20bc39b02"
+    },
+    {
+      "id": 337473,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/public_337473_v2/raw_20261021T055632Z.json",
+      "sha256": "d915362785b3fb513e78b110b74a3f0e83e2a84fdce2c68d1e06c0c3038e5520"
+    }
+  ],
+  "checks": [
+    {
+      "fixture": "337466",
+      "valid": true,
+      "failed_checks": []
+    },
+    {
+      "fixture": "337473",
+      "valid": false,
+      "failed_checks": [
+        "full_progress",
+        "smoke_success",
+        "all_runtime_rows_clean",
+        "setup_identity_unique",
+        "public_aggregate_no_failure"
+      ]
+    },
+    {
+      "fixture": "residual_above_cap",
+      "valid": false,
+      "failed_checks": [
+        "all_runtime_rows_clean"
+      ]
+    },
+    {
+      "fixture": "budget_failure_flag",
+      "valid": false,
+      "failed_checks": [
+        "all_runtime_rows_clean"
+      ]
+    },
+    {
+      "fixture": "setup_failure",
+      "valid": false,
+      "failed_checks": [
+        "setups_all_success_within_5s"
+      ]
+    },
+    {
+      "fixture": "duplicate_runtime_index",
+      "valid": false,
+      "failed_checks": [
+        "all100_unique_indices"
+      ]
+    },
+    {
+      "fixture": "missing_runtime_row",
+      "valid": false,
+      "failed_checks": [
+        "all100_unique_indices",
+        "all100_unique_named_cases"
+      ]
+    },
+    {
+      "fixture": "effective_invoice_changed",
+      "valid": false,
+      "failed_checks": [
+        "all_runtime_rows_clean"
+      ]
+    },
+    {
+      "fixture": "public_exact_score_outside_rounded_interval",
+      "valid": false,
+      "failed_checks": [
+        "page_score_consistent_with_rounded_public50"
+      ]
+    },
+    {
+      "fixture": "wrong_nested_submission_id",
+      "valid": false,
+      "failed_checks": [
+        "submission_identity"
+      ]
+    }
+  ],
+  "prior100_comparison_matches": true,
+  "candidate_import_or_execution": false,
+  "public_polling": false
+}

@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-21T05:32:39Z",
+  "status": "HOSTED_FAILURE_CONFIRMED_NO_PROMOTION_NO_RETRY",
+  "submission_id": 337473,
+  "current_best_unchanged": 337466,
+  "raw_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/public_337473_v2/raw_20261021T053156Z.json",
+  "raw_sha256": "40ecfc17b0f403e04c294c2434ed2a8910d19ede807f4a1fc2daffb6ebee5301",
+  "progress": {
+    "total_mlps": 100,
+    "mlps_completed": 29,
+    "mlps_in_flight": 5,
+    "mlps_failed": 1,
+    "pct_complete": 30.0
+  },
+  "failed": [
+    {
+      "mlp_index": 27,
+      "mlp_name": "brandy-johnston",
+      "dataset_row": null,
+      "state": "failed",
+      "telemetry": {
+        "flops_used": 245780486018.0,
+        "effective_compute": 245780486018.0,
+        "participant_predict_wall_s": 116.83155765000004,
+        "flopscope_server_kernel_wall_s": 106.697817466,
+        "flopscope_server_overhead_wall_s": 9.732010903000031,
+        "residual_wall_time_s": 0.4017292810000015,
+        "flopscope_self_report": {
+          "wall_s": 116.831259081,
+          "backend_s": 106.697817466,
+          "overhead_s": 9.731712333999994,
+          "residual_s": 0.4017292810000015
+        },
+        "participant_setup_wall_s": null,
+        "participant_roundtrip_wall_s": 117.22821894900005,
+        "flopscope_server_comms_wall_s": 0.984162355,
+        "budget_exhausted": false,
+        "time_exhausted": false,
+        "residual_wall_time_exhausted": true,
+        "combined_budget_exhausted": false,
+        "setup_generation": 0,
+        "telemetry_schema_version": 4
+      },
+      "error_code": "RESIDUAL_WALL_TIME_EXHAUSTED"
+    }
+  ],
+  "reference_same_index": [
+    {
+      "mlp_index": 27,
+      "mlp_name": "brandy-johnston",
+      "dataset_row": null,
+      "state": "completed",
+      "telemetry": {
+        "flops_used": 246153314300.0,
+        "effective_compute": 246153314300.0,
+        "participant_predict_wall_s": 109.9241201099976,
+        "flopscope_server_kernel_wall_s": 99.885878552,
+        "flopscope_server_overhead_wall_s": 9.655313897997601,
+        "residual_wall_time_s": 0.3829276600000071,
+        "flopscope_self_report": {
+          "wall_s": 109.924041762,
+          "backend_s": 99.885878552,
+          "overhead_s": 9.65523555,
+          "residual_s": 0.3829276600000071
+        },
+        "participant_setup_wall_s": null,
+        "participant_roundtrip_wall_s": 110.30152404399996,
+        "flopscope_server_comms_wall_s": 0.983744985,
+        "budget_exhausted": false,
+        "time_exhausted": false,
+        "residual_wall_time_exhausted": false,
+        "combined_budget_exhausted": false,
+        "setup_generation": 0,
+        "telemetry_schema_version": 4
+      },
+      "error_code": null
+    }
+  ],
+  "root_assessment": "Previous clean local gates and acknowledged narrow hosted headroom did not prevent a residual failure. Accepting a +0.661197% local residual-instruction increase with previous hosted max0.396739206 was insufficient. Root owns that release decision. Require measured material runtime reduction on final stack before another fire; no unchanged resubmission. Accuracy research continues."
+}

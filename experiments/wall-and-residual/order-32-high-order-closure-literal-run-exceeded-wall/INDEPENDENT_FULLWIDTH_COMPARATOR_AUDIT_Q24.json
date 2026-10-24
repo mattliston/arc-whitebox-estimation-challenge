@@ -1,0 +1,229 @@
+{
+  "schema": "fb-ec4-q24-independent-fullwidth-comparator-audit-v1",
+  "status": "PASS_FOR_ONE_EXPLORATORY_BOARD_PACKAGING_ATTEMPT_ONLY__RAW_MSE_AND_GENERAL_ROBUSTNESS_HOLD",
+  "created_at_utc": "2026-08-24T10:25:56Z",
+  "auditor": {
+    "task": "/root/closure_v4_strict_audit",
+    "relationship": "independent read-only source, receipt, provenance, and arithmetic audit",
+    "estimator_source_edits": 0,
+    "problem_graph_edits": 0,
+    "submission_actions": 0
+  },
+  "frozen_sources": {
+    "v4": {
+      "path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+      "bytes": 68698,
+      "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+    },
+    "q24": {
+      "path": "estimator.py",
+      "bytes": 68115,
+      "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52"
+    }
+  },
+  "bound_evidence": {
+    "independent_q24_source_and_literal_meter_audit": {
+      "path": "INDEPENDENT_SOURCE_AND_METER_AUDIT_Q24.json",
+      "bytes": 9275,
+      "sha256": "716bfc2afedff263f633f694009325233523e7d29ecf62521db91d0d844c52ef"
+    },
+    "q24_literal_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_q24_full_v1_b38cd865_n1_s8_seed20260824/receipt.json",
+      "bytes": 23308,
+      "sha256": "d69fd338972386af2c45f120d2983d5036a9a52ae57845a01977658e4c21fd11"
+    },
+    "v4_literal_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_v4_sparse_resetarena_cp3compact_n1_s8_seed20260824/receipt.json",
+      "sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017"
+    },
+    "official_weight_law_audit": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1_board_promotion_v1/PHASE2_WEIGHT_GENERATION_LAW_AUDIT.json",
+      "bytes": 10767,
+      "sha256": "dac91b63d4f71500917335dfaea8f1fc0641e618dbc224e3ac26fed906e65e03"
+    },
+    "base_comparator": {
+      "path": "compare_target_free_v4_q24.py",
+      "bytes": 17399,
+      "sha256": "a2081115d0c1759fad11e18d05a0f53fcad1506088bbfe3a0515dba0e6940566"
+    },
+    "official_seed_20260824_receipt": {
+      "path": "runs/fullshape_seed20260824_v4_vs_q24/receipt.json",
+      "bytes": 9740,
+      "sha256": "70c8bbc189c9dc2ed900d286264fc843e2782bf82243a9117cceb57433499ba7"
+    },
+    "additional_fullwidth_preregister": {
+      "path": "PREREGISTER_ADDITIONAL_FULLWIDTH_SEEDS.json",
+      "bytes": 2427,
+      "sha256": "8396259d723a9006d4d096c5f09a64877cd367fbf70e3e4b4e02d277d448129f"
+    },
+    "additional_fullwidth_runner": {
+      "path": "run_additional_fullwidth_seeds.py",
+      "bytes": 7703,
+      "sha256": "f596d4918e9be4bf838b2beb3efcf29fe310f181049062df051bc326b2a80f2d"
+    },
+    "additional_fullwidth_receipt": {
+      "path": "runs/additional_fullwidth_seeds20260825_20260826/receipt.json",
+      "bytes": 20175,
+      "sha256": "777dfdf5794339d1de9cdd3fe870201030c1bf5f70042ddd823d9d8c888dd62f"
+    },
+    "off_contract_small_width_stress_receipt": {
+      "path": "runs/random_he_w32_w64_w128_seeds20260825_20260826/receipt.json",
+      "bytes": 36367,
+      "sha256": "c414f2601552397b807ee76a87c463de836395ecf950129ae1292169a4b3bb34"
+    }
+  },
+  "phase2_law": {
+    "production_width": 1024,
+    "production_depth": 16,
+    "weight_law": "float32 iid Gaussian He: standard_normal * sqrt(2/1024)",
+    "bias_or_skip": false,
+    "forward_law": "x = ReLU(x @ W) for each of 16 dense matrices",
+    "basis": "pinned local WhestBench 0.16.0 official generator and evaluator source",
+    "qualification": "The three full-width panels follow this law exactly. The width-32/64/128 panels are useful stress tests but are outside the submitted estimator's Phase-2 geometry contract."
+  },
+  "independent_checks": {
+    "exact_file_hashes_and_sizes_replayed": true,
+    "q24_and_v4_live_source_bytes_match_frozen_hashes": true,
+    "q24_namespace_has_no_pycache_or_pyc": true,
+    "drivers_require_python_minus_B": true,
+    "drivers_pin_estimator_and_antecedent_receipt_hashes": true,
+    "drivers_use_separate_sequential_flopscope_budget_contexts": true,
+    "drivers_call_production_entrypoint_at_width_1024_depth_16": true,
+    "datasets_targets_truth_scores_and_board_rows_accessed": 0,
+    "fits_or_sampling_used_by_estimator": 0,
+    "official_seed_20260824_all_16_weight_hashes_match_both_literal_meter_receipts": true,
+    "official_seed_20260824_aggregate_weight_hash_matches_both_literal_meter_receipts": true,
+    "additional_seed_20260825_all_16_weight_hashes_independently_reconstructed": true,
+    "additional_seed_20260825_aggregate_weight_hash_independently_reconstructed": true,
+    "additional_seed_20260826_all_16_weight_hashes_independently_reconstructed": true,
+    "additional_seed_20260826_aggregate_weight_hash_independently_reconstructed": true,
+    "all_three_receipt_arithmetic_replayed": true,
+    "all_three_q24_and_v4_runs_complete_finite_float32_16_by_1024": true,
+    "all_three_final_disagreement_mse_at_or_below_preregistered_1e_minus_10": true,
+    "additional_two_seed_decision_matches_preregistered_law": true,
+    "numerical_prediction_replay_performed_by_this_auditor": false,
+    "numerical_prediction_replay_limitation": "Receipts persist prediction hashes and aggregate disagreement telemetry, not the prediction arrays. This audit independently verifies exact source/driver/fixture provenance and every persisted arithmetic relation; it does not claim a second full estimator execution."
+  },
+  "production_shape_disagreement": {
+    "registered_final_mse_limit": 1e-10,
+    "panels": [
+      {
+        "seed": 20260824,
+        "aggregate_weights_sha256": "4073521961bbac02491a2d1ba620c568fea73ed21bf052c73e42c807286a56ec",
+        "first_non_bitwise_layer": 8,
+        "final_mse": 2.780872859986861e-17,
+        "final_rms": 5.2733982022855636e-9,
+        "final_max_abs": 1.1920928955078125e-7,
+        "all_layer_mse": 4.995262127358104e-18,
+        "v4_finite": true,
+        "q24_finite": true,
+        "gate_pass": true
+      },
+      {
+        "seed": 20260825,
+        "aggregate_weights_sha256": "7d410e3c66cecbfeb6a2c86ba417377db5ce7404134d3ea1ee9f286fb73d5655",
+        "first_non_bitwise_layer": 8,
+        "final_mse": 9.447567425721169e-17,
+        "final_rms": 9.719859785882289e-9,
+        "final_max_abs": 2.384185791015625e-7,
+        "all_layer_mse": 9.084122793965009e-18,
+        "v4_finite": true,
+        "q24_finite": true,
+        "gate_pass": true
+      },
+      {
+        "seed": 20260826,
+        "aggregate_weights_sha256": "383fc8daedd841d0220a54e966544ad92ec0b1309a2723168b461b2a3d488ed8",
+        "first_non_bitwise_layer": 9,
+        "final_mse": 3.457034780314721e-17,
+        "final_rms": 5.879655415340869e-9,
+        "final_max_abs": 1.1920928955078125e-7,
+        "all_layer_mse": 1.3083669420612768e-17,
+        "v4_finite": true,
+        "q24_finite": true,
+        "gate_pass": true
+      }
+    ],
+    "panel_count": 3,
+    "finite_pair_count": 3,
+    "gate_pass_count": 3,
+    "maximum_final_mse": 9.447567425721169e-17,
+    "maximum_final_max_abs": 2.384185791015625e-7,
+    "interpretation": "On three fixed target-free production-shape draws from the installed official law, Q24 and V4 differ only at approximately float32 rounding scale in the final reported means. This is strong local action-equivalence evidence, not a proof over every hidden MLP and not an accuracy measurement."
+  },
+  "literal_q24_resource_result": {
+    "status": "PASS_PHASE2_SUBPROCESS_INTERFACE_AND_METER__ACCURACY_UNSCORED",
+    "budget_flops": 2199023255552,
+    "flops_used": 2131249329109,
+    "budget_fraction": 0.9691799864908717,
+    "budget_percent": 96.91799864908717,
+    "headroom_flops": 67773926443,
+    "operation_calls": 6878,
+    "backend_time_s": 28.354737606830895,
+    "residual_time_s": 0.29449143446981907,
+    "wall_time_s": 29.222194833680987,
+    "descendant_peak_rss_bytes": 4507058176,
+    "finite": true,
+    "failed_mlps": 0,
+    "delta_vs_v4_flops": -48493625360,
+    "delta_vs_v4_backend_s": -6.003302773460746,
+    "delta_vs_v4_wall_s": -6.11890974920243,
+    "qualification": "This is one exact local literal meter run. It is not a guarantee of board wall time, and residual headroom to 0.4 seconds remains finite rather than broad."
+  },
+  "off_contract_robustness_hold": {
+    "panel_widths": [
+      32,
+      64,
+      128
+    ],
+    "panel_count": 6,
+    "q24_nonfinite_or_failed": 3,
+    "v4_nonfinite_or_failed": 1,
+    "finite_pair_count": 3,
+    "finite_pair_final_mse": [
+      1711596398969991.0,
+      4419045801950576.5,
+      312353448839.7661
+    ],
+    "finite_pair_final_relative_rms": [
+      265.32103580261315,
+      343.2383957388062,
+      13.19118734483719
+    ],
+    "classification": "MATERIAL_GENERAL_ROBUSTNESS_FAILURE_OUTSIDE_PHASE2_GEOMETRY_CONTRACT",
+    "interpretation": "These failures prohibit a claim that Q24 is generally equivalent to Q32 across width or adversarial geometry. They do not directly predict the width-1024 Phase-2 board, whose official generator law and fixed geometry are matched by the three passing full-width panels."
+  },
+  "verdict": {
+    "source_and_phase2_api_compliance": "PASS_BY_BOUND_INDEPENDENT_SOURCE_AND_METER_AUDIT",
+    "literal_phase2_resource_gate": "PASS",
+    "production_shape_official_law_action_gate": "PASS_3_OF_3_FIXED_TARGET_FREE_SEEDS",
+    "general_q24_q32_science_equivalence": "HOLD",
+    "raw_mse_or_accuracy": "UNSCORED_AND_UNPROVED",
+    "board_wall_completion": "UNPROVED",
+    "exploratory_board_packaging": "PASS_FOR_EXACTLY_ONE_ATTEMPT_AFTER_FINAL_HASH_BOUND_FREEZE_AND_FAIL_CLOSED_PACKAGE_VERIFICATION",
+    "board_submission": "SEPARATE_ROOT_AUTHORITY_REQUIRED",
+    "why": "The Q24 source has a literal Phase-2 resource pass and is materially faster locally than the V4 source that timed out on most of its first board attempt. It is near-identical to V4 on three fixed production-shape official-law weight stacks. The off-contract failures and absence of target values make one board attempt appropriate as telemetry, but do not justify a general scientific, raw-MSE, or leaderboard claim."
+  },
+  "promotion_conditions": [
+    "Estimator bytes remain exactly b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52 / 68115 bytes.",
+    "A final source manifest, freeze receipt, and archive bind the exact source, literal meter receipt, independent source/meter audit, this comparator audit, and the production-shape comparator receipts.",
+    "A fail-closed local package verifier passes before any remote create action.",
+    "At most one exploratory board attempt is authorized by this audit; no retry or target-driven mutation follows automatically.",
+    "Any partial board result remains partial telemetry and cannot be reported as an aggregate raw MSE.",
+    "No result may be described as sub-1e-8 unless 100/100 board MLPs complete, zero fail, and the official unrounded aggregate raw final-layer MSE is strictly below 1e-8."
+  ],
+  "scope": {
+    "target_free": true,
+    "dataset_rows_opened": 0,
+    "public_or_private_target_values_opened": 0,
+    "truth_values_computed": 0,
+    "raw_mse_computed": false,
+    "score_computed": false,
+    "network_accesses": 0,
+    "credentials_accesses": 0,
+    "estimator_source_mutations": 0,
+    "package_mutations": 0,
+    "submission_attempts": 0,
+    "problem_graph_mutations": 0
+  }
+}

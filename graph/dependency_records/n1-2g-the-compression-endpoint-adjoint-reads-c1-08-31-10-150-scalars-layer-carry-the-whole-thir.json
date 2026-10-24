@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N1_2G_ADJOINT",
+    "label": "N1.2g THE COMPRESSION: endpoint adjoint reads (C1, 08-31) — ~10-150 scalars/layer carry the whole third-order effect",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 2,
+    "summary": "S = sum_l <dK21_l, M_l> with closed-form t0 adjoint M_l = diag(a2_l)[sum_{L>l} B_{l->L} diag(S_v g_L) B_{l->L}^T] diag(e1_l); sanity 15.7% linear capture; value-rank r95 per layer L7 104, L8 135, L10 45, L11 14, L12 93, L13 11, L14 8 (L9 >200). Shelved 08-31 because the reads seemed to need the tensor (C3 randomized-read FAIL). Re-found 2026-09-01 (T-21). The DIRECT emission-delta supply for the reads is dead (T-28: engine and card emissions agree to 1e-5); the reads must be fed by the carried residual (N1.2b) — the adjoint remains the cheapest way to CONSUME whatever carrier wins. T-43: the linear consumption frame is retired for value; the adjoint compression remains a cheap SCREEN for candidate supplies, not the deploy path.",
+    "terminal_criterion": "Closed when a deployable carrier's reads reproduce the dense <E_l, M_l> value per layer on r35 and r100.",
+    "evidence": [
+      {
+        "claim": "C1 receipt + T-21/T-28.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/C1_ADJOINT_RANK_rank0035.json + experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "The whole third-order effect on the answer is about a thousand numbers with a known formula for the weights; what remains is producing those numbers cheaply."
+  }
+}

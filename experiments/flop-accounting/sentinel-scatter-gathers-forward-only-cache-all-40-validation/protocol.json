@@ -1,0 +1,90 @@
+{
+  "schema": "scatter-forward-cache-plus-unique-gather-v1",
+  "root_selected": true,
+  "scope": "native2_only",
+  "source_parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_unique_row_gather_v1/candidate.py",
+    "sha256": "ead972324718e466d6f6b847d85ca4995d11acff423035bc5ba28458214e8380",
+    "bytes": 975940
+  },
+  "score_comparator": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_exact_scatter_rows_v1/candidate.py",
+    "sha256": "0f7b93c4c45c447d76f04f428c1aeec066c5eb30027671653565b7c5fe3d93c3",
+    "bytes": 975190
+  },
+  "ancestor": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_linear_delta_v1/candidate.py",
+    "sha256": "6f104e9db5ca32dc5e7724d64e03fd969bfff9d6cb48ce2b55695a998eecd1bb",
+    "bytes": 973240
+  },
+  "root_selection": "Prospective supersession: combine reviewed UG exact cost saving with memory repair; ordinary exact gain gates. Resource-only positive-gate draft is preserved and never executed.",
+  "superseded_resource_only": {
+    "candidate": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_scatter_forward_cache_v1/candidate.py",
+      "sha256": "92d0227732cdb5c20e372b36a8fe83d695e72241005538a0b5a0b0c0b3b44731",
+      "bytes": 975164
+    },
+    "config": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_scatter_forward_cache_v1/native_screen.json",
+      "sha256": "dc0a9a04605e8b82604b70fde141a9527d1e0beaafd5235ecf6c77a0ef656086",
+      "bytes": 27111
+    },
+    "build": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_scatter_forward_cache_v1/build.json",
+      "sha256": "aa375054478196d2caea6d6081946ada397a0cd258108b48cc6de2589dc4ac1f",
+      "bytes": 2925
+    }
+  },
+  "preserved_serving_memory_failure": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_exact_scatter_rows_v1/serving_memory_failure_v1.json",
+    "sha256": "c6639a3097c2555bd2a972560b68be99e0add667009e6a2f2100fc7a3aa20dba",
+    "bytes": 2443
+  },
+  "preserved_worker_guard": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_exact_scatter_rows_v1/serving_v2_worker_guard.json",
+    "sha256": "734c4ba48c658a952bb772e4f4911a0e2f26e7ed15357bbc5c28685b5767c19b",
+    "bytes": 1297
+  },
+  "changes": [
+    {
+      "before": "_UBC_LIMIT = 640000000",
+      "after": "_UBC_LIMIT = 512000000"
+    },
+    {
+      "before": "if (len(run['cache']) < 5 and run['bytes'] + size <= _UBC_LIMIT",
+      "after": "if (len(run['cache']) < 3 and run['bytes'] + size <= _UBC_LIMIT"
+    },
+    {
+      "before": "inner = _ubc_transpose_product(Dv, Fv2, uv, 'vt')",
+      "after": "inner = _shared_old384_mm(Dv, Fv2.T)"
+    },
+    {
+      "before": "inner_u = _ubc_transpose_product(Su, Fu, uv, 'ut')",
+      "after": "inner_u = _shared_old384_mm(Su, Fu.T)"
+    }
+  ],
+  "unique_gather": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_unique_row_gather_v1/protocol.json",
+    "sha256": "3fe0a60bd158442ff7ae9bc4d058612903a168e6f8345a7caae0eea6e64090c2",
+    "bytes": 3923
+  },
+  "unique_gather_review": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_unique_row_gather_v1/independent_source_review.json",
+    "sha256": "0fab621accd78e58fc578fc0a073c7b6a849a4939dc44a4994239fea0c310b4f",
+    "bytes": 2925
+  },
+  "memory": "Restore original forward-only512MB/3slots and exact original inner GEMM calls; expected~220MB removal of full-transpose copies. Current SC20th-worker RSS exceeded7.5GB; actual full20 requalification required, no leak or success presumed.",
+  "forecast": "UG saved-shape~.225% less historical~.026% transpose-cache benefit gives~.199% net; forecast only, no measured new result. UG extra live storage\u2264131KB.",
+  "gates": "Original exact native2 >=.02% adjusted gain,2wins,maxreg0,ALL16 parity vsSC. Own boundary then full8 >=.02%,8wins,maxreg0,CIupper<0,additional6negative,ALL16. Total native8 gainS34>=.8 before fixed40. Fixed40>=1% and complete20-network serving/resources unchanged.",
+  "resources": {
+    "candidate_cache_bytes": 512000000,
+    "candidate_slots": 3,
+    "exact_SC_control_cache_bytes": 640000000,
+    "other_controls_cache_bytes": 512000000,
+    "process_rss_bytes": 7500000000,
+    "added_swap_bytes": 0
+  },
+  "no_positive_gate_exception": true,
+  "model_executed": false,
+  "submitted": false
+}

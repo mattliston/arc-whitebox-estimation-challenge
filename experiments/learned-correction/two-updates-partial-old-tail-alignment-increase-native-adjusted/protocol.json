@@ -1,0 +1,343 @@
+{
+  "schema": "rrpi-tail-aligned-fixed-warm2-v1",
+  "root_admitted": true,
+  "explicit_post_outcome_proposal": true,
+  "joint_qualification_stays_failed": true,
+  "native_gradient_certified": false,
+  "baseline": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "training_ranks": [
+    38,
+    40,
+    41,
+    43,
+    44,
+    46,
+    47,
+    49
+  ],
+  "updates": 2,
+  "batch": 4,
+  "schedule_steps": 120,
+  "torch_runtime": "/Users/matt/anaconda3/bin/python",
+  "resource_limits": {
+    "seconds": 600,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "threads": 1,
+    "serial_only": true
+  },
+  "native_serving_rss_max": 7500000000,
+  "optimizer": {
+    "name": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "main_lr": 0.0001,
+    "trunk_lr": 5e-05,
+    "warmup": 3,
+    "trunk_warmup": 5,
+    "clip": 1.0,
+    "dial_clip": 1.0,
+    "loss_multiplier_per_network": 25000000.0,
+    "dial_lr": {
+      "X1": 0.002,
+      "X0": 0.0032,
+      "X2": 0.0032,
+      "bscale": 0.0008,
+      "s_carry": 0.0002,
+      "s_new": 0.0008,
+      "c0": 0.002,
+      "k4a": 0.004,
+      "k4b": 0.004,
+      "k4c": 0.004
+    }
+  },
+  "remaining_structural_gaps": [
+    "Torch old-tier core uses exact projected weighted Gram; S30 onward native uses Nystrom approximate future core.",
+    "Torch does not include native late common-factor256 approximation atL10-15.",
+    "Torch bank push lacks native negative dead-side rowcut atL1-14.",
+    "Torch pair/GNN/third-moment precision and Gaussian-series order differ from S33 precision/order edits.",
+    "Torch uses ordinary products; native Winograd/depth/batching association and lazy representations differ.",
+    "Tail correction uses full materializedU/F; native lazyblock/deadcutrowdomain/common256/YNT precision remainsunmatched. Not fullnativegradientcertification."
+  ],
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 1,
+    "max_per_network_regression_pct": 1.0,
+    "all16_finite": true,
+    "L0_exact": true,
+    "raw_pct_at_most": -0.1
+  },
+  "native8_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 6,
+    "ci_upper_below": 0,
+    "additional6_negative": true,
+    "raw_pct_at_most": -0.1
+  },
+  "pins": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/refit6b/s6bcard_loop5js.py",
+      "sha256": "81f9cfcd2e6f5998bfb12083ffec06ed6e5efe0f6aec4d25e41e3d161463ca8d",
+      "bytes": 4791
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/s6bcard_joint2t.py",
+      "sha256": "ffc1b3e094ee41121d3115d2f06deb3291aeabf117cfed30b3ecfcbca367a20a",
+      "bytes": 6010
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/s6bcard_joint2.py",
+      "sha256": "fb02fdf0928607322c9c5f46edc10e4a83817308bfc0b8590070454c1eeb6fbc",
+      "bytes": 5942
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/covstep.py",
+      "sha256": "6b12867a9a014d6df2d859ad926aa5516d8b5fb87b6045f85a1815e09bb8c558",
+      "bytes": 12745
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/gn3_knobs.py",
+      "sha256": "69b82a752c7595581d6f1c97c377898f8f0fd6a84446681ddcbf001e9a7f6340",
+      "bytes": 5069
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_analyst_v1/s6bcard.py",
+      "sha256": "d805ab38bdfdd6233aa04b3d840d077e6b9dadaa46db2d9bb2f7a732765b2630",
+      "bytes": 4606
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_analyst_v1/s2card.py",
+      "sha256": "f46ebfd97c10ef77f9010648da809fcc30973cfefa5abdbc78c5eab9dc9b650c",
+      "bytes": 3746
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/gn_linear_hook.py",
+      "sha256": "737966a21285d2e48ba6748f7c4538720f6c1ab11ff2246ff8a219e4e63ecb5e",
+      "bytes": 2743
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/pair_series_torch.py",
+      "sha256": "b9c464ef35ec83df34b6f038958b9ac6cbf25d555f251838ebb8729c2f2d149d",
+      "bytes": 2447
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/join_nystrom_torch.py",
+      "sha256": "1ffca5aff153143d3902bbd4e83b8c6d5cabbc9efc8c798da217afdc512484f1",
+      "bytes": 2752
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/model_bank_research.py",
+      "sha256": "725c79ad99a0ede8cd861c6ae9be492c2a5f60ea9a921c71ed78b14ba531da01",
+      "bytes": 15607
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/model_bank_bfix.py",
+      "sha256": "fb71c0cb387e109e5fcbfb7d8f2cf0388d38c4488fbbb5044b6ee781c6623fe9",
+      "bytes": 17364
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/common.py",
+      "sha256": "6b32f8d12526f6e16cdda3fed9aeb79260f482d145834a4588c4ef21d90f9a78",
+      "bytes": 3437
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_porter_v1/star_nys_test.py",
+      "sha256": "9c9d5773b91e0079995e76fd217e84c5384bfa47c21dc147aac4c2a595f13ac0",
+      "bytes": 5649
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/learnable_joint_basis_implementation_v1/zero.py",
+      "sha256": "63bb5d15786995b74d761a6f6690170710ab397497351b67f0cf794401362f94",
+      "bytes": 646643
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_shared384_causal_p_v1/shared_operator.py",
+      "sha256": "09136ff645869df9d8fae3e2e8c16ff65c777971c308d1ba8c124d35649d2ad2",
+      "bytes": 8458
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/refit6b/refit_mps_v3j2.py",
+      "sha256": "358945528a45b43e6dce42fdfcb246af6f96e76cd33377cae2cbd71207b07b1c",
+      "bytes": 11544
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/refit6b/launch_loopR8s.sh",
+      "sha256": "07c74f4c789b8d2837b6d84ea189d7667ec8324f6edc1a70f11bf0111f28e399",
+      "bytes": 1667
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/refit6b/s6b_loopR8s_joint_3ep/dials_epoch1.json",
+      "sha256": "e881c6da752d60845d583ef98e916fd21f809d98d6d416959ec8e450b0621992",
+      "bytes": 344
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/learnable_joint_basis_fit_v1/inputs.json",
+      "sha256": "bdcdf165cc8d4973f0bde6a27f53c32213b88269c1cba9af00622ebc6167c177",
+      "bytes": 140239
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_tail_warm2_v1/train.py",
+      "sha256": "c4cf72c8913f4400dd28572f872ae02dc83359e1e7fe2007682529de361b8c82",
+      "bytes": 10364
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_tail_warm2_v1/native_parameters.py",
+      "sha256": "792d5380ca525ff7daec77639e5650f9f8aa55cbdfb87cea1e815b406a943297",
+      "bytes": 6316
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_tail_warm2_v1/export.py",
+      "sha256": "272726b8362b507072f5cc83444d3ce5616fb90a4e316530b50ba9455caaf754",
+      "bytes": 7063
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/rrpi_training_tail_alignment_v1/tail_adapter.py",
+      "sha256": "81f5774e283139d0d1daf048c2ba9dd9a22cab279e7b1741471be1960fedfe78",
+      "bytes": 3113
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/rrpi_training_tail_alignment_v1/probe.py",
+      "sha256": "bd95b0ba7ba55aaa7a2d464e3985a3872fd2d4411cae8c568331fcd56a6195b9",
+      "bytes": 4427
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/rrpi_training_tail_alignment_v1/protocol.json",
+      "sha256": "a5488c3d37e142afc870cef0cfce3275fda829d32351fd0eaf51068d60cebcac",
+      "bytes": 12123
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/rrpi_training_tail_alignment_v1/result.json",
+      "sha256": "4f48c8eb41c5090215601589180eaa6c9c77c5984872c5804493a3fbb16853c2",
+      "bytes": 2801
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/rrpi_training_tail_alignment_v1/guard.json",
+      "sha256": "e6d8eb465a7c14417f1c73a414aed5438499fbd71b5f3b018ee43a59b4e6ce80",
+      "bytes": 764
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+      "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+      "bytes": 978073
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/learnable_joint_basis_training_qualification_v1/guard.py",
+      "sha256": "314ed428e1986abf6b7c05daa5c0ea7c1b5e6ebe6472ba4a34c2ed59a80b5f76",
+      "bytes": 4268
+    }
+  ],
+  "data": [
+    {
+      "rank": 38,
+      "weights": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0038/weights.npy",
+        "sha256": "1345c898653b7bd7edc97bbeaa7dc2c3a6d2b13dbb96109708ae4f14f6e5ec72",
+        "bytes": 67108992
+      },
+      "truth": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0038.npz",
+        "sha256": "ce59ad52dbe57a301930048a3ad80052b73112aa0186587a16dc6568199f4380",
+        "bytes": 66056
+      }
+    },
+    {
+      "rank": 40,
+      "weights": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0040/weights.npy",
+        "sha256": "3d54ce7ea90032666cbd013235bd05cb94baaba702443d146853f89153d0b815",
+        "bytes": 67108992
+      },
+      "truth": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0040.npz",
+        "sha256": "e2f01570b11347f7ea5037767614b33a62213a722ff24e5a11b72d9a72da4d79",
+        "bytes": 66056
+      }
+    },
+    {
+      "rank": 41,
+      "weights": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0041/weights.npy",
+        "sha256": "f2de6a61d31318c83e0c6521cecfc0c9744cc9003b8a5bb49e3b9067c851f909",
+        "bytes": 67108992
+      },
+      "truth": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0041.npz",
+        "sha256": "f81d2f9e96874e1f6202a0cfb88a5f981061cc72b59818dd7827d7529fc620d4",
+        "bytes": 66056
+      }
+    },
+    {
+      "rank": 43,
+      "weights": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0043/weights.npy",
+        "sha256": "4101338f951b5f02af70acbeb03f167428f33ac1cfd11875922c12eb5d75321c",
+        "bytes": 67108992
+      },
+      "truth": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0043.npz",
+        "sha256": "173fd7f6300cb5ad53d9aacb503e363b433607cf95529117b6a46ab10f9c5d21",
+        "bytes": 66056
+      }
+    },
+    {
+      "rank": 44,
+      "weights": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0044/weights.npy",
+        "sha256": "a1fd1c896825a764ede3d1405256a9cd33d120b4100269a3ecf3262c4b2a2153",
+        "bytes": 67108992
+      },
+      "truth": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0044.npz",
+        "sha256": "ac67b7edb2890b37a5c5bd10e6bbb998e4fb14244681c06b8925cfcbb2e092c5",
+        "bytes": 66056
+      }
+    },
+    {
+      "rank": 46,
+      "weights": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0046/weights.npy",
+        "sha256": "0295689cbb1fc304beb63c5b682c48a4846300202dbd983bbaaaeb9cbfc288d9",
+        "bytes": 67108992
+      },
+      "truth": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0046.npz",
+        "sha256": "39ef2099f0d23aca194fa90be5a96b716e8d545b4eb379c7e99ae8d28a1b79c3",
+        "bytes": 66056
+      }
+    },
+    {
+      "rank": 47,
+      "weights": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0047/weights.npy",
+        "sha256": "5c5343824e9756968eeaa3e6f4927d2b303093fbf20f97e135df7ab655eff360",
+        "bytes": 67108992
+      },
+      "truth": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0047.npz",
+        "sha256": "055e4097378ae13476387092afc31aa184698989bf6d6b5aa267ac5cb5069727",
+        "bytes": 66056
+      }
+    },
+    {
+      "rank": 49,
+      "weights": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0049/weights.npy",
+        "sha256": "afaa2af6f9b5feea1351093896754459e504e360f75d9b6ad60696ffedfc9f9f",
+        "bytes": 67108992
+      },
+      "truth": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0049.npz",
+        "sha256": "336f0a101e937361fc96f1535a0470f60d414b56da232fd198a6df44843d84c2",
+        "bytes": 66056
+      }
+    }
+  ],
+  "selection": "One fixed2-update8example endpoint, unchanged S33warm recipe, currentRRPI initialarrays, tailadapter only. No checkpoint/LR/roster/interpolation variants."
+}

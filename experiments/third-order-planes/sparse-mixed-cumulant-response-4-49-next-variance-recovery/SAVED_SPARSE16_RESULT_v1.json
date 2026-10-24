@@ -1,0 +1,82 @@
+{
+  "status": "FIXED_TOP16_SPARSE_EXACT_MX1_SAVED_L12",
+  "selection": "descending (alpha*pdf*sqrt(v))^2 times Wnext^2 @ hproxy^2; hproxy from current m and diagonal-only propagated current postvariance; stable ties",
+  "keep": 16,
+  "selected_rows": [
+    1008,
+    434,
+    592,
+    597,
+    83,
+    376,
+    969,
+    636,
+    381,
+    410,
+    561,
+    14,
+    979,
+    559,
+    18,
+    865
+  ],
+  "teacher_used_for_selection": false,
+  "unsampled_rule": "exact zero",
+  "signed_MX1": {
+    "relative_energy": 0.031370087393718285,
+    "cross_share": 0.031370087393718285,
+    "explained": 0.031370087393718285,
+    "cosine": 0.17711602805426246
+  },
+  "covariance_response": {
+    "relative_energy": 0.06869795534812104,
+    "cross_share": 0.06849035888678257,
+    "explained": 0.0682827624254441,
+    "cosine": 0.2613109063079448
+  },
+  "next_variance_response": {
+    "relative_energy": 0.073413077632873,
+    "cross_share": 0.05914073170533635,
+    "explained": 0.04486838577779969,
+    "cosine": 0.21827298009279308
+  },
+  "next_mean_proxy_response": {
+    "relative_energy": 0.07299773955130892,
+    "cross_share": 0.05683290881105911,
+    "explained": 0.0406680780708093,
+    "cosine": 0.21035128946475926
+  },
+  "omitted_next_variance_RMS": 1.867890009950768e-05,
+  "full_next_variance_RMS": 1.911259641627143e-05,
+  "selected_score_share": 0.06792291583324263,
+  "dimensions": {
+    "n": 1024,
+    "hubs": 640,
+    "all_older_columns": 19072,
+    "selected_rows": 16
+  },
+  "minimum_direct_shape_cost": {
+    "selected_A_from_paid_newborn": 102400,
+    "exact_allcohort_theta": 390594560,
+    "fold_selected_left": 1525760,
+    "selector_weight_square": 1048576,
+    "selector_three_matvecs": 6291456,
+    "selector_vector_allowance": 20480
+  },
+  "minimum_layer_flops": 399583232,
+  "minimum_layer_bill_pct": 0.16768137733575647,
+  "seven_layers_same_geometry_minimum_bill_pct": 1.1737696413502952,
+  "limits": [
+    "One historical network and layer; no final accuracy inference.",
+    "Cost is optimistic direct shape arithmetic; omits carrying/gathering previous pp, no exact native tariff.",
+    "Existing read reuse assumed for folded selected left; a separate selective read adds 2*keep*R*n FLOPs.",
+    "Proxy future marginals derive only from current paid moments and known weights."
+  ],
+  "models": 0,
+  "captures": 0,
+  "truth_reads": 0,
+  "nice": 10,
+  "seconds": 0.04346770793199539,
+  "rss_bytes": 153534464,
+  "source_sha256": "b0b90c3104bef5fae440897cb3982fe9a062324dd74d5f3a97af5a382ca2d355"
+}

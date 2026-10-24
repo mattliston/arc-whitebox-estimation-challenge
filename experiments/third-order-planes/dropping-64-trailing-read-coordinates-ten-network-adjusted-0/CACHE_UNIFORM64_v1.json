@@ -1,0 +1,210 @@
+{
+  "passed": true,
+  "candidate_sha256": "24b13a6763b83a9bf75186cc9aad5d4d424c5a2e9516c37b8676c839c964b9f4",
+  "rows": [
+    {
+      "label": "base_cold",
+      "layer": 10,
+      "rank": 320,
+      "P": 5920,
+      "m": 640,
+      "on": true,
+      "price": {
+        "flops": 2302953762,
+        "requests": 729,
+        "charged": 377
+      },
+      "stats_delta": {
+        "products": 2,
+        "hits": 0,
+        "stores": 4,
+        "uncached": 0,
+        "skipped": 0,
+        "strip_hits": 0
+      },
+      "events": [
+        [
+          10,
+          640,
+          5920,
+          320,
+          256,
+          256
+        ]
+      ]
+    },
+    {
+      "label": "base_hit",
+      "layer": 11,
+      "rank": 320,
+      "P": 5920,
+      "m": 608,
+      "on": true,
+      "price": {
+        "flops": 1954699652,
+        "requests": 277,
+        "charged": 208
+      },
+      "stats_delta": {
+        "products": 2,
+        "hits": 4,
+        "stores": 0,
+        "uncached": 0,
+        "skipped": 0,
+        "strip_hits": 4
+      },
+      "events": [
+        [
+          11,
+          608,
+          5920,
+          320,
+          256,
+          256
+        ]
+      ]
+    },
+    {
+      "label": "base_lazy_hit",
+      "layer": 13,
+      "rank": 320,
+      "P": 5920,
+      "m": 576,
+      "on": true,
+      "price": {
+        "flops": 1934279199,
+        "requests": 347,
+        "charged": 223
+      },
+      "stats_delta": {
+        "products": 2,
+        "hits": 4,
+        "stores": 0,
+        "uncached": 0,
+        "skipped": 0,
+        "strip_hits": 0
+      },
+      "events": [
+        [
+          13,
+          576,
+          5920,
+          320,
+          256,
+          256
+        ]
+      ]
+    },
+    {
+      "label": "recent_fallback",
+      "layer": 13,
+      "rank": 384,
+      "P": 2400,
+      "m": 576,
+      "on": true,
+      "price": {
+        "flops": 968292792,
+        "requests": 395,
+        "charged": 229
+      },
+      "stats_delta": {
+        "products": 0,
+        "hits": 0,
+        "stores": 0,
+        "uncached": 0,
+        "skipped": 2,
+        "strip_hits": 0
+      },
+      "events": [
+        [
+          13,
+          576,
+          2400,
+          384,
+          320,
+          256
+        ]
+      ]
+    },
+    {
+      "label": "early_fallback",
+      "layer": 7,
+      "rank": 384,
+      "P": 3072,
+      "m": 800,
+      "on": true,
+      "price": {
+        "flops": 1682108953,
+        "requests": 512,
+        "charged": 264
+      },
+      "stats_delta": {
+        "products": 0,
+        "hits": 0,
+        "stores": 0,
+        "uncached": 0,
+        "skipped": 2,
+        "strip_hits": 0
+      },
+      "events": [
+        [
+          7,
+          800,
+          3072,
+          384,
+          320,
+          256
+        ]
+      ]
+    },
+    {
+      "label": "off_distinct_width",
+      "layer": 10,
+      "rank": 320,
+      "P": 5920,
+      "m": 640,
+      "on": false,
+      "price": {
+        "flops": 2377620360,
+        "requests": 491,
+        "charged": 277
+      },
+      "stats_delta": {
+        "products": 2,
+        "hits": 2,
+        "stores": 2,
+        "uncached": 0,
+        "skipped": 0,
+        "strip_hits": 0
+      },
+      "events": []
+    },
+    {
+      "label": "outside_band",
+      "layer": 15,
+      "rank": 320,
+      "P": 5920,
+      "m": 640,
+      "on": true,
+      "price": {
+        "flops": 2239428130,
+        "requests": 199,
+        "charged": 173
+      },
+      "stats_delta": {
+        "products": 2,
+        "hits": 4,
+        "stores": 0,
+        "uncached": 0,
+        "skipped": 0,
+        "strip_hits": 0
+      },
+      "events": []
+    }
+  ],
+  "distinct_cache_key_repr": "[('vt', 4614300752, ('fixed_base', 5920), 5920, 256, 0, 3008, 256), ('vt', 4614300752, ('fixed_base', 5920), 5920, 256, 1, 2944, 256), ('ut', 4614300752, ('fixed_base', 5920), 5920, 256, 0, 3008, 256), ('ut', 4614300752, ('fixed_base', 5920), 5920, 256, 1, 2944, 256), ('vt', 4614300752, ('fixed_base', 5920), 5920, 320, 0, 3008, 320), ('vt', 4614300752, ('fixed_base', 5920), 5920, 320, 1, 2944, 320)]",
+  "exception_context_cleared": true,
+  "retired": true,
+  "scope": "Actual held source import and complete _uvp_inner with actual FNP virtualcachedbackend. Cachedbase hits acrossrow/layer changes, early/recentfallback, off/band guards, fullrank outputs, owneridentity andexceptioncontext. No model.",
+  "max_rss_bytes": 175882240
+}

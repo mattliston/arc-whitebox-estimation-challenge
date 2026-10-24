@@ -1,0 +1,30 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N1_2_PLANE",
+    "label": "N1.2 third-order plane input K21_l - PRICE -10.6/-15.3/-7.8% (r35/r100/r150) at beta_v 0.40; L9-11 carry 2/3",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "The (i,i,j) slices of the third cumulant feed the pair map. Card and full engine are both ~7% accurate on this plane (closure_rel 0.083-0.089; engine rel 0.066-0.14); the engine's value comes from differently structured errors (dK21 corr 0.77 to truth-host). The carried content that matters is order-2 path words = the card's own CP3 births (DTOT=2 +9.8 ~ DTOT=6 +10.3) - the tensor is NOT the mechanism (wall retracted, T-19). Windows at optimal beta: L1-4 +1.8, L5-8 ~0, L9-11 +7.1, L12-14 +1.9 (T-19b). Children: emission formula, push/read, carry accuracy, fourth-order inputs, univariate inputs, integration scale. HONEST FRAME (T-36, independent 4M truth, r35, F2J-on, deployed 2.704e-8, +-3 points): truth K21 alone 7.1; truth K21+K22+K31 24.4 (consumer beyond linearization null: 23.1). Engine supply 8.5 v / 14.7 k3 / joint 25.7-26.4 at BV 0.4, BK3 0.33-0.5.",
+    "terminal_criterion": "Closed when a deployable plane chain reproduces the engine's supply value on the panel at acceptable bill.",
+    "evidence": [
+      {
+        "claim": "optimal-beta sweeps; window supplies; engine diag.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/optbeta_sweep_all_variants.log + experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-12..T-19b"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_MECH_N1_2A_EMISSION",
+      "P2R0G19B_MECH_N1_2B_PUSHREAD",
+      "P2R0G19B_MECH_N1_2C_CARRY",
+      "P2R0G19B_MECH_N1_2D_FOURTH",
+      "P2R0G19B_MECH_N1_2E_UNIVARIATE",
+      "P2R0G19B_MECH_N1_2F_BETA",
+      "P2R0G19B_MECH_N1_2G_ADJOINT"
+    ],
+    "goal_path_summary": "The single biggest fixable input: a per-layer table of how each pair of neurons' third-order statistics shift the variances. The expensive part of computing it is something the estimator already does; the missing part is a cheap final formula, mostly at layers 9-11."
+  }
+}

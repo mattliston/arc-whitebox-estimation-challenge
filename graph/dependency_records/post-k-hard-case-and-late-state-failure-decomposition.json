@@ -1,0 +1,26 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F2L",
+    "label": "Post-K hard-case and late-state failure decomposition",
+    "kind": "phase2_autonomous_state_decomposition",
+    "status": "solved",
+    "priority": 1,
+    "summary": "The read-only K-versus-J replay shows that pooled Gram/context expansion is not a hard-case discriminator: K improves the four hard rows but regresses the ordinary 684, and scalar future-gain scores have near-zero discrimination. A fixed endpoint-adjoint diagnostic instead finds 9.42x ordinary and 3.77x hard residual enrichment over a random rank-eight subspace; the full oracle pullback norm is 1.586x larger on hard rows and correlates 0.764 with J MSE. This licenses exactly one full-width learned backward-adjoint successor while rejecting scalar and fixed low-rank variants.",
+    "terminal_criterion": "Solved by one evidence-bound attribution and one materially different successor: P2R0F2M. No model training, observer_selection access, board join, or submission occurred in this decomposition.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_transport_energy_coherence_cv_v1/CV_RESULTS.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_full_gram_pooled_context_cv_v1/CV_RESULTS.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_full_gram_pooled_context_cv_v1/VERIFICATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_full_gram_pooled_context_cv_v1/K_VS_J_OOF_DECOMPOSITION_AND_SUCCESSOR.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_bidirectional_adjoint_smoother_design_v1/DIAGNOSTIC_RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_bidirectional_adjoint_smoother_design_v1/DESIGN_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_bidirectional_adjoint_smoother_design_v1/reproduce_readonly_diagnostic.py"
+    ],
+    "decomposition_children": [
+      "P2R0F2M"
+    ]
+  }
+}

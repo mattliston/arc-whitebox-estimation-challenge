@@ -1,0 +1,68 @@
+{
+  "schema": "q24-qhead-full688-refit-preregistration-v1",
+  "status": "FROZEN_BEFORE_ANY_REFIT_TARGET_OPEN",
+  "purpose": "Determine whether refitting the already-frozen q10:q15 action head on all lawful Q24-native observer-fit rows materially improves alpha=.75 J without checkpoint or board selection.",
+  "data_contract": {
+    "role": "observer_fit",
+    "networks": 688,
+    "native_rows": "all target-free Q24 native rows, role ranks 0 through 687",
+    "targets": "sealed observer_fit mlp_id and all_layer_means only, opened after all target-free row and fold bindings pass",
+    "observer_selection_targets": "forbidden",
+    "board_or_submission_feedback": "forbidden",
+    "names": "forbidden"
+  },
+  "frozen_recipe": {
+    "base": "INTERPOLATED_MODEL.pt with alpha exactly 0.75",
+    "suffix_layers_zero_based": [10, 11, 12, 13, 14, 15],
+    "architecture": "22 -> 64 SiLU -> 64 SiLU -> six layer-specific scalar heads",
+    "parameters": 6022,
+    "features": "raw20 channel0, standardized raw20 channels1:20, alpha=.75 J state/rms, physical local J innovation/(sigma*rms)",
+    "target": "delta_q_l=(truth-host-J)_l-Phi_l*((truth-host-J)_(l-1)@W_l)",
+    "loss": "mean six-layer teacher-local squared delta-q error normalized by training-fold q_rms",
+    "samples_per_layer_per_network": 256,
+    "networks_per_step": 4,
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 0.00002,
+    "gradient_clip": 5.0,
+    "seed": 1362178069
+  },
+  "fold_law": {
+    "salt": "q24-qhead-full688-refit-v1",
+    "algorithm": "sort role ranks by (blake2s-128(salt+':'+mlp_id), mlp_id, role_rank), then assign sorted_position modulo 4",
+    "fold_sizes": [172, 172, 172, 172],
+    "fold_assignment_uint8_sha256": "0f8619f00185aa5413e06c2b9aad8c1f2a6743ec8c628994bbbc9ca25fec047c",
+    "evaluation": "each observer-fit row is scored exactly once by the model trained without its fold"
+  },
+  "fixed_rule": {
+    "folds": 4,
+    "fixed_checkpoint_epoch": 13,
+    "checkpoint_averaging": "none",
+    "scheduler_horizon_epochs": 14,
+    "minimum_relative_oof_gain": 0.0025,
+    "minimum_improving_folds": 3,
+    "minimum_paired_network_z": 2.0,
+    "minimum_network_win_fraction": 0.55,
+    "minimum_each_fold_network_win_fraction": 0.5,
+    "legacy_protected40_must_not_worsen": true
+  },
+  "promotion_law": {
+    "incumbent": "frozen Q_SUFFIX_HEAD.pt evaluated on the exact same 688 alpha=.75 J rows",
+    "primary_metric": "pooled final-layer raw MSE across all 688 out-of-fold predictions",
+    "conjunctive_gate": "candidate relative OOF gain >=0.25%, >=3/4 fold means improve, paired network gain z>=2, >=55% of all networks improve, every fold has >=50% network wins, and the legacy protected40 OOF slice does not worsen",
+    "final_fit": "only after the conjunctive gate; initialize from the same fixed seed and train all 688 rows to fixed epoch13 with stream id4",
+    "failure": "persist result only; do not create a model",
+    "success": "persist exactly one frozen full688 q-head scientific model; this is not submission authority",
+    "board_transfer_guard": "submission 328616 raw 3.065038697513956e-8 versus protected projection 2.8976011020648275e-8 fixes a conservative 1.0577849019072405 board-shift allowance; any later deployment must be evaluated on banked D1 or a validated D1-cap base"
+  },
+  "bindings": {
+    "program_sha256": "7ffaae1a3d03a7d1f3fcfe3e9026d1674892c52291f7899978ff379f8da78cd2",
+    "j_source_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "q_source_sha256": "1e4c906936f4685bd800f922ded6c582af8213ecad1fbe41da651faff82be9c3",
+    "alpha_model_sha256": "fc65528720c7e1378ed7011b7b201f4086217a544b092de208ea1064656d9ef5",
+    "incumbent_q_model_sha256": "5fb57a510d933940f19ddd5ab11650c3a966c2039c6bd12f73988457c2ce91b8",
+    "feature_manifest_sha256": "9a43423982924bcc7a0c5b87288b19ff42452c90c9cc7b7f590e565d1b276f50",
+    "observer_fit_targets_sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7",
+    "native_row_aggregate_sha256": "204097b1e43387fdc2080eb690606d7dc34aeda7ca4794cb98382137ebfa3db3"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-v3-final-byte-freeze-receipt-v1",
+  "status": "PASS_FINAL_BYTE_FREEZE__TARGET_FREE_LITERAL_METER_ONLY",
+  "frozen_at_utc": "2026-08-24T05:55:15Z",
+  "bindings": {
+    "v3_estimator": {
+      "path": "estimator.py",
+      "bytes": 49805,
+      "sha256": "f6db80014b5c4d8479a262bd1e4d13192258b12f1a0ad1ce14a60074e5a613c3"
+    },
+    "v3_source_manifest": {
+      "path": "SOURCE_MANIFEST.json",
+      "bytes": 3350,
+      "sha256": "d0d1904865821b848cc7850549333c6f9fd0cba4dee502c5d439a4d9355172fa"
+    },
+    "v3_static_gate": {
+      "path": "verify_static.py",
+      "bytes": 6080,
+      "sha256": "cdfa19394f4c67f154dcabcfe8b851445659e24f013ed27d0ba22e3187824a6a"
+    },
+    "v3_parity_gate": {
+      "path": "verify_parity.py",
+      "bytes": 6226,
+      "sha256": "a2a35ceee19ac65e95078abb9072d4c98cdd796535c88ad10aad7f490e503a16"
+    },
+    "independent_source_audit": {
+      "path": "INDEPENDENT_SOURCE_AUDIT_V3.json",
+      "bytes": 8547,
+      "sha256": "31787f2a1eb6300cf52ebb90c784647acf045f4dda548612e2cfec6b1def1e40"
+    },
+    "v2_parent_estimator": {
+      "path": "../fullbudget_k21_k4_closure_v2/estimator.py",
+      "bytes": 31410,
+      "sha256": "de8023d8d34be4f588d5af8c87f99a5e7babf9f42a9d351602c838b19783673e"
+    },
+    "pinned_requirements_lock": {
+      "path": "../data_gate/requirements.lock.txt",
+      "bytes": 1012,
+      "sha256": "dbd429c8eeb64c5809f7a045fc782173e476c943fbd6ce7d2616c94433481f98"
+    }
+  },
+  "gates": {
+    "independent_read_only_source_audit": "PASS_FOR_TARGET_FREE_LITERAL_FULL_SHAPE_METER_ONLY",
+    "static_replay": "PASS_UNFROZEN_V3_ADDITIVE_STATIC_REPLAY",
+    "target_free_coefficient_q32_guard_parity": "PASS_V3_TARGET_FREE_COEFFICIENT_Q32_AND_GUARD_PARITY",
+    "pinned_whest_validate": "PASS_2_BY_4_FINITE",
+    "maximum_q38_scaled_error": 8.729241066787197e-10,
+    "maximum_tiny_four_pair_absolute_error": 8.881784197001252e-16,
+    "off_shape_guard_flops_and_calls": [0, 1],
+    "low_budget_guard_flops_and_calls": [0, 1],
+    "projected_v2_calls": 16480,
+    "projected_v3_calls": 9271,
+    "projected_call_reduction": 7209,
+    "namespace_pycache_count": 0,
+    "namespace_pyc_count": 0
+  },
+  "authority": {
+    "granted": [
+      "TARGET_FREE_LITERAL_FULL_SHAPE_METER"
+    ],
+    "withheld": [
+      "OFFICIAL_METER_PASS_CLAIM",
+      "FULL_SHAPE_NUMERIC_PARITY_CLAIM",
+      "ACCURACY_OR_MSE_CLAIM",
+      "TARGET_OR_ROLE_ACCESS",
+      "FIT_OR_SAMPLING",
+      "SUBMISSION",
+      "PROBLEM_GRAPH_MUTATION"
+    ]
+  },
+  "holds": [
+    "V3_TARGET_FREE_LITERAL_FULL_SHAPE_FLOP_WALL_RESIDUAL_RSS_FINITE_METER",
+    "ACTUAL_CLOSURE_MOMENT_FEASIBILITY_REPLAY",
+    "TARGET_OR_ROLE_ACCESS",
+    "FIT_SAMPLING_SCORE_SUBMISSION"
+  ],
+  "negative_controls": {
+    "receipt_not_in_manifest": true,
+    "no_meter_executed_by_freeze_step": true,
+    "no_dataset_or_target_access": true,
+    "no_accuracy_claim": true,
+    "no_submission_authority": true,
+    "estimator_unchanged_during_freeze": true,
+    "static_gate_unchanged_during_freeze": true,
+    "parity_gate_unchanged_during_freeze": true,
+    "independent_audit_unchanged_during_freeze": true
+  }
+}

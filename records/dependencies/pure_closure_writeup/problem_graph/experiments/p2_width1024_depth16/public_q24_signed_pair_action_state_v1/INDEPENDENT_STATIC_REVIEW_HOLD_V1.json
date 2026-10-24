@@ -1,0 +1,62 @@
+{
+  "schema": "public-q24-signed-pair-action-state-independent-static-review-hold-v1",
+  "date": "2026-08-27",
+  "status": "HOLD_BEFORE_SOURCE_RELEASE",
+  "decision": "REPAIR_STATIC_AUTHORITY_BEFORE_ANY_ROW_OR_TARGET_ACCESS",
+  "reviewed_bindings": {
+    "DERIVATION.md": "439d4cafc866fd9fa1bd74526dea2cdd4dcea941cee8931efa75b563082cbf76",
+    "PREREGISTRATION.json": "3206ccd4ec91078da521051543e367d6735f2c73545dc40b0df28e9e719d434b",
+    "verify_static.py": "72b9aed6cb7de2c0194774dceab5ce60501316bf6eeb612cbb431cffedc6c92f",
+    "STATIC_RECEIPT.json": "bb5b57b6ec4fd7bad34c2ef3e56f1795cac9a8678a88bc5edfb04ca7aae05bb9",
+    "d4_source_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "residual_sync_protocol_audit_sha256": "d87fda2ddd6852675a8c4e789f34b14ef2e901311d0a11116dea5c0d6d6b019a"
+  },
+  "passes": {
+    "d4_provenance": true,
+    "scalar_collision_witness": true,
+    "physical_k22_matching_witness": true,
+    "narrative_dedupe_against_c8_q_r_p_g11a_k6": true,
+    "rows_or_targets_opened": false,
+    "estimator_imported_or_called": false
+  },
+  "hold_blockers": [
+    {
+      "id": "transport_count_and_bill",
+      "finding": "The recurrent law specifies transports at l=2..15, or 14 GEMMs, while the static ledger bills 13. The omitted l=2 zero-state GEMM would cost 33,538,048 float32 FLOPs, exceeding the 2,667,520-FLOP reserve.",
+      "repair": "Freeze m_2 as an exact zero with no GEMM and transport only l=3..15, or rederive and raise the complete cap."
+    },
+    {
+      "id": "literal_dtype_liveness_authority",
+      "finding": "The formula is feasible only with explicit float32 casts before source arithmetic and a preallocated nonaliasing out-buffer schedule. No literal source, AST dtype proof, exact call inventory, or liveness table exists.",
+      "repair": "Freeze the implementation and prove dtype, call, nonalias, liveness, literal meter, RSS, and array bounds."
+    },
+    {
+      "id": "sync_clean_runtime",
+      "finding": "Preserving the inherited D4 statement order retains 17 remote scalar truth synchronizations and conflicts with the frozen residual-sync protocol.",
+      "repair": "Bind a sync-clean output-equivalent D4 parent and candidate; AST-ban host scalar crossings and require lean parent/candidate/parent residual gates."
+    },
+    {
+      "id": "fold_pure_native_j",
+      "finding": "The phrase fold-pure frozen native J has no fold program, result, checkpoint, or parity bindings. Reusing an all-688 target-trained payload would leak held-fold targets.",
+      "repair": "Freeze exact 516-fit/172-held reconstruction, training-only layer RMS values, seeds, initialization, batch order, optimizer details, and same-initialization pair-on/pair-zero arms."
+    },
+    {
+      "id": "dedupe_conditioning",
+      "finding": "The novelty projection omits the full native-J interface and overlapping F3A1, F3A6B4, and F3A6B5 sources; the pair-zero arm controls capacity but not source overlap.",
+      "repair": "Extend target-blind residualization to those exact available sources and to lawful K33/K42/K51 action evidence."
+    },
+    {
+      "id": "row_and_full_action_binding",
+      "finding": "Role-manifest and weight hashes for ranks 35, 100, 160, and 279 are absent, and the verifier tests raw matvec surrogates rather than the complete normalized and saturated production action.",
+      "repair": "Bind deterministic role manifests and execute normalize-to-saturate-to-contract-to-saturate parity in the tiny verifier."
+    }
+  ],
+  "clarifications": {
+    "alpha": "Use the same-layer preactivation alpha.",
+    "capture": "Capture zero-based layers 2..14 immediately after _full_relu_reset and before _reset_stars.",
+    "source_release_authorized": false,
+    "public_rows_authorized": false,
+    "targets_authorized": false,
+    "integration_or_submission_authorized": false
+  }
+}

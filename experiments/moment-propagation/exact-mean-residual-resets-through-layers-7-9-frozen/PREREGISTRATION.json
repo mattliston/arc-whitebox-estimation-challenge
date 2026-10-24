@@ -1,0 +1,30 @@
+{
+  "anchors": {
+    "first_comparator": "replace the frozen recurrence state by the exact target-minus-host residual after every layer h_2 through h_7, then roll h_8:h_16 autonomously",
+    "second_comparator": "replace the frozen recurrence state by the exact target-minus-host residual after every layer h_2 through h_9, then roll h_10:h_16 autonomously",
+    "state": "full width-1024 mean-residual vector; this is an oracle ceiling, not a sampled statistic",
+    "tensor_index_sets_zero_based": [[1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7, 8]]
+  },
+  "data_firewall": {
+    "deployment_or_board_truth": "never open",
+    "network_names": "never open",
+    "observer_fit_targets_at_or_above_rank_200": "never open",
+    "observer_selection": "never open",
+    "role": "observer_fit",
+    "validation_ranks": [160, 200]
+  },
+  "decision": {
+    "primary": "record whether either fixed multi-anchor comparator gives final MSE <1e-8",
+    "secondary": "report each fraction of the established autonomous-to-all-layer-teacher MSE gap closed",
+    "terminal_rule": "evaluate exactly these two compute-motivated prefix endpoints; do not add or choose another endpoint from their result"
+  },
+  "model": {
+    "artifact": "../public_exposure_trained_residual_state_v1/MODEL.pt",
+    "artifact_sha256": "c998c4410bf36d3b4f1152c45d86fd4c654c7e05abe85e297f07b15f16d58cc7",
+    "parameters": 6688,
+    "training": "none; fixed final checkpoint"
+  },
+  "rationale": "h_7 and h_9 are the two fixed structured-prefix endpoints requested after the single-h7 ceiling showed that the old suffix immediately rebuilds its error; repeated local resets test whether shared prefix samples could instead supply each layer birth innovation",
+  "schema": "p2r0g1-kerdock-multilayer-anchor-ceiling-preregistration-v1",
+  "status": "frozen-before-metrics"
+}

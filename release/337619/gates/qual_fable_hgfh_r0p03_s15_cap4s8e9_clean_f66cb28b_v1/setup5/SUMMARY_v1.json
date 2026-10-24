@@ -1,0 +1,716 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "worker": 0,
+      "setup_timeout_s": 5.0,
+      "status": "PASS",
+      "launch_offset_s": 0.13561979122459888,
+      "start_envelope_s": 3.5344952922314405,
+      "worker_pid": 23734,
+      "start_responses": [
+        {
+          "status": "ok",
+          "diagnostic": {
+            "pb_log": [
+              [
+                "constants",
+                0.138
+              ],
+              [
+                "ksplit",
+                26,
+                0.15
+              ],
+              [
+                "wall guard",
+                128,
+                1.223
+              ],
+              [
+                "first_load_views",
+                125,
+                1.223
+              ],
+              [
+                "lvfuse",
+                0,
+                1.223
+              ],
+              [
+                "psdb_fused",
+                9,
+                1.296
+              ],
+              [
+                "pair_block_indices",
+                1,
+                1.296
+              ],
+              [
+                "read7_lazy",
+                0,
+                1.296
+              ],
+              [
+                "yr7_lazy",
+                0,
+                1.296
+              ],
+              [
+                "sm40_fixed_views",
+                5,
+                1.372
+              ],
+              [
+                "sm40_hot_views",
+                9,
+                1.418
+              ],
+              [
+                "r7_firstread_views",
+                3,
+                1.447
+              ],
+              [
+                "peel_fixed_views",
+                11,
+                1.57
+              ],
+              [
+                "peel_full_topology",
+                0,
+                1.791
+              ],
+              [
+                "smallsm12_fixed_views",
+                12,
+                2.08
+              ],
+              [
+                "generic_charged_views",
+                133,
+                91,
+                2.232
+              ],
+              [
+                "mainread_io_reshapes",
+                64,
+                2.256
+              ],
+              [
+                "bound",
+                243,
+                3.202
+              ]
+            ],
+            "bind_errors": [],
+            "setup_completed": true,
+            "setup_flops": 27687291204,
+            "setup_budget": true,
+            "maxrss": 255131648
+          }
+        }
+      ],
+      "worker_stderr": [
+        "STAGE {\"stage\": \"boundary_bootstrap\", \"elapsed_s\": 0.02873016707599163, \"cpu_s\": 0.049328, \"numpy_available\": false, \"flopscope\": \"0.12.3\", \"setup_budget\": true}",
+        "STAGE {\"stage\": \"rlimit_note\", \"elapsed_s\": 0.028963085263967514, \"cpu_s\": 0.04956, \"error\": \"ValueError('current limit exceeds maximum limit')\"}",
+        "STAGE {\"stage\": \"load_begin\", \"elapsed_s\": 0.029039250686764717, \"cpu_s\": 0.049637}",
+        "STAGE {\"stage\": \"load_end\", \"elapsed_s\": 0.2670754175633192, \"cpu_s\": 0.28705}",
+        "STAGE {\"stage\": \"setup_begin\", \"elapsed_s\": 0.2672534603625536, \"cpu_s\": 0.287226}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.40709612518548965, \"cpu_s\": 0.333155, \"value\": [\"constants\", 0.138]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.41833716817200184, \"cpu_s\": 0.337608, \"value\": [\"ksplit\", 26, 0.15]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4917666669934988, \"cpu_s\": 0.729337, \"value\": [\"wall guard\", 128, 1.223]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4919702094048262, \"cpu_s\": 0.729541, \"value\": [\"first_load_views\", 125, 1.223]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4921233355998993, \"cpu_s\": 0.729693, \"value\": [\"lvfuse\", 0, 1.223]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5647562928497791, \"cpu_s\": 0.757876, \"value\": [\"psdb_fused\", 9, 1.296]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5649486258625984, \"cpu_s\": 0.758068, \"value\": [\"pair_block_indices\", 1, 1.296]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5650115851312876, \"cpu_s\": 0.758131, \"value\": [\"read7_lazy\", 0, 1.296]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5650580432265997, \"cpu_s\": 0.758177, \"value\": [\"yr7_lazy\", 0, 1.296]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6406188756227493, \"cpu_s\": 0.785469, \"value\": [\"sm40_fixed_views\", 5, 1.372]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.686590624973178, \"cpu_s\": 0.803781, \"value\": [\"sm40_hot_views\", 9, 1.418]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.7160469181835651, \"cpu_s\": 0.814795, \"value\": [\"r7_firstread_views\", 3, 1.447]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.838707584887743, \"cpu_s\": 0.856289, \"value\": [\"peel_fixed_views\", 11, 1.57]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.059452084824443, \"cpu_s\": 0.933833, \"value\": [\"peel_full_topology\", 0, 1.791]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.3489412926137447, \"cpu_s\": 1.032857, \"value\": [\"smallsm12_fixed_views\", 12, 2.08]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.5009040012955666, \"cpu_s\": 1.085609, \"value\": [\"generic_charged_views\", 133, 91, 2.232]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.525015292689204, \"cpu_s\": 1.094577, \"value\": [\"mainread_io_reshapes\", 64, 2.256]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 3.470870042219758, \"cpu_s\": 1.425573, \"value\": [\"bound\", 243, 3.202]}",
+        "STAGE {\"stage\": \"setup_end\", \"elapsed_s\": 3.5116665847599506, \"cpu_s\": 1.463432, \"pb_log\": [[\"constants\", 0.138], [\"ksplit\", 26, 0.15], [\"wall guard\", 128, 1.223], [\"first_load_views\", 125, 1.223], [\"lvfuse\", 0, 1.223], [\"psdb_fused\", 9, 1.296], [\"pair_block_indices\", 1, 1.296], [\"read7_lazy\", 0, 1.296], [\"yr7_lazy\", 0, 1.296], [\"sm40_fixed_views\", 5, 1.372], [\"sm40_hot_views\", 9, 1.418], [\"r7_firstread_views\", 3, 1.447], [\"peel_fixed_views\", 11, 1.57], [\"peel_full_topology\", 0, 1.791], [\"smallsm12_fixed_views\", 12, 2.08], [\"generic_charged_views\", 133, 91, 2.232], [\"mainread_io_reshapes\", 64, 2.256], [\"bound\", 243, 3.202]], \"bind_errors\": [], \"setup_completed\": true, \"setup_flops\": 27687291204, \"setup_budget\": true, \"maxrss\": 255131648}"
+      ],
+      "worker_retired": true,
+      "close_s": 0.004031043499708176
+    },
+    {
+      "worker": 1,
+      "setup_timeout_s": 5.0,
+      "status": "PASS",
+      "launch_offset_s": 0.13564170897006989,
+      "start_envelope_s": 3.538109917193651,
+      "worker_pid": 23738,
+      "start_responses": [
+        {
+          "status": "ok",
+          "diagnostic": {
+            "pb_log": [
+              [
+                "constants",
+                0.136
+              ],
+              [
+                "ksplit",
+                26,
+                0.147
+              ],
+              [
+                "wall guard",
+                128,
+                1.217
+              ],
+              [
+                "first_load_views",
+                125,
+                1.217
+              ],
+              [
+                "lvfuse",
+                0,
+                1.217
+              ],
+              [
+                "psdb_fused",
+                9,
+                1.291
+              ],
+              [
+                "pair_block_indices",
+                1,
+                1.291
+              ],
+              [
+                "read7_lazy",
+                0,
+                1.291
+              ],
+              [
+                "yr7_lazy",
+                0,
+                1.291
+              ],
+              [
+                "sm40_fixed_views",
+                5,
+                1.367
+              ],
+              [
+                "sm40_hot_views",
+                9,
+                1.413
+              ],
+              [
+                "r7_firstread_views",
+                3,
+                1.442
+              ],
+              [
+                "peel_fixed_views",
+                11,
+                1.565
+              ],
+              [
+                "peel_full_topology",
+                0,
+                1.784
+              ],
+              [
+                "smallsm12_fixed_views",
+                12,
+                2.073
+              ],
+              [
+                "generic_charged_views",
+                133,
+                91,
+                2.226
+              ],
+              [
+                "mainread_io_reshapes",
+                64,
+                2.25
+              ],
+              [
+                "bound",
+                243,
+                3.197
+              ]
+            ],
+            "bind_errors": [],
+            "setup_completed": true,
+            "setup_flops": 27687291204,
+            "setup_budget": true,
+            "maxrss": 252706816
+          }
+        }
+      ],
+      "worker_stderr": [
+        "STAGE {\"stage\": \"boundary_bootstrap\", \"elapsed_s\": 0.02770966663956642, \"cpu_s\": 0.048884, \"numpy_available\": false, \"flopscope\": \"0.12.3\", \"setup_budget\": true}",
+        "STAGE {\"stage\": \"rlimit_note\", \"elapsed_s\": 0.02792520821094513, \"cpu_s\": 0.049098, \"error\": \"ValueError('current limit exceeds maximum limit')\"}",
+        "STAGE {\"stage\": \"load_begin\", \"elapsed_s\": 0.027984708547592163, \"cpu_s\": 0.049157}",
+        "STAGE {\"stage\": \"load_end\", \"elapsed_s\": 0.2657788321375847, \"cpu_s\": 0.286716}",
+        "STAGE {\"stage\": \"setup_begin\", \"elapsed_s\": 0.26594950072467327, \"cpu_s\": 0.286886}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.40287079103291035, \"cpu_s\": 0.332016, \"value\": [\"constants\", 0.136]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.4141617901623249, \"cpu_s\": 0.336523, \"value\": [\"ksplit\", 26, 0.147]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4838619157671928, \"cpu_s\": 0.725774, \"value\": [\"wall guard\", 128, 1.217]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.484080458059907, \"cpu_s\": 0.725992, \"value\": [\"first_load_views\", 125, 1.217]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.484245041385293, \"cpu_s\": 0.726156, \"value\": [\"lvfuse\", 0, 1.217]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.55794245749712, \"cpu_s\": 0.754549, \"value\": [\"psdb_fused\", 9, 1.291]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5580581650137901, \"cpu_s\": 0.754664, \"value\": [\"pair_block_indices\", 1, 1.291]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.558108290657401, \"cpu_s\": 0.754713, \"value\": [\"read7_lazy\", 0, 1.291]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5581544153392315, \"cpu_s\": 0.75476, \"value\": [\"yr7_lazy\", 0, 1.291]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6334437914192677, \"cpu_s\": 0.782007, \"value\": [\"sm40_fixed_views\", 5, 1.367]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6799104157835245, \"cpu_s\": 0.80052, \"value\": [\"sm40_hot_views\", 9, 1.413]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.7090635411441326, \"cpu_s\": 0.811452, \"value\": [\"r7_firstread_views\", 3, 1.442]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.831960916519165, \"cpu_s\": 0.852678, \"value\": [\"peel_fixed_views\", 11, 1.565]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.051159081980586, \"cpu_s\": 0.929467, \"value\": [\"peel_full_topology\", 0, 1.784]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.3397186659276485, \"cpu_s\": 1.028829, \"value\": [\"smallsm12_fixed_views\", 12, 2.073]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.492642041295767, \"cpu_s\": 1.081319, \"value\": [\"generic_charged_views\", 133, 91, 2.226]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.5166812911629677, \"cpu_s\": 1.090404, \"value\": [\"mainread_io_reshapes\", 64, 2.25]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 3.4641592912375927, \"cpu_s\": 1.422378, \"value\": [\"bound\", 243, 3.197]}",
+        "STAGE {\"stage\": \"setup_end\", \"elapsed_s\": 3.507370749488473, \"cpu_s\": 1.462819, \"pb_log\": [[\"constants\", 0.136], [\"ksplit\", 26, 0.147], [\"wall guard\", 128, 1.217], [\"first_load_views\", 125, 1.217], [\"lvfuse\", 0, 1.217], [\"psdb_fused\", 9, 1.291], [\"pair_block_indices\", 1, 1.291], [\"read7_lazy\", 0, 1.291], [\"yr7_lazy\", 0, 1.291], [\"sm40_fixed_views\", 5, 1.367], [\"sm40_hot_views\", 9, 1.413], [\"r7_firstread_views\", 3, 1.442], [\"peel_fixed_views\", 11, 1.565], [\"peel_full_topology\", 0, 1.784], [\"smallsm12_fixed_views\", 12, 2.073], [\"generic_charged_views\", 133, 91, 2.226], [\"mainread_io_reshapes\", 64, 2.25], [\"bound\", 243, 3.197]], \"bind_errors\": [], \"setup_completed\": true, \"setup_flops\": 27687291204, \"setup_budget\": true, \"maxrss\": 252706816}"
+      ],
+      "worker_retired": true,
+      "close_s": 0.003393540158867836
+    },
+    {
+      "worker": 2,
+      "setup_timeout_s": 5.0,
+      "status": "PASS",
+      "launch_offset_s": 0.13566112518310547,
+      "start_envelope_s": 3.533926958218217,
+      "worker_pid": 23736,
+      "start_responses": [
+        {
+          "status": "ok",
+          "diagnostic": {
+            "pb_log": [
+              [
+                "constants",
+                0.137
+              ],
+              [
+                "ksplit",
+                26,
+                0.148
+              ],
+              [
+                "wall guard",
+                128,
+                1.22
+              ],
+              [
+                "first_load_views",
+                125,
+                1.221
+              ],
+              [
+                "lvfuse",
+                0,
+                1.221
+              ],
+              [
+                "psdb_fused",
+                9,
+                1.294
+              ],
+              [
+                "pair_block_indices",
+                1,
+                1.294
+              ],
+              [
+                "read7_lazy",
+                0,
+                1.294
+              ],
+              [
+                "yr7_lazy",
+                0,
+                1.294
+              ],
+              [
+                "sm40_fixed_views",
+                5,
+                1.369
+              ],
+              [
+                "sm40_hot_views",
+                9,
+                1.416
+              ],
+              [
+                "r7_firstread_views",
+                3,
+                1.444
+              ],
+              [
+                "peel_fixed_views",
+                11,
+                1.567
+              ],
+              [
+                "peel_full_topology",
+                0,
+                1.786
+              ],
+              [
+                "smallsm12_fixed_views",
+                12,
+                2.075
+              ],
+              [
+                "generic_charged_views",
+                133,
+                91,
+                2.226
+              ],
+              [
+                "mainread_io_reshapes",
+                64,
+                2.251
+              ],
+              [
+                "bound",
+                243,
+                3.191
+              ]
+            ],
+            "bind_errors": [],
+            "setup_completed": true,
+            "setup_flops": 27687291204,
+            "setup_budget": true,
+            "maxrss": 253820928
+          }
+        }
+      ],
+      "worker_stderr": [
+        "STAGE {\"stage\": \"boundary_bootstrap\", \"elapsed_s\": 0.027718957513570786, \"cpu_s\": 0.047049, \"numpy_available\": false, \"flopscope\": \"0.12.3\", \"setup_budget\": true}",
+        "STAGE {\"stage\": \"rlimit_note\", \"elapsed_s\": 0.02795575000345707, \"cpu_s\": 0.047285, \"error\": \"ValueError('current limit exceeds maximum limit')\"}",
+        "STAGE {\"stage\": \"load_begin\", \"elapsed_s\": 0.028026126325130463, \"cpu_s\": 0.047356}",
+        "STAGE {\"stage\": \"load_end\", \"elapsed_s\": 0.26801654137670994, \"cpu_s\": 0.28703}",
+        "STAGE {\"stage\": \"setup_begin\", \"elapsed_s\": 0.2682064585387707, \"cpu_s\": 0.287217}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.4062719587236643, \"cpu_s\": 0.332826, \"value\": [\"constants\", 0.137]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.4175617080181837, \"cpu_s\": 0.337233, \"value\": [\"ksplit\", 26, 0.148]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4895569998770952, \"cpu_s\": 0.730505, \"value\": [\"wall guard\", 128, 1.22]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4897669162601233, \"cpu_s\": 0.730715, \"value\": [\"first_load_views\", 125, 1.221]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.48993662558496, \"cpu_s\": 0.730885, \"value\": [\"lvfuse\", 0, 1.221]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5629657916724682, \"cpu_s\": 0.759035, \"value\": [\"psdb_fused\", 9, 1.294]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5631159581243992, \"cpu_s\": 0.759185, \"value\": [\"pair_block_indices\", 1, 1.294]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5631720405071974, \"cpu_s\": 0.759241, \"value\": [\"read7_lazy\", 0, 1.294]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5632191263139248, \"cpu_s\": 0.759288, \"value\": [\"yr7_lazy\", 0, 1.294]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6386006250977516, \"cpu_s\": 0.786534, \"value\": [\"sm40_fixed_views\", 5, 1.369]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6846825405955315, \"cpu_s\": 0.804958, \"value\": [\"sm40_hot_views\", 9, 1.416]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.713482541963458, \"cpu_s\": 0.815575, \"value\": [\"r7_firstread_views\", 3, 1.444]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.8362364582717419, \"cpu_s\": 0.857497, \"value\": [\"peel_fixed_views\", 11, 1.567]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.0551980417221785, \"cpu_s\": 0.935454, \"value\": [\"peel_full_topology\", 0, 1.786]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.3441244158893824, \"cpu_s\": 1.034626, \"value\": [\"smallsm12_fixed_views\", 12, 2.075]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.495164541527629, \"cpu_s\": 1.086875, \"value\": [\"generic_charged_views\", 133, 91, 2.226]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.5199224576354027, \"cpu_s\": 1.096235, \"value\": [\"mainread_io_reshapes\", 64, 2.251]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 3.4603500831872225, \"cpu_s\": 1.42788, \"value\": [\"bound\", 243, 3.191]}",
+        "STAGE {\"stage\": \"setup_end\", \"elapsed_s\": 3.508199291303754, \"cpu_s\": 1.472679, \"pb_log\": [[\"constants\", 0.137], [\"ksplit\", 26, 0.148], [\"wall guard\", 128, 1.22], [\"first_load_views\", 125, 1.221], [\"lvfuse\", 0, 1.221], [\"psdb_fused\", 9, 1.294], [\"pair_block_indices\", 1, 1.294], [\"read7_lazy\", 0, 1.294], [\"yr7_lazy\", 0, 1.294], [\"sm40_fixed_views\", 5, 1.369], [\"sm40_hot_views\", 9, 1.416], [\"r7_firstread_views\", 3, 1.444], [\"peel_fixed_views\", 11, 1.567], [\"peel_full_topology\", 0, 1.786], [\"smallsm12_fixed_views\", 12, 2.075], [\"generic_charged_views\", 133, 91, 2.226], [\"mainread_io_reshapes\", 64, 2.251], [\"bound\", 243, 3.191]], \"bind_errors\": [], \"setup_completed\": true, \"setup_flops\": 27687291204, \"setup_budget\": true, \"maxrss\": 253820928}"
+      ],
+      "worker_retired": true,
+      "close_s": 0.008200999349355698
+    },
+    {
+      "worker": 3,
+      "setup_timeout_s": 5.0,
+      "status": "PASS",
+      "launch_offset_s": 0.1356788333505392,
+      "start_envelope_s": 3.5378927923738956,
+      "worker_pid": 23735,
+      "start_responses": [
+        {
+          "status": "ok",
+          "diagnostic": {
+            "pb_log": [
+              [
+                "constants",
+                0.138
+              ],
+              [
+                "ksplit",
+                26,
+                0.149
+              ],
+              [
+                "wall guard",
+                128,
+                1.222
+              ],
+              [
+                "first_load_views",
+                125,
+                1.222
+              ],
+              [
+                "lvfuse",
+                0,
+                1.222
+              ],
+              [
+                "psdb_fused",
+                9,
+                1.295
+              ],
+              [
+                "pair_block_indices",
+                1,
+                1.295
+              ],
+              [
+                "read7_lazy",
+                0,
+                1.295
+              ],
+              [
+                "yr7_lazy",
+                0,
+                1.295
+              ],
+              [
+                "sm40_fixed_views",
+                5,
+                1.371
+              ],
+              [
+                "sm40_hot_views",
+                9,
+                1.417
+              ],
+              [
+                "r7_firstread_views",
+                3,
+                1.446
+              ],
+              [
+                "peel_fixed_views",
+                11,
+                1.569
+              ],
+              [
+                "peel_full_topology",
+                0,
+                1.788
+              ],
+              [
+                "smallsm12_fixed_views",
+                12,
+                2.078
+              ],
+              [
+                "generic_charged_views",
+                133,
+                91,
+                2.23
+              ],
+              [
+                "mainread_io_reshapes",
+                64,
+                2.255
+              ],
+              [
+                "bound",
+                243,
+                3.202
+              ]
+            ],
+            "bind_errors": [],
+            "setup_completed": true,
+            "setup_flops": 27687291204,
+            "setup_budget": true,
+            "maxrss": 254590976
+          }
+        }
+      ],
+      "worker_stderr": [
+        "STAGE {\"stage\": \"boundary_bootstrap\", \"elapsed_s\": 0.027379624545574188, \"cpu_s\": 0.047223, \"numpy_available\": false, \"flopscope\": \"0.12.3\", \"setup_budget\": true}",
+        "STAGE {\"stage\": \"rlimit_note\", \"elapsed_s\": 0.027633124962449074, \"cpu_s\": 0.047474, \"error\": \"ValueError('current limit exceeds maximum limit')\"}",
+        "STAGE {\"stage\": \"load_begin\", \"elapsed_s\": 0.027700750157237053, \"cpu_s\": 0.047542}",
+        "STAGE {\"stage\": \"load_end\", \"elapsed_s\": 0.2660155836492777, \"cpu_s\": 0.285486}",
+        "STAGE {\"stage\": \"setup_begin\", \"elapsed_s\": 0.26617833226919174, \"cpu_s\": 0.285649}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.40578254126012325, \"cpu_s\": 0.332011, \"value\": [\"constants\", 0.138]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.41686491668224335, \"cpu_s\": 0.336435, \"value\": [\"ksplit\", 26, 0.149]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4892812073230743, \"cpu_s\": 0.728254, \"value\": [\"wall guard\", 128, 1.222]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4895197078585625, \"cpu_s\": 0.728492, \"value\": [\"first_load_views\", 125, 1.222]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4896819572895765, \"cpu_s\": 0.728654, \"value\": [\"lvfuse\", 0, 1.222]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5621004160493612, \"cpu_s\": 0.756174, \"value\": [\"psdb_fused\", 9, 1.295]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5622929576784372, \"cpu_s\": 0.756366, \"value\": [\"pair_block_indices\", 1, 1.295]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5623680837452412, \"cpu_s\": 0.756442, \"value\": [\"read7_lazy\", 0, 1.295]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.562423624098301, \"cpu_s\": 0.756497, \"value\": [\"yr7_lazy\", 0, 1.295]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6387443337589502, \"cpu_s\": 0.78387, \"value\": [\"sm40_fixed_views\", 5, 1.371]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6846786253154278, \"cpu_s\": 0.802111, \"value\": [\"sm40_hot_views\", 9, 1.417]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.713680125772953, \"cpu_s\": 0.813016, \"value\": [\"r7_firstread_views\", 3, 1.446]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.836116125807166, \"cpu_s\": 0.854735, \"value\": [\"peel_fixed_views\", 11, 1.569]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.055704666301608, \"cpu_s\": 0.932337, \"value\": [\"peel_full_topology\", 0, 1.788]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.3455441668629646, \"cpu_s\": 1.032253, \"value\": [\"smallsm12_fixed_views\", 12, 2.078]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.497595999389887, \"cpu_s\": 1.085012, \"value\": [\"generic_charged_views\", 133, 91, 2.23]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.5220109578222036, \"cpu_s\": 1.094101, \"value\": [\"mainread_io_reshapes\", 64, 2.255]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 3.4689460825175047, \"cpu_s\": 1.427793, \"value\": [\"bound\", 243, 3.202]}",
+        "STAGE {\"stage\": \"setup_end\", \"elapsed_s\": 3.5137924160808325, \"cpu_s\": 1.469591, \"pb_log\": [[\"constants\", 0.138], [\"ksplit\", 26, 0.149], [\"wall guard\", 128, 1.222], [\"first_load_views\", 125, 1.222], [\"lvfuse\", 0, 1.222], [\"psdb_fused\", 9, 1.295], [\"pair_block_indices\", 1, 1.295], [\"read7_lazy\", 0, 1.295], [\"yr7_lazy\", 0, 1.295], [\"sm40_fixed_views\", 5, 1.371], [\"sm40_hot_views\", 9, 1.417], [\"r7_firstread_views\", 3, 1.446], [\"peel_fixed_views\", 11, 1.569], [\"peel_full_topology\", 0, 1.788], [\"smallsm12_fixed_views\", 12, 2.078], [\"generic_charged_views\", 133, 91, 2.23], [\"mainread_io_reshapes\", 64, 2.255], [\"bound\", 243, 3.202]], \"bind_errors\": [], \"setup_completed\": true, \"setup_flops\": 27687291204, \"setup_budget\": true, \"maxrss\": 254590976}"
+      ],
+      "worker_retired": true,
+      "close_s": 0.003619624301791191
+    },
+    {
+      "worker": 4,
+      "setup_timeout_s": 5.0,
+      "status": "PASS",
+      "launch_offset_s": 0.13555408269166946,
+      "start_envelope_s": 3.5364809595048428,
+      "worker_pid": 23737,
+      "start_responses": [
+        {
+          "status": "ok",
+          "diagnostic": {
+            "pb_log": [
+              [
+                "constants",
+                0.136
+              ],
+              [
+                "ksplit",
+                26,
+                0.148
+              ],
+              [
+                "wall guard",
+                128,
+                1.218
+              ],
+              [
+                "first_load_views",
+                125,
+                1.218
+              ],
+              [
+                "lvfuse",
+                0,
+                1.218
+              ],
+              [
+                "psdb_fused",
+                9,
+                1.292
+              ],
+              [
+                "pair_block_indices",
+                1,
+                1.292
+              ],
+              [
+                "read7_lazy",
+                0,
+                1.292
+              ],
+              [
+                "yr7_lazy",
+                0,
+                1.292
+              ],
+              [
+                "sm40_fixed_views",
+                5,
+                1.368
+              ],
+              [
+                "sm40_hot_views",
+                9,
+                1.415
+              ],
+              [
+                "r7_firstread_views",
+                3,
+                1.444
+              ],
+              [
+                "peel_fixed_views",
+                11,
+                1.567
+              ],
+              [
+                "peel_full_topology",
+                0,
+                1.787
+              ],
+              [
+                "smallsm12_fixed_views",
+                12,
+                2.076
+              ],
+              [
+                "generic_charged_views",
+                133,
+                91,
+                2.228
+              ],
+              [
+                "mainread_io_reshapes",
+                64,
+                2.253
+              ],
+              [
+                "bound",
+                243,
+                3.198
+              ]
+            ],
+            "bind_errors": [],
+            "setup_completed": true,
+            "setup_flops": 27687291204,
+            "setup_budget": true,
+            "maxrss": 253886464
+          }
+        }
+      ],
+      "worker_stderr": [
+        "STAGE {\"stage\": \"boundary_bootstrap\", \"elapsed_s\": 0.026805292814970016, \"cpu_s\": 0.047137, \"numpy_available\": false, \"flopscope\": \"0.12.3\", \"setup_budget\": true}",
+        "STAGE {\"stage\": \"rlimit_note\", \"elapsed_s\": 0.026990000158548355, \"cpu_s\": 0.047321, \"error\": \"ValueError('current limit exceeds maximum limit')\"}",
+        "STAGE {\"stage\": \"load_begin\", \"elapsed_s\": 0.02704504318535328, \"cpu_s\": 0.047376}",
+        "STAGE {\"stage\": \"load_end\", \"elapsed_s\": 0.2634067926555872, \"cpu_s\": 0.283471}",
+        "STAGE {\"stage\": \"setup_begin\", \"elapsed_s\": 0.2636061254888773, \"cpu_s\": 0.28366}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.4011520426720381, \"cpu_s\": 0.329516, \"value\": [\"constants\", 0.136]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 0.41250058449804783, \"cpu_s\": 0.33398, \"value\": [\"ksplit\", 26, 0.148]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.4823536667972803, \"cpu_s\": 0.72452, \"value\": [\"wall guard\", 128, 1.218]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.482737334445119, \"cpu_s\": 0.724903, \"value\": [\"first_load_views\", 125, 1.218]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.483092499896884, \"cpu_s\": 0.725146, \"value\": [\"lvfuse\", 0, 1.218]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5563467498868704, \"cpu_s\": 0.753427, \"value\": [\"psdb_fused\", 9, 1.292]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.556631000712514, \"cpu_s\": 0.753711, \"value\": [\"pair_block_indices\", 1, 1.292]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5569702088832855, \"cpu_s\": 0.753823, \"value\": [\"read7_lazy\", 0, 1.292]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.5570586249232292, \"cpu_s\": 0.753911, \"value\": [\"yr7_lazy\", 0, 1.292]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6330601684749126, \"cpu_s\": 0.781327, \"value\": [\"sm40_fixed_views\", 5, 1.368]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.6796640418469906, \"cpu_s\": 0.799775, \"value\": [\"sm40_hot_views\", 9, 1.415]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.7088246680796146, \"cpu_s\": 0.811048, \"value\": [\"r7_firstread_views\", 3, 1.444]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 1.83130962587893, \"cpu_s\": 0.852497, \"value\": [\"peel_fixed_views\", 11, 1.567]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.051402125507593, \"cpu_s\": 0.930242, \"value\": [\"peel_full_topology\", 0, 1.787]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.340262332931161, \"cpu_s\": 1.02957, \"value\": [\"smallsm12_fixed_views\", 12, 2.076]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.492577375844121, \"cpu_s\": 1.081828, \"value\": [\"generic_charged_views\", 133, 91, 2.228]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 2.51747695915401, \"cpu_s\": 1.091271, \"value\": [\"mainread_io_reshapes\", 64, 2.253]}",
+        "STAGE {\"stage\": \"pb_event\", \"elapsed_s\": 3.462521083652973, \"cpu_s\": 1.422799, \"value\": [\"bound\", 243, 3.198]}",
+        "STAGE {\"stage\": \"setup_end\", \"elapsed_s\": 3.508071582764387, \"cpu_s\": 1.46491, \"pb_log\": [[\"constants\", 0.136], [\"ksplit\", 26, 0.148], [\"wall guard\", 128, 1.218], [\"first_load_views\", 125, 1.218], [\"lvfuse\", 0, 1.218], [\"psdb_fused\", 9, 1.292], [\"pair_block_indices\", 1, 1.292], [\"read7_lazy\", 0, 1.292], [\"yr7_lazy\", 0, 1.292], [\"sm40_fixed_views\", 5, 1.368], [\"sm40_hot_views\", 9, 1.415], [\"r7_firstread_views\", 3, 1.444], [\"peel_fixed_views\", 11, 1.567], [\"peel_full_topology\", 0, 1.787], [\"smallsm12_fixed_views\", 12, 2.076], [\"generic_charged_views\", 133, 91, 2.228], [\"mainread_io_reshapes\", 64, 2.253], [\"bound\", 243, 3.198]], \"bind_errors\": [], \"setup_completed\": true, \"setup_flops\": 27687291204, \"setup_budget\": true, \"maxrss\": 253886464}"
+      ],
+      "worker_retired": true,
+      "close_s": 0.003926791250705719
+    }
+  ],
+  "error": null,
+  "server_returncodes": [
+    -15,
+    -15,
+    -15,
+    -15,
+    -15
+  ],
+  "server_processes_retired": true,
+  "elapsed_s": 3.6822744999080896,
+  "diagnostic_only": true
+}

@@ -1,0 +1,946 @@
+{
+  "pass_all": true,
+  "reports": [
+    {
+      "kind": "arm",
+      "seed": 7100136,
+      "pass_all": true,
+      "checks": {
+        "all16_bytes": true,
+        "all16_MSE": true,
+        "final_MSE": true,
+        "prediction_sha": true,
+        "setup_key_identity": true,
+        "cache_stats_identity": true,
+        "copy_counter_exact": true,
+        "contexts_retired": true,
+        "positive_measured_gain": true,
+        "bank_copy_reached": true
+      },
+      "predictions_by_layer": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "measured_flop_credit": 347796992,
+      "counter_credit": 347796992,
+      "bill_change_pct": -0.13533530141903727,
+      "charged_ops_parent": 39793,
+      "charged_ops_arm": 40109,
+      "charged_ops_delta": 316,
+      "nominal_5us_per_charged_op_delta_ms": 1.58,
+      "actual_production_requests_measured": false,
+      "stats": {
+        "_ASTRA_BCC_STATS": {
+          "calls": 8,
+          "expand_elements": 98631680,
+          "join_elements": 139960320,
+          "outer_elements": 126263296,
+          "destination_elements": 117063680,
+          "dcr_elements": 30482432,
+          "rowmap_elements": 9408,
+          "lazy_elements": 33288192,
+          "newborn_elements": 23199744
+        },
+        "_ASTRA_BCC_CTX": [
+          null
+        ],
+        "_ASTRA_BCC_RIGHT": [
+          null
+        ],
+        "_ASTRA_COMPUTE_STATS": {
+          "calls": 14,
+          "saved_copy_elements": 136910848,
+          "roster_blocks": 210,
+          "young_blocks": 78
+        },
+        "_ASTRA_UBOWN_STATS": {
+          "stores": 4,
+          "avoided_copy_elements": 97413372,
+          "binding_reshape_elements": 5935104,
+          "owned_quad_elements": 3391488,
+          "net_bill_credit": 88086780,
+          "owned_bytes": 389653488
+        },
+        "_ASTRA_CLUSTER_STATS": {
+          "direct_products": 0,
+          "direct_hits": 0,
+          "direct_stores": 0,
+          "direct_uncached": 0,
+          "direct_avoided_forward_elements": 0,
+          "direct_new_binding_elements": 0,
+          "existing_ubx_owned": 4,
+          "existing_ubx_copy_elements": 97413372,
+          "existing_ubx_binding_elements": 9326592,
+          "rc_owned": 2,
+          "rc_copy_elements": 67765824,
+          "rc_binding_elements": 6488064
+        },
+        "_UBC_STATS": {
+          "generations": 1,
+          "eligible": 22,
+          "hits": 18,
+          "misses": 4,
+          "stores": 4,
+          "copies": 0,
+          "copy_elements": 0,
+          "copied_bytes": 0,
+          "max_resident_bytes": 389653488,
+          "uncached": 0,
+          "peak_cache_bytes": 389653488,
+          "hit_slots": {
+            "u:0": 5,
+            "v:0": 5,
+            "v:4096": 4,
+            "ut:0": 0,
+            "vt:0": 0,
+            "u:4096": 4
+          },
+          "retired": true,
+          "retained_cache_bytes": 0,
+          "live_cache_bytes": 0
+        },
+        "_UBX_STATS": {
+          "products": 10,
+          "hits": 16,
+          "stores": 4,
+          "uncached": 0,
+          "skipped": 4,
+          "strip_hits": 4
+        },
+        "_UBX_RC_STATS": {
+          "products": 3,
+          "hits": 4,
+          "stores": 2,
+          "uncached": 0
+        },
+        "_UBX_STATE": {
+          "run": null,
+          "cache": {},
+          "bytes": 0
+        },
+        "_UBX_RCACHE": {
+          "owner": null,
+          "run": null,
+          "cache": {},
+          "bytes": 0
+        },
+        "_UBC_RUN": [
+          null
+        ],
+        "_UBC_CONTEXT": [
+          null
+        ],
+        "_UBX_CTX": [
+          null
+        ],
+        "_UBX_RC": [
+          null
+        ],
+        "_ASTRA_CLUSTER_CTX": [
+          null
+        ],
+        "_OTT_CONTEXT": [
+          null
+        ],
+        "_DCR_STASH": [
+          null
+        ],
+        "_DCR_CALLS": [],
+        "_DCR_OPEN": [
+          false
+        ],
+        "_ASTRA_QL_STATS": {
+          "a": 152,
+          "b": 159,
+          "saved_copy_elements": 74075136
+        }
+      },
+      "retirement": {
+        "_UBC_RUN": true,
+        "_UBC_CONTEXT": true,
+        "_UBX_CTX": true,
+        "_UBX_RC": true,
+        "_ASTRA_CLUSTER_CTX": true,
+        "_OTT_CONTEXT": true,
+        "_DCR_STASH": true,
+        "_DCR_CALLS": true,
+        "_DCR_OPEN": true,
+        "_ASTRA_BCC_CTX": true,
+        "_ASTRA_BCC_RIGHT": true,
+        "_UBX_STATE": true,
+        "_UBX_RCACHE": true,
+        "UBC_retired": true,
+        "UBC_peak_cap": true,
+        "UBC_resident_cap": true
+      },
+      "runtime": {
+        "parent_setup_s": 1.2471352498978376,
+        "arm_setup_s": 2.292728499509394,
+        "parent_predict_s": 107.85532166622579,
+        "arm_predict_s": 250.5377528751269,
+        "production_wall_valid": false
+      },
+      "parent": {
+        "kind": "parent",
+        "seed": 7100136,
+        "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_copy_native_v1/native_7100136_parent.json",
+        "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_copy_native_v1/native_7100136_parent_guard.json",
+        "elapsed_s": 111.31767154019326,
+        "certificate_sha256": "5821d6d457fe0bf603f4634e4938e8b8f4bf1f86f03ae9775d7421e4dbb1e658",
+        "prediction_npz_sha256": "2dd404f483ee4c79bf1614cb29cee5ede502c468cbcb793a8db5ebcc65b4fda5",
+        "guard_sha256": "ae5de777b4cff575901bb9b77aaaf217fbe54aeb024bf40dc5c09320afb59713",
+        "guard_max_rss_bytes": 6809960448,
+        "guard_max_footprint_bytes": 2302219424
+      },
+      "arm": {
+        "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100136_arm.json",
+        "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100136_arm_guard.json",
+        "elapsed_s": 256.68654000014067,
+        "certificate_sha256": "9550b0f9b75b158e10f6c4d686946899660c204154fdea8787fc8a524f7b31f8",
+        "prediction_npz_sha256": "2dd404f483ee4c79bf1614cb29cee5ede502c468cbcb793a8db5ebcc65b4fda5",
+        "guard_sha256": "2738e9268656fda3d30716cb6468aee478934f23b71800bb89375402364b3211",
+        "guard_max_rss_bytes": 3929079808,
+        "guard_max_footprint_bytes": 3013268640
+      },
+      "incremental_checks": {
+        "bank_counter_unchanged": true,
+        "incremental_quarter_credit_exact": true,
+        "incremental_quarter_credit_positive": true
+      }
+    },
+    {
+      "kind": "arm",
+      "seed": 7100137,
+      "pass_all": true,
+      "checks": {
+        "all16_bytes": true,
+        "all16_MSE": true,
+        "final_MSE": true,
+        "prediction_sha": true,
+        "setup_key_identity": true,
+        "cache_stats_identity": true,
+        "copy_counter_exact": true,
+        "contexts_retired": true,
+        "positive_measured_gain": true,
+        "bank_copy_reached": true
+      },
+      "predictions_by_layer": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "measured_flop_credit": 342836224,
+      "counter_credit": 342836224,
+      "bill_change_pct": -0.12750377969501514,
+      "charged_ops_parent": 40098,
+      "charged_ops_arm": 40382,
+      "charged_ops_delta": 284,
+      "nominal_5us_per_charged_op_delta_ms": 1.42,
+      "actual_production_requests_measured": false,
+      "stats": {
+        "_ASTRA_BCC_STATS": {
+          "calls": 8,
+          "expand_elements": 103710720,
+          "join_elements": 144289792,
+          "outer_elements": 113618944,
+          "destination_elements": 124755968,
+          "dcr_elements": 20701184,
+          "rowmap_elements": 7232,
+          "lazy_elements": 36599808,
+          "newborn_elements": 24156160
+        },
+        "_ASTRA_BCC_CTX": [
+          null
+        ],
+        "_ASTRA_BCC_RIGHT": [
+          null
+        ],
+        "_ASTRA_COMPUTE_STATS": {
+          "calls": 14,
+          "saved_copy_elements": 145092608,
+          "roster_blocks": 210,
+          "young_blocks": 78
+        },
+        "_ASTRA_UBOWN_STATS": {
+          "stores": 4,
+          "avoided_copy_elements": 97413372,
+          "binding_reshape_elements": 5935104,
+          "owned_quad_elements": 3391488,
+          "net_bill_credit": 88086780,
+          "owned_bytes": 389653488
+        },
+        "_ASTRA_CLUSTER_STATS": {
+          "direct_products": 0,
+          "direct_hits": 0,
+          "direct_stores": 0,
+          "direct_uncached": 0,
+          "direct_avoided_forward_elements": 0,
+          "direct_new_binding_elements": 0,
+          "existing_ubx_owned": 4,
+          "existing_ubx_copy_elements": 97413372,
+          "existing_ubx_binding_elements": 9326592,
+          "rc_owned": 2,
+          "rc_copy_elements": 67765824,
+          "rc_binding_elements": 6488064
+        },
+        "_UBC_STATS": {
+          "generations": 1,
+          "eligible": 23,
+          "hits": 19,
+          "misses": 4,
+          "stores": 4,
+          "copies": 0,
+          "copy_elements": 0,
+          "copied_bytes": 0,
+          "max_resident_bytes": 389653488,
+          "uncached": 0,
+          "peak_cache_bytes": 389653488,
+          "hit_slots": {
+            "u:0": 5,
+            "v:0": 5,
+            "v:4096": 5,
+            "ut:0": 0,
+            "vt:0": 0,
+            "u:4096": 4
+          },
+          "retired": true,
+          "retained_cache_bytes": 0,
+          "live_cache_bytes": 0
+        },
+        "_UBX_STATS": {
+          "products": 10,
+          "hits": 16,
+          "stores": 4,
+          "uncached": 0,
+          "skipped": 4,
+          "strip_hits": 12
+        },
+        "_UBX_RC_STATS": {
+          "products": 3,
+          "hits": 4,
+          "stores": 2,
+          "uncached": 0
+        },
+        "_UBX_STATE": {
+          "run": null,
+          "cache": {},
+          "bytes": 0
+        },
+        "_UBX_RCACHE": {
+          "owner": null,
+          "run": null,
+          "cache": {},
+          "bytes": 0
+        },
+        "_UBC_RUN": [
+          null
+        ],
+        "_UBC_CONTEXT": [
+          null
+        ],
+        "_UBX_CTX": [
+          null
+        ],
+        "_UBX_RC": [
+          null
+        ],
+        "_ASTRA_CLUSTER_CTX": [
+          null
+        ],
+        "_OTT_CONTEXT": [
+          null
+        ],
+        "_DCR_STASH": [
+          null
+        ],
+        "_DCR_CALLS": [],
+        "_DCR_OPEN": [
+          false
+        ],
+        "_ASTRA_QL_STATS": {
+          "a": 133,
+          "b": 149,
+          "saved_copy_elements": 65975808
+        }
+      },
+      "retirement": {
+        "_UBC_RUN": true,
+        "_UBC_CONTEXT": true,
+        "_UBX_CTX": true,
+        "_UBX_RC": true,
+        "_ASTRA_CLUSTER_CTX": true,
+        "_OTT_CONTEXT": true,
+        "_DCR_STASH": true,
+        "_DCR_CALLS": true,
+        "_DCR_OPEN": true,
+        "_ASTRA_BCC_CTX": true,
+        "_ASTRA_BCC_RIGHT": true,
+        "_UBX_STATE": true,
+        "_UBX_RCACHE": true,
+        "UBC_retired": true,
+        "UBC_peak_cap": true,
+        "UBC_resident_cap": true
+      },
+      "runtime": {
+        "parent_setup_s": 1.734944500029087,
+        "arm_setup_s": 2.0296834595501423,
+        "parent_predict_s": 121.53459645807743,
+        "arm_predict_s": 226.70993187464774,
+        "production_wall_valid": false
+      },
+      "parent": {
+        "kind": "parent",
+        "seed": 7100137,
+        "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_copy_native_v1/native_7100137_parent.json",
+        "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_copy_native_v1/native_7100137_parent_guard.json",
+        "elapsed_s": 125.55517562478781,
+        "certificate_sha256": "45f9483cf08634e8047c73a177d6fb158811a42fc0616e7b7f89bb37b5e8985a",
+        "prediction_npz_sha256": "ba5063f6e5e2d972b6a4d7691279f1ce798248f94264d747358992939673aae0",
+        "guard_sha256": "8a4e3990a3049eada817f83bec11514a061264f454e1e81897fe34a681555ec5",
+        "guard_max_rss_bytes": 6465617920,
+        "guard_max_footprint_bytes": 2435208712
+      },
+      "arm": {
+        "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100137_arm.json",
+        "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100137_arm_guard.json",
+        "elapsed_s": 232.16172766592354,
+        "certificate_sha256": "bd452489ad94b79afdbd2bf13470f701d94004153181d9c0b82ea9adf25f6663",
+        "prediction_npz_sha256": "ba5063f6e5e2d972b6a4d7691279f1ce798248f94264d747358992939673aae0",
+        "guard_sha256": "e4a727fc1be1ad9e4c6605fa66b799d1df5edfc18ae46e04d345b0d3276d1144",
+        "guard_max_rss_bytes": 3974299648,
+        "guard_max_footprint_bytes": 2982253512
+      },
+      "incremental_checks": {
+        "bank_counter_unchanged": true,
+        "incremental_quarter_credit_exact": true,
+        "incremental_quarter_credit_positive": true
+      }
+    },
+    {
+      "kind": "arm",
+      "seed": 7100600,
+      "pass_all": true,
+      "checks": {
+        "all16_bytes": true,
+        "all16_MSE": true,
+        "final_MSE": true,
+        "prediction_sha": true,
+        "setup_key_identity": true,
+        "cache_stats_identity": true,
+        "copy_counter_exact": true,
+        "contexts_retired": true,
+        "positive_measured_gain": true,
+        "bank_copy_reached": true
+      },
+      "predictions_by_layer": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "measured_flop_credit": 341182464,
+      "counter_credit": 341182464,
+      "bill_change_pct": -0.13405708211596812,
+      "charged_ops_parent": 39561,
+      "charged_ops_arm": 39871,
+      "charged_ops_delta": 310,
+      "nominal_5us_per_charged_op_delta_ms": 1.55,
+      "actual_production_requests_measured": false,
+      "stats": {
+        "_ASTRA_BCC_STATS": {
+          "calls": 8,
+          "expand_elements": 106737664,
+          "join_elements": 138153984,
+          "outer_elements": 124522496,
+          "destination_elements": 114708480,
+          "dcr_elements": 39428096,
+          "rowmap_elements": 10240,
+          "lazy_elements": 32106496,
+          "newborn_elements": 22890496
+        },
+        "_ASTRA_BCC_CTX": [
+          null
+        ],
+        "_ASTRA_BCC_RIGHT": [
+          null
+        ],
+        "_ASTRA_COMPUTE_STATS": {
+          "calls": 14,
+          "saved_copy_elements": 135456768,
+          "roster_blocks": 210,
+          "young_blocks": 78
+        },
+        "_ASTRA_UBOWN_STATS": {
+          "stores": 4,
+          "avoided_copy_elements": 97413372,
+          "binding_reshape_elements": 5935104,
+          "owned_quad_elements": 3391488,
+          "net_bill_credit": 88086780,
+          "owned_bytes": 389653488
+        },
+        "_ASTRA_CLUSTER_STATS": {
+          "direct_products": 0,
+          "direct_hits": 0,
+          "direct_stores": 0,
+          "direct_uncached": 0,
+          "direct_avoided_forward_elements": 0,
+          "direct_new_binding_elements": 0,
+          "existing_ubx_owned": 4,
+          "existing_ubx_copy_elements": 97413372,
+          "existing_ubx_binding_elements": 9326592,
+          "rc_owned": 2,
+          "rc_copy_elements": 67765824,
+          "rc_binding_elements": 6488064
+        },
+        "_UBC_STATS": {
+          "generations": 1,
+          "eligible": 22,
+          "hits": 18,
+          "misses": 4,
+          "stores": 4,
+          "copies": 0,
+          "copy_elements": 0,
+          "copied_bytes": 0,
+          "max_resident_bytes": 389653488,
+          "uncached": 0,
+          "peak_cache_bytes": 389653488,
+          "hit_slots": {
+            "u:0": 5,
+            "v:0": 5,
+            "v:4096": 4,
+            "ut:0": 0,
+            "vt:0": 0,
+            "u:4096": 4
+          },
+          "retired": true,
+          "retained_cache_bytes": 0,
+          "live_cache_bytes": 0
+        },
+        "_UBX_STATS": {
+          "products": 10,
+          "hits": 16,
+          "stores": 4,
+          "uncached": 0,
+          "skipped": 4,
+          "strip_hits": 8
+        },
+        "_UBX_RC_STATS": {
+          "products": 3,
+          "hits": 4,
+          "stores": 2,
+          "uncached": 0
+        },
+        "_UBX_STATE": {
+          "run": null,
+          "cache": {},
+          "bytes": 0
+        },
+        "_UBX_RCACHE": {
+          "owner": null,
+          "run": null,
+          "cache": {},
+          "bytes": 0
+        },
+        "_UBC_RUN": [
+          null
+        ],
+        "_UBC_CONTEXT": [
+          null
+        ],
+        "_UBX_CTX": [
+          null
+        ],
+        "_UBX_RC": [
+          null
+        ],
+        "_ASTRA_CLUSTER_CTX": [
+          null
+        ],
+        "_OTT_CONTEXT": [
+          null
+        ],
+        "_DCR_STASH": [
+          null
+        ],
+        "_DCR_CALLS": [],
+        "_DCR_OPEN": [
+          false
+        ],
+        "_ASTRA_QL_STATS": {
+          "a": 142,
+          "b": 162,
+          "saved_copy_elements": 70989824
+        }
+      },
+      "retirement": {
+        "_UBC_RUN": true,
+        "_UBC_CONTEXT": true,
+        "_UBX_CTX": true,
+        "_UBX_RC": true,
+        "_ASTRA_CLUSTER_CTX": true,
+        "_OTT_CONTEXT": true,
+        "_DCR_STASH": true,
+        "_DCR_CALLS": true,
+        "_DCR_OPEN": true,
+        "_ASTRA_BCC_CTX": true,
+        "_ASTRA_BCC_RIGHT": true,
+        "_UBX_STATE": true,
+        "_UBX_RCACHE": true,
+        "UBC_retired": true,
+        "UBC_peak_cap": true,
+        "UBC_resident_cap": true
+      },
+      "runtime": {
+        "parent_setup_s": 1.596031959168613,
+        "arm_setup_s": 1.9898538328707218,
+        "parent_predict_s": 165.77354054152966,
+        "arm_predict_s": 155.34487474989146,
+        "production_wall_valid": false
+      },
+      "parent": {
+        "kind": "parent",
+        "seed": 7100600,
+        "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_copy_native_v1/native_7100600_parent.json",
+        "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_copy_native_v1/native_7100600_parent_guard.json",
+        "elapsed_s": 170.43889012467116,
+        "certificate_sha256": "6238e4333e21d4005980a4e4846462936a898d718f0db7cbd1c5b235f77084c9",
+        "prediction_npz_sha256": "74a96a9e51548adb21864c03f4448ca392b926d7390a41c68ec1a3b9a185992f",
+        "guard_sha256": "056d6036aebe443390b6d70a37040d10f809a80c2e881c1e1f2f76c32a89bfae",
+        "guard_max_rss_bytes": 5337481216,
+        "guard_max_footprint_bytes": 2641433688
+      },
+      "arm": {
+        "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100600_arm.json",
+        "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100600_arm_guard.json",
+        "elapsed_s": 160.69039800018072,
+        "certificate_sha256": "0cf151c68f2d8e579077de92326ddd5e59d9aeca1f9cddb56f12762b727dc117",
+        "prediction_npz_sha256": "74a96a9e51548adb21864c03f4448ca392b926d7390a41c68ec1a3b9a185992f",
+        "guard_sha256": "7207d24bb0388a28045ab6f0ddb5829c2b8918ae5a73ab09b65a743163c27cf9",
+        "guard_max_rss_bytes": 4943953920,
+        "guard_max_footprint_bytes": 2714752472
+      },
+      "incremental_checks": {
+        "bank_counter_unchanged": true,
+        "incremental_quarter_credit_exact": true,
+        "incremental_quarter_credit_positive": true
+      }
+    },
+    {
+      "kind": "arm",
+      "seed": 7100601,
+      "pass_all": true,
+      "checks": {
+        "all16_bytes": true,
+        "all16_MSE": true,
+        "final_MSE": true,
+        "prediction_sha": true,
+        "setup_key_identity": true,
+        "cache_stats_identity": true,
+        "copy_counter_exact": true,
+        "contexts_retired": true,
+        "positive_measured_gain": true,
+        "bank_copy_reached": true
+      },
+      "predictions_by_layer": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "measured_flop_credit": 343077888,
+      "counter_credit": 343077888,
+      "bill_change_pct": -0.13440162947789824,
+      "charged_ops_parent": 39214,
+      "charged_ops_arm": 39523,
+      "charged_ops_delta": 309,
+      "nominal_5us_per_charged_op_delta_ms": 1.545,
+      "actual_production_requests_measured": false,
+      "stats": {
+        "_ASTRA_BCC_STATS": {
+          "calls": 8,
+          "expand_elements": 94429184,
+          "join_elements": 137052160,
+          "outer_elements": 123355136,
+          "destination_elements": 115523584,
+          "dcr_elements": 26673152,
+          "rowmap_elements": 8448,
+          "lazy_elements": 33288192,
+          "newborn_elements": 23029760
+        },
+        "_ASTRA_BCC_CTX": [
+          null
+        ],
+        "_ASTRA_BCC_RIGHT": [
+          null
+        ],
+        "_ASTRA_COMPUTE_STATS": {
+          "calls": 14,
+          "saved_copy_elements": 136181760,
+          "roster_blocks": 210,
+          "young_blocks": 78
+        },
+        "_ASTRA_UBOWN_STATS": {
+          "stores": 4,
+          "avoided_copy_elements": 97413372,
+          "binding_reshape_elements": 5935104,
+          "owned_quad_elements": 3391488,
+          "net_bill_credit": 88086780,
+          "owned_bytes": 389653488
+        },
+        "_ASTRA_CLUSTER_STATS": {
+          "direct_products": 0,
+          "direct_hits": 0,
+          "direct_stores": 0,
+          "direct_uncached": 0,
+          "direct_avoided_forward_elements": 0,
+          "direct_new_binding_elements": 0,
+          "existing_ubx_owned": 4,
+          "existing_ubx_copy_elements": 97413372,
+          "existing_ubx_binding_elements": 9326592,
+          "rc_owned": 2,
+          "rc_copy_elements": 67765824,
+          "rc_binding_elements": 6488064
+        },
+        "_UBC_STATS": {
+          "generations": 1,
+          "eligible": 22,
+          "hits": 18,
+          "misses": 4,
+          "stores": 4,
+          "copies": 0,
+          "copy_elements": 0,
+          "copied_bytes": 0,
+          "max_resident_bytes": 389653488,
+          "uncached": 0,
+          "peak_cache_bytes": 389653488,
+          "hit_slots": {
+            "u:0": 5,
+            "v:0": 5,
+            "v:4096": 4,
+            "ut:0": 0,
+            "vt:0": 0,
+            "u:4096": 4
+          },
+          "retired": true,
+          "retained_cache_bytes": 0,
+          "live_cache_bytes": 0
+        },
+        "_UBX_STATS": {
+          "products": 10,
+          "hits": 16,
+          "stores": 4,
+          "uncached": 0,
+          "skipped": 4,
+          "strip_hits": 8
+        },
+        "_UBX_RC_STATS": {
+          "products": 3,
+          "hits": 4,
+          "stores": 2,
+          "uncached": 0
+        },
+        "_UBX_STATE": {
+          "run": null,
+          "cache": {},
+          "bytes": 0
+        },
+        "_UBX_RCACHE": {
+          "owner": null,
+          "run": null,
+          "cache": {},
+          "bytes": 0
+        },
+        "_UBC_RUN": [
+          null
+        ],
+        "_UBC_CONTEXT": [
+          null
+        ],
+        "_UBX_CTX": [
+          null
+        ],
+        "_UBX_RC": [
+          null
+        ],
+        "_ASTRA_CLUSTER_CTX": [
+          null
+        ],
+        "_OTT_CONTEXT": [
+          null
+        ],
+        "_DCR_STASH": [
+          null
+        ],
+        "_DCR_CALLS": [],
+        "_DCR_OPEN": [
+          false
+        ],
+        "_ASTRA_QL_STATS": {
+          "a": 149,
+          "b": 156,
+          "saved_copy_elements": 74187776
+        }
+      },
+      "retirement": {
+        "_UBC_RUN": true,
+        "_UBC_CONTEXT": true,
+        "_UBX_CTX": true,
+        "_UBX_RC": true,
+        "_ASTRA_CLUSTER_CTX": true,
+        "_OTT_CONTEXT": true,
+        "_DCR_STASH": true,
+        "_DCR_CALLS": true,
+        "_DCR_OPEN": true,
+        "_ASTRA_BCC_CTX": true,
+        "_ASTRA_BCC_RIGHT": true,
+        "_UBX_STATE": true,
+        "_UBX_RCACHE": true,
+        "UBC_retired": true,
+        "UBC_peak_cap": true,
+        "UBC_resident_cap": true
+      },
+      "runtime": {
+        "parent_setup_s": 1.733641667291522,
+        "arm_setup_s": 1.856554082594812,
+        "parent_predict_s": 166.8746122084558,
+        "arm_predict_s": 207.55023112520576,
+        "production_wall_valid": false
+      },
+      "parent": {
+        "kind": "parent",
+        "seed": 7100601,
+        "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_copy_native_v1/native_7100601_parent.json",
+        "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_copy_native_v1/native_7100601_parent_guard.json",
+        "elapsed_s": 171.84785691648722,
+        "certificate_sha256": "f76e28dbe7a97b9ccf5deeef5adf2bd72c03bdbadfcac3f5dc229675626bca1c",
+        "prediction_npz_sha256": "13c0bd51d7e9acb3b48eaf8abe048eea4348779e1efc6a333e55d7c425c92709",
+        "guard_sha256": "1d2f6f6050957fa02ea94d07f8f48b9dba132d56e1f96f093ba7479490bb032d",
+        "guard_max_rss_bytes": 5549015040,
+        "guard_max_footprint_bytes": 2428851792
+      },
+      "arm": {
+        "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100601_arm.json",
+        "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100601_arm_guard.json",
+        "elapsed_s": 213.83340450003743,
+        "certificate_sha256": "c51a932f276cf949678778d26b9f3057a8c6207511d1585d34962cc0d968654d",
+        "prediction_npz_sha256": "13c0bd51d7e9acb3b48eaf8abe048eea4348779e1efc6a333e55d7c425c92709",
+        "guard_sha256": "53d3251869b561781d8d7b6b4f46abed16a5e9b1f323ac0723a7d1053a3abb36",
+        "guard_max_rss_bytes": 4307779584,
+        "guard_max_footprint_bytes": 2913113272
+      },
+      "incremental_checks": {
+        "bank_counter_unchanged": true,
+        "incremental_quarter_credit_exact": true,
+        "incremental_quarter_credit_positive": true
+      }
+    }
+  ],
+  "evaluations": [
+    {
+      "kind": "arm",
+      "seed": 7100136,
+      "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100136_arm.json",
+      "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100136_arm_guard.json",
+      "elapsed_s": 256.68654000014067,
+      "certificate_sha256": "9550b0f9b75b158e10f6c4d686946899660c204154fdea8787fc8a524f7b31f8",
+      "prediction_npz_sha256": "2dd404f483ee4c79bf1614cb29cee5ede502c468cbcb793a8db5ebcc65b4fda5",
+      "guard_sha256": "2738e9268656fda3d30716cb6468aee478934f23b71800bb89375402364b3211",
+      "guard_max_rss_bytes": 3929079808,
+      "guard_max_footprint_bytes": 3013268640
+    },
+    {
+      "kind": "arm",
+      "seed": 7100137,
+      "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100137_arm.json",
+      "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100137_arm_guard.json",
+      "elapsed_s": 232.16172766592354,
+      "certificate_sha256": "bd452489ad94b79afdbd2bf13470f701d94004153181d9c0b82ea9adf25f6663",
+      "prediction_npz_sha256": "ba5063f6e5e2d972b6a4d7691279f1ce798248f94264d747358992939673aae0",
+      "guard_sha256": "e4a727fc1be1ad9e4c6605fa66b799d1df5edfc18ae46e04d345b0d3276d1144",
+      "guard_max_rss_bytes": 3974299648,
+      "guard_max_footprint_bytes": 2982253512
+    },
+    {
+      "kind": "arm",
+      "seed": 7100600,
+      "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100600_arm.json",
+      "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100600_arm_guard.json",
+      "elapsed_s": 160.69039800018072,
+      "certificate_sha256": "0cf151c68f2d8e579077de92326ddd5e59d9aeca1f9cddb56f12762b727dc117",
+      "prediction_npz_sha256": "74a96a9e51548adb21864c03f4448ca392b926d7390a41c68ec1a3b9a185992f",
+      "guard_sha256": "7207d24bb0388a28045ab6f0ddb5829c2b8918ae5a73ab09b65a743163c27cf9",
+      "guard_max_rss_bytes": 4943953920,
+      "guard_max_footprint_bytes": 2714752472
+    },
+    {
+      "kind": "arm",
+      "seed": 7100601,
+      "certificate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100601_arm.json",
+      "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/scout_native/astra_bank_quarter_native_v1/native_7100601_arm_guard.json",
+      "elapsed_s": 213.83340450003743,
+      "certificate_sha256": "c51a932f276cf949678778d26b9f3057a8c6207511d1585d34962cc0d968654d",
+      "prediction_npz_sha256": "13c0bd51d7e9acb3b48eaf8abe048eea4348779e1efc6a333e55d7c425c92709",
+      "guard_sha256": "53d3251869b561781d8d7b6b4f46abed16a5e9b1f323ac0723a7d1053a3abb36",
+      "guard_max_rss_bytes": 4307779584,
+      "guard_max_footprint_bytes": 2913113272
+    }
+  ],
+  "protocol_sha256": "0793aafdfd29a300d04bbcc9401aa278d48748fb1ef26bca0ca812814302f7fc",
+  "bank_summary_sha256": "29c1e0ebb620ba6b454b48cf084e19a841c80b462402a11cec1f7ba3228fdc35",
+  "geometric_mean_bill_change_pct": -0.13282449651609296,
+  "bank_certificate_preserved": true,
+  "production_qualified": false,
+  "own_prebind_qualified": false,
+  "limitation": "Later current-best combined source audit, own census/prebind and production normal/slow request/wall gates mandatory."
+}

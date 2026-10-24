@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cp_diagonal_sum64_v1/candidate.py",
+    "sha256": "8e8ae9cbe759df3aa3d91c3d20b479bbb43e40885a3fc68dd7716e5b66b7f1b6",
+    "bytes": 976000
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cp_diagonal_sum64_v1/protocol.json",
+    "sha256": "0ddbeb3273d20b13286ef666bceb79f52504a91d66e6082ea0d85b70367b6f06",
+    "bytes": 5687
+  },
+  "source_inverse": {
+    "parent": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_fusion_v1/candidate.py",
+      "sha256": "f9f4790b3c65f730404425e8923c767dc2f895fdcc1e14f14cc649286ad3b69f",
+      "bytes": 975980
+    },
+    "edits": [
+      {
+        "before": "diagonal = _e2_H(fnp.sum(_e2_t3, axis=1)).astype(fnp.float64)",
+        "after": "diagonal = _e2_H(fnp.sum(_e2_t3, axis=1, dtype=fnp.float64))"
+      },
+      {
+        "before": "k3_rows = fnp.sum(_cp_diagonal_cube(pp_rows) * lam, axis=1).astype(fnp.float64)   # F32 (E-29)",
+        "after": "k3_rows = fnp.sum(_cp_diagonal_cube(pp_rows) * lam, axis=1, dtype=fnp.float64)   # FP32 products, FP64 accumulation"
+      }
+    ],
+    "exact_inverse": true
+  },
+  "only_changed_functions": [
+    [
+      "_predict_binary",
+      3214
+    ],
+    [
+      "_l15_rowcut_k3",
+      3965
+    ]
+  ],
+  "ast_compile": true,
+  "source_diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_cp_diagonal_sum64_v1/source.diff",
+    "sha256": "56e54505e8591c2f8751a671467cec29711fd9f63b6c5a84efd9eda81c668c7a",
+    "bytes": 1494
+  }
+}

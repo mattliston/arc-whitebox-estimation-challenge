@@ -1,0 +1,83 @@
+{
+  "schema": "phase2-cp3-full-birth-cap-ladder-target-free-resource-v1",
+  "status": "PASS_ALL_FOUR_FULL_BUDGET_RESOURCE_AND_INTERFACE_GATES__ACCURACY_UNSCORED",
+  "source": {
+    "estimator_sha256": "63809cea47419c3f2321ed76db86492a2394fa025d6d17837da9d639e1753e43",
+    "classes": [
+      "EstimatorCap2048",
+      "EstimatorCap4096",
+      "EstimatorCap8192",
+      "EstimatorCap16384"
+    ],
+    "host": "open-loop float64 Hermite-10 covariance plus float32 symmetric-CP K3 readout"
+  },
+  "protocol": {
+    "flopscope": "0.12.0",
+    "flopscope_server": "0.12.0",
+    "whestbench": "0.16.0",
+    "width": 1024,
+    "depth": 16,
+    "n_mlps": 1,
+    "synthetic_truth_samples": 1000,
+    "seed": 20260823,
+    "full_budget": 2199023255552,
+    "memory_limit_bytes": 8589934592
+  },
+  "rungs": [
+    {
+      "cap": 2048,
+      "flops": 229196233730,
+      "full_budget_fraction": 0.10422638012187235,
+      "full_budget_headroom": 1969827021822,
+      "sampled_solution_rss_bytes": 2127544320,
+      "wall_time_s": 1.0713647077791393,
+      "residual_wall_time_s": 0.08128371927887201,
+      "receipt_sha256": "b4233d669733eb61d045e24355a0b4dd21800209733212e5e1c6877cbf04e54d"
+    },
+    {
+      "cap": 4096,
+      "flops": 336972195842,
+      "full_budget_fraction": 0.15323721338154428,
+      "full_budget_headroom": 1862051059710,
+      "sampled_solution_rss_bytes": 2302541824,
+      "wall_time_s": 1.2578057502396405,
+      "residual_wall_time_s": 0.09832157287746668,
+      "receipt_sha256": "4142ee5399b85bf7b81516ed30e3d9d24afc47e05738fee535197be9f97bc012"
+    },
+    {
+      "cap": 8192,
+      "flops": 500555071490,
+      "full_budget_fraction": 0.22762609273286216,
+      "full_budget_headroom": 1698468184062,
+      "sampled_solution_rss_bytes": 3036479488,
+      "wall_time_s": 1.5586672499775887,
+      "residual_wall_time_s": 0.11343625700101256,
+      "receipt_sha256": "27c0b7ed3a91f25a4f4380b3642235932475d5ca8df92f2a936232a2bf9c1036"
+    },
+    {
+      "cap": 16384,
+      "exact_no_truncation": true,
+      "maximum_acted_on_rank": 15360,
+      "flops": 620090560514,
+      "full_budget_fraction": 0.28198453970344417,
+      "full_budget_headroom": 1578932695038,
+      "sampled_solution_rss_bytes": 5014732800,
+      "wall_time_s": 1.5464130002073944,
+      "residual_wall_time_s": 0.12622735323384404,
+      "receipt_sha256": "3674a1d95b7198703aba204721b814d34d2f9313311ed3fa024948bd4633a2e8"
+    }
+  ],
+  "common_output": {
+    "failed_mlps": 0,
+    "shape": [16, 1024],
+    "dtype": "float32",
+    "finite": true
+  },
+  "accuracy_scope": "All four runs used only the deterministic synthetic interface fixture. No dataset, public target, role target, teacher state, fitted parameter, or scientific score was read.",
+  "decision": {
+    "resource": "PASS",
+    "production_candidate": "EstimatorCap16384",
+    "reason": "It is the exact full-birth CP state, consumes only 28.20 percent of the full FLOP budget, and passed the measured 8 GiB solution-RSS gate.",
+    "execution": "HOLD_PENDING_INDEPENDENT_SOURCE_RECEIPT_AND_ONE_USE_SEALER_AUDIT"
+  }
+}

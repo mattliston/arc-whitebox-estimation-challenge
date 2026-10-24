@@ -1,0 +1,39 @@
+{
+  "status": "corrected real-worker resource qualification passed",
+  "candidate_sha256": "5d43930820d144db00aac86ace9281fe0232240e321f53701cfdd8fe1ec98f26",
+  "networks": 20,
+  "maximum_group_rss_bytes": 6782844928,
+  "maximum_swap_growth_bytes": 0,
+  "measured_peak_server_handles": 58249,
+  "enforced_handle_cap": 70000,
+  "cache_capacities": [
+    320,
+    352,
+    320
+  ],
+  "prediction_parity": [
+    {
+      "rank": 35,
+      "all_16_layers_exact": true
+    },
+    {
+      "rank": 100,
+      "all_16_layers_exact": true
+    }
+  ],
+  "shared_bill_parity": {
+    "networks": 14,
+    "all_exact": true
+  },
+  "input_lifetime": {
+    "maximum_input_buffers_in_largest_root_snapshots": 2,
+    "witness": "rpc_lifetime_witness_v1/result.json",
+    "fix": "Harness-owned input/output proxies released before final in-session summary; no estimator or billing-history reset"
+  },
+  "instrumentation": "Actual handle counters plus metadata-only root snapshots; timings not used for runtime comparison",
+  "harness_hashes": {
+    "run_handle_worker_v3.py": "7a536e238ab9167d946c85df9d1b5fd7979444e7dcdb697e50728e9e63e38db0",
+    "handle_client_v2.py": "c7669f8ccf9efd4eedd7b7b1a13fea0a73ee3f24960a45950ea10edb4eeb3ba9",
+    "handle_server_v2.py": "45e76ab9b1e7649e3303ad95ed29cebbc6d14c66c6d865424a7ad526449bf559"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_ROOT",
+    "label": "MECHANISM ROOT (v3): final-layer post-mean MSE = the card's own nonlinear recursion of its carried per-layer (v, k3, k4); forcing them to truth -> noise floor",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "The scored quantity decomposes EXACTLY (proven) into the adjoint-weighted per-layer state errors {dv, dk3, dk4}: r_l = phi'.(r_{l+1} W) + dds. With truth v+k3+k4 the integral gives 7.09e-9 (r35) / 9.89e-9 (r100) ~ the ladder's exact m+v (7.48e-9): the mean channel needs no object of its own. Board raw 2.9409e-8; goal < 1e-8 (-66%). Children are the three state channels plus the learned operator and the util multiplier. Recursion rule: price every leaf through the adjoint against truth; oracle arm before building; descend into the largest unsolved priced leaf; recompose upward. T-43 FRAME-FREE: the exact-linear-integral picture is retired for value; the card's own recursion with truth per-layer (v, k3, k4) is at the noise floor on both nets. The root question is state accuracy (N0).",
+    "terminal_criterion": "Closed when the recomposed card scores raw < 1e-8 on the board.",
+    "evidence": [
+      {
+        "claim": "Exact-integral proof + oracle all-three = 7.09e-9.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/MECHANISM_TREE.md + FASTER_PATH_MEMO.md F1 + LANE_h2_h3 'what is proven'"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_MECH_N0_STATE_ACCURACY",
+      "P2R0G19B_MECH_N1_VCHANNEL",
+      "P2R0G19B_MECH_N2_K3",
+      "P2R0G19B_MECH_N3_K4",
+      "P2R0G19B_MECH_N4_F2J",
+      "P2R0G19B_MECH_N5_UTIL"
+    ],
+    "goal_path_summary": "The final error is exactly a weighted sum of the estimator's per-layer mistakes in three statistics, so every remaining error can be traced to a named mechanism and priced; this node is the top of that tree."
+  }
+}

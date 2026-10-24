@@ -1,0 +1,389 @@
+{
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/candidate_fullpair_scalar_final_gaussfirst_v1.py",
+  "source_sha256": "b2bb28fdefa067254a6091bd1cb16beaff3556b52e3bc61b8d12d61adb2328ec",
+  "rank": 35,
+  "flops": 454162157949,
+  "util": 0.20652903820018764,
+  "wall_s": 60.08596587181091,
+  "final_mse_1e9": 2.0704478151664616e-08,
+  "output_sha256": "1f1dc2fc94fccebb5320cdd513003173ec2d16880d0031a0f474d984eba81cc3",
+  "blocks": {
+    "matrix_products": {
+      "calls": 123,
+      "exclusive_flops": 424026026832,
+      "inclusive_flops": 424026026832
+    },
+    "_nonlinear_first_gaussian": {
+      "calls": 1,
+      "exclusive_flops": 202024968,
+      "inclusive_flops": 202024968
+    },
+    "features": {
+      "calls": 15,
+      "exclusive_flops": 790087740,
+      "inclusive_flops": 790087740
+    },
+    "gnn_step": {
+      "calls": 15,
+      "exclusive_flops": 4175526140,
+      "inclusive_flops": 4175526140
+    },
+    "_cov_compact": {
+      "calls": 14,
+      "exclusive_flops": 251272000,
+      "inclusive_flops": 30186038466
+    },
+    "plane": {
+      "calls": 14,
+      "exclusive_flops": 352720896,
+      "inclusive_flops": 155743220964
+    },
+    "_star_compact": {
+      "calls": 14,
+      "exclusive_flops": 395879776,
+      "inclusive_flops": 39372072902
+    },
+    "nonlinear": {
+      "calls": 14,
+      "exclusive_flops": 9611227248,
+      "inclusive_flops": 9611227248
+    },
+    "_cov_compact_diagonal": {
+      "calls": 1,
+      "exclusive_flops": 18483200,
+      "inclusive_flops": 677918480
+    },
+    "_star_compact_diagonal": {
+      "calls": 1,
+      "exclusive_flops": 11601152,
+      "inclusive_flops": 671036432
+    },
+    "nonlinear_scalar": {
+      "calls": 1,
+      "exclusive_flops": 417794,
+      "inclusive_flops": 417794
+    },
+    "final_scalar_features": {
+      "calls": 1,
+      "exclusive_flops": 4427776,
+      "inclusive_flops": 4427776
+    },
+    "final_input": {
+      "calls": 1,
+      "exclusive_flops": 209799228,
+      "inclusive_flops": 209799228
+    },
+    "final_delta": {
+      "calls": 1,
+      "exclusive_flops": 71831552,
+      "inclusive_flops": 71831552
+    }
+  },
+  "unwrapped_flops": 14040831647,
+  "matrix_shapes": {
+    "root_cp_push_or_initial_cov: (1024, 832) @ (832, 22784)": {
+      "calls": 1,
+      "flops": 19842630820
+    },
+    "root_cp_push_or_initial_cov: (1024, 768) @ (768, 23872)": {
+      "calls": 1,
+      "flops": 19245858636
+    },
+    "root_cp_push_or_initial_cov: (1024, 864) @ (864, 20352)": {
+      "calls": 1,
+      "flops": 19029438900
+    },
+    "root_cp_push_or_initial_cov: (1024, 832) @ (832, 21568)": {
+      "calls": 1,
+      "flops": 18801261929
+    },
+    "root_cp_push_or_initial_cov: (1024, 864) @ (864, 19072)": {
+      "calls": 1,
+      "flops": 17851560700
+    },
+    "plane: (864, 19072) @ (19072, 864)": {
+      "calls": 1,
+      "flops": 16134391032
+    },
+    "plane: (832, 21568) @ (21568, 832)": {
+      "calls": 1,
+      "flops": 15875311660
+    },
+    "root_cp_push_or_initial_cov: (1024, 832) @ (832, 17728)": {
+      "calls": 1,
+      "flops": 15457617533
+    },
+    "root_cp_push_or_initial_cov: (1024, 896) @ (896, 16384)": {
+      "calls": 1,
+      "flops": 15300086656
+    },
+    "plane: (864, 17728) @ (17728, 864)": {
+      "calls": 1,
+      "flops": 15007787316
+    },
+    "plane: (832, 20352) @ (20352, 832)": {
+      "calls": 1,
+      "flops": 14963293748
+    },
+    "plane: (768, 22784) @ (22784, 768)": {
+      "calls": 1,
+      "flops": 14456332512
+    },
+    "root_cp_push_or_initial_cov: (1024, 896) @ (896, 14912)": {
+      "calls": 1,
+      "flops": 13946798534
+    },
+    "root_cp_push_or_initial_cov: (1024, 960) @ (960, 13376)": {
+      "calls": 1,
+      "flops": 13393841571
+    },
+    "plane: (896, 14912) @ (14912, 896)": {
+      "calls": 1,
+      "flops": 12592066452
+    },
+    "plane: (832, 16384) @ (16384, 832)": {
+      "calls": 1,
+      "flops": 12045143344
+    },
+    "root_cp_push_or_initial_cov: (1024, 960) @ (960, 11712)": {
+      "calls": 1,
+      "flops": 11695675077
+    },
+    "_star_compact: (1024, 1024) @ (1024, 1024)": {
+      "calls": 10,
+      "flops": 11371494400
+    },
+    "plane: (896, 13376) @ (13376, 896)": {
+      "calls": 1,
+      "flops": 11307173556
+    },
+    "plane: (960, 11712) @ (11712, 960)": {
+      "calls": 1,
+      "flops": 11244285180
+    },
+    "root_cp_push_or_initial_cov: (1024, 992) @ (992, 9984)": {
+      "calls": 1,
+      "flops": 10652536512
+    },
+    "plane: (960, 9984) @ (9984, 960)": {
+      "calls": 1,
+      "flops": 9600234660
+    },
+    "_cov_compact: (1024, 1024) @ (1024, 1024)": {
+      "calls": 8,
+      "flops": 9097195520
+    },
+    "plane: (992, 8128) @ (8128, 992)": {
+      "calls": 1,
+      "flops": 8819325536
+    },
+    "root_cp_push_or_initial_cov: (1024, 1024) @ (1024, 8128)": {
+      "calls": 1,
+      "flops": 8631712112
+    },
+    "plane: (1024, 6144) @ (6144, 1024)": {
+      "calls": 1,
+      "flops": 6673101824
+    },
+    "root_cp_push_or_initial_cov: (1024, 1024) @ (1024, 6144)": {
+      "calls": 1,
+      "flops": 6557872128
+    },
+    "plane: (1024, 4096) @ (4096, 1024)": {
+      "calls": 1,
+      "flops": 4435465216
+    },
+    "root_cp_push_or_initial_cov: (1024, 1024) @ (1024, 4096)": {
+      "calls": 1,
+      "flops": 4345110784
+    },
+    "_cov_compact: (1024, 832) @ (832, 1024)": {
+      "calls": 3,
+      "flops": 2793014112
+    },
+    "_star_compact: (992, 1024) @ (1024, 992)": {
+      "calls": 2,
+      "flops": 2424395880
+    },
+    "_cov_compact: (832, 832) @ (832, 1024)": {
+      "calls": 3,
+      "flops": 2300323935
+    },
+    "_star_compact: (1024, 832) @ (832, 832)": {
+      "calls": 3,
+      "flops": 2300323935
+    },
+    "plane: (1024, 2048) @ (2048, 1024)": {
+      "calls": 1,
+      "flops": 2236588032
+    },
+    "root_cp_push_or_initial_cov: (1024, 1024) @ (1024, 2048)": {
+      "calls": 1,
+      "flops": 2206469888
+    },
+    "_cov_compact: (1024, 960) @ (960, 1024)": {
+      "calls": 2,
+      "flops": 2136869056
+    },
+    "_star_compact: (960, 992) @ (992, 960)": {
+      "calls": 2,
+      "flops": 2018602200
+    },
+    "_cov_compact: (960, 960) @ (960, 1024)": {
+      "calls": 2,
+      "flops": 2011263450
+    },
+    "_star_compact: (1024, 960) @ (960, 960)": {
+      "calls": 2,
+      "flops": 2011263450
+    },
+    "_cov_compact: (1024, 864) @ (864, 1024)": {
+      "calls": 2,
+      "flops": 2002978176
+    },
+    "_cov_compact: (1024, 896) @ (896, 1024)": {
+      "calls": 2,
+      "flops": 1999439232
+    },
+    "_star_compact: (960, 960) @ (960, 960)": {
+      "calls": 2,
+      "flops": 1893011400
+    },
+    "_cov_compact: (896, 896) @ (896, 1024)": {
+      "calls": 2,
+      "flops": 1764346920
+    },
+    "_star_compact: (1024, 896) @ (896, 896)": {
+      "calls": 2,
+      "flops": 1764346920
+    },
+    "_cov_compact: (864, 864) @ (864, 1024)": {
+      "calls": 2,
+      "flops": 1720220166
+    },
+    "_star_compact: (1024, 864) @ (864, 864)": {
+      "calls": 2,
+      "flops": 1720220166
+    },
+    "_star_compact: (896, 960) @ (960, 896)": {
+      "calls": 2,
+      "flops": 1663860856
+    },
+    "_star_compact: (896, 896) @ (896, 896)": {
+      "calls": 2,
+      "flops": 1556786448
+    },
+    "_star_compact: (864, 864) @ (864, 864)": {
+      "calls": 2,
+      "flops": 1459825416
+    },
+    "root_cp_push_or_initial_cov: (1024, 1024) @ (1024, 1024)": {
+      "calls": 1,
+      "flops": 1447224832
+    },
+    "_star_compact: (864, 832) @ (832, 864)": {
+      "calls": 2,
+      "flops": 1406838888
+    },
+    "_star_compact: (832, 864) @ (864, 832)": {
+      "calls": 2,
+      "flops": 1357522712
+    },
+    "_star_compact: (832, 896) @ (896, 832)": {
+      "calls": 2,
+      "flops": 1356108936
+    },
+    "_star_compact: (832, 832) @ (832, 832)": {
+      "calls": 2,
+      "flops": 1262800448
+    },
+    "_cov_compact: (1024, 992) @ (992, 1024)": {
+      "calls": 1,
+      "flops": 1139181056
+    },
+    "_cov_compact: (992, 992) @ (992, 1024)": {
+      "calls": 1,
+      "flops": 1125480699
+    },
+    "_star_compact: (1024, 992) @ (992, 992)": {
+      "calls": 1,
+      "flops": 1125480699
+    },
+    "_star_compact: (768, 832) @ (832, 768)": {
+      "calls": 2,
+      "flops": 1088713584
+    },
+    "_cov_compact: (1024, 192) @ (192, 1024)": {
+      "calls": 3,
+      "flops": 723499392
+    },
+    "_cov_compact_diagonal: (768, 768) @ (768, 1024)": {
+      "calls": 1,
+      "flops": 659435280
+    },
+    "_star_compact_diagonal: (1024, 768) @ (768, 768)": {
+      "calls": 1,
+      "flops": 659435280
+    },
+    "_cov_compact: (1024, 160) @ (160, 1024)": {
+      "calls": 2,
+      "flops": 408777600
+    },
+    "_cov_compact: (1024, 128) @ (128, 1024)": {
+      "calls": 2,
+      "flops": 335222272
+    },
+    "_cov_compact: (1024, 64) @ (64, 1024)": {
+      "calls": 2,
+      "flops": 277525504
+    },
+    "_star_compact: (864, 192) @ (192, 864)": {
+      "calls": 1,
+      "flops": 173554164
+    },
+    "_star_compact: (832, 192) @ (192, 832)": {
+      "calls": 1,
+      "flops": 161361928
+    },
+    "_star_compact: (864, 160) @ (160, 864)": {
+      "calls": 1,
+      "flops": 147060900
+    },
+    "_star_compact: (768, 192) @ (192, 768)": {
+      "calls": 1,
+      "flops": 138307680
+    },
+    "_star_compact: (832, 160) @ (160, 832)": {
+      "calls": 1,
+      "flops": 136723860
+    },
+    "_star_compact: (896, 128) @ (128, 896)": {
+      "calls": 1,
+      "flops": 129358432
+    },
+    "_star_compact: (832, 128) @ (128, 832)": {
+      "calls": 1,
+      "flops": 112085792
+    },
+    "_cov_compact: (1024, 32) @ (32, 1024)": {
+      "calls": 1,
+      "flops": 99429376
+    },
+    "_star_compact: (960, 64) @ (64, 960)": {
+      "calls": 1,
+      "flops": 80925600
+    },
+    "_star_compact: (896, 64) @ (64, 896)": {
+      "calls": 1,
+      "flops": 70644672
+    },
+    "_star_compact: (960, 32) @ (32, 960)": {
+      "calls": 1,
+      "flops": 44573760
+    },
+    "root_cp_push_or_initial_cov: (1024, 1024) @ (1024, 0)": {
+      "calls": 1,
+      "flops": 0
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "status": "LEAN_VARIANTS_JUDGED_NO_FIRE",
+  "parent": "S2t e0553d2e (#336367)",
+  "drop_order": "b709-added 62 keys (<=0.01%/s) -> L6g4 13 (0.011-0.064%/s) -> L6g8 14 (0.058%/s), per opus-wall WALL_PRICE_v1",
+  "curve": {
+    "S2t": {
+      "keys": 167,
+      "mean": 101.0,
+      "worst": 109.0,
+      "p_loss": 17.44,
+      "bill_2net": 0.0
+    },
+    "VA": {
+      "keys": 105,
+      "sha256": "f6514db487b849ed9d001cf3aae1b3ddda6f795a927e674b10da6d5e64c52773",
+      "mean": 98.8,
+      "worst": 106.6,
+      "p_loss": 16.62,
+      "bill_2net": 0.046
+    },
+    "VB": {
+      "keys": 92,
+      "sha256": "42136b226520852aec8c443b4d86fd74194c5e4a0252e883e3c73526d44f5b61",
+      "mean": 96.0,
+      "worst": 103.6,
+      "p_loss": 15.96,
+      "bill_2net": 0.089,
+      "bill_7103248": 0.088,
+      "official120": "ALL PASS"
+    },
+    "VC": {
+      "keys": 78,
+      "sha256": "17933e03e59895b6dc542b8f3a22a91618165d0addaf8a9ab6f0cdebefd0a5f0",
+      "mean": 95.0,
+      "worst": 102.5,
+      "p_loss": 15.53,
+      "bill_2net": 0.163,
+      "bill_7103248": 0.179,
+      "official120": "ALL PASS"
+    }
+  },
+  "rounding_7103248": {
+    "VB": {
+      "max_abs_L15": 1.43e-05,
+      "mse15_log_pct": 0.34
+    },
+    "VC": {
+      "max_abs_L15": 1.18e-05,
+      "mse15_log_pct": 0.49
+    },
+    "rms_error_L15": 0.000156,
+    "note": "single-network rounding chaos (dial study: per-network sd ~0.7%); b709 table science 24 seeds MSE -0.033%"
+  },
+  "recommendation": "VB: projected worst 103.6 s (-5.4 s) for ~+0.09% bill, P(loss) 15.96%; VC only if a hard <=103 s is required (+1.1 s for ~+0.08% more bill, 0.07%/s)",
+  "judges": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_lean_v1/JUDGE_OFFICIAL120_leanvb_20261016_opus_v1.txt": "399079daf1ba65a8b91f5f6d288a14f5275505c922d5f95efa6f33b2f3af13d7",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_lean_v1/JUDGE_OFFICIAL120_leanvc_20261016_opus_v1.txt": "82aef9cd5ebb09e7cdb9dd0ed76104e3366fa2517a6ea33f59e25bc4b3fb9261"
+  },
+  "owned_processes_retired": true
+}

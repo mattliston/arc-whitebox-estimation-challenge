@@ -1,0 +1,64 @@
+{
+ "tag": "public_oracle_kappa_probe_v1/final_sensitivity",
+ "generated_utc": "2026-08-26T01:40:49Z",
+ "question": "At the final (L16) consumption site, which input-order error actually pays in the output mean error?",
+ "method": "central finite-difference sensitivities of the model's own univariate Edgeworth map at the model's consumed point; contributions c_x = (df/dx)(model_x - oracle_x); signed projection shares of mean(dE^2); remainder = map truncation + nonlinearity + MC noise",
+ "host": "workspace-v4 + K22-residual supply (run_state_audit_deep instrument verbatim; L16 q38 call identified by univariate-call count = 14)",
+ "oracle": "mc_oracle_final_rank*.npz, 8M samples, independent seed offset +13",
+ "ranks": [
+  35
+ ],
+ "per_rank": {
+  "35": {
+   "dE_rms": 0.0002448710541493081,
+   "dE_mse_raw": 5.996183316019338e-08,
+   "dE_mse_noise_corrected": 2.5665878376123452e-08,
+   "denominator_note": "shares use the noise-corrected MSE (floored at 20% of raw)",
+   "map_error_at_oracle_inputs_rms": 1.4589202401693608e-05,
+   "linearization_residual_rms": 2.878155587565954e-07,
+   "mc_se_rms_post_mean": 0.0001851916703960249,
+   "orders": {
+    "mean": {
+     "delta_rel_rms": 0.0002710144303093061,
+     "contribution_rms": 0.0002226623294744252,
+     "share_of_dE_mse": 1.9627,
+     "noise_floor_rms": 0.00018094842954031592
+    },
+    "var": {
+     "delta_rel_rms": 0.0021877886811800056,
+     "contribution_rms": 7.529723305441452e-05,
+     "share_of_dE_mse": 0.2074,
+     "noise_floor_rms": 3.5224969093031334e-05
+    },
+    "k3": {
+     "delta_rel_rms": 0.07619520317419645,
+     "contribution_rms": 4.88504371750889e-05,
+     "share_of_dE_mse": 0.1096,
+     "noise_floor_rms": 1.4510790392441016e-05
+    },
+    "k4": {
+     "delta_rel_rms": 0.3339673808738841,
+     "contribution_rms": 4.150065093311935e-05,
+     "share_of_dE_mse": 0.0501,
+     "noise_floor_rms": 9.3011612963668e-06
+    }
+   },
+   "remainder_share_map_plus_nonlinear_plus_noise": -1.3297
+  }
+ },
+ "pooled_shares_of_dE_mse": {
+  "mean": 1.9627,
+  "var": 0.2074,
+  "k3": 0.1096,
+  "k4": 0.0501
+ },
+ "pooled_contribution_rms": {
+  "mean": 0.0002226623294744252,
+  "var": 7.529723305441452e-05,
+  "k3": 4.88504371750889e-05,
+  "k4": 4.150065093311935e-05
+ },
+ "pooled_dE_rms": 0.00016020573765044576,
+ "dominant_order": "mean",
+ "reading": "share_of_dE_mse is signed: positive = this channel's input error pushes the output in the direction of the observed error; the remainder share is the map's own limit given exact inputs (plus nonlinearity and MC noise)"
+}

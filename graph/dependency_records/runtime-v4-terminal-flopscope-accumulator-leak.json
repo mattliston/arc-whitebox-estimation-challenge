@@ -1,0 +1,49 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G18B2",
+    "label": "Runtime V4 terminal FlopScope accumulator leak",
+    "kind": "phase2_signed_pair_runtime_terminal_failure",
+    "status": "closed_this_form",
+    "priority": 1,
+    "summary": "Runtime V4 made exact claim d690aa5b and was interrupted after confirming near-linear retained diagnostic history. Failure fbac37a9 is terminal post-claim/no-retry with no published bundle. Independent incident audit 060e7bab identifies the FlopScope 0.12 process-global BudgetAccumulator retaining each completed row's diagnostic OpRecord list; it reports zero bank payload, row-manifest, weight, target, fit, score, or submission access during the audit. This closes V4 only.",
+    "terminal_criterion": "Closed_this_form with no bundle and no retry under its consumed capability. A successor must use fresh authority and bound the diagnostic accumulator without changing the science law.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_three_bank_runtime_review_v4/INDEPENDENT_STATIC_REVIEW_V4.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_v4_three_bank_generation_transaction_v1/THREE_BANK_RUN.CLAIM.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_v4_three_bank_generation_transaction_v1/THREE_BANK_RUN.FAILURE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_v4_flopscope_accumulator_incident_audit_v1/INDEPENDENT_INCIDENT_ROOT_CAUSE_V1.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_three_bank_runtime_v5/V4_TERMINAL_FAILURE_LINEAGE_V5.json"
+    ],
+    "evidence_bindings": [
+      {
+        "role": "independent_static_go",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_three_bank_runtime_review_v4/INDEPENDENT_STATIC_REVIEW_V4.json",
+        "sha256": "b4b717118a0827f9856e7ff675da001eff5c631695cd6c7e343ced24d4d60343"
+      },
+      {
+        "role": "exclusive_claim_d690",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_v4_three_bank_generation_transaction_v1/THREE_BANK_RUN.CLAIM.json",
+        "sha256": "d690aa5b42dd0bca12705795004640413368a4384bce467bad2a16c6560fd2b7"
+      },
+      {
+        "role": "terminal_failure_fbac",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_v4_three_bank_generation_transaction_v1/THREE_BANK_RUN.FAILURE.json",
+        "sha256": "fbac37a97c64983fbc56627b67fdebb59dca07d0f43f3762798495022ed74dae"
+      },
+      {
+        "role": "independent_incident_root_cause_060e",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_v4_flopscope_accumulator_incident_audit_v1/INDEPENDENT_INCIDENT_ROOT_CAUSE_V1.json",
+        "sha256": "060e7bab3094a7929d246f4bdf5fbe6790ccb3aa9c3b05734395a6376b24cd6c"
+      },
+      {
+        "role": "terminal_no_retry_lineage",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_three_bank_runtime_v5/V4_TERMINAL_FAILURE_LINEAGE_V5.json",
+        "sha256": "0dfdfff19826c163958bfc0b6866b31a9f334a7a2f62262a447b5baa3f5d7ded"
+      }
+    ],
+    "decomposition_children": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F2T",
+    "label": "Additive Q24 pair-series tail extension",
+    "kind": "phase2_host_tail_extension_design",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "Adjudicated at design stage by exact target-free measurement, with no data-bearing launch. The additive t=25..30 pair-series tail is cost-admissible (live added FLOPs 36,370,219,020 against the 67,331,117,831 headroom; synthetic billing 35,948,494,848 within 1.2%) and numerically stable on all eight probe rows including hard rows 201 and 643 and repaired tail 55 - unlike the closed full-Q32 rebuild - but it is effect-capped: the tail changes the reported means by a median 1.6e-5 of the final error scale (max final-layer delta RMS 1.2566e-8 versus population error RMS 3.0193e-4), bounding any aligned MSE effect near 8e-5 of MSE. The truncated Mehler tail is not where the host error lives; the S receipt's t=24 born-error correlation was co-location through bond strength, not causation. The quartic-star birth marker (+0.335) survives and points at the Edgeworth weight expansion order, whose pair weights stop at 1 + L3 + L4 + L3^2/2.",
+    "terminal_criterion": "Closed measured at design: the effect-size conjunct failed by four orders of magnitude under exact target-free measurement; no retune and no scope variant. The sole licensed successor is the Edgeworth-order extension design probe P2R0F2U under the same measure-first protocol.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_host_tail_extension_probe_v1/estimator_t30.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_host_tail_extension_probe_v1/run_ab_probe.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_host_tail_extension_probe_v1/AB_EFFECT_PROBE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_host_tail_extension_probe_v1/SYNTHETIC_EINSUM_BILLING.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_host_tail_extension_probe_v1/T_DESIGN_CLOSURE.json"
+    ],
+    "decomposition_children": [
+      "P2R0F2U"
+    ]
+  }
+}

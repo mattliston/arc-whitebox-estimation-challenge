@@ -1,0 +1,148 @@
+{
+  "schema": "fb-ec4-32-v4-one-attempt-phase2-board-validation-preregister-v1",
+  "status": "READY_ONE_ATTEMPT_EXPLORATORY_BOARD_VALIDATION__SCIENTIFIC_PROMOTION_HOLD",
+  "created_at_utc": "2026-08-24T09:05:03Z",
+  "candidate": {
+    "count": 1,
+    "name": "fb-ec4-32-v4-3ddddd87",
+    "source": {
+      "path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+      "bytes": 68698,
+      "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+    },
+    "source_manifest": {
+      "path": "../fullbudget_k21_k4_closure_v4/SOURCE_MANIFEST.json",
+      "sha256": "0cad2cc4491fbb22de5dbf021612fac9d5dccd2c2dcb1f4e963314d0c90580bf"
+    },
+    "freeze_receipt": {
+      "path": "../fullbudget_k21_k4_closure_v4/FREEZE_RECEIPT_V4.json",
+      "sha256": "b730a3e21ba1d297de4b4be6c938cf842f955d951fd008518971cc0fafd8295e"
+    },
+    "independent_source_audit": {
+      "path": "../fullbudget_k21_k4_closure_v4/INDEPENDENT_SOURCE_AUDIT_V4.json",
+      "sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d"
+    },
+    "archive": {
+      "path_from_repo_root": "submissions/fb-ec4-32-v4-3ddddd87.tar.gz",
+      "bytes": 16957,
+      "sha256": "2df56c53253494fc75da3de8a0a7bd29d0bf2b97fa8f052bd2378ba7534d5a82",
+      "members_exact": [
+        {
+          "name": "estimator.py",
+          "type": "regular",
+          "bytes": 68698,
+          "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+        },
+        {
+          "name": "manifest.json",
+          "type": "regular",
+          "bytes": 528,
+          "sha256": "58850abbd1f8fe93132187727a5173e27cb3fb8d6053ff06d1d55fdde8e70b5f"
+        }
+      ]
+    }
+  },
+  "phase2_interface": {
+    "imports_exact": [
+      "flopscope",
+      "flopscope.numpy",
+      "whestbench.BaseEstimator",
+      "whestbench.domain.MLP"
+    ],
+    "python": "3.11.5",
+    "whestbench": "0.16.0",
+    "flopscope": "0.12.0",
+    "numpy": "2.4.6",
+    "entrypoint_module": "estimator",
+    "entrypoint_class": "Estimator",
+    "production_width": 1024,
+    "production_depth": 16,
+    "minimum_budget": 2199023255552,
+    "off_geometry_or_low_budget_return": "metered float32 zeros with shape [depth,width]"
+  },
+  "meter_gate": {
+    "path": "../meter_protocol/runs/fb_ec4_v4_sparse_resetarena_cp3compact_n1_s8_seed20260824/receipt.json",
+    "sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017",
+    "status": "PASS_PHASE2_SUBPROCESS_INTERFACE_AND_METER__ACCURACY_UNSCORED",
+    "budget_flops": 2199023255552,
+    "flops_used": 2179742954469,
+    "residual_wall_time_s": 0.3926322143524885,
+    "residual_limit_s": 0.4,
+    "residual_margin_s": 0.0073677856475115,
+    "residual_risk": "PASS_BUT_FRAGILE",
+    "failed_mlps": 0,
+    "output_all_finite": true
+  },
+  "moment_binding": "MOMENT_RESULT_BINDING.json",
+  "eligibility_boundary": {
+    "exploratory_board_validation": "READY_AFTER_VERIFY_BOARD_PROMOTION_PASS",
+    "scientific_promotion": "HOLD",
+    "sole_scientific_blocker": "Scale-normalized worst-unit classification of sparse late-layer A/B moment violations",
+    "board_raw_mse_cannot_waive_moment_hold": true
+  },
+  "primary_criterion": {
+    "candidate_count": 1,
+    "metric": "observed_unrounded_board_raw_final_layer_mse",
+    "operator": "<",
+    "threshold": 1e-8,
+    "equality_passes": false,
+    "adjusted_or_secondary_metric_can_rescue": false
+  },
+  "outcome_law": {
+    "pass": "Record PASS_RAW_FINAL_MSE_LT_1E_8 as exploratory board evidence; scientific promotion remains HOLD until the moment successor resolves",
+    "nonpass": "Retain the result as a preregistered diagnostic and continue repair",
+    "missing_nonfinite_failed_or_ambiguous_result": "NONPASS_DIAGNOSTIC",
+    "tuning": false,
+    "fallback": false,
+    "retry": false,
+    "regrade_farming": false
+  },
+  "authorization": {
+    "source": "Root-agent handoff of user's explicit authority to use up to ten submissions appropriately",
+    "max_attempts_this_preregistration": 1,
+    "candidate_substitution": false,
+    "submission_executed_during_preparation": false,
+    "network_accessed_during_preparation": false,
+    "credentials_accessed_during_preparation": false
+  },
+  "submission": {
+    "working_directory": "/Users/matt/arc-white-box-estimation",
+    "command_argv": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/whest",
+      "submit",
+      "submissions/fb-ec4-32-v4-3ddddd87.tar.gz",
+      "--challenge",
+      "arc-white-box-estimation-challenge-2026",
+      "--description",
+      "fb-ec4-32-v4-3ddddd87 exploratory rich-closure validation v1",
+      "--watch",
+      "--watch-timeout",
+      "3600",
+      "--format",
+      "json"
+    ],
+    "attempt_state": "PREPARED_NOT_ATTEMPTED",
+    "submission_id": null,
+    "board_result_path": null,
+    "board_result_sha256": null
+  },
+  "attempt_classification": {
+    "local_preflight_before_remote_create": "LOCAL_PREFLIGHT_FAILURE_NO_ATTEMPT",
+    "remote_submission_id_or_platform_record": "ONE_ATTEMPT_CONSUMED",
+    "watch_timeout_after_submission_id": "ONE_ATTEMPT_CONSUMED",
+    "transport_failure_after_remote_create_request_without_conclusive_record": "AMBIGUOUS_POSSIBLE_ATTEMPT__NO_RETRY",
+    "current": "PREPARED_NOT_ATTEMPTED"
+  },
+  "forbidden_now": [
+    "TARGET_OR_DATASET_ACCESS",
+    "NETWORK_ACCESS",
+    "CREDENTIAL_ACCESS",
+    "SUBMISSION",
+    "SOURCE_MUTATION",
+    "REPACKAGING",
+    "TUNING",
+    "FALLBACK",
+    "RETRY"
+  ]
+}
+

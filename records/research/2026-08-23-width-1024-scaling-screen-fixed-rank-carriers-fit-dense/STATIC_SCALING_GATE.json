@@ -1,0 +1,55 @@
+{
+  "schema": "phase2-static-scaling-gate-v1",
+  "status": "PASS_MIGRATION_SCREEN__ACTUAL_FLOPSCOPE_0_12_METER_REQUIRED",
+  "phase1": {
+    "width": 256,
+    "depth": 32,
+    "transitions_after_first_layer": 31,
+    "budget": 272000000000,
+    "weight_elements": 2097152,
+    "trajectory_cells": 8192,
+    "forward_flops": 4194304
+  },
+  "phase2": {
+    "width": 1024,
+    "depth": 16,
+    "transitions_after_first_layer": 15,
+    "budget": 2199023255552,
+    "weight_elements": 16777216,
+    "trajectory_cells": 16384,
+    "forward_flops": 33554432
+  },
+  "ratios": {
+    "budget": 8.084644321882353,
+    "weight_and_forward_geometry": 8.0,
+    "trajectory_cells": 2.0,
+    "fixed_rank_depth_width_squared_geometry": 8.0,
+    "fixed_rank_relative_to_budget": 0.9895302355289459,
+    "dense_cubic_transition_geometry": 30.967741935483872,
+    "dense_cubic_relative_to_budget": 3.8304396214023715
+  },
+  "old_r22_screen": {
+    "phase1_total_flops": 271536666658,
+    "dense_psd_formula_per_transition": "20*n^3 + 64*n^2 + 1024*n + 32768",
+    "phase1_dense_psd_total": 10541039616,
+    "phase1_dense_psd_budget_fraction": 0.03875382211764706,
+    "phase2_dense_psd_per_transition": 21543026688,
+    "phase2_dense_psd_total_15_transitions": 323145400320,
+    "phase2_dense_psd_budget_fraction": 0.14694951474666595,
+    "eight_x_non_psd_remainder_plus_phase2_psd": 2411110416656,
+    "eight_x_screen_over_budget": 212087161104,
+    "eight_x_screen_over_budget_fraction": 0.09644604815859868,
+    "interpretation": "The fixed-rank CP/TT algebra is close to budget-neutral, but the old dense PSD certificate prevents a direct rank-22 port. These are algebraic screens, not flopscope 0.12 receipts."
+  },
+  "phase2_priority": [
+    "actual flopscope 0.12 primitive and interface meter",
+    "diagonal Gaussian baseline",
+    "zero-fit Hermite/Mehler order-2 baseline",
+    "CP3-only compressed transport",
+    "PSD/correlation update without per-transition dense cubic repair",
+    "TT rank/cap source ladder selected at width 1024",
+    "teacher mean/variance/K3/K4 attribution",
+    "end-to-end learned correction only after analytic baselines"
+  ]
+}
+

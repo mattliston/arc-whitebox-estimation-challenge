@@ -1,0 +1,179 @@
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:22626: SymmetryLossWarning: Symmetry lost along dims (0, 1): add — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  _ps_K2132 = (_ps_cp32 + (_plane_star32 if _plane_star32 is not None else _ps32(star_pre)) + fnp.outer(_ps32(_ps_bv), _ps_bpre32)) + fnp.einsum('ij,i->ij', _ps_pre32(Bpre), (2 * _ps_bpre32), optimize=False)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:22649: SymmetryLossWarning: Symmetry lost along dims (0, 1): add — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  k22 = _ps32(radial) * (_ps_vv32 + 2 * _astra_cc32) / 3
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:16959: SymmetryLossWarning: Symmetry lost along dims (0, 1): true_divide — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  rho = _ps_pre32(C) / fnp.outer(_ps_s32, _ps_s32)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:16972: SymmetryLossWarning: Symmetry lost along dims (0, 1): multiply — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  rr=rr*rho/(r+1)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:16970: SymmetryLossWarning: Symmetry lost along dims (1, 2): add — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  ans=ans+rr[None,:,:]*(F[:,r,:,None]*G[:,r,None,:])
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:16973: SymmetryLossWarning: Symmetry lost along dims (0, 1): multiply — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  cov=ans[0]*fnp.outer(_ps_s32,_ps_s32)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:16975: SymmetryLossWarning: Symmetry lost along dims (0, 1): multiply — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  pk22=ans[2]*fnp.outer(_ps_v32,_ps_v32)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:16978: SymmetryLossWarning: Symmetry lost along dims (0, 1): multiply — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  post22 = pk22 - 2 * _ps_m32[:, None] * pk21.T - 2 * _ps_m32[None, :] * pk21 + 4 * fnp.outer(_ps_m32, _ps_m32) * cov - 2 * cov * cov
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:16989: UserWarning: np.add(WhestArray) auto-routed to fnp.add; call fnp.add directly to avoid this warning.
+  radial = 3 * fnp.sum(post22) / (fnp.trace(cov) ** 2 + 2 * fnp.sum(cov * cov))
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:22687: SymmetryLossWarning: Symmetry lost along dims (0, 1): subtract — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  C = ((_ps_C0 - _e2_mdm) - _e2_mdm.T) - fnp.outer(_ps_dm32, _ps_dm32)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:22859: UserWarning: np.multiply(WhestArray) auto-routed to fnp.multiply; call fnp.multiply directly to avoid this warning.
+  _bl_projection = (_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := _o18_bd_rows[0])) or _e2_value_inline) * _bl_p0))) or _e2_value_inline) + (_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := _o18_bd_rows[2])) or _e2_value_inline) * _bl_p2))) or _e2_value_inline)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:22760: SymmetryLossWarning: Symmetry lost along dims (0, 1): multiply — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  cp_post = (inherited + _ps32(born)) * live
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:924: SymmetryLossWarning: Symmetry lost along dims (0, 1): divide — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  _e2_hold.append(fnp.divide(_ps32(K22), _ps_vv32, out=st['T22']))
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:935: SymmetryLossWarning: Symmetry lost along dims (0, 1): multiply — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  cov, pk21, pk22 = (_e2_append_inline((_e2_value_inline := (_dm2_x0 * _ps_ss32))) or _e2_value_inline), (_e2_append_inline((_e2_value_inline := (_dm2_x1 * _ps_vs32))) or _e2_value_inline), (_e2_append_inline((_e2_value_inline := (_dm2_x2 * _ps_vv32))) or _e2_value_inline)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:976: UserWarning: np.add(WhestArray) auto-routed to fnp.add; call fnp.add directly to avoid this warning.
+  den = (_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := fnp.trace(cov))) or _e2_value_inline) ** 2))) or _e2_value_inline) + (_e2_append_inline((_e2_value_inline := (2 * (_e2_append_inline((_e2_value_inline := fnp.sum(_e2_append_inline((_e2_value_inline := (cov * cov))) or _e2_value_inline))) or _e2_value_inline)))) or _e2_value_inline)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:215: SymmetryLossWarning: Symmetry lost along dims (0, 1): true_divide — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  postrho = _ps32(C) / (_e2_append_inline((_e2_value_inline := fnp.outer(_ps_postscale32, _ps_postscale32))) or _e2_value_inline)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:22667: UserWarning: np.add(WhestArray) auto-routed to fnp.add; call fnp.add directly to avoid this warning.
+  denominator = _e2_pair['den'] if metric == 'covariance' and _e2_pair is not None and ((_e2_append_inline((_e2_value_inline := _e2_pair['cov'])) or _e2_value_inline) is C) else (_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := fnp.trace(C))) or _e2_value_inline) ** 2))) or _e2_value_inline) + (_e2_append_inline((_e2_value_inline := (2 * (_e2_append_inline((_e2_value_inline := fnp.sum(_e2_append_inline((_e2_value_inline := (C * C))) or _e2_value_inline))) or _e2_value_inline)))) or _e2_value_inline) if metric == 'covariance' else n * (_e2_append_inline((_e2_value_inline := (n + 2))) or _e2_value_inline)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:24094: SymmetryLossWarning: Symmetry lost along dims (0, 1): slicing removed all symmetric dim groups. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  hold(fnp.copyto(hold(aa[:m, :k]), a))
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:7799: SymmetryLossWarning: Symmetry lost along dims (0, 1): multiply — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  return (_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := (0.5 * (_e2_append_inline((_e2_value_inline := (raw + (_e2_append_inline((_e2_value_inline := raw.T)) or _e2_value_inline)))) or _e2_value_inline)))) or _e2_value_inline) * (_e2_append_inline((_e2_value_inline := fnp.outer(sf, sf))) or _e2_value_inline)))) or _e2_value_inline) * t['cov_factor']))) or _e2_value_inline)
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:4334: SymmetryLossWarning: Symmetry lost along dims (0, 1): slicing removed all symmetric dim groups. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  hold.append(fnp.copyto(aa[:, :k], a))
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:3631: SymmetryLossWarning: Symmetry lost along dims (0, 1): multiply — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  bound = (_e2_append_inline((_e2_value_inline := (largest_map * largest_base))) or _e2_value_inline) * width
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_v4a_sci_v1.py:3632: SymmetryLossWarning: Symmetry lost along dims (0, 1): greater_equal — no symmetry groups shared by both operands. Use as_symmetric() to re-tag if you know the result is symmetric. Suppress with flops.configure(symmetry_warnings=False).
+  allowed = (_e2_append_inline((_e2_value_inline := ((largest_map <= limit) & (largest_base <= limit)))) or _e2_value_inline) & (bound <= limit)
+no such callable scalar_terminal_hook
+seed 7100005 U 1.3242e-08 total bill 2.299328e+11 util 0.104561 wall 38 s
+LAYER BOUNDARIES (bill at each pair-map call; delta = bill of the work between consecutive calls, attributed to the EARLIER layer):
+  L 1  up to pair map 5.9107e+09 (2.57%)  work after this pair map until the next: 9.3494e+09 (4.07%)
+  L 2  up to pair map 9.3494e+09 (4.07%)  work after this pair map until the next: 1.2275e+10 (5.34%)
+  L 3  up to pair map 1.2275e+10 (5.34%)  work after this pair map until the next: 1.5527e+10 (6.75%)
+  L 4  up to pair map 1.5527e+10 (6.75%)  work after this pair map until the next: 1.7208e+10 (7.48%)
+  L 5  up to pair map 1.7208e+10 (7.48%)  work after this pair map until the next: 1.9588e+10 (8.52%)
+  L 6  up to pair map 1.9588e+10 (8.52%)  work after this pair map until the next: 1.9648e+10 (8.55%)
+  L 7  up to pair map 1.9648e+10 (8.55%)  work after this pair map until the next: 1.6731e+10 (7.28%)
+  L 8  up to pair map 1.6731e+10 (7.28%)  work after this pair map until the next: 1.8339e+10 (7.98%)
+  L 9  up to pair map 1.8339e+10 (7.98%)  work after this pair map until the next: 1.9407e+10 (8.44%)
+  L10  up to pair map 1.9407e+10 (8.44%)  work after this pair map until the next: 1.5776e+10 (6.86%)
+  L11  up to pair map 1.5776e+10 (6.86%)  work after this pair map until the next: 1.6582e+10 (7.21%)
+  L12  up to pair map 1.6582e+10 (7.21%)  work after this pair map until the next: 1.7880e+10 (7.78%)
+  L13  up to pair map 1.7880e+10 (7.78%)  work after this pair map until the next: 1.5874e+10 (6.90%)
+  L14  up to pair map 1.5874e+10 (6.90%)  work after this pair map until the next: 9.8368e+09 (4.28%)
+MODULES (inclusive bill per call, summed by name and layer; depth 0 = not nested in another wrapped call):
+  _f4c_birth                 L 0 calls   1 bill 4.6592e+06 (0.002%) time 0.00s depths [0]
+  _f4c_birth                 L 1 calls   1 bill 4.6592e+06 (0.002%) time 0.00s depths [0]
+  _f4c_birth                 L 2 calls   1 bill 4.6592e+06 (0.002%) time 0.00s depths [0]
+  _f4c_birth                 L 3 calls   1 bill 4.3689e+06 (0.002%) time 0.01s depths [0]
+  _f4c_birth                 L 4 calls   1 bill 4.0786e+06 (0.002%) time 0.00s depths [0]
+  _f4c_birth                 L 5 calls   1 bill 3.9335e+06 (0.002%) time 0.01s depths [0]
+  _f4c_birth                 L 6 calls   1 bill 3.6432e+06 (0.002%) time 0.01s depths [0]
+  _f4c_birth                 L 7 calls   1 bill 3.4980e+06 (0.002%) time 0.01s depths [0]
+  _f4c_birth                 L 8 calls   1 bill 3.0626e+06 (0.001%) time 0.00s depths [0]
+  _f4c_birth                 L 9 calls   1 bill 3.0626e+06 (0.001%) time 0.00s depths [0]
+  _f4c_birth                 L10 calls   1 bill 2.9174e+06 (0.001%) time 0.00s depths [0]
+  _f4c_birth                 L11 calls   1 bill 2.7723e+06 (0.001%) time 0.01s depths [0]
+  _f4c_birth                 L12 calls   1 bill 2.6271e+06 (0.001%) time 0.00s depths [0]
+  _f4c_birth                 L13 calls   1 bill 2.6271e+06 (0.001%) time 0.00s depths [0]
+  _f4c_birth                 L14 calls   1 bill 0.0000e+00 (0.000%) time 0.00s depths [0]
+  _gn_dcov                   L 2 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L 3 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L 4 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L 5 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L 6 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L 7 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L 8 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L 9 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L10 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L11 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L12 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L13 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _gn_dcov                   L14 calls   1 bill 2.2126e+07 (0.010%) time 0.01s depths [0]
+  _k4l_local                 L 0 calls   1 bill 1.2583e+07 (0.005%) time 0.00s depths [0]
+  _k4l_local                 L 1 calls   1 bill 2.5167e+07 (0.011%) time 0.01s depths [0]
+  _k4l_local                 L 2 calls   1 bill 2.5167e+07 (0.011%) time 0.01s depths [0]
+  _k4l_local                 L 3 calls   1 bill 2.4380e+07 (0.011%) time 0.01s depths [0]
+  _k4l_local                 L 4 calls   1 bill 2.2808e+07 (0.010%) time 0.01s depths [0]
+  _k4l_local                 L 5 calls   1 bill 2.1628e+07 (0.009%) time 0.01s depths [0]
+  _k4l_local                 L 6 calls   1 bill 2.0448e+07 (0.009%) time 0.01s depths [0]
+  _k4l_local                 L 7 calls   1 bill 4.0898e+07 (0.018%) time 0.02s depths [0]
+  _k4l_local                 L 8 calls   1 bill 3.8145e+07 (0.017%) time 0.02s depths [0]
+  _k4l_local                 L 9 calls   1 bill 3.5786e+07 (0.016%) time 0.01s depths [0]
+  _k4l_local                 L10 calls   1 bill 3.3820e+07 (0.015%) time 0.01s depths [0]
+  _k4l_local                 L11 calls   1 bill 3.1854e+07 (0.014%) time 0.01s depths [0]
+  _k4l_local                 L12 calls   1 bill 3.0674e+07 (0.013%) time 0.01s depths [0]
+  _k4l_local                 L13 calls   1 bill 2.9494e+07 (0.013%) time 0.01s depths [0]
+  _k4l_local                 L14 calls   1 bill 1.3126e+08 (0.057%) time 0.05s depths [0]
+  _message_edge_source       L 8 calls   1 bill 2.6809e+08 (0.117%) time 0.09s depths [0]
+  _message_edge_source       L 9 calls   1 bill 2.6121e+08 (0.114%) time 0.06s depths [0]
+  _message_edge_source       L10 calls   1 bill 2.5268e+08 (0.110%) time 0.05s depths [0]
+  _message_edge_source       L11 calls   1 bill 2.3793e+08 (0.103%) time 0.05s depths [0]
+  _message_edge_source       L12 calls   1 bill 2.2974e+08 (0.100%) time 0.05s depths [0]
+  _message_edge_source       L13 calls   1 bill 2.2974e+08 (0.100%) time 0.04s depths [0]
+  _message_edge_source       L14 calls   1 bill 2.1597e+08 (0.094%) time 0.04s depths [0]
+  _np_update                 L 0 calls   1 bill 1.6572e+07 (0.007%) time 0.00s depths [0]
+  _np_update                 L 1 calls   1 bill 3.1267e+07 (0.014%) time 0.01s depths [0]
+  _np_update                 L 2 calls   1 bill 3.5486e+07 (0.015%) time 0.00s depths [0]
+  _np_update                 L 3 calls   1 bill 3.9429e+07 (0.017%) time 0.00s depths [0]
+  _np_update                 L 4 calls   1 bill 4.3109e+07 (0.019%) time 0.00s depths [0]
+  _np_update                 L 5 calls   1 bill 4.6663e+07 (0.020%) time 0.01s depths [0]
+  _np_update                 L 6 calls   1 bill 4.9948e+07 (0.022%) time 0.01s depths [0]
+  _np_update                 L 7 calls   1 bill 5.3106e+07 (0.023%) time 0.01s depths [0]
+  _np_update                 L 8 calls   1 bill 5.5858e+07 (0.024%) time 0.01s depths [0]
+  _np_update                 L 9 calls   1 bill 5.8626e+07 (0.025%) time 0.01s depths [0]
+  _np_update                 L10 calls   1 bill 6.1257e+07 (0.027%) time 0.00s depths [0]
+  _np_update                 L11 calls   1 bill 6.3756e+07 (0.028%) time 0.01s depths [0]
+  _np_update                 L12 calls   1 bill 6.6124e+07 (0.029%) time 0.00s depths [0]
+  _np_update                 L13 calls   1 bill 6.8497e+07 (0.030%) time 0.00s depths [0]
+  _np_update                 L14 calls   1 bill 7.0732e+07 (0.031%) time 0.01s depths [0]
+  _push_bank_shared_newborn  L-1 calls   1 bill 1.0568e+06 (0.000%) time 0.00s depths [0]
+  _push_bank_shared_newborn  L 0 calls   1 bill 1.0186e+09 (0.443%) time 0.16s depths [0]
+  _push_bank_shared_newborn  L 1 calls   1 bill 2.9299e+09 (1.274%) time 0.36s depths [0]
+  _push_bank_shared_newborn  L 2 calls   1 bill 4.8413e+09 (2.106%) time 0.59s depths [0]
+  _push_bank_shared_newborn  L 3 calls   1 bill 6.6619e+09 (2.897%) time 0.93s depths [0]
+  _push_bank_shared_newborn  L 4 calls   1 bill 7.9465e+09 (3.456%) time 1.46s depths [0]
+  _push_bank_shared_newborn  L 5 calls   1 bill 9.2774e+09 (4.035%) time 2.50s depths [0]
+  _push_bank_shared_newborn  L 6 calls   1 bill 5.0187e+09 (2.183%) time 1.12s depths [0]
+  _push_bank_shared_newborn  L 7 calls   1 bill 6.0730e+09 (2.641%) time 1.20s depths [0]
+  _push_bank_shared_newborn  L 8 calls   1 bill 6.7367e+09 (2.930%) time 1.37s depths [0]
+  _push_bank_shared_newborn  L 9 calls   1 bill 3.8325e+09 (1.667%) time 0.66s depths [0]
+  _push_bank_shared_newborn  L10 calls   1 bill 4.4656e+09 (1.942%) time 0.40s depths [0]
+  _push_bank_shared_newborn  L11 calls   1 bill 5.3705e+09 (2.336%) time 0.47s depths [0]
+  _push_bank_shared_newborn  L12 calls   1 bill 3.1339e+09 (1.363%) time 0.39s depths [0]
+  _push_bank_shared_newborn  L13 calls   1 bill 3.9753e+09 (1.729%) time 0.40s depths [0]
+  _push_bank_shared_newborn  L14 calls   1 bill 3.6757e+09 (1.599%) time 0.43s depths [0]
+  _slr_reconstruct           L 6 calls   1 bill 2.0181e+09 (0.878%) time 0.35s depths [0]
+  _slr_reconstruct           L 7 calls   1 bill 1.7851e+09 (0.776%) time 0.29s depths [0]
+  _slr_reconstruct           L 8 calls   1 bill 1.6368e+09 (0.712%) time 0.26s depths [0]
+  _slr_reconstruct           L 9 calls   1 bill 2.7829e+09 (1.210%) time 0.70s depths [0]
+  _slr_reconstruct           L10 calls   1 bill 2.4012e+09 (1.044%) time 0.38s depths [0]
+  _slr_reconstruct           L11 calls   1 bill 2.4012e+09 (1.044%) time 0.36s depths [0]
+  _slr_reconstruct           L12 calls   1 bill 3.5614e+09 (1.549%) time 0.50s depths [0]
+  _slr_reconstruct           L13 calls   1 bill 3.5413e+09 (1.540%) time 0.50s depths [0]
+  _slr_reconstruct           L14 calls   1 bill 3.8929e+09 (1.693%) time 0.52s depths [0]
+  gnn_step                   L 0 calls   1 bill 6.5536e+04 (0.000%) time 0.00s depths [0]
+  gnn_step                   L 1 calls   1 bill 1.8636e+08 (0.081%) time 0.02s depths [0]
+  gnn_step                   L 2 calls   1 bill 1.8612e+08 (0.081%) time 0.01s depths [0]
+  gnn_step                   L 3 calls   1 bill 1.8611e+08 (0.081%) time 0.01s depths [0]
+  gnn_step                   L 4 calls   1 bill 1.8611e+08 (0.081%) time 0.01s depths [0]
+  gnn_step                   L 5 calls   1 bill 1.8611e+08 (0.081%) time 0.01s depths [0]
+  gnn_step                   L 6 calls   1 bill 1.8611e+08 (0.081%) time 0.01s depths [0]
+  gnn_step                   L 7 calls   1 bill 1.8611e+08 (0.081%) time 0.01s depths [0]
+  gnn_step                   L 8 calls   1 bill 1.2556e+08 (0.055%) time 0.01s depths [0]
+  gnn_step                   L 9 calls   1 bill 1.2556e+08 (0.055%) time 0.00s depths [0]
+  gnn_step                   L10 calls   1 bill 1.2556e+08 (0.055%) time 0.00s depths [0]
+  gnn_step                   L11 calls   1 bill 1.2556e+08 (0.055%) time 0.00s depths [0]
+  gnn_step                   L12 calls   1 bill 1.2556e+08 (0.055%) time 0.00s depths [0]
+  gnn_step                   L13 calls   1 bill 1.2556e+08 (0.055%) time 0.00s depths [0]
+  gnn_step                   L14 calls   2 bill 3.1056e+08 (0.135%) time 0.01s depths [0]
+  nonlinear_scalar           L14 calls   1 bill 4.1574e+05 (0.000%) time 0.00s depths [0]
+TOTAL BY MODULE:
+  _push_bank_shared_newborn  calls   16 bill 7.4959e+10 (32.600%) time 12.4s
+  _slr_reconstruct           calls    9 bill 2.4021e+10 (10.447%) time 3.9s
+  gnn_step                   calls   16 bill 2.3671e+09 (1.029%) time 0.1s
+  _message_edge_source       calls    7 bill 1.6954e+09 (0.737%) time 0.4s
+  _np_update                 calls   15 bill 7.6043e+08 (0.331%) time 0.1s
+  _k4l_local                 calls   15 bill 5.2411e+08 (0.228%) time 0.2s
+  _gn_dcov                   calls   13 bill 2.8763e+08 (0.125%) time 0.1s
+  _f4c_birth                 calls   15 bill 5.0569e+07 (0.022%) time 0.1s
+  nonlinear_scalar           calls    1 bill 4.1574e+05 (0.000%) time 0.0s
+PROBE_DONE

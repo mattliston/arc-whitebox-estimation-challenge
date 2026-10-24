@@ -1,0 +1,76 @@
+{
+  "schema": "response64-prejoin-native2-v1",
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_fusion_v1/candidate.py",
+    "sha256": "f9f4790b3c65f730404425e8923c767dc2f895fdcc1e14f14cc649286ad3b69f",
+    "bytes": 975980
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_response64_prejoin_v1/candidate.py",
+    "sha256": "9d5adb581ceda1857e4cd789a057a2a0b3f3ae8c143f90432cd36683e640699f",
+    "bytes": 977212
+  },
+  "source_scope": "Only the active response selection call and one appended helper; fixed L4-6, no old columns, fill next64 only up to live count and only identical non-None multi-chunk KS plan. READ7 eligibility excluded on both shapes.",
+  "selection": "Root-selected metadata-aware accuracy trial; no rank IDs, host tensor values, floor grid or additional windows. Original select already fills32; this changes response only to64 when admitted.",
+  "invariants": [
+    "Original live selection and births selection unchanged.",
+    "Stable argsort of identical response_score retains original prefix and adds highest remaining alive rows.",
+    "Returned response mask flows to omitted and _R320_RESP before the existing push/read.",
+    "Fixed prejoin scope has no shared-old read; CP diagonal and original omitted-radial algorithm remain unchanged.",
+    "No new cache, arena or setup binding; _ks_plan keeps only its existing public-shape metadata."
+  ],
+  "numerical_caveat": "Approximate accuracy change. Added rows alter packed arithmetic, omission repair, downstream means and later shapes. Equal initial kernel geometry is not a full-network bill or byte-parity promise.",
+  "direct_cost_forecast": {
+    "saved_shape_scope": "Historical TRAIN35/100 initial geometry only",
+    "rank35_flops_delta": -16904192,
+    "rank100_flops_delta": -7479296,
+    "mean_flops_delta": -12191744,
+    "excludes": "small extra argsort/mask bookkeeping, and changed downstream trajectories"
+  },
+  "closest_prior": {
+    "response32_already_active": true,
+    "response0125_raw_regression_pct": 2.2229868691151733,
+    "exact64_match_found": false,
+    "search_scope": "Named candidate paths and RESULTS plus analyst/physicist/engineer2/porter result records; not exhaustive history"
+  },
+  "evidence": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/young_read_shapes_train2_v1/shape_census.json",
+      "sha256": "941a563a7bd097dd3dd1096d9dcaf15bb486d858b7ea60628cb44ce1a3a132c8",
+      "bytes": 9380
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_responsefloor0125_v1/protocol.json",
+      "sha256": "381d93d1d39c3fea8ff3b4d7f8ac3e81c46d3332ab4f20e7f762b09e26537c93",
+      "bytes": 1360
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_responsefloor0125_v1/native2_assessment.json",
+      "sha256": "bf85df87a3d1db90512cd7f94fab7c4881cba88b3ec010ba11a498e71f0f10c7",
+      "bytes": 15289
+    }
+  ],
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "strict_adjusted": false,
+    "wins_min": 1,
+    "ci_upper_below": null,
+    "max_per_network_regression_pct": 1.0,
+    "additional6_gain_required": false
+  },
+  "ranks": [
+    35,
+    100
+  ],
+  "parity_layers": [
+    0
+  ],
+  "finite_all16_required": true,
+  "limits": {
+    "seconds": 150,
+    "rss_bytes": 7500000000,
+    "zero_added_swap": true
+  },
+  "stage_authority": "NATIVE2_ONLY; no continuation, boundary, broad or submission authorization from this config",
+  "model_executed": false
+}

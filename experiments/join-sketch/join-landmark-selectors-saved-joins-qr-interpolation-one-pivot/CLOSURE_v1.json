@@ -1,0 +1,20 @@
+{
+  "status": "CLOSED_SAVED_GEOMETRY_NO_NATIVE",
+  "fixed_design": "Interpolate leading256 of the fixed384 QR coefficients; exact trailing128; old Q.T@Qp overlap exact.",
+  "derivation": "Let F=Q.T@J and E=solve(Q[S,:],J[S,:])-F. Since the orthogonal residual is perpendicular to every column of Q, hybrid weighted residual energy equals orthogonal residual energy plus sum_c w_c*||E[:256,c]||^2. Exact trailing128 removes only the complementary error energy; no cancellation can reduce the retained leading error.",
+  "mean_hybrid_over_orth": 2.366833611899137,
+  "mean_full_interp_over_orth": 3.269031995538654,
+  "mean_damage_retained": 0.6004682862890479,
+  "L10_hybrid_over_orth": [
+    2.4283844536828876,
+    2.306210230830374
+  ],
+  "pivot_Q_condition_range": [
+    4.830767538146596,
+    6.068129555497709
+  ],
+  "decision": "The fixed exact tail removes only39.95% of interpolation damage. The six captures do not support the premise that interpolation damage is concentrated in the tail. Do not price or run a model for this design.",
+  "limitations": "Historical six join inputs, not current v17. Weighted factor residual is not terminal error. No labels or outcomes opened; no parameter/rank scan.",
+  "result_sha256": "54f9bbefb1780319dc8b185facff1cc06054b13751952fd90727cd7b69b5df54",
+  "source_sha256": "3f6c4295ccdbb32f1b6bb8721d58e6d1da0bba0b53fa2ef267e869ec68c76634"
+}

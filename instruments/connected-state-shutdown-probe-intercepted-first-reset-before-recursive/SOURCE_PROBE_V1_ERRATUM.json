@@ -1,0 +1,36 @@
+{
+  "schema": "q24-cs3b-source-probe-v1-runner-erratum-v1",
+  "status": "TERMINAL_HOLD_RUNNER_V1_AND_RELEASE_V1__DISTINCT_V2_REQUIRED",
+  "created_at_utc": "2026-08-24T14:55:02Z",
+  "bindings": {
+    "runner_v1": {
+      "path": "run_source_probe.py",
+      "sha256": "5e0f24829ed77cd6492721e58a15b78bdea0545b739a9b72af07b121604152c0"
+    },
+    "release_v1": {
+      "path": "SOURCE_PROBE_RELEASE_V1.json",
+      "sha256": "a15aa506d6008e446c08faca6ef2bd7b6b385bd6323108a923b3dd891863c1e8"
+    },
+    "preregister_v1_sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3",
+    "static_binding_v1_sha256": "9858e4720fe24911c7ae4e83701efb8d281e094e484598c623b62146a4a3658e",
+    "independent_static_source_audit_sha256": "27e5d66752520ebf287f7bc362330489849816b3d8cec0a1c7628aa931ca6c6c"
+  },
+  "defect": {
+    "location": "run_source_probe.py line 1039 in the result scope mapping",
+    "frozen_spelling": "candidate_private_predict_runs_only: true",
+    "effect": "Python resolves lowercase true as an undefined Name only after all required controls return; main catches NameError and would immutably seal a terminal REJECT result.",
+    "scientific_gate_or_threshold_change": false,
+    "candidate_source_defect": false
+  },
+  "execution": {
+    "runner_v1_imports_or_executions": 0,
+    "candidate_imports_or_executions": 0,
+    "output_namespace_v1_created": false,
+    "result_v1_exists": false
+  },
+  "supersession": {
+    "runner_v1_and_release_v1_must_never_execute": true,
+    "required": "a distinct run_source_probe_v2.py, SOURCE_PROBE_RELEASE_V2.json, runs/source_probe_v2 namespace, and independent V2 runner/release audit",
+    "frozen_scientific_preregistration": "unchanged"
+  }
+}

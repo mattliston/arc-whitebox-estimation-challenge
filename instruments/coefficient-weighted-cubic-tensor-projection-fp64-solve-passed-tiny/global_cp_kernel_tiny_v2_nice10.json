@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "fixture": "orthogonal_feature",
+      "n": 8,
+      "active": 6,
+      "old_atoms": 12,
+      "selected_atoms": 6,
+      "passed": true,
+      "gates": {
+        "kernel": true,
+        "coefficients": true,
+        "normal_equation": true,
+        "repeated": true,
+        "contracted_repeated": true,
+        "cross_gram_bill": true,
+        "solve_bill": true,
+        "finite": true
+      },
+      "errors": {
+        "kernel_relative": 2.7749303151735636e-07,
+        "coefficient_relative": 6.141849195752183e-07,
+        "normal_equation_relative": 0.0,
+        "repeated_tensor_relative": 1.6792219847365001e-07,
+        "contracted_repeated_relative": 1.3290695865613564e-07,
+        "finite": true
+      },
+      "metered_stages": {
+        "inputs_and_powers": 216,
+        "three_fp32_cross_grams": 2376,
+        "polynomial_gram_and_rhs": 1884,
+        "fp64_solve": 432,
+        "both_actual_planes_and_star_restoration": 4864
+      },
+      "total_native_flops": 9772,
+      "expected_cross_gram_flops": 2376,
+      "expected_solve_flops": 432,
+      "exact_gram_condition": 1.0,
+      "coefficient_absolute_max": 0.554656229342585,
+      "synthetic_distinct_error_over_full_old_tensor": 0.5007080487914651,
+      "input_sha256": "aca65f4bb0bfc3fd05400ad5ec2b19dcc5ce6cff96e1b255eb2e0e48e2d3f920"
+    },
+    {
+      "fixture": "correlated_signed_pair",
+      "n": 8,
+      "active": 6,
+      "old_atoms": 12,
+      "selected_atoms": 6,
+      "passed": true,
+      "gates": {
+        "kernel": true,
+        "coefficients": true,
+        "normal_equation": true,
+        "repeated": true,
+        "contracted_repeated": true,
+        "cross_gram_bill": true,
+        "solve_bill": true,
+        "finite": true
+      },
+      "errors": {
+        "kernel_relative": 4.643215965076364e-07,
+        "coefficient_relative": 9.35516838474403e-06,
+        "normal_equation_relative": 1.4844140373507618e-16,
+        "repeated_tensor_relative": 1.3887536876253695e-07,
+        "contracted_repeated_relative": 1.044902512331452e-07,
+        "finite": true
+      },
+      "metered_stages": {
+        "inputs_and_powers": 216,
+        "three_fp32_cross_grams": 2376,
+        "polynomial_gram_and_rhs": 1884,
+        "fp64_solve": 432,
+        "both_actual_planes_and_star_restoration": 4864
+      },
+      "total_native_flops": 9772,
+      "expected_cross_gram_flops": 2376,
+      "expected_solve_flops": 432,
+      "exact_gram_condition": 83.92450471894193,
+      "coefficient_absolute_max": 1.0899146505650072,
+      "synthetic_distinct_error_over_full_old_tensor": 0.26487284302013797,
+      "input_sha256": "33517ad7889d15e66021283f77bf88807f41707f86a325974c90ee2cfa5162b2"
+    }
+  ],
+  "failure": null,
+  "blas_env": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "nice": 10,
+  "versions": {
+    "flopscope": "0.12.0",
+    "numpy": "2.4.6"
+  },
+  "interpreter": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+  "python": "3.11.5 (main, Sep 11 2023, 08:31:25) [Clang 14.0.6 ]",
+  "seals_before": {
+    "qualify_global_cp_kernel_tiny_v2.py": "b41085fd9919ae0f1fbf66ca31f34969782de3ad3251bd11219517e4683f6299",
+    "GLOBAL_CP_KERNEL_PREFLIGHT_V1.md": "f7fcb34d46c1ebe487f958a88901d86510ac8b4e3c9770ac0b09d650cc2ece19",
+    "GLOBAL_CP_KERNEL_RESPONSE_READER_CAVEAT_V1.md": "c275224a4d40a75fee1c284f0e398f826b7a3aaee4e44e0d7fcbcd6f57e194f2",
+    "GLOBAL_CP_KERNEL_TINY_V2_PREEXECUTION_AMENDMENT.md": "b86c359704c6c43419973a400a65038a99c546b5e0b263d834bf617577fb9b85"
+  },
+  "seals_after": {
+    "qualify_global_cp_kernel_tiny_v2.py": "b41085fd9919ae0f1fbf66ca31f34969782de3ad3251bd11219517e4683f6299",
+    "GLOBAL_CP_KERNEL_PREFLIGHT_V1.md": "f7fcb34d46c1ebe487f958a88901d86510ac8b4e3c9770ac0b09d650cc2ece19",
+    "GLOBAL_CP_KERNEL_RESPONSE_READER_CAVEAT_V1.md": "c275224a4d40a75fee1c284f0e398f826b7a3aaee4e44e0d7fcbcd6f57e194f2",
+    "GLOBAL_CP_KERNEL_TINY_V2_PREEXECUTION_AMENDMENT.md": "b86c359704c6c43419973a400a65038a99c546b5e0b263d834bf617577fb9b85"
+  },
+  "seals_unchanged": true,
+  "wall_s": 0.06774783134460449,
+  "peak_rss_bytes": 47022080,
+  "utc_finished": "2026-09-07T08:49:41.926473+00:00",
+  "source_sha256": "b41085fd9919ae0f1fbf66ca31f34969782de3ad3251bd11219517e4683f6299",
+  "plan_sha256": "f7fcb34d46c1ebe487f958a88901d86510ac8b4e3c9770ac0b09d650cc2ece19",
+  "qualification": "Tiny synthetic algebra and native API bills only. No P2 network, targets, learned heads, current-bank bill, raw error, candidate or score evidence."
+}

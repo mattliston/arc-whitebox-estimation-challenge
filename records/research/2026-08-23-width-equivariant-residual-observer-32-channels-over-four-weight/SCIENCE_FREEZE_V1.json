@@ -1,0 +1,50 @@
+{
+  "schema": "phase2-fast-residual-ridge-science-freeze-v1",
+  "status": "PASS_TARGET_FREE_RIDGE_SCIENCE_FREEZE__HOLD_ACTIVATION",
+  "frozen_at_utc": "2026-08-24T01:32:35Z",
+  "environment": {
+    "python_executable": "/Users/matt/anaconda3/bin/python",
+    "python": "3.11.5",
+    "numpy": "1.26.4"
+  },
+  "files": {
+    "DESIGN.md": "45045e628cbe7f922d46497ac2b463f2b23104cb0b7a39660be8cc4ea2976cb5",
+    "SCIENCE_SPEC.json": "e72de98b33936432842fb2fb06bfa8bd4e940eb129de60068571c3b4982acd10",
+    "ridge_science.py": "7ea091f4965b470c061ef61260c66865286d286ee87f44cbcc25389e4add1075",
+    "verify_target_free.py": "f6bc46eabc8df505e2a56a5c5c8a3b92c62b27b3a4074d94d207908679129bbf"
+  },
+  "verification": {
+    "basis_widths": {
+      "linear20": 20,
+      "context77": 77
+    },
+    "ridge_ladder": [
+      5.960464477539063e-08,
+      3.814697265625e-06,
+      0.000244140625,
+      0.015625,
+      1.0
+    ],
+    "synthetic_fit_only_normalization_and_depth_bypass": true,
+    "synthetic_layer1_host_exact": true,
+    "synthetic_zero_coefficients_host_exact": true,
+    "synthetic_planted_final_relation_recovered_below_one_percent_host_mse": true,
+    "synthetic_l2_regression_rejected": true
+  },
+  "real_access_counters": {
+    "dataset_rows_opened": 0,
+    "feature_rows_opened_or_hashed": 0,
+    "role_target_artifacts_opened_or_hashed": 0,
+    "target_values_decoded": 0,
+    "fits": 0,
+    "selection_metrics_computed": 0,
+    "scores": 0
+  },
+  "activation_prerequisites": [
+    "production claim-first launcher and exact source manifest",
+    "independent source/science audit",
+    "fit-selection reader authorization",
+    "root one-use fit-selection authority"
+  ],
+  "this_receipt_is_execution_authority": false
+}

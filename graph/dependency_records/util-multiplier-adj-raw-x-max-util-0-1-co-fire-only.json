@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N5_UTIL",
+    "label": "N5 util multiplier (adj = raw x max(util, 0.1)) - co-fire only",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 3,
+    "summary": "CP3 cap ladder explodes raw (8192 -> +351%, 2048 -> x91) with the bill barely moving (fixed Winograd arena): no floor play on this lineage. Held: f32 pack -4.9% adj. Every N1.2 fix is priced in flops (0.161% adj per f32 1024^3 GEMM-eq).",
+    "terminal_criterion": "Closed at fire time with the co-fired pack.",
+    "evidence": [
+      {
+        "claim": "cap screens; billing audit.",
+        "receipt": "experiments/p2_width1024_depth16/public_d11_util_halving_v1/CAP_SCREEN_*.json"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "The score also multiplies by compute used; the estimator cannot be made cheaper without breaking it, so every fix must pay for its own compute."
+  }
+}

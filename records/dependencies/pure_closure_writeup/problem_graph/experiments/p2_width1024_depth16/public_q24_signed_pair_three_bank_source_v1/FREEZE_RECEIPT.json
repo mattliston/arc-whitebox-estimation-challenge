@@ -1,0 +1,91 @@
+{
+  "schema": "public-q24-signed-pair-three-bank-static-freeze-receipt-v1",
+  "date": "2026-08-27",
+  "status": "FROZEN_STATIC_SOURCE__EXECUTION_AND_DATA_HOLD",
+  "decision": "REQUEST_INDEPENDENT_STATIC_REVIEW__NO_RELEASE",
+  "artifact_bindings": {
+    "DESIGN.md": "9d638c9df2b7557ea0bdb9cd977aa5b39a9a788dd68daaf1ea75105378cb4161",
+    "PREREGISTRATION.json": "c2f3eb55ecbe6568413225466ab09cf078e93f90adaf5b5f076a7dd82e01e3e4",
+    "signed_pair_three_bank_source.py": "aaf76a5aff890cca1b4f6a5816f9e73f99b015467598034aaf4178b698aad307",
+    "one_shot_three_bank_runner.py": "c32d84491c142fb2d20046f27703155e8f665bc735e7ce45ec42c5fa7889e893",
+    "fold_local_novelty_evidence.py": "706fe8576d2173b23f4268fe7bd044b5b9f37943f3da16908019a3b07c5ebf67",
+    "SOURCE_EXECUTION_RELEASE_SCAFFOLD.json": "b3f5755c537e61c8ee4882408abb04f88d77ac50e2c371f62b2536043d794ae6",
+    "SINGLE_USE_CAPABILITY_CONTRACT.json": "1b0ca1b0a4b2cb8ecd2b9df045c29ff7385b6082638d0ec7d7ad252241140b85",
+    "ORDERED_688_ROW_SCOPE_CONTRACT.json": "d2f1679c3a357c0a99ba8ab3e90c7a686c8931f842d505a73173d0b4b6b8dac2",
+    "PARENT_CAPTURE_ADAPTER_CONTRACT.json": "58db66df595a127ef666fd900eba7eb38e3db7db672349c43176097fce5c5be3",
+    "BANK_AND_NOVELTY_RECEIPT_SCHEMA.json": "754fd92801199e01a7c90644c9df9d708cef74b5dc7548d588dfa4dd59b6ad42",
+    "verify_static.py": "12421625fba7a819d20af94c0602a5ecd700f7af92714a62b4f754e8fe1c841f",
+    "STATIC_VERIFICATION.json": "d47e181c11ce77bc8b6aae19a4a34a9473a003d56285ad1cae7e6ae43891251e",
+    "INDEPENDENT_STATIC_REVIEW_HOLD_V1.json": "374de558bd8d2b30d281ac2613bf224791a46e3d4638bc07ce8223bde4e57b6d"
+  },
+  "immutable_signed_pair_v2_bindings": {
+    "package_manifest_sha256": "85c1f3073ef54fa822748c8c579bd1d68d0823bb1169014f92d6e05152c5f895",
+    "freeze_verification_sha256": "e0846f84c452a1d99e3e296dc4755a28f2b985e18b7e5849414a4d64d4c47490",
+    "independent_static_review_sha256": "2a9270595bb33c0fd0f17a347131f02358a2aee00f0f38c6ee9e8484b0c45a0b"
+  },
+  "literal_source_authority": {
+    "rungs": [16, 64, 256],
+    "capture_layers_zero_based": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    "capture_seam": "immediately after _full_relu_reset and before rows.append/reset_stars with same-layer PREactivation alpha",
+    "A15": "three distinct exact float32 zero buffers; no capture",
+    "float32_boundary_and_tau_floor": true,
+    "float64_modified_gram_schmidt": true,
+    "sector_major_nested_prefix_byte_copy": true,
+    "source_release_guard_unconditional": true,
+    "runner_release_guard_unconditional": true,
+    "novelty_release_guard_unconditional": true
+  },
+  "hold_repair_provenance": {
+    "prior_hold_review_sha256": "374de558bd8d2b30d281ac2613bf224791a46e3d4638bc07ce8223bde4e57b6d",
+    "blockers_repaired": [
+      "capability_required_exact_fields_not_validated",
+      "ordered_688_canonical_record_binding_not_enforced",
+      "novelty_matrices_not_bound_to_sealed_bank_or_reference_bytes",
+      "novelty_rank_hash_schema_and_payload_mismatch",
+      "nonfinite_exact_meters_can_be_sealed"
+    ],
+    "science_law_changed": false,
+    "source_or_data_executed": false
+  },
+  "frozen_snapshot_review_findings": {
+    "direct_pre_dictionary_fnp_calls_per_capture": 44,
+    "direct_pre_dictionary_grouping": [8, 6, 9, 11, 10],
+    "corrected_source_fnp_calls_per_capture": 38050,
+    "corrected_source_fnp_calls_per_row": 494678,
+    "formula": "38050 = 44 + 37921 + 5 + 64 + 16; 494678 = 28 + 13 * 38050",
+    "five_component_parent_identity": "exact five-key component_sha256 mapping with lowercase 64-hex values",
+    "final_meter_vector_alignment": "all seven vectors exactly equal row exact_meters scalars rank-by-rank",
+    "canonical_A15_row_alignment": "all 688x3 row A15 hashes equal independently verified final canonical H hashes",
+    "future_release_external_provenance_gate": "generation/reference receipt provenance must be bound to an externally frozen allowlist or separately reviewed authority; self-asserted receipt provenance is insufficient; nonblocking for static acceptance",
+    "science_or_release_guard_changed": false,
+    "source_or_data_executed": false
+  },
+  "static_resource": {
+    "preallocated_payload_bytes": 73977916,
+    "source_calls_per_row": 494678,
+    "derived_source_flops_per_row": 7609904224,
+    "complete_tapes_plus_canonical_A15_bytes": 12310609920,
+    "official_exact_meters": null,
+    "policy": "RESOURCE_HOLD_DEPLOYMENT_ONLY; resource evidence cannot erase source-correct banks or block separately authorized accuracy science"
+  },
+  "unopened": {
+    "release_authority_sha256": null,
+    "single_use_capability_sha256": null,
+    "capture_adapter_sha256": null,
+    "ordered_688_scope_sha256": null,
+    "ordered_688_record_sha256": null,
+    "bank_sha256": {"16": null, "64": null, "256": null},
+    "fold_local_novelty_receipt_sha256": [null, null, null, null]
+  },
+  "empirical_claims": {
+    "numerical_source_runs": 0,
+    "public_rows_opened": 0,
+    "manifests_opened": 0,
+    "weights_opened": 0,
+    "targets_opened": 0,
+    "OOF_runs": 0,
+    "estimator_deployments": 0,
+    "packages_or_submissions": 0
+  },
+  "next_authority": "independent review may accept or HOLD only this static source/bank/evidence authority; no source import, row, target, OOF, estimator, package, board, or submission action follows automatically"
+}

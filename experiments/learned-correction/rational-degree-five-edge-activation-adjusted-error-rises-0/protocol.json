@@ -1,0 +1,83 @@
+{
+  "schema": "combo-bd-tanh-r5-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/candidate.py",
+    "sha256": "1078e51058e7674e9a322ebfee10ffa8cb124b70a68b1127cc6011ee274b0dde",
+    "bytes": 972220
+  },
+  "scope": "native2_only",
+  "intervention": "Replace only active _g5_message_edge_base FP32 tanh(h,out=h), existing layers8\u201314, by saturation-root-clipped R5. All other activations, GNN inputs/weights, physical terms and BD j1 remain unchanged.",
+  "clamp_float32": 3.6467385292053223,
+  "formula": "x=clip(h,-c,c);z=x*x;R5=x*(945+z*(105+z))/(945+z*(420+15*z))",
+  "selected_layers": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "arithmetic": "All6 cached scalar constants and both scratch planes explicitlyfloat32. Eleven public paid arithmetic calls/helper use out=; h is already a fresh private activation. Two shape-owned scratch planes are fully overwritten each call and cache holds at most one shape. No inputs or network states are retained.",
+  "proof": {
+    "R6": "x*(10395+1260*x^2+21*x^4)/(10395+4725*x^2+210*x^4+x^6)",
+    "sandwich": "R6<=tanh<=R5 for x>=0 by exact ODE residuals +/-x^(10/12)/D^2. R5-R6=x^11/(D5D6), increasing since denominator positive coefficients and degree10.",
+    "monotonicity": "R5 derivative numerator has positive Bernstein coefficients on x^2 in[0,225/16], so strictly increasing through c.",
+    "real_global_error_at_float32_clamp_at_most": 0.001465346823,
+    "standard_fp32_global_allowance": 0.001467,
+    "qualification": "FP32 allowance assumes standard correctly rounded float32 arithmetic; no native endpoint accuracy or runtime qualification follows."
+  },
+  "price": {
+    "prior": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/teammate_edge_tanh_price_v1/pricing.json",
+      "sha256": "74ab71cd37781bc1cd023257baa6c71205ebd4ba532b4ef7289bc07ed45e8355",
+      "bytes": 5748
+    },
+    "prior_dispatch_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/teammate_edge_tanh_price_v1/fusion_review.json",
+      "sha256": "3d74356d938140aa4909cd911447842c6f9f5a87aa5110d95c25e137b3762cef",
+      "bytes": 3324
+    },
+    "old_flops_per_element": 16,
+    "new_flops_per_element": 12,
+    "saved_flops_network": 469762048,
+    "forecast_s34_bill_saving_pct": 0.17567428759538345,
+    "extra_arithmetic_calls_network": 70,
+    "extra_steady_scratch_bytes": 134217728,
+    "cache_capacity_shapes": 1,
+    "cold_extra": "Two public empty allocations, one six-element float32 constant array and its views; no private arena or prebind expansion."
+  },
+  "dispatch_policy": "Root explicitly revises previous self-imposed dispatch-no-worse restriction. Official/local residual, wall, setup, RSS and zeroSwap limits are unchanged; own boundary measurement is mandatory before N8.",
+  "score_policy": "Incremental vs exact BD parent: N2 gain>=.1%,>=1win,maxreg<=1%,L0\u20137 byte parity. Own boundary then N8 gain>=.1%,>=6wins,CIupper<0,additional6negative. S34 total>=.8% before broad; final VALID40 bank>=1% and full serving.",
+  "no_scale_window_degree_followons": true,
+  "formula_fixture": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_tanh_r5_v1/formula_fixture.py",
+    "sha256": "9e65ea66a48e13d8ad54ebd6d97a7f92f26055c548641ff65ffa9f74fee3f1bd",
+    "bytes": 1828
+  },
+  "BD_parent_native2": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/native2_assessment.json",
+    "sha256": "5befdf42452b4ccd88e2a2d1d0c1ce7dad23c3b9a131433716aab6beacd93e22",
+    "bytes": 15745
+  },
+  "qualification": "BD parent is now retained by native8; this candidate remains native2_only and future continuation must bind its existing native6 controls.",
+  "model_executed": false,
+  "serving_qualified": false,
+  "submitted": false,
+  "BD_parent_retained": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/retained_component.json",
+    "sha256": "6175c8e06d0335ee8fd719b89ffc77358f68373098b0d4c5097f0169e2a01e15",
+    "bytes": 1434
+  }
+}

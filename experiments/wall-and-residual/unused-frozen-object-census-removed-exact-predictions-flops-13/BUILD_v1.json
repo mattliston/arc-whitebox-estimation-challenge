@@ -1,0 +1,93 @@
+{
+  "utc": "2026-10-21T08:24:16Z",
+  "status": "SOURCE_FROZEN_IMPORT_PENDING_NO_NATIVE",
+  "outputs": {
+    "paid": {
+      "science": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/candidate_first128_paid_nocensus_science_v1.py",
+        "sha256": "49bd2ba31f0bce983f44cc001746e63ffaa84e530d3b31efa6424f69a0298c80",
+        "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/candidate_first128_smoff_npxoff_science_v1.py",
+        "parent_sha256": "fe8cadf30daf0921a86acab95ec91348a565ce64f52e3dd4522a1936ac60620b"
+      },
+      "release": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/candidate_first128_paid_nocensus_release_v1.py",
+        "sha256": "f9381d0982f5d24e76d38884188ba7c998548e4a3f306825e7e80fb9fa0fc3b6",
+        "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/candidate_first128_smoff_npxoff_release_v1.py",
+        "parent_sha256": "d90e5299291fa36b53df6d508e998f2bb7819b662ad436524d56bf7b8cc0999f"
+      }
+    },
+    "zero_sync": {
+      "science": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/candidate_first128_zero_sync_nocensus_science_v1.py",
+        "sha256": "190064a9a9f9ffce90c272d49607b34d18ec53c14cb0aef6dd95382dd6c949ef",
+        "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_dcr_slr_v1/candidate_first128_smoff_npxoff_dcr_slr_science_v1.py",
+        "parent_sha256": "58c02395cd6419ae79bbd371c912ca44bd6d45f7552d93a63c087da5a5d141f2"
+      },
+      "release": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/candidate_first128_zero_sync_nocensus_release_v1.py",
+        "sha256": "e20559ec80e49672610020386e4e85449da2b55b219f2cd4d0f5ab4ce8a7f5a4",
+        "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_dcr_slr_v1/candidate_first128_smoff_npxoff_dcr_slr_release_v1.py",
+        "parent_sha256": "d3991b2ffd6bf3f5ed4375257972d813cac4da45a27682bc11649f368c6ce0b7"
+      }
+    }
+  },
+  "proof": [
+    {
+      "key": "paid",
+      "role": "science",
+      "exact_single_argument_change": true,
+      "changed_function": "_gcz_predict_v1",
+      "changed_line": 22260,
+      "old_argument": "_setup_gc.get_freeze_count()",
+      "new_argument": "None",
+      "all_other_ast_identical": true,
+      "full_compile": true,
+      "permanent_empty_rescue_map": true
+    },
+    {
+      "key": "paid",
+      "role": "release",
+      "exact_single_argument_change": true,
+      "changed_function": "_gcz_predict_v1",
+      "changed_line": 22260,
+      "old_argument": "_setup_gc.get_freeze_count()",
+      "new_argument": "None",
+      "all_other_ast_identical": true,
+      "full_compile": true,
+      "permanent_empty_rescue_map": true
+    },
+    {
+      "key": "zero_sync",
+      "role": "science",
+      "exact_single_argument_change": true,
+      "changed_function": "_gcz_predict_v1",
+      "changed_line": 22260,
+      "old_argument": "_setup_gc.get_freeze_count()",
+      "new_argument": "None",
+      "all_other_ast_identical": true,
+      "full_compile": true,
+      "permanent_empty_rescue_map": true
+    },
+    {
+      "key": "zero_sync",
+      "role": "release",
+      "exact_single_argument_change": true,
+      "changed_function": "_gcz_predict_v1",
+      "changed_line": 22260,
+      "old_argument": "_setup_gc.get_freeze_count()",
+      "new_argument": "None",
+      "all_other_ast_identical": true,
+      "full_compile": true,
+      "permanent_empty_rescue_map": true
+    }
+  ],
+  "change": "Omit only per-prediction read-only frozen-object census; frozen_objects=None explicitly means unmeasured. Keep predict counter/update, freeze, collect, thresholds, operation order, wrapper identities and all guards.",
+  "diagnostic_only_metadata_field": true,
+  "gc_policy_unchanged": true,
+  "numerical_source_unchanged": true,
+  "no_fnp_operations_changed": true,
+  "no_setup_or_prediction_run": true,
+  "no_native": true,
+  "no_submission": true,
+  "evidence": "V/profile_first128_d399_v2/INDEPENDENT_AUDIT_v1.json18f7e42e and exact qualified profile get_freeze_count8.580769ms; instrumented duration is not runtime gain."
+}

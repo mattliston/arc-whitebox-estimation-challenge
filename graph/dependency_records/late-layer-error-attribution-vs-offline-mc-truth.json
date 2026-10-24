@@ -1,0 +1,45 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19A",
+    "label": "Late-layer error attribution vs offline MC truth",
+    "kind": "experiment",
+    "status": "solved",
+    "priority": 1,
+    "summary": "Which mechanism owns the Q24 host's late-layer (l=10-15) mean error: marginal Edgeworth-truncation at the emission, pair/covariance state error echo, or non-Edgeworth width-finite remainder? Offline MC truth (weights-only, seeded, no sealed access) at per-unit SE below the q scale decides. This is the cheapest fatal gate: the winning mechanism defines which construction (higher-order closure with kappa5/kappa6 laws, late-layer rho/covariance repair, width-finite kernel correction, or late-layer FLOP reallocation) gets the one-arm build. VERDICT (2026-08-29, both rows, preregistered gates met): INGREDIENTS. The drifted pre-layer state carries the late-layer mean error - term B = 114/121 percent of noise-corrected energy on ranks 35/100; the order-2 emission formula at TRUE state errs BELOW the 8M-sample noise floor (term A negative after noise subtraction); the host-convention term C is zero to 8 decimals (which also validates tap alignment). MC noise 12/17 percent of raw. The formula-upgrade branch (kappa5 column) is dead for this purpose; the fight is state propagation accuracy. Ingredient sub-split (m vs v vs k3 vs k4) running from saved states.",
+    "terminal_criterion": "Solved: ATTRIBUTION_rank0035/0100.json are the receipts; sub-split extends under G19B.",
+    "evidence": [
+      {
+        "path": "experiments/p2_width1024_depth16/public_g19_attribution_v1/PREREGISTER.md",
+        "sha256": "d65e0daf6f96c17029b8a8965d55d2a1c4f44f216bdfa2092c45688d0d5c6794",
+        "run_id": "g19a-run-001",
+        "claim": "late-layer mean error attribution: ingredients dominant, formula below noise",
+        "scope": "development"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_g19_attribution_v1/run_attribution.py",
+        "sha256": "5d3ba75ce8e4443be848cfae9f5fb8472cc0a1e5a6e4ba08044fd81219e09c7a",
+        "run_id": "g19a-run-001",
+        "claim": "late-layer mean error attribution: ingredients dominant, formula below noise",
+        "scope": "development"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_g19_attribution_v1/ATTRIBUTION_rank0035.json",
+        "sha256": "6a31cda10b973ba5aeffd41674435c1c4fcc1e7b34ee34d17052713e54dd12aa",
+        "run_id": "g19a-run-001",
+        "claim": "late-layer mean error attribution: ingredients dominant, formula below noise",
+        "scope": "development"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_g19_attribution_v1/ATTRIBUTION_rank0100.json",
+        "sha256": "08683ed452b1d3eebf12de9bf79fb25ec8674a219e288aefa8115292fb0b9ec7",
+        "run_id": "g19a-run-001",
+        "claim": "late-layer mean error attribution: ingredients dominant, formula below noise",
+        "scope": "development"
+      }
+    ],
+    "decomposition_children": []
+  }
+}

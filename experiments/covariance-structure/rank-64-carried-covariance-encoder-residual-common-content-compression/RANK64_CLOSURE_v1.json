@@ -1,0 +1,61 @@
+{
+  "status": "CLOSED_FATAL_SAVED_FIDELITY_NO_NATIVE",
+  "baseline": "v61j rank16 native archive, not95c equivalence",
+  "current_score_for_context": 1.4468565569762618e-09,
+  "rank": 64,
+  "coefficient_search": false,
+  "result_sha256": "fc205267830dc15a121f2b5663ac50774697eaf0af503b57a587db8547c698fc",
+  "probe_sha256": "6c9e78cc633001b3dfb2299d3a514589d919c83f425bb34094aa95b242ad0420",
+  "rows": [
+    {
+      "layer": 13,
+      "active_roster_n": 896,
+      "offdiag_relative_fro_error": 0.2612000282254815,
+      "push_relative_fro_error": 0.22938157757247243,
+      "push_diag_relative_rms_error": 0.041634455184970054,
+      "push_diag_relative_sd_error": 0.23035070049438644,
+      "literal_archived_push_relative_fro_error": 0.2294065419726549
+    },
+    {
+      "layer": 14,
+      "active_roster_n": 896,
+      "offdiag_relative_fro_error": 0.2309551758820727,
+      "push_relative_fro_error": 0.20872830639714962,
+      "push_diag_relative_rms_error": 0.04472405071200675,
+      "push_diag_relative_sd_error": 0.221934979988739,
+      "literal_archived_push_relative_fro_error": 0.2060379965369294
+    }
+  ],
+  "D_explicit": true,
+  "D_trace_fractions": [
+    0.4151327751400329,
+    0.39700992835074833
+  ],
+  "proof": "W verified by original capture raw-array SHA; rank64 deterministic greedy pivoted Cholesky; exact covariance diagonal; full weighted Gram retained; Wt E W identity agrees within8e-16 relative.",
+  "cost": {
+    "scope": "Analytical dense 0.12.3 matmul/elementwise tariff formulas, NOT measured current routed kernel credit. Current Cw and symmetric weighted Gram are discounted; applying dense replacement credit would overstate savings.",
+    "m": 896,
+    "n": 1024,
+    "rank": 64,
+    "dense_first_Cw": 1643249664,
+    "factor_WtZ": 117374976,
+    "factor_UUt": 133169152,
+    "full_weighted_Gram_WtDW": 1877999616,
+    "D_times_W": 917504,
+    "pivoted_Cholesky_arithmetic_approx": 3784704,
+    "non_Gram_added_total_approx": 255246336,
+    "unavailable_savings": "Exact current routed firstCw minus new factorpush/reconstruction/extraction and any weighted-Gram tariff difference. No SDK pricing justified after fatal fidelity.",
+    "hypothetical_dense_upper_per_layer_saved": 1388003328,
+    "request_risk": "Greedy rank64 extraction is sequential, roughly8+ public operations/pivot (~512+ calls/layer); the saved-data factor is a fidelity test, not a deployable low-request implementation. No claimed cushion-neutral candidate."
+  },
+  "resource": {
+    "elapsed_s": 0.933183915913105,
+    "peak_rss_bytes": 625278976,
+    "free_before_pct": 59,
+    "free_after_pct": 59,
+    "guard_complete": true,
+    "whole_group_retired": true,
+    "guard_error": null
+  },
+  "conclusion": "21\u201323% covariance-push error and4.2\u20134.5% variance RMS error decisively reject this fixedrank64 representation. No native test, no parameter/rank ladder, no target read, and no adjusted-score improvement claim."
+}

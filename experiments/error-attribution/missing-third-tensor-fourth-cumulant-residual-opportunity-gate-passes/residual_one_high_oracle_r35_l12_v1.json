@@ -1,0 +1,123 @@
+{
+  "rank": 35,
+  "layer": 12,
+  "next_layer": 13,
+  "q": 4,
+  "queried_next_K21_rows": [
+    0,
+    32,
+    64,
+    96,
+    128,
+    160,
+    192,
+    224,
+    256,
+    288,
+    320,
+    352,
+    384,
+    416,
+    448,
+    480,
+    512,
+    544,
+    576,
+    608,
+    640,
+    672,
+    704,
+    736,
+    768,
+    800,
+    832,
+    864,
+    896,
+    928,
+    960,
+    992
+  ],
+  "frozen_input_sha256": "512c1bbbc3498d1cf02a7b7ad9159416b75a41a8fba0363d20b8e9c40c463efd",
+  "streams": {
+    "A": {
+      "seed_xor": "0x4f4e454849474831",
+      "source_sha256": "d9d7f23e2c59cdf73815a99e1e323d8afd50c29ed375110809d3dbb04af2e8fa",
+      "output_sha256": "23460f0205733e56a37880ebcfab824b20986acc1067f0645eaa03dfe332ad66",
+      "tensor_double_slice_asymmetry": 5.771542729396458e-08,
+      "slice_difference_norm": 1.9095514716625899
+    },
+    "B": {
+      "seed_xor": "0x4f4e454849474832",
+      "source_sha256": "d9d7f23e2c59cdf73815a99e1e323d8afd50c29ed375110809d3dbb04af2e8fa",
+      "output_sha256": "81d97d2f4d268561eb56ac6bec9d97b26b061ece77cc6094aa098619f0ef14ad",
+      "tensor_double_slice_asymmetry": 5.704697737208037e-08,
+      "slice_difference_norm": 1.888480359036736
+    }
+  },
+  "results": {
+    "full": {
+      "unweighted": {
+        "baseline_observed_mse": 1.4867241317113786e-07,
+        "baseline_signal_mse_point_estimate": 1.4671587949056722e-07,
+        "baseline_noise_mse_point_estimate": 1.9565336805706487e-09,
+        "baseline_noise_fraction": 0.01316003176943438,
+        "correction_signal_mse_point_estimate": 1.289006153225428e-07,
+        "correction_noise_mse_point_estimate": 8.437815494506295e-10,
+        "signal_alignment_point_estimate": 1.2871842817446202e-07,
+        "signal_natural_error_ratio": 0.12391050326188306,
+        "signal_correction_error_cosine": 0.9359974635885328,
+        "signal_correction_relative_norm": 0.9373222677437769,
+        "A_target_B_correction_ratio": 0.14009124563267422,
+        "B_target_A_correction_ratio": 0.14215002731008558
+      },
+      "leading_consumer_weighted": {
+        "baseline_observed_mse": 1.5586430069550103e-09,
+        "baseline_signal_mse_point_estimate": 1.5190922429030425e-09,
+        "baseline_noise_mse_point_estimate": 3.955076405196786e-11,
+        "baseline_noise_fraction": 0.02537512687349418,
+        "correction_signal_mse_point_estimate": 1.0574927376855617e-09,
+        "correction_noise_mse_point_estimate": 1.1316934081346221e-11,
+        "signal_alignment_point_estimate": 1.0529646715147852e-09,
+        "signal_natural_error_ratio": 0.30982689810830255,
+        "signal_correction_error_cosine": 0.8307742564749192,
+        "signal_correction_relative_norm": 0.834346836740964,
+        "A_target_B_correction_ratio": 0.34258094043222953,
+        "B_target_A_correction_ratio": 0.32686541355042603
+      }
+    },
+    "distinct": {
+      "unweighted": {
+        "baseline_observed_mse": 1.4867241317113786e-07,
+        "baseline_signal_mse_point_estimate": 1.4671587949056722e-07,
+        "baseline_noise_mse_point_estimate": 1.9565336805706487e-09,
+        "baseline_noise_fraction": 0.01316003176943438,
+        "correction_signal_mse_point_estimate": 1.261644818870219e-07,
+        "correction_noise_mse_point_estimate": 8.068469946139442e-10,
+        "signal_alignment_point_estimate": 1.2697998010449374e-07,
+        "signal_natural_error_ratio": 0.128959463926453,
+        "signal_correction_error_cosine": 0.933314772180846,
+        "signal_correction_relative_norm": 0.9273207837393035,
+        "A_target_B_correction_ratio": 0.14259592899543264,
+        "B_target_A_correction_ratio": 0.14913670909395166
+      },
+      "leading_consumer_weighted": {
+        "baseline_observed_mse": 1.5586430069550103e-09,
+        "baseline_signal_mse_point_estimate": 1.5190922429030425e-09,
+        "baseline_noise_mse_point_estimate": 3.955076405196786e-11,
+        "baseline_noise_fraction": 0.02537512687349418,
+        "correction_signal_mse_point_estimate": 9.79866652056311e-10,
+        "correction_noise_mse_point_estimate": 1.0965183898892427e-11,
+        "signal_alignment_point_estimate": 1.0098996789999105e-09,
+        "signal_natural_error_ratio": 0.3154249119486257,
+        "signal_correction_error_cosine": 0.8277566384028023,
+        "signal_correction_relative_norm": 0.8031402948779551,
+        "A_target_B_correction_ratio": 0.3431315812777637,
+        "B_target_A_correction_ratio": 0.33663192157213145
+      }
+    }
+  },
+  "opportunity_gate": true,
+  "wall_s": 0.18172693252563477,
+  "peak_rss_bytes": 347947008,
+  "qualification": "Two independent8M streams, both disjoint from host-source seed. Cross-products separate sampling noise only as point estimates, not confidence bounds; shared MPS bias remains. Fixed leading K21-consumer weight, not actual final-MSE or adjusted score. Distinct-only arm is the predeclared gate; full one-high arm diagnostic. Oracle residual not available at deployment."
+}

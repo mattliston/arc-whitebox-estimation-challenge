@@ -1,0 +1,17 @@
+def output_projection_contract(T, X):
+    # Fixed two-dimensional output range; exact full mean component.
+    mu = fnp.mean(X, axis=1)
+    centered = fnp.subtract(X, mu[:, None, :])
+    wide = centered.astype(fnp.float64)
+    gram = fnp.matmul(wide.transpose(0, 2, 1), wide)
+    _, vectors = fnp.linalg.eigh(gram)
+    V = vectors[:, :, -2:].astype(fnp.float32)
+    coefficients = fnp.matmul(centered, V)
+    projected = fnp.matmul(T, coefficients)
+    Q, _ = fnp.linalg.qr(projected.astype(fnp.float64), mode='reduced')
+    Q = Q.astype(fnp.float32)
+    back = fnp.matmul(Q.transpose(0, 2, 1), T)
+    fitted = fnp.matmul(back, centered)
+    residual = fnp.matmul(Q, fitted)
+    mass = fnp.sum(T, axis=2)
+    return fnp.add(residual, fnp.multiply(mass[:, :, None], mu[:, None, :]))

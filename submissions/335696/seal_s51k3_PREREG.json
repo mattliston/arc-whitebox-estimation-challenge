@@ -1,0 +1,24 @@
+{
+ "tag": "s51k3",
+ "utc": "2026-10-13T02:17:17Z",
+ "base": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/s51k2tw_x/candidate.py",
+ "base_sha256": "b1d647e9a340a1f8da7925403636fa2c3a91f58f7e7c21db13ed59db435a8e48",
+ "stack": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/s51k3tw_x/candidate.py",
+ "stack_sha256": "6bc5dc3eba0caa0481247d9c83ee118995f39f5105651dd66763c88c3fe3b44f",
+ "stack_parts": "s51k2tw_x + Astra native algebra stack (fragment_astra_stack1_v1.py = astra_hunt_20261013_v1/native_stack_v1 6562cc7e minus its base, verbatim) + engineer2 idc1 twin fragment (byte-identical, certified 7100136 / 137)",
+ "seeds": [
+  7190008,
+  7190009,
+  7190010,
+  7190011,
+  7190012,
+  7190013,
+  7190014,
+  7190015
+ ],
+ "allocation": "seal_judge_v1.py alloc s51k3 8 (seal_alloc_v1.jsonl 02:17:04Z)",
+ "runner": "O/scout_native/run_cert_v2.py, PB_ALL=1 (prebind wall guard lifted: per-file bills are deterministic), guard v3, one network per process call sequence, BLAS threads 1",
+ "score": "per network log(final MSE stack / base) + log(flops stack / flops base) from the same runs (bill x MSE)",
+ "rule": "8 networks: FIRE iff mean < 0; 0 <= mean < +1 se -> 8 more (seal_judge alloc s51k3x 8), then FIRE iff the 16-network mean < 0; else NO FIRE",
+ "note": "lead 02:14Z: rounding-level stack, sealed path; base = the fired s51k2 twin #335661"
+}

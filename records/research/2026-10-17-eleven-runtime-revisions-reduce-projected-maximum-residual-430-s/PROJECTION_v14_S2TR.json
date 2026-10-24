@@ -1,0 +1,598 @@
+{
+  "status": "FAIL_WARM_RESIDUAL_MAX",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/candidate_s2tr_peel_release_v14.py",
+  "sha256": "449b48b5ca986307657c7f2702d7c28d814e961cba338d85b202ed4d9ab2cec4",
+  "clock": "slowdown1.3 actual prediction state",
+  "setup": {
+    "import_s": 0.16993904300034046,
+    "setup_s": 2.499051332473755,
+    "requests": 16686,
+    "pb_log": [
+      [
+        "constants",
+        0.135
+      ],
+      [
+        "ksplit",
+        26,
+        0.478
+      ],
+      [
+        "wall guard",
+        133,
+        2.203
+      ],
+      [
+        "first_load_views",
+        128,
+        2.203
+      ],
+      [
+        "lvfuse",
+        0,
+        2.203
+      ],
+      [
+        "psdb_fused",
+        9,
+        2.314
+      ],
+      [
+        "pair_block_indices",
+        1,
+        2.314
+      ],
+      [
+        "read7_lazy",
+        0,
+        2.314
+      ],
+      [
+        "yr7_lazy",
+        0,
+        2.314
+      ],
+      [
+        "sm40_fixed_views",
+        5,
+        2.427
+      ],
+      [
+        "sm40_hot_views",
+        9,
+        2.501
+      ],
+      [
+        "r7_firstread_views",
+        3,
+        2.546
+      ],
+      [
+        "peel_fixed_views",
+        14,
+        2.974
+      ],
+      [
+        "peel_full_topology",
+        106,
+        3.993
+      ],
+      [
+        "smallsm12_fixed_views",
+        12,
+        4.191
+      ],
+      [
+        "mainread_fixed_topology",
+        28,
+        4.89
+      ],
+      [
+        "bound",
+        175,
+        4.891
+      ]
+    ],
+    "defined": true,
+    "kernel_s": 0.315948584,
+    "kernel_cycles": 1248629214,
+    "server_cycles": 4867706016,
+    "server_instructions": 14939456400,
+    "client": {
+      "user_s": 0.5181429583333335,
+      "system_s": 0.320745125,
+      "p_user_s": 0.5181059583333334,
+      "p_system_s": 0.32058812500000006,
+      "cycles": 2849432563,
+      "instructions": 7419450958,
+      "p_cycles": 2848980483,
+      "p_instructions": 7419204120,
+      "runnable_s": 0.9411311250000001,
+      "footprint": 56820336,
+      "footprint_max": 160825848,
+      "resident": 90259456,
+      "pageins": 0
+    },
+    "handles": 42125,
+    "puts": 50981,
+    "put_bytes": {
+      "<f4": 809344144168,
+      "<f8": 50784680,
+      "<i4": 6703456,
+      "<i8": 180480
+    },
+    "comms": [
+      19206,
+      233122566,
+      1723862,
+      3983362
+    ],
+    "comms_work": [
+      57630,
+      569265028,
+      1975744066
+    ],
+    "slowdown": 1.3,
+    "phases": [
+      [
+        "constants",
+        0.135,
+        0.11599824950098991,
+        494
+      ],
+      [
+        "ksplit",
+        26,
+        0.12303808331489563,
+        546
+      ],
+      [
+        "wall guard",
+        133,
+        0.92975845746696,
+        6850
+      ],
+      [
+        "first_load_views",
+        128,
+        0.9300000816583633,
+        6850
+      ],
+      [
+        "(binding phase ends)",
+        null,
+        0.9300041664391756,
+        6850
+      ],
+      [
+        "lvfuse",
+        0,
+        0.930231124162674,
+        6850
+      ],
+      [
+        "psdb_fused",
+        9,
+        0.983883248642087,
+        7256
+      ],
+      [
+        "pair_block_indices",
+        1,
+        0.9838874582201242,
+        7256
+      ],
+      [
+        "read7_lazy",
+        0,
+        0.9838894996792078,
+        7256
+      ],
+      [
+        "yr7_lazy",
+        0,
+        0.9838921669870615,
+        7256
+      ],
+      [
+        "sm40_fixed_views",
+        5,
+        1.0398408323526382,
+        7668
+      ],
+      [
+        "sm40_hot_views",
+        9,
+        1.0729724988341331,
+        7940
+      ],
+      [
+        "r7_firstread_views",
+        3,
+        1.0945310816168785,
+        8102
+      ],
+      [
+        "peel_fixed_views",
+        14,
+        1.3133889995515347,
+        9668
+      ],
+      [
+        "peel_full_topology",
+        106,
+        1.924604332074523,
+        13390
+      ],
+      [
+        "smallsm12_fixed_views",
+        12,
+        2.1086838748306036,
+        14115
+      ],
+      [
+        "mainread_fixed_topology",
+        28,
+        2.4947238322347403,
+        16667
+      ],
+      [
+        "bound",
+        175,
+        2.49656312353909,
+        16671
+      ]
+    ],
+    "keys_total": 649,
+    "marks": null,
+    "failed": false,
+    "keys_bound": 133,
+    "deferred_fused": 0,
+    "binding_requests": 6850,
+    "pace_s_per_request": 0.00027368421052631584,
+    "platform_requests": 19000,
+    "binding_trace": [
+      546,
+      590,
+      641,
+      694,
+      758,
+      804,
+      850,
+      896,
+      951,
+      1006,
+      1061,
+      1114,
+      1178,
+      1224,
+      1277,
+      1341,
+      1387,
+      1433,
+      1488,
+      1534,
+      1580,
+      1624,
+      1679,
+      1723,
+      1769,
+      1813,
+      1868,
+      1923,
+      1974,
+      2018,
+      2062,
+      2117,
+      2172,
+      2216,
+      2271,
+      2326,
+      2372,
+      2416,
+      2462,
+      2508,
+      2554,
+      2609,
+      2655,
+      2710,
+      2765,
+      2811,
+      2857,
+      2903,
+      2947,
+      2993,
+      3048,
+      3092,
+      3136,
+      3182,
+      3237,
+      3283,
+      3329,
+      3373,
+      3428,
+      3472,
+      3518,
+      3564,
+      3610,
+      3654,
+      3709,
+      3741,
+      3766,
+      3821,
+      3876,
+      3920,
+      3964,
+      4008,
+      4063,
+      4107,
+      4153,
+      4199,
+      4245,
+      4291,
+      4346,
+      4401,
+      4445,
+      4500,
+      4544,
+      4599,
+      4643,
+      4689,
+      4733,
+      4788,
+      4843,
+      4873,
+      4910,
+      4956,
+      5011,
+      5066,
+      5121,
+      5167,
+      5213,
+      5257,
+      5301,
+      5356,
+      5402,
+      5446,
+      5483,
+      5538,
+      5584,
+      5630,
+      5685,
+      5729,
+      5773,
+      5819,
+      5874,
+      5920,
+      5975,
+      6019,
+      6065,
+      6109,
+      6153,
+      6208,
+      6254,
+      6309,
+      6364,
+      6408,
+      6463,
+      6518,
+      6573,
+      6603,
+      6640,
+      6695,
+      6741,
+      6766,
+      6783,
+      6800,
+      6825,
+      6850,
+      6850,
+      6850
+    ],
+    "residual_instructions": 843008067,
+    "actual_coverage": {
+      "bound": 133,
+      "fused": 128,
+      "finished": 128
+    },
+    "smx_stats": {
+      "binds": 1,
+      "calls": 0
+    },
+    "smx_bound": true,
+    "cache_counts": {
+      "peel._sm40_frames": 14,
+      "peel._sm40_cache": 107,
+      "peel._sm40_io_cache": 116,
+      "peel._sm40_outer_cache": 43,
+      "peel._sm40_group_cache": 88,
+      "peel._sm40_padding_grid": 6,
+      "peel._sm40_padding_cache": 7,
+      "peel.padding_grid.peel6_p20_4_4_17": 2,
+      "peel.padding_dest.peel6_p20_4_4_17": 3,
+      "peel.padding_grid.peel6_p20_5_5_14": 2,
+      "peel.padding_dest.peel6_p20_5_5_14": 4,
+      "peel.padding_grid.peel6_p10_5_5_26": 3,
+      "peel.padding_dest.peel6_p10_5_5_26": 6,
+      "peel.padding_grid.peel6_p20_3_24_3": 1,
+      "peel.padding_dest.peel6_p20_3_24_3": 1,
+      "peel.padding_grid.peel6_p20_3_21_4": 3,
+      "peel.padding_dest.peel6_p20_3_21_4": 6,
+      "peel.padding_grid.peel6_p20_4_17_4": 4,
+      "peel.padding_dest.peel6_p20_4_17_4": 6,
+      "peel.padding_grid.peel6_p10_4_30_4": 10,
+      "peel.padding_dest.peel6_p10_4_30_4": 16,
+      "peel.padding_grid.peel6_p10_5_21_5": 4,
+      "peel.padding_dest.peel6_p10_5_21_5": 7,
+      "peel.padding_grid.peel6_p20_5_11_5": 1,
+      "peel.padding_dest.peel6_p20_5_11_5": 1,
+      "peel.padding_grid.sm12_e1_L5P40": 6,
+      "peel.padding_dest.sm12_e1_L5P40": 7,
+      "peel.padding_grid.sm12_e0_L5P40": 4,
+      "peel.padding_dest.sm12_e0_L5P40": 5,
+      "peel.padding_grid.peel6_p10_5_5_21_tight": 1,
+      "peel.padding_dest.peel6_p10_5_5_21_tight": 1,
+      "peel.padding_grid.peel6_p10_5_16_5_tight": 1,
+      "peel.padding_dest.peel6_p10_5_16_5_tight": 2,
+      "peel.padding_grid.peel6_p10_4_23_4_tight": 1,
+      "peel.padding_dest.peel6_p10_4_23_4_tight": 3,
+      "read._sm40_frames": 5,
+      "read._sm40_cache": 62,
+      "read._sm40_io_cache": 62,
+      "read._sm40_outer_cache": 28,
+      "read._sm40_group_cache": 0,
+      "read._sm40_padding_grid": 28,
+      "read._sm40_padding_cache": 41,
+      "_IPT_A": 37,
+      "_IPT_A.fused": 35,
+      "_IPT_A.finished": 35,
+      "_IPT_B": 46,
+      "_IPT_B.fused": 45,
+      "_IPT_B.finished": 45,
+      "_IPT_C": 50,
+      "_IPT_C.fused": 48,
+      "_IPT_C.finished": 48
+    }
+  },
+  "projection": {
+    "ratio_flops": 0.9981491382496548,
+    "ratio_proxy": 1.0677830414030294,
+    "ratio_proxy_memory": 1.055941290039527,
+    "ratio_proxy_cpu": 1.0831154110455163,
+    "ratio_instructions": 1.0759470407485001,
+    "ratio_instructions_fault_free": 1.0772629796905202,
+    "ratio_cycles": 0.9711154084054044,
+    "ratio_kernel_s": 0.9435536682325667,
+    "ratio_round_trips": 0.9844744483442996,
+    "ratio_requests": 0.9840291669355359,
+    "ratio_residual_instructions": 0.9766797086204845,
+    "ratio_residual": 0.9766797086204845,
+    "residual_from": "residual instructions",
+    "ratio_residual_s": 0.80251922018726,
+    "ratio_overhead_s": 0.8365477905653564,
+    "kernel_s": 91.40968090683819,
+    "kernel_lo_s": 91.1765425591428,
+    "kernel_hi_s": 91.64281925453355,
+    "overhead_s": 9.385702678256063,
+    "residual_mean_s": 0.34648201302029935,
+    "residual_max_s": 0.4122713837473768,
+    "mean_wall_s": 101.14186559811455,
+    "worst_wall_s": 114.16111280643452,
+    "worst_wall_lo_s": 113.8979642768581,
+    "worst_wall_hi_s": 114.42426133601089,
+    "headroom_wall": 1.0511460255600835,
+    "headroom_residual": 0.9702346943514852,
+    "allow_wall": 1.1864523092427217,
+    "allow_residual": 1.1544610830247204,
+    "platform_reference": {
+      "sid": 336412,
+      "networks": 100,
+      "predict_mean": 95.68272929364969,
+      "predict_max": 107.99926210500416,
+      "kernel_mean": 85.79425536671,
+      "overhead_mean": 9.533718923879684,
+      "residual_mean": 0.35475500305999946,
+      "residual_max": 0.42211523399998896,
+      "flops_mean": 245546618489.87
+    },
+    "w_mem": [
+      0.55,
+      0.65,
+      0.75
+    ]
+  },
+  "matched_rows": [
+    {
+      "rank": 35,
+      "requests": 47281,
+      "residual_instructions": 2129001494,
+      "ratio_residual_vs_s2tr": 0.9924238814936446,
+      "ratio_residual_vs_v13_normal": 1.016156045501767,
+      "mapped_tail": 0.3750975226732194,
+      "remaining_instruction_gap": -141343006.093925,
+      "prediction_exact_v13": true,
+      "flops": 244714386708,
+      "kernel_instructions": 439689192216,
+      "read_misses": {
+        "read._sm40_padding_cache": 0,
+        "read._sm40_padding_grid": 0,
+        "read._sm40_group_cache": 11,
+        "read._sm40_frames": 0,
+        "read._sm40_io_cache": 0,
+        "read._sm40_cache": 0,
+        "read._sm40_outer_cache": 0
+      },
+      "ipt_new_keys": {
+        "_IPT_C": 32,
+        "_IPT_B": 37,
+        "_IPT_A": 30
+      }
+    },
+    {
+      "rank": 100,
+      "requests": 44216,
+      "residual_instructions": 1981396050,
+      "ratio_residual_vs_s2tr": 0.9603100808368819,
+      "ratio_residual_vs_v13_normal": 1.00169361531446,
+      "mapped_tail": 0.4053615144850087,
+      "remaining_instruction_gap": 26206936.8773458,
+      "prediction_exact_v13": true,
+      "flops": 244006417950,
+      "kernel_instructions": 444651692423,
+      "read_misses": {
+        "read._sm40_padding_cache": 3,
+        "read._sm40_padding_grid": 1,
+        "read._sm40_group_cache": 12,
+        "read._sm40_frames": 0,
+        "read._sm40_io_cache": 2,
+        "read._sm40_cache": 2,
+        "read._sm40_outer_cache": 1
+      },
+      "ipt_new_keys": {
+        "_IPT_C": 14,
+        "_IPT_B": 16,
+        "_IPT_A": 8
+      }
+    }
+  ],
+  "guard": {
+    "guard_version": 3,
+    "pid": 36662,
+    "command": [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/boundary_run_v14.py",
+      "lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/candidate_s2tr_peel_release_v14.py",
+      "35,100",
+      "lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/boundary_v14_slow",
+      "--setup-slowdown",
+      "1.3"
+    ],
+    "initial_swap_bytes": 5764945018.88,
+    "footprint_trigger_bytes": 7500000000,
+    "rss_backstop_bytes": 10000000000,
+    "poll_sleep_s": 1.0,
+    "max_rss_bytes": 7951892480,
+    "swap_rule": "retire if swap growth > 256 MiB and memory_pressure free < 35%, or swap growth > 1 GiB",
+    "pressure_samples": 17,
+    "min_pressure_free_pct": 76,
+    "max_footprint_bytes": 3284900320,
+    "max_swap_growth_bytes": 0,
+    "completed": true,
+    "error": null,
+    "samples": 81,
+    "maximum_sample_interval_s": 1.0264641661196947,
+    "minimum_sample_interval_s": 1.0172073747962713,
+    "monitor_failure_rule": "5 consecutive failed readings spanning >= 30 s",
+    "failed_readings": 0,
+    "tolerated_failures": [],
+    "exit_code": 0,
+    "remaining_rows": [],
+    "elapsed_s": 82.34114091657102,
+    "whole_group_retired": true
+  },
+  "limitations": [
+    "Cold tail .377961 and warm index93 attribution supplied by root telemetry audit.",
+    "Closest saved S2tr control has slowdown1.0; candidate slow1.3 is intentionally conservative."
+  ]
+}

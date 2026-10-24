@@ -1,0 +1,115 @@
+{
+  "schema": "fb-ec4-32-v4-bound-target-free-moment-diagnostic-source-freeze-v1",
+  "status": "FROZEN_V4_BOUND_SOURCE_GATES_PASS__REPLAY_READY",
+  "frozen_at_utc": "2026-08-24T08:52:11Z",
+  "parent": {
+    "estimator_path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+    "estimator_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "independent_audit_path": "../fullbudget_k21_k4_closure_v4/INDEPENDENT_SOURCE_AUDIT_V4.json",
+    "independent_audit_sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d",
+    "source_manifest_sha256": "0cad2cc4491fbb22de5dbf021612fac9d5dccd2c2dcb1f4e963314d0c90580bf",
+    "freeze_receipt_sha256": "b730a3e21ba1d297de4b4be6c938cf842f955d951fd008518971cc0fafd8295e",
+    "literal_meter_receipt_sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017",
+    "deterministic_transform": "build_from_v4.py",
+    "v4_estimator_unchanged": true
+  },
+  "files": [
+    {
+      "path": "estimator.py",
+      "bytes": 71241,
+      "sha256": "3428b9e37641bcae9c7fcc867a55672f1160fecd225dc084f8a980d07ffe4256"
+    },
+    {
+      "path": "build_from_v4.py",
+      "bytes": 10684,
+      "sha256": "4efb165815ff9158c7071a99060304154c632f655c7b83b1f10df5053f58e909"
+    },
+    {
+      "path": "verify_parity.py",
+      "bytes": 5206,
+      "sha256": "49619e9d252bfc1e5628d0be2c19866c3cc794457747b4ba4b4514f9a2657f6b"
+    },
+    {
+      "path": "verify_static.py",
+      "bytes": 6057,
+      "sha256": "37bdc50602327e5ab9ddd06d09e9d58dd8e4a2d6022675ea791b1016826ac06f"
+    },
+    {
+      "path": "run_target_free_diagnostic.py",
+      "bytes": 12511,
+      "sha256": "107afaa4e0dd0a1b8f47f0f4798e712d3b991609ceb6940e5a9e2b17e53cea02"
+    }
+  ],
+  "diagnostic": {
+    "width": 1024,
+    "depth": 16,
+    "channels_per_layer": 9,
+    "retained_scalar_values": 144,
+    "retained_payload_bytes": 1152,
+    "channel_order": [
+      "min_r1",
+      "count_r1_lt_zero",
+      "min_v",
+      "count_v_lt_zero",
+      "min_A",
+      "count_A_lt_zero",
+      "min_B",
+      "count_B_lt_zero",
+      "finite_count_r1_r2_r3_r4_v_A_B"
+    ],
+    "margins": {
+      "v": "r2-r1^2",
+      "A": "r1*r3-r2^2",
+      "B": "(r4-r2^2)*v-(r3-r1*r2)^2"
+    },
+    "observation_point": "post-univariate-Edgeworth raw tuple before covariance repair; exact zero-cumulant raw tuple at layer 1",
+    "feedback_into_closure": false,
+    "scalar_clip_or_repair": false
+  },
+  "exact_price": {
+    "formula": "depth * (63 * width + 28)",
+    "width1024_depth16_incremental_flops": 1032640,
+    "parent_literal_flops": 2179742954469,
+    "diagnostic_projected_total_flops": 2179743987109,
+    "phase2_budget": 2199023255552,
+    "headroom_after_diagnostic": 19279268443,
+    "tiny_parent_flops": 1279337,
+    "tiny_diagnostic_flops": 1280457,
+    "tiny_measured_increment": 1120,
+    "tiny_standalone_increment": 1120
+  },
+  "source_gates": {
+    "deterministic_parent_transform": "PASS_EXACT_DETERMINISTIC_V4_TRANSFORM",
+    "normal_estimator_tiny_output": "BITWISE_FROZEN_V4",
+    "tiny_target_free_trajectory": "PASS_V4_TARGET_FREE_TRAJECTORY_BIT_PARITY_AND_PRICE",
+    "channel_order_and_count": "PASS_9_CHANNELS_16_ROWS",
+    "observation_precedes_covariance_repair": true,
+    "diagnostic_feedback_into_closure": false
+  },
+  "authority": {
+    "granted": [
+      "TARGET_FREE_FULL_SHAPE_MOMENT_DIAGNOSTIC_REPLAY"
+    ],
+    "withheld": [
+      "SUBMISSION",
+      "PREDICTION_USE_OF_DIAGNOSTIC_CLASS",
+      "TARGET_OR_DATASET_TRUTH_ACCESS",
+      "RAW_MSE_OR_ACCURACY_CLAIM",
+      "FIT_OR_SAMPLING",
+      "SCALAR_REPAIR_OR_CLOSURE_FEEDBACK",
+      "PROBLEM_GRAPH_MUTATION"
+    ]
+  },
+  "negative_controls": {
+    "no_dataset_access": true,
+    "no_target_or_truth_access": true,
+    "no_score_or_fit": true,
+    "no_sampling_estimator": true,
+    "no_scalar_moment_clip_or_repair": true,
+    "passing_v4_meter_receipt_bound": true,
+    "no_physical_replay_executed_at_source_freeze": true,
+    "frozen_v4_estimator_unmodified": true,
+    "problem_graph_unmodified_here": true
+  },
+  "claim_boundary": "Source, provenance, exact channel order, tiny output-bit parity, and exact additive price only. No actual width-1024 moment margins, accuracy, MSE, score, or board claim exists at source freeze."
+}

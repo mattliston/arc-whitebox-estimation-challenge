@@ -1,0 +1,34 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F2N",
+    "label": "Network-adaptive rank-16 cross-unit residual covariance observer",
+    "kind": "phase2_cross_unit_residual_covariance_cv",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The independently verified fourfold/inner-cross-fit rank-16 covariance observer is finite on all 688 OOF rows at final MSE 3.230119894372402e-8 versus J 3.2334958229470984e-8, only a 0.1044049% improvement. Fold MSEs are 3.151103526735653e-8, 3.267479855636035e-8, 3.3542892093804806e-8, and 3.1490923178010657e-8; maximum per-network MSE is 3.4171608557348345e-7 at rank643/mlp364. It fails the aggregate, every-fold, and maximum-network accuracy gates; observer_selection remained sealed and no name join occurred. Read-only decomposition shows 86.694% cancellation and alignment—not covariance amplitude—explains gain. Even exact truth-derived coefficients in its one dynamic rank-16 span reach only 2.8928320722187982e-8, recovering 10.535% of J endpoint error versus 69.076% required. CV, verification, and decomposition are frozen at SHA-256 37187da1fabdc84951a5bc68ef3f12fba1d4b940bc19027c8426f59f1b61be37, 9b6a00d819eb219c8eada6242d96821a76abbfda2076e21f263d079113cb7645, and 007ba020154fed4ca2dd63f16fd10b4961c85f4bd8f5b719cc131acafb53f82a.",
+    "terminal_criterion": "Closed for this exact diagonal-plus-rank-16 covariance observer because it fails all frozen accuracy conjuncts and its single factor-span oracle remains 2.893x above target. Do not retune, scale rank, run a literal meter, or promote it; preserve only the materially different full-rank nonlinear round-trip design P2R0F2P.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/CV_RESULTS.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/VERIFICATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/M_VS_J_OOF_DECOMPOSITION_AND_ONE_SUCCESSOR.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_backward_adjoint_state_cv_v1/analyze_m_vs_j.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/PREREGISTRATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/RUN_MANIFEST.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/run_experiment.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/PREREGISTRATION_SEAL.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/STATIC_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/SMOKE_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/TRAINING_RELEASE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/CV_RESULTS.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/VERIFICATION.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/N_VS_J_OOF_DECOMPOSITION_AND_ONE_GLOBAL_ORACLE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_rank16_cross_unit_covariance_cv_v1/analyze_n_vs_j.py"
+    ],
+    "decomposition_children": [
+      "P2R0F2P"
+    ]
+  }
+}

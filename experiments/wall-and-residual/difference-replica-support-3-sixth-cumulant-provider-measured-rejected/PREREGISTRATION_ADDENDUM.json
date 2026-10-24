@@ -1,0 +1,92 @@
+{
+  "schema": "q24-ng-k6-difference-replica-block-gate-accounting-addendum-v1",
+  "date": "2026-08-27",
+  "status": "STATIC_ONLY_HOLD_BEFORE_SOURCE_GATE",
+  "parent_freeze_sha256": "daa98fd7ed3b71cb19df4c63e1f1994179ebdc3285d0d368507f4b82e1b4899d",
+  "split_estimators": {
+    "split_indices": "two disjoint contiguous equal halves of each frozen ordered pool",
+    "half_ranks": {
+      "A_6": 256,
+      "B_42": 96,
+      "C_222": 64
+    },
+    "coefficients": {
+      "6": "1/(2*256)",
+      "42": "-15/(2*96)",
+      "222": "15/64"
+    },
+    "pairing": {
+      "42": "first 96 half-local A replicas paired with all 96 half-local B replicas",
+      "222": "first 64 half-local A and B replicas paired with all 64 half-local C replicas"
+    },
+    "each_half_population_unbiased": true,
+    "half_independence_from_disjoint_path_custody": true,
+    "full_rank_denominators_forbidden": true
+  },
+  "sector_assembly": {
+    "float64_official_multiplier": 2,
+    "ordinary_ops_upper_per_compressed_term_output": 7,
+    "sectors": {
+      "411": {"term_counts_6_42_222": [4, 9, 16], "weighted_units": 5824, "flops": 1252392960},
+      "321": {"term_counts_6_42_222": [5, 13, 29], "weighted_units": 8768, "flops": 1885470720},
+      "222": {"term_counts_6_42_222": [3, 6, 12], "weighted_units": 4224, "flops": 908328960},
+      "3111": {"term_counts_6_42_222": [7, 19, 42], "weighted_units": 12608, "flops": 2711224320},
+      "2211": {"term_counts_6_42_222": [8, 22, 52], "weighted_units": 14976, "flops": 3220439040},
+      "21111": {"term_counts_6_42_222": [10, 28, 65], "weighted_units": 18816, "flops": 4046192640},
+      "111111": {"term_counts_6_42_222": [11, 29, 66], "weighted_units": 19648, "flops": 4225105920}
+    },
+    "total_weighted_units": 84864,
+    "total_flops": 18249154560
+  },
+  "split_reduction_and_statistic": {
+    "ordinary_float64_ops_per_sector_half_output": 418,
+    "ordinary_ops_sn_reserve_per_sector_output": 8,
+    "formula": "15*1024*2*7*(2*418+8)",
+    "flops": 181493760
+  },
+  "diagnostic_cost_cap": {
+    "production_enumerated_core_flops": 625985232896,
+    "removed_production_total_q3plus_assembly_flops": 1411645440,
+    "removed_production_type_reduction_flops": 25620480,
+    "added_seven_sector_assembly_flops": 18249154560,
+    "added_split_reduction_and_statistic_flops": 181493760,
+    "diagnostic_enumerated_core_flops": 642978615296,
+    "unchanged_padding_flops": 2786811904,
+    "diagnostic_admission_cap_flops": 645765427200,
+    "d4_max_flops": 1356595288584,
+    "combined_one_role_call_cap_flops": 2002360715784,
+    "combined_utilization": 0.9105682311,
+    "margin_to_2pow41_flops": 196662539768,
+    "three_role_calls_are_sequential": true,
+    "diagnostic_bill_is_not_production_estimator_bill": true
+  },
+  "memory": {
+    "combined_projected_peak_bytes": 5679808512,
+    "margin_to_8gib_bytes": 2910126080,
+    "same_streamed_arena_as_parent": true,
+    "official_rss_receipt_still_required": true
+  },
+  "gate_interpretation": {
+    "cells": 315,
+    "signal": "S=<y1,y2>",
+    "noise": "N=||y1-y2||^2/2",
+    "pass_rule": "S>0 and N/S<=1/9 independently in every cell",
+    "population_expectations": "E[S]=||mu||^2 and E[N]=tr(Sigma_half)",
+    "interpretation": "empirical action-energy statistic",
+    "finite_sample_confidence_bound": false,
+    "pooling_retry_or_rescue": false
+  },
+  "access": {
+    "rows_opened": 0,
+    "weights_opened": 0,
+    "targets_opened": 0,
+    "scores_computed": 0,
+    "estimators_or_fixtures_called": 0,
+    "source_gates_run": 0,
+    "parent_files_mutated": 0,
+    "graph_edits": 0,
+    "releases": 0,
+    "submissions": 0
+  }
+}
+

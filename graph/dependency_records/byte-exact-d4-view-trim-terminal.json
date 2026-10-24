@@ -1,0 +1,21 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1D15",
+    "label": "Byte-exact D4 view trim (terminal)",
+    "kind": "phase2_exact_compute_trim_audit",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The isolated maximum-rank primitive was byte exact, but the full sequential rank ladder reused overlapping prebound FlopScope views with stale symmetry provenance. Call 0 changed output bytes and added 125,829,120 where FLOPs, so the gate stopped terminally with no plain retry.",
+    "terminal_criterion": "Closed for this exact-view spelling. Any successor must use a distinct lifetime/alias design and re-establish full sequential parity, literal accounting, residual, RSS, and repeat gates.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d11_cp3_arena_depth4_full_estimator_v1/D4_CANDIDATE_RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d11_cp3_arena_depth4_full_estimator_v1/SUBMIT_WATCH.log",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d12_d4_non_gemm_cse_v1/TERMINAL_CLOSURE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d14_d4_exact_view_trim_v1/D14_CANDIDATE_RESULT.json"
+    ],
+    "decomposition_children": []
+  }
+}

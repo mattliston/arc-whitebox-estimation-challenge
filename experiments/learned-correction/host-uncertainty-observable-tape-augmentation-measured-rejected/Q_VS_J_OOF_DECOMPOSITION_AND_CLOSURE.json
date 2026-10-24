@@ -1,0 +1,134 @@
+{
+  "schema": "p2r0f2q-vs-j-oof-decomposition-and-closure-v1",
+  "status": "PASS_CLOSED",
+  "node": "P2R0F2Q",
+  "scope": "Graph-ready read-only observer_fit OOF paired decomposition of the aug7-widened retrain against frozen J, with read-only aug-channel attribution; no candidate evaluation, no training, no retune",
+  "bindings": {
+    "analysis_program_sha256": "90bd6595001f0657659491b4dece5cd9858de6149632d4c5aada30647f7f0817",
+    "cv_results_sha256": "b6bd2bac04f7ffa1c534732e8a3b5b2edc51181e37926400ca26321e31884595",
+    "verification_sha256": "788144b99507fd979173bb0b11a2b49d6c24839cda6df740ce4d089992b878ab",
+    "seal_sha256": "c4fd14fc62357e2e113128cce05331011c6abd4b9f9df487a1b8823b58a235ce",
+    "generation_receipt_sha256": "d2e36181b09c0048791f130ba75897b2962c44eeab87b37086c8f4a6fcb5bfbd"
+  },
+  "firewalls": {
+    "role": "observer_fit",
+    "observer_fit_rows_replayed": 688,
+    "observer_selection_targets_opened": 0,
+    "public_name_joins": 0,
+    "network_access": 0,
+    "training_steps": 0,
+    "model_writes": 0,
+    "graph_edits": 0,
+    "successor_implementations": 0
+  },
+  "retrain_noise_caveat": "Unlike the M/N/P rider comparisons on frozen J, Q is a fresh retrain with a different input width and initialization, so fold-level movements of about +/-0.5% include training noise; the one-arm law forbids seed replication, so only the aggregate and its cross-fold structure are interpreted.",
+  "paired_final": {
+    "j_oof_final_mse": 3.2334958229470984e-08,
+    "q_oof_final_mse": 3.2301099309923824e-08,
+    "q_minus_j": -3.385891954715984e-11,
+    "q_fractional_improvement": 0.0010471304557400007,
+    "wins": 364,
+    "losses": 324,
+    "ties": 0,
+    "cancellation_fraction": 0.9201229138564052,
+    "row_delta_p10": -6.962042372801422e-10,
+    "row_delta_median": -2.8900603660639368e-11,
+    "row_delta_p90": 6.220027723639568e-10
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "networks": 147,
+      "q_final_mse": 3.133901799755427e-08,
+      "j_final_mse": 3.154306195654431e-08,
+      "fractional_improvement": 0.006468742928988469,
+      "wins": 95,
+      "losses": 52
+    },
+    {
+      "fold": 1,
+      "networks": 172,
+      "q_final_mse": 3.2867247050703037e-08,
+      "j_final_mse": 3.2693973151867154e-08,
+      "fractional_improvement": -0.005299872794016336,
+      "wins": 60,
+      "losses": 112
+    },
+    {
+      "fold": 2,
+      "networks": 171,
+      "q_final_mse": 3.348512461669868e-08,
+      "j_final_mse": 3.360473952357889e-08,
+      "fractional_improvement": 0.003559465378277449,
+      "wins": 106,
+      "losses": 65
+    },
+    {
+      "fold": 3,
+      "networks": 198,
+      "q_final_mse": 3.150099938086221e-08,
+      "j_final_mse": 3.1514380371772146e-08,
+      "fractional_improvement": 0.0004245995241562994,
+      "wins": 103,
+      "losses": 95
+    }
+  ],
+  "hard_rows": {
+    "declared_role_ranks": [
+      201,
+      310,
+      599,
+      643
+    ],
+    "j_mean": 2.7330554423437766e-07,
+    "q_mean": 2.7287931415101374e-07,
+    "row_q_minus_j": {
+      "201": -1.2343204356723153e-10,
+      "310": -2.176343801748507e-09,
+      "599": 1.5655635010780153e-09,
+      "643": -9.707079892179741e-10
+    },
+    "breaches_above_1e_7_after_q": [
+      201,
+      310,
+      599,
+      643
+    ]
+  },
+  "aug_channel_attribution": {
+    "method": "Pearson correlation of per-row Q gain (j_row - q_row) with the per-row mean absolute channel magnitude over corrected layers; and, as a base-rate reference, the correlation of each channel magnitude with the J error scale.",
+    "gain_correlation": {
+      "discarded_k3_signed": -0.02671323937544157,
+      "discarded_k3_absolute": -0.004414333754564402,
+      "covariance_series_order10_row_share": 0.014822723898292723,
+      "max_offdiagonal_abs_correlation": 0.027401090278540364,
+      "coincident_bond_degree": 0.0,
+      "rho2_neighbor_skew": -0.0019615418920240334,
+      "rho2_neighbor_alpha": 0.04583499850478504
+    },
+    "error_scale_correlation": {
+      "discarded_k3_signed": 0.07923697165125905,
+      "discarded_k3_absolute": -0.006814181027425996,
+      "covariance_series_order10_row_share": 0.032612328121355665,
+      "max_offdiagonal_abs_correlation": 0.07523812634777298,
+      "coincident_bond_degree": 0.0,
+      "rho2_neighbor_skew": 0.01529528737353791,
+      "rho2_neighbor_alpha": 0.0299297184958529
+    },
+    "coincident_bond_degree_is_identically_zero": true
+  },
+  "ceiling_coincidence": {
+    "n_oof_final_mse": 3.230119894372402e-08,
+    "q_oof_final_mse": 3.2301099309923824e-08,
+    "relative_gap": 3.0845232824601996e-06,
+    "reading": "Two materially different mechanisms - N's learned rank-16 covariance rider and Q's source-widened retrain - land within 3.1e-6 relative of each other at 0.104-0.105% below J, consistent with a shared information ceiling of this development frame near 3.2301e-8."
+  },
+  "decision_gate_recorded": {
+    "conjunctive_pass": false,
+    "every_outer_fold_below_1_1e_8": false,
+    "finite_all_688_outer_oof_rollouts": true,
+    "maximum_per_network_below_1e_7": false,
+    "observer_selection_targets_opened_zero": true,
+    "oof_final_mse_below_1e_8": false
+  }
+}

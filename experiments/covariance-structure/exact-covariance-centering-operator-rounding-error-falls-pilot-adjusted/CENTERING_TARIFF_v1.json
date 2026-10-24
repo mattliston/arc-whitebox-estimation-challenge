@@ -1,0 +1,21 @@
+{
+  "status": "BELOW_POINT2_PERCENT_GATE",
+  "shape": [
+    1024,
+    1024
+  ],
+  "extra_flops_per_full_hidden": 10486785,
+  "extra_ops_per_full_hidden": 13,
+  "fifteen_full_layers_upper_flops": 157301775,
+  "fifteen_full_layers_upper_percent": 0.06496416127824947,
+  "whole_bill_reference": 242136236203,
+  "formula": "r=mean(C,1); c=mean(r); C0=C-r[:,None]-r[None,:]+c; u=sum(W,0); v=r@W; t=v-.5*c*u; result=Cov+t[:,None]*u[None,:]+u[:,None]*t[None,:]",
+  "dtype": "float32",
+  "no_dense_product_in_tariff": true,
+  "new_einsum_signatures": 0,
+  "notes": [
+    "Current kernels unchanged; price only incremental centering and rank2 restore.",
+    "Fifteen full1024 sandwiches is a conservative shape upper bound, not measured whole-model bill.",
+    "Basis/order differ in floating point; native prediction equivalence is not claimed."
+  ]
+}

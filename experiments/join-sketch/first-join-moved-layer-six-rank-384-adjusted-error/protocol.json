@@ -1,0 +1,70 @@
+{
+  "schema": "s34-firstjoin6-v1",
+  "root_selected": true,
+  "baseline": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "join_schedule": {
+    "6": [
+      0,
+      2
+    ],
+    "10": [
+      3,
+      5
+    ],
+    "13": [
+      6,
+      8
+    ]
+  },
+  "ranks": {
+    "6": 384,
+    "10": 320,
+    "13": 384
+  },
+  "sole_allocation_change": "First join L7 to L6; same cohorts 0-2 and rank384.",
+  "hypothesis": "Compress the oldest three cohorts one propagation earlier to reduce L6 young push/read work.",
+  "accuracy_risk": "Earlier rank384 projection can alter error through all later layers; no gain promised.",
+  "cost_evidence_scope": "S32 predecessor L6 young push/read total19.50GF is context, not an S34 saving forecast.",
+  "source_checks": {
+    "first_join_uses_Fj": true,
+    "strict_rank_key_present": true,
+    "unchanged_cohort_intervals_contiguous": true,
+    "current_newborn_not_joined": true,
+    "materialize_layer10_unchanged": true,
+    "lazy_layer13_unchanged": true,
+    "consolidate_empty_previous_join_unused": true,
+    "layer6_OTT_YNT_fallback_unchanged": true,
+    "original_runtime_guards_preserved": true
+  },
+  "all_other_source_bytes_unchanged": true,
+  "arithmetic_coefficients_unchanged": true,
+  "scratch_setup_and_cache_rules_unchanged": true,
+  "no_new_arithmetic_fixture": true,
+  "no_rank_or_schedule_sweep": true,
+  "native2_roster": [
+    35,
+    100
+  ],
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 1,
+    "max_per_network_regression_pct": 1.0
+  },
+  "scope": "native2_only",
+  "boundary_authorized": false,
+  "broad_authorized": false,
+  "serving_qualified": false,
+  "numpy_torch_or_model_executed": false
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "phase1-kerdock-hidden-snap-terminal-v1",
+  "status": "CLOSED_ON_OBSERVER_FIT_RANK0",
+  "scope": "Actual Phase-1 Kerdock, exact h1/h2 snaps, all-layer mean/variance snaps, native-J q10:q15 local assimilation, Hermite D2:D12 control variates, degreewise shrink, and literal #327723 empirical-gate deep CV",
+  "phase1_method_audit": {
+    "winning_325170": {
+      "radial_factorization": "Evaluate a spherical rule at radius E[chi_n] by positive homogeneity.",
+      "quadrature": "Complete antipodal union of all 129 real Kerdock MUBs in R^256: 66048 points, a tight spherical 4-design (antipodal strength 5).",
+      "layer1_snap": "Inject exact mu1_j=||w0_j||/sqrt(2*pi) into the layer-2 preactivation.",
+      "layer2_snap": "Recenter layer-2 preactivations at their exact mean and rescale each coordinate to the exact fixed-radius variance from the arc-cosine kernel, including (E chi_n)^2/n.",
+      "other_load_bearing_parts": "Antipodal negative-half recovery, pilot fire-count pruning, dropped-neuron mean correction, six-level Strassen-Winograd, and final fold.",
+      "conventional_deep_control_variate": false
+    },
+    "local_327723": {
+      "sampler": "ZCA-whitened antithetic Gaussian four-block sampling, not Kerdock.",
+      "deep_cv_identity": "At anchor: v=row_cv-mu_cv_used; downstream v=empirical_gate_l*(v@W_l); final_sample_mean -= 0.6*v.",
+      "nonlinear_random_component": "The empirical gates are functions of the sampled paths, so the old affine-cancellation proof does not apply.",
+      "recorded_ablation": "Removing the deep CV worsened raw MSE from 1.95558281e-6 to 2.09737445e-6, about 6.8%."
+    },
+    "affine_cancellation_scope": "E[g]+Q[f-g]=Q[f] only collapses when g is a pointwise affine lift that the antipodal rule integrates exactly. It does not cover low-layer nonlinear moment snaps or empirical-gate suffix transport."
+  },
+  "width1024_exact_design": {
+    "coordinates": "(x,y) in GF(32)^2 with primitive polynomial t^5+t^2+1 (0b100101)",
+    "chirps": "c_a(x,y)=(-1)^Tr(a*x*y), a=0,...,15",
+    "bases": "H_1024 diag(c_a)/32",
+    "blocks": "a=0:7 and a=8:15, one common deterministic signed coordinate permutation per block, distinct block seeds",
+    "paths": "1024 rows plus 1024 antipodes per basis; 8 bases=16384 paths per block; total N=32768",
+    "exact_check": "All 56 within-block basis pairs have unnormalized cross-Walsh absolute spectrum exactly 32, hence normalized cross-Gram absolute value 1/32."
+  },
+  "native_j_rank0_baselines": {
+    "bank_final_raw_mse": 2.8568306117953788e-8,
+    "exact_q10_q15_suffix_oracle_raw_mse": 5.362322804775957e-9,
+    "required_endpoint_measurement_mse": 2.075e-9
+  },
+  "unsnapped_full_depth": {
+    "endpoint_measurement_error_mse": 5.23904185558194e-7,
+    "endpoint_split_average_noise_mse": 5.194119694351684e-7,
+    "endpoint_truth_correlation": 0.15300001897252974,
+    "split_wiener_beta": 0.028328638523817062,
+    "split_wiener_final_mse": 2.818901241802908e-8,
+    "truth_optimal_beta": 0.02668786607682705,
+    "truth_optimal_final_mse": 2.8187573309516867e-8,
+    "sample_beta_one_final_mse": 5.345912022975896e-7
+  },
+  "all_layer_mean_variance_snap": {
+    "fixed_radius_variance_law": "v_sphere=f*(sigma_Q24^2+mu_pre^2)-mu_pre^2, f=(E chi_1024)^2/1024",
+    "endpoint_measurement_error_mse": 1.0458835355388752e-7,
+    "endpoint_split_average_noise_mse": 5.655482482325169e-8,
+    "endpoint_truth_correlation": 0.06296485984822489,
+    "split_wiener_beta": 0.3433111906051636,
+    "split_wiener_final_mse": 3.7402975277199866e-8,
+    "truth_optimal_beta": 0.022251557558774948,
+    "truth_optimal_final_mse": 2.85256648576223e-8
+  },
+  "hermite_control": {
+    "exact_formula": "p_D=sum_{d=0}^D E_G[ReLU(mu+sigma U) He_d(U)]/d! * He_d(U); for d>=2 the numerator is sigma*phi(alpha)*He_{d-2}(-alpha). Q24 E[p_D]=host mean for D>=6.",
+    "D6": {
+      "endpoint_error_mse": 8.46754264222831e-8,
+      "split_noise_mse": 8.079127589155632e-9,
+      "truth_correlation": -0.06162123728871172,
+      "truth_optimal_beta": 0.0
+    },
+    "D8": {
+      "endpoint_error_mse": 8.31678680402799e-8,
+      "split_noise_mse": 5.326770580182938e-9,
+      "truth_correlation": -0.0748564300419723,
+      "truth_optimal_beta": 0.0
+    },
+    "D12": {
+      "endpoint_error_mse": 7.961197213776402e-8,
+      "split_noise_mse": 2.8037421273552354e-9,
+      "truth_correlation": -0.059070044697424655,
+      "truth_optimal_beta": 0.0
+    },
+    "interpretation": "Increasing degree suppresses randomized block noise but converges toward the biased Q24 law; the missing higher-order residual becomes a common, wrong-signed host-lock bias invisible to split disagreement."
+  },
+  "degreewise_target_free_audit": {
+    "constructions": 71,
+    "families": "cumulative, single degree, D12 leave-one-degree-out, opposite-parity scalar shrink, opposite-parity degreewise ridge, and joint unsnapped/all-snap ridge",
+    "target_use": "No target in coefficients or selection; truth revealed only after each construction was fixed.",
+    "best_base_split_noise_mse": 2.828739469338215e-9,
+    "best_base_endpoint_error_mse": 7.98290141591131e-8,
+    "best_base_truth_correlation": -0.06054315411199283,
+    "best_snap_split_noise_mse": 2.8037772176202084e-9,
+    "best_snap_endpoint_error_mse": 7.749583095866124e-8,
+    "best_snap_truth_correlation": -0.05637274004914089,
+    "best_joint_split_noise_mse": 2.8961816465073522e-9,
+    "passing_candidate": null
+  },
+  "phase1_empirical_gate_cv": {
+    "independent_exact_replay": "With the native-J anchor, unsnapped anchor h10 split shrink clips near one and leaves endpoint error about 5.348e-7; all-layer snap split shrink clips to zero and frozen 0.6 worsens. The mechanism is legal but remains over 250 times above the endpoint gate.",
+    "decision": "closed"
+  },
+  "cost": {
+    "full_depth_N32768_winograd_core": 486330178560,
+    "paired_mean_readouts_all_16_layers": 1073741824,
+    "paired_gate_readouts_all_16_layers": 1073741824,
+    "budget_conclusion": "The discriminator is host-feasible with CP4 trimming, but accuracy fails before final metering or submission construction."
+  },
+  "decision": {
+    "board_candidate": false,
+    "reason": "Every Phase-1-faithful sampled-state spelling fails the actual endpoint gate. The lowest randomized noise comes from D12, but its common bias is roughly 28 times the allowed endpoint error and has the wrong sign.",
+    "next_distinct_statistic": "Use cross-fitted degree>=4 input-sphere control features with exact analytic spherical means, so coefficients cannot inherit Q24 host-lock bias; or a per-layer correction sourced from exact input polynomial moments rather than analytic-host moments."
+  },
+  "bindings": {
+    "runner_sha256": "0c4d214bc0edbf79309ec4b6418be06b5d585c486d97964a36afbeb996217060",
+    "degree_analyzer_sha256": "0242a34057a005b3c21cb526dae9dc9edac6e14752fe9185d76babc16512f3ae",
+    "base_result_sha256": "46f3fb7d56e07bfa831c3d4ab4874c65cf5e460fb1dd8fd3d9f3fcc1cc887427",
+    "all_snap_result_sha256": "0b8970b4046d0c1235c676ede26b7c2b42499f7695477b2e24f0fee699b5b5d5",
+    "full_hermite_result_sha256": "d1010cf416ec89da7522a61c2248b1509d0ac7afa12bd7a3ea4d30f82407246d",
+    "degree_shrink_result_sha256": "3ee4e76a0c25e7fd3360291b8283fe59bf8c5f5c604478da8201e80fa9db457c"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "status": "HUNT_PILOT_TWO_SEEDS_NOT_SCIENCE",
+  "lane": "opus-hunt",
+  "sources": {
+    "VE": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/candidate_hunt_VE_early320_v1.py",
+      "sha256": "3bb6922594314bbdde99bebcfe9396ddef8b6c0f5c0e40aebc0f2b4b944394b7",
+      "scope": "u64 + early L7-9 non-uvp reads 384->320"
+    },
+    "VK": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/candidate_hunt_VK_common256_v1.py",
+      "sha256": "0fa776c54b6a8598c95082f73489bdfa70629734043fcb43d45c9ab159743baa",
+      "scope": "every old read keeps only common256: L7-9 384->256, L10-14 base 320->256, L13-14 recent 384->256; zero-pad to full rank"
+    },
+    "U64": {
+      "sha256": "24b13a6763b83a9bf75186cc9aad5d4d424c5a2e9516c37b8676c839c964b9f4"
+    }
+  },
+  "judge_sha256": "bf9b5366305539575b736aa6d05732918d01b23790ef5addbe9cff69d6aa8d4a",
+  "rows": [
+    {
+      "seed": 7103248,
+      "arm": "U64",
+      "vs": "2b108",
+      "MSE_log_pct": -0.8448,
+      "bill_log_pct": -0.4954,
+      "net_log_pct": -1.3402,
+      "flops": 236807965700,
+      "ref_flops": 237983971680,
+      "out": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_uniform64_bill1_v1/run_uniform64_bill_s0_v1/native_7103248_ON.json",
+      "out_sha256": "197b0189a0e802d6743b2bc346a6fcf203e19cfc0af1b8954a65a563641cb58c"
+    },
+    {
+      "seed": 7103248,
+      "arm": "VE",
+      "vs": "2b108",
+      "MSE_log_pct": -0.7807,
+      "bill_log_pct": -0.8161,
+      "net_log_pct": -1.5968,
+      "flops": 236049797245,
+      "ref_flops": 237983971680,
+      "out": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/out_VE_7103248.json",
+      "out_sha256": "d7a31697760417c62f2891e033aec520693e9306688f727aade5228e3c80e764"
+    },
+    {
+      "seed": 7103248,
+      "arm": "VK",
+      "vs": "2b108",
+      "MSE_log_pct": -1.9582,
+      "bill_log_pct": -1.2395,
+      "net_log_pct": -3.1977,
+      "flops": 235052391494,
+      "ref_flops": 237983971680,
+      "out": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/out_VK_7103248.json",
+      "out_sha256": "c93f209f211e4fd071dd1b12dd8316eb865c4e331663e2c57e42d33daa1e2357"
+    },
+    {
+      "seed": 7103247,
+      "arm": "U64",
+      "vs": "2b108",
+      "MSE_log_pct": 1.5914,
+      "bill_log_pct": -0.5055,
+      "net_log_pct": 1.0859,
+      "flops": 253232511049,
+      "ref_flops": 254515871662,
+      "out": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/out_U64_7103247.json",
+      "out_sha256": "acb6bcd74773f49afebf575103138bb599678860b2ea23411b52ed863d10dff2"
+    },
+    {
+      "seed": 7103247,
+      "arm": "VK",
+      "vs": "2b108",
+      "MSE_log_pct": 2.2063,
+      "bill_log_pct": -1.2414,
+      "net_log_pct": 0.965,
+      "flops": 251375945438,
+      "ref_flops": 254515871662,
+      "out": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hunt_readext_v1/out_VK_7103247.json",
+      "out_sha256": "51a239652c61040d74ab2644bb855430c807e745a49ddadfcf9372ba3f636c87"
+    }
+  ],
+  "findings": [
+    "U64 7103248 -1.34% is seed-specific: 7103247 U64 net +1.086% (MSE +1.591%)",
+    "final-layer MSE response to read truncation swings ~+-2% per network; intermediate L8-12 consistently worse",
+    "VK vs U64 incremental: 7103248 net -1.858%, 7103247 net -0.121%; bill -0.74% deterministic",
+    "early non-uvp read cut credit ~758M/seed = ~2x the tariff (contracts all 6144 columns)"
+  ]
+}

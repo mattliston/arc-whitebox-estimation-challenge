@@ -1,0 +1,43 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G18B1",
+    "label": "Runtime V3 terminal pre-row manifest firewall",
+    "kind": "phase2_signed_pair_runtime_terminal_failure",
+    "status": "closed_this_form",
+    "priority": 1,
+    "summary": "Runtime V3 had independent static GO and consumed its one-use claim, then failed before row generation when an overbroad substring firewall rejected the exact-zero target-blind audit counter as a forbidden `manifest` field. Failure e64f998f says published_bundle=false and status terminal post-claim/no-retry. This closes V3 only, not the signed-pair source or accuracy law.",
+    "terminal_criterion": "Closed_this_form with no retry under its consumed capability. Only a fresh runtime and authority may succeed it.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_three_bank_runtime_review_v3/INDEPENDENT_STATIC_REVIEW_V3.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_three_bank_generation_transaction_v1/THREE_BANK_RUN.CLAIM.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_three_bank_generation_transaction_v1/THREE_BANK_RUN.FAILURE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_three_bank_runtime_v4/V3_TERMINAL_FAILURE_LINEAGE_V4.json"
+    ],
+    "evidence_bindings": [
+      {
+        "role": "independent_static_go",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_three_bank_runtime_review_v3/INDEPENDENT_STATIC_REVIEW_V3.json",
+        "sha256": "5dd705ce746c9808b98b7188210e5ec91e4df300906c4a7b1835a9112c97edf2"
+      },
+      {
+        "role": "exclusive_claim",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_three_bank_generation_transaction_v1/THREE_BANK_RUN.CLAIM.json",
+        "sha256": "bfa9e8d800a5b1efc0ec4e47a62b53d70176e0bf8b9ec73f9981056974abd4e9"
+      },
+      {
+        "role": "terminal_failure",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_lean_three_bank_generation_transaction_v1/THREE_BANK_RUN.FAILURE.json",
+        "sha256": "e64f998fc1513f906e90d2869340e44ce2ca548b91e31667aade69da9af1d50d"
+      },
+      {
+        "role": "terminal_no_retry_lineage",
+        "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_three_bank_runtime_v4/V3_TERMINAL_FAILURE_LINEAGE_V4.json",
+        "sha256": "b0756fd217c6bef5a0df473502109d18bb948fe8b12d0c69c4f15ab02f27ea70"
+      }
+    ],
+    "decomposition_children": []
+  }
+}

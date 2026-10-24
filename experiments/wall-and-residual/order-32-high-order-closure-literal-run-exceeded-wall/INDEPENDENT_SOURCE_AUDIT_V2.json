@@ -1,0 +1,156 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-v2-independent-source-audit-v1",
+  "status": "PASS_FOR_TARGET_FREE_LITERAL_METER_ONLY",
+  "audited_at_utc": "2026-08-24T05:15:24Z",
+  "authority": {
+    "granted": [
+      "TARGET_FREE_LITERAL_FULL_SHAPE_METER"
+    ],
+    "withheld": [
+      "ACCURACY_CLAIM",
+      "ACTUAL_CLOSURE_MOMENT_FEASIBILITY_CLAIM",
+      "TARGET_OR_ROLE_ACCESS",
+      "FIT_OR_SAMPLING",
+      "SUBMISSION"
+    ]
+  },
+  "final_byte_bindings": {
+    "estimator": {
+      "path": "estimator.py",
+      "bytes": 31410,
+      "sha256": "de8023d8d34be4f588d5af8c87f99a5e7babf9f42a9d351602c838b19783673e"
+    },
+    "source_manifest": {
+      "path": "SOURCE_MANIFEST.json",
+      "bytes": 2180,
+      "sha256": "cc6cdee48f18c94a7ffa345d9e64ae692a9741f664f30cba09ad3f501aa313c1"
+    },
+    "freeze_receipt": {
+      "path": "FREEZE_RECEIPT_V2.json",
+      "bytes": 1511,
+      "sha256": "7427cc59f8fd8727144998e7717f4323e553c71f8be2de9ccab3ba28577f2f91"
+    },
+    "v1_parent_estimator": {
+      "path": "../fullbudget_k21_k4_closure_v1/estimator.py",
+      "bytes": 30390,
+      "sha256": "663a6593e5b6574f08634f921d5a871303d1f9cb981d06010b1b712df8ad4265"
+    }
+  },
+  "manifest_member_replay": {
+    "status": "PASS_ALL_SIX_BINDINGS",
+    "files": {
+      "estimator.py": "de8023d8d34be4f588d5af8c87f99a5e7babf9f42a9d351602c838b19783673e",
+      "verify_static.py": "e5b0d2d792bb0087eaf22fa36f4234f0a33f5da62b8a0e37c128348195e74f54",
+      "verify_parity.py": "867852164fdb0fe53210fde4c4edd460aa6f7463c0720d7249d09099608ad933",
+      "PROJECTED_RESOURCE.md": "65f66799d574104fde5b53edd3823faae57db93d4e1185ab86265f7c5f562a39",
+      "DESIGN.md": "95b44ca09b74f25805bc2f57af8783d2a4d6f8024761c22d95f6e5747bccb3f6",
+      "TIMEOUT_AUDIT.md": "4ba46e92439050f7baf932ad04e75ee8b34354c0a705c500815da0efd588ac81"
+    }
+  },
+  "gates": {
+    "static_replay": {
+      "status": "PASS_V2_STATIC_LOW_MEMORY_BATCHED_Q32",
+      "python_bytecode_disabled": true,
+      "explicit_einsum_path": [
+        [0, 3],
+        [0, 1, 2]
+      ],
+      "projected_full_reset_einsum_calls": 84,
+      "projected_total_q32_einsum_calls": 87
+    },
+    "tiny_target_free_parity": {
+      "status": "PASS_TINY_TARGET_FREE_Q32_ALGEBRAIC_PARITY",
+      "width": 4,
+      "group_max_abs_error": 2.7755575615628914e-17,
+      "four_pair_max_abs_errors": [
+        1.1102230246251565e-16,
+        2.220446049250313e-16,
+        1.1102230246251565e-16,
+        4.440892098500626e-16
+      ],
+      "tiny_v1_flops": 361874,
+      "tiny_v2_flops": 431346,
+      "interpretation": "Algebraic parity at binary64 roundoff tolerance; not a full-shape bitwise identity claim."
+    },
+    "pinned_flopscope_api_smoke": {
+      "status": "PASS_PINNED_FLOPSCOPE_V2_API_SMOKE",
+      "flopscope_version": "0.12.0+np2.4.6",
+      "flopscope_numpy_backend": "2.4.6",
+      "whestbench_version": "0.16.0",
+      "broadcast_to": {
+        "output_shape": [2, 3, 5],
+        "calls": 1,
+        "flop_cost": 0,
+        "result": "PASS_ZERO_FLOP_VIEW_THEN_METERED_STACK"
+      },
+      "advanced_repeated_indexing": {
+        "output_shape": [4, 4, 5],
+        "calls": 1,
+        "flop_cost": 640,
+        "repeated_row_equal": true,
+        "result": "PASS_METERED_GETITEM"
+      },
+      "batched_explicit_einsum": {
+        "subscripts": "mdti,mdtj,tij,t->mdij",
+        "optimize": [
+          [0, 3],
+          [0, 1, 2]
+        ],
+        "output_shape": [4, 1, 5, 5],
+        "calls": 1,
+        "flop_cost": 2360,
+        "reference_rtol": 1e-14,
+        "reference_atol": 1e-14,
+        "result": "PASS"
+      },
+      "total_smoke_flops": 6088
+    },
+    "manual_execution_map": {
+      "status": "PASS",
+      "q32_terms": 33,
+      "derivative_channels": 17,
+      "pair_moment_families": 4,
+      "edgeworth_weight_constructions_per_full_reset": 1,
+      "maximum_scaled_left_bytes": 3244032,
+      "maximum_full_reset_group_output_bytes": 100663296,
+      "v1_pairwise_group_temporary_bytes": 830472192,
+      "advanced_getitem_calls_projected": 476,
+      "advanced_getitem_flops_projected": 257359872,
+      "notes": [
+        "The explicit first step absorbs inverse factorial into the left feature tensor.",
+        "The remaining three-operand step is n-ary and executes without the V1 t-by-d-by-i-by-j pairwise intermediate.",
+        "Broadcast Edgeworth planes are views and are materialized by a metered stack before reuse.",
+        "The estimator imports only flopscope, flopscope.numpy, whestbench, and whestbench.domain."
+      ]
+    },
+    "namespace_clean": {
+      "pycache_directories": 0,
+      "pyc_files": 0,
+      "status": "PASS"
+    }
+  },
+  "required_next_gate": {
+    "name": "LITERAL_FULL_SHAPE_FLOP_WALL_RESIDUAL_RSS_FINITE_METER",
+    "must_prove": {
+      "flops_at_most": 2199023255552,
+      "wall_time_seconds_below": 120.0,
+      "residual_wall_time_seconds_at_most": 0.4,
+      "solution_process_memory_bytes_below": 8589934592,
+      "output_shape": [16, 1024],
+      "output_dtype": "float32",
+      "all_values_finite": true,
+      "failed_mlps": 0
+    }
+  },
+  "negative_controls": {
+    "audit_receipt_not_in_frozen_manifest": true,
+    "frozen_estimator_not_modified": true,
+    "frozen_manifest_not_modified": true,
+    "freeze_receipt_not_modified": true,
+    "no_full_meter_executed_by_independent_audit": true,
+    "no_data_or_target_access": true,
+    "no_fit_or_sampling": true,
+    "no_accuracy_claim": true,
+    "no_submission_authority": true
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-20T19:18:58Z",
+  "reference": "science32_rel_v4a_m15",
+  "candidate_sha256": "acda0d7766f7b04327af4c3814b3f1edf3c49fcd8b660000152e5b16d7ec1104",
+  "source_census": [
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/census_rel_v4a_35_v1.json",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/census_copy_all_exact_35_v1.json"
+  ],
+  "exact_all": true,
+  "setup_flops_old": 27687379076,
+  "setup_flops_new": 27687379076,
+  "setup_flops_delta": 0,
+  "rows": [
+    {
+      "phase": "cold",
+      "rank": 35,
+      "exact_prediction": true,
+      "old_prediction_sha256": "982f5bca4670ac3f527abbe00048f8db6dc6d0fbe822ecd731311b82a8327768",
+      "new_prediction_sha256": "982f5bca4670ac3f527abbe00048f8db6dc6d0fbe822ecd731311b82a8327768",
+      "old_flops": 237529861994,
+      "new_flops": 236764786538,
+      "bill_delta_flops": -765075456,
+      "adjusted_pct_if_exact": -0.3220965353902816,
+      "old_calls": 38981,
+      "new_calls": 39490,
+      "call_delta": 509,
+      "old_backend_s": 43.87817085906863,
+      "new_backend_s": 41.186033986508846,
+      "backend_delta_s": -2.692136872559786,
+      "old_wall_s": 51.701212499290705,
+      "new_wall_s": 48.213104750961065,
+      "wall_delta_s": -3.4881077483296394,
+      "op_bill_deltas": {
+        "arange": 24117248,
+        "concatenate": -132558848,
+        "copyto": -318918656,
+        "put": 318918656,
+        "reshape": -318918656,
+        "stack": -337715200
+      },
+      "flatload_put_calls": 301,
+      "sm_output_stack_calls": 0
+    },
+    {
+      "phase": "warm",
+      "rank": 35,
+      "exact_prediction": true,
+      "old_prediction_sha256": "982f5bca4670ac3f527abbe00048f8db6dc6d0fbe822ecd731311b82a8327768",
+      "new_prediction_sha256": "982f5bca4670ac3f527abbe00048f8db6dc6d0fbe822ecd731311b82a8327768",
+      "old_flops": 236850858805,
+      "new_flops": 236061666101,
+      "bill_delta_flops": -789192704,
+      "adjusted_pct_if_exact": -0.3332023822846919,
+      "old_calls": 38060,
+      "new_calls": 38545,
+      "call_delta": 485,
+      "old_backend_s": 41.91632201708853,
+      "new_backend_s": 42.17402235977352,
+      "backend_delta_s": 0.2577003426849842,
+      "old_wall_s": 49.01560220681131,
+      "new_wall_s": 48.833278791978955,
+      "wall_delta_s": -0.1823234148323536,
+      "op_bill_deltas": {
+        "concatenate": -132558848,
+        "copyto": -318918656,
+        "put": 318918656,
+        "reshape": -318918656,
+        "stack": -337715200
+      },
+      "flatload_put_calls": 301,
+      "sm_output_stack_calls": 0
+    }
+  ],
+  "limitations": [
+    "One stored network cold/warm; not full32 or a heldout accuracy result.",
+    "Census records setup bill but not setup wall/requests. Production release gates remain.",
+    "Local backend/wall runs occurred at different times under concurrent work; delta is observational.",
+    "Prebind and rescue wall caps were lifted for both disclosed science censuses."
+  ]
+}

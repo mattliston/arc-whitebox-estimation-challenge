@@ -1,0 +1,124 @@
+{
+ "parameters": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/fold/c3q4zj7_ageA.pt",
+ "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/candidates/law_dials_d7_ages12/candidate.py",
+ "dials": {
+  "ds": {
+   "base": 1.0,
+   "value": 0.784380196114528,
+   "where": "in the file: head and head_b of layers 1-15 multiplied"
+  },
+  "bscale": {
+   "base": 1.0383394097164294,
+   "value": 1.0341394097164294,
+   "where": "in the file: the dial literal"
+  },
+  "c0": {
+   "base": 0.5341766552087044,
+   "value": 0.6954099031215846,
+   "where": "in the file: the dial literal"
+  },
+  "X1": {
+   "base": 0.5565819405586057,
+   "value": 0.5915819405586057,
+   "where": "in the file: the dial literal"
+  },
+  "k21n": {
+   "base": -0.028,
+   "value": -0.048,
+   "where": "in the file"
+  },
+  "bsrc": {
+   "base": 1.0,
+   "value": 0.965,
+   "where": "in the file"
+  },
+  "edge": {
+   "base": 0.164,
+   "value": -0.12699999999999997,
+   "where": "in the file"
+  },
+  "k31": {
+   "base": -0.212,
+   "value": -0.1450565230570158,
+   "where": "in the file"
+  }
+ },
+ "note": "SECOND joint solve's dials WITHOUT any change of k31l (cohorts of ages 1-2 at strength 1, no age-3 path): the pair law's nine dials at the second optimum. Judged on the first 25 judging ranks against the S41 stack (S39 card, law with the constant regressor and three forms, first dials d6, k31l ages 1-2 at strength 1): final-layer MSE -0.840% (se 0.194, better on 21 of 25; all layers -0.857%). With k31l's fitted strengths by cohort age 1.02 / 0.77 / 0.72 (directory law_dials_d7) the same comparison reads -1.027% (se 0.206): the age-3 path and the age-2 reduction together add -0.188% (se 0.124).",
+ "builder_levers": {
+  "rule_strength_per_age": [
+   0.656,
+   0.6
+  ],
+  "K4L_per_age": [
+   0.8597296897041633,
+   0.8597296897041633
+  ],
+  "exact_S1_per_age": [
+   0,
+   0
+  ],
+  "exact_S2_per_age": [
+   0.44439084790069294,
+   0.17112793763960094
+  ],
+  "where": "NOT in the file: levers of O/engineer/stack/build.py (age 1 first). With all exact strengths 0 it is F4v4t<rule a1>,<rule a2> + K4Lv3c<a1>,<a2>; otherwise the F4c lever (rule strength and exact S1, S2 per age)."
+ },
+ "pair_law_dials": {
+  "fold_strength_per_layer": [
+   1.0,
+   1.8502635799691154,
+   1.8502635799691154,
+   1.8502635799691154,
+   1.8502635799691154,
+   1.207284767249856,
+   1.207284767249856,
+   1.207284767249856,
+   1.207284767249856,
+   1.207284767249856,
+   1.1672909072261248,
+   1.1672909072261248,
+   1.1672909072261248,
+   1.1672909072261248,
+   1.1672909072261248,
+   1.0
+  ],
+  "factor_on_removed_multiple_of_C_per_layer": [
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793,
+   1.3065842016172793
+  ],
+  "births_source_strength": 1.3047607818275113,
+  "rows_source_strength": 0.8538988046402036,
+  "diag_source_strength": 0.9047472884238996,
+  "k31l_strength_per_cohort_age": {
+   "1": 1.0,
+   "2": 1.0,
+   "3": 0.0
+  },
+  "where": "NOT in the file: literals of the pair-law lever (index = layer 0..15; the fold acts at layers 1-14; source strengths act at the layer of birth; the factor multiplies the coefficient of tr C x C that the diagonal regression gives, constant regressor form, or the table RHO1). k31l: fold strength of the fourth-chaos plane for cohorts of that age (age 3 = 0 means ages 1-2 only, as S41 was specified)."
+ },
+ "changed_statements": [
+  "_GNN_LITERAL",
+  "_BD_COEFFICIENT_LITERAL",
+  "_GN_KNOBS",
+  "_GN_EDGE",
+  "_BD_J1_PHYS",
+  "_S19_BSCALE",
+  "_K31R_TABLE",
+  "_S19_BSRC_DIV (new) and the b source line of _predict_binary"
+ ],
+ "sha256": "c2b7f6839646cfa24a0bdde7a70840cd33969f3b36662942501b9bb1a17c8b00"
+}

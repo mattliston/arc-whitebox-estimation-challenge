@@ -1,0 +1,67 @@
+{
+  "utc": "2026-10-21T07:47:44Z",
+  "status": "REJECTED_PROFILE_DIAGNOSTIC_PRESERVED",
+  "controller_retired": true,
+  "source_sha256": "d3991b2ffd6bf3f5ed4375257972d813cac4da45a27682bc11649f368c6ce0b7",
+  "recipe_sha256": "024eaab543d8fefafc4524e89a7cf52bbf2b71db50246a149ccbe4f6d284a154",
+  "files_rehashed": 19,
+  "same_prediction_as_fresh_control_and_own4da": true,
+  "prediction_sha256": "e97f6fe002de177f36a87599939bfdb098c7efce76485b2efbb21eff451f228f",
+  "prediction_bytes": 65536,
+  "flops": 235862163509,
+  "requests": 43581,
+  "freed_handles": 42230,
+  "identical_operations": true,
+  "free_trip_mismatch": {
+    "control": 4627,
+    "observe": 4271
+  },
+  "guards": {
+    "control": {
+      "utc": "2026-10-21T07:41:29Z",
+      "group": 211561,
+      "successful": true,
+      "whole_group_retired": true,
+      "child_exit": 0,
+      "peak_group_rss_bytes": 4746891264,
+      "max_owned_swap_bytes": 0,
+      "cgroup_events_final": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "observe": {
+      "utc": "2026-10-21T07:43:17Z",
+      "group": 211820,
+      "successful": true,
+      "whole_group_retired": true,
+      "child_exit": 0,
+      "peak_group_rss_bytes": 4785082368,
+      "max_owned_swap_bytes": 0,
+      "cgroup_events_final": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    }
+  },
+  "guard_shas": {
+    "control": "bcbc3205a37c4cce8227b6768679d66a1db35b2870d5e520cea4c8ebfcd3dc75",
+    "observe": "865a7c9d43a0465a7607ef9b16c65b920466b229dc67da9153c0edd2c5fd0f3c"
+  },
+  "observer_artifact_missing": true,
+  "adapter_scope_bug": "outside_profile is local to canonical evaluate(); module-finally globals().get does not find it, so profile file was never emitted. This is a diagnostic adapter defect, not candidate behavior.",
+  "free_trip_cause": "Not established. Current observer allocates tuple keys, stack lists and a default stats dict on each candidate event/return; allocation-sensitive GC/free batching is a concrete hypothesis. No claim of lifetime/custody equivalence.",
+  "no_retry": true,
+  "no_timing_qualification": true,
+  "no_hotspot_evidence_obtained": true,
+  "no_candidate_failure": true,
+  "followup": "Any revised observer must fix output scope, reduce allocation perturbation, pass metadata lifecycle tests and receive independent root/slot review before one new diagnostic. Preserve strict prediction/bill/operation/request/free equality gates."
+}

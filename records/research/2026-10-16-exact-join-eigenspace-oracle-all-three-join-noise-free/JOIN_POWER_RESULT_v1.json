@@ -1,0 +1,29 @@
+{
+  "lane": "opus-join2",
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_join_v1/candidate_2b108_join_power_v1.py",
+    "sha256": "5f893d5af4b19ca11c23277abac4959386f18516d7faeffc4afbb8edc59b5bfe",
+    "switch": "env PJ_LAYERS (screen only)"
+  },
+  "method": "one subspace iteration: Q0=qr(G[:,rows]); Y1=G Q0 via factored products on _shared_old384_mm; Qn,R1=qr(Y1); core=(Q0^T Qn)^-1 R1^T symmetrized",
+  "native_7103248": {
+    "all_joins": {
+      "bill_pct": 5.278,
+      "charged_ops": 1203
+    },
+    "L10_L13": {
+      "bill_pct": 3.221,
+      "charged_ops": 821
+    }
+  },
+  "screen_all_joins_7103248_55": {
+    "xMSE_mean_pct": -1.37,
+    "se": 0.406,
+    "lower": "7/8",
+    "MSE_plain_pct": -1.001,
+    "bill_pct": 5.254,
+    "xnet_pct": 3.885,
+    "oracle_fraction": 0.76
+  },
+  "verdict": "NOT VIABLE: recovers ~76% of the oracle accuracy but costs ~5.3% bill (L10+L13 still +3.2%); a deployable sketch must reach similar accuracy at <~1.4% bill to break even"
+}

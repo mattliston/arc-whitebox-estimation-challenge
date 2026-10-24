@@ -1,0 +1,36 @@
+{
+  "schema": "p2r0f2s-one-graph-ready-proposal-v1",
+  "node": "P2R0F2S",
+  "status": "DESIGN_ONLY_NOT_IMPLEMENTED_OR_LAUNCHED",
+  "bindings": {
+    "localization_result_sha256": "6e3d8f1d10ea9b771c8ac18564ef61324e32521203c954d42aa5b7740be9ea43",
+    "preregistration_sha256": "5d3fc567a0e586d050ceadc04d7336823e671af9c9e84e3d29a723ac59a12834",
+    "audit_receipt_sha256": "b8948efde9f4538d9df0f85b19b6d123e799fbd13a5b3927e418e692941a8b12",
+    "q32_rejection_receipt_sha256": "1241cd0e6af1a6cd44e8caeccddc558ae565bad4609a2ae286d7b2247b3b7360"
+  },
+  "evidence_summary": {
+    "birth_structure": "Host error is born continuously through depth (born fraction 72% at layer 3 falling to 17% at layer 15) and propagates near-linearly with per-layer gain a_l ~ 1.03; the endpoint is ~83% accumulated propagation of mid-depth births.",
+    "no_unit_structure": "Top-1% units carry ~1.2% of error and cross-network unit persistence is ~0: the error is diffuse and network-specific.",
+    "dominant_mechanism": "In the native frame, born error correlates +0.335 (13/14 layer sign consistency) with the quartic residual star row RMS and +0.290 (13/14) with the t=24 Mehler row coupling, both clearing the preregistered 0.15/10-of-14 bar. Fourth-order pair structure and pair-series truncation pressure mark the birth sites.",
+    "row_level": "Row difficulty correlates +0.30 with dropped-CP4 mass, +0.31 with the t=24 coupling, and -0.30 with pairing_alpha."
+  },
+  "proposal": {
+    "name": "additive pair-series tail extension t=25..30 on the unchanged Q24 state path",
+    "one_line": "Keep the entire Q24 state recursion, dtypes, PSD repairs, star and CP handling byte-identical, and add only the t=25..30 Mehler slices - coefficients up to q=38 already exist in the table, rho powers extend by six elementwise multiplies per layer - into the same pair-moment contraction, refining exactly the object whose truncation pressure marks the error births.",
+    "mechanism": "The t=24 row coupling measures the last kept term of the pair series; born error concentrates where it is large. Tail terms t>=25 are bounded by |rho|^t/t! with |rho|<=1 clipped, so the added terms are small, decaying, and additive: they cannot restructure the state or its conditioning.",
+    "material_difference_from_closed_q32": "The closed fullbudget_k21_k4_closure_q32_fp32_pair_v1 candidate rebuilt the estimator to a full Q32 state with fp32 pair handling and failed numerically (LinAlgError and nonfinite means at connected resets). This proposal changes no state machinery, no dtype, no repair, and no normalization; it adds bounded decaying terms to an existing contraction on the stable Q24 state, with an explicit prelaunch stability probe.",
+    "implementation_sketch": "In _q24_context extend the powers arena by six elementwise rho multiplies per layer (about 88e6 FLOPs total); widen _Q24_ORDER_GRID's consumed term axis for the pair einsums to t<=30; leave _univariate_edgeworth, _repair_covariance, stars, CP3/CP4, and all clips untouched.",
+    "cost_statement": "The added cost is six of twenty-five extra term-slices in the pair einsums plus negligible elementwise powers. Admission requires a frozen source-structure estimate of the added FLOPs at most 60e9 against the roughly 66e9 headroom under 2^41 at the current 2.1317e12 native total; if the estimate exceeds it, the frozen fallback scope is t=25..27 only. No cap raise, no rank change.",
+    "gates_required": "Its own node must freeze: a target-free stability probe (finite rollouts, unchanged blow-up census on the 11 repaired tails) before any target read; end-to-end evaluation only (host change followed by the established J tape regeneration and refit, judged on raw final MSE, never component accuracy, per the measurement-frame and partial-fix laws); and strict conjunctive accuracy gates with no retune.",
+    "law_conformance": "No cap-ladder violation (no rank or cap change); co-adaptation honored by mandatory J refit on the new host tape; partial-fix law honored by end-to-end gating; reproduce-first honored by binding the Q32 negative receipt and differing materially from it."
+  },
+  "explicitly_not_proposed": [
+    "a full Q32 or higher state rebuild (closed, numerical failure)",
+    "CP3/CP4 cap raises (cap-ladder closed)",
+    "unit- or layer-targeted patches (no unit structure exists; born structure is diffuse)",
+    "any observer-side change (five-arm family closed)"
+  ],
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0
+}

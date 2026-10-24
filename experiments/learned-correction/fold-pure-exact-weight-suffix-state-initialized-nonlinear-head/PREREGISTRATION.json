@@ -1,0 +1,117 @@
+{
+  "schema": "q24-c8v2-exact-nonlinearz-init-preregistration-v1",
+  "status": "FROZEN_BEFORE_ANY_C8V2_TARGET_OPEN",
+  "purpose": "Test whether seven additional exact-W suffix carrier channels improve hidden-state reconstruction when channel zero starts at the exact fold-pure nonlinear-Z OOF function rather than the failed zero-output c8v1 initialization.",
+  "data_contract": {
+    "role": "observer_fit",
+    "networks": 688,
+    "folds": 4,
+    "fold_sizes": [172, 172, 172, 172],
+    "fold_assignment_sha256": "0f8619f00185aa5413e06c2b9aad8c1f2a6743ec8c628994bbbc9ca25fec047c",
+    "observer_selection_targets": "forbidden",
+    "board_feedback": "forbidden",
+    "submission": "forbidden"
+  },
+  "fold_pure_initialization": {
+    "rule": "For each fold, deterministically rerun the frozen nonlinear-Z train_fixed recipe on the other 516 rows with the original stream id equal to the fold.",
+    "required_reconstruction_check": "Before C8 adaptation, the reconstructed fold model's held172 per-network MSE vector must match the persisted nonlinear-Z OOF authority with maximum absolute difference at most 5e-20.",
+    "forbidden_shortcut": "The final all688 nonlinear-Z model may not initialize any OOF fold because it contains held-fold target exposure.",
+    "final_fit_rule": "Only a post-gate all688 fit may initialize from the frozen final all688 nonlinear-Z model."
+  },
+  "architecture": {
+    "suffix_layers_zero_based": [10, 11, 12, 13, 14, 15],
+    "reported_channels": 1,
+    "extra_channels": 7,
+    "total_channels": 8,
+    "parameters": 10544,
+    "inherited_path": "base_linear 42x64 + SiLU + trunk2 64x64 + SiLU + six scalar heads",
+    "new_path": "message_linear 8x64 without bias plus six 64x7 extra heads",
+    "recurrence": "Each scalar/extra state is transported through exact W and receiver Phi before the pointwise source update.",
+    "epoch0_copy": "Copy the fold nonlinear-Z first42 trunk columns, trunk2, and scalar heads exactly; zero the message adapter and all extra heads.",
+    "epoch0_operation_order": "Bypass the message adapter entirely and retain the original scalar source einsum and NumPy float64 Phi/W recurrence for held-score parity."
+  },
+  "epoch0_gate": {
+    "all688_each_fold": "At all six suffix layers on all 688 cached rows, candidate scalar source must be torch.equal to the reconstructed fold nonlinear source and all extra sources must be exact zero.",
+    "held172_each_fold": "Candidate epoch0 per-network MSE must match persisted nonlinear-Z OOF with maximum absolute difference at most 5e-20.",
+    "extra_seed_timing": "Only after both parity checks pass, seed extra-head weights with deterministic Normal(0,2^-16); the inherited scalar output remains unchanged because the message adapter is still zero."
+  },
+  "training": {
+    "loss": "normalized endpoint channel-zero MSE plus 0.05 times normalized six-layer channel-zero anchor",
+    "phase1": {
+      "epochs": 4,
+      "trainable": "message_linear and seven-channel extra heads only",
+      "inherited_path": "frozen",
+      "learning_rate": 0.0003,
+      "minimum_learning_rate": 0.0001
+    },
+    "phase2": {
+      "epochs": 8,
+      "trainable": "joint all parameters",
+      "learning_rate": 0.0002,
+      "minimum_learning_rate": 0.00005
+    },
+    "optimizer": "AdamW",
+    "weight_decay": 0.00002,
+    "gradient_clip": 5.0,
+    "model_seed": 1127766546,
+    "extra_seed": 3370624275,
+    "checkpoint_selection": false,
+    "early_stopping": false
+  },
+  "scientific_gate": {
+    "mode": "all",
+    "requirements": [
+      "all fold reconstruction and epoch0 parity gates pass",
+      "candidate OOF relative gain versus nonlinear-Z is at least 0.25 percent",
+      "at least three of four fold means improve",
+      "paired-network gain z is at least 2",
+      "at least 55 percent of networks improve nonlinear-Z",
+      "every fold has at least 50 percent network wins",
+      "legacy protected40 OOF does not worsen"
+    ]
+  },
+  "absolute_and_economic_gate": {
+    "measured_same688_native_mse": 2.9736792457285063e-8,
+    "legacy_scientific_admission_threshold_not_measurement": 2.9672528546945005e-8,
+    "d4_board_328622_raw": 2.9409071835573285e-8,
+    "d4_board_328622_adjusted": 1.783621478716186e-8,
+    "d3_board_328620_multiplier": 0.6377160962460696,
+    "c8_incremental_vs_compute_only_d3_upper_flops": 758625259,
+    "structural_c8_d3_multiplier": 0.6380610790729154,
+    "structural_raw_threshold_to_beat_d4": 2.7953773348904733e-8,
+    "requirements": [
+      "candidate raw is below the in-run recomputed native bank",
+      "candidate raw is below 2.9672528546945005e-8",
+      "at least 55 percent of networks beat the native bank",
+      "candidate raw times the structural C8-D3 multiplier beats D4 #328622 adjusted"
+    ],
+    "literal_integrated_meter_required_before_submission": true
+  },
+  "outcome_law": {
+    "scientific_fail": "Persist result only and close this exact v2 recipe.",
+    "scientific_pass_absolute_fail": "Persist one scientific all688 model; no submission claim.",
+    "all_accuracy_gates_pass": "Persist one all688 model and prepare D3 integration, but root alone may package after exact literal meter and target-free full gate."
+  },
+  "distinction_from_c8v1": "C8v1 started channel zero at zero and after six epochs remained near the alpha-J baseline, worsening all four folds. C8v2 starts at the exact fold-pure nonlinear-Z prediction and tests only whether extra transported channels add value.",
+  "bindings": {
+    "program_sha256": "17e54c14d41eed964f2c1ef0c1513bbf788fd414e7438ca56b465151e442f283",
+    "v1_program_sha256": "82df4b70b2d9262edea50cb4e659e6538e24fd28a93b6ec0224975f6bed98519",
+    "v1_terminal_sha256": "0d633e07cd6f6c2008b73f6bfeeeeab314b03480ec1982c60ceb091971726391",
+    "nonlinear_z_program_sha256": "032d994d45d0255d46ec09b5dca4fdff9f9baa3273972082e75014e0501dee96",
+    "nonlinear_z_result_sha256": "c1ef8105ac29b6f4ff75dc7aa5974b1d8f93668437ed402d32ebbad393f2dd35",
+    "nonlinear_z_model_sha256": "1b542406201a3f8757c8423d1f9b2c540784f7e6c98da687e8fca4e735388676",
+    "native_result_sha256": "e8261895c5d8f5f1feb1e15f257612d1d1b36a90e8bde1ab05e2844100a8ba08",
+    "native_model_sha256": "21ad1dede3373c90d2694158b6599c4c172d7181c72634a6ec8e362449b7d1f8",
+    "j_source_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "q_source_sha256": "1e4c906936f4685bd800f922ded6c582af8213ecad1fbe41da651faff82be9c3",
+    "d3_gate_sha256": "3e84fae43460a409a4212f90b912630c98589d1c2538ce0553a34a636b239eb4",
+    "d4_gate_sha256": "742bef9476c84c5c6afb2d6e3dced0e3d94e2b4a1ea3aae6c5a2c71d75f5eca2"
+  },
+  "access_declarations": {
+    "targets_opened_at_freeze": [],
+    "observer_selection_opened": [],
+    "board_opened": false,
+    "submission": false,
+    "training_started": false
+  }
+}

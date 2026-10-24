@@ -1,0 +1,83 @@
+{
+  "schema": "public-native-r10-source-uncertainty-pilot-preregistration-v1",
+  "node": "P2R0F2R",
+  "status": "frozen-before-any-r-metrics",
+  "question": "Do the Q24 deployment host's own internal approximation-quality observables, exported without perturbing the rollout, carry autonomous residual signal that the 20-channel native tape lacks - resolving the frame ambiguity left by the Q closure?",
+  "hypothesis": "The development-frame Q null is ambiguous because its channels described the cp1792 host's approximation gaps while the target is the Q24 host's error. The aligned instances - the CP4 dropped planes the Q24 host materializes and discards 13 times per forward, the cubic and quartic residual stars, the t=24 Mehler last-term coupling, and the native correlation-graph structure - are literal components or direct diagnostics of the Q24 host's own approximation error, the very quantity the observer must predict.",
+  "authority": {
+    "q_closure_decomposition": "public_full688_aug7_widened_j_cv_v1/Q_VS_J_OOF_DECOMPOSITION_AND_CLOSURE.json",
+    "graph_gate": "P2_NATIVE_SOURCE_UNCERTAINTY_PILOT_DESIGN_GATE (P2R0F2Q, P2R0F2P closed_measured; P2R0H7A solved)",
+    "host_internals_map": "independent source survey: _cp4_reset lines 931-994 (dropped planes at 969-973), _reset_stars 1127-1183, _repair_covariance 707-762, _q24_context 457-493 of the frozen instrumented estimator",
+    "j_native_pilot_baseline": {
+      "validation_final_mse": 3.107235383605394e-8,
+      "networkwise_wins": 40,
+      "result": "public_q24_native_transport_energy_pilot_v1/PILOT_RESULT.json"
+    }
+  },
+  "stage1_generation": {
+    "method": "Load the frozen instrumented estimator (sha f539889324fb82cc1ded35a41c8b5a359014d9ddac52eab62949257e8e58a0ef), install pure-numpy capture wrappers on _repair_covariance, _cp4_reset, _reset_stars, and _q24_context that add ZERO metered operations, rerun predict_with_native_tape per row under the identical BudgetContext, and derive channels post-hoc outside the context.",
+    "parity_law": "Per row: recomputed host, raw20, and sigma payload hashes must equal the existing sealed native row's recorded array_sha256 values, and flops_used must be recorded alongside the reference row's for comparison. Any parity failure aborts the row and the run.",
+    "call_count_and_mapping_law": "Wrapper call counts must be exactly repair=14, cp4=15, stars=15, q24=15 per row; layer assignment is by call order (repair to layers 1..14, cp4/stars/q24 to layers 0..14), and every q24 call's sigma argument must equal the tape's sigma row for its assigned layer bit-exactly, pinning the mapping empirically per row.",
+    "replication_cross_checks": "The CP4 candidate construction, energy, stable argsort, and keep selection are replicated in float32-exact numpy from captured inputs and must reproduce the frozen _cp4_reset's returned retained lambdas bit-exactly at every call, capped or not, before any dropped-mass channel is derived.",
+    "roster": "The 200 existing native pilot rows, role ranks 35..234 inclusive.",
+    "output": "rows/row_NNNN/{r10_locals.npy float32 [16,1024,10], result.json}; existing native rows are never written."
+  },
+  "channel_definitions": [
+    {"index": 0, "name": "cp4_dropped_diagonal", "definition": "At each capped _cp4_reset call assigned to layer l: the frozen float32 reader semantics ((u^2*u^2) @ lambda) applied to the dropped component set, divided by max(sigma^4, 1e-60). Zero when the call is uncapped (layers 0 and 1)."},
+    {"index": 1, "name": "cp4_dropped_diagonal_absolute", "definition": "Same reader with |lambda|, same normalization."},
+    {"index": 2, "name": "cubic_star_row_rms", "definition": "Row RMS of the returned cubic star (k21_target - cp_post_k21), divided by max(sigma^3, 1e-45)."},
+    {"index": 3, "name": "quartic_star_row_rms", "definition": "Row RMS of the returned quartic star, divided by max(sigma^4, 1e-60)."},
+    {"index": 4, "name": "quartic_star_diagonal", "definition": "Diagonal of the returned quartic star, divided by max(sigma^4, 1e-60)."},
+    {"index": 5, "name": "pairing_alpha", "definition": "The returned per-layer pairing_alpha scalar broadcast to all units."},
+    {"index": 6, "name": "mehler_t24_row_coupling", "definition": "pair_left[0,0,24,:] * (rho^24 @ pair_right[0,0,24,:]) / 24!, the row-coupled last kept Mehler term for the first moment family."},
+    {"index": 7, "name": "max_offdiagonal_abs_rho", "definition": "Row maximum of |rho| with the exact identity subtracted, from the clipped native correlation."},
+    {"index": 8, "name": "rho2_neighbor_alpha", "definition": "((rho*rho) @ alpha)/1024 with alpha = native tape channel 3."},
+    {"index": 9, "name": "rho8_row_concentration", "definition": "(sum_j rho_ij^8 - 1)/1024, a threshold-free coincident-bond concentration measure."}
+  ],
+  "information_novelty_note": "Channels 0-6 draw on objects the native tape never exports (dropped CP4 components, residual stars, pairing scalar, the 24th Mehler term's row coupling); channels 7-9 expose correlation-row structure beyond the tape's three row moments. The dead 0.99-threshold bond channel from the development frame was replaced by the threshold-free rho^8 concentration at design time, before any target metric.",
+  "psd_repair_note": "The PSD repair loading is recorded per row as a receipt diagnostic, not a channel: the floor arm triggers only on near-dead-variance rows and is zero on the pilot roster's smoke row.",
+  "stage2_pilot_fit": {
+    "law": "Exactly the frozen J-native transfer pilot protocol with one change: 30 raw local channels (46 cell inputs). Same roster 35..234, same protected split law (blake2s-128 'p2r0f2j-q24-native-v1:'+mlp_id, first 40 protected), same 160-network fit, same exact J loss, six epochs, exposure schedule, optimizer, fixed final checkpoint, same shuffle stream id 40 for a paired batch order with the J-native pilot.",
+    "model_seed": 1753360478,
+    "architecture": "Exact TransportEnergyMultiStateResidual semantics with INPUT_FEATURES 46; parameters 26560 (J's 25600 plus 10*96).",
+    "standardization": "Channel 0 unstandardized; channels 1..29 standardized by fit-split moments (19 native tails plus 10 r-channels), same floors and clamps as J.",
+    "one_arm": true
+  },
+  "decision_gate": {
+    "mode": "all",
+    "finite_full_rollout": true,
+    "validation_final_mse_strictly_below": 5e-8,
+    "validation_ratio_to_host_strictly_below": 0.6,
+    "networkwise_wins_at_least": 28,
+    "maximum_validation_network_final_mse_strictly_below": 5e-7,
+    "achievability": "Every conjunct was passed by the J-native pilot on the same split, so the gate is proven achievable.",
+    "fail": "Close this exact r10 pilot spelling measured; no channel-subset sweep, no retune, no second seed."
+  },
+  "scaling_rule": {
+    "comparative_baseline": "J-native pilot validation final MSE 3.107235383605394e-8 on the identical protected 40 networks",
+    "full688_continuation_licensed_iff": "pilot passes the decision gate AND validation final MSE < 3.045090675933286e-8 (at least 2% below the J-native pilot), a margin chosen before any R metric to exceed pilot-scale training noise",
+    "otherwise": "Close the leaf with the measured comparison; any different follow-up requires a new node."
+  },
+  "firewalls": {
+    "role": "observer_fit",
+    "observer_selection_targets_allowed": false,
+    "public_name_join_allowed": false,
+    "network_identity_input_allowed": false,
+    "deployment_truth_input_allowed": false,
+    "targets_opened_only_in_stage2_after_full_parity": true,
+    "capacity_only": "A pilot pass licenses only the separately preregistered full-688 native stage; nothing here changes the banked submission chain."
+  },
+  "resources": {
+    "generation_workers": 2,
+    "threads_per_worker": 2,
+    "nice_level": 10,
+    "estimated_generation_wall_seconds_per_row": 26,
+    "maximum_rss_bytes": 8589934592,
+    "maximum_new_storage_bytes": 2147483648,
+    "flop_context_budget_per_row": 2199023255552
+  },
+  "launch_gate": {
+    "order": "preregistration -> run manifest -> programs -> rank-36 sealed-form smoke -> independent adversarial audit -> seal -> 200-row generation with per-row parity -> generation receipt -> stage-2 pilot fit (first target read) -> result -> decomposition -> graph update",
+    "condition": "No stage-2 target read before all 200 rows pass parity and the audit receipt exists."
+  }
+}

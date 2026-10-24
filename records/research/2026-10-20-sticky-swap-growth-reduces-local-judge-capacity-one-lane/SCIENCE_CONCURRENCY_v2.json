@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-20T18:08:11Z",
+  "authority": "Matt: all machine compute; avoid crashing computer",
+  "science_only": true,
+  "hard_free_pct": 15,
+  "group_footprint_cap": 7900000000,
+  "swap_growth_cap_gib": 6,
+  "pressure_conditioned_swap_cap_gib": 2,
+  "pressure_conditioned_free_pct": 25,
+  "release_guard_changed": false,
+  "files": {
+    "lead/runs/astra_crunch_physics_v1/guard_memory15_sci_v2.py": "b61828a6a4dcfbec2e4e34316067bcb365c588ee0bc9aee35a1421b17b002b40",
+    "lead/runs/astra_oct18_bill_v1/run_guarded_product_census_v5_m15c.py": "27f8eb8a1571207e7611e2cec4baddda01fc893a55da625e9d2f53eefd573f0d",
+    "lead/runs/astra_oct18_small_stack_qualification_v1/run_current32_m15c_fable_v1.py": "8c520910f57280e0deb34cc2889f24824ca0d5513e607674983ed03c5980becb"
+  },
+  "capacity_update_utc": "2026-10-20T19:32:42Z",
+  "requested_total_heavy_slots": 5,
+  "admission_free_pct": 54,
+  "admission_min_free_pct": 35,
+  "rationale": "Sixth probe reached conservative40%free cutoff with39% system free, no pressure failures; use30% auxiliary floor still twice primary15% threshold. One auxiliary maximum, 2-second pressure reads, physical/RSS/wall/swap guards unchanged.",
+  "reservation_files": [
+    "queue_v14.txt.reserve_ecut"
+  ],
+  "opportunistic_auxiliary": {
+    "maximum": 1,
+    "admission_min_free_pct": 60,
+    "hard_free_pct": 30,
+    "group_footprint_cap": 7900000000,
+    "rss_backstop": 9500000000,
+    "pressure_poll_seconds": 2,
+    "nice": 15,
+    "guard": "../astra_crunch_physics_v1/guard_memory30_aux_v2.py",
+    "controller": "run_k31_aux_shards_v2.sh",
+    "source_receipt": "AUX_V2_ADMISSION_v1.json"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "p2r0f2w-closure-v1",
+  "status": "PASS_CLOSED_FROZEN_GATE",
+  "node": "P2R0F2W",
+  "verdict": "The 129-row census validated the candidate in substance - all rows finite, every row improves (minimum saving 206,167,895,046 FLOPs), maximum output delta 2.0483e-8 against a 1e-7 bar, all W totals under 2^41 - but the frozen per-row floor of 2.6e11 failed on seven fallback-heavy rows (minimum 206.2e9 at rank 66 with three Cholesky fallbacks; the savings law is exactly 275.6e9 minus 23.6e9 per fallback). Under the frozen one-arm law this spelling closes; the failure is a mis-frozen threshold, not a candidate defect, and the corrected successor W2 re-gates the same target-free census with mechanism-correct conjuncts.",
+  "bindings": {
+    "census_result_sha256": "3445f224d34c873934cd134ed612885705cea3e93c6264cd28cf47afec02b633",
+    "census_shard0_sha256": "4bf3467e094b40f09a172cc5b1aef027e7be30dba0cab80f159e1da0fb6322ee",
+    "census_shard1_sha256": "031c3fac32c001f1e9778108f858dd0adb174d106a2a14c1e5b4cd42ea551c04",
+    "seal_sha256": "b9d20bf0cee8b9dbdce704fdc929a08ba72cd2a794eefbbf069c2fd1c17d58b2",
+    "audit_receipt_sha256": "974e36eaa3f831ea8ecdcaad0f5a2f386fb83cd7eef3909f33a0f7bde8e3764c",
+    "estimator_sha256": "24ed2325e4db0c0287a222189a986c2d6462f80832c717827c27b783a6655ee2"
+  },
+  "retune_note": "The re-gated successor operates on target-free engineering measurements only; no truth metric was read at any point in W, so no selection-on-target is possible.",
+  "targets_read": 0,
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0
+}

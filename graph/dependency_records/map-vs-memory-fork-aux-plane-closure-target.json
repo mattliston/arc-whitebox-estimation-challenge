@@ -1,0 +1,42 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_CARRIER_MAPGAP",
+    "status": "open",
+    "goal_path_summary": "STATE 08-30 night: the engine's MAP is small (DTOT=2 chain motifs carry all value; triangles worthless) but the CARRY is required (kt plane-memory failed r100 transfer) and the carry is the entire cost (~100x over the fire budget). BOARD FRAME (Matt 08-31): leaders sit at ~OUR raw with util 0.20-0.25 - their edge is util, and the field's raw is clustered ~2.9e-8. A real RAW drop is therefore the unmatchable advantage: raw 1.07e-8 at our util ties 6.5e-9; raw 1e-8 with the f32 pack (u 0.571) = 5.1e-9 WINS. Billing audit: injection into the card's covariance is ~free (Site A/B); the whole K budget (<=75 f32 matmul-eq for a meaningful fire at 18.7% capture, break-even 136) goes to supply construction. The live invention target: AUXILIARY-PLANE CLOSURE - carry the few rho-power-resummed 1024^2 objects through which the plane-feed contraction actually reads the distinct tensor, with their own update equations, replacing the 1024^3 carry. If that set closes at <=5-10 planes the supply fits near the fire budget. 8-net d2 LOO cooking overnight; richer-beta consumption closed (18.7 is the extraction ceiling of this supply).",
+    "evidence": [
+      {
+        "claim": "kt planes: dv_corr 0.32/0.46/0.59 at L9/12/15, beta 0.09-0.18 (overshoot); fs8: 0.69/0.37/0.42",
+        "historical_reference": "experiments/p2_width1024_depth16/public_g19_attribution_v1/TANGENT_V2_rank0035_tensorK21.json variants + tensor_planes_rank0035_kt/_fs8.npz",
+        "receipt_status": "legacy descriptive reference; not current graph authority"
+      },
+      {
+        "claim": "t0 rank-1 Mehler chain keeps the value: dv_corr 0.785 vs full 0.813 (consumption is simple; supply is the blocker)",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/T0_CHAIN_rank0035.json"
+      },
+      {
+        "claim": "kt replication FAIL: r100 opt 6.4% vs full 15.1%; frozen 35->100 -80%; f32=f16 (14.0/14.1)",
+        "historical_reference": "experiments/p2_width1024_depth16/public_g19_attribution_v1/rvec_ktflat_rank0100.npz + rvec_tensor_f32_rank0035.npz (frame-matched fits)",
+        "receipt_status": "legacy descriptive reference; not current graph authority"
+      },
+      {
+        "claim": "DTOT=2 (chain motifs only) HOLDS full value: r35 13.4 vs 14.1, r100 15.7 vs 15.1, frozen 10.7 vs 10.0; 40% faster. Triangle dressing worthless. Block-projection 16/64 closed (corr 0.21). Richer LOO betas closed (global 18.7 >= grp 18.7 > v14 15.6 > all45 13.4).",
+        "historical_reference": "experiments/p2_width1024_depth16/public_g19_attribution_v1/rvec_tensor_d2_rank0035/0100.npz + tensor_d2_r*.log",
+        "receipt_status": "legacy descriptive reference; not current graph authority"
+      },
+      {
+        "claim": "aux-plane wedge K=8 (mode-1 coordinate probes, symmetric recon, d2 engine): opt 8.9/6.5 vs d2 13.4/15.7; frozen 35->100 -16.8% (betas sign-flip). Same transfer disease as kt. MECHANISM CONSTRAINT extracted: a carrier transfers only if its supply error is small OR net-stable - compression errors correlate with net-specific structure and destabilize the fitted betas. K=32 curve point running.",
+        "historical_reference": "experiments/p2_width1024_depth16/public_g19_attribution_v1/rvec_aux8_rank0035/0100.npz + tensor_aux8_r*.log",
+        "receipt_status": "legacy descriptive reference; not current graph authority"
+      }
+    ],
+    "label": "Map-vs-memory fork -> aux-plane closure target",
+    "kind": "phase2_g19b_subproblem",
+    "priority": 1,
+    "summary": "Live route: is the engine's edge its MAP (richer Mehler emission, billable on plane-state) or its carried distinct-tensor MEMORY? Wedges say mixed; quantifying the calibrated plane-memory-map ceiling. [The carrier decision node feeding P2R0G19B_FIRE.]",
+    "terminal_criterion": "A supply construction whose 8-net LOO capture and billed cost land net >=8-10% adjusted on the panel - or the aux-plane family measured dead and the lane honestly escalated.",
+    "decomposition_children": []
+  }
+}

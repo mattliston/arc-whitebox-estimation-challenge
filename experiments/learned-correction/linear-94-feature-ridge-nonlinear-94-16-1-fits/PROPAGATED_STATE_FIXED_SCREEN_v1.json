@@ -1,0 +1,105 @@
+{
+  "ranks": [
+    16,
+    259,
+    277
+  ],
+  "rank287_opened": false,
+  "source_sha256": "2bc0ea49b9993e158573c365c789f2352c1f319b2e4628416d1c496f08c82505",
+  "regularization": 0.1,
+  "recipe": "Same sigma2-normalized pernetwork weighting, pooled train-only feature centering/populationstd floor1e-6, unpenalized intercept; actual terminal mean residual/sigma. Two frozen feature sets, three leave-one-network-out folds.",
+  "propagated_basis": "W15 squared transpose applied to L14 preactivation sigma squared times returned state64; learned scale basis, not exact postvariance.",
+  "folds": [
+    {
+      "rank": 16,
+      "fit_ranks": [
+        259,
+        277
+      ],
+      "base_mse": 1.208103718935227e-08,
+      "X94": {
+        "mse": 1.2660794691767044e-08,
+        "mean_improvement_pct": -4.798905038763945,
+        "correction_rms": 1.8005359942311333e-05,
+        "correction_error_corr": -0.06518994499811673,
+        "all_finite": true
+      },
+      "X158": {
+        "mse": 1.2690146344573787e-08,
+        "mean_improvement_pct": -5.041861436850481,
+        "correction_rms": 2.3317693927792544e-05,
+        "correction_error_corr": -0.044046034485400454,
+        "all_finite": true
+      },
+      "propagated_incremental_improvement_pct": -0.23183104632309437
+    },
+    {
+      "rank": 259,
+      "fit_ranks": [
+        16,
+        277
+      ],
+      "base_mse": 1.4501859243682582e-08,
+      "X94": {
+        "mse": 1.465127910449956e-08,
+        "mean_improvement_pct": -1.030349683486742,
+        "correction_rms": 1.766180616553952e-05,
+        "correction_error_corr": -0.011351581507511529,
+        "all_finite": true
+      },
+      "X158": {
+        "mse": 1.549918631893298e-08,
+        "mean_improvement_pct": -6.87723593569467,
+        "correction_rms": 2.4880589072696627e-05,
+        "correction_error_corr": -0.015026515288334083,
+        "all_finite": true
+      },
+      "propagated_incremental_improvement_pct": -5.7872572652924115
+    },
+    {
+      "rank": 277,
+      "fit_ranks": [
+        16,
+        259
+      ],
+      "base_mse": 1.2396390819408896e-08,
+      "X94": {
+        "mse": 1.2349598488175341e-08,
+        "mean_improvement_pct": 0.37746737671655595,
+        "correction_rms": 1.2143507728431898e-05,
+        "correction_error_corr": 0.04271723234507073,
+        "all_finite": true
+      },
+      "X158": {
+        "mse": 1.2366932983350204e-08,
+        "mean_improvement_pct": 0.23763235999764154,
+        "correction_rms": 1.3962787518806653e-05,
+        "correction_error_corr": 0.04271527026824982,
+        "all_finite": true
+      },
+      "propagated_incremental_improvement_pct": -0.14036484822934625
+    }
+  ],
+  "baseline94_geometric_mean_improvement_pct": -1.7939717575759184,
+  "new158_geometric_mean_improvement_pct": -3.849590922303392,
+  "propagated_incremental_geometric_improvement_pct": -2.0193918453471404,
+  "new158_lower_count": 1,
+  "incremental_lower_count": 0,
+  "no_hyperparameter_sweep": true,
+  "no_gain_accepted": true,
+  "no_native_calls": true,
+  "elapsed_seconds": 0.34010654129087925,
+  "runtime_expression": "At L14 compute state64 dot beta_prop, multiply by prevariance scale; L15 one W_squared.T matvec; add existing94 linear terms and foldedbias, then multiply by sigma15. No64-column runtime transport.",
+  "runtime_main_arithmetic_ceiling_flops": 3500000,
+  "evidence": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_current_variance_capture_v1/run_capture_train16_v1/native_16_capture_capture.npz": "121093c894210d66db551cb991fa393881cff6390f7af544b283b7d7b5e9b914",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0016/weights.npy": "d619752852ebb9d6b80c33d4a693eecef4e2feb731b176b236b051433ab8e72b",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0016.npz": "3364122b529678716b1eb50be1d1b931032b1848cd3ffda5ee5429ce65e76027",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_current_variance_capture_v1/run_capture_train259_v1/native_259_capture_capture.npz": "c4cc23fc957469efb5f7906a258d7f15959ee0aec27b2e7ca67f85ba4dd3930d",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0259/weights.npy": "bfa8e9802b1f647e68f14bdf0de842debd1b6698646c4c633dc8553156ab9b73",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0259.npz": "7568638baa386912db3b744a8667572434951a3921107aec5cf1dead5d78f8c5",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_current_variance_capture_v1/run_capture_train277_v1/native_277_capture_capture.npz": "f944d8141f869c07ec917067c5f7cc98e6a403ebdf2f9aa04d65243a48820b22",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0277/weights.npy": "a4b275d1bb4918f63270f80f5062b0116cfe59f9ea77deee590f23fa0a2d13b8",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/truth688/truthpost_rank0277.npz": "4c3fadbdc56f2aa426accf30a6ea5a59bdb52d70cc85da20e320b7c32844df5f"
+  }
+}

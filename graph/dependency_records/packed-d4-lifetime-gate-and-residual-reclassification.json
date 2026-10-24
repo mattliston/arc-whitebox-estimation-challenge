@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1D30",
+    "label": "Packed-D4 lifetime gate and residual reclassification",
+    "kind": "phase2_packed_d4_lifetime_residual_reclassification",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The target-free static gate proves changing-rank byte/meter parity and a lifetime-layout saving of 1,322,696,704 persistent scratch bytes plus 33,554,432 cold binding FLOPs. The frozen no-retry five-component [35,279,35] gate then stopped on its first unchanged-D4 parent call: residual 0.5711876060813665 seconds was not strictly below 0.4, while FLOPs, call count, RSS, and output were otherwise admissible. The packed candidate made zero calls. A static residual-sync audit found the same parent arithmetic and 15,416-call inventory had previously measured 0.3257444277405739 seconds, so the parent-over-cap run is non-discriminating: it closes this gate without rejecting packed-D4 runtime, and it does not certify candidate runtime or full-component parity. D4 #328622 remains the scored bank.",
+    "terminal_criterion": "Closed measured for this immutable instrumented full-gate spelling with no retry and no candidate call. Preserve the static lifetime-memory and cold-FLOP proof, but claim no packed runtime, production replacement, accuracy result, package, or submission. Only a materially new sync-free lean matched parent/candidate/parent A/B/A successor may revisit runtime, and both unchanged-parent calls must first be strictly below 0.4 seconds.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_d4_lifetime_packed_reinvestment_v1/PACKED_D4_STATIC_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_d4_lifetime_packed_full_gate_v1/FULL_GATE_RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_d4_lifetime_packed_full_gate_v1/TERMINAL_CLOSURE_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_residual_sync_protocol_v1/RESIDUAL_SYNC_PROTOCOL_AUDIT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_residual_sync_protocol_v1/STATIC_VERIFICATION.json"
+    ],
+    "decomposition_children": []
+  }
+}

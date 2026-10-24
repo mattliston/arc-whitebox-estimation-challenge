@@ -1,0 +1,36 @@
+{
+  "status": "CLOSED_NO_MEANINGFUL_GAIN_SUPPORTED",
+  "parent_source": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_hermite_group_view_repair_v1/candidate_hermite_group_views_QR_HELD_v2.py",
+  "parent_sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a",
+  "scope": "Existing historical TRAIN16 covariance snapshots only; no model calls or fresh captures",
+  "plain_psd_receipt": {
+    "file": "TRAIN16_PSD_BOUND_v1.json",
+    "sha256": "d78f068ba633774ba8161f57e81fc45c72593d476e81de4892360f101b78ec55"
+  },
+  "physical_floor_receipt": {
+    "file": "TRAIN16_RADIAL_SECOND_MOMENT_BOUND_v1.json",
+    "sha256": "868a79fc069d0328e4ff5f0852f96dba391fbded2ff8fb6c19798a9d0438d370"
+  },
+  "conclusions": [
+    "Plain PSD negative modes79–98 are essentially already-known negative marginal diagonals; zero-diagonal projection produces next-layer Gaussian mean displacement2.3–7.5e-11 RMS.",
+    "The exact homogeneous-Gaussian radial floor C−βmmT PSD, β=n/E[chi_n]^2−1=.0004884004, has essentially the same defects. Zero-diagonal next-mean displacement2.4–7.5e-11 RMS.",
+    "The nonnegative post-ReLU raw-second-moment constraint Cij+mi*mj>=0 has58248–100980 offdiag violations, but corrections are at most1.2–2.3e-5 and next-mean displacement3.4–7.5e-8 RMS.",
+    "These local displacement diagnostics do not support>=.5% final adjusted gain and are not accuracy measurements.",
+    "HF quadratic marginal-derivative completion would revisit the historical second-order covariance list. V15 TEAM_LOG lines549/553 found omitted products5e-7..7e-6 of v versus1.3–1.5e-3 variance-error RMS; full second-order covariance list was+1.10% with learned correction ON."
+  ],
+  "limits": [
+    "Snapshot source is historical S47e plain Torch, not current post-FHM1c913.",
+    "PSD projection is an offline oracle. Neither zero-diagonal eigenrepair nor elementwise raw-second-moment clipping guarantees PSD.",
+    "No candidate, coefficients, fits, native models, new truths, or deployment tariff were produced."
+  ],
+  "ownership": {
+    "guard": "guard_radial_second_v1.json",
+    "actual_exit_code": 0,
+    "tool_chunk": "9acadd",
+    "whole_group_retired": true,
+    "remaining_rows": [],
+    "preflight_memory_free_pct": 74
+  },
+  "models": 0,
+  "new_truth": 0
+}

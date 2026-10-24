@@ -1,0 +1,34 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/candidate.py",
+    "sha256": "1078e51058e7674e9a322ebfee10ffa8cb124b70a68b1127cc6011ee274b0dde",
+    "bytes": 972220
+  },
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_read7_scan_v1/candidate.py",
+    "sha256": "2212448b123d4be2dadf9c4c8642b49ad1cb3e073a1cc49684e4fc083a19c14f",
+    "bytes": 972032
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/build.py",
+    "sha256": "f2746884bd7c8c996ac4419d1a3bf288d04944a0c76d963c8d97a088357c59da",
+    "bytes": 5359
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/protocol.json",
+    "sha256": "b656e64f112320d3e8b9486a114874e1992a9a84ea65ac07173a97391950e897",
+    "bytes": 1418
+  },
+  "source_diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/source_diff.patch",
+    "sha256": "4bf1685e192dcf774f4a10916fbf0cdfc847879cdb3364f13b7c72f1caf176ba",
+    "bytes": 1870
+  },
+  "source_inverse_exact": true,
+  "changed_parent_functions": [
+    "_bd_update"
+  ],
+  "before": "    projection = _e2_H(fnp.sum(_e2_H(bp * D), axis=1)) / denominator\n    if _BD_J1_PHYS is not None:   # PT-27 j05: leg j1 (row 1) in PHYSICAL form: not orthogonalized, coefficient _BD_J1_PHYS instead of c[1]\n        _j1m, _g5_j1tail, _g5_j1col = _g5_j1((1.0, 0.0, 1.0), _BD_J1_PHYS)   # G5: per-process constants\n        projection = _g5_mulrow(projection, _j1m)\n        c = (c * _j1m + _g5_j1tail) if c.ndim == 1 else (_g5_mulrow(c, _j1m) + _g5_j1col)\n    _e2_hold.append(fnp.subtract(D, _g5_bcast3(bp, projection), out=D))\n",
+  "after": "    if _BD_J1_PHYS is None:\n        projection = _e2_H(fnp.sum(_e2_H(bp * D), axis=1)) / denominator\n        _e2_hold.append(fnp.subtract(D, _g5_bcast3(bp, projection), out=D))\n    else:\n        # Physical j1 has zero projection in the parent; evaluate only j0 and j2.\n        _bj_p0 = _e2_H(fnp.sum(_e2_H(bp * D0), axis=0)) / denominator\n        _bj_p2 = _e2_H(fnp.sum(_e2_H(bp * D2), axis=0)) / denominator\n        _e2_hold.append(fnp.subtract(D0, _e2_H(bp * _bj_p0), out=D0))\n        _e2_hold.append(fnp.subtract(D2, _e2_H(bp * _bj_p2), out=D2))\n        _j1m, _g5_j1tail, _g5_j1col = _g5_j1((1.0, 0.0, 1.0), _BD_J1_PHYS)\n        c = (c * _j1m + _g5_j1tail) if c.ndim == 1 else (_g5_mulrow(c, _j1m) + _g5_j1col)\n",
+  "model_executed": false
+}

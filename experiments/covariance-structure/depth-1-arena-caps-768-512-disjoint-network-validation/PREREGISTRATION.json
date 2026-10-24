@@ -1,0 +1,55 @@
+{
+  "schema": "q24-d1-cp4-cap-exact-integrated-disjoint16-validation-v1",
+  "status": "FROZEN_BEFORE_PANEL_TARGET_OPEN",
+  "pivot_reason": "G11B submission 328616 was terminal negative; validate caps directly on banked D1 #328586 without alpha interpolation or q-head.",
+  "roster_authority": {
+    "path": "../public_q24_cp4_cap_disjoint16_validation_v1/PREREGISTRATION.json",
+    "sha256": "2cbaedbf506d345234e744ca1e5521faf6823a922659ea177f04781e847a6c51",
+    "field": "roster",
+    "law": "reuse the already-frozen target-blind q-head-unseen disjoint16 roster exactly"
+  },
+  "arms": {
+    "d1": {
+      "source_sha256": "f2ec257c891241b57c85803c70c73f365e075711e2b2cd214d9b58250762892e",
+      "relation": "exact banked D1 source submitted as 328586"
+    },
+    "cap768": {
+      "source_sha256": "5e631aea5fcfba83ccae15a97f820c82762a55b70400f61fbf4ef9e225216a11",
+      "relation": "one equal-width literal edit _CP4_CAP 2048 to 768; reverse edit restores D1 bytes",
+      "expected_structural_flop_saving": 103776627200
+    },
+    "cap512": {
+      "source_sha256": "bfae86342955e8a4795a0e4de974d607057b81466509d6f227bc89d5f392f0c7",
+      "relation": "one equal-width literal edit _CP4_CAP 2048 to 512; reverse edit restores D1 bytes",
+      "expected_structural_flop_saving": 125843312640
+    }
+  },
+  "validation_law": {
+    "prediction": "exact integrated estimator output for each source and weight fixture",
+    "metric": "per-network final-layer MSE over 1024 coordinates",
+    "arm_mean_gate": "mean of 16 per-network MSE values is strictly below D1",
+    "arm_majority_gate": "at least 10 of 16 networks have strictly lower MSE than D1",
+    "promotion": "an arm must pass both gates; among passing arms select lowest mean MSE, breaking ties toward lower cap",
+    "target_read_order": "all 48 target-free outputs and receipts verify before the single observer_fit target read",
+    "projected_adjusted_law": "submission328586 adjusted * panel raw ratio * max fixture candidate/baseline compute ratio"
+  },
+  "resource_gates": {
+    "each_call_below_2pow41": true,
+    "each_operation_sum_equals_bill": true,
+    "each_output_float32_16x1024_finite": true,
+    "each_rss_below_8_gib": true,
+    "sequential_isolated_processes": true
+  },
+  "bindings": {
+    "observer_fit_targets_sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7",
+    "submission_328586_raw_mse": 2.9409214512554626e-8,
+    "submission_328586_adjusted_score": 2.1258043062525995e-8
+  },
+  "constraints": {
+    "no_alpha_interpolation": true,
+    "no_qhead": true,
+    "no_model_refit": true,
+    "no_board_submission": true,
+    "no_panel_expansion_after_target_open": true
+  }
+}

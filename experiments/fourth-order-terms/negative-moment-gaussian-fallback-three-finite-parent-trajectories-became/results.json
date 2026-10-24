@@ -1,0 +1,762 @@
+{
+  "bindings": {
+    "fixture_helper_sha256": "2c37c363155ac2b709de00a0d7a949a33a43106592e0df88daa7509bf2468b2d",
+    "parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "preregister_sha256": "ef642a8e6b7f928427fcf1f395496fd2b839e5089c06046dbb138ea7d4054e0c",
+    "runner_sha256": "ca987f48839fb152069083b576af5e9f5ac2a7a8a7d0981aa7b14197da0f7666"
+  },
+  "gates": {
+    "activation_count": 1609,
+    "all_returned_r3_r4_represented_nonnegative": false,
+    "construction_pass": false,
+    "no_parent_finite_regression": false,
+    "parent_failure_recovered_count": 2
+  },
+  "rows": [
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls": 7023,
+        "dtype": "float32",
+        "flops": 17178957,
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "FINITE",
+        "output_sha256": "6faa838c43e63803a332d2cd867f391c96fe5f2ced0a6429b9a168f0ebb59600",
+        "shape": [
+          16,
+          8
+        ]
+      },
+      "finite_pair_disagreement": {
+        "all_layer_mse": 0.0,
+        "final_layer_mse": 0.0,
+        "maximum_absolute_difference": 0.0
+      },
+      "fixture": "identity_width8_float32",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 17173677,
+        "outcome": "FINITE",
+        "output_sha256": "6faa838c43e63803a332d2cd867f391c96fe5f2ced0a6429b9a168f0ebb59600",
+        "shape": [
+          16,
+          8
+        ]
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls": 7023,
+        "dtype": "float32",
+        "flops": 17178957,
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "FINITE",
+        "output_sha256": "2a58c4d3266e65d7ca968fdde6f199eeb41809fec39659ae371fd9b7c28cbacc",
+        "shape": [
+          16,
+          8
+        ]
+      },
+      "finite_pair_disagreement": {
+        "all_layer_mse": 0.0,
+        "final_layer_mse": 0.0,
+        "maximum_absolute_difference": 0.0
+      },
+      "fixture": "near_identity_seed20260823_scale0p02_float32",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 17173677,
+        "outcome": "FINITE",
+        "output_sha256": "2a58c4d3266e65d7ca968fdde6f199eeb41809fec39659ae371fd9b7c28cbacc",
+        "shape": [
+          16,
+          8
+        ]
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          0,
+          3,
+          5,
+          5,
+          5,
+          3,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        "exception_message": "Eigenvalues did not converge",
+        "exception_type": "LinAlgError",
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "EXCEPTION"
+      },
+      "finite_pair_disagreement": null,
+      "fixture": "qr_seed20260823_scale0p35_float64",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 17173549,
+        "outcome": "FINITE",
+        "output_sha256": "7259324666b6ed7686bcfab48a997cca00e637f18e4281e0140ca280c2476698",
+        "shape": [
+          16,
+          8
+        ]
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          6,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "calls": 7023,
+        "dtype": "float32",
+        "flops": 17178957,
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "FINITE",
+        "output_sha256": "c3248cf0fb9b5cddfffc30c9e71c3d81baf925fd2db0182fc8da0a9ca52295f1",
+        "shape": [
+          16,
+          8
+        ]
+      },
+      "finite_pair_disagreement": {
+        "all_layer_mse": 2024.5585812440984,
+        "final_layer_mse": 5.5628056614115673e-08,
+        "maximum_absolute_difference": 489.56126576372117
+      },
+      "fixture": "pure_normal_seed17_scale0p12_float32",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 17173677,
+        "outcome": "FINITE",
+        "output_sha256": "570f77994aed411a5e0d9af04169ff7bb3c4e5594ee8b5df887f84c4f1a1e5ca",
+        "shape": [
+          16,
+          8
+        ]
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          0,
+          0,
+          6,
+          13,
+          11,
+          10,
+          7,
+          11,
+          9,
+          11,
+          12,
+          16,
+          13,
+          12
+        ],
+        "calls": 7023,
+        "dtype": "float32",
+        "flops": 257193141,
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "FINITE",
+        "output_sha256": "8cc9c1f3f772735815ed4c15a2c648fae4e80aeda21cdb6134138cad88643d3e",
+        "shape": [
+          16,
+          32
+        ]
+      },
+      "finite_pair_disagreement": {
+        "all_layer_mse": 1512627507768880.5,
+        "final_layer_mse": 1717176249695541.5,
+        "maximum_absolute_difference": 253885240.16015625
+      },
+      "fixture": "official_he_width32_seed20260825",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 257172021,
+        "outcome": "FINITE",
+        "output_sha256": "71b1cc8d62308be8f68eb7d9264d6906022b08fe96a99ac8a02019b425e27d8e",
+        "shape": [
+          16,
+          32
+        ]
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          1,
+          13,
+          11,
+          14,
+          13,
+          10,
+          21,
+          19,
+          14,
+          14,
+          19,
+          11,
+          14,
+          16
+        ],
+        "calls": 7023,
+        "dtype": "float32",
+        "flops": 257193141,
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "FINITE",
+        "output_sha256": "f233cc814a6c8d789385aa477a1ba61a805d2fbf1287e2037a579974629b3a5c",
+        "shape": [
+          16,
+          32
+        ]
+      },
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width32_seed20260826",
+      "parent": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION"
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          27,
+          24,
+          21,
+          15,
+          30,
+          34,
+          25,
+          26,
+          30,
+          31,
+          29
+        ],
+        "calls": 7023,
+        "dtype": "float32",
+        "flops": 1278065045,
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "FINITE",
+        "output_sha256": "dde89eb6e645e0ec8eeee5813544fe4ad1079ad64d782b032f071e15617e3522",
+        "shape": [
+          16,
+          64
+        ]
+      },
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width64_seed20260825",
+      "parent": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION"
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          0,
+          0,
+          21,
+          21,
+          22,
+          30,
+          38,
+          27,
+          37,
+          14,
+          13,
+          36,
+          43,
+          0
+        ],
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "EXCEPTION"
+      },
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width64_seed20260826",
+      "parent": {
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "outcome": "EXCEPTION"
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          31,
+          72,
+          70,
+          51,
+          108,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "EXCEPTION"
+      },
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width128_seed20260825",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 7395322197,
+        "outcome": "FINITE",
+        "output_sha256": "0e6bd1cfd84a0be998e595f211d389ee1e5b93f9504f83ce9568aab919078d0c",
+        "shape": [
+          16,
+          128
+        ]
+      }
+    },
+    {
+      "fallback": {
+        "activation_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          47,
+          74,
+          63,
+          63,
+          64,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean",
+        "exception_type": "FloatingPointError",
+        "negative_r3_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "negative_r4_counts_by_reset": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outcome": "EXCEPTION"
+      },
+      "finite_pair_disagreement": null,
+      "fixture": "official_he_width128_seed20260826",
+      "parent": {
+        "calls": 6843,
+        "dtype": "float32",
+        "flops": 7395322197,
+        "outcome": "FINITE",
+        "output_sha256": "ba138d458b091a804ba18fa596fc7665f4b01eb87d48198fc85be2517d5334d4",
+        "shape": [
+          16,
+          128
+        ]
+      }
+    }
+  ],
+  "schema": "q24-negative-moment-gaussian-fallback-probe-v1",
+  "scope": {
+    "dataset_rows": 0,
+    "full_width_1024_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "targets": 0,
+    "truth": 0
+  },
+  "status": "REJECT_CONSTRUCTION_PROBE"
+}

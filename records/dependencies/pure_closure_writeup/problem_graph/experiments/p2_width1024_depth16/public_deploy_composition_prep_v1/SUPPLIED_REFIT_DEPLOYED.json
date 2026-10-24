@@ -1,0 +1,108 @@
+{
+  "caveats": "all-200 is in-sample for the corrector (train160 included); the in-sample optimism measured on the joint refit was ~1.7% (3.188 vs 3.134e-8 valid-40); fire decisions also need the actual composed+supply card metered bill and the virgin gate, per standing law",
+  "deployed_frame": {
+    "all200_deployed_layer_mse": [
+      6.809785359739029e-10,
+      5.520892176426094e-10,
+      8.116942084072584e-10,
+      1.8196829485338139e-09,
+      3.530925158165302e-09,
+      5.650496737564044e-09,
+      7.932296020451483e-09,
+      1.044605435385296e-08,
+      1.2969822559316487e-08,
+      1.56302400617375e-08,
+      1.8272130610328993e-08,
+      2.1185753938308112e-08,
+      2.3761308575611906e-08,
+      2.654149168738571e-08,
+      2.9228746887989655e-08,
+      3.194712190734079e-08
+    ],
+    "all200_final_mse_IN_SAMPLE": 3.194712190734079e-08,
+    "all200_note": "160 of these 200 rows trained the corrector; the all-200 number is in-sample-optimistic",
+    "all200_unclamped_final_mse": 3.194818895610166e-08,
+    "clamp_engaged_elements_of_3276800": 63848,
+    "definition": "deployed = max(supplied_host + corrector(tape), 0) vs truth; torch forward as the corrector (flopscope parity banked at 1.75e-10)",
+    "finite": true,
+    "train160_final_mse_in_sample": 3.1989523650672916e-08,
+    "valid40_final_mse": 3.1777514934012225e-08
+  },
+  "fire_economics": {
+    "bank_board_adjusted": 2.2843e-08,
+    "beats_bank_IN_SAMPLE_OPTIMISTIC": false,
+    "deployed_baseline_all200_in_sample": 2.958e-08,
+    "measured_all200_deployed_IN_SAMPLE": 3.194712190734079e-08,
+    "projected_adjusted_IN_SAMPLE_OPTIMISTIC": 2.7266868547915365e-08,
+    "projected_bill_note": "no-eigh 1716e9 + supply ~161e9 -> ~1877e9 (multiplier handed down; the composed+supply card must be metered before any actual fire)",
+    "projected_vs_bank_ratio": 1.1936640786199433,
+    "ratio_vs_deployed_baseline": 1.080024405251548,
+    "rule": "fire beats the bank iff all200_deployed x 0.8535 < 2.2843e-8, i.e. all200_deployed < 2.676e-8",
+    "supplied_util_multiplier": 0.8535,
+    "threshold_all200_deployed_raw": 2.676e-08,
+    "threshold_exact_bank_over_multiplier": 2.676391329818395e-08
+  },
+  "floor_question": {
+    "base_refit_floor_valid40": 3.133419038664782e-08,
+    "below_3p13e8_floor": false,
+    "floor_moved_vs_base": -0.014183810470096647,
+    "joint_refit_floor_valid40": 3.133856737168449e-08,
+    "supplied_refit_valid40_final_mse": 3.1778628604325956e-08
+  },
+  "protocol": {
+    "epochs": 6,
+    "j_source_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "law": "frozen 160/40 J-native transfer protocol (k22_refit_diagnostic spelling)",
+    "model_seed": 1753362478,
+    "parameters": 25600,
+    "rows": "public_k211_supply_v1/rows ranks 35..234",
+    "rows_generator_sha256": "dd1f8be5a5a41b8d00ae40355a5d11a85ea038a4e11e0b83a51546844e0b78a4",
+    "rows_host_kind": "k22full-supplied-monkeypatch",
+    "rows_supply_core_sha256": "fb5df7ad0895df36435207f085f16dbd47aa9065fd69848a9ab16f4705ba0cb7",
+    "shuffle_stream_id": 40,
+    "targets_opened_after_full_receipt_verification": true
+  },
+  "raw_host_no_corrector": {
+    "all200_final_mse": 3.358886567981383e-08,
+    "all200_layer_mse": [
+      6.809785359739029e-10,
+      5.520892176426094e-10,
+      8.208594352979287e-10,
+      1.8430502991565618e-09,
+      3.59634941031417e-09,
+      5.7611786717420356e-09,
+      8.122573752663262e-09,
+      1.0718223468880534e-08,
+      1.3305771525443007e-08,
+      1.608716083473184e-08,
+      1.8836492990576132e-08,
+      2.1879428569743806e-08,
+      2.455660047386907e-08,
+      2.7533063315442725e-08,
+      3.042876918535288e-08,
+      3.358886567981383e-08
+    ],
+    "valid40_final_mse": 3.326225666119269e-08
+  },
+  "schema": "supplied-refit-deployed-v1",
+  "training": {
+    "finite_full_rollout": true,
+    "j_removal_fraction_valid40": 0.0446039507174415,
+    "model_sha256": "625a0a3338e47ee869b94ad5c3437f6bfe8b8f4c875400fddafe3565f541f829",
+    "training_seconds": 111.42235195776448,
+    "training_trace_final": {
+      "elapsed_seconds": 106.21185354096815,
+      "epoch": 6,
+      "fit_objective": 1.9242020666599273,
+      "fold": 40,
+      "learning_rate": 0.0001,
+      "max_rss_bytes": 1629569024,
+      "mix_delta_max_abs": 0.11269824951887131,
+      "own_primary_state_exposure": 1.0,
+      "transport_delta_max_abs": 0.07873720675706863
+    },
+    "valid40_corrected_final_mse_protocol_unclamped": 3.1778628604325956e-08,
+    "valid40_host_final_mse": 3.326225666119269e-08
+  },
+  "verdict": "FIRE_ECONOMICS_FAIL"
+}

@@ -1,0 +1,130 @@
+{
+  "status": "FROZEN_BEFORE_ANY_JOINT_FIT",
+  "approved": true,
+  "reviewed_by": "root",
+  "executed_by": "compute_hunt",
+  "authority": "Root explicitly authorized one bounded saved-TRAIN32 final-objective joint propagated-feature ridge; no native calls.",
+  "train_ranks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "folds": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      12,
+      13,
+      14,
+      15
+    ],
+    [
+      16,
+      17,
+      18,
+      19
+    ],
+    [
+      20,
+      21,
+      22,
+      23
+    ],
+    [
+      24,
+      25,
+      26,
+      27
+    ],
+    [
+      28,
+      29,
+      30,
+      31
+    ]
+  ],
+  "layers": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "ridge": 10.0,
+  "shrink": 0.5,
+  "RMS_floor": 1e-06,
+  "basis": "B_l=[sigma_l*physical30,sigma_l*returnedstate64,sigma_l],95columns per layer. Sequentially propagate accumulated basis via gate_j[:,None]*(W[j].T@basis), then append B_j. Final gate15 from exact cached QR capture. All760 jointly fitted.",
+  "target": "existing final truth minus unrounded nonnegative QR final mean",
+  "objective": "Per-network relative finalMSE: rowweight1/baselineF32MSE; normalize TRAIN weights to mean1. TRAIN-only uncentered column RMS normalization. Penalize all760 normalized coefficients by10; separate constantterminal intercept unpenalized.",
+  "evaluation": "max(QR_postclamp_mean+.5*(propagated760@raw_coef+terminal_intercept),0).astype(float32); equal-network mean finallogMSE. Fixedbaseline analytic gate response only.",
+  "promotion": "mean final logMSE ratio<=-.003 and >=6/8foldsnegative; forecast only, root native review required.",
+  "zero_baseline": true,
+  "no_sweep": true,
+  "no_all32_finalfit": true,
+  "no_capture_or_MC": true,
+  "no_models": true,
+  "memory_guard_bytes": 7500000000,
+  "wall_guard_seconds": 120,
+  "internal_stop_seconds": 115,
+  "expected_transport_FLOPs": 229512314880,
+  "stored_basis_bytes": 199229440,
+  "sufficient_statistics": "Per-network G=F.T@F/n, mu=meanF, rhs=F.T@target/n. Each fold sums onlyTRAIN statistics; exact algebraic implementation of requested weighted normalized ridge.",
+  "history_distinction": "Prior TEAM_LOG3246 used W15_squared.T*(L14sigma\u00b2*state64),3networks,variance-like extra terminal feature. This uses W.T/gate mean transport across8layers and fits all760 jointly to finalobjective on32networks.",
+  "fit_script_sha256": "e2cd5c10c0867dd0f189d591a9ad05a96c938737408bc0a8926aa71759bd8c37",
+  "local_retirement": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/ROOT_CAPTURE_RETIREMENT_v1.json",
+  "terminal_retirement": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_terminal_linear_refit_v1/ROOT_CAPTURE_RETIREMENT_v1.json",
+  "capture_protocol": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/CAPTURE_PROTOCOL_REGISTERED_v1.json",
+  "input_pins": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/ROOT_CAPTURE_RETIREMENT_v1.json": "286b71c11e09a12b145dc376cb5f7af7c71ba367b8d94bc5fe69975ed3e3c6a7",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_terminal_linear_refit_v1/ROOT_CAPTURE_RETIREMENT_v1.json": "94dbc42175d4e7349217f6a3c37134ad83f454654fed4a17e1f58e27b6d6fde6",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_native_intermediate_mean_refit_v1/CAPTURE_PROTOCOL_REGISTERED_v1.json": "2899fc5880cb77034a1108ab5c188c5aa5f77ec7bb2a82966c946d47f5dde8d3"
+  }
+}

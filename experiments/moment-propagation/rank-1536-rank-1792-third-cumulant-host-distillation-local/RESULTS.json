@@ -1,0 +1,125 @@
+{
+  "accuracy_lane": {
+    "estimated_flops": {
+      "fraction_of_budget": 0.9672525776309158,
+      "local_linear_head": 1966080,
+      "physical_transport": 31472640,
+      "q24_host": 2126977473483,
+      "total": 2127010912203
+    },
+    "feature_count": 60,
+    "fit_ranks": [
+      0,
+      160
+    ],
+    "fit_response_energy_trim_fraction": 0.025,
+    "model": "robust ridge innovations plus autonomous scalar physical transport",
+    "projected_adjusted_score": 4.214183534404749e-08,
+    "projects_below_1e_minus_8_adjusted": false,
+    "ridge_fixed_from_prior_pilot": 0.03,
+    "transport_gains": [
+      0.0,
+      1.000828426785088,
+      1.005215968594503,
+      1.0063777540526135,
+      1.032393619129391,
+      1.0363335292353717,
+      1.0333708720533763,
+      1.0348030176587133,
+      1.035781316511993,
+      1.036020583313598,
+      1.0334239113758594,
+      1.0333841341404582,
+      1.0299512727584454,
+      1.0312067155329423,
+      1.0265209770254424,
+      1.0269264866121561
+    ],
+    "validation_autonomous_final_raw_mse": 4.3568594510510543e-08,
+    "validation_autonomous_layer_mse": [
+      6.767788158214919e-10,
+      5.882413903890055e-10,
+      9.011487857281123e-10,
+      1.995592047772392e-09,
+      3.861325389642818e-09,
+      6.23816601351691e-09,
+      9.177442443218854e-09,
+      1.2389313099367318e-08,
+      1.5921004240263597e-08,
+      1.967312342336576e-08,
+      2.3403127228301183e-08,
+      2.707539785655543e-08,
+      3.081796151245891e-08,
+      3.5295249834223204e-08,
+      3.9313704874752764e-08,
+      4.3568594510510543e-08
+    ],
+    "validation_baseline_final_raw_mse": 9.1654788988087e-08,
+    "validation_ranks_opened_once": [
+      160,
+      200
+    ],
+    "validation_teacher_forced_final_raw_mse": 8.77026611809935e-09
+  },
+  "baselines": {
+    "cp1792_validation_final_raw_mse": 3.6550265416015338e-06,
+    "q24_train_final_raw_mse": 2.2736172772782944e-06,
+    "q24_validation_final_raw_mse": 9.165478898808698e-08
+  },
+  "cheap_lane_q24_distillation": {
+    "estimated_flops": {
+      "cp1792_host": 214122341378,
+      "fraction_of_budget": 0.09737633587883465,
+      "student_upper_bound": 10485760,
+      "total": 214132827138
+    },
+    "fit_ranks": [
+      0,
+      160
+    ],
+    "model": "32-tree/layer CP-local student with four-scalar autonomous recurrent summary",
+    "projected_adjusted_score": 1.420487717155977e-07,
+    "projects_below_1e_minus_8_adjusted": false,
+    "training_teacher": "current_q24",
+    "validation_q24_distillation_final_mse": 1.4162946470681744e-06,
+    "validation_ranks_opened_once": [
+      160,
+      200
+    ],
+    "validation_truth_final_raw_mse": 1.420487717155977e-06
+  },
+  "cheap_lane_truth_supervision": {
+    "estimated_flops": {
+      "cp1792_host": 214122341378,
+      "fraction_of_budget": 0.09737633587883465,
+      "student_upper_bound": 10485760,
+      "total": 214132827138
+    },
+    "fit_ranks": [
+      0,
+      160
+    ],
+    "model": "32-tree/layer CP-local student with four-scalar autonomous recurrent summary",
+    "projected_adjusted_score": 1.2570374191186224e-07,
+    "projects_below_1e_minus_8_adjusted": false,
+    "training_teacher": "public_truth",
+    "validation_q24_distillation_final_mse": 1.2920087368134538e-06,
+    "validation_ranks_opened_once": [
+      160,
+      200
+    ],
+    "validation_truth_final_raw_mse": 1.2570374191186224e-06
+  },
+  "schema": "public-dual-distill-fast-screen-v1",
+  "split": {
+    "fit": [
+      0,
+      160
+    ],
+    "validation_opened_once": [
+      160,
+      200
+    ]
+  },
+  "wall_seconds": 248.53512625023723
+}

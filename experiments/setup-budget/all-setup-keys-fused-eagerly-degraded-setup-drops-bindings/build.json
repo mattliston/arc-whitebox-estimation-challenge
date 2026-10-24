@@ -1,0 +1,34 @@
+{
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_all_eager_fusion_v1/build.py",
+    "sha256": "2eaa1bcdc5bae81207a41309e93362327ab007dfbb84bae8bddf8a824a08e03b",
+    "bytes": 5335
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_all_eager_fusion_v1/candidate.py",
+    "sha256": "0f3189d623d653aa1678a29cabd15244686900e79d67a1f70ea396f03362d397",
+    "bytes": 975932
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_all_eager_fusion_v1/protocol.json",
+    "sha256": "6e3b41b40eeddbb30dd941686774057bf0fd2be92a6ae6b863c4aa09884daad1",
+    "bytes": 7248
+  },
+  "source_inverse": {
+    "parent": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_scatter_forward_gather_v1/candidate.py",
+      "sha256": "1056a1b79acedd1ab75bd711c4880b0507318db15448db48638e618baa7dcf4d",
+      "bytes": 975914
+    },
+    "edits": [
+      {
+        "before": "    ops = _lvf_ops(kind, L, levels, chunks, groups[0]) if _LVF_EAGER[0] else None\n",
+        "after": "    ops = _lvf_ops(kind, L, levels, chunks, groups[0]) if (_LVF_EAGER[0] or _LVF_KEEP[0]) else None\n"
+      }
+    ],
+    "exact_inverse": true
+  },
+  "ast_parsed": true,
+  "only_one_condition_changed": true,
+  "roster_deadline_and_other_functions_byte_identical": true
+}

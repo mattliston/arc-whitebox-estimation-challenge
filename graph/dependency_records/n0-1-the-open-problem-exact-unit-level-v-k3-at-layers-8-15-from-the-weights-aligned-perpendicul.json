@@ -1,0 +1,29 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N0_1_OPEN_PROBLEM",
+    "label": "N0.1 THE OPEN PROBLEM (exact): unit-level (v, k3) at layers 8-15 from the weights, aligned perpendicular to the learned operator's span, at <= ~+10% util",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "Judge (T-61): a correction beats the board only if the component of its final-layer effect perpendicular to the deployed operator's correction span aligns with the deployed card's leftover error. Truth per-layer states align at +0.4..+0.8 (truth v+k3+k4: +0.80/+0.72); frozen k3/k4 tables: 70-79% inside the span, remainder uncorrelated; a learned in-card k3 corrector: inside the span (T-62); engine deploy-frame states injected in-card: 60-97% outside the span but aligned only +0.09..+0.28 -> cap -8% (r35) / -4% (r100) of the board MSE even if carried free (T-63). In-card tape/mechanistic features explain <= 0.25 of the unit-level residual (T-62). Ceiling if solved: truth v+k3 on top of both tables -> -92% (r35) / -67% (r100) of the current host (T-58). Priced routes on record: residual carry -9..-12% at +26-39% util; rows/rank/partial carries worse than none; born-word plane feed 12-48 GEMM-eq/layer. A priced design memo of candidates is being written (OPEN_PROBLEM_MEMO.md). T-64..T-67: A's OPEN_PROBLEM_MEMO.md ranks six candidates; #1 (extended-feature operator on the two-table host) was built and tested as round 3 - valid-40 removal 26%, 20-net gate 3.144e-8, r35 -4.0% in-sample, r100 +21% worse, perpendicular alignment +0.09/-0.05 -> FAILS; no port, no fire. Round 2 (two-table refit): r100 +23% worse. The 31-feature extractor (public_g28_mech_features_v1/mechfeat.py) is certified and costs 0.11% of the budget in-card. Remaining candidates in the memo are theory-only or closed; the problem stands exactly as stated. T-68..T-70 (public_g29_bond_kernel_v1): N0.1 split into two mechanistic children by reading the engine's kernel against the card's: N0.1a (gate-only bond kernel) closed at 0.4-0.7% of the read; N0.1b (plane-to-distinct feed) LIVE - one-step 16-30% of the residual with slope ~1 on both nets, one GEMM-class pattern. Structural fact: the residual is ~1e-3 absolute at every layer (30x the 32M truth noise at depth); 75-90% of k3 rides on the CP births. T-71..T-73: N0.1 re-decomposed after the fourth-order plane finding: N0.1c planes (= the learned operator; derived replacement, in-span for the board), N0.1d k3 given planes (perpendicular, engine-class 4.5-6.5%), N0.1e v given planes+k3 (-> floor). Truth planes + truth k3 + truth v = noise floor on both nets. T-80: reframed for the board (operator kept): the lever is the per-unit VARIANCE (N0.1e, priority 1; half-v ceiling -25% / -35%); k3 and k4 corrections conflict with the operator (r100 / both). For the derived route (operator replaced) the ceiling is engine-K22 planes (3.1-3.7e-8 F2J-off). T-80i..T-80l: with the operator KEPT, half of the true (v, k3) corrections reach r35 8.5e-9 / r100 1.65e-8 -> new leaf N0.1f (priority 1): a deployable half-scale (dv, dk3) supply aligned >~ 0.9. N0.1e's variance-only frame is subsumed (v and k3 pay jointly at half scale).",
+    "terminal_criterion": "Closed when a deployable supply passes the judge on the 8-net panel and the virgin gate and beats the board.",
+    "evidence": [
+      {
+        "claim": "Night verdict receipts.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-58..T-63 + experiments/p2_width1024_depth16/public_g22_operator_features_v1/REDUNDANCY_DIAGNOSTIC.json + experiments/p2_width1024_depth16/public_g23_k3_supply_v1/LANE.md sections 22-24 + PERP_JUDGE_ENGINE.json"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_MECH_N0_1A_BOND_KERNEL",
+      "P2R0G19B_MECH_N0_1B_PLANE_FEED",
+      "P2R0G19B_MECH_N0_1C_FOURTH_PLANES",
+      "P2R0G19B_MECH_N0_1D_K3_GIVEN_PLANES",
+      "P2R0G19B_MECH_N0_1E_V_GIVEN_PLANES_K3",
+      "P2R0G19B_MECH_N0_1F_HALF_SCALE_SUPPLY"
+    ],
+    "goal_path_summary": "Everything cheap has been measured and closed; what remains is one precisely stated problem: compute, from the network's weights and affordably, the per-neuron variance and skew corrections at depth that the learned patch cannot already guess - the test for any proposal is written down."
+  }
+}

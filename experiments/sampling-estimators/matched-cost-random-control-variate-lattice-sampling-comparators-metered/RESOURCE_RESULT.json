@@ -1,0 +1,99 @@
+{
+  "access": {
+    "fits": 0,
+    "mini_weight_rows_decoded": 1,
+    "scores": 0,
+    "submissions": 0,
+    "target_metrics_computed": 0,
+    "target_values_decoded": 0
+  },
+  "comparison": {
+    "cp1792": {
+      "flops_used": 214122341378,
+      "official_receipt_path": "../meter_protocol/runs/cp3_cap1792_n1_s1000_seed20260823/receipt.json",
+      "official_receipt_sha256": "71c4eedf2b04f3430bbca3ebf20882b0dc08daadf8895be14112f85fca240115",
+      "residual_wall_time_s": 0.13626903528347611,
+      "sampled_descendant_peak_rss_bytes": 2371272704,
+      "source_sha256": "035e3bd2fd08d3358f5424fc67f10281e5559e65fa9c6d6dce97791108b176dc",
+      "wall_time_s": 1.350868500303477
+    },
+    "lanes": {
+      "affine_cv": {
+        "backend_wall_time_s": 0.1945936232805252,
+        "bill_fraction_of_cp1792": 0.9999616219309619,
+        "flops_used": 214114123776,
+        "integer_flop_margin_below_cp1792": 8217602,
+        "next_structural_unit_minimum_forward_flops": 67076096,
+        "official_receipt_path": "../meter_protocol/runs/p2r0g_affinecv_n3183_n1_s1000_seed20260823/receipt.json",
+        "official_receipt_sha256": "1b1495a1ffac19db4d7f695f7ff95f037c5cfc3f0ceda65f948970b1788834cf",
+        "overhead_wall_time_s": 0.050526808481663465,
+        "residual_wall_time_s": 0.015520860441029072,
+        "sample_schedule": 3183,
+        "sampled_descendant_peak_rss_bytes": 1911259136,
+        "wall_time_s": 0.26064129220321774
+      },
+      "iid": {
+        "backend_wall_time_s": 0.14809792302548885,
+        "bill_fraction_of_cp1792": 0.9999988857117923,
+        "flops_used": 214122102784,
+        "integer_flop_margin_below_cp1792": 238594,
+        "next_structural_unit_minimum_forward_flops": 33538048,
+        "official_receipt_path": "../meter_protocol/runs/p2r0g_iid_n6372_n1_s1000_seed20260823/receipt.json",
+        "official_receipt_sha256": "cce64741a954da0049786a427290ce97419428acde5c840b68458d891bfef8df",
+        "overhead_wall_time_s": 0.03144119726493955,
+        "residual_wall_time_s": 0.0063036298379302025,
+        "sample_schedule": 6372,
+        "sampled_descendant_peak_rss_bytes": 1858011136,
+        "wall_time_s": 0.1858427501283586
+      },
+      "rqmc": {
+        "backend_wall_time_s": 0.2635358623228967,
+        "bill_fraction_of_cp1792": 0.9999477275844829,
+        "flops_used": 214111148686,
+        "integer_flop_margin_below_cp1792": 11192692,
+        "next_structural_unit_minimum_forward_flops": 33538048,
+        "official_receipt_path": "../meter_protocol/runs/p2r0g_rqmc_n6334_n1_s1000_seed20260823/receipt.json",
+        "official_receipt_sha256": "e882d2aac61b3dd52b9af958b48c1b99f3af119973f897af7a26f5b83b71d041",
+        "overhead_wall_time_s": 0.3914615106768906,
+        "residual_wall_time_s": 0.024948168080300093,
+        "sample_schedule": [2048, 2048, 2048, 128, 32, 16, 8, 4, 2],
+        "sampled_descendant_peak_rss_bytes": 2071265280,
+        "wall_time_s": 0.6799455410800874
+      }
+    },
+    "rule": "largest frozen structural sample schedule with official flopscope-0.12 bill <= CP1792; no dummy work"
+  },
+  "draft_runs_retained_but_excluded": [
+    "../meter_protocol/runs/p2r0g_iid_n12736_n1_s1000_seed20260823",
+    "../meter_protocol/runs/p2r0g_iid_n6368_n1_s1000_seed20260823",
+    "../meter_protocol/runs/p2r0g_rqmc_draft_n6312_n1_s1000_seed20260823",
+    "../meter_protocol/runs/p2r0g_affinecv_draft_n3180_n1_s1000_seed20260823"
+  ],
+  "frozen_artifacts": {
+    "discriminator_receipt_path": "TARGET_BLIND_DISCRIMINATOR_RECEIPT.json",
+    "discriminator_receipt_sha256": "c3ad6ce10ec1fb03da4e4107f140c4a75e4bdcc6dffa27c579cc1f41c402ff23",
+    "discriminator_runner_sha256": "a3fbfdabc0f1813304b9c2aa70d4d579e2ed3acc67c50081f7aec7f5626d4d61",
+    "preregistration_sha256": "7b8cc493d679e51076da7553ff1f42d85d3576ddd9814730cefe1a3422edee4c",
+    "result_verifier_sha256": "61b2b3fd5d7554a8b27f0bafc8c3b57805fe485c58bcfd033b4eede17c7cc0ca",
+    "source_sha256": "71a2d14139ed8aeee96968a5848fdd63b9e5646d771e5cf155d7109227787c14",
+    "static_verification_path": "STATIC_VERIFICATION.json",
+    "static_verification_sha256": "7a64c0e7fd73863512f606a8180c6a4231fa6ca7278bdf8ad43089ca264e5fe8",
+    "verifier_sha256": "64aa86ed89283eeffd31d2e808425d57a91fb36c166b9bf7a2e5a1d7f57b617b"
+  },
+  "gates": {
+    "accuracy": "HOLD_TARGETS_UNOPENED",
+    "affine_control_expectation_algebra": "PASS",
+    "all_three_official_receipts_reverified": "PASS",
+    "equal_cp1792_bill_rule": "PASS",
+    "finite_float32_16x1024_output": "PASS",
+    "official_residual_wall_time_below_0p4_s": "PASS",
+    "official_sampled_descendant_rss_below_8_gib": "PASS",
+    "qmc_prefix_stratification": "PASS",
+    "scientific_promotion": "HOLD_NO_TARGET_METRIC",
+    "target_blind_mini_execution": "PASS"
+  },
+  "interpretation": "Resource and target-blind execution gates pass. No target was opened, so no lane is selected and P2R0G accuracy remains on HOLD pending separately authorized sealed scoring.",
+  "schema": "phase2-p2r0g-equal-budget-resource-result-v1",
+  "source_sha256": "71a2d14139ed8aeee96968a5848fdd63b9e5646d771e5cf155d7109227787c14",
+  "status": "PASS_RESOURCE_AND_TARGET_BLIND_EXECUTION__HOLD_ACCURACY_AND_PROMOTION"
+}

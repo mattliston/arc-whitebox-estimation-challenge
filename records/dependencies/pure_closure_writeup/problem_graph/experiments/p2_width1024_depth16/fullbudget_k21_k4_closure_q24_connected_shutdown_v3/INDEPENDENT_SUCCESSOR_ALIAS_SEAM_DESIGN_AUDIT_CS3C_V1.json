@@ -1,0 +1,83 @@
+{
+  "schema": "q24-cs3c-independent-distinct-source-observability-seam-design-audit-v1",
+  "status": "APPROVE_DISTINCT_SOURCE_ONLY__ALIAS_SEAM_PHASE2_LEGAL_AND_EXACT_NORMAL_PATH__PREREG_SOURCE_AND_EXECUTION_STILL_HELD",
+  "created_at_utc": "2026-08-24T15:22:05Z",
+  "bindings": {
+    "frozen_parent_estimator_sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+    "v3_terminal_result_sha256": "cde21e1338cc6eb749e4ff239cc4fd5de64181400346d30ca8f86cb0a67f8def",
+    "independent_v3_terminal_audit_sha256": "b63414482d926765146c4c9b12a77a64bc39336349f71e1fbe524319fafe931a",
+    "research_protocol_sha256": "51b56f5226b783e5181ef1fa25609278898edb0ea04f52b541b7efb8dbc3f467"
+  },
+  "proposed_exact_operational_diff": {
+    "module_assignment": "_initial_reset_stars = _reset_stars",
+    "assignment_position": "immediately after the complete _reset_stars function definition and before _initialize_h1 is defined",
+    "h1_change": "Inside _initialize_h1 only, replace the call target name _reset_stars with _initial_reset_stars without changing arguments, keywords, grouping, unpacking, or surrounding statements.",
+    "recursive_change": "NONE: the recursive _predict reset call must continue to resolve the global name _reset_stars.",
+    "current_parent_call_census": {
+      "definition_line": 1338,
+      "h1_call_line": 1487,
+      "recursive_predict_call_line": 1872,
+      "existing_initial_alias_count": 0
+    }
+  },
+  "exact_normal_execution_proof": {
+    "function_object": "At import, let F be the function object bound to _reset_stars.  The assignment binds _initial_reset_stars to the same F.  With no research-harness monkeypatch, both global names remain bound to F.",
+    "h1_dispatch": "The renamed H1 call therefore invokes the identical F once with the identical evaluated positional arguments and identical return unpacking.",
+    "recursive_dispatch": "The recursive call remains textually and operationally unchanged and invokes F once per recursive reset.",
+    "floating_point_operation_order": "IDENTICAL",
+    "normal_path_return_values_and_exceptions": "IDENTICAL_FOR_EVERY_INPUT_UNDER_AN_UNMUTATED_MODULE_NAMESPACE",
+    "normal_path_prediction_bytes": "EXACTLY_IDENTICAL_BY_SAME_FUNCTION_OBJECT_AND_SAME_ARGUMENT_ORDER; a later source audit must verify the frozen diff satisfies these premises",
+    "probe_only_difference": "After import, a target-free research harness may replace module._reset_stars while module._initial_reset_stars retains F.  H1 then bypasses the recursive observer and the recursive call remains observable."
+  },
+  "resource_equivalence": {
+    "tracked_flops": "EXACTLY_UNCHANGED",
+    "tracked_operation_calls": "EXACTLY_UNCHANGED",
+    "reason": "The alias assignment performs no flopscope.numpy operation and occurs at module import before prediction metering.  Both H1 and recursive paths execute the same _reset_stars body the same number of times.  Python global lookup and assignment are not tracked benchmark operations.",
+    "projection_laws": "All corrected CS3B lowrank/dense and whole-estimator FLOP/call projections remain unchanged.",
+    "module_memory": "One additional module-dictionary name holds one reference to an existing function object; no tensor, array, closure state, target state, or per-instance workspace is added.",
+    "wall_residual_and_rss": "Not claimed exact.  The distinct source must still pass the separately released literal full-shape meter before promotion."
+  },
+  "phase2_legality": {
+    "verdict": "LEGAL_BY_DESIGN",
+    "weights_only": true,
+    "deterministic": true,
+    "sampling": 0,
+    "targets_teachers_scores_rows_or_private_state": 0,
+    "new_imports_dependencies_network_native_escape_or_artifacts": 0,
+    "reason": "A module-level alias to an estimator-local Python function is ordinary source structure.  It neither acquires information nor moves numerical work outside flopscope; the same already-metered function body executes inside the prediction BudgetContext.",
+    "submission_api": "Estimator class, predict guard, output shape/dtype, and imports must remain unchanged."
+  },
+  "why_this_is_stronger_than_runner_side_skipping": {
+    "v3_no_retry_rule": "The consumed V3 namespace and exact 49060 source/probe pairing cannot be rerun or rescued.",
+    "explicit_call_site_semantics": "The alias makes the H1-versus-recursive distinction source-visible and statically auditable instead of depending on an observer call counter or silently skipping the first matching call.",
+    "minimality": "It adds no wrapper frame, branch, parameter, lambda, partial, or duplicated arithmetic body.  Extracting a new implementation wrapper would be less exact and adds unnecessary dispatch structure."
+  },
+  "mandatory_preregistration_and_source_constraints": [
+    "Use a distinct successor graph node, source directory/version, estimator SHA, source HOLD, runner/release/audit chain, and O_EXCL claim/result namespace.  Never edit, rerun, or overwrite V3 artifacts.",
+    "Seal the successor preregistration before creating source.  Treat the V3 terminal failure as development information and bind its terminal audit SHA.",
+    "Freeze an AST diff allowing exactly one alias assignment and exactly one H1 call-name substitution as operational changes.  Any docstring/label-only changes must be enumerated separately.",
+    "Require the _reset_stars function body AST and bytes, every call argument AST, return unpacking, recursive call, imports, public Estimator API, production guard, and namespace to remain unchanged.",
+    "Forbid lambda, wrapper, functools.partial, descriptor, conditional rebinding, data-dependent alias selection, target-dependent rebinding, or any reassignment of either name inside the submitted estimator.",
+    "Require a static identity proof that the alias RHS is the exact Name _reset_stars and that the assignment occurs after its definition and before _initialize_h1.",
+    "Require exactly one _initial_reset_stars call in _initialize_h1 and exactly one unchanged recursive _reset_stars call in _predict; reject every extra call or alias use.",
+    "Preserve the V3 scientific roster, thresholds, fixture identities, cost laws, and no-target scope.  Prior direct-control PASS results are context, not a substitute for a source-hash-bound successor probe.",
+    "Keep fullwidth, literal meter, targets, packaging, submission, board promotion, and canonical graph mutation separately held until their own predecessor receipts exist."
+  ],
+  "mandatory_successor_probe_assertions": [
+    "Before monkeypatch, assert module._initial_reset_stars is module._reset_stars.",
+    "Save original_reset_stars = module._reset_stars, then patch only module._reset_stars with the recursive observer.",
+    "After monkeypatch, assert module._initial_reset_stars is original_reset_stars and module._reset_stars is the recursive observer.",
+    "Fail if the recursive observer is entered before full-reset covariance/mask, CP3 post-read, and CP4 provider state are all present.",
+    "Require exactly 14 recursive reset records and 15 quartic push records per successful depth-16 candidate run; the H1 reset is intentionally outside that recursive observer count.",
+    "Require all parent and both candidate fixture outcomes finite, complete semantic-record determinism, carrier reconstruction, exact invalid incidence, lowrank/dense forward bounds, forced dense control, certificate, resource, signed-permutation, null, and debris gates exactly as frozen.",
+    "A post-claim import, identity assertion, observer chronology, fixture, or control exception must seal terminal REJECT; no retry."
+  ],
+  "authority": {
+    "design_approved": true,
+    "preregistration_authorized_by_this_receipt": false,
+    "source_build_authorized_by_this_receipt": false,
+    "probe_execution_authorized_by_this_receipt": false,
+    "fullwidth_meter_targets_package_submission_or_graph_authorized": false,
+    "next_required_artifact": "A separately authored immutable successor preregistration binding this design audit and the V3 terminal audit."
+  }
+}

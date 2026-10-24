@@ -1,0 +1,43 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-v2-final-byte-freeze-receipt-v2",
+  "status": "PASS_FINAL_BYTE_FREEZE__TARGET_FREE_LITERAL_METER_ONLY",
+  "frozen_at_utc": "2026-08-24T05:13:03Z",
+  "bindings": {
+    "v2_estimator": {
+      "path": "estimator.py",
+      "bytes": 31410,
+      "sha256": "de8023d8d34be4f588d5af8c87f99a5e7babf9f42a9d351602c838b19783673e"
+    },
+    "v2_source_manifest": {
+      "path": "SOURCE_MANIFEST.json",
+      "bytes": 2180,
+      "sha256": "cc6cdee48f18c94a7ffa345d9e64ae692a9741f664f30cba09ad3f501aa313c1"
+    },
+    "v1_parent_estimator": {
+      "path": "../fullbudget_k21_k4_closure_v1/estimator.py",
+      "bytes": 30390,
+      "sha256": "663a6593e5b6574f08634f921d5a871303d1f9cb981d06010b1b712df8ad4265"
+    }
+  },
+  "gates": {
+    "independent_read_only_source_map_audit": "PASS",
+    "static_replay": "PASS_V2_STATIC_LOW_MEMORY_BATCHED_Q32",
+    "tiny_target_free_parity": "PASS_TINY_TARGET_FREE_Q32_ALGEBRAIC_PARITY",
+    "maximum_four_pair_absolute_error": 4.440892098500626e-16,
+    "namespace_pycache_count": 0
+  },
+  "holds": [
+    "LITERAL_FULL_SHAPE_FLOP_WALL_RESIDUAL_RSS_FINITE_METER",
+    "ACTUAL_CLOSURE_MOMENT_FEASIBILITY_REPLAY",
+    "TARGET_OR_ROLE_ACCESS",
+    "FIT_SAMPLING_SCORE_SUBMISSION"
+  ],
+  "negative_controls": {
+    "receipt_not_in_manifest": true,
+    "no_meter_executed_by_freeze_step": true,
+    "no_data_or_target_access": true,
+    "no_accuracy_claim": true,
+    "no_submission_authority": true,
+    "estimator_unchanged_during_freeze": true
+  }
+}

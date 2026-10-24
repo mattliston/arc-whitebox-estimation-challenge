@@ -1,0 +1,44 @@
+{
+  "passed": false,
+  "scope": "release only; stage D NOT RUN",
+  "candidate_sha256": "957a30414d49fc8d34b153cdc726255258df74464fdf5c84791ce5899c48a628",
+  "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_s48s_safe/submission.tar.gz",
+  "archive_sha256": "430b35bdd54e9ec8adf1f8696dbfe48e204a5aae4fc171e028c9c7c694fcc866",
+  "errors": [
+    "stage C: gate residual is False",
+    "stage C: gate setup_ok is False",
+    "stage C: passed is not true",
+    "slow setup: gate residual is False",
+    "slow setup: gate setup_ok is False",
+    "slow setup: passed is not true",
+    "judge: one or more numeric criteria failed"
+  ],
+  "numeric_judge": {
+    "recomputed": true,
+    "command": [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/designation_judge.py",
+      "s48s_safe",
+      "--pair",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_s48s_safe",
+      "--slow",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/s48s_safe_slow",
+      "--worker",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/_missing_worker_for_gate_v2",
+      "--first-priced"
+    ],
+    "stdout": "  FAIL P(loss) per 100 networks, first priced (override) 21.02% (first 53,649: cap/median 1.030; S47 hour)          limit <= 10%\n  FAIL requests, warm network (100)                 46,097                                                     limit <= 42,700\n  ok   binding phase at the platform pace           577 requests, 649 of 649 keys bound                        limit <= 18,600, >= 90% bound\n  ok   projected platform setup wall (cap 5 s, whole run) 0.564 s (last phase 0.374 s + 0.19 s)                      limit <= 4.5 s\n  ok   projected worst-network wall                 86.9 s (mean 80.5 s; mean residual 0.354 s from requests)  limit <= 100 s\n  ok   requests under a setup 1.3x slower           49,873 (+0.00%)                                            limit <= +2%\n  ok   projected setup wall under a 1.3x slow setup 0.733 s                                                    limit <= 4.6 s\n[designation s48s_safe] INCOMPLETE: no result for: worker\n",
+    "evidence_sha256": {
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_s48s_safe/stage_a.json": "e2b4083dbbb5e66847b64bb05c23336f1a9cd0a5ced0a04d7493d6631409ad41",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_s48s_safe/stage_c.json": "146c20c69297d40b847e648ca9cb3e195232427b1313ef56f26a4df9f1a4c815",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/s48s_safe_slow/stage_c.json": "a7fe70e10d25564aaf0c95b6a19f2fe4ff80c641cf7640b8bc4b539717014620",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/designation_judge.py": "7c4f64d89e4662a068a9be5fb2805562a7e591b89004047eab02a602a4768d92"
+    }
+  },
+  "warnings": [],
+  "gate_version": 4,
+  "judge_mode": [
+    "--first-priced"
+  ]
+}

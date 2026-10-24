@@ -1,0 +1,39 @@
+{
+  "schema": "q24-full688-vs-native-bank-global-shrink-preregistration-v1",
+  "status": "FROZEN_BEFORE_DIAGNOSTIC_TARGET_REOPEN",
+  "objective": "Measure the full-688 fitted q-head endpoint against the exact native-bank endpoint on the identical 688 observer_fit networks, then select one global convex interpolation coefficient using only the other three folds and score it on the held fold.",
+  "scope": {
+    "training": false,
+    "estimator_calls": 0,
+    "board_access": false,
+    "submission": false,
+    "target_authority": "The already-opened observer_fit target bundle bound by qhead refit RESULT 87d22be8...; no observer_selection or board target is opened.",
+    "endpoint_models": [
+      "native all-688 fixed epoch-6 transport model 21ad1ded...",
+      "alpha=.75 J plus promoted all-688 q-head d57407e0..."
+    ]
+  },
+  "fixed_rule": {
+    "fold_assignment": "Exact four balanced folds from public_q24_qhead_full688_refit_v1/run_refit.py, assignment SHA-256 0f8619f00185aa5413e06c2b9aad8c1f2a6743ec8c628994bbbc9ca25fec047c.",
+    "endpoint_note": "The two endpoints are frozen all-688 fitted deployment models. Only the scalar beta calibration is out-of-fold; this is not a claim that either endpoint model is itself OOF.",
+    "delta": "full688_qhead_prediction - native_bank_prediction",
+    "held_fold_beta": "clip(sum_train <truth-native,delta> / sum_train <delta,delta>, 0, 1)",
+    "held_fold_score": "mean held coordinate squared error of native + beta_train*delta",
+    "final_beta": "clip(sum_all <truth-native,delta> / sum_all <delta,delta>, 0, 1)",
+    "promotion": "Held-fold blended MSE must be strictly below both measured native all688 MSE 2.9736792457285063e-8 and the established stricter scientific gate 2.9672528546945005e-8, every fold must improve, and more than half of networks must improve.",
+    "selection_or_retry": false
+  },
+  "accounting_caveat": "The scalar interpolation arithmetic is tiny, but an exact literal deployment is not zero-added-FLOP merely by assertion: the two endpoints use distinct transport-network weights, so both endpoint corrections must be available unless a separately proved fused spelling exists. Report an optimistic unchanged-D3 projection separately from deployability.",
+  "bindings": {
+    "native_fit_result_sha256": "e8261895c5d8f5f1feb1e15f257612d1d1b36a90e8bde1ab05e2844100a8ba08",
+    "native_model_sha256": "21ad1dede3373c90d2694158b6599c4c172d7181c72634a6ec8e362449b7d1f8",
+    "qhead_refit_result_sha256": "87d22be8d48d7c73821c02bb3562b3e8ad67955022df0e2185c2f94838e87a25",
+    "qhead_model_sha256": "d57407e0534e0be8b29a8b3f8bb80f617e83671584ddb32af757a3631e0fc58f",
+    "alpha_model_sha256": "fc65528720c7e1378ed7011b7b201f4086217a544b092de208ea1064656d9ef5",
+    "j_source_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "q_source_sha256": "1e4c906936f4685bd800f922ded6c582af8213ecad1fbe41da651faff82be9c3",
+    "qhead_refit_program_sha256": "7ffaae1a3d03a7d1f3fcfe3e9026d1674892c52291f7899978ff379f8da78cd2",
+    "observer_fit_targets_sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7",
+    "feature_manifest_sha256": "9a43423982924bcc7a0c5b87288b19ff42452c90c9cc7b7f590e565d1b276f50"
+  }
+}

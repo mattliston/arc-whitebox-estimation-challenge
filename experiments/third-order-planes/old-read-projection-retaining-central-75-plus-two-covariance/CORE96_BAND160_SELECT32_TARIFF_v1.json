@@ -1,0 +1,171 @@
+{
+  "status": "SOURCE_ONLY_FIXED_CORE96_BAND160_SELECT32_TARIFF",
+  "rows": [
+    {
+      "layer": 2,
+      "original": 960,
+      "core": 864,
+      "band": 160,
+      "incumbent_flops": 3909874608,
+      "core_and_tail_flops": 3562244576,
+      "extra32_read_flops": 268533760,
+      "sample8_flops": 13113600,
+      "explicit_transfer": 196608,
+      "saving": 65786064
+    },
+    {
+      "layer": 3,
+      "original": 928,
+      "core": 832,
+      "band": 160,
+      "incumbent_flops": 5559451424,
+      "core_and_tail_flops": 4974414228,
+      "extra32_read_flops": 390235136,
+      "sample8_flops": 19667200,
+      "explicit_transfer": 260096,
+      "saving": 174874764
+    },
+    {
+      "layer": 4,
+      "original": 896,
+      "core": 800,
+      "band": 160,
+      "incumbent_flops": 6612468050,
+      "core_and_tail_flops": 5980689741,
+      "extra32_read_flops": 482968576,
+      "sample8_flops": 26016000,
+      "explicit_transfer": 319488,
+      "saving": 122474245
+    },
+    {
+      "layer": 5,
+      "original": 864,
+      "core": 768,
+      "band": 160,
+      "incumbent_flops": 7369441006,
+      "core_and_tail_flops": 6539719624,
+      "extra32_read_flops": 552367104,
+      "sample8_flops": 31955200,
+      "explicit_transfer": 374784,
+      "saving": 245024294
+    },
+    {
+      "layer": 6,
+      "original": 800,
+      "core": 704,
+      "band": 160,
+      "incumbent_flops": 7462788007,
+      "core_and_tail_flops": 6558546880,
+      "extra32_read_flops": 600003584,
+      "sample8_flops": 37484800,
+      "explicit_transfer": 425984,
+      "saving": 266326759
+    },
+    {
+      "layer": 7,
+      "original": 800,
+      "core": 704,
+      "band": 160,
+      "incumbent_flops": 4642397044,
+      "core_and_tail_flops": 4140647406,
+      "extra32_read_flops": 352526336,
+      "sample8_flops": 22944000,
+      "explicit_transfer": 278528,
+      "saving": 126000774
+    },
+    {
+      "layer": 8,
+      "original": 768,
+      "core": 672,
+      "band": 160,
+      "incumbent_flops": 4723635088,
+      "core_and_tail_flops": 4257374033,
+      "extra32_read_flops": 374598656,
+      "sample8_flops": 27859200,
+      "explicit_transfer": 321536,
+      "saving": 63481663
+    },
+    {
+      "layer": 9,
+      "original": 768,
+      "core": 672,
+      "band": 128,
+      "incumbent_flops": 5590052113,
+      "core_and_tail_flops": 5024598092,
+      "extra32_read_flops": 453021696,
+      "sample8_flops": 25728000,
+      "explicit_transfer": 366592,
+      "saving": 86337733
+    },
+    {
+      "layer": 10,
+      "original": 704,
+      "core": 608,
+      "band": 160,
+      "incumbent_flops": 2984542431,
+      "core_and_tail_flops": 2673119774,
+      "extra32_read_flops": 253398016,
+      "sample8_flops": 18848000,
+      "explicit_transfer": 231424,
+      "saving": 38945217
+    },
+    {
+      "layer": 11,
+      "original": 704,
+      "core": 608,
+      "band": 160,
+      "incumbent_flops": 3293253945,
+      "core_and_tail_flops": 2941540186,
+      "extra32_read_flops": 281623552,
+      "sample8_flops": 23148800,
+      "explicit_transfer": 270336,
+      "saving": 46671071
+    },
+    {
+      "layer": 12,
+      "original": 736,
+      "core": 640,
+      "band": 160,
+      "incumbent_flops": 4015881132,
+      "core_and_tail_flops": 3529136983,
+      "extra32_read_flops": 328979456,
+      "sample8_flops": 27040000,
+      "explicit_transfer": 309248,
+      "saving": 130415445
+    },
+    {
+      "layer": 13,
+      "original": 736,
+      "core": 640,
+      "band": 128,
+      "incumbent_flops": 2420465040,
+      "core_and_tail_flops": 2218449072,
+      "extra32_read_flops": 191250432,
+      "sample8_flops": 13276160,
+      "explicit_transfer": 202752,
+      "saving": -2713376
+    },
+    {
+      "layer": 14,
+      "original": 704,
+      "core": 608,
+      "band": 160,
+      "incumbent_flops": 2475664387,
+      "core_and_tail_flops": 2221293163,
+      "extra32_read_flops": 207804416,
+      "sample8_flops": 20281600,
+      "explicit_transfer": 235520,
+      "saving": 26049688
+    }
+  ],
+  "whole_bill": 242136236203,
+  "saved_flops": 1389674341,
+  "saving_pct": 0.5739225003212396,
+  "limits": [
+    "Existing TRAIN16 shapes; no model calls.",
+    "Fixed8 sample rows; guaranteedcore=c15-96, choose32 amongnextmin160, residualQ fromcoreprefix once.",
+    "Mainprefix and extra32 youngread priced through actual inherited dispatch; extra32 hasNOoldinner. Full oldtail already included in core price.",
+    "Sample8 direct read minus Qsample(SBsample) included; explicit gathers/scatter included.",
+    "Sorting, sensitivity weights, basis/sample gathers and cold/route debt remain additional; a planning ceiling, not actualbill qualification."
+  ]
+}

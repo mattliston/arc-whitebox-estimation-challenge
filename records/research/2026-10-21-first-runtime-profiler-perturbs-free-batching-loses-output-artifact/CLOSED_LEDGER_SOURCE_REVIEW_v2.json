@@ -1,0 +1,76 @@
+{
+  "utc": "2026-10-21T07:41:58Z",
+  "source": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_dcr_slr_v1/candidate_first128_smoff_npxoff_dcr_slr_release_v1.py",
+  "source_sha256": "d3991b2ffd6bf3f5ed4375257972d813cac4da45a27682bc11649f368c6ce0b7",
+  "read_only": true,
+  "no_candidate_change": true,
+  "profile_launch": {
+    "pid": 211556,
+    "start_ticks": "3530722",
+    "utc": "2026-10-21T07:39:45Z",
+    "recipe_sha256": "024eaab543d8fefafc4524e89a7cf52bbf2b71db50246a149ccbe4f6d284a154",
+    "launch_sha256": "850de3315874aadfb2e469c7bb56c798783d249ee558f381a524dc588d00fc92"
+  },
+  "closed_without_new_source_specific_evidence": [
+    "Generic GC disabling: earlier observations collect real garbage; do not remove ownership/lifetime cleanup.",
+    "Generic wrapper flattening/statistics stripping: historical pure-Python ceiling only about4\u20135%; dict/list about4ms; no material new measured path yet.",
+    "IPT unroll (~0.019%), holdbatch (~0.007%), already-shipped E2Hold inline (~0.47%).",
+    "Compact-only, grouped-feature/pair bundle and fixed exact DAG have actual nonmaterial/negative runtime receipts; no repeats.",
+    "Broader fixed prefix setup expansion: full649 only~0.232% measured residual with large setup cost; closed.",
+    "Changed-data flatload buffers cannot become cached constants."
+  ],
+  "profile_contingent_inspection_sites": [
+    {
+      "function": "_astra_fhm_core",
+      "line": 24659,
+      "reason": "Current core has per-layer metadata/context and diagnostic dictionary updates; inspect exact measured exclusive cost before any selective change."
+    },
+    {
+      "function": "_astra_sm40_linear_grouped",
+      "reason": "Paid SMoff restores older compiled-stack implementation; exact profiler will identify the actual live implementation and compile/cache attribution. Existing compact/DAG closures still apply.",
+      "lines": [
+        18633,
+        20053,
+        20937,
+        25082
+      ],
+      "captured_parent_at": 25044,
+      "live_fixed_off_parent_line": 20937
+    },
+    {
+      "function": "_ipt_view/_lb3_note/_lvf_rs_level1/_l3_quad",
+      "lines": [
+        24514,
+        24469,
+        24536,
+        24553
+      ],
+      "reason": "Ownership-aware view memoization and scalar counters may show repeated metadata work. Do not drop cache ownership, guards, or holds; no assumed saving."
+    },
+    {
+      "function": "predict wrapper chain",
+      "lines": [
+        24054,
+        24116,
+        24140,
+        24437,
+        24569
+      ],
+      "reason": "Several one-call wrappers snapshot diagnostic dictionaries. Static presence does not establish meaningful per-network cost, so no flattening proposal without profile evidence."
+    }
+  ],
+  "dcr_prefix_provenance": {
+    "status": "NO_UNCONDITIONAL_PREFIX_PROOF",
+    "select_line": 5028,
+    "deadcut_line": 16374,
+    "core_line": 24659,
+    "reason": "Live select stably sorts rounded norm.cdf(a), while deadcut stably sorts rounded a+_DEADCUT_Z. Monotonicity alone does not preserve ordering within finite-precision CDF saturation/ties or differently rounded translated scores. The two stable rosters cannot be assumed identical from dimensions. Existing exact prefix tests intentionally guard this distinction.",
+    "action": "Keep fixed scatter fallback in d399; no cheap prefix deletion or additional native test."
+  },
+  "limitations": [
+    "Static read-only inventory is not a cost measurement and contains no held/fresh truth.",
+    "Profile instrumentation is diagnostic only and cannot establish runtime margin.",
+    "All new source mechanisms require concrete exact-source hotspot evidence plus byte/bill/request/guard qualification."
+  ],
+  "supersedes": "v1 static Smirnov line was from historical source; exact current definitions and captured parent are listed below."
+}

@@ -1,0 +1,391 @@
+{
+  "bindings": {
+    "base_model_sha256": "fc65528720c7e1378ed7011b7b201f4086217a544b092de208ea1064656d9ef5",
+    "base_result_sha256": "97a7f1b96d9cd4730d950d3f5e92624ec2f56d83fb6e1ecc5c2888e42bfeb581",
+    "program_sha256": "2f5a2f22de8e8d5df4afdfba06fcdc411decde05560f84dd5c58ef543825110e",
+    "q_head_sha256": "5fb57a510d933940f19ddd5ab11650c3a966c2039c6bd12f73988457c2ce91b8",
+    "selected_arrays_sha256": "ed9de2a5b2338b4145c9c20346986f30725b6165948ba2f1a94c811ecff38ac8"
+  },
+  "board_submissions": 0,
+  "deployability": {
+    "incremental_bank_source_add_flops": 286720,
+    "incremental_bank_transport_flops": 545259520,
+    "incremental_selected_ridge_read_flops": 522240,
+    "incremental_total_flops": 546068480,
+    "note": "does not include the already-banked 130.935M q-head upper bound"
+  },
+  "gate": {
+    "frozen_reference_alpha075_plus_q_head_protected_mse": 3.061465197605418e-08,
+    "inner_baseline_alpha075_plus_q_head_mse": 3.15833952838224e-08,
+    "pass": false,
+    "protected_open_ratio_at_most": 0.99,
+    "threshold_mse": 3.030850545629364e-08
+  },
+  "hypothesis": "retain all 20 standardized native fields as independent Phi*W states instead of compressing history into J's four latent channels",
+  "observer_fit_only": true,
+  "observer_selection_targets_opened": 0,
+  "protected_once": {
+    "opened": false,
+    "reason": "best inner arm did not clear the frozen 0.99*3.061465197605418e-8 threshold"
+  },
+  "schema": "q24-native-j-transported-raw20-bank-screen-v1",
+  "screens": {
+    "direct_endpoint": [
+      {
+        "inner_final_mse": 3.155422839523282e-08,
+        "ridge": 0.0
+      },
+      {
+        "inner_final_mse": 3.15543578474175e-08,
+        "ridge": 1e-07
+      },
+      {
+        "inner_final_mse": 3.155463341924816e-08,
+        "ridge": 3e-07
+      },
+      {
+        "inner_final_mse": 3.155567024110883e-08,
+        "ridge": 1e-06
+      },
+      {
+        "inner_final_mse": 3.155844099850494e-08,
+        "ridge": 3e-06
+      },
+      {
+        "inner_final_mse": 3.1563969585232934e-08,
+        "ridge": 1e-05
+      },
+      {
+        "inner_final_mse": 3.156869755638571e-08,
+        "ridge": 3e-05
+      },
+      {
+        "inner_final_mse": 3.157154984590426e-08,
+        "ridge": 0.0001
+      },
+      {
+        "inner_final_mse": 3.157286419828689e-08,
+        "ridge": 0.0003
+      },
+      {
+        "inner_final_mse": 3.157418197498474e-08,
+        "ridge": 0.001
+      },
+      {
+        "inner_final_mse": 3.157602750324787e-08,
+        "ridge": 0.003
+      },
+      {
+        "inner_final_mse": 3.158100654718986e-08,
+        "ridge": 0.01
+      }
+    ],
+    "layerwise_delta_q": [
+      {
+        "inner_final_mse": 3.151706074574398e-08,
+        "ridge": 0.0
+      },
+      {
+        "inner_final_mse": 3.151648250575477e-08,
+        "ridge": 1e-07
+      },
+      {
+        "inner_final_mse": 3.151549076678635e-08,
+        "ridge": 3e-07
+      },
+      {
+        "inner_final_mse": 3.151323315411813e-08,
+        "ridge": 1e-06
+      },
+      {
+        "inner_final_mse": 3.151125611056281e-08,
+        "ridge": 3e-06
+      },
+      {
+        "inner_final_mse": 3.1512649037606664e-08,
+        "ridge": 1e-05
+      },
+      {
+        "inner_final_mse": 3.1516330001839314e-08,
+        "ridge": 3e-05
+      },
+      {
+        "inner_final_mse": 3.1518830456652844e-08,
+        "ridge": 0.0001
+      },
+      {
+        "inner_final_mse": 3.151891619262181e-08,
+        "ridge": 0.0003
+      },
+      {
+        "inner_final_mse": 3.151788646098056e-08,
+        "ridge": 0.001
+      },
+      {
+        "inner_final_mse": 3.151757126460724e-08,
+        "ridge": 0.003
+      },
+      {
+        "inner_final_mse": 3.151989801288363e-08,
+        "ridge": 0.01
+      }
+    ],
+    "ridge_grid": [
+      0.0,
+      1e-07,
+      3e-07,
+      1e-06,
+      3e-06,
+      1e-05,
+      3e-05,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "selected_arm": "layerwise_delta_q",
+    "selected_inner_mse": 3.151125611056281e-08,
+    "selected_inner_ratio": 0.9977159145617084,
+    "selected_ridge": 3e-06
+  },
+  "split": {
+    "development_128_role_ranks": [
+      35,
+      36,
+      40,
+      43,
+      44,
+      45,
+      47,
+      49,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      60,
+      61,
+      62,
+      64,
+      65,
+      68,
+      69,
+      70,
+      72,
+      74,
+      76,
+      78,
+      80,
+      81,
+      82,
+      85,
+      87,
+      88,
+      89,
+      90,
+      91,
+      94,
+      95,
+      96,
+      99,
+      100,
+      102,
+      103,
+      104,
+      106,
+      107,
+      109,
+      111,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      131,
+      134,
+      136,
+      137,
+      138,
+      141,
+      142,
+      143,
+      144,
+      148,
+      152,
+      153,
+      154,
+      156,
+      157,
+      160,
+      161,
+      162,
+      166,
+      167,
+      168,
+      170,
+      171,
+      174,
+      176,
+      177,
+      180,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      193,
+      194,
+      195,
+      196,
+      197,
+      200,
+      202,
+      203,
+      206,
+      207,
+      209,
+      210,
+      211,
+      213,
+      214,
+      216,
+      217,
+      218,
+      220,
+      222,
+      223,
+      225,
+      226,
+      228,
+      229,
+      230,
+      231,
+      232
+    ],
+    "hash_law": "first32 by blake2s-128('native-j-autonomous-continuation-v1:'+mlp_id) within original pilot train160",
+    "inner_selection_32_role_ranks": [
+      38,
+      41,
+      46,
+      50,
+      51,
+      52,
+      77,
+      83,
+      84,
+      86,
+      92,
+      97,
+      98,
+      105,
+      108,
+      110,
+      112,
+      133,
+      140,
+      147,
+      158,
+      164,
+      165,
+      172,
+      178,
+      179,
+      201,
+      205,
+      208,
+      212,
+      215,
+      221
+    ],
+    "protected_once_40_role_ranks": [
+      37,
+      39,
+      42,
+      48,
+      59,
+      63,
+      66,
+      67,
+      71,
+      73,
+      75,
+      79,
+      93,
+      101,
+      122,
+      130,
+      132,
+      135,
+      139,
+      145,
+      146,
+      149,
+      150,
+      151,
+      155,
+      159,
+      163,
+      169,
+      173,
+      175,
+      181,
+      192,
+      198,
+      199,
+      204,
+      219,
+      224,
+      227,
+      233,
+      234
+    ]
+  },
+  "state": {
+    "channels": 20,
+    "consumer_features": "bias+current raw20+A+qJ+standardized Z (43 total)",
+    "read_layers_zero_based": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "recurrence": "Z_l=Phi_l*(Z_(l-1)@W_l)+standardized_raw20_l",
+    "source_layers_zero_based": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "status": "complete"
+}

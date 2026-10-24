@@ -1,0 +1,38 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_PANEL",
+    "label": "LOO panel instrument",
+    "kind": "phase2_g19b_subproblem",
+    "status": "solved",
+    "priority": 2,
+    "summary": "5-net truth infrastructure (35/100/150/200/250: mps_cov2 + host_cov + v4 + tangent + consumption; run_newnet_infra.sh ~35 min/net) + run_loo_grade.py (fit-on-4-apply-to-1). Bootstrap at n=2 showed sd 2.6pts (chain configs indiscriminable); n=5 cuts the band ~40%. Extension to 10 nets is mechanical.",
+    "terminal_criterion": "Terminal as an instrument; extend nets as needed.",
+    "evidence": [
+      {
+        "date": "2026-08-30",
+        "tag": "bootstrap-confirms-2net-noise-band",
+        "finding": "BOOTSTRAP NOISE BAND (22:00, the day's last number): coordinate-bootstrap of the beta fit (400 resamples, fit r35 -> apply r100) gives held-out capture sd = 2.6 points, 90% band [4.2, 13.0]. Today's entire chain-configuration spread (9.7-14.5%) is INSIDE the 2-net fit-noise band - chain comparisons at n=2 are formally indiscriminable, exactly as suspected. STANDING REAL ASSETS: the supply-side plane gains (physics-derived, cross-net, outside any noise: L12 0.0777->0.0644, L14 0.0901->0.0711), the collective-mode theory + tracker + instruments, the kappa3^2 plane-half, the deploy-gated harness, the oracle 7.09e-9 proof. REQUIRED NEXT: 10-net LOO infra (the ONLY way to grade chain configs) - sign-off item. Day 2 totals: 38 amendments.",
+        "files": []
+      },
+      {
+        "date": "2026-08-31",
+        "tag": "five-net-loo-certifies-the-chain",
+        "finding": "FIVE-NET LOO GRADE (the campaign's first noise-resistant chain number): pso2 supply + full-injection tangent + joint betas fit-on-4-apply-to-1: held-out captures 13.6/9.5/16.4/17.8/21.6% (r35/100/150/200/250), MEAN 15.8 +- 4.1 - ALL POSITIVE, t~8.6. Betas near-identical across folds (v 0.50-0.54, k3 0.15-0.22, k4 ~0.02-0.07): the estimate-quality weights are universal. The correction chain is CERTIFIED at ~16% held-out; if supply were billable: raw 2.48e-8 -> adj 1.50e-8 (-16%). Panel infra: 3 new nets built this morning (mps_cov2+host_cov+v4+tangent, run_newnet_infra.sh ~35 min/net). NEXT DISCRIMINATION (running): k3fix supply on the 5-net panel - was the collective fix's n=2 chain wash noise?",
+        "files": [
+          "experiments/p2_width1024_depth16/public_g19_attribution_v1/loo_grade.log"
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "tag": "panel-extended-to-8-nets",
+        "finding": "Panel extended to 8 nets (300/400/500 added via the venv-fixed infra script, ~35 min/net): the LOO instrument now has sd/sqrt(8) ~2.0-point precision.",
+        "files": []
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "Our honesty instrument. With only two test networks, score comparisons were inside the noise (+-2.6 points) - we literally could not tell which ideas worked. We built truth data for three more networks (about 35 minutes each) and a leave-one-out grader, cutting the noise nearly in half. Every fire/no-fire decision now rests on this panel, and extending it to all ten networks is a mechanical afternoon when we want even sharper answers."
+  }
+}

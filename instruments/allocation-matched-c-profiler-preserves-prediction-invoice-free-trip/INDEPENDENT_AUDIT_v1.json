@@ -1,0 +1,1184 @@
+{
+  "utc": "2026-10-21T08:20:03Z",
+  "status": "QUALIFIED_DIAGNOSTIC_ONLY",
+  "recipe_sha256": "ea46d28a61c1bc375ac540893c287374828eb4ea676adc5451ba4e7b7979b6c1",
+  "source_sha256": "d3991b2ffd6bf3f5ed4375257972d813cac4da45a27682bc11649f368c6ce0b7",
+  "rehashed_files": 22,
+  "same_prediction_as_fresh_control_and_own4da": true,
+  "prediction_sha256": "e97f6fe002de177f36a87599939bfdb098c7efce76485b2efbb21eff451f228f",
+  "prediction_bytes": 65536,
+  "exact_gates": {
+    "flops": true,
+    "operations": true,
+    "requests": true,
+    "free_trips": true,
+    "freed_handles": true
+  },
+  "observed_values": {
+    "control": {
+      "flops": 235862163509,
+      "requests": 43581,
+      "free_trips": 4627,
+      "freed_handles": 42230
+    },
+    "observe": {
+      "flops": 235862163509,
+      "requests": 43581,
+      "free_trips": 4627,
+      "freed_handles": 42230
+    }
+  },
+  "guards": {
+    "control": {
+      "utc": "2026-10-21T08:17:02Z",
+      "group": 221270,
+      "whole_group_retired": true,
+      "child_exit": 0,
+      "peak_group_rss_bytes": 4785573888,
+      "max_owned_swap_bytes": 0,
+      "cgroup_events_final": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "observe": {
+      "utc": "2026-10-21T08:18:53Z",
+      "group": 221697,
+      "whole_group_retired": true,
+      "child_exit": 0,
+      "peak_group_rss_bytes": 4842688512,
+      "max_owned_swap_bytes": 0,
+      "cgroup_events_final": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    }
+  },
+  "profile_sha256": "e96321946a9fefd0523be740b2706a79bc94b4dbf1922e3979885b2303f7df7e",
+  "callback_rows": [],
+  "top_python_self_time_inventory": [
+    {
+      "line": 24659,
+      "function": "_astra_fhm_core",
+      "calls": 1,
+      "recursive_calls": 0,
+      "self_s": 0.018984550000000003,
+      "cumulative_s": 104.391571361,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 888,
+          "self_s": 0.00021665,
+          "cumulative_s": 0.00021665
+        },
+        {
+          "function": "<method 'update' of 'dict' objects>",
+          "calls": 105,
+          "self_s": 0.000180738,
+          "cumulative_s": 0.000180738
+        },
+        {
+          "function": "<method 'clear' of 'dict' objects>",
+          "calls": 17,
+          "self_s": 0.00014486700000000002,
+          "cumulative_s": 0.00033241300000000004
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 89,
+          "self_s": 0.000132735,
+          "cumulative_s": 0.000217215
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 163,
+          "self_s": 9.442600000000001e-05,
+          "cumulative_s": 9.442600000000001e-05
+        },
+        {
+          "function": "<built-in method builtins.all>",
+          "calls": 14,
+          "self_s": 5.2832000000000005e-05,
+          "cumulative_s": 0.000307879
+        },
+        {
+          "function": "<method 'pop' of 'dict' objects>",
+          "calls": 1,
+          "self_s": 1.1690000000000002e-06,
+          "cumulative_s": 1.1690000000000002e-06
+        },
+        {
+          "function": "<built-in method builtins.globals>",
+          "calls": 14,
+          "self_s": 9.42e-07,
+          "cumulative_s": 9.42e-07
+        }
+      ],
+      "direct_c_self_s": 0.0008243590000000001
+    },
+    {
+      "line": 11956,
+      "function": "_ipt_leaf_unwind_ab",
+      "calls": 141,
+      "recursive_calls": 0,
+      "self_s": 0.008424240000000001,
+      "cumulative_s": 18.899959279,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 3767,
+          "self_s": 0.001011594,
+          "cumulative_s": 0.001011594
+        }
+      ],
+      "direct_c_self_s": 0.001011594
+    },
+    {
+      "line": 20478,
+      "function": "_mainread_lazy_bb_batch",
+      "calls": 26,
+      "recursive_calls": 0,
+      "self_s": 0.006097633000000001,
+      "cumulative_s": 24.274097464,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 1609,
+          "self_s": 0.00034556400000000003,
+          "cumulative_s": 0.00034556400000000003
+        }
+      ],
+      "direct_c_self_s": 0.00034556400000000003
+    },
+    {
+      "line": 7089,
+      "function": "_ipt_forward_b_ab",
+      "calls": 144,
+      "recursive_calls": 0,
+      "self_s": 0.005753287,
+      "cumulative_s": 10.369217541000001,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 2547,
+          "self_s": 0.000654967,
+          "cumulative_s": 0.000654967
+        }
+      ],
+      "direct_c_self_s": 0.000654967
+    },
+    {
+      "line": 7073,
+      "function": "_ipt_forward_a_ab",
+      "calls": 147,
+      "recursive_calls": 0,
+      "self_s": 0.004910455,
+      "cumulative_s": 6.042235409000001,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 2506,
+          "self_s": 0.000508365,
+          "cumulative_s": 0.000508365
+        }
+      ],
+      "direct_c_self_s": 0.000508365
+    },
+    {
+      "line": 20735,
+      "function": "_l3o_last",
+      "calls": 182,
+      "recursive_calls": 0,
+      "self_s": 0.004647137,
+      "cumulative_s": 1.275872024,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 1041,
+          "self_s": 0.000253874,
+          "cumulative_s": 0.000253874
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 233,
+          "self_s": 0.000165384,
+          "cumulative_s": 0.000165384
+        },
+        {
+          "function": "<built-in method builtins.id>",
+          "calls": 182,
+          "self_s": 6.629300000000001e-05,
+          "cumulative_s": 6.629300000000001e-05
+        },
+        {
+          "function": "<built-in method builtins.isinstance>",
+          "calls": 182,
+          "self_s": 1.8979000000000002e-05,
+          "cumulative_s": 1.8979000000000002e-05
+        }
+      ],
+      "direct_c_self_s": 0.0005045300000000001
+    },
+    {
+      "line": 844,
+      "function": "_nonlinear_pair_batch",
+      "calls": 14,
+      "recursive_calls": 0,
+      "self_s": 0.00397853,
+      "cumulative_s": 4.1264146450000005,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 1228,
+          "self_s": 0.000234056,
+          "cumulative_s": 0.000234056
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 154,
+          "self_s": 4.3185e-05,
+          "cumulative_s": 4.3185e-05
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 14,
+          "self_s": 1.9784000000000002e-05,
+          "cumulative_s": 3.1400000000000004e-05
+        },
+        {
+          "function": "<method 'update' of 'dict' objects>",
+          "calls": 14,
+          "self_s": 1.7955e-05,
+          "cumulative_s": 1.7955e-05
+        }
+      ],
+      "direct_c_self_s": 0.00031498
+    },
+    {
+      "line": 12738,
+      "function": "_ps32",
+      "calls": 519,
+      "recursive_calls": 0,
+      "self_s": 0.0036860290000000004,
+      "cumulative_s": 0.205626566,
+      "direct_c_children": [
+        {
+          "function": "<built-in method builtins.getattr>",
+          "calls": 519,
+          "self_s": 0.00047356700000000004,
+          "cumulative_s": 0.000674034
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 1365,
+          "self_s": 0.00045649600000000003,
+          "cumulative_s": 0.00045649600000000003
+        },
+        {
+          "function": "<built-in method builtins.id>",
+          "calls": 812,
+          "self_s": 0.000184372,
+          "cumulative_s": 0.000184372
+        }
+      ],
+      "direct_c_self_s": 0.001114435
+    },
+    {
+      "line": 14465,
+      "function": "_npx_left",
+      "calls": 14,
+      "recursive_calls": 0,
+      "self_s": 0.003468347,
+      "cumulative_s": 2.71085168,
+      "direct_c_children": [
+        {
+          "function": "<built-in method builtins.sum>",
+          "calls": 14,
+          "self_s": 2.2322e-05,
+          "cumulative_s": 2.2322e-05
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 175,
+          "self_s": 2.1132e-05,
+          "cumulative_s": 2.1132e-05
+        },
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 235,
+          "self_s": 2.0694000000000002e-05,
+          "cumulative_s": 2.0694000000000002e-05
+        }
+      ],
+      "direct_c_self_s": 6.414800000000001e-05
+    },
+    {
+      "line": 20053,
+      "function": "_astra_sm40_linear_grouped",
+      "calls": 28,
+      "recursive_calls": 0,
+      "self_s": 0.003045201,
+      "cumulative_s": 4.40562599,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 1050,
+          "self_s": 0.000152409,
+          "cumulative_s": 0.000152409
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 1340,
+          "self_s": 8.617500000000001e-05,
+          "cumulative_s": 8.617500000000001e-05
+        },
+        {
+          "function": "<built-in method builtins.max>",
+          "calls": 468,
+          "self_s": 6.833900000000001e-05,
+          "cumulative_s": 6.833900000000001e-05
+        },
+        {
+          "function": "<built-in method math.prod>",
+          "calls": 20,
+          "self_s": 1.5394000000000002e-05,
+          "cumulative_s": 1.5394000000000002e-05
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 28,
+          "self_s": 1.5040000000000002e-05,
+          "cumulative_s": 1.5040000000000002e-05
+        },
+        {
+          "function": "<built-in method builtins.id>",
+          "calls": 84,
+          "self_s": 7.556e-06,
+          "cumulative_s": 7.556e-06
+        },
+        {
+          "function": "<method 'items' of 'dict' objects>",
+          "calls": 20,
+          "self_s": 3.182e-06,
+          "cumulative_s": 3.182e-06
+        },
+        {
+          "function": "<built-in method builtins.isinstance>",
+          "calls": 28,
+          "self_s": 2.6880000000000004e-06,
+          "cumulative_s": 2.6880000000000004e-06
+        }
+      ],
+      "direct_c_self_s": 0.000350783
+    },
+    {
+      "line": 23662,
+      "function": "_ipt_side",
+      "calls": 688,
+      "recursive_calls": 0,
+      "self_s": 0.003044156,
+      "cumulative_s": 0.224470301,
+      "direct_c_children": [],
+      "direct_c_self_s": 0
+    },
+    {
+      "line": 25024,
+      "function": "_rs_load_b",
+      "calls": 144,
+      "recursive_calls": 0,
+      "self_s": 0.002929992,
+      "cumulative_s": 1.9112395860000002,
+      "direct_c_children": [
+        {
+          "function": "<built-in method math.prod>",
+          "calls": 288,
+          "self_s": 0.00020174800000000002,
+          "cumulative_s": 0.00020174800000000002
+        },
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 288,
+          "self_s": 8.6576e-05,
+          "cumulative_s": 8.6576e-05
+        }
+      ],
+      "direct_c_self_s": 0.000288324
+    },
+    {
+      "line": 11974,
+      "function": "_ks_unwind",
+      "calls": 41,
+      "recursive_calls": 0,
+      "self_s": 0.0029004720000000003,
+      "cumulative_s": 5.771098168,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 1145,
+          "self_s": 0.00035477,
+          "cumulative_s": 0.00035477
+        }
+      ],
+      "direct_c_self_s": 0.00035477
+    },
+    {
+      "line": 807,
+      "function": "__call__",
+      "calls": 5076,
+      "recursive_calls": 0,
+      "self_s": 0.0028587580000000003,
+      "cumulative_s": 0.0037025100000000004,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 5076,
+          "self_s": 0.000843752,
+          "cumulative_s": 0.000843752
+        }
+      ],
+      "direct_c_self_s": 0.000843752
+    },
+    {
+      "line": 25009,
+      "function": "_rs_load_a",
+      "calls": 147,
+      "recursive_calls": 0,
+      "self_s": 0.0027630560000000003,
+      "cumulative_s": 1.420778324,
+      "direct_c_children": [
+        {
+          "function": "<built-in method math.prod>",
+          "calls": 294,
+          "self_s": 0.000199995,
+          "cumulative_s": 0.000199995
+        },
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 294,
+          "self_s": 7.1698e-05,
+          "cumulative_s": 7.1698e-05
+        }
+      ],
+      "direct_c_self_s": 0.00027169300000000004
+    },
+    {
+      "line": 22824,
+      "function": "_bd_update",
+      "calls": 15,
+      "recursive_calls": 0,
+      "self_s": 0.0027434150000000003,
+      "cumulative_s": 0.983344211,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 569,
+          "self_s": 0.00012099900000000001,
+          "cumulative_s": 0.00012099900000000001
+        },
+        {
+          "function": "<method 'update' of 'dict' objects>",
+          "calls": 15,
+          "self_s": 2.8468000000000003e-05,
+          "cumulative_s": 2.8468000000000003e-05
+        },
+        {
+          "function": "<method 'extend' of 'list' objects>",
+          "calls": 15,
+          "self_s": 2.9680000000000002e-06,
+          "cumulative_s": 2.9680000000000002e-06
+        }
+      ],
+      "direct_c_self_s": 0.00015243500000000003
+    },
+    {
+      "line": 18291,
+      "function": "_astra_hf_grouped",
+      "calls": 28,
+      "recursive_calls": 0,
+      "self_s": 0.0026038140000000003,
+      "cumulative_s": 1.406419,
+      "direct_c_children": [
+        {
+          "function": "<built-in method builtins.all>",
+          "calls": 28,
+          "self_s": 5.6163000000000004e-05,
+          "cumulative_s": 0.00010694300000000001
+        }
+      ],
+      "direct_c_self_s": 5.6163000000000004e-05
+    },
+    {
+      "line": 4525,
+      "function": "get",
+      "calls": 960,
+      "recursive_calls": 0,
+      "self_s": 0.002471402,
+      "cumulative_s": 0.0036742800000000003,
+      "direct_c_children": [
+        {
+          "function": "<method 'pop' of 'dict' objects>",
+          "calls": 960,
+          "self_s": 0.001202878,
+          "cumulative_s": 0.001202878
+        }
+      ],
+      "direct_c_self_s": 0.001202878
+    },
+    {
+      "line": 9356,
+      "function": "forward",
+      "calls": 60,
+      "recursive_calls": 0,
+      "self_s": 0.0023972,
+      "cumulative_s": 1.454402226,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 1020,
+          "self_s": 0.00019995800000000003,
+          "cumulative_s": 0.00019995800000000003
+        },
+        {
+          "function": "<method 'extend' of 'list' objects>",
+          "calls": 60,
+          "self_s": 2.3977e-05,
+          "cumulative_s": 2.3977e-05
+        }
+      ],
+      "direct_c_self_s": 0.00022393500000000003
+    },
+    {
+      "line": 10771,
+      "function": "_f4c_step",
+      "calls": 15,
+      "recursive_calls": 0,
+      "self_s": 0.0019251320000000002,
+      "cumulative_s": 0.867021802,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 563,
+          "self_s": 0.000110636,
+          "cumulative_s": 0.000110636
+        },
+        {
+          "function": "<method 'update' of 'dict' objects>",
+          "calls": 27,
+          "self_s": 2.6453000000000002e-05,
+          "cumulative_s": 2.6453000000000002e-05
+        },
+        {
+          "function": "<built-in method builtins.max>",
+          "calls": 15,
+          "self_s": 4.405e-06,
+          "cumulative_s": 4.405e-06
+        }
+      ],
+      "direct_c_self_s": 0.000141494
+    },
+    {
+      "line": 7546,
+      "function": "_g5_chain",
+      "calls": 130,
+      "recursive_calls": 0,
+      "self_s": 0.0017668850000000002,
+      "cumulative_s": 0.09465322600000001,
+      "direct_c_children": [
+        {
+          "function": "<built-in method builtins.all>",
+          "calls": 130,
+          "self_s": 0.000153577,
+          "cumulative_s": 0.001132165
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 520,
+          "self_s": 5.4573e-05,
+          "cumulative_s": 5.4573e-05
+        },
+        {
+          "function": "<built-in method builtins.max>",
+          "calls": 130,
+          "self_s": 5.202e-05,
+          "cumulative_s": 5.202e-05
+        },
+        {
+          "function": "<method 'join' of 'str' objects>",
+          "calls": 130,
+          "self_s": 4.5523000000000004e-05,
+          "cumulative_s": 4.5523000000000004e-05
+        }
+      ],
+      "direct_c_self_s": 0.000305693
+    },
+    {
+      "line": 25606,
+      "function": "_gop2_gnn_step",
+      "calls": 15,
+      "recursive_calls": 0,
+      "self_s": 0.001709886,
+      "cumulative_s": 0.8041677660000001,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 301,
+          "self_s": 5.7925000000000005e-05,
+          "cumulative_s": 5.7925000000000005e-05
+        }
+      ],
+      "direct_c_self_s": 5.7925000000000005e-05
+    },
+    {
+      "line": 201,
+      "function": "features",
+      "calls": 14,
+      "recursive_calls": 0,
+      "self_s": 0.0016857080000000002,
+      "cumulative_s": 0.648663529,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 560,
+          "self_s": 0.000105654,
+          "cumulative_s": 0.000105654
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 14,
+          "self_s": 2.4375000000000003e-05,
+          "cumulative_s": 3.778e-05
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 14,
+          "self_s": 7.296e-06,
+          "cumulative_s": 7.296e-06
+        }
+      ],
+      "direct_c_self_s": 0.00013732500000000002
+    },
+    {
+      "line": 15048,
+      "function": "_np_update",
+      "calls": 15,
+      "recursive_calls": 0,
+      "self_s": 0.0016445530000000002,
+      "cumulative_s": 0.3246337,
+      "direct_c_children": [
+        {
+          "function": "<method 'update' of 'dict' objects>",
+          "calls": 42,
+          "self_s": 3.0352000000000003e-05,
+          "cumulative_s": 3.0352000000000003e-05
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 15,
+          "self_s": 9.004e-06,
+          "cumulative_s": 9.004e-06
+        },
+        {
+          "function": "<built-in method builtins.isinstance>",
+          "calls": 15,
+          "self_s": 8.506000000000001e-06,
+          "cumulative_s": 8.506000000000001e-06
+        },
+        {
+          "function": "<built-in method builtins.globals>",
+          "calls": 15,
+          "self_s": 5.671e-06,
+          "cumulative_s": 5.671e-06
+        },
+        {
+          "function": "<method 'pop' of 'dict' objects>",
+          "calls": 12,
+          "self_s": 2.7540000000000002e-06,
+          "cumulative_s": 2.7540000000000002e-06
+        }
+      ],
+      "direct_c_self_s": 5.628700000000001e-05
+    },
+    {
+      "line": 19163,
+      "function": "_xsg_rows",
+      "calls": 106,
+      "recursive_calls": 0,
+      "self_s": 0.0016439410000000001,
+      "cumulative_s": 0.43995494700000004,
+      "direct_c_children": [
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 91,
+          "self_s": 1.3782000000000001e-05,
+          "cumulative_s": 1.3782000000000001e-05
+        }
+      ],
+      "direct_c_self_s": 1.3782000000000001e-05
+    },
+    {
+      "line": 20937,
+      "function": "_astra_sm40_linear_grouped",
+      "calls": 42,
+      "recursive_calls": 0,
+      "self_s": 0.001618686,
+      "cumulative_s": 5.082105246,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 340,
+          "self_s": 5.0431000000000006e-05,
+          "cumulative_s": 5.0431000000000006e-05
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 56,
+          "self_s": 4.3323000000000005e-05,
+          "cumulative_s": 4.3323000000000005e-05
+        },
+        {
+          "function": "<built-in method builtins.id>",
+          "calls": 98,
+          "self_s": 2.324e-05,
+          "cumulative_s": 2.324e-05
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 235,
+          "self_s": 1.5448000000000002e-05,
+          "cumulative_s": 1.5448000000000002e-05
+        },
+        {
+          "function": "<built-in method builtins.max>",
+          "calls": 100,
+          "self_s": 1.5311e-05,
+          "cumulative_s": 1.5311e-05
+        },
+        {
+          "function": "<built-in method math.prod>",
+          "calls": 3,
+          "self_s": 2.278e-06,
+          "cumulative_s": 2.278e-06
+        },
+        {
+          "function": "<built-in method builtins.isinstance>",
+          "calls": 14,
+          "self_s": 1.2980000000000001e-06,
+          "cumulative_s": 1.2980000000000001e-06
+        },
+        {
+          "function": "<method 'items' of 'dict' objects>",
+          "calls": 3,
+          "self_s": 4.02e-07,
+          "cumulative_s": 4.02e-07
+        }
+      ],
+      "direct_c_self_s": 0.000151731
+    },
+    {
+      "line": 10967,
+      "function": "_k4l_local",
+      "calls": 15,
+      "recursive_calls": 0,
+      "self_s": 0.0016145880000000001,
+      "cumulative_s": 0.630617855,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 533,
+          "self_s": 9.7062e-05,
+          "cumulative_s": 9.7062e-05
+        },
+        {
+          "function": "<built-in method builtins.sorted>",
+          "calls": 15,
+          "self_s": 4.4576e-05,
+          "cumulative_s": 4.4576e-05
+        },
+        {
+          "function": "<method 'update' of 'dict' objects>",
+          "calls": 45,
+          "self_s": 3.9771e-05,
+          "cumulative_s": 3.9771e-05
+        },
+        {
+          "function": "<built-in method builtins.isinstance>",
+          "calls": 45,
+          "self_s": 4.6960000000000004e-06,
+          "cumulative_s": 4.6960000000000004e-06
+        },
+        {
+          "function": "<built-in method builtins.max>",
+          "calls": 15,
+          "self_s": 4.407e-06,
+          "cumulative_s": 4.407e-06
+        }
+      ],
+      "direct_c_self_s": 0.000190512
+    },
+    {
+      "line": 6118,
+      "function": "_ipt_product_ab",
+      "calls": 94,
+      "recursive_calls": 0,
+      "self_s": 0.0014921910000000001,
+      "cumulative_s": 13.638652565000001,
+      "direct_c_children": [
+        {
+          "function": "<method 'clear' of 'list' objects>",
+          "calls": 94,
+          "self_s": 0.005140612,
+          "cumulative_s": 0.014738792
+        }
+      ],
+      "direct_c_self_s": 0.005140612
+    },
+    {
+      "line": 21543,
+      "function": "_mrp_kernel_call",
+      "calls": 7,
+      "recursive_calls": 0,
+      "self_s": 0.0014892010000000001,
+      "cumulative_s": 18.835703414,
+      "direct_c_children": [
+        {
+          "function": "<built-in method builtins.hasattr>",
+          "calls": 14,
+          "self_s": 9.122e-06,
+          "cumulative_s": 9.122e-06
+        },
+        {
+          "function": "<built-in method math.ceil>",
+          "calls": 21,
+          "self_s": 8.629e-06,
+          "cumulative_s": 8.629e-06
+        },
+        {
+          "function": "<method 'clear' of 'dict' objects>",
+          "calls": 14,
+          "self_s": 3.012e-06,
+          "cumulative_s": 3.012e-06
+        },
+        {
+          "function": "<method 'clear' of 'list' objects>",
+          "calls": 7,
+          "self_s": 2.147e-06,
+          "cumulative_s": 2.147e-06
+        }
+      ],
+      "direct_c_self_s": 2.2910000000000003e-05
+    },
+    {
+      "line": 13048,
+      "function": "_rqs_psdb_group",
+      "calls": 16,
+      "recursive_calls": 0,
+      "self_s": 0.0014529900000000001,
+      "cumulative_s": 1.243964998,
+      "direct_c_children": [
+        {
+          "function": "<method 'clear' of 'list' objects>",
+          "calls": 16,
+          "self_s": 0.000676562,
+          "cumulative_s": 0.001961683
+        },
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 448,
+          "self_s": 9.058200000000001e-05,
+          "cumulative_s": 9.058200000000001e-05
+        },
+        {
+          "function": "<method 'extend' of 'list' objects>",
+          "calls": 112,
+          "self_s": 2.5831e-05,
+          "cumulative_s": 2.5831e-05
+        }
+      ],
+      "direct_c_self_s": 0.000792975
+    },
+    {
+      "line": 15546,
+      "function": "_ipt_forward_b_ab",
+      "calls": 170,
+      "recursive_calls": 0,
+      "self_s": 0.0014318220000000001,
+      "cumulative_s": 10.640079776,
+      "direct_c_children": [
+        {
+          "function": "<built-in method builtins.max>",
+          "calls": 4,
+          "self_s": 6.98e-07,
+          "cumulative_s": 6.98e-07
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 4,
+          "self_s": 6.900000000000001e-07,
+          "cumulative_s": 6.900000000000001e-07
+        }
+      ],
+      "direct_c_self_s": 1.388e-06
+    },
+    {
+      "line": 24072,
+      "function": "_o18pad_product",
+      "calls": 159,
+      "recursive_calls": 62,
+      "self_s": 0.001422328,
+      "cumulative_s": 46.353106736,
+      "direct_c_children": [
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 147,
+          "self_s": 7.8702e-05,
+          "cumulative_s": 7.8702e-05
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 216,
+          "self_s": 1.7438e-05,
+          "cumulative_s": 1.7438e-05
+        },
+        {
+          "function": "<method 'clear' of 'list' objects>",
+          "calls": 1,
+          "self_s": 2.019e-06,
+          "cumulative_s": 4.215e-06
+        }
+      ],
+      "direct_c_self_s": 9.8159e-05
+    },
+    {
+      "line": 12687,
+      "function": "_psp_pair_series",
+      "calls": 14,
+      "recursive_calls": 0,
+      "self_s": 0.001347688,
+      "cumulative_s": 2.3329829610000004,
+      "direct_c_children": [],
+      "direct_c_self_s": 0
+    },
+    {
+      "line": 7624,
+      "function": "_gn_dcov",
+      "calls": 13,
+      "recursive_calls": 0,
+      "self_s": 0.001346476,
+      "cumulative_s": 0.512585403,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 208,
+          "self_s": 4.0579000000000006e-05,
+          "cumulative_s": 4.0579000000000006e-05
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 13,
+          "self_s": 2.1904000000000002e-05,
+          "cumulative_s": 3.4135000000000004e-05
+        },
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 39,
+          "self_s": 5.842e-06,
+          "cumulative_s": 5.842e-06
+        },
+        {
+          "function": "<built-in method builtins.globals>",
+          "calls": 13,
+          "self_s": 5.001e-06,
+          "cumulative_s": 5.001e-06
+        }
+      ],
+      "direct_c_self_s": 7.332600000000001e-05
+    },
+    {
+      "line": 18214,
+      "function": "_rtt_read",
+      "calls": 14,
+      "recursive_calls": 0,
+      "self_s": 0.0013371300000000002,
+      "cumulative_s": 31.962860896000002,
+      "direct_c_children": [
+        {
+          "function": "<built-in method math.erfc>",
+          "calls": 14,
+          "self_s": 6.6070000000000004e-06,
+          "cumulative_s": 6.6070000000000004e-06
+        },
+        {
+          "function": "<built-in method builtins.min>",
+          "calls": 14,
+          "self_s": 4.147e-06,
+          "cumulative_s": 4.147e-06
+        },
+        {
+          "function": "<built-in method math.sqrt>",
+          "calls": 14,
+          "self_s": 3.4550000000000004e-06,
+          "cumulative_s": 3.4550000000000004e-06
+        },
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 14,
+          "self_s": 2.892e-06,
+          "cumulative_s": 2.892e-06
+        }
+      ],
+      "direct_c_self_s": 1.7101e-05
+    },
+    {
+      "line": 13336,
+      "function": "_psdm_group",
+      "calls": 14,
+      "recursive_calls": 0,
+      "self_s": 0.00130827,
+      "cumulative_s": 1.057721771,
+      "direct_c_children": [
+        {
+          "function": "<method 'clear' of 'list' objects>",
+          "calls": 14,
+          "self_s": 0.000731221,
+          "cumulative_s": 0.002100661
+        },
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 392,
+          "self_s": 7.833800000000001e-05,
+          "cumulative_s": 7.833800000000001e-05
+        },
+        {
+          "function": "<method 'extend' of 'list' objects>",
+          "calls": 98,
+          "self_s": 2.6256e-05,
+          "cumulative_s": 2.6256e-05
+        }
+      ],
+      "direct_c_self_s": 0.0008358150000000001
+    },
+    {
+      "line": 7042,
+      "function": "_ipt_side",
+      "calls": 43,
+      "recursive_calls": 0,
+      "self_s": 0.001275868,
+      "cumulative_s": 0.217322284,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 191,
+          "self_s": 1.7859e-05,
+          "cumulative_s": 1.7859e-05
+        }
+      ],
+      "direct_c_self_s": 1.7859e-05
+    },
+    {
+      "line": 10197,
+      "function": "_hz_side",
+      "calls": 153,
+      "recursive_calls": 0,
+      "self_s": 0.0012742550000000002,
+      "cumulative_s": 0.063964593,
+      "direct_c_children": [
+        {
+          "function": "<method 'append' of 'list' objects>",
+          "calls": 354,
+          "self_s": 4.8883000000000006e-05,
+          "cumulative_s": 4.8883000000000006e-05
+        },
+        {
+          "function": "<built-in method builtins.len>",
+          "calls": 71,
+          "self_s": 1.4671e-05,
+          "cumulative_s": 1.4671e-05
+        }
+      ],
+      "direct_c_self_s": 6.355400000000001e-05
+    },
+    {
+      "line": 19470,
+      "function": "__call__",
+      "calls": 7,
+      "recursive_calls": 0,
+      "self_s": 0.001263838,
+      "cumulative_s": 10.799661175,
+      "direct_c_children": [
+        {
+          "function": "<method 'clear' of 'list' objects>",
+          "calls": 7,
+          "self_s": 7.0839e-05,
+          "cumulative_s": 0.000144596
+        },
+        {
+          "function": "<built-in method math.ceil>",
+          "calls": 21,
+          "self_s": 9.744e-06,
+          "cumulative_s": 9.744e-06
+        },
+        {
+          "function": "<method 'clear' of 'dict' objects>",
+          "calls": 14,
+          "self_s": 3.3810000000000003e-06,
+          "cumulative_s": 3.3810000000000003e-06
+        }
+      ],
+      "direct_c_self_s": 8.396400000000001e-05
+    },
+    {
+      "line": 14286,
+      "function": "_ipt_forward_b_ab",
+      "calls": 166,
+      "recursive_calls": 0,
+      "self_s": 0.001263018,
+      "cumulative_s": 10.370533467000001,
+      "direct_c_children": [
+        {
+          "function": "<method 'get' of 'dict' objects>",
+          "calls": 40,
+          "self_s": 2.9629e-05,
+          "cumulative_s": 2.9629e-05
+        },
+        {
+          "function": "<method 'update' of 'dict' objects>",
+          "calls": 1,
+          "self_s": 4.557000000000001e-06,
+          "cumulative_s": 4.557000000000001e-06
+        }
+      ],
+      "direct_c_self_s": 3.4186e-05
+    }
+  ],
+  "profile_totals": {
+    "control": {
+      "root_wall_ns": 99119541160,
+      "root_dispatch_ns": 98681560671,
+      "root_outside_ns": 437980489,
+      "candidate_python_self_s": 0,
+      "candidate_direct_c_self_s": 0
+    },
+    "observe": {
+      "root_wall_ns": 104412154087,
+      "root_dispatch_ns": 103634460924,
+      "root_outside_ns": 777693163,
+      "candidate_python_self_s": 0.22291783000000004,
+      "candidate_direct_c_self_s": 0.04826434900000003
+    }
+  },
+  "limitations": [
+    "Instrumented timing is diagnostic, never a release/runtime qualification.",
+    "Per-function self-times exclude callee time; direct C child rows are not all outside-dispatch.",
+    "Any source callback/finalizer potentially executing inside SDK spans must be excluded from outside-SDK conclusions.",
+    "SDK self-time inventory mixes counted and uncounted work; no aggregate runtime credit.",
+    "Do not retry a failed strict gate unchanged."
+  ]
+}

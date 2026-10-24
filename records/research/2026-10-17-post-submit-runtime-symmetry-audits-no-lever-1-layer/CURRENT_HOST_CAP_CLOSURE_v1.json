@@ -1,0 +1,22 @@
+{
+  "status": "NO_CREDIBLE_ONE_PERCENT_RESIDUAL_PATCH_IN_AUDITED_PATHS",
+  "sealed_source_sha256": "da7e6687cc7956ba7d2d5ba432129d7bc848885ecade6b2329301f51dc65e47a",
+  "models": 0,
+  "production_source_edits": 0,
+  "unroll_warm_instruction_gain": 376960.9600000009,
+  "hold_batch_warm_instruction_gain": 141830.4600000009,
+  "ideal_all_E2Hold_inline_historical_warm_gain": 9094017.44864,
+  "warm_one_percent_target": 19497463.22,
+  "cap_repricing_additional_routes_broad8": 0,
+  "fixed79_uncapped_bill_gain_pct": 0.02683639150190681,
+  "fixed79_uncapped_mean_extra_requests": 46.875,
+  "limitations": [
+    "Host probes replace FNP with trivial functions and use saved v11 arithmetic counts. They are ceilings/comparisons, not current whole-estimator measurements.",
+    "E2Hold counts are historical S3; perfect inlining is not implemented or ownership-qualified.",
+    "Cap prices use saved exact-v17 metadata with warmed caches; no per-route residual instruction measurement is available.",
+    "Optimistic cap repricing also releases the intentionally preserved bad-push debit; it still changes no accepted route on broad8."
+  ],
+  "hold_for_next_stack": "../w3_metric_constants_v1/fragment_w3_constants_v2.py.txt",
+  "fragment_sha256": "8ec16e0bfa3009274e02a619f3fc04d7598ce5155bd2a99cff9ee722c3580e3f",
+  "next_action": "Use actual #336631 telemetry before any further runtime implementation."
+}

@@ -1,0 +1,69 @@
+{
+  "adaptations": [
+    "A1 order-grid row length: the shell probe extended _Q24_ORDER_GRID with rows d=7,8,9 of 25 terms (d..d+24, max gather 9+24=33).  The no-eigh card's t7 trim makes every row 7 terms (_Q24_TERMS=7, the einsum t-axis and _INV_FACTORIAL[:_Q24_TERMS] slice), so the added rows are re-emitted as (7..13), (8..14), (9..15): 7 terms each, max gather 15 <= 38, inside the untouched q<=38 coefficient table.",
+    "A2 order-grid formatting: rows are emitted in the trim builder's exact format ('(d, d+1, ..., d+6,)' joined with ',\\n ') so rows d=0..6 are byte-identical to the trim card's existing grid; the probe's reflow of rows d=0..6 to 25-term single lines is NOT ported (those rows would contradict _Q24_TERMS=7).",
+    "A3 condrepair hunk not ported: the instrumented-x diff also carries the conditional-repair Cholesky block; the no-eigh lineage deliberately removed that whole repair family (trim receipt cholesky_free=true, no-eigh receipt removes the unconditional eigh block), so the shell is applied in its condrepair-free spelling (estimator_x hunks), which the X audit certifies byte-identical to the instrumented file's lambda3 hunks."
+  ],
+  "inputs": {
+    "base_noeigh_card": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_noeigh_card_v1/estimator.py",
+      "sha256": "373ad4d55edbc7fd0f6aa7e9bedafe41e283f2685e5002c8b46ac44c05ebcdd7"
+    },
+    "k22_builder": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_k22_carrier_ab_probe_v1/build_estimator_k22r.py",
+      "sha256": "c6c9868c4b8784c87aea39f605adce0f330fade65e966236527495062e3326a8"
+    },
+    "lambda3_shell_base": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_condrepair_deployment_card_v1/estimator.py",
+      "sha256": "24ed2325e4db0c0287a222189a986c2d6462f80832c717827c27b783a6655ee2"
+    },
+    "lambda3_shell_source": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_lambda3_shell_probe_v1/estimator_x.py",
+      "sha256": "f055bf1321500f74d8bdfd5e4bc209b5a44b5839d004ab8fa8c39bba4d0d24e5"
+    }
+  },
+  "k22_appended_bytes": 3599,
+  "output_bytes": 680105,
+  "output_sha256": "60f0f5f4434f28504206833d27ab4da8e4ce82387ef49b86cee020b2c02f8d95",
+  "patches": [
+    "S1-derivative-channels",
+    "S2-derivative-grids",
+    "S3-order-grid-ADAPTED",
+    "S4-weights-workspace",
+    "S5-inverse-sigma",
+    "S6-lambda3-weight-blocks",
+    "S7-g-four-all-loop",
+    "S8-four-pair-loop",
+    "K1-k22-carrier",
+    "K2-k22-carrier",
+    "K3-k22-carrier",
+    "K4-k22-carrier",
+    "K5-k22-carrier",
+    "K6-k22-carrier",
+    "K7-k22-carrier",
+    "D1-docstring-provenance"
+  ],
+  "schema": "deploy-composition-builder-receipt-v1",
+  "shell_recovery_note": "lambda3 hunks extracted from estimator_x.py, whose diff against condrepair_v1 the X audit certifies byte-identical to the instrumented_estimator_x.py lambda3 hunks (AUDIT_RECEIPT.json composition/estimator_x); pre-images asserted unchanged between condrepair_v1 and the no-eigh card for every non-adapted hunk",
+  "smoke": {
+    "billed_flops": 1954299960565,
+    "budget_context": 4398046511104,
+    "deployment_budget_2pow41": 2199023255552,
+    "finite": true,
+    "margin_to_2pow41": 244723294987,
+    "mlp_id": 89,
+    "nonnegative": true,
+    "output_final_layer_rms": 0.8720739291474271,
+    "output_shape": [
+      16,
+      1024
+    ],
+    "schema": "composed-smoke-forward-v1",
+    "source_sha256": "60f0f5f4434f28504206833d27ab4da8e4ce82387ef49b86cee020b2c02f8d95",
+    "store_row_rank": 35,
+    "targets_read": 0,
+    "under_deployment_budget": true,
+    "wall_seconds": 22.65946725010872
+  },
+  "transport_payload_state": "carries the no-eigh card's frozen _TRANSPORT_PAYLOAD unchanged; STALE for this host by construction - retrain and re-splice per EXPORT_PLAYBOOK.md before any deployment"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "packed-d4-full-gate-terminal-closure-v1",
+  "status": "FAIL_TERMINAL_ACCEPTED_NO_RETRY",
+  "decision": "CLOSE_PACKED_D4_FULL_GATE_WITHOUT_CANDIDATE_CALL",
+  "bindings": {
+    "release_sha256": "d4c5a6dfa01e6662ecff6c29ab6201da6ef86531f3319dcb6563566227efa324",
+    "lock_sha256": "a3c7ece025b6514a76bf92149ef93d78f1fb346642ad283d63d0fd4e39a38ec1",
+    "result_sha256": "ab1c22a0f4474eed738a6f2238fa3b183d4958112d4b15993403cda14c1009d5",
+    "runner_sha256": "b408eb096c8f185ffa59502231a20005460a68764ce9103795e57ef25e7cd23d",
+    "candidate_source_sha256": "982775b3296709156e1d05c24d703a0982db8bab6dce83dc16744fb09361b066",
+    "gate_freeze_sha256": "b5b8a076ad4266985decf0f5485893b93b5a11c070bb0bbd3c0aff215043edb7"
+  },
+  "measured_failure": {
+    "phase": "parent",
+    "ordinal": 0,
+    "role_rank": 35,
+    "flops": 1319871710583,
+    "total_calls": 15416,
+    "rss_bytes": 5930254336,
+    "official_residual_seconds": 0.5711876060813665,
+    "required_residual_strictly_below_seconds": 0.4,
+    "sole_observed_gate_failure": "parent instrumented residual is not strictly below 0.4 seconds"
+  },
+  "scope": {
+    "parent_estimator_calls_completed": 1,
+    "candidate_estimator_calls": 0,
+    "rank279_calls": 0,
+    "rank35_repeat_calls": 0,
+    "targets_read": 0,
+    "scores_read": 0,
+    "network": false,
+    "submission": false,
+    "no_retry": true
+  },
+  "interpretation": "The static lifetime packing proof remains valid, but the frozen full five-component instrumentation path cannot qualify the packed host because its unchanged D4 parent already exceeds the residual gate. This is not an accuracy result and does not alter D4 #328622 as the bank."
+}

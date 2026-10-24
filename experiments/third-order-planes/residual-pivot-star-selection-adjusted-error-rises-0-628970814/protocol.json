@@ -1,0 +1,134 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_residual_pivots_v1/fragment.py",
+    "sha256": "4b00d8caa2d659011dcbfb3d01131a699c2c9c449a0ff94eeef915d6e285bbf2",
+    "bytes": 3156
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_residual_pivots_v1/candidate.py",
+    "sha256": "23bcd226b1c28b2087bfbc7085c5d42d59c3bfdb22c7f0351c735483e2037c7a",
+    "bytes": 933324
+  },
+  "change": "Append one greedy residual-column helper and override only _lr_factor; exact S32 prefix. Original factor arithmetic unchanged except column-selection assignment.",
+  "algorithm": {
+    "rank": 32,
+    "power_steps": 1,
+    "small_SVD": false,
+    "score_initial": "parent FP64 squared column norms",
+    "selection": "first original-index argmax among unselected nonnegative residual scores",
+    "basis": "FP64 two-pass block modified Gram-Schmidt on each selected ORIGINAL A64 column",
+    "updates_max": 31,
+    "projection": "ordinary paid FP32 q.T @ A32; cast resulting vector to FP64 before squared score downdate",
+    "score_update": "residual = maximum(residual - projection^2,0); reapply selected-column exclusion AFTER clamping",
+    "final_order": "ascending selected indices, then unchanged FP32 gathered-column QR and ThinD3 Q1/B",
+    "breakdown": "u64=2^-53; gamma_m=m*u64/(1-m*u64); if max(cn)==0 or selected twice-reorthogonalized residual squared norm <= gamma_m^2*max(cn), stop greedy and fill remaining slots by original stable descending energy order excluding already chosen indices. No denominator clamp or ridge.",
+    "precision_caveat": "This is a QRCP-inspired mixed-precision selection heuristic, not LAPACK QRCP or an exact residual-energy calculation. The chosen-column breakdown tolerance is a fixed machine-resolution convention, not a numerical rank certificate or a bound on score error."
+  },
+  "controls": [
+    "hill_climb_star_projection32_train2_v1",
+    "hill_climb_star_projection32_train6_v1",
+    "hill_climb_star_projection32_extra8_candidate_v1"
+  ],
+  "train2_ranks": [
+    35,
+    100
+  ],
+  "train2_advance": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 2
+  },
+  "if_advance_fixed_blocks": [
+    [
+      36,
+      45,
+      52,
+      58,
+      64,
+      70
+    ],
+    [
+      3,
+      12,
+      40,
+      41,
+      43,
+      44,
+      57,
+      68
+    ]
+  ],
+  "train16_retention": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 10,
+    "ci95_upper_below": 0,
+    "additional14_gain_positive": true
+  },
+  "invariants": {
+    "output_layer0_byte_exact": true,
+    "no_later_output_or_count_equality_claim": true,
+    "all_numeric_work_paid_FNP": true,
+    "rank_and_power_and_final_product_routes_unchanged": true,
+    "parent_prefix_byte_exact": true,
+    "no_residual_matrix_copy": true
+  },
+  "limits": {
+    "train2_seconds": 150,
+    "train6_seconds": 300,
+    "extra8_seconds": 360,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "serial": true
+  },
+  "unit": {
+    "script": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_residual_pivots_v1/unit.py",
+      "sha256": "8bcc94c9aea778a6fdaec3235387d5323ec87e91d0766ca05f593b30faf5dd44",
+      "bytes": 4182
+    },
+    "seconds": 60,
+    "rss_bytes": 1000000000,
+    "added_swap_bytes": 0,
+    "helper_only": true,
+    "cases": [
+      "zero",
+      "rank-one nonprefix stable fallback",
+      "diagonal",
+      "equal-energy index ties",
+      "redundant high-energy columns",
+      "unchanged native QR/Q1/B path"
+    ]
+  },
+  "cost": {
+    "fp32_projection_flops_per_card": 974699520,
+    "fp64_two_pass_block_MGS_approx_flops_per_card": 112400000,
+    "estimated_total_extra_flops_per_card": 1100000000,
+    "estimated_bill_pct": 0.4,
+    "new_basis_bytes_at_width1024": 253952,
+    "existing_parent_A64_bytes_reused": 8388608,
+    "added_small_temporary_reserve_bytes": 1048576,
+    "estimated_extra_RPC_requests_per_card": 10000,
+    "estimate_not_complete_actual_bill": true,
+    "serving_cost_must_be_measured": true
+  },
+  "diagnostics": "_SRP_STATS cumulative scalar counters: calls,updates,fallbacks,zero_inputs,negative_scores; no arrays retained.",
+  "history": {
+    "no_prior_QRCP_or_greedy_star_column_receipt_found_in_bounded_search": true,
+    "prior_energy_start": "Fable porter STACKED_BASE.md709\u2013713: old energy48/Q1/r32 nativeVALID40 raw+.137%, bill-.455%, adjusted-.320%; accepted as cost trade.",
+    "prior_power_anatomy": "Same file602\u2013603: old Q1 next-star relative error median.104 vs exactrank32 .101; no claim of large remaining headroom."
+  },
+  "caveat": "Different selected basis can improve or worsen downstream signed star contractions; greedy column residual energy is not the final-mean objective. Approximately .50% raw improvement needed for -.1% adjusted at .4% extra bill. RPC overhead is material. No positive endpoint or bank forecast.",
+  "one_fixed_source": true,
+  "no_fit_or_truth_inputs": true,
+  "no_pivot_block_rank_precision_layer_or_amplitude_variants_on_failure": true,
+  "bank_policy": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/submission_policy_20260928_v1.json",
+    "sha256": "d069a04ed856331da19099e1ed86a3aa56bca81b56e8d2d09278fc7a6af793e7",
+    "bytes": 492
+  },
+  "notes": "Exact S32 parent, not retained exact cost bundle. No failed CSR/selector/Edgeworth components. Root owns all numerical execution; fixed component gates are not release qualification."
+}

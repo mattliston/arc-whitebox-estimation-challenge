@@ -1,0 +1,321 @@
+{
+  "access_accounting": {
+    "bank_or_A15_payload_bytes_opened": 0,
+    "estimator_executions": 0,
+    "generation_receipt_payloads_opened": 0,
+    "numerical_modules_imported": 0,
+    "row_or_weight_payload_bytes_opened": 0,
+    "score_result_payloads_opened": 0,
+    "staging_entries_listed_or_opened": 0,
+    "submission_or_network_actions": 0,
+    "target_payload_bytes_opened": 0,
+    "training_or_scoring_runs": 0
+  },
+  "accuracy_and_device_law": {
+    "authoritative_device": "CPU",
+    "candidate_H_every_inner_program": [
+      16,
+      64,
+      256
+    ],
+    "mps_authorized": false,
+    "raw_mse_strict_hurdle": 1.2425668176231516e-08,
+    "resource_or_novelty_diagnostic_can_veto_accuracy_or_H": false
+  },
+  "board_target_math": {
+    "adjusted_score_target_strictly_below": 7.7e-09,
+    "authoritative_scoring_law": "mean_i[MSE_i * max(0.1, FLOPs_i / 2^41)]",
+    "aggregate_shortcut_forbidden_when_flops_vary_by_network": true,
+    "deployment_multiplier_max_if_raw_equals_frozen_hurdle": 0.6196849852090025,
+    "equivalent_flops_max_if_multiplier_is_flops_over_2pow41": 1362701693590.9937,
+    "interpretation": "The OOF raw gate is accuracy-only. If every network had one common FLOP factor, a pass at the exact raw hurdle would reach the requested adjusted target only below multiplier 0.6196849852090025. The actual board projection must pair each network's held-out squared error with that network's literal FLOPs before averaging; mean-MSE times mean-factor is not valid when FLOPs vary. Resource work cannot veto the OOF result, but it is a separate board-packaging requirement."
+  },
+  "detected_control_defect": {
+    "classification": "STATIC_SCHEMA_AND_FIXED_PATH_SUCCESSOR_MISMATCH",
+    "held_postseal_helper_review": {
+      "atomic_gate_fail_closed": false,
+      "path": "public_q24_signed_pair_lean_v5_post_generation_handoff_review_v1/INDEPENDENT_STATIC_REVIEW_V1.json",
+      "sha256": "e0f6aa3f87f549c14272be886746a95ee4235f4dd1de2eb453aebb0e55bce201",
+      "status": "HOLD_STATIC_PROTECTED_MODES_NOT_ATOMIC_GATE_CLOSED"
+    },
+    "old_oof_authority_builder": {
+      "helper_sha256": "87911d981ac4234f916c7f415ba5d4525f15184a4c1cd698a0f299611829ed6d",
+      "independent_static_review_sha256": "c35d83d7706fa29edfc1a109d79eff2df91f92b01e45ab6deb56c2c335eb2bd1",
+      "path": "public_q24_signed_pair_nested_accuracy_oof_v4r1_execution_authority_builder_v1",
+      "problem": "Its fixed POST_HANDOFF and POST_HANDOFF_REVIEW paths, schema, review_id, and keyset accept only V1. V1 is HOLD, so validate_postseal_helper can never return for the repaired V1R1 GO."
+    },
+    "repaired_postseal_helper_review": {
+      "atomic_gate_fail_closed": true,
+      "path": "public_q24_signed_pair_lean_v5_post_generation_handoff_review_v1r1/INDEPENDENT_STATIC_REVIEW_V1R1.json",
+      "review_id": "q24-sp3b-v5-postseal-handoff-static-review-v1r1",
+      "schema": "public-q24-lean-v5-post-generation-handoff-independent-static-review-v1r1",
+      "sha256": "037fcd5d64943c44efe64b7223e2ec2d30264e2cd7fc3b3bd1e6db0de97e59ed",
+      "status": "GO_FROZEN_FAIL_CLOSED_POST_GENERATION_PATH"
+    },
+    "required_repair": "Use a separately frozen and independently reviewed OOF execution-authority-builder successor that binds terminal V1 HOLD and exact V1R1 GO. Never modify or use the reviewed V1 builder for live issuance.",
+    "successor_builder": {
+      "freeze_receipt_sha256": "3bdba4d1807f35efb02dc28b8aefb8af2c823f1c6db8a765c4b90473b26234fa",
+      "freeze_verification_sha256": "8778491213a96a5639b4e21f6849d0bb6baae2ddd76abc5c20442f94249328c3",
+      "helper_sha256": "572477ccfec5768aea3916db01a6c2b19860efd0b8178b0f2777c4817d176c9b",
+      "independent_review_path": "public_q24_signed_pair_nested_accuracy_oof_v4r1_execution_authority_builder_review_v1r1/INDEPENDENT_STATIC_REVIEW_V1R1.json",
+      "independent_review_schema": "public-q24-nested-oof-v4r1-execution-authority-builder-independent-static-review-v1r1",
+      "independent_review_sha256": "8c3fee650c595ada2b0bb3208c41ce84b7648e532c2f4d301e6b3479a16bd3fd",
+      "package_manifest_sha256": "6e80d902b17e396b38a85527584084f725f8c2f3bc7854066cb9135566ee2b9d",
+      "path": "public_q24_signed_pair_nested_accuracy_oof_v4r1_execution_authority_builder_v1r1",
+      "postseal_v1r1_bindings_sha256": "d6df5d7eea52921b3a91481a7fab970da5adc3144f924adea4a55866448c30ba",
+      "static_verification_sha256": "42f41f34277c7f26b097bc24bceede5e6ba98e8de219dd04c59b3824f8f348e8",
+      "status": "GO_FROZEN_FAIL_CLOSED_POSTSEAL_V1R1_AUTHORITY_PATH__NO_LIVE_AUTHORITY"
+    }
+  },
+  "existing_authority_reuse_audit": {
+    "board_submission": {
+      "example_bank_ready_receipt": {
+        "path": "public_condrepair_deployment_card_v2/BANK_READY_RECEIPT.json",
+        "sha256": "530d7b2dda388a666fe46fe4f54e359b6e3903cbcbb90adfd1b47618970a27a2"
+      },
+      "example_exact_archive_fire_authority": {
+        "path": "public_condrepair_deployment_card_v2/FIRE_AUTHORITY_RECEIPT.json",
+        "sha256": "d41237e9e7d199f8d2ca004d944183a690530d664ba50d1433a5fc27db050ded"
+      },
+      "reusable_for_signed_pair": false,
+      "reason": "Existing fire authority binds another exact archive and one attempt. A signed-pair archive requires a fresh exact-archive root authority after BANK_READY."
+    },
+    "observer_fit_target": {
+      "contract_path": "public_q24_signed_pair_nested_accuracy_oof_v4r1_execution_authority_builder_v1/EXACT_TARGET_CAPABILITY_CONTRACT.json",
+      "contract_sha256": "3afb5538513c269cb4c8b5b3834d98a3d52273c2ee14e1790b4d82666e327cc6",
+      "live_capability_already_issued": false,
+      "one_use": true,
+      "retry": false,
+      "role": "observer_fit",
+      "target_bundle_sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7",
+      "target_columns": [
+        "mlp_id",
+        "all_layer_means"
+      ]
+    },
+    "protected_score": {
+      "applicable_unconsumed_signed_pair_score_authority_found": false,
+      "reason": "Existing one-use score authorities and claims bind other immutable prediction bundles and comparison digests. OOF V4R1 computes its frozen observer-fit held-out raw metrics inside its own one-use target capability and grants no separate protected-score or board access."
+    }
+  },
+  "future_live_postseal_chain": [
+    {
+      "issuer": "postseal_handoff_verifier",
+      "path": "public_q24_signed_pair_lean_v5_post_generation_seal_instance_v1/FULL_BUNDLE_HANDOFF_VERIFICATION_V1.json",
+      "schema": "public-q24-lean-v5-post-generation-handoff-verification-v1",
+      "status": "PASS_EXACT_ATOMIC_V5_BUNDLE_READY_FOR_CANONICAL_SEAL"
+    },
+    {
+      "issuer": "post_generation_sealer",
+      "path": "public_q24_signed_pair_lean_v5_post_generation_seal_instance_v1/POST_GENERATION_SEAL_V5.json",
+      "schema": "public-q24-signed-pair-lean-three-bank-post-generation-seal-v5",
+      "status": "SEALED_LEAN_RUNTIME_V5_TARGET_BLIND_THREE_BANK_GENERATION"
+    },
+    {
+      "issuer": "postseal_handoff_verifier",
+      "path": "public_q24_signed_pair_lean_v5_post_generation_seal_review_v1/INDEPENDENT_REVIEW_REQUEST_V1.json",
+      "schema": "public-q24-lean-v5-post-generation-independent-review-request-v1",
+      "status": "REQUEST_INDEPENDENT_CANONICAL_V5_REVIEW__NO_OOF_HANDOFF_YET"
+    },
+    {
+      "issuer": "independent_reviewer",
+      "path": "public_q24_signed_pair_lean_v5_post_generation_seal_review_v1/INDEPENDENT_POST_GENERATION_REVIEW_V5.json",
+      "schema": "public-q24-signed-pair-lean-three-bank-post-generation-seal-independent-review-v5",
+      "status": "GO_AUTHENTICATED_LEAN_RUNTIME_V5_TARGET_BLIND_THREE_BANKS"
+    },
+    {
+      "issuer": "postseal_handoff_verifier",
+      "path": "public_q24_signed_pair_lean_v5_post_generation_seal_review_v1/OOF_CONSUMER_HANDOFF_V1.json",
+      "schema": "public-q24-lean-v5-reviewed-bank-oof-v4-consumer-handoff-v1",
+      "status": "GO_BIND_EXACT_REVIEWED_V5_BANKS_IN_FRESH_OOF_V4_AUTHORITY"
+    }
+  ],
+  "future_oof_live_authority_chain": [
+    {
+      "artifact": "anchor issuance request",
+      "exact_fields": [
+        "authority_id",
+        "confirmation",
+        "issued_utc",
+        "schema"
+      ],
+      "required_confirmation": "ISSUE_FROZEN_NESTED_OOF_V4R1_ANCHOR_AFTER_V5_BANK_REVIEW",
+      "schema": "public-q24-nested-oof-v4r1-anchor-issuance-request-v1",
+      "time_window_seconds": 300
+    },
+    {
+      "artifact": "immutable execution anchor",
+      "issuer": "root",
+      "path": "public_q24_signed_pair_nested_accuracy_oof_v4r1_execution_authority_instance_v1/EXECUTION_ANCHOR_V4R1.json",
+      "schema": "public-q24-signed-pair-nested-accuracy-execution-anchor-v3",
+      "status": "IMMUTABLE_ONE_SHOT_ACCURACY_AUTHORITY_ANCHOR"
+    },
+    {
+      "artifact": "independent anchor review",
+      "issuer": "independent_reviewer",
+      "path": "public_q24_signed_pair_nested_accuracy_oof_v4r1_execution_anchor_review_v1/INDEPENDENT_EXECUTION_ANCHOR_REVIEW_V4R1.json",
+      "schema": "public-q24-signed-pair-nested-accuracy-execution-anchor-independent-review-v3",
+      "status": "GO_EXACT_ONE_SHOT_ACCURACY_ANCHOR"
+    },
+    {
+      "artifact": "capability issuance request",
+      "exact_fields": [
+        "capability_id",
+        "confirmation",
+        "issued_utc",
+        "schema"
+      ],
+      "required_confirmation": "ISSUE_ONE_NESTED_OOF_V4R1_TARGET_CAPABILITY_AFTER_ANCHOR_GO",
+      "schema": "public-q24-nested-oof-v4r1-capability-issuance-request-v1",
+      "time_window_seconds": 300
+    },
+    {
+      "artifact": "one-use observer-fit target capability",
+      "issuer": "root",
+      "path": "public_q24_signed_pair_nested_accuracy_oof_v4r1_execution_authority_instance_v1/SINGLE_USE_TARGET_CAPABILITY_V4R1.json",
+      "schema": "public-q24-signed-pair-nested-accuracy-target-capability-v3",
+      "status": "AUTHORIZE_EXACTLY_ONE_OBSERVER_FIT_NESTED_ACCURACY_RUN"
+    },
+    {
+      "artifact": "release issuance request",
+      "exact_fields": [
+        "confirmation",
+        "issued_utc",
+        "release_id",
+        "schema"
+      ],
+      "required_confirmation": "RELEASE_EXACTLY_ONE_CPU_NESTED_OOF_V4R1_RUN_NO_RETRY",
+      "schema": "public-q24-nested-oof-v4r1-release-issuance-request-v1",
+      "time_window_seconds": 300
+    },
+    {
+      "artifact": "final execution release",
+      "issuer": "root",
+      "path": "SIGNED_PAIR_NESTED_ACCURACY_EXECUTION_RELEASE_V4R1.json",
+      "schema": "public-q24-signed-pair-nested-accuracy-execution-release-v3",
+      "status": "RELEASE_EXACTLY_ONE_NESTED_ACCURACY_RUN"
+    },
+    {
+      "artifact": "stored direct CPU command",
+      "path": "public_q24_signed_pair_nested_accuracy_oof_v4r1_execution_authority_instance_v1/EXACTLY_ONE_CPU_NESTED_OOF_V4R1_COMMAND_V1.json",
+      "schema": "public-q24-nested-oof-v4r1-exactly-one-command-v1",
+      "status": "READY_EXACT_ONE_CPU_RUN_NO_RETRY"
+    }
+  ],
+  "issued_by": "/root/oof_v4r1_execution_gap_audit",
+  "issued_utc": "2026-08-28T03:33:30Z",
+  "live_absence_observed_at_audit_time": {
+    "consumer_handoff": true,
+    "execution_anchor": true,
+    "execution_anchor_review": true,
+    "final_execution_release": true,
+    "full_bundle_handoff_verification": true,
+    "nested_full_preflight": true,
+    "nested_output_bundle": true,
+    "nested_run_claim": true,
+    "nested_terminal_failure": true,
+    "post_generation_seal": true,
+    "post_generation_seal_review": true,
+    "target_capability": true
+  },
+  "oof_result_boundary": {
+    "failure_status": "FAIL_SIGNED_PAIR_FROZEN_NESTED_OOF__NO_RETRY",
+    "output_bundle_path": "public_q24_signed_pair_nested_accuracy_oof_v4r1/SIGNED_PAIR_NESTED_ACCURACY_OUTPUT_V3",
+    "pass_decision": "GO_SIGNED_PAIR_ACCURACY_INTEGRATION_AND_RESOURCE_OPTIMIZATION_CHILD__NO_SUBMISSION",
+    "pass_status": "PASS_SIGNED_PAIR_RAW_HURDLE__NO_SUBMISSION_AUTHORITY",
+    "result_schema": "public-q24-signed-pair-nested-accuracy-oof-result-v3",
+    "result_is_deployable_estimator_or_package": false
+  },
+  "post_oof_science_law_frozen_before_result": {
+    "accuracy_claim_boundary": "Nested OOF estimates the generalization of the frozen selection-and-fit procedure. It does not prove byte-level held-out accuracy for the later all-688 fitted state.",
+    "candidate_H": [
+      16,
+      64,
+      256
+    ],
+    "equal_weight_four_outer_model_ensemble": "DIAGNOSTIC_HOLD_ONLY__THREE_OF_FOUR_MODELS_TRAINED_ON_EACH_OBSERVER_FIT_ROW",
+    "final_H_rule": {
+      "input": "For each H, metrics[H].per_network[].pair_on_mse from all four future SELECTION_OUTER_FOLD_k.json receipts",
+      "population": "four times 516 fold-pure inner-held observations; each of 688 networks contributes exactly three times per H",
+      "reducer": "float64 arithmetic mean by H",
+      "tie_law": "retain every H no more than 0.0025 relative above the minimum, then choose the smallest retained H",
+      "target_bundle_reopen_needed_for_selection": false
+    },
+    "primary_deployment_law": "AFTER_OOF_PASS__FRESH_SINGLE_ALL_688_REFIT_AT_POOLED_SELECTED_H",
+    "refit_observer_fit_rescore": "FORBIDDEN_AS_HELD_EVIDENCE__ALL_688_ROWS_ARE_TRAINING_ROWS",
+    "resource_or_novelty_can_select_H_or_veto_accuracy": false
+  },
+  "postrun_problem_leaves": [
+    {
+      "id": "PBR1",
+      "state": "MISSING_STATIC_CONSUMER",
+      "test": "Seal and independently review the exact completed OOF output inventory, hashes, PASS status, all frozen gates, selections, and model artifact before any integration decision."
+    },
+    {
+      "id": "PBR2",
+      "state": "PRIMARY_LAW_CHOSEN__STATIC_CONSUMER_NOT_YET_FROZEN",
+      "test": "Bind the preregistered pooled fold-pure H rule and authorize one fresh all-688 refit only after an independently sealed OOF PASS. The four-outer-model equal-weight ensemble remains diagnostic HOLD and cannot inherit OOF raw accuracy."
+    },
+    {
+      "id": "PBR3",
+      "state": "REQUIRED_FRESH_EXTERNAL_AUTHORITY",
+      "test": "Issue a new refit-specific one-use observer-fit target capability and final release on an acyclic anchor-to-review-to-capability-to-release DAG. The capability binds the reviewed anchor, never the later release hash; the OOF capability is consumed and cannot be reused."
+    },
+    {
+      "id": "PBR4",
+      "state": "MISSING_IMPLEMENTATION_AND_PARITY",
+      "test": "Export only the selected deploy state into a CPU/flopscope estimator and prove prediction parity with the authoritative torch state plus target-blind online signed-pair-action parity. MPS remains unauthorized."
+    },
+    {
+      "id": "PBR5",
+      "state": "MISSING_DEPLOYMENT_RESOURCE_EVIDENCE",
+      "test": "Run the production literal meter: finite float32[16,1024], FLOPs <= 2^41, wall < 120 s, residual <= 0.4 s, descendant RSS < 8 GiB. A resource miss opens optimization; it does not invalidate the OOF accuracy result."
+    },
+    {
+      "id": "PBR6",
+      "state": "MISSING_FROZEN_BOARD_PACKAGE",
+      "test": "Freeze and independently audit estimator.py, build an archive containing exactly regular top-level estimator.py and manifest.json, run pinned package validation, and bind every byte/hash in a BANK_READY receipt."
+    },
+    {
+      "id": "PBR7",
+      "state": "EXACT_ARCHIVE_AUTHORITY_NOT_YET_POSSIBLE",
+      "test": "After BANK_READY, bind a fresh one-attempt root submission authority to that exact archive and direct whest argv. Existing archive-specific authority is not reusable."
+    }
+  ],
+  "reviewed_static_roots": {
+    "oof_v4r1": {
+      "freeze_receipt_sha256": "129a13985335b10c7f467b3461d126efdbbe12e7939630dc957c64438c6872ff",
+      "freeze_verification_sha256": "ae55f467e0d87d888d9c4125f7d0525a74250038c8fcd96f179452c01371c04e",
+      "independent_static_review_sha256": "509eb18e66ab1590a756791028a787de7a07a5a37c9aa1c14e8dd628cac21b61",
+      "package_manifest_sha256": "eaa79cc6da52140ab13d452ff95c46f4beee3d5261f207b4b708fd9ec0daecca",
+      "post_generation_seal_contract_sha256": "72f2fbc3d6ab44ac25427aa725fe1a164f8611a829e4c8be61efa8dc51913930",
+      "post_generation_sealer_sha256": "e9b70c1777fbc54c474621c7107acc4ef15d691a63b6ad0085f545e572086290",
+      "runner_sha256": "e963246f4980d1e90e7192cdc9892cc3cd0ebd8a7dc181580d375c2b875e7198",
+      "static_verification_sha256": "0c3931a34b62a68f152a08a8290f9d8deabe6d21941b59e6c8b7e6052d7023f3",
+      "static_verifier_sha256": "aefb0ae4360750a085adeee1b311cdc7ac807acf8646afee09f14173b51f490d",
+      "v4r1_authority_bindings_sha256": "6b213850137f6610a359850144d0b5857eab31c27b68cee41ff674f5ee129fac",
+      "v5_provenance_fixtures_sha256": "eb52c54080c14356c571b87bd859e1a25d4c73fcd199369e21af29e2ef82d6b4"
+    },
+    "postseal_v1r1": {
+      "command_plan_sha256": "7e2956b726415a6aa605aaf6a1c530f4036b5617b70c727ec868c557e1765fcf",
+      "contract_sha256": "6a290a91fbd1d0047a911caa777b2220af6a06d5c0d5d4e984a428068df67dc3",
+      "freeze_receipt_sha256": "b17c1829a01c21fdfe68f660cd3e54ad65af0d058d34145127db1a410d2ee285",
+      "freeze_verification_sha256": "b2f89a4f17969a75c0caf2747e8b40ec1cc29f0fd03651a4d5d29ef87991e284",
+      "helper_sha256": "6e0ccbcf50b5161919def0ddf5b36490adffe15a5480681857b16c9465e3a6a9",
+      "independent_static_review_sha256": "037fcd5d64943c44efe64b7223e2ec2d30264e2cd7fc3b3bd1e6db0de97e59ed",
+      "package_manifest_sha256": "88ecfdc65ae9c4264b26a8ea7e0138510c2607dccda55edf4c55abd1e1c47bf2",
+      "static_verification_sha256": "81f75f20231c21c3dffcb9a28e0a905a1c05b7164af72a79ff54e0cf49f4cc60"
+    },
+    "oof_execution_authority_builder_v1r1": {
+      "freeze_receipt_sha256": "3bdba4d1807f35efb02dc28b8aefb8af2c823f1c6db8a765c4b90473b26234fa",
+      "freeze_verification_sha256": "8778491213a96a5639b4e21f6849d0bb6baae2ddd76abc5c20442f94249328c3",
+      "helper_sha256": "572477ccfec5768aea3916db01a6c2b19860efd0b8178b0f2777c4817d176c9b",
+      "independent_static_review_sha256": "8c3fee650c595ada2b0bb3208c41ce84b7648e532c2f4d301e6b3479a16bd3fd",
+      "package_manifest_sha256": "6e80d902b17e396b38a85527584084f725f8c2f3bc7854066cb9135566ee2b9d",
+      "postseal_v1r1_bindings_sha256": "d6df5d7eea52921b3a91481a7fab970da5adc3144f924adea4a55866448c30ba",
+      "static_verification_sha256": "42f41f34277c7f26b097bc24bceede5e6ba98e8de219dd04c59b3824f8f348e8"
+    }
+  },
+  "schema": "public-q24-signed-pair-oof-v4r1-execution-to-board-control-gap-audit-v1",
+  "status": "COMPLETE_CONTROL_AUDIT__HOLD_LIVE_V5_POSTGENERATION_ROOTS_AND_POSTRUN_DYNAMIC_ARTIFACTS"
+}

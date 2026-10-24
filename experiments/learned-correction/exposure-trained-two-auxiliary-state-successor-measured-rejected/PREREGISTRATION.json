@@ -1,0 +1,94 @@
+{
+  "architecture": {
+    "auxiliary_channels": 2,
+    "auxiliary_operator": "At each transition, both per-unit auxiliary states are independently transported through Phi_l*(z_c@W_l), passed through bounded local gates and a bounded near-identity 2x2 channel mixing matrix, then receive additive local physical-scale sources.",
+    "first_corrected_layer": 2,
+    "hidden": 64,
+    "initialization": "Copy the exact primary trunk, layer heads, primary transport gains, and fit-derived buffers from parent MODEL.pt c998c441...; initialize only the auxiliary block anew. All parameters remain trainable.",
+    "input": "The parent's raw20 plus primary physical-message/RMS and primary physical-message/(sigma*RMS).",
+    "parameters_expected": 10976,
+    "primary_operator": "Keep the explicit primary residual channel e_l = a_l*Phi_l*(e_{l-1}@W_l) + learned local innovation + bounded auxiliary readout.",
+    "rationale": "The fe2f2f3c parent establishes an 8.20796e-9 same-checkpoint teacher ceiling but a 3.47097e-8 autonomous result. Two independently transported, locally sourced memory coordinates give the recurrence state beyond its scalar reported correction. Their two W transports remain far inside the measured host's compute headroom. Prior W2 states did not generalize materially, so this single architecture uses the exact tangent W operator only."
+  },
+  "comparators": {
+    "autonomous_parent": 3.4709697955756664e-08,
+    "host": "corrected Q24 near-floor-min hybrid host",
+    "teacher_forced": "The identical fixed checkpoint receives the true previous primary residual at layers 3:15; auxiliary states remain autonomous."
+  },
+  "cost_contract": {
+    "host_flops": 2126977459133,
+    "phase2_budget": 2200000000000,
+    "requirement": "Record a full analytic upper bound including primary and auxiliary W transports, local networks, vector operations, parameters, total host-plus-correction FLOPs, and budget headroom."
+  },
+  "data": {
+    "host_patch_rule": "Within observer_fit ranks 0:199, replace each old-source row with max(final_layer_mse,max_layer_mse)>5e-7 by its corrected near-floor-min trajectory.",
+    "observer_fit_targets_at_or_above_rank_200": "forbidden",
+    "observer_selection": "forbidden",
+    "role": "observer_fit"
+  },
+  "decision_gates": {
+    "fatal_finite": "Complete autonomous development-evaluation rollout must be finite.",
+    "primary": "Autonomous final MSE <3.123872816e-8, exactly the assigned 10%-below-incumbent threshold.",
+    "stretch": "Autonomous final MSE <1e-8."
+  },
+  "evaluation": {
+    "checkpoint": "Fixed final epoch 20; validation cannot select architecture, schedule, learning rate, epoch, or checkpoint.",
+    "fit_ranks": [
+      0,
+      160
+    ],
+    "metrics_opening": "The already-development-open ranks 160:199 may be materialized with the prefix at startup, but their metrics are computed exactly once after the fixed checkpoint.",
+    "validation_ranks": [
+      160,
+      200
+    ]
+  },
+  "hypothesis": "Self-exposure training plus two legally transported auxiliary per-unit memory channels will close at least 10% of the parent's remaining autonomous MSE while preserving a teacher-forced result near the sub-1e-8 ceiling.",
+  "no_retuning": "This is exactly one architecture and one run. Stop after its fixed checkpoint regardless of outcome; do not use ranks 160:199 for a second architecture, epoch, or hyperparameter choice.",
+  "parent": {
+    "model_sha256": "c998c4410bf36d3b4f1152c45d86fd4c654c7e05abe85e297f07b15f16d58cc7",
+    "result_sha256": "fe2f2f3c8cfa890d416b520f443fbbe475ea8fabafbd16956006a9154b100440"
+  },
+  "resource_bound": {
+    "action": "Abort rather than shrink channels, batch, depth, or state if the bound is exceeded.",
+    "maximum_process_rss_bytes": 8589934592,
+    "threads": 2
+  },
+  "schema": "public-exposure-multistate-residual-preregistration-v1",
+  "status": "frozen-before-metrics",
+  "training": {
+    "auxiliary_state_penalty": 2e-05,
+    "batch_size_networks": 3,
+    "epochs": 20,
+    "exposure_schedule": [
+      0.0,
+      0.0,
+      0.25,
+      0.25,
+      0.5,
+      0.5,
+      0.75,
+      0.75,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "gradient_clip_norm": 5.0,
+    "inherited_parameter_learning_rate": 0.0002,
+    "loss": "Normalized all-corrected-layer rollout MSE plus equal final-layer focus, 1e-3 near-one primary gain penalty, and 2e-5 normalized auxiliary-state penalty.",
+    "minimum_learning_rate": 5e-05,
+    "new_auxiliary_parameter_learning_rate": 0.001,
+    "optimizer": "AdamW(weight_decay=2e-5), independently cosine-annealed inherited/new parameter groups",
+    "seed": 1297302872,
+    "threads": 2
+  }
+}

@@ -1,0 +1,76 @@
+Harness audit checkpoint — 2026-10-13 04:31:04 UTC
+
+Graceful winddown at root's instruction. Source-only work has stopped after this checkpoint. Root owns the sole numerical lane and reports RSCOV paired8 still live. I have not read its outcomes or run any network/toy evaluation. No CF integration or evaluation should be inferred from the source reviews below.
+
+Paths
+H=/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_hunt_20261013_v1/harness_audit
+A=/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_hunt_20261013_v1
+
+RSCOV finish and postcheck
+After the live arm completes, root's separate stdlib-only checker is:
+
+python3 -B "$H/postcheck_rscov_v1.py" \
+  --comparison "$H/rscov_additive_arm_guard_v1.json.comparison.json" \
+  --out "$H/rscov_postcheck_v1.json"
+
+Use the actual comparison path if root launched under another fresh guard filename. The output path must be fresh. This checker does not evaluate a model or modify any frozen manifest/runtime. SHA256:46d5aa2699438c865ca430e396b53141fc6d2d4c67cb81edebabe496bbf57aaa.
+
+It independently validates the completed comparison, borrowed-control proof/reference hashes, all8 claims and parameter identities, all16 finite nonnegative MSEs, strict positive final log inputs, and exact layers0–7 per seed. It prints final per-seed log ratios, mean/SE, pooled change, wins,16-layer pooled trajectory, validity and the unchanged−1% mean-log screen gate. Zero intermediate MSEs are accepted; a zero pooled layer denominator is reported as null. Invalid/incomplete inputs exit1. Source reviewed by beta_rule; no execution by harness agent.
+
+Interpretation was fixed before outcomes in RSCOV_PREDECLARED_INTERPRETATION_v1.md. The intervention is pair-returned offdiagonal covariance only, but same-layer learned features and the omitted-radial denominator subsequently respond. A pass cannot isolate next-layer covariance transport. Frozen RSCOV has no arm activation/norm telemetry: a null cannot distinguish fallback, near-identity remainder or rounding erasure. This does not change the fixed screen gate. No seed/layer/strength selection after results.
+
+Exact completed control proof
+Read-only metadata confirmation at checkpoint:
+  additive_control_guard_v1.json.comparison.json
+  completed=true, time_utc=2026-10-13T04:09:41Z
+  comparison.status=PASS
+  parity=all16 MSE and final1024 FP64 bytes
+  prediction_sha256=94757511cf9218a3ae60b14d62cbf3ab75172d6184f4df1422ec84f663e1261a
+  diagnostic_layers=7, no_arm=true
+  artifact SHA256=6f9952bb7a227dcbed30acd7b53ab2f819f9d91104956510bebfd1c503befbb8
+
+The same guarded process ran worker_additive_control_v1.py and compare_additive_control_v1.py. Comparator requires all16 MSE equality against trueS51+gk11 t134 and saved Sq zero control, and packed1024 little-endian FP64 prediction byte equality against Sq. It checks7 ordered diagnostic rows at layers8–14, exact request/rank, RDC2 physical-plane conventions and no-arm metadata. This is the completed control result used by the new RSCOV gate; nothing was fabricated/copied into the unused original RSCOV control result path.
+
+Pinned control manifest:
+  additive_control_manifest_v1.json
+  SHA256=7b7c8382bd8847c8e52625b78482652b7fd4403ab9fbe694bd0c0ab5bbe60f21
+Pinned RSCOV arm routing manifest:
+  rscov_additive_arm_manifest_v1.json
+  SHA256=91642f4c298cedc1741efe4eea038691e4f870ffef9454f09c09a54c05aa4d08
+Its launch entry snapshots the completed comparison/result/telemetry/control-manifest hashes in a fresh control-reference file and its comparator revalidates them after the arm. The original8 arm requests, model and worker/runtime remain unchanged. Full provenance review: ADDITIVE_SUPPORT_SOURCE_REVIEW_v1.md.
+
+Original CFCOV route remains ready but unrun
+Checkpoint source metadata shows1 original control request and8 original arm requests still queued; original control result does not exist. Model, requests, runtime and pins have not been changed for observers.
+  cfcov_manifest_v1.json
+  SHA256=c1802f19db8b42d608a8ec22a8f0c095a9a7332a9b1b4e009374b25e79b44e52
+  physics_alternative/cutsim_cfcov_v1/pbase_cutsim_v1.py
+  SHA256=4c25b9eb48daaae298082e30e35fae0bc2f691e15b29cbbaf625223fb16092ac
+Fixed cfcov=1.0, layers8–14, paired8 seeds7100584–7100591, unchanged−2% mean-log screen. Original launcher commands, for a later explicit resumption and only after required source/toy proof:
+
+bash "$H/launch_cfcov_v1.sh" control "$H/cfcov_control_guard_v1.json" 7200
+bash "$H/launch_cfcov_v1.sh" arm "$H/cfcov_arm_guard_v1.json" 7200
+
+The original comparator requires exact16-layer MSE control parity against t134 and reads its original control result. It does not include the future observer's stricter packed-prediction comparison. Its arm command depends on that original control succeeding. Do not redirect an observed control into that path or alter the original manifest; any future observer route needs a new entry/runtime/queue-ID and new reference gate, as done for RSCOV. Root owns validation of the guarded CF toy evidence before any resumption. No new permission or run was requested at winddown.
+
+Future CFCOV observer is unfinished, not installed or queued
+Root planned the mandatory future CF zero-control as a piggyback opportunity if RSCOV misses. No extra evaluation merely for diagnostics. No private F4 snapshot, CF observer entry/runtime, new request or manifest has been created.
+
+Anisotropic helper is source frozen and independently reviewed:
+  physics_alternative/anisotropic_source_diagnostic_v1.py
+  SHA256=dc9813442677c6017f0b04226d6cbd1cb2ca81da0e2c014af008d9da9594d7fb
+  physics_alternative/check_anisotropic_source_rational_v1.py
+  SHA256=d801a0170bc17a9984de5d640d5711d4cfc2d73852687f72de43ebcb143afccf
+  star_algebra/ANISOTROPIC_SOURCE_REVIEW_v1.md
+  H/ANISOTROPIC_PIGGYBACK_MEMORY_v1.md
+Source review passes exact Gaussian quadratic-surrogate algebra, symmetric borrowed C convention, no mutation, finite/scalar fallbacks and32-row temporary lifetime. Explicit temporary envelope2.25MiB at fixed n1024; allocator/workspace/process RSS are not bounded by this census. It assumes PSD, labels the floating theorem evaluation uncertified, and bounds only the b² Gaussian quadratic surrogate, not full ReLU/non-Gaussian carriers or final MSE. Root still owns guarded toy execution; harness has not run it.
+
+Planned anisotropic hook: after all M/carrier installs wrap final cd.env['_nonlinear_pair_batch']; call parent once, borrow incoming FP64 C plus returned exact sigma/pdf/gate aux, enforce n1024/no-grad/no cpre_use, log layers8–14, return identical parent tuple. No pre-M K21 capture needed.
+
+Beta residual successor /root/beta_residual owns the F4-N helper/toy source under A/beta_residual. It has not delivered a frozen reviewed hook to harness. Proposed helper accepts borrowed before/after columns and actual outgoing weights, tiles rows/columns, returns owned O(n+K) cN and norm bounds. Candidate-gap function is optional/uninstalled. Parent has been told original beta_rule session retired; successor has been told winddown/no integration.
+
+Future F4 callback must be in a fresh private f4b snapshot after shift+anchor and before p concatenation. Original O/physicist/f4b.py remains untouched. u64 is exactly widened immediately-before stored p columns; new is rounded after columns. Use actual lam[k_lo:k_hi], never ly (which protects zero divisors). Nominal x64/ly is not retained and must not be materialized as a full matrix just for observation. Expected true-card n1024 and young2 imply at most4096 observed columns. Every extra full1024×4096 FP64 array costs32MiB; current baselineRSS3.928GB is close to the4GB Torch limit, so avoid simultaneous new64/e/v arrays. M._F4B can be populated with the private module only in a fresh process before M.install, preserving original module source. All16 MSE and finalFP64 prediction-byte parity is mandatory before any observed control could support a CF arm.
+
+Other parked work
+Terminal stable cubic toy/candidate remains parked by root: no dedicated full certificate or invasive observer. Candidate is isolated terminal delta on b1d baseline, not the6562 fullstack. Existing notes and sources are preserved. All closed YCP/request-price work remains closed; no retuning is pending.
+
+H source-only checkpoint complete. No new integration or numerical work after this handoff.

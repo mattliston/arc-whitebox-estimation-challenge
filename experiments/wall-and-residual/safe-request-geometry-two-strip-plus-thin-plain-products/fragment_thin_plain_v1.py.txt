@@ -1,0 +1,18 @@
+
+
+# BEGIN OPUS-SAFECOST FRAGMENT thin_plain_v1 (SAFE-only request-for-bill trade; rounding-level, append LAST): products whose middle
+# dimension is <= 384 and largest <= 960 go to ONE plain same-dtype matmul instead of a Winograd tree (~45-90 requests each). Plain
+# float32 matmul, no dtype=/out= widening, no symmetric pattern (billing-safe under flopscope 0.12.2).
+_OSC_THIN_PARENT_MM = _mm
+_OSC_THIN_STATS = dict(plain=0)
+
+
+def _mm(left, right, *args, **kwargs):
+    if (not args and not kwargs and len(left.shape) == 2 and len(right.shape) == 2 and str(left.dtype) == str(right.dtype) == 'float32'
+            and int(left.shape[1]) == int(right.shape[0])):
+        a, b, c = sorted((int(left.shape[0]), int(left.shape[1]), int(right.shape[1])))
+        if b <= 384 and c <= 960:
+            _OSC_THIN_STATS['plain'] += 1
+            return fnp.matmul(left, right)
+    return _OSC_THIN_PARENT_MM(left, right, *args, **kwargs)
+# END OPUS-SAFECOST FRAGMENT thin_plain_v1

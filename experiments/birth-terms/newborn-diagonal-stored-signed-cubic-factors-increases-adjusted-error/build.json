@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_newborn_stored_diagonal_v1/candidate.py",
+    "sha256": "a8372b3846f0e194629f9c97dfba233d5c795e65d647cafbfcdc6b1ac568975d",
+    "bytes": 978616
+  },
+  "source_parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "source_inverse": {
+    "parent": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+      "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+      "bytes": 978073
+    },
+    "edits": [
+      {
+        "before": "            _ps_born_diag = _ps_born_diag + fnp.diag(_bd_plane_delta)",
+        "after": "            # Newborn CP diagonal from precisely the rounded, masked stored legs.\n            _ns_a32, _ns_t32, _ns_s32 = fnp.unstack(_E2_LAYER['ats32'])\n            _ns_lam32 = _ns_a32 if _S19_LAM is None else _ns_a32 * _S19_LAM[1]\n            _ns_lam64 = _ns_lam32.astype(fnp.float64)\n            _ns_t64, _ns_s64 = _ns_t32.astype(fnp.float64), _ns_s32.astype(fnp.float64)\n            _ps_born_diag = (_ns_lam64 * ((_ns_t64 * _ns_t64) * _ns_t64\n                                         - (_ns_s64 * _ns_s64) * _ns_s64)) * births\n            del _ns_a32, _ns_t32, _ns_s32, _ns_lam32, _ns_lam64, _ns_t64, _ns_s64"
+      }
+    ],
+    "exact_inverse": true
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_newborn_stored_diagonal_v1/protocol.json",
+    "sha256": "7e5aa099c5949f30111abda21d9d0eab0bc5b8d1a55c3466fb147ed9b0d065bd",
+    "bytes": 4889
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_newborn_stored_diagonal_v1/build.py",
+    "sha256": "65c84586b7107402e8481060450469353a2c91c4109d7d57f1de0c5277640cff",
+    "bytes": 9079
+  },
+  "source_diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_newborn_stored_diagonal_v1/source.diff",
+    "sha256": "4e7a313fae7f9452b840086c3c2ccb56bfdcfc4a7b2519df3cc94615a7278a67",
+    "bytes": 1432
+  },
+  "only_changed_functions": [
+    "_predict_binary"
+  ],
+  "ast_compile": true,
+  "scalar_fraction_cases": 12
+}

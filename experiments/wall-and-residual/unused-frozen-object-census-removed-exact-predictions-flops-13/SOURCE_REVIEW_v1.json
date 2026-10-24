@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-21T08:24:57Z",
+  "status": "STATIC_SOURCE_PROOF_READY_IMPORT_PENDING_NO_NATIVE",
+  "build_sha256": "3cfafdcc99fdd3f77af9ab8e21bb4debde80916af6368a1988aad4f62e34e2b0",
+  "import_recipe_sha256": "a258a7d8bc58f384b8c5c3b66edf3993116d8a95b7ebcc3b282398617386173e",
+  "qualified_profile": {
+    "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/profile_first128_d399_v2/custody_v1/observe/candidate_cprofile_v1.json",
+    "sha256": "e96321946a9fefd0523be740b2706a79bc94b4dbf1922e3979885b2303f7df7e",
+    "bytes": 293373
+  },
+  "independent_diagnostic_audit": {
+    "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/profile_first128_d399_v2/INDEPENDENT_AUDIT_v1.json",
+    "sha256": "18f7e42e7ff84afe0821645553a263b29ac463946346572d5f065b35935a20d7",
+    "bytes": 33128
+  },
+  "observed_gc_row": {
+    "line": 22255,
+    "function": "_gcz_predict_v1",
+    "calls": 1,
+    "recursive_calls": 0,
+    "self_s": 1.4331e-05,
+    "cumulative_s": 104.41205186900001,
+    "direct_c_children": [
+      {
+        "function": "<built-in method gc.get_freeze_count>",
+        "calls": 1,
+        "self_s": 0.008581425,
+        "cumulative_s": 0.008581425
+      },
+      {
+        "function": "<method 'update' of 'dict' objects>",
+        "calls": 1,
+        "self_s": 2.5190000000000004e-06,
+        "cumulative_s": 2.5190000000000004e-06
+      },
+      {
+        "function": "<built-in method gc.freeze>",
+        "calls": 1,
+        "self_s": 5.48e-07,
+        "cumulative_s": 5.48e-07
+      }
+    ],
+    "direct_c_self_s": 0.008584491999999999
+  },
+  "no_control_flow_consumer": "_GCZ_STATS in exactrelease has onlyinitialdict andupdate; onlypredicts is read. frozen_objects is diagnostics-only.",
+  "measurement_limitation": "Instrumented C self-time is mechanism evidence only. Need uninstrumented actualfinalstack pairedruntime plus entirebill andexactownprediction proof.",
+  "preserved": [
+    "All4source otherAST includingfreeze/collect/thresholds/order/wrappercaptures identical",
+    "EveryFNPexpression unchanged",
+    "Emptyrescuemap remainsfinalstatement",
+    "NoSDKorharnessorGCpolicy edits"
+  ],
+  "planned_next": "After root reviewed import recipe and ops small-slotclearance, copy necessary files and launchonce; then root-selected finalquiet/native qualification. Preferpaid49bd/f938 descendants, alternative1900/e205 preserved."
+}

@@ -1,0 +1,158 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_gaussian_tree_birth13_v1/fragment.py",
+    "sha256": "e9819af2746e110de58190a1c46bd9645665ce55d7ff212c40de6a9eb8e5ba44",
+    "bytes": 2408
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_gaussian_tree_birth13_v1/candidate.py",
+    "sha256": "25adf9d26af8c180c2a9189f427049ff314d2fa0630f656a398e2f2da4f63339",
+    "bytes": 947735
+  },
+  "change": "Exact S32 prefix plus helpers and active-predict override, three reversible edits: local source; post12 capture; pre13 k4/extra31 supply. Builder verifies incumbent T31 layers empty, commitNone, GN_TORCHFalse.",
+  "scope": "One leading Gaussian connected-tree k4/Q31 source born afterReLU12, consumed atpre13. Originalk22unchanged. No complete fourth carrier, inheritedfourth, highergraphs, full transportedQ22 or full fourth-to-thirddescendants claim.",
+  "formula": {
+    "C": "sym(Cpre12)",
+    "g": "aux12.gate",
+    "d": "aux12.pdf/aux12.sigma",
+    "e": "-aux12.alpha*aux12.pdf/aux12.sigma^2",
+    "B": "C@(g[:,None]*W13)",
+    "T": "d[:,None]*W13*B",
+    "Y": "C@T",
+    "Q31": "(6*d*B*Y+e*B^3).T@W13+(6*d*W13*Y+3*e*W13*B^2).T@B; vectors broadcast onrows",
+    "k4": "diag(Q31)",
+    "trace": "4*[a.T@C@a+((d^2+e*g)*diag(C)).T@(C^2)@(g^2)+(d*g).T@(C^3)@(d*g)],a=d*g*diag(C),C powers elementwise",
+    "beta": "3*trace/(trace(sym(postGNN_C12))^2+2*sum(sym(postGNN_C12)^2))",
+    "delta4": "diag(Q31)-beta*diag(actualCpre13)^2",
+    "delta31": "Q31-beta*diag(actualCpre13)[:,None]*actualCpre13",
+    "extra31": "delta31-((delta4*current_row_scale)/diag(Cpre13))[:,None]*Cpre13"
+  },
+  "numerical_port": {
+    "contractions": "FourpaidFP32_mm square products. Weighted operandscomputedFP64 thencastFP32; products widenedFP64 beforepointwisealgebra. Firsttwo reuse sameC32.",
+    "metric": "Reuse actualnativeCpre13; originaldiagnostic used twoFP64GEMMs W.T@Cpost@W. Notbitexacttransportedtracecancellation.",
+    "trace": "FP64O(n\u00b2)algebraicreassociation ofcompletepostQ22sum; denominatorfinitepositive, noPSD/clipping/ridge.",
+    "curvature": "Originalgate/pdf/sigma/alpha12 withparentfloor; noaddedvariancefloor.",
+    "coupling": "Adddelta4AFTER existingS19k4band; compensatingextra31removesitsinducedmodeledQ31. Existingnativepairnormalization/diagonalhandling retained."
+  },
+  "ownership": "Predictionlocaltuple C32,g64,d64,e64,beta64 captured12/consumedandreleased13. Pairupdatesmean,C,thirdtarget,radial,aux; existingGNcovariance/GNNandb/birth/CP/starrecurrenceusechangedcurrentstate. No persistentmatrixcache.",
+  "controls": [
+    "hill_climb_star_projection32_train2_v1",
+    "hill_climb_star_projection32_train6_v1",
+    "hill_climb_star_projection32_extra8_candidate_v1"
+  ],
+  "train2_ranks": [
+    35,
+    100
+  ],
+  "train2_advance": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 2
+  },
+  "if_advance_fixed_blocks": [
+    [
+      36,
+      45,
+      52,
+      58,
+      64,
+      70
+    ],
+    [
+      3,
+      12,
+      40,
+      41,
+      43,
+      44,
+      57,
+      68
+    ]
+  ],
+  "train16_retention": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 10,
+    "ci95_upper_below": 0,
+    "additional14_gain_positive": true
+  },
+  "invariants": {
+    "output_layers0_through12_byte_exact": true,
+    "exact_parent_prefix": true,
+    "original_input_Q22_unchanged": true,
+    "all_numeric_work_paid_FNP": true,
+    "no_later_output_or_bill_equality_claim": true
+  },
+  "limits": {
+    "train2_seconds": 150,
+    "train6_seconds": 300,
+    "extra8_seconds": 360,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "serial": true
+  },
+  "unit": {
+    "script": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_gaussian_tree_birth13_v1/unit.py",
+      "sha256": "d94c8b95e94b28f1627c90eb3da8e2e6017b90ea2b6c944402de79b3f5b94d20",
+      "bytes": 5001
+    },
+    "seconds": 60,
+    "rss_bytes": 1000000000,
+    "added_swap_bytes": 0,
+    "reference": "independentexplicit16labeledtreesFP64",
+    "relative_l2_max": 5e-05,
+    "absolute_l2_max": "1e-8*max(1,referenceL2)",
+    "cases": [
+      "full covariance",
+      "diagonal covariance",
+      "zero nonlinear derivatives",
+      "source trace",
+      "modeledQ31compensation"
+    ],
+    "smallordinaryF32only": true,
+    "fullwidthD7_notmeasured": true
+  },
+  "cost": {
+    "parent_observed_square_mm_flops": 1008637248,
+    "four_products": 4034548992,
+    "possible_existing_Areuse_saving": 55328192,
+    "products_after_one_Areuse": 3979220800,
+    "pointwise_trace_reserve_flops": 300000000,
+    "estimated_total_added_flops_upper": 4350000000,
+    "estimated_added_pct_rank35": 1.58,
+    "not_complete_candidate_metering": true,
+    "cross_boundary_matrix_bytes": 4194304,
+    "additional_temporary_reserve_bytes": 150000000,
+    "setup_keys_unchanged": true
+  },
+  "history": {
+    "source": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/gaussian_tree_q31_source_v1/tree_v2.py",
+      "sha256": "1ceac33caa62b731394c2b64d28ff40c11a08831da15a006ec612390cfc13b75",
+      "bytes": 1440
+    },
+    "receipt": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/gaussian_tree_q31_source_v1/RESULT.md",
+      "sha256": "03ddffdb87cd4bacc5a95bab11108b2e4b50aafb9839ff8a7fcde66d261447ad",
+      "bytes": 2775
+    },
+    "local_covariance_ratio": 0.9138692914,
+    "local_nextmean_ratio": 0.8630530752,
+    "scope": "Onehistoricalrank35; replica residualinformation, failedboth<=.90gate, nonativeendpoint.",
+    "prior": "FableoffdiagC/Q31-onlyallL2\u201314Torchraw\u22121.30/\u22124.13/\u2212.62/\u2212.90% on35/100/37/39; differentconsumer/scope. Checkpoint34nativefailurewasdifferentlearnedjointhead. OldterminalfullCscalar-treeadjustedfailurepreserved."
+  },
+  "diagnostics": "_GT13_STATS cumulative scalarcounts captures,consumptions,products; noarrayretention.",
+  "one_fixed_source": true,
+  "no_fit_or_truth_inputs": true,
+  "no_amplitude_layer_rank_precision_or_scope_variants_on_failure": true,
+  "bank_policy": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/submission_policy_20260928_v1.json",
+    "sha256": "d069a04ed856331da19099e1ed86a3aa56bca81b56e8d2d09278fc7a6af793e7",
+    "bytes": 492
+  },
+  "notes": "Sourcepreparationonly; rootreview/unitrequired beforenativeadmission. ExactS32, notcostbundle. No positiveendpoint/bankforecast."
+}

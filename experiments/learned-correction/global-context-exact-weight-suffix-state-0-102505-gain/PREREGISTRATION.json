@@ -1,0 +1,133 @@
+{
+  "schema": "q24-suffix-global-context-preregistration-v1",
+  "status": "FROZEN_BEFORE_ANY_SUFFIX_GLOBAL_CONTEXT_TARGET_OPEN",
+  "objective": "Test one fold-pure target-blind global-context augmentation of the frozen C8v2 suffix state without changing, widening, or further training its local parent path.",
+  "bindings": {
+    "program_sha256": "3c5c5164638510bbc573ae879697f42ebaf6f865cc3084db53f8b9102fde433e",
+    "c8v2_program_sha256": "17e54c14d41eed964f2c1ef0c1513bbf788fd414e7438ca56b465151e442f283",
+    "c8v2_result_sha256": "3fa6b70c9b2f0cc799470a7443b488b3f9cfff48ad652c134c429282827f472a",
+    "c8v2_model_sha256": "60c6efb2238586f03ede999b2870630f33ac17621f7bfa219acbd63e9c14f719",
+    "nonlinear_z_program_sha256": "032d994d45d0255d46ec09b5dca4fdff9f9baa3273972082e75014e0501dee96",
+    "nonlinear_z_result_sha256": "c1ef8105ac29b6f4ff75dc7aa5974b1d8f93668437ed402d32ebbad393f2dd35",
+    "nonlinear_z_model_sha256": "1b542406201a3f8757c8423d1f9b2c540784f7e6c98da687e8fca4e735388676",
+    "native_result_sha256": "e8261895c5d8f5f1feb1e15f257612d1d1b36a90e8bde1ab05e2844100a8ba08",
+    "native_model_sha256": "21ad1dede3373c90d2694158b6599c4c172d7181c72634a6ec8e362449b7d1f8",
+    "j_source_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "q_source_sha256": "1e4c906936f4685bd800f922ded6c582af8213ecad1fbe41da651faff82be9c3",
+    "d3_gate_sha256": "3e84fae43460a409a4212f90b912630c98589d1c2538ce0553a34a636b239eb4",
+    "d4_gate_sha256": "742bef9476c84c5c6afb2d6e3dced0e3d94e2b4a1ea3aae6c5a2c71d75f5eca2"
+  },
+  "data_and_split": {
+    "role": "observer_fit",
+    "networks": 688,
+    "folds": 4,
+    "fold_sizes": [
+      172,
+      172,
+      172,
+      172
+    ],
+    "fold_assignment_sha256": "0f8619f00185aa5413e06c2b9aad8c1f2a6743ec8c628994bbbc9ca25fec047c",
+    "fold_selection": "the pre-existing target-blind balanced nonlinear-Z/C8v2 authority",
+    "observer_selection_targets": "never opened",
+    "board_feedback": "never opened",
+    "submission": false
+  },
+  "fixed_context112": {
+    "scope": "one vector per network and suffix layer, computed target-blind and broadcast to all 1024 coordinates",
+    "feature_order": [
+      "mean standardized raw20[20]",
+      "RMS standardized raw20[20]",
+      "mean standardized transported Z20[20]",
+      "RMS standardized transported Z20[20]",
+      "mean matched standardized raw20*Z20[20]",
+      "mean and RMS of A/layer_rms[2]",
+      "mean and RMS of qJ/(sigma*layer_rms)[2]",
+      "mean and RMS of phi[2]",
+      "mean and RMS of clipped log2(sigma)[2]",
+      "mean clipped message/sqrt(energy+1e-4*layer_rms^2) for each of the four live alpha-J channels[4]"
+    ],
+    "standardized_raw20": "channel0 unchanged; channels1:20 use the frozen alpha-J centers/scales and clip[-8,8]",
+    "standardized_z20": "use the frozen all688 target-blind Z centers/scales and clip[-8,8]",
+    "final_context_clip": "[-8,8]",
+    "oof_normalization_authority": "only frozen alpha-J centers/scales/layer_rms plus target-blind all688 Z centers/scales; the final all688 C8v2 fitted weights are not read to build OOF context",
+    "target_dependencies": []
+  },
+  "fixed_model": {
+    "parent": "fold-specific exact reconstruction of nonlinear-Z followed by its fixed C8v2 adaptation",
+    "parent_held_gate": "maximum per-network MSE difference from persisted C8v2 OOF <=5e-20",
+    "epoch0_gate": "zero context adapter reproduces the fold C8v2 held MSE vector within5e-20",
+    "parent_training_after_reconstruction": "none; all 10,544 parent parameters remain frozen",
+    "context_encoder": "shared112->32 SiLU->16 SiLU",
+    "broadcast_adapter": "six layer-specific bias-free16->64 shifts added once per layer to the C8 source preactivation and broadcast across width",
+    "context_parameters": 10288,
+    "total_parameters_including_frozen_parent": 20832,
+    "phase1": "4 fixed epochs, layer adapters only, AdamW3e-4 cosine to1e-4",
+    "phase2": "8 fixed epochs, context encoder plus adapters only, AdamW2e-4 cosine to5e-5",
+    "weight_decay": 0.00002,
+    "gradient_clip": 5.0,
+    "loss": "autonomous suffix endpoint loss +0.05 mean local channel0 anchor",
+    "checkpoint_selection": "fixed final epoch; no metric-based selection or averaging",
+    "variants": 1
+  },
+  "scientific_gate_vs_c8v2": {
+    "minimum_relative_gain": 0.0025,
+    "minimum_improving_folds": 3,
+    "minimum_paired_network_z": 2.0,
+    "minimum_network_win_fraction": 0.55,
+    "minimum_each_fold_network_win_fraction": 0.5,
+    "candidate_must_beat_nonlinear_z_pooled": true,
+    "legacy_protected40_must_not_worsen_vs_c8v2": true,
+    "all_parent_reconstruction_and_epoch0_parity_gates": true,
+    "conjunctive": true
+  },
+  "absolute_and_economic_gate": {
+    "candidate_raw_below_recomputed_same688_native": true,
+    "measured_native_authority_mse": 2.9736792457285063e-8,
+    "candidate_raw_below_legacy_scientific_admission": true,
+    "legacy_scientific_admission_mse": 2.9672528546945005e-8,
+    "minimum_network_win_fraction_vs_native": 0.55,
+    "d4_board_adjusted_score": 1.783621478716186e-8,
+    "d3_board_multiplier_328620": 0.6377160962460696,
+    "c8_incremental_vs_d3_upper_flops": 758625259,
+    "context_incremental_upper_flops": 2500000,
+    "context_flop_upper_derivation": {
+      "raw_and_z_restandardization": 718848,
+      "pooled_raw_z_and_cross_moments": 983280,
+      "action_and_coherence_summaries": 276480,
+      "shared_context_encoder": 50592,
+      "six_latent_adapters": 11904,
+      "broadcast_additions": 393216,
+      "subtotal": 2434320,
+      "unclassified_reserve": 65680
+    },
+    "total_incremental_vs_d3_upper_flops": 761125259,
+    "structural_multiplier": 0.6380622159412926,
+    "raw_threshold_to_beat_d4": 2.795372354222421e-8,
+    "literal_integrated_meter_required_before_any_deployment_claim": true,
+    "conjunctive": true
+  },
+  "resource_contract": {
+    "maximum_process_rss_bytes": 8589934592,
+    "incremental_live_context112_bytes_float32": 448,
+    "incremental_live_latent_bytes_float32": 64,
+    "incremental_live_broadcast_shift_bytes_float32": 256,
+    "incremental_live_context_total_bytes_float32": 768,
+    "context_parameter_bytes_float32": 41152,
+    "training_context_cache_shape": [
+      688,
+      6,
+      112
+    ],
+    "training_context_cache_bytes": 1849344
+  },
+  "execution": {
+    "one_shot": true,
+    "static_audit_must_pass_before_launch": true,
+    "independent_review_go_required": true,
+    "no_integration": true,
+    "no_packaging": true,
+    "no_submission": true,
+    "owner": "/root/raw_mse_model_redesign"
+  }
+}

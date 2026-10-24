@@ -1,0 +1,67 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_uvp_base_bcache_v1/candidate.py",
+    "sha256": "0308a99fd89823cfd67e19c3ad00c946d4211b6c69d956519267e142aa205fd5",
+    "bytes": 937189
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_uvp_base_bcache_v1/fragment.py",
+    "sha256": "2a8f24f96a87c02add7b02e600fc833acf8900d883efbdd52613847260c9d3ab",
+    "bytes": 6887
+  },
+  "build": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_uvp_base_bcache_v1/build.py",
+    "sha256": "420265f303fdd0889ae8a892bae8b11b0d56629e251a4ebb3c6f1ae23be90272",
+    "bytes": 2930
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_uvp_base_bcache_v1/PROTOCOL.md",
+    "sha256": "66905a31ee533b34e5e7d7f6bcd3d7f142ce58ea2d95e0d369a94f50a0aedc22",
+    "bytes": 2832
+  },
+  "edits": [
+    {
+      "function": "_uvp_recon",
+      "original_line": 8063,
+      "before": "def _uvp_recon(U, uv):\n    \"\"\"U (rows x rank) -> the t and s columns of every pair, roster order: U[:, :r_u] F_u +- U (F_v/2).\"\"\"\n    Fu, Fv2, blocks, ru = uv\n    rows = int(U.shape[0])\n    Pu = _shared_old384_mm(U[:, :ru], Fu)\n    Pv = _shared_old384_mm(U, Fv2)\n    cols = 2 * int(Fu.shape[1])\n    out = fnp.empty((rows, cols), dtype=fnp.float32)\n    h_ = _BH_HOLD.append\n    b = 0\n    for a, h in blocks:\n        h_(fnp.add(Pu[:, b:b + h], Pv[:, b:b + h], out=out[:, a:a + h]))\n        h_(fnp.subtract(Pu[:, b:b + h], Pv[:, b:b + h], out=out[:, a + h:a + 2 * h]))\n        b += h\n    _BH_HOLD.clear()\n    del Pu, Pv\n    return out",
+      "after": "def _uvp_recon(U, uv):\n    \"\"\"U (rows x rank) -> the t and s columns of every pair, roster order: U[:, :r_u] F_u +- U (F_v/2).\"\"\"\n    Fu, Fv2, blocks, ru = uv\n    rows = int(U.shape[0])\n    Pu = _ubc_product(U[:, :ru], Fu, uv, 'u')\n    Pv = _ubc_product(U, Fv2, uv, 'v')\n    cols = 2 * int(Fu.shape[1])\n    out = fnp.empty((rows, cols), dtype=fnp.float32)\n    h_ = _BH_HOLD.append\n    b = 0\n    for a, h in blocks:\n        h_(fnp.add(Pu[:, b:b + h], Pv[:, b:b + h], out=out[:, a:a + h]))\n        h_(fnp.subtract(Pu[:, b:b + h], Pv[:, b:b + h], out=out[:, a + h:a + 2 * h]))\n        b += h\n    _BH_HOLD.clear()\n    del Pu, Pv\n    return out"
+    },
+    {
+      "function": "_mm",
+      "original_line": 5313,
+      "before": "def _mm(a, b):\n    if not _WINOGRAD or str(a.dtype) != 'float32' or str(b.dtype) != 'float32':\n        return a @ b\n    m, k = (int(a.shape[0]), int(a.shape[1]))\n    n = int(b.shape[1])\n    if m == 0 or k == 0 or n == 0:\n        return fnp.zeros((m, n), dtype=fnp.float32)\n    if n > _PACKED_TILE:\n        return fnp.concatenate([_mm(a, b[:, j:min(j + _PACKED_TILE, n)]) for j in range(0, n, _PACKED_TILE)], axis=1)\n    if k > _PACKED_TILE:\n        out = _mm(a[:, :_PACKED_TILE], b[:_PACKED_TILE, :])\n        for j in range(_PACKED_TILE, k, _PACKED_TILE):\n            end = min(j + _PACKED_TILE, k)\n            out = out + _mm(a[:, j:end], b[j:end, :])\n        return out\n    if m % 32 or k % 32 or n % 32:\n        return a @ b\n    if max(m,k,n)<=1024:\n        return _square_product(a,b,m,k,n)\n    rd = _rule_depth('push' if n > 1024 else 'read', m, k, n)\n    if rd == 0:\n        return a @ b\n    if n > 1024 and rd == 6 and m % 64 == 0 and (k % 64 or n % 64):   # E-51 --m64: any m % 64 == 0 (was m == 1024)\n        return _push6_padded(a, b, m, k, n)\n    out = fnp.empty((m, n), dtype=fnp.float32)\n    if n > 1024:\n        if rd == 6:\n            return _packed_product_4(a, b, out, _SCRATCH[1])\n        if rd == 5 and m <= 1024 and k <= 1024:\n            return _push5_product(a, b, out)\n        return _packed_product_cached(a, b, out, _SCRATCH[1], 4)\n    return (_packed_read5(a, b, out, _SCRATCH[2]) if rd == 5\n            else _packed_product_cached(a, b, out, _SCRATCH[2], 4))",
+      "after": "def _mm(a, b):\n    if not _WINOGRAD or str(a.dtype) != 'float32' or str(b.dtype) != 'float32':\n        return a @ b\n    m, k = (int(a.shape[0]), int(a.shape[1]))\n    n = int(b.shape[1])\n    if m == 0 or k == 0 or n == 0:\n        return fnp.zeros((m, n), dtype=fnp.float32)\n    if n > _PACKED_TILE:\n        return fnp.concatenate([_mm(a, _ubc_slice(b, j, min(j + _PACKED_TILE, n))) for j in range(0, n, _PACKED_TILE)], axis=1)\n    if k > _PACKED_TILE:\n        out = _mm(a[:, :_PACKED_TILE], b[:_PACKED_TILE, :])\n        for j in range(_PACKED_TILE, k, _PACKED_TILE):\n            end = min(j + _PACKED_TILE, k)\n            out = out + _mm(a[:, j:end], b[j:end, :])\n        return out\n    if m % 32 or k % 32 or n % 32:\n        return a @ b\n    if max(m,k,n)<=1024:\n        return _square_product(a,b,m,k,n)\n    rd = _rule_depth('push' if n > 1024 else 'read', m, k, n)\n    if rd == 0:\n        return a @ b\n    if n > 1024 and rd == 6 and m % 64 == 0 and (k % 64 or n % 64):   # E-51 --m64: any m % 64 == 0 (was m == 1024)\n        return _push6_padded(a, b, m, k, n)\n    out = fnp.empty((m, n), dtype=fnp.float32)\n    if n > 1024:\n        if rd == 6:\n            return _packed_product_4(a, b, out, _SCRATCH[1])\n        if rd == 5 and m <= 1024 and k <= 1024:\n            return _push5_product(a, b, out)\n        return _packed_product_cached(a, b, out, _SCRATCH[1], 4)\n    return (_packed_read5(a, b, out, _SCRATCH[2]) if rd == 5\n            else _packed_product_cached(a, b, out, _SCRATCH[2], 4))"
+    },
+    {
+      "function": "_push5_product",
+      "original_line": 4208,
+      "before": "def _push5_product(a, b, out):\n    global _SCRATCH_PUSH5\n    if _SCRATCH_PUSH5 is None:\n        _SCRATCH_PUSH5 = _cp3_bind_arena_views(_SCRATCH[0], _PACKED_PUSH5)\n    n = int(b.shape[1])\n    if n > 4096:\n        _packed_product_cached(a, b[:, :4096], out[:, :4096], _SCRATCH_PUSH5, 5)\n        _packed_product_cached(a, b[:, 4096:], out[:, 4096:], _SCRATCH_PUSH5, 5)\n        return out\n    return _packed_product_cached(a, b, out, _SCRATCH_PUSH5, 5)",
+      "after": "def _push5_product(a, b, out):\n    global _SCRATCH_PUSH5\n    if _SCRATCH_PUSH5 is None:\n        _SCRATCH_PUSH5 = _cp3_bind_arena_views(_SCRATCH[0], _PACKED_PUSH5)\n    n = int(b.shape[1])\n    if n > 4096:\n        _packed_product_cached(a, _ubc_slice(b, 0, 4096), out[:, :4096], _SCRATCH_PUSH5, 5)\n        _packed_product_cached(a, _ubc_slice(b, 4096, n), out[:, 4096:], _SCRATCH_PUSH5, 5)\n        return out\n    return _packed_product_cached(a, b, out, _SCRATCH_PUSH5, 5)"
+    },
+    {
+      "function": "_cp_d6_shared",
+      "original_line": 6021,
+      "before": "def _cp_d6_shared(a, b, out):\n    # colpack's two six-level packets with ONE alt-basis A tree\n    m, k, n = int(a.shape[0]), int(a.shape[1]), int(b.shape[1])\n    if not (_AB_ON and 4096 < n and str(a.dtype) == str(b.dtype) == str(out.dtype) == 'float32'\n            and _ipt_fits(6, m, k, 4096) and _ipt_fits(6, m, k, n - 4096)):\n        return _AB_OLD_CP(a, b, out)\n    TA = _ipt_forward_a_ab(a, 6, m, k)\n    for j0, j1 in ((0, 4096), (4096, n)):\n        bj, oj = b[:, j0:j1], out[:, j0:j1]\n        _BH_HOLD.append((bj, oj))\n        TB = _ipt_forward_b_ab(bj, 6, k, j1 - j0)\n        _ipt_leaf_unwind_ab(TA, TB, oj, 6, m, j1 - j0)\n    _BH_HOLD.clear()\n    return out",
+      "after": "def _cp_d6_shared(a, b, out):\n    # colpack's two six-level packets with ONE alt-basis A tree\n    m, k, n = int(a.shape[0]), int(a.shape[1]), int(b.shape[1])\n    if not (_AB_ON and 4096 < n and str(a.dtype) == str(b.dtype) == str(out.dtype) == 'float32'\n            and _ipt_fits(6, m, k, 4096) and _ipt_fits(6, m, k, n - 4096)):\n        return _AB_OLD_CP(a, b, out)\n    TA = _ipt_forward_a_ab(a, 6, m, k)\n    for j0, j1 in ((0, 4096), (4096, n)):\n        bj, oj = _ubc_slice(b, j0, j1), out[:, j0:j1]\n        _BH_HOLD.append((bj, oj))\n        TB = _ipt_forward_b_ab(bj, 6, k, j1 - j0)\n        _ipt_leaf_unwind_ab(TA, TB, oj, 6, m, j1 - j0)\n    _BH_HOLD.clear()\n    return out"
+    },
+    {
+      "function": "_push6_padded",
+      "original_line": 4220,
+      "before": "def _push6_padded(a, b, m, k, n):\n    \"\"\"E-30: six-level push of a 1024-row product whose k or n is not a multiple of 64. k and n are zero-padded up to multiples of\n    64 (the padded rows and columns only add zeros), the batched D6 push runs, and the leading n columns are returned.\"\"\"\n    kp, npad = (k + 63) // 64 * 64, (n + 63) // 64 * 64\n    hold = []\n    if kp != k:\n        aa = fnp.zeros((m, kp), dtype=fnp.float32)\n        hold.append(fnp.copyto(aa[:, :k], a))\n    else:\n        aa = a\n    bb = fnp.zeros((kp, npad), dtype=fnp.float32)\n    hold.append(fnp.copyto(bb[:k, :n], b))\n    out = fnp.empty((m, npad), dtype=fnp.float32)\n    _packed_product_4(aa, bb, out, _SCRATCH[1])\n    del hold\n    return out if npad == n else out[:, :n]",
+      "after": "def _push6_padded(a, b, m, k, n):\n    \"\"\"E-30: six-level push of a 1024-row product whose k or n is not a multiple of 64. k and n are zero-padded up to multiples of\n    64 (the padded rows and columns only add zeros), the batched D6 push runs, and the leading n columns are returned.\"\"\"\n    kp, npad = (k + 63) // 64 * 64, (n + 63) // 64 * 64\n    hold = []\n    if kp != k:\n        aa = fnp.zeros((m, kp), dtype=fnp.float32)\n        hold.append(fnp.copyto(aa[:, :k], a))\n    else:\n        aa = a\n    bb = fnp.zeros((kp, npad), dtype=fnp.float32)\n    hold.append(fnp.copyto(bb[:k, :n], b))\n    _ubc_padding(b, bb, k, n, kp, npad)\n    out = fnp.empty((m, npad), dtype=fnp.float32)\n    _packed_product_4(aa, bb, out, _SCRATCH[1])\n    del hold\n    return out if npad == n else out[:, :n]"
+    },
+    {
+      "function": "_ipt_product_ab",
+      "original_line": 7932,
+      "before": "def _ipt_product_ab(a, b, out, L):\n    if L == 5 and _P6_ON and len(a.shape) == 2 and len(b.shape) == 2 and len(out.shape) == 2:\n        m, k, n = int(a.shape[0]), int(a.shape[1]), int(b.shape[1])\n        plan = _p6_plan(m, k, n)\n        if plan is not None:\n            M, K, N = plan\n            hold = []\n            if (M, K) != (m, k):\n                aa = fnp.zeros((M, K), dtype=fnp.float32)\n                hold.append(fnp.copyto(aa[:m, :k], a))\n            else:\n                aa = a\n            if (K, N) != (k, n):\n                bb = fnp.zeros((K, N), dtype=fnp.float32)\n                hold.append(fnp.copyto(bb[:k, :n], b))\n            else:\n                bb = b\n            _P6_STATS['moved'] += 1\n            if (M, N) != (m, n):\n                o = fnp.empty((M, N), dtype=fnp.float32)\n                _P6_OLD_IPAB(aa, bb, o, 6)\n                hold.append(fnp.copyto(out, o[:m, :n]))\n            else:\n                _P6_OLD_IPAB(aa, bb, out, 6)\n            del hold\n            return out\n    return _P6_OLD_IPAB(a, b, out, L)",
+      "after": "def _ipt_product_ab(a, b, out, L):\n    if L == 5 and _P6_ON and len(a.shape) == 2 and len(b.shape) == 2 and len(out.shape) == 2:\n        m, k, n = int(a.shape[0]), int(a.shape[1]), int(b.shape[1])\n        plan = _p6_plan(m, k, n)\n        if plan is not None:\n            M, K, N = plan\n            hold = []\n            if (M, K) != (m, k):\n                aa = fnp.zeros((M, K), dtype=fnp.float32)\n                hold.append(fnp.copyto(aa[:m, :k], a))\n            else:\n                aa = a\n            if (K, N) != (k, n):\n                bb = fnp.zeros((K, N), dtype=fnp.float32)\n                hold.append(fnp.copyto(bb[:k, :n], b))\n            else:\n                bb = b\n            _ubc_padding(b, bb, k, n, K, N)\n            _P6_STATS['moved'] += 1\n            if (M, N) != (m, n):\n                o = fnp.empty((M, N), dtype=fnp.float32)\n                _P6_OLD_IPAB(aa, bb, o, 6)\n                hold.append(fnp.copyto(out, o[:m, :n]))\n            else:\n                _P6_OLD_IPAB(aa, bb, out, 6)\n            del hold\n            return out\n    return _P6_OLD_IPAB(a, b, out, L)"
+    }
+  ],
+  "inverse_exact": true,
+  "numerical_execution": false
+}

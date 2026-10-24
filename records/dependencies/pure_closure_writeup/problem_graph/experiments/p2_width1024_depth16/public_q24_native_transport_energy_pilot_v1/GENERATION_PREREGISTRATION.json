@@ -1,0 +1,54 @@
+{
+  "schema": "p2r0f2j-q24-native-tape-generation-preregistration-v1",
+  "status": "frozen-after-meter-pass-before-row-generation",
+  "node": "P2R0F2J_NATIVE",
+  "meter_gate": {
+    "result_path": "runs/native_meter_rank0035_v1/RESULT.json",
+    "result_sha256": "27edd79f91d02c265bfc051c146b1b9162647c4c42cea37e7ff6de602307a5c3",
+    "status": "PASS_TARGET_FREE_NATIVE_TAPE_ADMISSION",
+    "prediction_byte_parity": true,
+    "integrated_host_tape_flops": 2131692137721,
+    "integrated_host_tape_plus_j_upper": 2132475358457,
+    "phase2_budget": 2199023255552
+  },
+  "roster": {
+    "role": "observer_fit",
+    "role_rank_start_inclusive": 35,
+    "role_rank_stop_exclusive": 235,
+    "rows": 200,
+    "fresh_relative_to_prior_q24_rich_trace_roster": true,
+    "rank35_reuse": "Reuse the exact meter tape after verifying its bound result and file hashes; execute ranks36:234 exactly once."
+  },
+  "data_firewall": {
+    "permitted": [
+      "sealed target-blind observer_fit row manifest",
+      "mlp_id",
+      "mlp_seed",
+      "weights"
+    ],
+    "forbidden": [
+      "all_layer_means",
+      "target",
+      "truth",
+      "score",
+      "observer_selection",
+      "mlp_name",
+      "public board identity join"
+    ]
+  },
+  "resource_contract": {
+    "workers_maximum": 3,
+    "threads_per_worker": 2,
+    "rss_bytes_per_worker_strictly_below": 8589934592,
+    "flops_per_row_at_or_below": 2199023255552,
+    "row_wall_seconds_strictly_below": 120.0,
+    "total_storage_bytes_strictly_below": 536870912
+  },
+  "outputs_per_row": [
+    "host.npy float32[16,1024]",
+    "raw20.npy float32[16,1024,20]",
+    "sigma.npy float32[16,1024]",
+    "result.json"
+  ],
+  "next_gate": "Only after all 200 target-free rows are complete and verified may the separately frozen 160/40 observer_fit target pilot run."
+}

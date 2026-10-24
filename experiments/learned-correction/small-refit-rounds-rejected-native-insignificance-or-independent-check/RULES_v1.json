@@ -1,0 +1,241 @@
+{
+ "schema": "trainer_RAD_rules_v1",
+ "utc": "2026-10-13T01:08:23Z",
+ "round": "S53",
+ "version": "make_s53_v12.py (lead 22:5xZ, radlab's lean plan)",
+ "written_before_any_arm_result": true,
+ "zero_arms_dropped": [],
+ "absorbed": [
+  "gk11"
+ ],
+ "start": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/RAD/S51/point_v1/params.pt",
+ "patch": {
+  "ss": -1,
+  "ssb": 1,
+  "rdc": 2.0,
+  "ncar": [
+   {
+    "module": "n6y",
+    "dfit": 2
+   },
+   {
+    "module": "k31ly",
+    "age": 1,
+    "k31": 0.0,
+    "leaf": "nkl1"
+   },
+   {
+    "module": "k31ly",
+    "age": 2,
+    "k31": 1.0,
+    "leaf": "nkl2"
+   },
+   {
+    "module": "k31ly",
+    "age": 3,
+    "k31": 0.0,
+    "leaf": "nkl3"
+   },
+   {
+    "module": "pbase",
+    "bsk": 0.3402257055212658,
+    "gsk": 1.0,
+    "gk4": 1.0
+   }
+  ]
+ },
+ "sizing": "n = 64: base + every kept arm on A48 7101032-095 (one 8M block, the first 64 of S53's planned sizing); no phase 2",
+ "gradients": "64 at the start point (S51's frozen point, gk on) on A36 7100264-327",
+ "arms": [
+  "arrp",
+  "h17",
+  "dx2a1_7_7",
+  "fk4la2_1_15",
+  "fbsrc_1_14",
+  "fagg"
+ ],
+ "capped_out": [],
+ "priority": "(a) gradient arms (jmix order) > (b) strict-rule bands (largest |t| first) > (c) gated, at most 2 > (d) aggregate; cap 7",
+ "gradient_arms_dropped": "erest,h20,h6,escal",
+ "dial_rule": "t^2 > 6 on 64 gradients with both halves of the same sign at |t| > 1.5; native routes (ROUTES.json)",
+ "dials_t": {
+  "dx2a1_7_7": -3.35
+ },
+ "routes": {
+  "X1": "all",
+  "bscale": "all",
+  "iso": "layer",
+  "k21n": "layer",
+  "k22": "bands",
+  "k4": "bands",
+  "k4la1": "layer",
+  "kc": "layer",
+  "n6b": "all",
+  "n6d": "all",
+  "n6r": "all",
+  "nfd": "all",
+  "nfs": "layer",
+  "nkl1": "layer",
+  "nkl2": "layer",
+  "nkl3": "layer",
+  "rsy": "layer",
+  "s_carry": "layer",
+  "ssb": "all",
+  "x2a1": "bands"
+ },
+ "route_table": {
+  "utc": "2026-10-12T22:53:40Z",
+  "note": "route table for rule (b) (data; read by the make files at each round's arm stage; a change is a logged rewrite with the old one archived). per_layer: bands 1-6 / 7-10 / 11-14 / all; all_only: the all band; pending: per layer only after the engineer's S51 parity PASS line, out on FAILED, else all; bands: a family's own native band list (k4: lead / radlab / engineer 16:5xZ, _S19_K4BAND 1-7 / 8-11 / 12-14 + _K4_15). | 2026-10-12T17:36:33Z: x2a1 REVERTED (the updater matched a quoted verdict string in the engineer's 17:22:55Z announcement, not a verdict line; engineer 17:3xZ). | 2026-10-12T17:44:09Z: k21n / rsy moved from pending to per_layer (their S51 PORT PARITY PASSED lines are real verdict lines, 08:05:29Z / 08:20:41Z), so no make file needs a TEAM_LOG substring match for them any more (lead 17:3xZ: anchor every trigger). | 2026-10-12T22:53:06Z: bscale_0 VETOED by the lead (rule (b'), D 0.24 / 0.28): bscale back to all_only as in ROUTES.json.archived_20261012T224956Z; k22 [14,14] kept (D 1.00 / 1.00).",
+  "per_layer": [
+   "iso",
+   "nfs",
+   "nkl1",
+   "nkl2",
+   "nkl3",
+   "k4la1",
+   "kc",
+   "s_carry",
+   "k21n",
+   "rsy"
+  ],
+  "all_only": [
+   "bscale",
+   "X1",
+   "ssb",
+   "nfd",
+   "n6b",
+   "n6r",
+   "n6d"
+  ],
+  "pending": {},
+  "bands": {
+   "k4": [
+    [
+     1,
+     7
+    ],
+    [
+     8,
+     11
+    ],
+    [
+     12,
+     14
+    ],
+    [
+     15,
+     15
+    ],
+    [
+     0,
+     15
+    ]
+   ],
+   "k22": [
+    [
+     14,
+     14
+    ]
+   ],
+   "x2a1": [
+    [
+     7,
+     7
+    ],
+    [
+     1,
+     6
+    ],
+    [
+     8,
+     10
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     0,
+     15
+    ]
+   ]
+  },
+  "applied_parity": [
+   "k22_14",
+   "x2a1_7"
+  ],
+  "vetoed": {
+   "bscale_0": "lead 22:50:09Z: rule (b') D = 2 s c - s^2 = 0.24 / 0.28 < 0.5 (s 1.24 / 1.30, c 0.718 / 0.757); bscale restored to all_only (its archived entry)"
+  },
+  "rule_b_prime": "lead 22:50:09Z: a route enters only if its ROUTE PARITY line PASSED and D = 2 s c - s^2 >= 0.5 on both parity networks (routes_update_v4)",
+  "rejected_b_prime": {}
+ },
+ "rule_c_gate": {
+  "fk4la2_1_15": {
+   "family": "k4la2",
+   "lo": 1,
+   "hi": 15,
+   "t_S52": -0.8,
+   "t_S53": -2.26,
+   "dt": -1.46,
+   "size": 0.05,
+   "passes": true
+  },
+  "fx2a2_0_14": {
+   "family": "x2a2",
+   "lo": 0,
+   "hi": 14,
+   "t_S52": -0.89,
+   "t_S53": -0.96,
+   "dt": -0.07,
+   "size": 0.05,
+   "passes": false
+  },
+  "fbsrc_1_14": {
+   "family": "bsrc",
+   "lo": 1,
+   "hi": 14,
+   "t_S52": 2.18,
+   "t_S53": 2.23,
+   "dt": 0.05,
+   "size": 0.02,
+   "passes": true
+  },
+  "ff4a1_0_14": {
+   "family": "f4a1",
+   "lo": 0,
+   "hi": 14,
+   "t_S52": 0.17,
+   "t_S53": -0.08,
+   "dt": -0.24,
+   "size": 0.05,
+   "passes": false
+  },
+  "fnfs_10_14": {
+   "passes": false,
+   "why": "out (lead 22:5xZ: no gradient)"
+  }
+ },
+ "rule_c_kept": [
+  "fk4la2_1_15",
+  "fbsrc_1_14"
+ ],
+ "rule_c_rule": "keep iff |t_S53| >= 2 or |t_S53 - t_S52| >= 2 (band-summed gradient t over the same 64 A36 networks; S53 gk on vs S52 gk off, both at S51's point); at most 2, largest |dt| first; S51's trial shifts",
+ "aggregate_rule": "(d) one arm fagg from radlab/aggregate_spec_v1.py (frozen sha d0ab129b...), arms_agg_v1",
+ "aggregate": {
+  "bscale": {
+   "lo": 0,
+   "hi": 15,
+   "shift": -0.00989069
+  },
+  "kc": {
+   "lo": 7,
+   "hi": 10,
+   "shift": 0.0101093
+  }
+ },
+ "aggregate_note": "radlab/aggregate_spec_v1.py (sha d0ab129b619a0fbc...): bscale:0:15:-0.00989069,kc:7:10:0.0101093",
+ "port_rule": "cert/RAD/S53/PORT_RULE_v1.json",
+ "solve": "ridge + leave-one-network-out (rad_v6.py freeze on config_n64.json; candidates all / no dials / no fixed / fixed only); null if LOO >= 0",
+ "check": "A52 7101288-319 (16M): frozen vs the unrefitted start, ACCEPT iff pooled change < -SE; sealed A52 7101320-351 = the physicist"
+}

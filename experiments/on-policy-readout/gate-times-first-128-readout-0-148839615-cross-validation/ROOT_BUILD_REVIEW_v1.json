@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-21T10:02:31Z",
+  "successful": true,
+  "status": "ONE_FIXED_SIX_PARENT_SOURCE_BUILD_AUTHORIZED_WITH_EXPLICIT_NAMED_TRANSITION",
+  "one_parent_build_authorized": true,
+  "prereg_sha256": "42c4f80e65348f149e4b64d8e91da29f0fb1995abb5a78f8004fe0623a4a5bd9",
+  "builder_sha256": "3ca07f38b1799ec03bf45705aec3344dbf108ac51a502ab917839752d2d3db4e",
+  "recipe_sha256": "53fee698c0496c3ffcd676559a609c3fc101a62d52c76eddc529e3c094d39fbd",
+  "selftest_final_sha256": "e83732da75096499b7a422cf56c2c5d0792ea0c55a8bb9d967f2b9a4a255bcdf",
+  "selftest_original_guard_verified": true,
+  "selftest_all_original_and_selected_sum_proofs_verified": true,
+  "source_fully_read": true,
+  "conditional_shared_prior_scope_accepted": true,
+  "only_TRAIN90_targets_with_explicit_TRAIN72_parent_heads": true,
+  "full90_all_tensor_and_coefficient_exact_parity_required": true,
+  "command": [
+    "/home/arcworker/arc-envs/judge/bin/python",
+    "-B",
+    "/home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py",
+    "--receipt",
+    "/home/arcworker/arc-runs/onpolicy_first128_parent_build_v1_GUARD_v1.json",
+    "--state-dir",
+    "/home/arcworker/arc-runs/admission",
+    "--max-active",
+    "36",
+    "--cgroup-root",
+    "/sys/fs/cgroup/arc-estimator-v5",
+    "--",
+    "/home/arcworker/arc-envs/judge/bin/python",
+    "-B",
+    "/home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/build_parent_sources_v1.py"
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "ARC_BLAS_THREADS": "1"
+  },
+  "static_transition_sha256": "1b522abb8321c8b7859955f020fde724d70edc55439636762b30d106e84d0e54",
+  "static_resource": {
+    "old_pipeline_family_groups_max": 8,
+    "truth_groups": 4,
+    "named_small_jobs_max": 2,
+    "future_native_groups_reserved_not_authorized": 7,
+    "base_bytes": 10000000000,
+    "groups_total": 21,
+    "hard_bound_bytes": 146500000000,
+    "parent_margin_bytes": 25298691840,
+    "physical_beyond19GB_reserve_margin_bytes": 24413829376
+  },
+  "documentary_amendment": "Supersede recipe53fee698 documentary sole-small/finish-before-boundary requirement only for this exact parentbuilder plus the already-authorized original oldOP fixed fit. Reduce reserved future-native slots8to7; no automatic future native admission.",
+  "named_small_jobs": [
+    "/home/arcworker/arc-runs/onpolicy_first128_parent_build_v1_GUARD_v1.json",
+    "/home/arcworker/arc-runs/on_policy_head90_second_fit_recovery_v1_GUARD_v1.json"
+  ],
+  "before_other_small_or_new_native": "Both named small jobs must retire cleanly and root must issue a separate concrete stage review.",
+  "original_native_empty_and_guards_unchanged": true,
+  "required_fresh_ops_clearance": true,
+  "no_second_step_fit_capture_native_export_or_fire_authorized": true
+}

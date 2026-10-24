@@ -1,0 +1,152 @@
+{
+  "schema": "phase2-fb-ec4-full-v4-q24-terminal-board-result-v1",
+  "status": "GRADED__OPERATIONAL_PASS__RAW_FINAL_MSE_ABOVE_E8_TARGET",
+  "captured_at": "2026-08-24T11:28:30Z",
+  "submission": {
+    "id": 328210,
+    "challenge_id": 1174,
+    "challenge_round_id": 1429,
+    "created_at": "2026-08-24T10:36:50.036Z",
+    "grading_status_cd": "graded",
+    "grading_message": "Graded successfully",
+    "score_adjusted_exact": 5.587487766740284e-07,
+    "score_secondary_raw_final_exact": 5.765125013112993e-07,
+    "public_url": "https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026/submissions/328210"
+  },
+  "candidate": {
+    "label": "fb-ec4-full-v4-q24-v1-b38cd865",
+    "estimator_sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52",
+    "archive_sha256": "53962192f1d8eb07ba29e37c9d008a6ce1140b374e244fd3ae4c78c6f7b4a4b6",
+    "promotion_manifest_sha256": "850be6d220acd8ea07ebda5a2713001f0ff4cc38c363a362bdd6bef9d7ff58c9"
+  },
+  "evaluation": {
+    "session_id": "sess-c72778c55a53",
+    "started_at": "2026-08-24T10:39:41Z",
+    "completed_at": "2026-08-24T11:25:43Z",
+    "config_snapshot": {
+      "n_mlps": 100,
+      "depth": 16,
+      "width": 1024,
+      "flop_budget": 2199023255552
+    },
+    "progress": {
+      "total_mlps": 100,
+      "mlps_completed": 100,
+      "mlps_in_flight": 0,
+      "mlps_failed": 0,
+      "pct_complete": 100.0
+    },
+    "smoke_test_result": {
+      "passed": true,
+      "duration_ms": 98.2084230001874,
+      "worker_passes": 12,
+      "worker_failures": 0,
+      "error_code": null
+    },
+    "public_aggregate": {
+      "adjusted_final_layer_score_display": 5.587e-07,
+      "final_layer_mse_display": 5.765e-07,
+      "all_layers_mse_display": 8.232e-08,
+      "sampling_mse_display": 1.133e-06,
+      "best_mlp_adjusted_final_layer_score": 5.142e-08,
+      "worst_mlp_adjusted_final_layer_score": 1.452e-05,
+      "mean_compute_utilization": 0.9691876158854029,
+      "mean_effective_compute": 2131266106325,
+      "n_failed_mlps": 0,
+      "failure_breakdown": {
+        "budget_exhausted": 0,
+        "combined_budget_exhausted": 0,
+        "error": 0,
+        "residual_wall_time_exhausted": 0,
+        "time_exhausted": 0
+      }
+    },
+    "telemetry_summary_100_rows": {
+      "flops_used": {
+        "min": 2131266106325,
+        "mean": 2131266106325.0,
+        "max": 2131266106325
+      },
+      "predict_wall_s": {
+        "min": 93.16533642800005,
+        "mean": 104.28372254559007,
+        "max": 118.63269021500003
+      },
+      "backend_wall_s": {
+        "min": 90.776829433,
+        "mean": 101.75746201246002,
+        "max": 115.918807841
+      },
+      "residual_wall_s": {
+        "min": 0.05907878199998606,
+        "mean": 0.06350229234999916,
+        "max": 0.07064865599998882
+      }
+    }
+  },
+  "public_tail_analysis": {
+    "public_scored_rows": 50,
+    "threshold_raw_final_mse": 5e-07,
+    "outlier_count": 5,
+    "outlier_raw_mse_share": 0.8675254706679747,
+    "raw_final_mse_mean_recomputed_from_display_rows": 5.765847999999999e-07,
+    "raw_final_mse_median": 8.5555e-08,
+    "raw_final_mse_mean_below_threshold": 8.486977777777775e-08,
+    "all_layers_mse_mean_recomputed_from_display_rows": 8.231240000000002e-08,
+    "outliers": [
+      {
+        "mlp_index": 24,
+        "final_layer_mse": 1.58e-06,
+        "all_layers_mse": 1.293e-07,
+        "adjusted_final_layer_score": 1.532e-06
+      },
+      {
+        "mlp_index": 30,
+        "final_layer_mse": 1.48e-06,
+        "all_layers_mse": 1.22e-07,
+        "adjusted_final_layer_score": 1.434e-06
+      },
+      {
+        "mlp_index": 34,
+        "final_layer_mse": 5.451e-07,
+        "all_layers_mse": 7.726e-08,
+        "adjusted_final_layer_score": 5.283e-07
+      },
+      {
+        "mlp_index": 36,
+        "final_layer_mse": 6.425e-06,
+        "all_layers_mse": 8.475e-07,
+        "adjusted_final_layer_score": 6.227e-06
+      },
+      {
+        "mlp_index": 37,
+        "final_layer_mse": 1.498e-05,
+        "all_layers_mse": 1.485e-06,
+        "adjusted_final_layer_score": 1.452e-05
+      }
+    ]
+  },
+  "provenance": {
+    "authenticated_status_endpoint": "GET https://www.aicrowd.com/api/v1/submissions/328210",
+    "canonical_public_evaluation_sha256": "bc943373d9d59f60cd39c4f7e9e93f399897f76548cd8e10de91df08f5186cd4",
+    "public_page_capture_sha256": "8d61ec6f798e90c8e0432d423a5171438903c4bb2421dc3aae2b9fd896bb58bd",
+    "in_flight_receipt_sha256": "1bdb5c514b3709662b90aec5d5ff5927e7a18409b896883022588deb0c2d11f7",
+    "progress_65_receipt_sha256": "de06e717c1a1b32a280824116d58dffbd91416c5a8292aea74ce231ee27f2d60"
+  },
+  "interpretation": {
+    "primary_raw_final_mse_e8_target_met": false,
+    "all_layers_mse_is_in_e8_range": true,
+    "median_public_raw_final_mse_is_in_e8_range": true,
+    "operational_pass": true,
+    "scientific_finding": "Five high-error public rows contribute 86.75% of the displayed raw-final mean; mechanism attribution remains open.",
+    "unchanged_resubmission_authorized": false
+  },
+  "authority": {
+    "attempts_consumed_by_q24_preregistration": 1,
+    "additional_submission_authority_created": false,
+    "public_score_feedback_accessed": true,
+    "raw_target_values_accessed": false,
+    "private_evaluation_state_accessed": false,
+    "graph_update_authority": true
+  }
+}

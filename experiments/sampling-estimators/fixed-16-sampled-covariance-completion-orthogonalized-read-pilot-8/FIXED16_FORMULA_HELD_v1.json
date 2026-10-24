@@ -1,0 +1,24 @@
+{
+  "status": "SINGLE_FORMULA_SOURCE_HELD_NO_NATIVE_AUTHORITY",
+  "kernel": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_rtt2_covariate_feasibility_v1/kernel_fixed16_covariate_HELD_v1.py",
+  "kernel_sha256": "d09e14165f8b29ab688a963671fd1ea6b0b4c9cf6b7986abb0a4b05221b588fd",
+  "sample": "min(16,c15) midpoint retained-prefix columns, fixed by integer shape only",
+  "formula": "R_s=prefix_s-old_inner U_s.T-Q(scores Young_s.T); D_s=(I-QQ.T)(diag(fm) C_s); alpha=<R_s,D_s>/max(<D_s,D_s>,1e-30); tail_new=tail+alpha*(I-QQ.T)(diag(fm) C_tail)",
+  "scope": "Folded young read only. Existing _np_forms, original old tail and outer read cut remain unchanged.",
+  "no_op": "fm absent, empty sample/tail or rank-zero Q returns current tail; zero fm naturally alpha=0; nonfinite alpha forced0",
+  "runtime": "alpha remains remote, float64 reductions/division, float32 application; no scalar fetch/logging. Direct2D covariance gathers; no m*1024 intermediate.",
+  "cost": {
+    "tariff": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_rtt2_covariate_feasibility_v1/FIXED16_SAMPLED_COVARIATE_TARIFF_v1.json",
+    "tariff_sha256": "c430834877acffff91d000e49221411ca5df4e3f412db412716740da486112d6",
+    "fnp_kernel_plus_gather": 88060544,
+    "whole_bill_pct_instrumented_TRAIN16": 0.03636818073201262,
+    "conservative_full_increment_ceiling_flops": 100000000,
+    "ceiling_basis": "Adds sample index construction, finite/zero safeguards, alpha cast and small gathers omitted from isolated core; no matrix larger than sample/tail.",
+    "runtime_requests": "276 measured kernel calls plus perlayer gathers/index/finite guards; likely materially more RPC than production margin. Must be measured/optimized before delivery."
+  },
+  "integration": "At existing RTT2 read after current Q/scores/tail and saved old_inner are available, before returning concatenated prefix/tail and before _np_forms; no hook installed here.",
+  "no_models": true,
+  "no_truth_fit": true,
+  "no_variants": true,
+  "limitation": "Actual residual/covariate correlation is unknown: saved TRAIN16 capture lacks full prefix operands/Cpre. No >=.5% gain claim; only cost permits testing that hypothesis."
+}

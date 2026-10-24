@@ -1,0 +1,48 @@
+{
+  "status": "HISTORICAL_TENSOR_PROXY_ONLY_NO_MODEL_OR_TRUTH",
+  "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a35_join/state/s39_rank0651.npz",
+  "archive_sha256": "f8d64aec21a167a21e7afd330f82d2acd3c2b508422e6158acb35a295647787d",
+  "source_sha256": "ac2e6f743985a5ca8982cf9301df0a00ae82361dc6f7aba85b0cf79a1cb71a66",
+  "frame": {
+    "rank": 320,
+    "common_rank": 256,
+    "pairs": 5888,
+    "pair_blocks": [
+      1024,
+      1024,
+      1024,
+      992,
+      928,
+      896
+    ],
+    "source_generation": "S39 native651 L10"
+  },
+  "fixed_rule": {
+    "selected_pairs": 256,
+    "priority": "lambda^2 * ||fplus^3-fminus^3||_F^2",
+    "tie": "stable source pair index",
+    "ridge_relative_mean_diagonal": 1e-06,
+    "cross_product_dtype": "float32",
+    "cubic_difference_and_solve_dtype": "float64"
+  },
+  "target_tensor_norm_squared": 37.860185585512895,
+  "residual_tensor_norm_squared": 25.914168718563744,
+  "relative_squared_tensor_error": 0.6844701978555471,
+  "retained_tensor_energy_fraction": 0.3155298021444529,
+  "target_signed_cancellation_ratio": 0.10798706417180563,
+  "ridge_absolute": 1.4798610630663698e-08,
+  "selected_gram_eigenvalue_min_f64": 0.00367197417311243,
+  "selected_gram_eigenvalue_max_f64": 0.07581571057925779,
+  "selected_gram_relative_f32_error": 7.299310737979943e-06,
+  "fit_weight_norm_ratio": 1.0475059932533815,
+  "negative_fit_weights": 0,
+  "elapsed_seconds": 2.621522167697549,
+  "limitations": [
+    "Historical incoming L10 factors, not current native predictions or true moments.",
+    "Ftilde=pad(Fu256)+/-Fv320 matches common-coordinate truncation in this reconstructed frame.",
+    "Tensor Frobenius error does not measure actual folded pair-law read error.",
+    "Current old read also subtracts fm*(q*P+xq*partner). Full carried state alone does not preserve that term after read-only reweighting.",
+    "No subsequent gate/weight transport, future join, or learned-head response measured.",
+    "One fixed selection, ridge, and subset size; no sweep or native-call authority."
+  ]
+}

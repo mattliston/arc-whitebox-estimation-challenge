@@ -1,0 +1,88 @@
+{
+  "rank": 35,
+  "layer": 12,
+  "results": {
+    "unweighted": {
+      "baseline_signal_mse_point_estimate": 1.4671587949056722e-07,
+      "correction_signal_mse_point_estimate": 3.0021147698415387e-09,
+      "correction_noise_mse_point_estimate": 7.099305093849286e-11,
+      "signal_error_ratio": 0.9951554488105033,
+      "signal_cosine": 0.08845646342582275,
+      "correction_relative_norm": 0.14304579143329438,
+      "A_target_B_correction_ratio": 0.9973938155350619,
+      "B_target_A_correction_ratio": 0.9939819637446068
+    },
+    "weighted": {
+      "baseline_signal_mse_point_estimate": 1.5190922429030425e-09,
+      "correction_signal_mse_point_estimate": 3.753243546177596e-11,
+      "correction_noise_mse_point_estimate": 1.0907908565801133e-12,
+      "signal_error_ratio": 0.9920400376743069,
+      "signal_cosine": 0.103912887024684,
+      "correction_relative_norm": 0.15718507267640622,
+      "A_target_B_correction_ratio": 1.0026109880572736,
+      "B_target_A_correction_ratio": 0.9835690684709452
+    }
+  },
+  "perfect_fourth_source_gate": false,
+  "source_slice_signal_energy": 1.9476279857152613e-08,
+  "source_slice_noise_energy": 4.0552868826338213e-10,
+  "acquisition": {
+    "A": {
+      "parent_source_sha256": "68205c2189c0c76061f2a71b55ba349c17de005d01538b046663acc87a8b7d26",
+      "conversion_repair": "CPU transfer before f64 cast",
+      "stream": "A",
+      "rank": 35,
+      "layer": 12,
+      "samples": 8000000,
+      "batch": 65536,
+      "batches": 123,
+      "seed_xor": "0x4f4e454849474831",
+      "frozen_input_sha256": "0c1cc5a597956277357d1564d38dd92c2a6fd18a6fae86b708c021475030063e",
+      "previous_stream_sha256": "23460f0205733e56a37880ebcfab824b20986acc1067f0645eaa03dfe332ad66",
+      "source_diagonal_consistency": {
+        "Q31": 0.0011494530497769867,
+        "Q22": 0.001149434541778712
+      },
+      "old_stream_post_mean_max_difference": 0.0,
+      "basis_derivative_rounding_relative": 2.5518697930000074e-08,
+      "cpu_torch_numpy_small_parity": 8.673617379884035e-19,
+      "delta_slice_norm": 0.2889615110956409,
+      "true_slice_norm": 0.4284532263805219,
+      "wall_s": 90.24650979042053,
+      "peak_rss_bytes": 2276638720,
+      "output_sha256": "5b6e18c05b66a933c432a42a5e84a701b2838dc800fc6716b42d46e191a486f1",
+      "source_sha256": "373020c2ee41b7d1a25c84e19912d2f4deb039bafa048e7f93c60391aecdc7eb",
+      "qualification": "Same independent8M law as corresponding prior third oracle stream. New pre12 fourth-emission statistics only. Unbiased per-batch centered k-statistics, f32 MPS moments and f64 CPU Wick terms/accumulation. Shared arithmetic bias remains. No estimator or score."
+    },
+    "B": {
+      "parent_source_sha256": "68205c2189c0c76061f2a71b55ba349c17de005d01538b046663acc87a8b7d26",
+      "conversion_repair": "CPU transfer before f64 cast",
+      "stream": "B",
+      "rank": 35,
+      "layer": 12,
+      "samples": 8000000,
+      "batch": 65536,
+      "batches": 123,
+      "seed_xor": "0x4f4e454849474832",
+      "frozen_input_sha256": "0c1cc5a597956277357d1564d38dd92c2a6fd18a6fae86b708c021475030063e",
+      "previous_stream_sha256": "81d97d2f4d268561eb56ac6bec9d97b26b061ece77cc6094aa098619f0ef14ad",
+      "source_diagonal_consistency": {
+        "Q31": 0.0011438708212840468,
+        "Q22": 0.0011438476737409338
+      },
+      "old_stream_post_mean_max_difference": 0.0,
+      "basis_derivative_rounding_relative": 2.5518697930000074e-08,
+      "cpu_torch_numpy_small_parity": 3.3881317890172014e-21,
+      "delta_slice_norm": 0.2885861107604974,
+      "true_slice_norm": 0.42847380238063015,
+      "wall_s": 93.4373197555542,
+      "peak_rss_bytes": 2095857664,
+      "output_sha256": "b486fa0ae3ace0eee21962818b9dfbb98ed3ff5dd4d4c5b2e414ca26c80706a0",
+      "source_sha256": "373020c2ee41b7d1a25c84e19912d2f4deb039bafa048e7f93c60391aecdc7eb",
+      "qualification": "Same independent8M law as corresponding prior third oracle stream. New pre12 fourth-emission statistics only. Unbiased per-batch centered k-statistics, f32 MPS moments and f64 CPU Wick terms/accumulation. Shared arithmetic bias remains. No estimator or score."
+    }
+  },
+  "wall_s": 0.2154529094696045,
+  "peak_rss_bytes": 303923200,
+  "qualification": "Oracle true-fourth source minus actual current radial distinct emission. Two independent8M streams; unbiased batch fourth cumulants. Cross-products are sampling-noise point estimates, not confidence bounds or shared-arithmetic-bias removal. Fixed q4/32-row natural-strength gate. No usable fourth predictor, closed-loop, raw or adjusted score."
+}

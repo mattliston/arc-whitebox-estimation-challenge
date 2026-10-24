@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N2_K3",
+    "label": "N2 skew channel: frozen per-layer k3 SCALE table (zero cost) recovers 34-53% of the truth-k3 payoff; remaining deep k3 error ~70% unit-specific",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "Per-unit k3 recursion = the diagonal of the same third-order object as N1.2; the engine's k3 supply is worthless at any beta on the deploy-frame run (best -0.8). Re-grade after each N1.2 fix (SUB-4). HONEST FRAME (T-36, independent 4M truth, r35, F2J-on, deployed 2.704e-8, +-3 points): truth per-unit k3 fed into the card's EXISTING univariate mean map cuts 30.2% (24.5 from layers 8-15, 7.6 from 2-7); the engine's carried per-unit k3 (deploy frame) cuts 14.7% (BK3 0.33) on its own; with truth univariate k3 fed to the engine its k3 arm reaches 29.6. Consumer cost zero. The card's k3 error ~6% of k3 is 3-14x the truth's k3 noise from L5. Task (teammate A): supply a better 1024-vector k3 per deep layer - grade engine k3u, D's k3 features, and the coincidence-resummed generation (derived) under the independent truth. Receipts: experiments/p2_width1024_depth16/public_g21_pair_consumer_v1/LANE.md section 8, experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-36/T-37. T-43: k3 (with k4) is the bulk of the in-card payoff on BOTH nets when forced jointly with v (the net-specific reading was the linear frame's). T-44: card k3 3.5->11% off vs the 32M truth; run the cum4 feed and the early-window residual carry TOGETHER with the k4 fix. T-48 task: cum4 (2,1,1) feed + early-window residual carry TOGETHER on top of the k4 rescale (teammate A), F2J off, independent scoring; target the structured-halving regime. T-55/T-56 (teammate A, public_g27_k3_structure_v1): card k3 mildly under-scaled (panel ratio 0.996 -> 0.929, sd <= 0.016); injecting Delta k3 = card_k3 * (1/s_l - 1) on top of the k4 table takes the host from 5.27e-8 -> 4.12e-8 (r35) and 5.00e-8 -> 3.84e-8 (r100), F2J off, independent 4M, u unchanged; truth-Delta k3 reference 1.91e-8 / 2.83e-8. Deep k3 error = ~30% scale (done) + ~0% regime (alpha/g3/v bins are noise; a LOO alpha table hurts) + ~70% unit-specific accumulated carry error (held-out ridge on tape features explains 10-12%; a learned corrector ~35% pooled, 0.5 at depth). T-52: the arena-relaxed full-depth residual carry buys only -9..-12% at +26-39% util; partial carries are worse than none. T-62/T-63: a learned in-card k3 corrector (features R^2 0.41-0.55 at depth) cuts the rescaled host 15-20% but lies inside the operator's span (perpendicular alignment -0.1..+0.1); mechanistic per-unit features lift held-out R^2 only marginally (0.135->0.147 at L10); the engine's k3u injected in-card does not beat the board. Unit-level k3 is now part of N0.1.",
+    "terminal_criterion": "Unblocks when N1.2a-e improve the planes; closed when only_k3 at optimal beta is frozen-stable on >= 3 nets.",
+    "evidence": [
+      {
+        "claim": "teammate B sweep 2026-09-01.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-20 (pending)"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "Each neuron's skew is worth another tenth of the error at perfect inputs, and it depends on the same tables as the variance fix."
+  }
+}

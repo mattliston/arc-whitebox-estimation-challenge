@@ -1,0 +1,103 @@
+{
+  "schema": "public-q24-residual-sync-protocol-audit-v1",
+  "date": "2026-08-27",
+  "status": "PASS_PROTOCOL_RECLASSIFICATION_NO_NUMERICAL_RUN",
+  "decision": "PARENT_OVER_CAP_IS_NONDISCRIMINATING__REQUIRE_SYNC_FREE_LEAN_MATCHED_ABA",
+  "scope": {
+    "estimator_imports": 0,
+    "estimator_calls": 0,
+    "public_rows_opened": 0,
+    "targets_opened": 0,
+    "scores_opened": 0,
+    "network": false,
+    "submission": false
+  },
+  "bindings": {
+    "d4_source_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "d4_result_sha256": "6d8e7cf98d45b1c667d7d16c373cf9935f96d1f07e44674ca8f9584d51c111d1",
+    "packed_full_gate_result_sha256": "ab1c22a0f4474eed738a6f2238fa3b183d4958112d4b15993403cda14c1009d5",
+    "packed_terminal_closure_sha256": "b32586a60e40a98e21a2ce981f40033db5c78e6a242d76fadc0f3fb926eaf656",
+    "data_gate_pyproject_sha256": "095a2dd2fd5c1d6d8fadc0011d9156ca719162fcf5c569e27858b7281b319443"
+  },
+  "local_environment": {
+    "whestbench": "0.16.0",
+    "flopscope": "0.12.0",
+    "flopscope_server": "0.12.0",
+    "residual_cap_seconds": 0.4
+  },
+  "same_parent_same_inventory_observation": {
+    "role_rank": 35,
+    "prior_d4_call": {
+      "flops": 1319871710583,
+      "calls": 15416,
+      "residual_seconds": 0.3257444277405739,
+      "passed_residual_cap": true
+    },
+    "packed_gate_parent_call": {
+      "flops": 1319871710583,
+      "calls": 15416,
+      "residual_seconds": 0.5711876060813665,
+      "passed_residual_cap": false
+    },
+    "residual_delta_seconds": 0.2454431783407926,
+    "candidate_calls": 0,
+    "inference": "Identical parent arithmetic and call inventory crossed the local residual cap across runs. The packed candidate was never executed, so this gate cannot attribute slowness to lifetime packing or reject its runtime. The immutable no-retry gate result remains closed exactly as recorded."
+  },
+  "d4_remote_scalar_sync_surface": {
+    "static_sites": 4,
+    "dynamic_sites_per_depth16_public_predict": 17,
+    "sites": [
+      {
+        "line": 721,
+        "expression": "if float(fnp.min(variance)) <= 2.0e-30",
+        "dynamic_count": 14,
+        "role": "one Python scalar branch at each nonfinal full ReLU reset"
+      },
+      {
+        "line": 1884,
+        "expression": "bool(fnp.all(fnp.isfinite(output)))",
+        "dynamic_count": 1,
+        "role": "host-output finiteness branch"
+      },
+      {
+        "line": 8592,
+        "expression": "bool(fnp.all(fnp.isfinite(correction)))",
+        "dynamic_count": 1,
+        "role": "native-J finiteness branch"
+      },
+      {
+        "line": 8606,
+        "expression": "bool(fnp.all(fnp.isfinite(output)))",
+        "dynamic_count": 1,
+        "role": "final-public-output finiteness branch"
+      }
+    ]
+  },
+  "interpretation_boundaries": {
+    "packed_d4": "STATIC_MEMORY_AND_COLD_FLOP_PROOF_PRESERVED__FULL_RUNTIME_UNCERTIFIED_BY_PARENT_OVER_CAP",
+    "k42_k51": "MATCHED_A1_B_A2_DELTA_REMAINS_IMPLEMENTATION_SPECIFIC_EVIDENCE__NOT_REOPENED",
+    "d4_bank": "SUBMISSION_328622_REMAINS_BANK__RAW_AND_ADJUSTED_UNCHANGED",
+    "evaluator_upgrade_or_regrade_policy": "EXTERNAL_ORGANIZER_DECISION_NOT_ASSUMED"
+  },
+  "successor_residual_protocol": {
+    "static_bans_inside_predict": [
+      "float or int coercion of a flopscope value",
+      "ndarray.item on a flopscope value",
+      "bool coercion or Python truth testing of a flopscope value",
+      "Python branching whose condition depends on a flopscope scalar",
+      "diagnostic conversion or full-array scan inside the metered estimator path"
+    ],
+    "required_measurement": "fresh-process lean public-predict parent/candidate/parent A/B/A in the pinned 0.16.0/0.12.0 environment",
+    "required_fields": [
+      "absolute residual for both parent calls and the candidate",
+      "candidate residual minus the mean parent residual",
+      "exact operation-call and FLOP inventories",
+      "public output hash and finite result",
+      "RSS and wall time"
+    ],
+    "protocol_validity_gate": "both unchanged-parent calls must be strictly below 0.4 seconds; otherwise the run is non-discriminating and cannot reject the candidate",
+    "candidate_gate": "candidate must be strictly below 0.4 seconds and below its preregistered incremental-residual cap",
+    "version_policy": "0.16.0/0.12.0 is the forward-compatibility shipping gate; current board behavior is separately established only by actual graded submissions",
+    "history_policy": "do not mutate or retry immutable terminal experiments; apply this protocol only to materially new successors"
+  }
+}

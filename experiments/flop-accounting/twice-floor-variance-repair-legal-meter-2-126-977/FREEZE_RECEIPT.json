@@ -1,0 +1,67 @@
+{
+  "schema": "fb-ec4-q24-manual-rho-hybrid-near-floor-min-freeze-v1",
+  "status": "FROZEN_STATIC_PACKAGE_AND_LITERAL_METER_PASS",
+  "candidate": {
+    "path": "estimator.py",
+    "bytes": 69140,
+    "sha256": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d"
+  },
+  "functional_parent": {
+    "path": "../fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_v1/estimator.py",
+    "sha256": "96a19116bee4a85f14f826c0a1634fe93bf39a21d78100eb46cd7f31add1e52b"
+  },
+  "performance_only_intervention": {
+    "old_trigger": "bool(any(variance <= 2.0 * _VAR_FLOOR))",
+    "new_trigger": "float(min(variance)) <= 2.0e-30",
+    "equivalence_domain": "every nonempty finite variance vector",
+    "domain_holds": "variance has width 1024 and is floored before every repair call",
+    "array_temporary_removed_per_repair": 1,
+    "wrapped_operations_removed_per_predict": 14,
+    "metered_flops_removed_per_predict": 14350,
+    "other_executable_diffs": 0
+  },
+  "static_validation": {
+    "script": "verify_tiny.py",
+    "script_sha256": "a044855d090be1bf96fff984e5cbf58a2f8dedfb935ef2dca175c482c3af924e",
+    "status": "PASS",
+    "ordinary_above_threshold_branch_parent_bytes_equal": true,
+    "exact_floor_rank55_rank71_and_two_x_branches_raw_gauge_bytes_equal": true,
+    "source_diff_exactly_docstring_and_trigger": true
+  },
+  "public_witness_transfer": {
+    "status": "EXACT_BRANCH_EQUIVALENCE_TO_8_ROW_VALIDATED_FUNCTIONAL_PARENT",
+    "role_ranks": [0, 1, 6, 7, 34, 55, 71, 106],
+    "new_fullwidth_executions": 0,
+    "reason_new_executions_deferred": "avoid contaminating the timing-sensitive literal meter with concurrent CPU work"
+  },
+  "price_projection": {
+    "exact_formula": "flops = 2131280815033 - t * 4303355900; 0 <= t <= 14",
+    "zero_trigger_flops": 2131280815033,
+    "one_trigger_flops": 2126977459133,
+    "phase2_budget": 2199023255552,
+    "zero_trigger_headroom": 67742440519
+  },
+  "literal_meter": {
+    "status": "PASS_PHASE2_SUBPROCESS_INTERFACE_AND_METER__ACCURACY_UNSCORED",
+    "receipt": "../meter_protocol/runs/fb_ec4_q24_rho_nearfloor_min_26aca6ed_n1_s8_seed20260824/receipt.json",
+    "receipt_sha256": "92b411a952c9473186fde42670a95cfe6999a5a1aba17d7f65892cbed34a6ae3",
+    "flops_used": 2126977459133,
+    "residual_wall_time_s": 0.3976605720818043,
+    "wall_time_s": 28.140426999889314,
+    "n_failed_mlps": 0,
+    "finite_float32_shape_16x1024": true
+  },
+  "package": {
+    "path": "submissions/fb-ec4-q24-rho-nearfloor-min-v1-26aca6ed.tar.gz",
+    "bytes": 17033,
+    "sha256": "af7e62828217e0c7d98b9b5fa2d7af603fe5b6d4b95bca33b45271f61dacb0b7",
+    "members_exact": ["estimator.py", "manifest.json"],
+    "embedded_estimator_sha256": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d",
+    "embedded_manifest_sha256": "dd8e0aa50d45106000f6c37ae919f3da153f12484b8f98bb5ee7ff6b7d5762a2",
+    "whest_validate_package": "PASS"
+  },
+  "scope": {
+    "literal_meter_runs_for_this_source": 1,
+    "submissions": 0
+  }
+}

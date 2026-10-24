@@ -1,0 +1,29 @@
+{
+  "status": "HELD_SOURCE_ONLY_NO_MODELS",
+  "name": "Jensen mean-floor before covariance compensation",
+  "formula": "One fixed L1..14 Jensen lower bound: dm_eff=max(dm,max(mu,0)-host), before original RC/KC. Extends current4e FHM; no fitted strength/band/alternatives.",
+  "theorem": "For any integrable X, E[max(X,0)]>=max(E[X],0). Parent FHM enforces only nonnegative output mean; the new bound additionally excludes corrected means below positive preactivation mu.",
+  "active_scope": "Existing FHM helper uses already-paid _E2_LAYER[mu] on L1..14; exact parent prefix and all outer wrappers remain. Original d_eff flows through all mean and RC/KC compensation. L0/L15 formulas unchanged.",
+  "cost": "Original lower=-mean replaced with maximum(mu,0)-mean: only one extra O(n) maximum per layer. No extra matrix product, tensor cache, current-source fit, or dimension. Actual entire native bill includes future roster effects.",
+  "target": ">=0.5% adjusted accuracy is plausible research target from correcting active-tail mean bias, not estimated or guaranteed gain.",
+  "evidence": "Archived complete S42 parent:4008/114688 Jensen violations beyond virtual FHM; all g>=.99; largest layer RMS1.785e-6 and max correction1.245e-5. No residual/truth reads. Old trajectories not current gain evidence.",
+  "risks": [
+    "Estimated preactivation mu already contains propagated bias; its Jensen floor may force means away from true targets.",
+    "Calibrated head/RC/KC may compensate approximation errors through formally infeasible values.",
+    "Old archive incidence need not persist at current4e."
+  ],
+  "prior_history": "Bounded exact Jensen/relumu searches found no prior arm. Successful FHM only zero floor; failed R2F/NNV/JCF/trace/LMT rules remain closed.",
+  "smoke_rule": {
+    "first_seed_early_close_adjusted_ratio_gte": 1.02,
+    "completed_pair_mean_log_net_lt": 0.0,
+    "implementation_failure_closes": true,
+    "no_retry": true,
+    "no_followup_authority": true
+  },
+  "controls": {
+    "acceptance_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_fhm_iop_rescue_v1/ROOT_QUALIFICATION_PRICE_ACCEPTANCE_v2.json",
+    "retirement_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_fhm_iop_rescue_v1/ASTRA_QUALIFICATION_OWNER_RETIREMENT_v1.json",
+    "complete_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_fhm_iop_rescue_v1/run_iop_off_qualification_v1/QUALIFICATION_RETIRED_v1.json"
+  },
+  "protocol_sha256": "aa8e4b2407b93bf56c33a72a5916c6f73fbec468e0dd09b8b284a5bb976411e8"
+}

@@ -1,0 +1,93 @@
+{
+  "status": "SOURCE_TINY_IMPORT_OFF_CLEANUP_PASS",
+  "candidate_sha256": "74b4ab22126e326d785bd9f0a25415973a7f4b9145fe52ecc3f1fd874083dcc9",
+  "cases": [
+    {
+      "backend": "numpy",
+      "layer": 1,
+      "exact_delegate": true
+    },
+    {
+      "backend": "numpy",
+      "layer": 2,
+      "exact_delegate": true
+    },
+    {
+      "backend": "numpy",
+      "layer": 3,
+      "exact_delegate": true
+    },
+    {
+      "backend": "numpy",
+      "layer": 4,
+      "exact_delegate": true
+    },
+    {
+      "backend": "numpy",
+      "layer": 10,
+      "exact_delegate": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "layer": 1,
+      "exact_delegate": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "layer": 2,
+      "exact_delegate": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "layer": 3,
+      "exact_delegate": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "layer": 4,
+      "exact_delegate": true
+    },
+    {
+      "backend": "flopscope.numpy",
+      "layer": 10,
+      "exact_delegate": true
+    }
+  ],
+  "OFF_exact_parent_delegate": true,
+  "inputs_unchanged": true,
+  "outer_c2_state_unchanged": true,
+  "full_read_called_once": true,
+  "exception_cleanup_pass": true,
+  "all_captured_dense_identities_unchanged": true,
+  "layer_index": "Original zero-based l passed through _np_left into _RS_LAYER; restore exactly l=2,3, first2 outputs0/1 unchanged.",
+  "effective_RTT_record": "L2/3 c15=c2, changed=false, basis/refine fieldsNone; old_rank0/innercalls0. Remaining layers originalrecord.",
+  "selected_actual_FNP_warm_tariff": [
+    {
+      "layer": 2,
+      "m": 1024,
+      "k": 4096,
+      "old_rank": 0,
+      "c15": 960,
+      "c2": 1024,
+      "full_young_read_flops": 3874724800,
+      "QR_read_including_refine_tail_scores_flops": 3926643632,
+      "restore_extra_flops_upper": -51918832,
+      "restore_extra_whole_bill_percent_upper": -0.021691719696361057
+    },
+    {
+      "layer": 3,
+      "m": 992,
+      "k": 6144,
+      "old_rank": 0,
+      "c15": 928,
+      "c2": 992,
+      "full_young_read_flops": 5797727936,
+      "QR_read_including_refine_tail_scores_flops": 5583818528,
+      "restore_extra_flops_upper": 213909408,
+      "restore_extra_whole_bill_percent_upper": 0.08937148121418706
+    }
+  ],
+  "extra_whole_bill_percent_upper": 0.06767976151782601,
+  "request_effect": "Natural existing fullshape D7 routes retained; no added/disabled whitelist. Actual RPC change measured by pilot, no proxy guarantee.",
+  "models": 0
+}

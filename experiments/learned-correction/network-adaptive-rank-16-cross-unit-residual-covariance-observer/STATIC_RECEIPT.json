@@ -1,0 +1,34 @@
+{
+  "schema": "public-full688-rank16-cross-unit-covariance-static-v1",
+  "node": "P2R0F2N",
+  "status": "PASS_STATIC_NO_DATA_NO_METRICS",
+  "completed_at_utc": "2026-08-25T00:31:29Z",
+  "preregistration_sha256": "b7d84a4630c0d7819e025e6dabe74e0f09f8e4c0c6271c7e67d34be3d4afee93",
+  "run_manifest_sha256": "e81b7cb646a7a78998315961f5414d987a7a0d307c20a2b924f0960cfe1bca0f",
+  "program_sha256": "6b7c28711ac4b95a5a9c34c5e930b5fb104ecdb75a7a97357cbb49f49cac7502",
+  "checks": {
+    "python_compile": true,
+    "synthetic_full_forward_backward_finite": true,
+    "synthetic_output_shape": [1, 16, 1024],
+    "synthetic_factor_shape": [1, 14, 1024, 16],
+    "parameters": 86188,
+    "public_name_joins": 0,
+    "observer_selection_targets_opened": 0,
+    "network_access": 0
+  },
+  "cost": {
+    "added_covariance_observer_upper": 1226926080,
+    "j_plus_covariance_observer_correction_upper": 2278582272,
+    "native_q24_host_tape_baseline": 2131692137721,
+    "native_total_upper": 2133970719993,
+    "headroom_below_exact_2pow41": 65052535559,
+    "within_exact_2pow41": true,
+    "within_phase2_budget": true
+  },
+  "preseal_mechanical_resolution": {
+    "issue": "A repeated-eigenvalue synthetic backward pass exposed undefined eigenvector derivatives before sealing.",
+    "resolution": "The frozen whitening eigensystem is stop-gradient; the exact regularized symmetric inverse-square-root forward operator is unchanged and gradients pass through its right multiplication into the candidate factors.",
+    "metrics_existed_before_resolution": false,
+    "fold_or_cv_artifacts_existed_before_resolution": false
+  }
+}

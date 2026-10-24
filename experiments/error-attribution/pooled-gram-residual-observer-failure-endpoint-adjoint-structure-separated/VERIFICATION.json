@@ -1,0 +1,57 @@
+{
+  "schema": "public-full688-full-gram-pooled-context-cv-verification-v1",
+  "status": "PASS",
+  "scope": "Artifact-level hash, split, coverage, aggregation, gate, full-Gram/context architecture, and cost verification",
+  "bindings": {
+    "preregistration_sha256": "45d2f5cca1c8dfa5c3d0bde4f5bd8e4841350bd73208a24d5d9bde687211d757",
+    "program_sha256": "f9700d8f589249112a1cbcf743f05d0cdaf0759e43cd314564a8f622af81c3d2",
+    "run_manifest_sha256": "77607a7546aad379296527d3677441e64450289f657beff92dd894b5241b0935",
+    "seal_sha256": "b46dd6570f1bfa87a2c99b61ab999de850b890b1a9e9051a318072d1671323e1",
+    "p2r0f2j_decomposition_sha256": "c709e2c04c61f427aa0b41c57b37dd0313138a81e8e6438610d430976d38ea0f",
+    "cv_results_sha256": "2a8a569599f3d9b8d0efe373a659367447dc652a0e24e9785a8d72db52abcd44",
+    "verifier_sha256": "9c2cc346c13ebae83acd4fa66ef920d8d006c6e9347e540d64bf268b8959e198"
+  },
+  "fold_receipts": [
+    {"fold": 0, "result_sha256": "66d1557b34ff671ec2d114796b1a8706ae4f208d8a9d09bbb960e407ae42f0d0", "model_sha256": "053f11db06a083e6b9b71307a8eda49a96ee7fe1b000b0a2c1e16d662f0194de"},
+    {"fold": 1, "result_sha256": "0303860379621424853e0d969210a64079e301a6eb65c5f5cfb337527bae6030", "model_sha256": "beb5baa1af3ca0bab680f73f2ec741f5e4d0c35091d654c2a17d55b9e60c58bd"},
+    {"fold": 2, "result_sha256": "8524746d09c34ab602f23f32a197b1ec1cf3b4561eabc5bbd62f9e12f9b6e5cc", "model_sha256": "082fb2257b8e0374a8db99d39d1ad24d02f0704e8d955d88f3ac7ad5208d00d0"},
+    {"fold": 3, "result_sha256": "2e91ff7c62f23ff1ea6a7964a078f3f299b4d607a0d769b162b8ae114fea06f9", "model_sha256": "a83c3b88fe6e21595b3f28c4784a07649f4cfffe3cf9587dfa2670afa95f119c"}
+  ],
+  "checks": {
+    "validation_networks_exactly_once": 688,
+    "fold_validation_sets_disjoint": true,
+    "each_training_set_is_validation_complement": true,
+    "all_fold_rollouts_finite": true,
+    "all_fold_training_traces_finite": true,
+    "all_11_data_derived_tails_repaired": true,
+    "six_offdiagonal_full_gram_features_bound": true,
+    "width_pooled_context_bound": true,
+    "deployment_truth_inputs": 0,
+    "observer_selection_targets_opened": 0,
+    "weighted_layer_aggregation_recomputed": true,
+    "decision_gate_recomputed": true,
+    "cost_arithmetic_recomputed": true
+  },
+  "metrics": {
+    "oof_host_final_mse": 9.115992600417403e-8,
+    "oof_autonomous_final_mse": 3.2444190155738505e-8,
+    "autonomous_ratio_to_host": 0.35590408612500357,
+    "regression_fraction_vs_p2r0f2j": 0.003378137231300467,
+    "improvement_fraction_vs_p2r0f2d": 0.015932494800111083,
+    "miss_fraction_vs_mean_gate": 0.09340833911098764,
+    "maximum_per_network_final_mse": 3.391656718774529e-7,
+    "maximum_ratio_to_gate": 3.3916567187745295
+  },
+  "decision_gate": {
+    "finite_all_autonomous_rollouts": true,
+    "mean_below_2_9672528546945005e_8": false,
+    "maximum_per_network_below_1e_7": false,
+    "conjunctive_pass": false
+  },
+  "cost": {
+    "host_plus_correction_upper_estimate": 2128319009085,
+    "phase2_budget": 2200000000000,
+    "headroom_under_upper_estimate": 71680990915,
+    "literal_meter_not_run_because_accuracy_gate_failed": true
+  }
+}

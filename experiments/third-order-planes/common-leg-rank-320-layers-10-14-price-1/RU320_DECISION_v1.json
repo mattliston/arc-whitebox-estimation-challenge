@@ -1,0 +1,33 @@
+{
+  "status": "RU320_PRICE_GATE_FAIL_NO_SCREEN",
+  "lane": "opus-ru",
+  "base": "Full384+GK4 4f3cce8f",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_ru_v1/cand_RU320_v1.py",
+  "candidate_sha256": "5e714a8ea796f5e1d91651e6ab68b925bbc777f0dbebd4fb61746cb60459e086",
+  "boundary": {
+    "35": {
+      "base_requests": 48747,
+      "ru320_requests": 49676,
+      "delta_requests": 929,
+      "base_flops": 245075867735,
+      "ru320_flops": 248857525497,
+      "bill_log_pct": 1.5312719111210187
+    },
+    "100": {
+      "base_requests": 46446,
+      "ru320_requests": 47448,
+      "delta_requests": 1002,
+      "base_flops": 245317836952,
+      "ru320_flops": 249034002541,
+      "bill_log_pct": 1.5034780063317588
+    }
+  },
+  "gate": "lead rule: screen only if warm bill <= +1.0%; request budget ~200-300",
+  "why_over": [
+    "UBC base-product cache admits only ru==256 (admission at ~line 9020 plus key literals n==(256 if ut else 384), k==rank==(256 if u else 384), 4096 offsets): plain dial drops the cache",
+    "new rank-320 u-leg product shapes bind cold (no prebind/Smirnov entries)",
+    "intrinsic +64 u-leg coordinates over L10-14 base+recent reads ~2.5 GFLOP ~ +1.0% even with the cache"
+  ],
+  "engineering_path": "generalize the UBC literals to ru in {256,320} with byte-exact verification vs the plain dial, plus own prebind list; expected bill ~+1.0%, still at the gate; accuracy untested (U64 mirror: v-leg -64 cost xMSE +0.94%)",
+  "seeds_untouched": "7103080-087 not run"
+}

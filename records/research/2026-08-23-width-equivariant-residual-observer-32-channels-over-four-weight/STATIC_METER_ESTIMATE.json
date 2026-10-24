@@ -1,0 +1,136 @@
+{
+  "schema": "phase2-width-equivariant-residual-observer-static-meter-v1",
+  "status": "DESIGN_ONLY__STATIC_UPPER_ESTIMATE__AUTHORITATIVE_FLOPSCOPE_RECEIPT_REQUIRED",
+  "access": {
+    "new_public_target_values_decoded": 0,
+    "model_fits_performed": 0,
+    "teacher_extractions_performed": 0,
+    "official_hidden_examples_accessed": 0,
+    "graph_or_html_modified": false
+  },
+  "shape": {
+    "width": 1024,
+    "depth": 16,
+    "message_transitions": 15,
+    "hidden_channels": 32,
+    "channels_per_weight_power": 8,
+    "weight_powers": 4,
+    "local_features": 20,
+    "message_rms_broadcast_features": 4,
+    "cell_inputs": 56,
+    "cell_width": 64
+  },
+  "host": {
+    "label": "cp3_cap1792_k3_readout_on_hermite10_full_covariance",
+    "estimator_sha256": "035e3bd2fd08d3358f5424fc67f10281e5559e65fa9c6d6dce97791108b176dc",
+    "meter_pointer_sha256": "6e30cc3d9849311004a54caae680be3d00c3e629ddc1f4c75c6a3ae3e81bb93b",
+    "measured_flops_per_mlp": 214122341378,
+    "measured_budget_fraction": 0.09737156750725262,
+    "measured_margin_to_0p1_floor_max": 5779984177
+  },
+  "budget": {
+    "total_flops": 2199023255552,
+    "score_floor_condition": "10 * total_estimator_flops <= 2^41",
+    "largest_integer_total_at_0p1_floor": 219902325555,
+    "memory_limit_bytes": 8589934592,
+    "residual_python_limit_seconds": 0.4,
+    "prediction_wall_limit_seconds": 120.0,
+    "submission_size_limit_mib": 50
+  },
+  "ordinary_operation_convention": "a dense dot of length k costs 2*k-1; explicit bias adds are separate; nonlinearities use a conservative design reserve pending flopscope v0.12 measurement",
+  "observer_static_rows": {
+    "power_construction_center_scale": {
+      "formula": "15 * 9 * 1024^2",
+      "operations": 141557760
+    },
+    "four_power_transports": {
+      "formula": "15 * 4 * 1024 * 8 * (2*1024 - 1)",
+      "operations": 1006141440
+    },
+    "message_group_rms_normalization": {
+      "formula": "15 * 4 * ((8192) + (8192-1) + 3 + 8192)",
+      "operations": 1474680
+    },
+    "local_feature_extraction_allowance": {
+      "formula": "16 * 16 * 1024^2",
+      "operations": 268435456,
+      "note": "conservative allowance for correlation-row reductions, CP diagnostics, current-weight column moments, and one-pass host intermediate exposure"
+    },
+    "local_feature_standardization": {
+      "formula": "2 * 20 * 16 * 1024",
+      "operations": 655360
+    },
+    "source_and_message_gates": {
+      "formula": "20 * 16 * 1024 + 4 * 15 * 1024 * 8",
+      "operations": 819200
+    },
+    "core_linear_56_to_64": {
+      "formula": "16 * 1024 * 64 * (2*56 - 1)",
+      "operations": 116391936
+    },
+    "core_linear_64_to_64": {
+      "formula": "16 * 1024 * 64 * (2*64 - 1)",
+      "operations": 133169152
+    },
+    "candidate_and_gate_heads": {
+      "formula": "16 * 1024 * 64 * (2*64 - 1)",
+      "operations": 133169152
+    },
+    "mean_head": {
+      "formula": "16 * 1024 * (2*64 - 1)",
+      "operations": 2080768
+    },
+    "explicit_bias_adds": {
+      "formula": "16 * 1024 * (64 + 64 + 64 + 1)",
+      "operations": 3162112
+    },
+    "nonlinear_activation_reserve": {
+      "formula": "16 * 1024 * (128 SiLU + 32 candidate tanh + 32 gate sigmoid + 32 state tanh + 1 output tanh) * 64",
+      "operations": 235929600,
+      "note": "64 ordinary-operation equivalents per nonlinear output is a deliberately conservative placeholder, not a claim about the official special-call tariff"
+    },
+    "hidden_blend_and_clip": {
+      "formula": "16 * 1024 * 32 * 6",
+      "operations": 3145728
+    },
+    "output_decode_and_safety": {
+      "formula": "16 * 1024 * 67",
+      "operations": 1097728
+    }
+  },
+  "totals": {
+    "observer_static_upper_estimate_flops": 2047230072,
+    "host_plus_observer_static_estimate_flops": 216169571450,
+    "host_plus_observer_budget_fraction": 0.09830253995914973,
+    "host_plus_observer_budget_percent": 9.830253995914973,
+    "integer_margin_to_0p1_floor_max": 3732754105,
+    "ten_times_total_at_most_budget": true,
+    "estimated_score_multiplier": 0.1
+  },
+  "parameters": {
+    "deployment_trainable_parameters": 12041,
+    "training_only_auxiliary_parameters": 260,
+    "total_offline_training_parameters": 12301,
+    "phase1_parameter_tensors_reused": 0,
+    "phase1_normalization_scalars_reused": 0,
+    "per_neuron_learned_parameters": 0
+  },
+  "resource_interpretation": {
+    "authoritative_meter_complete": false,
+    "meter_uncertainty": "special-function pricing, remote symmetry propagation, feature-exposure spelling, output checks, serialization, residual time, and live memory require the implemented common-driver meter",
+    "required_static_headroom_retained_by_real_meter_fraction": 0.1,
+    "required_real_meter_max_flops": 219529050144,
+    "required_real_meter_rule": "retain at least 10% of the current 3,732,754,105-operation static headroom",
+    "deployment_package_estimate": "about 50 KiB of float32 model and normalization tensors, excluding source code",
+    "mps_in_submission": false,
+    "mps_offline_training_only": true
+  },
+  "bindings": {
+    "existing_joint_mini100_score_receipt_sha256": "992f8e27d8b44c4ce236051022b4baf43e59b6f610ca57aedb6eb4315b73045c",
+    "existing_recursive_k21_score_receipt_sha256": "7cc72065af485d96ddcfc9f62eef47f8858e9c6f45599cf52ec3512f77cb681b",
+    "phase2_teacher_attribution_design_sha256": "bb8ca6d673fef1c660c695e8baad14d9739a53efe9f4e22c7c52a15d4df25dd0",
+    "phase1_a164_imitation_gate_sha256": "fbc377891d48f945d417b430488485342d14c50b585df5bc6f20162d1c866b91",
+    "phase1_a164_autonomous_result_sha256": "3da42874f9d3f7419f5e290af89d444785faeeb89405b5b391ec630f6715bc03",
+    "phase1_a166_pause_receipt_sha256": "cbd97bcf4d133351a23d9fd3e82fb074266cdb9e43b459ecd34c508f38ab8cc3"
+  }
+}

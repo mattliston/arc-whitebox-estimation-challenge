@@ -1,0 +1,207 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-v4-independent-source-audit-v1",
+  "status": "PASS_AS_FINAL_BYTE_FROZEN_PHASE2_FEASIBLE_BASELINE__BOUND_MOMENT_DIAGNOSTIC_ONLY",
+  "audited_at_utc": "2026-08-24T08:50:36Z",
+  "final_byte_freeze": {
+    "declared_by_author": true,
+    "declaration": "FINAL BYTE FREEZE",
+    "estimator_bytes_must_not_change": true,
+    "live_source_rehashed_after_declaration": true,
+    "live_source_byte_identical_to_metered_archive": true
+  },
+  "authority": {
+    "granted": [
+      "FROZEN_PHASE2_FEASIBLE_V4_BASELINE",
+      "V4_BOUND_TARGET_BLIND_MOMENT_DIAGNOSTIC",
+      "READ_ONLY_PACKAGE_PARITY_AUDIT"
+    ],
+    "withheld": [
+      "ACCURACY_OR_RAW_MSE_CLAIM",
+      "OFFICIAL_TARGET_OR_DATASET_ACCESS",
+      "FIT_OR_SAMPLING",
+      "BOARD_OR_SUBMISSION_PROMOTION",
+      "SUBMISSION",
+      "PROBLEM_GRAPH_MUTATION",
+      "ESTIMATOR_MUTATION"
+    ]
+  },
+  "exact_byte_bindings": {
+    "live_v4_estimator": {
+      "path": "estimator.py",
+      "bytes": 68698,
+      "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+    },
+    "metered_immutable_archive": {
+      "path": "../v4_workbench_baselines/estimator_3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c.py",
+      "bytes": 68698,
+      "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+    },
+    "engineering_preregister": {
+      "path": "../v4_workbench_baselines/PREREG_SPARSE_RESETARENA_CP3COMPACT_3DDDDD87.json",
+      "bytes": 4664,
+      "sha256": "05986a06831790745144baed290123e49cff33d117b7590c5cd13ea29b29c14c"
+    },
+    "literal_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_v4_sparse_resetarena_cp3compact_n1_s8_seed20260824/receipt.json",
+      "bytes": 23603,
+      "sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017"
+    },
+    "rejected_strided_scratch_receipt": {
+      "path": "../v4_workbench_baselines/REJECTED_E763_CAP_STRIDED_CP_SCRATCH.json",
+      "bytes": 1902,
+      "sha256": "a2083eceb9d47fe061a53fdad3e68cb6e6892cef42f005a4ae0ed4cceb2dd77f"
+    },
+    "v3_science_reference": {
+      "path": "../fullbudget_k21_k4_closure_v3/estimator.py",
+      "bytes": 49805,
+      "sha256": "f6db80014b5c4d8479a262bd1e4d13192258b12f1a0ad1ce14a60074e5a613c3"
+    },
+    "v4_metered_parent_521": {
+      "path": "../v4_workbench_baselines/estimator_521cc2e917cb597e3b3ff4c4055f5e867b1c891d043ff4b7180abbcec63ad79c.py",
+      "bytes": 62834,
+      "sha256": "521cc2e917cb597e3b3ff4c4055f5e867b1c891d043ff4b7180abbcec63ad79c"
+    }
+  },
+  "pinned_environment": {
+    "flopscope_version": "0.12.0+np2.4.6",
+    "flopscope_server_version": "0.12.0",
+    "whestbench_version": "0.16.0",
+    "numpy_backend_version": "2.4.6",
+    "requirements_lock_sha256": "dbd429c8eeb64c5809f7a045fc782173e476c943fbd6ce7d2616c94433481f98",
+    "meter_driver_sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34",
+    "meter_receipt_verifier_sha256": "91471a7d543020460359acf7db8548969182734e9469ec02194002e3008d37d8"
+  },
+  "source_and_phase2_audit": {
+    "status": "PASS",
+    "ast_parse_nodes": 12463,
+    "imports_exact": [
+      "flopscope",
+      "flopscope.numpy",
+      "whestbench.BaseEstimator",
+      "whestbench.domain.MLP"
+    ],
+    "forbidden_mechanisms_found": [],
+    "numerical_execution": "All array-valued numerical work is expressed through the pinned flopscope API. Python is limited to literal coefficient payloads, dimensions, indexing, control flow, and bookkeeping.",
+    "native_out_paths_exercised": [
+      "matmul",
+      "multiply",
+      "add",
+      "subtract",
+      "sum",
+      "cumprod",
+      "copyto"
+    ],
+    "masked_copyto_broadcast": "Pinned FlopScope 0.12 accepted and exercised vector-to-diagonal masked copy with the intended NumPy broadcast semantics.",
+    "compact_cp_scratch_view": {
+      "former_failure_geometry": [32, 513],
+      "shape": [32, 513],
+      "strides_bytes": [2052, 4],
+      "c_contiguous": true,
+      "shares_memory_with_flat_arena": true
+    },
+    "pycache_directories": 0,
+    "pyc_files": 0
+  },
+  "science_equivalence_gates": {
+    "status": "PASS_OUTPUT_BITWISE_V3_AND_521",
+    "fixed_depth16_fixtures": [
+      "identity_width8_float32",
+      "near_identity_seed20260823_scale0p02_float32",
+      "qr_seed20260823_scale0p35_float64",
+      "contractive_seed17_scale0p12_float32"
+    ],
+    "all_fixed_outputs_finite": true,
+    "connected_plane_adversarial_bitwise_cases": 180,
+    "spectral_repair_adversarial_bitwise_cases": 120,
+    "signed_zero_and_wide_dynamic_range_covered": true,
+    "reset_arena_nan_poison_before_each_reset": {
+      "resets": 14,
+      "output_finite": true,
+      "output_bitwise_normal": true
+    },
+    "cp_rank_and_cap_bitwise_cases": 54,
+    "cp_rank_regressions": [
+      "width32_rank513",
+      "width64_rank15360",
+      "width128",
+      "rank16382_cap_crossing",
+      "rank16384_cap"
+    ],
+    "cp_operations_compared_bitwise": [
+      "push",
+      "read",
+      "final_k3",
+      "grow"
+    ],
+    "cp_nan_poison_counts": {
+      "push": 15,
+      "read": 14,
+      "final_k3": 1,
+      "grow": 15
+    },
+    "cp_poison_output_finite_and_bitwise_normal": true,
+    "derived_plane_alias_survival": "PASS"
+  },
+  "operation_ledger": {
+    "status": "PASS_EXACT_PROJECTION_MATCHES_LITERAL_METER",
+    "phase2_budget": 2199023255552,
+    "metered_parent_521_flops": 2184175457255,
+    "sparse_plus_reset_arena_delta_formula": "-(4227*w^2 + 63*w)",
+    "sparse_plus_reset_arena_delta_at_width1024": -4432395264,
+    "sparse_plus_reset_arena_projected_flops": 2179743061991,
+    "compact_cp_delta_formula": "-(105*w + 2)",
+    "compact_cp_delta_at_width1024": -107522,
+    "projected_v4_flops": 2179742954469,
+    "literal_meter_v4_flops": 2179742954469,
+    "projection_minus_literal_flops": 0,
+    "headroom_flops": 19280301083,
+    "compute_utilization": 0.9912323341582123,
+    "tiny_calls": 6513,
+    "literal_production_calls": 6878
+  },
+  "literal_phase2_meter": {
+    "status": "PASS_PHASE2_SUBPROCESS_INTERFACE_AND_METER__ACCURACY_UNSCORED",
+    "independent_receipt_replay": "PASS_METER_RECEIPT_VERIFICATION",
+    "receipt_sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017",
+    "n_mlps": 1,
+    "width": 1024,
+    "depth": 16,
+    "wall_time_s": 35.34110458288342,
+    "flopscope_backend_time_s": 34.35804038029164,
+    "flopscope_overhead_time_s": 0.5904319882392883,
+    "residual_wall_time_s": 0.3926322143524885,
+    "residual_limit_s": 0.4,
+    "residual_margin_s": 0.0073677856475115,
+    "residual_margin_fraction_of_limit": 0.01841946411877875,
+    "residual_margin_classification": "PASS_BUT_FRAGILE",
+    "failed_mlps": 0,
+    "output_shape": [16, 1024],
+    "output_dtype": "float32",
+    "all_output_values_finite": true,
+    "sampled_solution_descendant_peak_rss_bytes": 4618567680,
+    "os_child_high_water_crosscheck_bytes": 4618567680,
+    "solution_memory_limit_bytes": 8589934592,
+    "public_phase2_target_or_truth_values_accessed": 0,
+    "dataset_argument": null,
+    "accuracy_scored": false
+  },
+  "required_next_gates": {
+    "before_any_board_or_submission_promotion": [
+      "V4_BOUND_TARGET_BLIND_MOMENT_DIAGNOSTIC",
+      "EXACT_SOURCE_PACKAGE_PARITY",
+      "RESIDUAL_MARGIN_RISK_REVIEW"
+    ],
+    "note": "This receipt proves a frozen legal and feasible baseline. It does not establish scientific raw MSE and does not authorize a board submission."
+  },
+  "negative_controls": {
+    "audit_is_additive_only": true,
+    "estimator_unchanged_by_audit": true,
+    "live_estimator_rehash_after_audit_preparation": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "no_second_full_shape_execution_by_independent_auditor": true,
+    "existing_literal_receipt_replayed_read_only": true,
+    "no_official_dataset_or_target_access": true,
+    "no_fit_or_sampling": true,
+    "no_problem_graph_mutation": true,
+    "no_submission": true
+  }
+}

@@ -1,0 +1,442 @@
+{
+  "access_accounting": {
+    "bank_A15_row_weight_target_score_or_board_payload_bytes_opened": 0,
+    "live_archive_or_package_payload_bytes_opened": 0,
+    "live_estimator_or_MLP_executions": 0,
+    "live_model_or_OOF_output_payload_bytes_opened": 0,
+    "live_package_builds_or_exports": 0,
+    "model_bank_or_runtime_live_directories_listed": 0,
+    "mps_executions": 0,
+    "network_or_submission_actions": 0,
+    "numerical_training_or_scoring_runs": 0,
+    "reviewed_native_binary_and_allowlist_roots_hashed_only": true,
+    "static_control_and_source_files_only": true,
+    "synthetic_in_memory_model_receipt_seal_review_and_archive_bytes_only": true,
+    "synthetic_static_verifier_runs": 1,
+    "synthetic_torch_CPU_parity_case_executions": 12
+  },
+  "authorization": {
+    "accuracy": false,
+    "actual_state_parity": false,
+    "BANK_READY": false,
+    "board": false,
+    "estimator_export": false,
+    "estimator_promotion": false,
+    "live_model_access": false,
+    "meter": false,
+    "model": false,
+    "model_path_access": false,
+    "mps": false,
+    "network": false,
+    "package": false,
+    "refit": false,
+    "static_frozen_package_accepted": false,
+    "submission": false,
+    "target": false
+  },
+  "construction_access_accounting_adjudication": {
+    "artifact": "CONSTRUCTION_ACCESS_RECEIPT.json",
+    "construction_history_actual_replay_count_exactly_disclosed": false,
+    "construction_history_actual_replay_count_lower_bound": 2,
+    "declared_control_only_null_gate_self_tests": 1,
+    "declared_static_53_key_source_inventory_checks": 1,
+    "declared_synthetic_full_static_verifier_runs": 1,
+    "declared_synthetic_full_static_verifier_runs_passed": 1,
+    "declared_synthetic_torch_CPU_parity_cases": 6,
+    "explicit_final_authoritative_replay_only_counting_scope_present": false,
+    "finding": "The receipt uses literal construction access-accounting run/check counts but supplies no scope limiting them to one canonical final freeze replay. Confirmed author-side freeze/debug replays occurred more than once, so the declared count of one is not truthful cumulative construction accounting and is at best an underspecified per-replay coverage count.",
+    "freeze_package_invokes_verify_static_after_the_source_receipt_already_exists": true,
+    "receipt_defensible_as_exact_cumulative_construction_accounting": false,
+    "receipt_defensible_as_exact_final_only_accounting_without_a_scope_field": false,
+    "required_repair": [
+      "replace the construction receipt with truthful cumulative invocation/case counts, or define an explicit unambiguous authoritative-final-replay-only counting law and separately disclose prior debug/freeze replays",
+      "recompute every dependent source, static-verification, freeze-receipt, manifest, freeze-verification, and artifact-package root in a narrow successor",
+      "obtain a fresh different-agent independent static review before any live model, export, meter, package, network, or submission action"
+    ],
+    "review_request_truthful_access_accounting_requirement_passed": false
+  },
+  "date": "2026-08-28",
+  "decision": "REPAIR_ACCESS_ACCOUNTING_RESEAL_AND_INDEPENDENTLY_REVIEW_A_NARROW_SUCCESSOR_BEFORE_ANY_LIVE_MODEL_EXPORT_METER_PACKAGE_OR_SUBMISSION",
+  "downstream_v4r2_and_v5_lineage": {
+    "all_three_roots_recomputed_from_exact_static_control_files": true,
+    "postrun_v4r2_v1r1": {
+      "independent_review_path": "public_q24_signed_pair_v4r2_oof_postrun_sealer_review_v1r1/INDEPENDENT_STATIC_REVIEW_V1R1.json",
+      "independent_review_schema": "public-q24-signed-pair-v4r2-oof-postrun-sealer-independent-static-review-v1r1",
+      "independent_review_sha256": "c1c2c479898ddaf13c5626fc35595737dcec50fa8c1f331f3eca003aa34bb90c",
+      "independent_review_status": "GO_FROZEN_POSTRUN_V4R2_V1R1_AUTHENTICATED_RECEIPT_SEMANTICS_REPAIR__NO_LIVE_AUTHORITY",
+      "package_manifest_path": "public_q24_signed_pair_v4r2_oof_postrun_sealer_v1r1/PACKAGE_MANIFEST.json",
+      "package_manifest_schema": "public-q24-signed-pair-v4r2-oof-postrun-package-manifest-v1r1",
+      "package_manifest_sha256": "e8b10df6c712b7f2b80106da766d52f633d0bc6652b4325941669da4261ee057"
+    },
+    "reviewed_v5_v4r2_consumer_handoff": {
+      "execution_authority_issued_by_this_handoff": false,
+      "path": "public_q24_signed_pair_lean_v5_post_generation_seal_review_v1r2/OOF_CONSUMER_HANDOFF_V1R2.json",
+      "schema": "public-q24-lean-v5-reviewed-bank-oof-v4r2-consumer-handoff-v1r2",
+      "sha256": "470e25cfc27bc7828a2ea202914b0acab8b8451406c615804da1d714a5e738ca",
+      "status": "GO_BIND_EXACT_REVIEWED_V5_BANKS_IN_FRESH_OOF_V4R2_AUTHORITY",
+      "target_access_allowed": false,
+      "training_or_scoring_allowed_by_this_handoff": false
+    },
+    "this_review_grants_downstream_execution_or_payload_authority": false
+  },
+  "freeze_and_manifest_evidence": {
+    "all_26_manifest_bound_artifact_hashes_independently_recomputed_exact": true,
+    "artifact_package_sha256": "93949272e00765826ab93c71f35e59c1c274520dbf164d7197ebfa79aeab821d",
+    "artifact_package_sha256_independently_recomputed_exact": true,
+    "directory_count": 0,
+    "freeze_receipt_sha256": "7b30f6b5badc13b37259e7b563d0efed5e006f2db844face28920ff61f2aab6a",
+    "freeze_stdout_byte_identical_to_frozen_FREEZE_VERIFICATION": true,
+    "freeze_stdout_sha256": "e28b17192886d9214ca87462a8f224cbea97af7e44e2a4273d97f5d60d0d7126",
+    "manifest_bound_artifact_count": 26,
+    "multiply_linked_regular_file_count": 0,
+    "package_manifest_sha256": "994750f1f0312e37d69555c19067c9ea81a25d3a1a394d413c655cc0989b50e3",
+    "regular_file_count": 28,
+    "static_stdout_byte_identical_to_frozen_STATIC_VERIFICATION": true,
+    "static_stdout_sha256": "035f8d85e79ce91c5943e86945dc008ea278f1930719fbdb7e9a6385d97107b1",
+    "symlink_count": 0,
+    "unique_regular_file_inode_count": 28
+  },
+  "independent_replay": {
+    "adversarial_fixture_count": 114,
+    "all_114_packaged_adversarial_classes_rejected": true,
+    "archive_scaffold": {
+      "archive_sha256": "6e1ebda1aa3a9e20ef8b024529203c70bd8c95e4858e34e151c76f20540a0b15",
+      "exact_member_order": [
+        "estimator.py",
+        "manifest.json"
+      ],
+      "exact_rebuild_byte_equality": true,
+      "package_authorized": false,
+      "pinned_whestbench_validation_still_required": true,
+      "status": "PASS_EXACT_CANONICAL_DETERMINISTIC_TWO_FILE_BYTES__NO_PACKAGE_AUTHORITY",
+      "submission_authorized": false
+    },
+    "environment": {
+      "MPS_used": false,
+      "device": "CPU",
+      "numpy": "1.26.4",
+      "physical_interpreter": "/Users/matt/anaconda3/bin/python3.11",
+      "python": "CPython 3.11.5",
+      "torch": "2.7.0"
+    },
+    "independently_recomputed_batch_order_int32_sha256": {
+      "J": "affbed56980f9243316a1f26e27e6c9fccab08747d2f6679d3c6eeab1579b3bf",
+      "pair_H16": "238ad030f3bc8077c2db6a78490c68e6afe800a450dd6cd97c719e795e175a2d",
+      "pair_H256": "4a257b6241f97c3ddaf5209bd310898705b2261fc65fa1f81891442cbfb8ccb1",
+      "pair_H64": "87445d97fb3228064acd43882a4407849818d2ec662299454753fc13802f504d"
+    },
+    "package_local_bytecode_or_pycache_created": false,
+    "resource_meter_scaffold": {
+      "all_ten_v1r3_hold_meter_witnesses_rejected": true,
+      "exact_builtin_scalar_and_boolean_types_required": true,
+      "live_meter_rejected_before_estimator_or_output_path_access": true,
+      "negative_zero_nonnegative_observations_rejected": true,
+      "over_limit_fixture_valid_without_accuracy_rejection": true,
+      "over_limit_operational_package_admission": false,
+      "resource_observation_can_change_or_veto_accuracy": false,
+      "within_limit_fixture_valid": true
+    },
+    "runtime_null_gate_direct_replay": {
+      "caller_path_protocol_events": [],
+      "filesystem_access": false,
+      "live_model_access": false,
+      "live_null_root_gate_rejected": true,
+      "numerical_execution": false,
+      "runtime_v1r4_static_root_count": 20,
+      "status": "PASS_REVIEWED_RUNTIME_AND_LIVE_NULLS_REJECT_BEFORE_CALLER_PATH_COERCION"
+    },
+    "static_verifier_status": "PASS_V1R5_RUNTIME_V1R4_LINEAGE_SUCCESSOR__ALL_LIVE_GATES_HOLD",
+    "synthetic_parity": {
+      "candidate_H": [
+        16,
+        64,
+        256
+      ],
+      "cases_per_replay": 6,
+      "direct_replay_semantically_equal_to_frozen_receipt": true,
+      "entry_dtypes": [
+        "float32",
+        "float64"
+      ],
+      "final_composition_zero_boundary_byte_exact": true,
+      "maximum_absolute_seam_difference": 0.000006198883056640625,
+      "maximum_relative_seam_difference": 0.00014548823760139653,
+      "MPS_used": false,
+      "status": "PASS_ISOLATED_SYNTHETIC_TORCH_CPU_VS_LITERAL__NO_EMPIRICAL_ACCESS",
+      "unit_permutation_checked": true,
+      "width": 9
+    }
+  },
+  "inference_v1r4_semantic_predecessor": {
+    "artifact_package_sha256": "0d62fa96b376ced765e41864932ea171417c7812764c5e2af5475cf4184beddf",
+    "byte_identical_v1r4_components": {
+      "METER_CONTRACT.json": "f9d05501d2e0d0a379d01c142388f79373f9ce57fbd0841c8c64b761381c0058",
+      "V1R2_HOLD_BINDING.json": "1230ba647915da619438843a5b2f59f4c6a357d9bb737c224ba83c54b8eb8869",
+      "V1R3_HOLD_BINDING.json": "ffb1fe41d28712a76c3b005c01589a85ee26b74fbda3ac01d36146bbabf88e38",
+      "V1_HOLD_BINDING.json": "f7b586262b1746c708e4fdabba2e20579952cb7d928cb44d531ab43345dbbda1",
+      "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+      "export_archive_builder.py": "579f2bdec738f54f070d588c4e263ed7333e4cd2e69d10dd2cdfe9d881337d57",
+      "meter_receipt.py": "f954be73f8052f3eb09413975706d9442cf550ab487d54b4215ac77680c5bd26",
+      "synthetic_parity.py": "2b7f53cfa9ac0c4879bfb914fdc63fab9060a6a17a0e87bd35813c0bc2e98011"
+    },
+    "freeze_receipt_sha256": "66bf9f0c9f0c6819813a4989a31b5970b85f12be3cb6ce04ba59a9ef89288a8d",
+    "freeze_verification_sha256": "813da4705f70e2ea1b32f5d3c36c2b83f52e43606330caa71afe0d24663b62ee",
+    "independent_review_sha256": "8f12be68bc3dfcab06acb05c9868bdd9cab645258f999620b1f4bec312e66c6e",
+    "independent_review_status": "GO_FROZEN_STATIC_DEPLOYMENT_INFERENCE_V1R4__EXACT_METER_RECEIPT_REPAIR__ALL_LIVE_GATES_HOLD",
+    "lineage_only_source_changes": {
+      "estimator_source_template": {
+        "current_sha256": "bc7e12e50a56eef4dc3c5d638ceb978748e31d8bc34e06ba6c5564a1b30d5d99",
+        "predecessor_sha256": "2a1a254fe3b097924f73bfb13cecbbf9e6e3a74e6b4b9c74c82f7134655bf124",
+        "review_result": "ONLY_SIX_EMBEDDED_RUNTIME_PACKAGE_REVIEW_AND_RUNNER_ROOTS_CHANGED"
+      },
+      "live_output_contract": {
+        "current_sha256": "9cd5c2e8ecfbcbc631ae82d2806dcb7eb50cda174759089e2a31ab3e98018497",
+        "predecessor_sha256": "a83d0b23abff0e1340b6bc6f97a9a7f81ca4ddc47c7cb956ead58d255da1c79b",
+        "review_result": "ONLY_AUTHENTICATED_RUNTIME_V1R4_V4R2_AND_V5_LINEAGE_CONSTANTS_CHANGED"
+      }
+    },
+    "package_manifest_sha256": "f6aa8809954db46435301505db84c6105f7e585f3f61c59cb0409e4bc0965601",
+    "static_verification_sha256": "0f7824d620f4814e3e5b44d34ee0512fb85247579b65aa57af9450261e0508af"
+  },
+  "issued_by": "independent_reviewer",
+  "issued_utc": "2026-08-28T17:35:29Z",
+  "material_defects": [
+    {
+      "artifact": "CONSTRUCTION_ACCESS_RECEIPT.json",
+      "defect_id": "CONSTRUCTION_ACCESS_ACCOUNTING_REPLAY_COUNT_SCOPE_AND_TRUTHFULNESS",
+      "impact": "Independent-review checklist item 7 cannot pass. The package may not receive the requested frozen static GO even though its lineage, source semantics, null gates, adversarial suite, parity, archive, meter, and freeze replay are otherwise sound.",
+      "severity": "MATERIAL_STATIC_REVIEW_BLOCKER",
+      "summary": "Literal construction verifier/check counters declare one run without a final-only scope, while confirmed author-side freeze/debug replays exceed one."
+    }
+  ],
+  "null_first_live_boundary": {
+    "all_15_empirical_model_source_values_null": true,
+    "all_18_runtime_gate_future_live_roots_null": true,
+    "all_25_exporter_future_model_bindings_null": true,
+    "all_2_exporter_future_adapter_bindings_null": true,
+    "all_5_exporter_future_package_gate_bindings_null": true,
+    "all_22_documented_live_model_adapter_package_and_submission_prerequisites_null": true,
+    "all_boolean_authority_maps_in_frozen_JSON_controls_false": true,
+    "frozen_JSON_authority_map_count": 15,
+    "live_export_rejected_before_any_supplied_model_review_or_output_path_access": true,
+    "live_meter_rejected_before_any_supplied_estimator_or_output_path_access": true,
+    "public_estimator_skeleton_rejects_before_model_payload_decode_or_MLP_access": true,
+    "runtime_gate_rejected_before_caller_path_coercion": true,
+    "runtime_gate_trap_path_protocol_events": []
+  },
+  "requested_checklist_findings": [
+    {
+      "finding": "Every frozen package file, manifest binding, package digest, receipt root, static root, and freeze-verification root independently rehashes and both verifier stdout streams reproduce the frozen bytes exactly.",
+      "id": 1,
+      "verdict": "PASS_EXACT_FREEZE_INVENTORY_HASH_AND_REPLAY"
+    },
+    {
+      "finding": "All five reviewed Runtime V1R4 package roots and all fifteen reviewed Runtime V1R4 runner, launcher, helper, contract, preregistration, native, and scaffold roots equal the actual frozen bytes and the exact independent GO.",
+      "id": 2,
+      "verdict": "PASS_EXACT_REVIEWED_RUNTIME_V1R4_LINEAGE"
+    },
+    {
+      "finding": "The reviewed inference V1R4 manifest, freeze, static, artifact-package, and independent GO roots are exact; V1R5 preserves the reviewed inference body and changes only authenticated Runtime V1R4/V4R2/V5 lineage constants.",
+      "id": 3,
+      "verdict": "PASS_NARROW_INFERENCE_V1R4_SEMANTIC_SUCCESSOR"
+    },
+    {
+      "finding": "The V1R3 SPREFIT1 model, seal, training-receipt, and independent-review schemas, exact positive review law, three-file output inventory, 22 ordered tensors, arithmetic body, and six retained native-execution roots remain compatible and exact.",
+      "id": 4,
+      "verdict": "PASS_RETAINED_V1R3_WIRE_AND_NATIVE_BODY"
+    },
+    {
+      "finding": "The model source-binding inventory remains exactly the same 53 keys as reviewed inference V1R4; only authenticated Runtime V1R4/V4R2/V5 values changed and all fifteen empirical values remain null.",
+      "id": 5,
+      "verdict": "PASS_EXACT_53_KEY_SOURCE_INVENTORY_AND_NULLS"
+    },
+    {
+      "finding": "The V4R2 V1R1 postrun manifest and independent GO plus the reviewed V5 V4R2 consumer handoff directly rehash to the bound roots; none grants this package execution, target, training, model, export, package, or submission authority.",
+      "id": 6,
+      "verdict": "PASS_EXACT_V4R2_POSTRUN_AND_V5_CONSUMER_LINEAGE"
+    },
+    {
+      "finding": "Runtime, live-export, meter, and estimator-skeleton null gates reject before caller path coercion or payload access; the direct trap replay observed zero caller path protocol events.",
+      "id": 7,
+      "verdict": "PASS_ALL_LIVE_NULL_GATES_BEFORE_CALLER_PATH_ACCESS"
+    },
+    {
+      "finding": "All 114 packaged adversaries, exact PCG64 batch roots, six H-by-input-dtype Torch-CPU/literal parity cases, critical floors, final-zero boundary, and unit permutation checks replay successfully with MPS unused.",
+      "id": 8,
+      "verdict": "PASS_ADVERSARIAL_BATCH_AND_SYNTHETIC_PARITY_SEMANTICS"
+    },
+    {
+      "finding": "The V1R4 meter exact-type and negative-zero repair, non-veto accuracy/resource boundary, deterministic two-member archive law, exact archive byte rebuild, and later pinned Whest package-validation gate remain intact.",
+      "id": 9,
+      "verdict": "PASS_METER_ARCHIVE_AND_ACCURACY_RESOURCE_BOUNDARY"
+    },
+    {
+      "finding": "No static package acceptance or live authority is issued. All live model access, model, refit, target, parity, meter, export, estimator promotion, package, BANK_READY, board, network, MPS, and submission authority values remain false.",
+      "id": 10,
+      "verdict": "PASS_NO_LIVE_AUTHORITY__STATIC_PACKAGE_ACCEPTANCE_WITHHELD"
+    },
+    {
+      "finding": "The construction access receipt declares exactly one full static-verifier run and related one-run coverage counts without an explicit final-only counting scope, but confirmed author-side freeze/debug replays occurred more than once. The counts therefore are not truthful cumulative construction accounting and cannot satisfy the mandatory access-truth finding.",
+      "id": 11,
+      "verdict": "FAIL_CONSTRUCTION_ACCESS_ACCOUNTING_TRUTHFULNESS__HOLD"
+    }
+  ],
+  "review_id": "q24-signed-pair-v4r1-all688-deployment-inference-review-v1r5-construction-access-accounting-hold",
+  "review_scope": "read-only frozen V1R5 static control/source review, exact Runtime V1R4 and inference V1R4 lineage hashing, retained V1R3 wire/native compatibility, exact V4R2 postrun and V5 consumer-control lineage, freeze replay, and isolated fabricated/synthetic model, parity, meter, and archive checks only; no live OOF/output/temp/model/bank/A15/row/weight/target/score/archive/numerical payload access and no network, live inference, model access, export, package, or submission action",
+  "review_scope_boundary": {
+    "first_live_blocker": "repair and reseal truthful construction access accounting in a narrow successor; all empirical model, OOF, selected-bank, adapter/export, actual-state parity, production meter, estimator-review, pinned Whest validation, BANK_READY, exact-archive submission, network, and submission roots also remain separate null-gated children",
+    "future_successor_must_bind_this_exact_HOLD_review_file_sha256": true,
+    "no_live_child_may_inherit_model_export_meter_package_or_submission_authority_from_this_HOLD": true,
+    "this_HOLD_accepts_no_static_or_live_package": true,
+    "this_HOLD_is_not_live_model_or_estimator_review": true
+  },
+  "reviewed_artifact_sha256": {
+    "CONSTRUCTION_ACCESS_RECEIPT.json": "18f448cdc8f076718a599885e219f70e8e505675524a9fb651f71d95f5dcedb1",
+    "DESIGN.md": "ac33bec4ff11c10164b06d606cd5edbc384fc79f266f51fa521ca1a24780e9ce",
+    "EXPORT_CONTRACT.json": "a8c6b933505b2861140497d0b7dc8784f93226aa597625635047003a1309117b",
+    "FREEZE_RECEIPT.json": "7b30f6b5badc13b37259e7b563d0efed5e006f2db844face28920ff61f2aab6a",
+    "FREEZE_VERIFICATION.json": "e28b17192886d9214ca87462a8f224cbea97af7e44e2a4273d97f5d60d0d7126",
+    "FUTURE_BINDINGS_HOLD.json": "c8dddea9287f8662f953ecdcdb6b372b96be0c276a693def38cf6edd71342c45",
+    "FUTURE_MODEL_SOURCE_BINDINGS.json": "6d11ee9b706348d4a79f2464321f4d41d3eeaa43a450f4cdad96938d9a5ab0cf",
+    "INDEPENDENT_REVIEW_REQUEST.md": "4eedc481a324b2417482f5c75515c934e2d4668d54d2b42b8c7d11e53bd8ed37",
+    "KNOWN_BLOCKERS.json": "924a5951945d408047c0457ae915c1f7aec67843761b8825f30fba5058ce8e99",
+    "METER_CONTRACT.json": "f9d05501d2e0d0a379d01c142388f79373f9ce57fbd0841c8c64b761381c0058",
+    "PACKAGE_MANIFEST.json": "994750f1f0312e37d69555c19067c9ea81a25d3a1a394d413c655cc0989b50e3",
+    "PRESERVED_V1R4_SEMANTICS.json": "7ca5546e08ebf231101c68e1a707d47801d533fe7d80d9f4c98ab260e9dfdd1c",
+    "RUNTIME_V1R4_BINDINGS.json": "ebe82627f2dfd051a845b73ebb4f1bb469182505f8a285d2e205083228cbb414",
+    "STATIC_VERIFICATION.json": "035f8d85e79ce91c5943e86945dc008ea278f1930719fbdb7e9a6385d97107b1",
+    "UPSTREAM_V1R4_BINDING.json": "5925dff97ee386e4e0328e49fbc024aabe064912671df15669a3c82d45a793a3",
+    "V1R2_HOLD_BINDING.json": "1230ba647915da619438843a5b2f59f4c6a357d9bb737c224ba83c54b8eb8869",
+    "V1R3_HOLD_BINDING.json": "ffb1fe41d28712a76c3b005c01589a85ee26b74fbda3ac01d36146bbabf88e38",
+    "V1_HOLD_BINDING.json": "f7b586262b1746c708e4fdabba2e20579952cb7d928cb44d531ab43345dbbda1",
+    "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+    "estimator_source_template.py": "bc7e12e50a56eef4dc3c5d638ceb978748e31d8bc34e06ba6c5564a1b30d5d99",
+    "export_archive_builder.py": "579f2bdec738f54f070d588c4e263ed7333e4cd2e69d10dd2cdfe9d881337d57",
+    "freeze_package.py": "6022b9d358868a92bcd3f2ac73295bf7da5edae631b1a97d100254beb574a6a7",
+    "live_output_contract.py": "9cd5c2e8ecfbcbc631ae82d2806dcb7eb50cda174759089e2a31ab3e98018497",
+    "meter_receipt.py": "f954be73f8052f3eb09413975706d9442cf550ab487d54b4215ac77680c5bd26",
+    "runtime_v1r4_gate.py": "899208a88581a6dfe4dd89d7309844bfc5d841bb0cf3e8f1f606a902e63a5733",
+    "synthetic_parity.py": "2b7f53cfa9ac0c4879bfb914fdc63fab9060a6a17a0e87bd35813c0bc2e98011",
+    "verify_freeze.py": "5239129c096f98fa39810fdb1acbcb2247ed3af05ec89b2c79f564cfb65142a8",
+    "verify_static.py": "8d8e0ace8b6bdf293b50f8cff4157d7aa4c2541f343b897d4f045a79cbba7026"
+  },
+  "reviewed_runtime_v1r4_lineage": {
+    "all_actual_file_hashes_recomputed_exact": true,
+    "independent_review_schema": "public-q24-signed-pair-v4r1-all688-refit-runtime-independent-static-review-v1r4",
+    "independent_review_status": "GO_STATIC_ALL688_REFIT_RUNTIME_V1R4__V4R2_POSTRUN_LINEAGE_AND_NULL_CALLER_GATE__NO_LIVE_AUTHORITY",
+    "package_roots": {
+      "freeze_receipt_sha256": "c5f3bed37bf0972c70a3ec0900e45f8ca0eeec5f5cd5012500e2161d08c33245",
+      "freeze_verification_sha256": "6d0c3bf6154db0ba5ad1ba40dda72dc930a94fd0561514b18f73a6f2b670011a",
+      "independent_static_review_sha256": "69b28b93d04fd8b8e5753b0708aaac2a5005c5360a54aebfcdef2f41c808dc33",
+      "package_manifest_sha256": "d211a742b80085f4a7fa9c3885689a9c52c3ebe0df3c70e83336af2aa153935f",
+      "static_verification_sha256": "b7a8fba908bb6c8cc7a502f49236768561a1b3c763b6976befd6621f6957d473"
+    },
+    "package_root_count": 5,
+    "source_root_count": 15,
+    "source_roots": {
+      "execution_stack_manifest_sha256": "c1fa80192527eac9c4aa3ae1b59a8f24d50d4293627beaa019ee87e1d7d9bbe3",
+      "future_bindings_scaffold_sha256": "7cd9a364aeceab7aa0fbdbe2086d53ee78e03a0596e5a477026b87bad12bc750",
+      "h_selection_helper_sha256": "612a4a4840f6da4c426b2114fed21530a72d8d5518de3202de7eb34bef2ffaf6",
+      "isolated_refit_launcher_sha256": "96538024cc42ee9ad2176e093fd8e4b7d6c3da2bef56901fb64fd6cf2869a5fa",
+      "macho_closure_helper_sha256": "5f052a128d557b225c26cc44902cce7ee98dbd7edeafdb70bb3ca114daef0883",
+      "native_image_allowlist_sha256": "b3dcd0dd6da27406764522539456589a8858b012cff230271452d61888651268",
+      "native_image_auditor_binary_sha256": "c1e9fa66a360df89a0ea482c90e1988355e88f5ebe46d40c16697062c21a3709",
+      "native_image_auditor_build_receipt_sha256": "dbfce962ba2357f6571bff7d1ecb2724218ec0bf2bdb8a0607d8ec35bd2ac3c2",
+      "native_image_auditor_source_sha256": "2581822bc51fac9b71b765c182f596d3b1685569f53d5d695530cc29101eb883",
+      "refit_authority_scaffolds_sha256": "7819fdc0fc9ce4b5760c970ff8f0e79e4b51373c48f05ab29f5c11f4201784ed",
+      "refit_model_output_scaffold_sha256": "8b8de9173f741c2c06831153e5d6c0fd3af8bf90d803dc2c88a622c3db62f02f",
+      "refit_model_review_scaffold_sha256": "e48e80763df538344c62c13bc8d2bb4345d0c285b1500a3d42473a7b98fd5c24",
+      "refit_preregistration_sha256": "ad7353bfc88accde85e31a978f79dea0d6976d8127fa328eac287e5d653e57bd",
+      "refit_runner_sha256": "99866353e1798f103cdaffe6d3dc45b1c4a45849253caf158dc8bdc90512f0fe",
+      "runtime_contract_sha256": "933299984f59c8a8fb5935c9b040778e49765f09d83730492f167ecda9cc2b88"
+    },
+    "static_GO_grants_live_authority": false
+  },
+  "retained_v1r3_wire_and_native_compatibility": {
+    "exact_live_output_inventory": [
+      "MODEL.sprefit",
+      "MODEL_SEAL.json",
+      "REFIT_RECEIPT.json"
+    ],
+    "model_format": "SPREFIT1_header_canonical_json_then_raw_float32_le",
+    "model_header_schema": "public-q24-signed-pair-v4r1-all688-refit-model-v1r3",
+    "model_review_decision": "ACCEPT_EXACT_V1R3_MODEL_BYTES_FOR_LATER_TARGET_BLIND_DEPLOYMENT_EXPORT_REVIEW_ONLY",
+    "model_review_schema": "public-q24-signed-pair-v4r1-all688-refit-model-independent-review-v1r3",
+    "model_review_status": "GO_EXACT_V1R3_REFIT_MODEL__NO_EXPORT_PACKAGE_OR_SUBMISSION_AUTHORITY",
+    "model_seal_schema": "public-q24-signed-pair-v4r1-all688-refit-model-seal-v1r3",
+    "ordered_tensor_count": 22,
+    "ordered_tensor_names": [
+      "J/state/source_weight",
+      "J/state/source_bias",
+      "J/state/gate_weight",
+      "J/state/gate_bias",
+      "J/state/transport_delta",
+      "J/state/mix_delta",
+      "J/state/centers",
+      "J/state/scales",
+      "J/state/layer_rms",
+      "J/state/trunk.0.weight",
+      "J/state/trunk.0.bias",
+      "J/state/trunk.2.weight",
+      "J/state/trunk.2.bias",
+      "J/normalizer/centers",
+      "J/normalizer/scales",
+      "J/normalizer/layer_rms",
+      "pair/r_l",
+      "pair/state/U",
+      "pair/state/b",
+      "pair/state/V",
+      "pair/state/c",
+      "pair/state/d"
+    ],
+    "retained_native_roots_byte_identical_between_runtime_v1r3_and_v1r4": {
+      "EXECUTION_STACK_MANIFEST.json": "c1fa80192527eac9c4aa3ae1b59a8f24d50d4293627beaa019ee87e1d7d9bbe3",
+      "NATIVE_AUDITOR_BUILD_RECEIPT.json": "dbfce962ba2357f6571bff7d1ecb2724218ec0bf2bdb8a0607d8ec35bd2ac3c2",
+      "NATIVE_IMAGE_ALLOWLIST_V1R3.bin": "b3dcd0dd6da27406764522539456589a8858b012cff230271452d61888651268",
+      "macho_closure_v1r3.py": "5f052a128d557b225c26cc44902cce7ee98dbd7edeafdb70bb3ca114daef0883",
+      "native_image_auditor_v1r3.c": "2581822bc51fac9b71b765c182f596d3b1685569f53d5d695530cc29101eb883",
+      "native_image_auditor_v1r3.dylib": "c1e9fa66a360df89a0ea482c90e1988355e88f5ebe46d40c16697062c21a3709"
+    },
+    "source_binding_key_count": 53,
+    "training_receipt_schema": "public-q24-signed-pair-v4r1-all688-refit-training-receipt-v1r3"
+  },
+  "reviewer_different_from_package_author": true,
+  "schema": "public-q24-signed-pair-v4r1-all688-deployment-inference-independent-static-review-v1r5",
+  "source_binding_inventory_review": {
+    "empirical_null_count": 15,
+    "empirical_null_keys": [
+      "bank_generation_receipt_sha256",
+      "bank_post_generation_seal_review_sha256",
+      "bank_post_generation_seal_sha256",
+      "native_weight_payload_aggregate_sha256",
+      "native_weight_payload_bytes_hashed",
+      "oof_independent_review_sha256",
+      "oof_models_sha256",
+      "oof_output_seal_sha256",
+      "oof_result_sha256",
+      "pair_on_mse_vector_float64_le_sha256",
+      "pooled_H_receipt_sha256",
+      "role_rank_int32_le_sha256",
+      "selected_A15_zero_sha256",
+      "selected_bank_sha256",
+      "selection_receipt_sha256"
+    ],
+    "exact_key_count": 53,
+    "future_document_key_set_matches_live_validator_exactly": true,
+    "key_set_equal_to_reviewed_inference_v1r4": true,
+    "nonnull_static_value_count": 38,
+    "only_authenticated_lineage_value_changes_from_v1r4": {
+      "h_selection_helper_sha256": "612a4a4840f6da4c426b2114fed21530a72d8d5518de3202de7eb34bef2ffaf6",
+      "isolated_refit_launcher_sha256": "96538024cc42ee9ad2176e093fd8e4b7d6c3da2bef56901fb64fd6cf2869a5fa",
+      "postrun_independent_static_review_sha256": "c1c2c479898ddaf13c5626fc35595737dcec50fa8c1f331f3eca003aa34bb90c",
+      "postrun_package_manifest_sha256": "e8b10df6c712b7f2b80106da766d52f633d0bc6652b4325941669da4261ee057",
+      "refit_preregistration_sha256": "ad7353bfc88accde85e31a978f79dea0d6976d8127fa328eac287e5d653e57bd",
+      "refit_runner_sha256": "99866353e1798f103cdaffe6d3dc45b1c4a45849253caf158dc8bdc90512f0fe",
+      "reviewed_bank_handoff_sha256": "470e25cfc27bc7828a2ea202914b0acab8b8451406c615804da1d714a5e738ca",
+      "runtime_contract_sha256": "933299984f59c8a8fb5935c9b040778e49765f09d83730492f167ecda9cc2b88",
+      "runtime_independent_static_review_sha256": "69b28b93d04fd8b8e5753b0708aaac2a5005c5360a54aebfcdef2f41c808dc33"
+    },
+    "static_values_match_FUTURE_MODEL_SOURCE_BINDINGS_exactly": true
+  },
+  "status": "HOLD_FROZEN_STATIC_DEPLOYMENT_INFERENCE_V1R5__CONSTRUCTION_ACCESS_ACCOUNTING_REPLAY_COUNTS_NOT_TRUTHFUL"
+}

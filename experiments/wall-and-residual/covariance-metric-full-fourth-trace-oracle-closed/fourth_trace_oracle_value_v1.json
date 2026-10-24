@@ -1,0 +1,63 @@
+{
+  "passed": false,
+  "positive_signal_qualified": true,
+  "records": [
+    {
+      "stream": "A",
+      "core_reconstruction_relative": 4.485706565124829e-15,
+      "exact_response_direct_map_max": 4.464803422944771e-15,
+      "core_norm": 0.7110823226624378,
+      "fourth_trace_residual_norm": 12.703872333835262
+    },
+    {
+      "stream": "B",
+      "core_reconstruction_relative": 4.460635100906051e-15,
+      "exact_response_direct_map_max": 3.5800481375625616e-15,
+      "core_norm": 0.7137788463636652,
+      "fourth_trace_residual_norm": 12.780009156291632
+    }
+  ],
+  "consumers": {
+    "covariance": {
+      "passed": false,
+      "entries": 1048576,
+      "baseline_replica_cross_energy": 0.0006747136032221663,
+      "residual_replica_cross_energy": 0.0004139594150304113,
+      "signal_residual_ratio": 0.6135335245258199,
+      "target_replica_noise_energy": 1.5789192076397004e-05,
+      "prediction_replica_noise_energy": 1.4369387023537006e-06,
+      "target_signal_to_noise": 42.73262368064952,
+      "ordinary_cross_predictionA_targetB": 0.6257960527841756,
+      "ordinary_cross_predictionB_targetA": 0.6231072761102417,
+      "qualification": "Independent-replica point estimates, no confidence interval. Target is the fourth-only exact pair response, not total covariance/mean error."
+    },
+    "next_mean": {
+      "passed": false,
+      "entries": 1024,
+      "baseline_replica_cross_energy": 2.2087569528901998e-07,
+      "residual_replica_cross_energy": 1.3500357933955205e-07,
+      "signal_residual_ratio": 0.6112197141604799,
+      "target_replica_noise_energy": 5.60996740476069e-09,
+      "prediction_replica_noise_energy": 5.187448501297698e-10,
+      "target_signal_to_noise": 39.37201045082402,
+      "ordinary_cross_predictionA_targetB": 0.6287411501669478,
+      "ordinary_cross_predictionB_targetA": 0.6175581810408733,
+      "qualification": "Independent-replica point estimates, no confidence interval. Target is the fourth-only exact pair response, not total covariance/mean error."
+    }
+  },
+  "rank": 35,
+  "source_post_layer": 12,
+  "consumer_layer": 13,
+  "next_mean_layer": 14,
+  "samples_per_stream": 8000000,
+  "frozen_input_sha256": "2666281e0bc5c95a5efa74d851179187b1cb2b3350ef1566965000dd4256a3e8",
+  "truth_source_sha256": {
+    "A": "94bcc9e6de0b699469debf81ac3512f6863c87ad1ba4a41a8d757b5916713501",
+    "B": "782e324f88235dea1a3710e570d9e29aa966a5b88e8399c66bc043941e1c996f"
+  },
+  "wall_s": 1.263279914855957,
+  "peak_rss_bytes": 926875648,
+  "utc_finished": "2026-09-06T10:40:50.850788+00:00",
+  "source_sha256": "72c78e7960d5db1f8a4986845c39c3a04c23ce572aadebf948669568d7808f6d",
+  "qualification": "One fixed full-rank covariance-metric oracle trace core. Actual bank prefix/inputs frozen; K3 fixed. New fourth-only response statistics from two independent reused8M streams. No trained estimator, complete-carrier accuracy, adjusted score, panel, or submission."
+}

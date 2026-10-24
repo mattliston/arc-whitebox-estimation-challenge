@@ -1,0 +1,29 @@
+{
+  "models": 0,
+  "parent_sha256": "c149e5800751892eb4d203341154ab2444e824a067ffaf791293a49e035ca0a3",
+  "routes": [
+    {
+      "current_function_line": 10557,
+      "current_function_sha256": "89d58eeb549691683331071302c4ad249e5dc24cb1e6d54e8e0c534846cd728a",
+      "name": "Learned edge rational tanh replacement",
+      "reason": "Already active EcutS uses a 10-operation sinh-rational stand-in on response\u00d7alive rows. Replacing historical16-FLOP tanh with a13-operation Pad\u00e95/clamp is not a current gain.",
+      "source_only": true,
+      "standin_assignments": [
+        true
+      ]
+    },
+    {
+      "name": "Symmetric covariance sandwich second product",
+      "no_new_bound": true,
+      "reason": "Current source already has upper-block symmetry and subsequent paired P4/scratch routes. A naive half-triangle credit duplicates existing work.",
+      "source_lines": [
+        4982,
+        9207,
+        13364,
+        14564
+      ]
+    }
+  ],
+  "status": "SOURCE_FOLLOWUP_CLOSED_NO_IMPLEMENTATION_OR_EVAL",
+  "truth_or_scientific_results_read": false
+}

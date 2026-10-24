@@ -1,0 +1,164 @@
+{
+  "schema": "arc-whestbench-phase2-weight-generation-law-local-source-audit-v1",
+  "status": "PASS_OFFICIAL_LOCAL_SOURCE_LAW_IDENTIFIED__IID_GAUSSIAN_HE_FLOAT32__NO_RESIDUAL_IDENTITY_OR_ORTHOGONALIZATION",
+  "recorded_at_utc": "2026-08-24T10:11:59Z",
+  "question": "Conditional on the supplied Phase-2 geometry width=1024 and depth=16, what weight and architecture law does the locally installed official WhestBench evaluator use?",
+  "answer": {
+    "family": "DENSE_IID_GAUSSIAN_HE_INITIALIZATION_FOR_RELU",
+    "width": 1024,
+    "depth": 16,
+    "matrices": 16,
+    "matrix_shape": [1024, 1024],
+    "entry_law_before_storage_cast": "W_l[i,j] = Z_lij * sqrt(2/1024), with standard_normal Z draws from the per-MLP weight RNG",
+    "entry_mean": 0.0,
+    "entry_variance_before_storage_cast": 0.001953125,
+    "entry_standard_deviation_before_storage_cast": 0.04419417382415922,
+    "storage_dtype": "float32",
+    "biases": false,
+    "residual_or_skip_connection": false,
+    "identity_addition": false,
+    "orthogonal_or_qr_construction": false,
+    "forward_law": "x_(l+1) = ReLU(x_l @ W_l)",
+    "matrix_draw_relationship": "The depth matrices are sequential standard_normal draws from one per-MLP weight RNG; no normalization, QR, identity blend, or post-draw spectral scaling occurs."
+  },
+  "official_package": {
+    "name": "whestbench",
+    "version": "0.16.0",
+    "metadata": {
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench-0.16.0.dist-info/METADATA",
+      "sha256": "4bdf9b10aa7ab09689dcd72a845d1e11c3e254f6189ef686d24d35a701243fa9",
+      "relevant_fields": ["Name: whestbench", "Version: 0.16.0"]
+    },
+    "wheel_record": {
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench-0.16.0.dist-info/RECORD",
+      "sha256": "73669c5ecf1bae1faf2bc1e7b581dd74dd8ef850d31d867ec05f107de978b54e",
+      "interpretation": "The RECORD entries bind the exact installed official source file payloads listed below."
+    }
+  },
+  "source_evidence": [
+    {
+      "role": "PRIMARY_WEIGHT_LAW",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/generation.py",
+      "sha256": "68bf70d7ac1d876a67044ae9b853fb718f14bce660f6e75b8dab55164d65188b",
+      "wheel_record_sha256_urlsafe_b64": "aL9w16wdh2pnBErpuFP7cY8UvOZg9udbjatVFk1lGIs",
+      "line_spans": ["1", "12-48"],
+      "claim": "The module identifies itself as evaluator sampling code; sample_mlp documents N(0,2/width), computes sqrt(2/width), draws a standard_normal width-by-width array for each layer, casts each to float32, and constructs MLP(width, depth, weights, seed)."
+    },
+    {
+      "role": "OFFICIAL_CPU_DATASET_BAKE_CALL_CHAIN",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/dataset.py",
+      "sha256": "53638e874a26dbec64a1b5d16e756c1e198272795fbc2698eebb77a5a970b55a",
+      "wheel_record_sha256_urlsafe_b64": "U2OOh0om2-xkobXRbnVsHhmCcnlfvCaY7rt3palwtVo",
+      "line_spans": ["199-206"],
+      "claim": "The CPU dataset bake derives a dedicated weight SeedSequence stream, constructs its RNG, and calls sample_mlp(width, depth, weight_stream, ...)."
+    },
+    {
+      "role": "OFFICIAL_TORCH_DATASET_BAKE_CALL_CHAIN",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/dataset_torch.py",
+      "sha256": "be39476ed759b8446ac28cefbb0617c8205a8cc941fb1022f0e85b1fc00f87bf",
+      "wheel_record_sha256_urlsafe_b64": "vjlHbtdZuERqwozvuwYXyCBajMlB-xAi8OhbH8APh78",
+      "line_spans": ["193-213"],
+      "claim": "The torch-backed dataset bake explicitly says it uses the same protocol as create_dataset, calls the same sample_mlp with the weight stream, and stacks the resulting weights as float32 before device transfer."
+    },
+    {
+      "role": "OFFICIAL_LIVE_EVALUATOR_CALL_CHAIN",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/scoring.py",
+      "sha256": "e6d05ca38e3a69daf6d25e3024e33a79e5bb9571e03b9dc53580d727c64384e3",
+      "wheel_record_sha256_urlsafe_b64": "5tBco446adr20l4wJOM6eeW7lXHgO53FNYDXJ8ZDhOM",
+      "line_spans": ["114-150"],
+      "claim": "The live make_contest evaluator creates a per-MLP RNG from the weight substream and calls sample_mlp(spec.width, spec.depth, mlp_rng, ...)."
+    },
+    {
+      "role": "ARCHITECTURE_CONTAINER",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/domain.py",
+      "sha256": "db736fec3f983258e363750384d943db1b662a027c998dc494f7646586e3ade5",
+      "wheel_record_sha256_urlsafe_b64": "23Nv7D-YMljjY3UDhNlD2xtmKgJ8mY3ElPdkZYbjreU",
+      "line_spans": ["1-8", "21-28", "57-61"],
+      "claim": "The canonical MLP container has width, depth, ordered weights, seed, and name fields; there is no bias, residual, skip, or identity field."
+    },
+    {
+      "role": "FORWARD_ARCHITECTURE",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/simulation.py",
+      "sha256": "6b3b13e910c7a7e90b2e95c9add4d229976dcfd0490fc9cc0f326601b1684fc2",
+      "wheel_record_sha256_urlsafe_b64": "azsT6RDHp-kLLpXJrdTSKZdtz9BJD8nMDzJmAbFoT8I",
+      "line_spans": ["17-19", "22-35", "38-53"],
+      "claim": "Both final-only and all-layer official forward paths replace x by ReLU(x @ w) at each layer, with no bias, residual addition, or identity carrier."
+    }
+  ],
+  "distribution_path_reconciliation": {
+    "live_make_contest": "Calls the one authoritative sample_mlp law.",
+    "cpu_dataset_bake": "Calls the one authoritative sample_mlp law.",
+    "torch_dataset_bake": "Calls the one authoritative sample_mlp law on CPU before stacking/transferring weights.",
+    "precomputed_dataset_read": "Loads already stored float32 weights and does not regenerate them. Establishing the byte-level provenance of hidden board rows would require external/private dataset authority that this audit did not access.",
+    "bounded_conclusion": "All locally installed official generation pathways use iid Gaussian He weights. No local official generator supports an orthogonal, residual-identity, or scale-0.12 alternative."
+  },
+  "rejected_hypotheses": [
+    {
+      "hypothesis": "RESIDUAL_IDENTITY_OR_SKIP_MLP",
+      "verdict": "FALSE_UNDER_OFFICIAL_SOURCE",
+      "basis": "The MLP data model contains no bias/skip/identity state and the forward loop is exactly x = ReLU(x @ w)."
+    },
+    {
+      "hypothesis": "ORTHOGONAL_OR_QR_WEIGHT_MATRICES",
+      "verdict": "FALSE_UNDER_OFFICIAL_SOURCE",
+      "basis": "sample_mlp performs only standard_normal, scalar multiplication by sqrt(2/width), float32 cast, and array construction; no QR or orthogonalization exists."
+    },
+    {
+      "hypothesis": "FIXED_SCALE_0P12_IID_NORMAL",
+      "verdict": "FALSE_AT_WIDTH_1024",
+      "basis": "Official standard deviation is sqrt(2/1024)=0.04419417382415922, not 0.12."
+    },
+    {
+      "hypothesis": "DENSE_RANDOM_HE_GAUSSIAN",
+      "verdict": "TRUE_UNDER_ALL_LOCAL_OFFICIAL_GENERATION_PATHS",
+      "basis": "sample_mlp and each evaluator/bake caller above."
+    }
+  ],
+  "fixture_implications_for_q24": {
+    "official_he_width1024": {
+      "entry_variance": 0.001953125,
+      "entry_std": 0.04419417382415922,
+      "expected_squared_row_norm_before_float32_rounding": 2.0,
+      "expected_squared_frobenius_norm_before_float32_rounding": 2048.0
+    },
+    "iid_normal_scale_0p12_comparison": {
+      "entry_variance": 0.0144,
+      "variance_ratio_to_official_he": 7.3728,
+      "std_ratio_to_official_he": 2.7152900397563426,
+      "interpretation": "A scale-0.12 iid fixture is not drawn from the official width-1024 law and is much higher-energy entrywise."
+    },
+    "scaled_orthogonal_0p35_comparison": {
+      "squared_row_norm": 0.12249999999999998,
+      "squared_frobenius_norm_width1024": 125.43999999999998,
+      "frobenius_squared_ratio_to_official_he_expectation": 0.06124999999999999,
+      "interpretation": "A 0.35-scaled orthogonal/QR matrix is structurally and energetically unlike an official iid He matrix."
+    },
+    "qualification_consequence": "QR/orthogonal and scale-0.12 fixtures can remain algebra/parity stress tests, but neither is representative evidence for Q24/Q32 action on Phase-2 weights. The distribution-matched target-free comparator should materialize one deterministic width-1024/depth-16 stack through the exact pinned sample_mlp law, verify identical weight bytes are supplied to V4 and Q24, and store only prediction-difference/resource receipts."
+  },
+  "catalog_manifest_observation": {
+    "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.hf-cache/datasets--aicrowd--arc-whestbench-public-2026/trees/ce926b7d1ced65faa668c01b94a43f8c4f43783d.json",
+    "sha256": "d3eb2c194d84fab14143412eda7f98ffe6176b1ac7f73d87e09e489ecbf7e979",
+    "scope": "Repository-tree manifest only. It lists the public dataset README and 67 full Parquet shards with content identifiers; no shard or dataset row was opened. The manifest does not itself specify the weight law and is not used to strengthen the generator claim."
+  },
+  "caveats": [
+    "The width=1024/depth=16 geometry is the supplied Phase-2 premise; this audit identifies the official generator conditional on that geometry.",
+    "The exact hidden board row bytes and their private bake receipt were not opened. Therefore this receipt proves the installed official evaluator/bake law and rules out alternate laws in that source, but does not claim a byte-level audit of the hidden corpus.",
+    "The standard-normal sequence is deterministic conditional on its SeedSequence stream; iid Gaussian describes the generator's sampling law, not a claim of mathematical independence for a fixed pseudorandom realization.",
+    "Float32 storage rounds the continuous Gaussian-scaled values, so N(0,2/1024) is the pre-cast sampling law."
+  ],
+  "access_accounting": {
+    "official_local_source_files_read": 8,
+    "local_repository_tree_manifests_read": 1,
+    "dataset_shards_opened": 0,
+    "dataset_rows_opened": 0,
+    "weight_values_opened": 0,
+    "target_values_opened": 0,
+    "score_values_opened": 0,
+    "network_accesses": 0,
+    "credential_accesses": 0,
+    "packages_created_or_mutated": 0,
+    "estimator_source_edits": 0,
+    "submission_actions": 0,
+    "graph_edits": 0
+  }
+}

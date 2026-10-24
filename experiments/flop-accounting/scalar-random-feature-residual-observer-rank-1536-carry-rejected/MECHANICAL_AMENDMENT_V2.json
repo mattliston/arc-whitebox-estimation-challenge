@@ -1,0 +1,22 @@
+{
+  "schema": "public-cp1536-scalar-transport-rff-cv-mechanical-amendment-v2",
+  "status": "frozen-before-any-cv-metric",
+  "reason": "On macOS, resource.getrusage(...).ru_maxrss is already bytes. The V1 cross-platform heuristic multiplied the observed 331,115,134-byte peak by 1024 because it was below 1 GiB, producing a false 331,115,134,976-byte RSS failure.",
+  "v1_outcome": {
+    "prepared_role_ranks_before_guard": 50,
+    "cv_models_fit": 0,
+    "cv_metrics_computed": 0,
+    "cv_metrics_viewed": 0,
+    "observer_selection_targets_opened": 0,
+    "q24_trajectories_opened": 0,
+    "partial_cache_action": "preserved unchanged under cache/ without a completion manifest"
+  },
+  "change": "A wrapper replaces only resident_bytes(): darwin returns ru_maxrss unchanged; non-darwin multiplies by 1024. It redirects all new cache/output creation to cache_v2/ and CV_RESULTS_V2.json. The frozen V1 runner, preregistration, architecture, split, random map, fit law, evaluation law, thresholds, and cost projection remain byte-identical.",
+  "v1_bindings": {
+    "preregistration_sha256": "03278bbb334055c92fe57f2ff649829b17a180232728eb6b729995344ca8881a",
+    "program_sha256": "955b24cfebaf59fae21b4b87fb9e17883b9f1b4ec9719a2a1d49922960111f57",
+    "seal_sha256": "1c92039cddb5029e807c666e13ba6fbbb63b60678759b0596180e49ebe50c777",
+    "manifest_sha256": "3edc828d4bae5984c003aef9325fb6d4472fc42c75fc249fcacf3267af40ae1e"
+  },
+  "scope_boundary": "This is a mechanical resource-unit repair after zero decisive metrics, not an experimental retry, architecture change, hyperparameter change, or extra data opportunity."
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "public-full688-rank16-cross-unit-covariance-smoke-v1",
+  "node": "P2R0F2N",
+  "status": "PASS_SYNTHETIC_AND_ONE_INPUT_NO_TRUTH_METRICS",
+  "completed_at_utc": "2026-08-25T00:32:36Z",
+  "launch_status": "held_after_sealed_smoke",
+  "seal_sha256": "6b9856bb9e08473148b7d75952d70258e991c90b87284516d3fcd90a0ee9a1bb",
+  "preregistration_sha256": "b7d84a4630c0d7819e025e6dabe74e0f09f8e4c0c6271c7e67d34be3d4afee93",
+  "run_manifest_sha256": "e81b7cb646a7a78998315961f5414d987a7a0d307c20a2b924f0960cfe1bca0f",
+  "program_sha256": "6b7c28711ac4b95a5a9c34c5e930b5fb104ecdb75a7a97357cbb49f49cac7502",
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0,
+  "readiness": {
+    "role": "observer_fit",
+    "available": 688,
+    "expected": 688,
+    "missing": [],
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "repaired_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "unpatched_tail_ranks": [],
+    "tail_threshold": 5e-7,
+    "ready": true
+  },
+  "fold_sizes": [147, 172, 171, 198],
+  "inner_fold_sizes_by_outer_fold": [
+    [177, 183, 181],
+    [166, 155, 195],
+    [168, 171, 178],
+    [151, 183, 156]
+  ],
+  "architecture": {
+    "parameters": 86188,
+    "delta_shape": [1, 16, 1024],
+    "factor_shape": [1, 14, 1024, 16],
+    "finite": true,
+    "finite_full_backward_gradient": true,
+    "diagonal_positive": true,
+    "lambda_positive": true,
+    "whitened_last_gram_max_abs_from_identity": 0.00131148099899292
+  },
+  "cost": {
+    "added_covariance_observer_upper": 1226926080,
+    "j_plus_covariance_observer_correction_upper": 2278582272,
+    "native_q24_host_tape_baseline": 2131692137721,
+    "native_total_upper": 2133970719993,
+    "headroom_below_exact_2pow41": 65052535559,
+    "within_exact_2pow41": true,
+    "within_phase2_budget": true
+  }
+}

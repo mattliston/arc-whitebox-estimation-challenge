@@ -1,0 +1,103 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-v3-final-byte-freeze-manifest-v1",
+  "status": "FINAL_BYTE_FREEZE__TARGET_FREE_LITERAL_METER_ONLY",
+  "parent": {
+    "path": "../fullbudget_k21_k4_closure_v2/estimator.py",
+    "bytes": 31410,
+    "sha256": "de8023d8d34be4f588d5af8c87f99a5e7babf9f42a9d351602c838b19783673e",
+    "unchanged": true
+  },
+  "files": [
+    {
+      "path": "estimator.py",
+      "bytes": 49805,
+      "sha256": "f6db80014b5c4d8479a262bd1e4d13192258b12f1a0ad1ce14a60074e5a613c3"
+    },
+    {
+      "path": "verify_static.py",
+      "bytes": 6080,
+      "sha256": "cdfa19394f4c67f154dcabcfe8b851445659e24f013ed27d0ba22e3187824a6a"
+    },
+    {
+      "path": "verify_parity.py",
+      "bytes": 6226,
+      "sha256": "a2a35ceee19ac65e95078abb9072d4c98cdd796535c88ad10aad7f490e503a16"
+    },
+    {
+      "path": "INDEPENDENT_SOURCE_AUDIT_V3.json",
+      "bytes": 8547,
+      "sha256": "31787f2a1eb6300cf52ebb90c784647acf045f4dda548612e2cfec6b1def1e40"
+    }
+  ],
+  "pinned_environment": {
+    "python": "../data_gate/.venv/bin/python",
+    "whest": "../data_gate/.venv/bin/whest",
+    "flopscope_version": "0.12.0+np2.4.6",
+    "whestbench_version": "0.16.0",
+    "numpy_backend_version": "2.4.6",
+    "requirements_lock": {
+      "path": "../data_gate/requirements.lock.txt",
+      "bytes": 1012,
+      "sha256": "dbd429c8eeb64c5809f7a045fc782173e476c943fbd6ce7d2616c94433481f98"
+    }
+  },
+  "source_changes": {
+    "science_boundary": "V2 closure science and the explicit batched Q32 contraction path are preserved; V3 changes only metered construction, packing, broadcast, and admission execution.",
+    "q32_terms": 33,
+    "derivative_channels": 17,
+    "pair_moment_families": 4,
+    "explicit_einsum_path": [[0, 3], [0, 1, 2]],
+    "root_context_builds": 1,
+    "q38_calls": 16,
+    "q32_contexts": 15,
+    "full_four_pair_resets": 14,
+    "v2_measured_operation_calls": 16480,
+    "v3_projected_operation_calls": 9271,
+    "projected_operation_call_reduction": 7209,
+    "production_guard": {
+      "width": 1024,
+      "depth": 16,
+      "minimum_budget": 2199023255552,
+      "smoke_return": "one metered fnp.zeros before production initialization"
+    }
+  },
+  "projected_budget": {
+    "budget": 2199023255552,
+    "v2_measured_flops": 2179715874872,
+    "projected_v3_flops": 2179652189740,
+    "projected_flop_delta_from_v2": -63685132,
+    "projected_headroom": 19371065812,
+    "literal_meter_required": true
+  },
+  "authority": {
+    "granted": [
+      "TARGET_FREE_LITERAL_FULL_SHAPE_METER"
+    ],
+    "withheld": [
+      "OFFICIAL_METER_PASS_CLAIM",
+      "FULL_SHAPE_NUMERIC_PARITY_CLAIM",
+      "ACCURACY_OR_MSE_CLAIM",
+      "TARGET_OR_ROLE_ACCESS",
+      "FIT_OR_SAMPLING",
+      "SUBMISSION",
+      "PROBLEM_GRAPH_MUTATION"
+    ]
+  },
+  "holds": [
+    "V3_TARGET_FREE_LITERAL_FULL_SHAPE_FLOP_WALL_RESIDUAL_RSS_FINITE_METER",
+    "ACTUAL_CLOSURE_MOMENT_FEASIBILITY_REPLAY",
+    "TARGET_OR_ROLE_ACCESS",
+    "FIT_SAMPLING_SCORE_SUBMISSION"
+  ],
+  "negative_controls": {
+    "no_full_meter_executed_by_freeze_step": true,
+    "no_dataset_or_target_access": true,
+    "no_fit_or_sampling": true,
+    "no_accuracy_claim": true,
+    "no_submission_authority": true,
+    "v1_not_modified": true,
+    "v2_not_modified": true,
+    "v3_estimator_unchanged_during_freeze": true,
+    "freeze_receipt_not_in_manifest": true
+  }
+}

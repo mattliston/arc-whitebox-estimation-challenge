@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N0_1B_PLANE_FEED",
+    "label": "N0.1b plane-to-distinct feed (first order in the carried pre-plane; engine has it, card lacks it): LIVE - one-step read 16-30% of the residual, slope ~1, GEMM-class",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "The engine's kernel loop adds (1/2) K21pre[u,w] E_conn[phi''_u phi'_w phi_s] to the distinct post-tensor entries; the card has no such channel (planes -> planes via the pair series, star pushed once). Exact next-layer per-unit reads on the card's own pre-plane (30-pattern certificate 3.6e-7): rms 16-27% (r35) / 18-30% (r100) of dk3 at every layer, slope 0.9-1.15 (r35 L2-11), corr 0.19-0.39, one-step energy 4-12%. ONE pattern carries it all: (0,1,0) = (1/2) K21pre[u,w] (-alpha_u pdf_u/sd_u) Phi(alpha_w) (sd_s Phi(alpha_s)) rho_us -> 2 GEMMs per read (deployable class); two-sided 1024^4 patterns are nil. Accumulated through the gate-only chain it reaches 55-60% of dk3 at depth but overshoots (slope 0.4-0.8): the card's real propagation of this content runs through the next planes/diagonal too. T-70 engine ablation (r35, per-unit k3 vs 32M truth): card 7.3/11.1% at L8/L14, engine with feed 4.4/7.3%, without 4.9/8.0% -> the feed is ~20% of the card->engine k3 gap in error points (its content is as large as the engine's whole residual, corr +0.5 with it). MC certificate of the kernel: ratio 0.86-1.02 (coefficient 1/2 right). IN-CARD VALUE (T-69b/c, deployed operator untouched, independent 4M): k3 read alone r35 -10.2% / r100 -1.7% (3 GEMMs/layer, +4% util); full one-step plane read r35 -12.4% / r100 -2.7% at the physical scale (9 GEMMs/layer, +12% util); engine's exact accumulated feed content injected: r35 -9.1%. The first derived correction that improves the full card with the operator in place, but not yet a fire: adjusted score flat or worse at these bills; r100-class nets gain little.",
+    "terminal_criterion": "Closed when the feed's in-card implementation (k3 read + plane read + carried content) is priced and graded F2J-off on two nets under independent truth, or when the engine ablation shows it is not the card->engine gap.",
+    "evidence": [
+      {
+        "claim": "T-69 one-step and accumulated tables; T-70 engine ablation.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-69/T-70 + experiments/p2_width1024_depth16/public_g29_bond_kernel_v1/PLANE_FEED_rank00{35,100}.json + experiments/p2_width1024_depth16/public_g29_bond_kernel_v1/PLANE_FEED_ACC_rank0035_onesided.json + experiments/p2_width1024_depth16/public_g29_bond_kernel_v1/ENGINE_FEED_ABLATION_rank0035.json"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "Found a specific term the estimator omits: when a layer's third-order 'plane' content passes through the ReLU, it also spills into three-different-unit content through the correlations; the estimator drops that spill. Its immediate effect matches the direction of the skew error with the right size, and it is cheap to compute; the question now is its total value through the whole depth and how to carry it."
+  }
+}

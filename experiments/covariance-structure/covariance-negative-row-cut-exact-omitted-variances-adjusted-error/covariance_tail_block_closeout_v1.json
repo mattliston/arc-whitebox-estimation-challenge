@@ -1,0 +1,164 @@
+{
+  "asof_utc": "2026-09-27T01:59:35.954670+00:00",
+  "status": "Closed: failed fixed TRAIN2 native gate",
+  "source": {
+    "candidate": "candidate_covariance_tail_block_v1.py",
+    "candidate_sha256": "ad1cdbe2840fab73d007a6b712a6cc0d43c4967e0489bf32ae1408a950a2e5a2",
+    "parent_sha256": "5d43930820d144db00aac86ace9281fe0232240e321f53701cfdd8fe1ec98f26",
+    "protocol_sha256": "6e0bae113538ab6bed61d191410dde0246cd27460b773fa1277c6b2ba5b8f1db",
+    "certificate_sha256": "4dfb23182369f51397748223d48686a8ab095acae409f75fc4127f020c5125cf",
+    "original_prefix_bytes_preserved": true
+  },
+  "result": {
+    "n": 2,
+    "ranks": [
+      35,
+      100
+    ],
+    "raw_pct": 3.1181170721281015,
+    "raw_ci95_pct": [
+      0.44647888570807925,
+      5.978622821211643
+    ],
+    "adjusted_pct": 2.748267367909629,
+    "adjusted_ci95_pct": [
+      0.0813370060659846,
+      5.595768992008621
+    ],
+    "raw_wins": 0,
+    "adjusted_wins": 0,
+    "base_mean_adjusted": 1.891284414466259e-09,
+    "candidate_mean_adjusted": 1.9432619668633957e-09,
+    "mean_util_pct": -0.36238569864509573,
+    "mean_cpu_pct": -0.670828240506649,
+    "base_sources": [
+      {
+        "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/candidate_old_both_tail_trace_bounded_v6.py",
+        "sha256": "5d43930820d144db00aac86ace9281fe0232240e321f53701cfdd8fe1ec98f26",
+        "ranks": [
+          35,
+          100
+        ],
+        "runtime": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python",
+        "numpy": "2.4.6",
+        "setup": {
+          "setup_s": 0.25385833345353603,
+          "pb_log": [
+            [
+              "ksplit",
+              24,
+              0.001
+            ],
+            [
+              "lvfuse",
+              600,
+              0.253
+            ],
+            [
+              "bound",
+              624,
+              0.253
+            ]
+          ]
+        },
+        "thread_env": {
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1"
+        }
+      }
+    ],
+    "candidate_sources": [
+      {
+        "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/candidate_covariance_tail_block_v1.py",
+        "sha256": "ad1cdbe2840fab73d007a6b712a6cc0d43c4967e0489bf32ae1408a950a2e5a2",
+        "ranks": [
+          35,
+          100
+        ],
+        "runtime": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/../astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python",
+        "numpy": "2.4.6",
+        "setup": {
+          "setup_s": 0.2665684577077627,
+          "pb_log": [
+            [
+              "ksplit",
+              24,
+              0.001
+            ],
+            [
+              "lvfuse",
+              600,
+              0.266
+            ],
+            [
+              "bound",
+              624,
+              0.266
+            ]
+          ]
+        },
+        "thread_env": {
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1"
+        }
+      }
+    ],
+    "per_network": [
+      {
+        "rank": 35,
+        "raw_pct": 5.978622821211643,
+        "adjusted_pct": 5.595768992008621,
+        "util_pct": -0.3612557127194438
+      },
+      {
+        "rank": 100,
+        "raw_pct": 0.44647888570807925,
+        "adjusted_pct": 0.0813370060659846,
+        "util_pct": -0.36351884475469554
+      }
+    ]
+  },
+  "prefix_checks": [
+    {
+      "rank": 35,
+      "first_cut_layer": 6,
+      "preceding_layer_bytes_exact": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "preceding_max_abs": 0.0
+    },
+    {
+      "rank": 100,
+      "first_cut_layer": 6,
+      "preceding_layer_bytes_exact": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "preceding_max_abs": 0.0
+    }
+  ],
+  "construction": "Keep the selected active covariance principal block; separately push every omitted marginal variance as a complete weighted Gram. Zero omitted cross/off-diagonal covariance only at its linear consumer; all other state owners remain as S31.",
+  "calls": [
+    15,
+    30
+  ],
+  "cuts": [
+    10,
+    20
+  ],
+  "decision": "No threshold/layer sweep, refit, TRAIN6, VALID, bundle or upload. The weighted omitted-diagonal work is fully billed; cost saving is only0.36239%, and adjusted error rises2.74827%.",
+  "warnings": "Native SymmetryLossWarning messages describe lost structural metadata on ordinary operations; they are nonfatal and do not indicate a submission-approval restriction."
+}

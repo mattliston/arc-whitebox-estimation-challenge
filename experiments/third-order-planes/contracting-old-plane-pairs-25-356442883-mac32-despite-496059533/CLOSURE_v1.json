@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-21T03:40:36Z",
+  "decision": "CLOSED_BEFORE_CANDIDATE_OR_NATIVE32",
+  "source_sha256": "777a73b6d13ef0e1e51d70d4c0dc61f21b4c7287813e336c82c37ec7188ba510",
+  "reference_submission": 337422,
+  "fixed_fraction": 0.75,
+  "train_ranks": [
+    35,
+    150
+  ],
+  "truth_access": false,
+  "heldout_access": false,
+  "all_capture_guards_pass": true,
+  "all_prediction_bytes_match_exact_control": true,
+  "source_physical_result": {
+    "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/old_ucontract_v1/vm_receipts_v1/old_su_physical_diagnostic_v1/RESULT_v1.json",
+    "sha256": "7bb580fbcd7a0b215f45a3662e86c2c36c66658e882eb14c211085a030ba273a"
+  },
+  "price_receipt": {
+    "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/old_ucontract_v1/PRICE_CURRENT32_v1.json",
+    "sha256": "473610b0a6568acdbef15723bafe850cbf2450e8ca4ab661e871b9c9e47bb56e",
+    "mean_bill_delta_pct": -0.33220324939165014,
+    "mean_conservative_bill_delta_pct": -0.25388476398369936
+  },
+  "physical_read_relative_l2_pct": {
+    "u75_full_old": [
+      5.052803779824583,
+      5.960368144312565
+    ],
+    "v75_full_old": [
+      3.398139731162116,
+      3.831462830723767
+    ]
+  },
+  "v75_actual32_vs337422": {
+    "mac_adjusted_pct": 0.356442883,
+    "mac_raw_pct": 0.856693035,
+    "mac_bill_pct": -0.496059533,
+    "linux_adjusted_pct": 0.377123,
+    "linux_held25_adjusted_pct": 0.433415,
+    "linux_raw_pct": 0.877481,
+    "linux_bill_pct": -0.49606,
+    "linux_source": "Peer V strict full32 result reported 2026-10-21T03:34:44Z; exact report remains V-owned"
+  },
+  "rationale": "Fixed common-u75 creates a larger perturbation of the same complete physical old read than failed v75 while saving less bill. No candidate or native32 warranted; no fraction tuning on held32. This is a conservative rejection, not a theorem mapping physical error to final MSE.",
+  "rank8_v_error_diagnostic": "Oracle-only upper bound, not a deployable proposal or gain."
+}

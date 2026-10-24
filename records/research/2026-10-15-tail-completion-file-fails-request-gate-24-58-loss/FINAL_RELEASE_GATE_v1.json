@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "scope": "release only; stage D NOT RUN",
+  "candidate_sha256": "e406e64b67df590b61f887d2abfb481c7937df4ee069f230b61bed69b324b81c",
+  "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_rtt2rpc2_20261015_astra_v1/submission.tar.gz",
+  "archive_sha256": "d35b66a711851faa5737fc45cc4d68eceffd43dafd661cd7e82f745ac2801de0",
+  "errors": [],
+  "numeric_judge": {
+    "recomputed": true,
+    "command": [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/designation_judge.py",
+      "rtt2rpc2_20261015_astra_v1_safe",
+      "--pair",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_rtt2rpc2_20261015_astra_v1_safe",
+      "--slow",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/rtt2rpc2_20261015_astra_v1_safe_slow",
+      "--worker",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/_missing_worker_for_gate_v2",
+      "--primary"
+    ],
+    "stdout": "  ok   P(loss) per 100 networks (primary / twin)    19.31% (first 48,332: cap/median 1.126; warm 46,248: 1.177; 7.35 us a request) limit <= 20%\n  ok   binding phase at the platform pace           17670 requests, 588 of 649 keys bound                      limit <= 18,600, >= 90% bound\n  ok   projected platform setup wall (cap 5 s, whole run) 4.439 s (last phase 4.249 s + 0.19 s)                      limit <= 4.5 s\n  ok   projected worst-network wall                 91.8 s (mean 85.1 s; mean residual 0.336 s from requests)  limit <= 100 s\n  ok   requests under a setup 1.3x slower           47,494 (+0.43%)                                            limit <= +2%\n  ok   projected setup wall under a 1.3x slow setup 4.582 s                                                    limit <= 4.6 s\n[designation rtt2rpc2_20261015_astra_v1_safe] INCOMPLETE: no result for: worker\n",
+    "evidence_sha256": {
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_rtt2rpc2_20261015_astra_v1/stage_a.json": "90e3c890db3d22af843c631b6c9ee5860369b1d67e4e8b5e3e6476b0274c9aa5",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_rtt2rpc2_20261015_astra_v1_safe/stage_c.json": "835dd9eae4bb95959db7720483c003c2e0744be279296bfac7f53a967f86c393",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/rtt2rpc2_20261015_astra_v1_safe_slow/stage_c.json": "c611e90d66dde63139bf27a770b73b0c28b94742fa60db7be326a61ebec561fa",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/designation_judge.py": "c2c0fc318545f7ea74dce26c64c27236c34bf3375b56220d9d26f3b50f44c11e"
+    }
+  },
+  "warnings": [],
+  "gate_version": 4,
+  "judge_mode": [
+    "--primary"
+  ]
+}

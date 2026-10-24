@@ -1,0 +1,41 @@
+
+
+# BEGIN OPUS-LEAD PER-LAYER FLOP DIAGNOSTIC v1 (2026-10-16; DIAGNOSTIC ONLY): records the budget's flops_used at every
+# _w5_port_begin (layer start) and at predict end; one JSON line per predict to $OPUS_LF_OUT. Arithmetic unchanged.
+import json as _lf_json
+import os as _lf_os
+_LF_LOG = []
+_LF_PARENT_BEGIN = _w5_port_begin
+
+
+def _lf_flops():
+    try:
+        from flopscope import _budget as _b
+        ctx = _b.get_active_budget() if hasattr(_b, 'get_active_budget') else getattr(_b, '_active_context', None)
+        return int(ctx.flops_used)
+    except Exception:
+        return None
+
+
+def _w5_port_begin(scope, network, layer, weight, previous):
+    _LF_LOG.append((int(layer), _lf_flops()))
+    return _LF_PARENT_BEGIN(scope, network, layer, weight, previous)
+
+
+_LF_PREDICT = Estimator.predict
+
+
+def _lf_predict(self, *args, **kwargs):
+    del _LF_LOG[:]
+    try:
+        return _LF_PREDICT(self, *args, **kwargs)
+    finally:
+        _LF_LOG.append(('end', _lf_flops()))
+        path = _lf_os.environ.get('OPUS_LF_OUT')
+        if path:
+            with open(path, 'a') as f:
+                f.write(_lf_json.dumps(_LF_LOG) + '\n')
+
+
+Estimator.predict = _lf_predict
+# END OPUS-LEAD PER-LAYER FLOP DIAGNOSTIC v1

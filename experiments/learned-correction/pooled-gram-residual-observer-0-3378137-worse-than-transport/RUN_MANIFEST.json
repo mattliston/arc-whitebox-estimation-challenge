@@ -1,0 +1,97 @@
+{
+  "schema": "public-full688-full-gram-pooled-context-cv-run-manifest-v1",
+  "node": "P2R0F2K",
+  "status": "authorized-public-development-cv-held",
+  "scope": "One fixed four-fold network CV on observer_fit ranks 0:687, held after sealed smoke pending D4 terminal or root heavy-lane release",
+  "approved_actions_now": ["sealed_smoke"],
+  "approved_actions_after_heavy_lane_release": [
+    "train_fixed_fold_0",
+    "train_fixed_fold_1",
+    "train_fixed_fold_2",
+    "train_fixed_fold_3",
+    "aggregate_out_of_fold_metrics"
+  ],
+  "forbidden_actions": [
+    "launch_fold_before_d4_terminal_or_root_release",
+    "read_observer_selection_targets",
+    "read_public_board_identity_join",
+    "retune_from_cv_metrics",
+    "fit_a_second_architecture",
+    "select_a_checkpoint_after_metrics"
+  ],
+  "data": {
+    "role": "observer_fit",
+    "role_ranks": [0, 688],
+    "networks": 688,
+    "fold_sizes": [147, 172, 171, 198],
+    "group_key": "mlp_id",
+    "tail_threshold": 5e-7,
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "base_rows_complete": 688,
+    "repaired_tail_rows_complete": 11
+  },
+  "architecture": {
+    "signed_channels": 4,
+    "offdiagonal_pair_features": 6,
+    "local_input_features": 42,
+    "local_hidden": 96,
+    "context_input_features": 84,
+    "context_hidden": 32,
+    "parameters": 34048,
+    "signed_transport": "Phi*(s@W)",
+    "full_gram_observable": "Phi^2*((s_c*s_d)@W^2)",
+    "dynamic_gain_range": [0.75, 1.25],
+    "mix_delta_scale": 0.12,
+    "deployment_truth_inputs": 0
+  },
+  "training": {
+    "seed": 1753358438,
+    "threads_per_fold": 2,
+    "parallel_folds_maximum": 4,
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 0.00002,
+    "gradient_clip_norm": 5.0,
+    "own_primary_state_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "auxiliary_state_penalty": 0.00002,
+    "identity_penalty": 0.0005,
+    "checkpoint": "fixed epoch 6"
+  },
+  "decision_gate": {
+    "finite_all_rollouts": true,
+    "oof_final_mse_strictly_below": 2.9672528546945005e-8,
+    "maximum_per_network_final_mse_strictly_below": 1e-7,
+    "mode": "all"
+  },
+  "resources": {
+    "parallel_folds_maximum": 4,
+    "threads_per_fold": 2,
+    "maximum_rss_bytes_per_fold": 8589934592,
+    "maximum_experiment_storage_bytes": 2147483648
+  },
+  "deployment_admission_estimate": {
+    "parameter_count": 34048,
+    "measured_host_flops": 2126977459133,
+    "mean_energy_and_full_gram_transport": 381495296,
+    "reused_w_squared_materialization_reserve": 13631488,
+    "correction_source_structure_upper_estimate": 1341549952,
+    "host_plus_correction_upper_estimate": 2128319009085,
+    "phase2_budget": 2200000000000,
+    "headroom_under_upper_estimate": 71680990915,
+    "literal_meter_required_after_accuracy_pass": true
+  },
+  "bindings": {
+    "preregistration_sha256": "45d2f5cca1c8dfa5c3d0bde4f5bd8e4841350bd73208a24d5d9bde687211d757",
+    "program_sha256": "f9700d8f589249112a1cbcf743f05d0cdaf0759e43cd314564a8f622af81c3d2",
+    "loader_sha256": "babd7733966f7b94b358a5b30906bcf19c8cbe47eb49a8e9cb7e49f8f7f1e3c1",
+    "shared_cache_manifest_sha256": "ab463ae4887afd51b3816cbe2275f2f49a9b6e860eeaf0d9d62d7743056d80ca",
+    "shared_error_sha256": "1414515cfbb098e731e4f00d3f4ba7a310f17ac96e886846cd08aaaa0a679ca1",
+    "shared_stats_sha256": "1648a140768cdc254a7bb6957dcb8e82f4271118bc64b552bb08de294ec62208",
+    "p2r0f2j_program_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "p2r0f2j_decomposition_sha256": "c709e2c04c61f427aa0b41c57b37dd0313138a81e8e6438610d430976d38ea0f"
+  },
+  "frozen_at_utc": "2026-08-24T22:37:33Z"
+}

@@ -1,0 +1,222 @@
+{
+  "schema": "v34-rank35-descriptive-sentinel-minimal-release-checklist-r1-v1",
+  "date": "2026-08-31",
+  "role": "h4_reverse_adjoint",
+  "status": "FROZEN_MINIMAL_DESCRIPTIVE_CHECKLIST__NO_DATA_RUN_RELEASE_OR_AUTHORITY",
+  "scope": {
+    "sentinel": "rank35 physical v+k3+k4 state-response head",
+    "evidence_class": "descriptive development replay only",
+    "rank35_target_previously_exposed": true,
+    "fresh_or_confirmatory_claim_forbidden": true,
+    "mc_generation_or_open": false,
+    "fresh_target_or_network": false,
+    "retry_or_replacement": false,
+    "package_board_or_submission_authority": false
+  },
+  "fixed_bindings": {
+    "design_sha256": "e6cae82977371d31e9e32a89d9eeaf59d30fcfd03494142f6772a5ac025a5aab",
+    "design_freeze_sha256": "855629cbc27649394fe9ca9f4076e50719f5231a0a9d47da2e91075524b2cbe3",
+    "current_lineage_reopen_audit_sha256": "ec6808df8b7f9863c7dd7cba5ef381384919ce7fd7f910cc22b07140799448a4",
+    "post_qhead_provider_split_audit_sha256": "22f919ca62775faac26a7a84b6a730483e036c515da7505b6c1622b4a2421916",
+    "v2r1_freshness_protocol_audit_sha256": "9d68732c115c9b7590bec1e95d8f5586c1201a4b42908231785c9bbb1f2c3983"
+  },
+  "fixed_model": {
+    "fit_ranks": [100, 150, 200, 250, 300, 400, 500, 600, 650],
+    "descriptive_score_rank": 35,
+    "layers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "inputs": "native20 + total_k4_over_sigma4 + uV + u3 + u4",
+    "input_width": 24,
+    "hidden_width": 32,
+    "outputs": ["dV", "d3", "d4"],
+    "parameter_count": 899,
+    "architecture": "affine_24x32_relu_affine_32x3",
+    "checkpoint": "fixed terminal epoch only; no selection",
+    "loss": "fit-only standardized physical preactivation state gaps dV d3 d4",
+    "forbidden_supervision": ["layer mean", "local q", "endpoint residual", "network identity", "observer selection", "board score"],
+    "betaV": 0.8273280548817595,
+    "beta3": 0.32346157239952833,
+    "beta4": 0.15489222117700333
+  },
+  "provider_typing": {
+    "uV": "((W_l*W_l).T @ (raw2_uni-diag(M11_pair))) / sigma_l^2, captured before diagonal overwrite; layer-1 convention bound",
+    "u3": "diag(cp_pre_k21_l) / sigma_l^3, captured before CP3/star addition",
+    "u4": "cp4_pre_provider_planes[0] / sigma_l^4, captured before CP4/host addition with final-layer specialization",
+    "total_k4": "live total k4_l/sigma_l^4 before reset consumer",
+    "permutation_equivariant": true,
+    "target_free_at_inference": true,
+    "provider_values_are_inputs_not_direct_output_additions": true
+  },
+  "runtime_processes": {
+    "DATA_GATE_FIT_CAPTURE": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+    "ANACONDA_FIT_TRAIN_MODEL_FREEZE": "/Users/matt/anaconda3/bin/python3.11",
+    "DATA_GATE_RANK35_CAPTURE_AND_SCORE": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python"
+  },
+  "transaction_order": [
+    "FIT_CAPTURE_9",
+    "FIT_TRAIN_MODEL_FREEZE",
+    "RANK35_CAPTURE_OUTPUT_FREEZE",
+    "RANK35_TARGET_SCORE"
+  ],
+  "transactions": {
+    "FIT_CAPTURE_9": {
+      "runtime": "DATA_GATE_FIT_CAPTURE",
+      "release_before_reads": true,
+      "durable_claim_before_semantic_reads": true,
+      "allowed_inputs_after_claim": ["exact nine fit row manifests", "exact nine fit weight files", "accepted pinned D11 source", "provider capture adapter"],
+      "forbidden_inputs": ["fit labels", "rank35 manifest", "rank35 weights", "rank35 state labels", "rank35 target", "model", "MC"],
+      "cardinality": 9,
+      "outputs": ["nine immutable capture payloads", "nine capture manifests", "nine parent parity receipts", "ordered capture-set manifest", "PASS result"],
+      "resource_receipt": "none; capture-only",
+      "terminal_on_any_failure": true
+    },
+    "FIT_TRAIN_MODEL_FREEZE": {
+      "runtime": "ANACONDA_FIT_TRAIN_MODEL_FREEZE",
+      "predecessor": "FIT_CAPTURE_9 PASS and rehashed capture-set manifest",
+      "release_before_reads": true,
+      "durable_claim_before_semantic_reads": true,
+      "allowed_inputs_after_claim": ["nine sealed captures", "nine authorized pre-state v k3 k4 label bundles", "frozen trainer source and hyperparameters"],
+      "forbidden_inputs": ["rank35 manifest", "rank35 weights", "rank35 capture", "rank35 state labels", "rank35 target", "endpoint target", "MC"],
+      "fit_count": 1,
+      "outputs": ["fit label manifest", "fit dataset manifest", "899-parameter model", "input and label normalizer", "training transcript", "model hash freeze", "PASS result"],
+      "freeze_before_rank35_access": true,
+      "checkpoint_selection_forbidden": true,
+      "terminal_on_any_failure": true
+    },
+    "RANK35_CAPTURE_OUTPUT_FREEZE": {
+      "runtime": "DATA_GATE_RANK35_CAPTURE_AND_SCORE",
+      "predecessor": "FIT_TRAIN_MODEL_FREEZE PASS and immutable model hash freeze",
+      "release_before_reads": true,
+      "durable_claim_before_semantic_reads": true,
+      "allowed_inputs_after_claim": ["rank35 target-blind row manifest", "rank35 weights", "frozen model and normalizer", "accepted pinned D11 source", "frozen complete modified estimator"],
+      "forbidden_inputs": ["rank35 all_layer_means target", "rank35 v k3 k4 state labels", "any other held row", "fit labels", "MC"],
+      "required_outputs": ["target-blind rank35 provider capture", "source-zero complete [16,1024] output", "source-on complete [16,1024] output", "row15 source-zero vector", "row15 source-on vector", "source-zero parent parity receipt", "full modified-estimator resource receipt", "immutable output payload", "output array manifest", "output freeze", "PASS result"],
+      "output_freeze_precedes_target_score_release": true,
+      "source_zero_must_reproduce_pinned_rank35_parent": "bitwise exact under frozen dtype spelling",
+      "all_outputs_finite": true,
+      "terminal_on_any_failure": true
+    },
+    "RANK35_TARGET_SCORE": {
+      "runtime": "DATA_GATE_RANK35_CAPTURE_AND_SCORE",
+      "predecessor": "RANK35_CAPTURE_OUTPUT_FREEZE PASS and independently rehashed immutable output freeze",
+      "release_before_target_open": true,
+      "durable_claim": "O_CREAT|O_EXCL then complete write, file fsync, close, parent-directory fsync",
+      "same_pid_recheck_before_target_open": true,
+      "successor_absence_recheck_before_target_open": true,
+      "allowed_input_after_claim": "exact already-exposed rank35 all_layer_means row15 target only",
+      "forbidden_inputs": ["rank35 physical state labels", "another target row", "MC", "model refit", "normalizer refit", "feature choice", "coefficient choice"],
+      "score_formula": {
+        "source_zero_mse": "mean((float64(source_zero[15])-float64(target[15]))^2) over exactly 1024 outputs",
+        "source_on_mse": "mean((float64(source_on[15])-float64(target[15]))^2) over exactly 1024 outputs",
+        "pass": "source_on_mse < 1e-8 and source_on_mse < source_zero_mse"
+      },
+      "result_disclosure": "DESCRIPTIVE_PASS or DESCRIPTIVE_FAIL only; never fresh confirmatory package evidence",
+      "terminal_on_any_failure": true
+    }
+  },
+  "output_freeze_exact_keys": [
+    "schema",
+    "status",
+    "rank",
+    "fit_model_freeze_sha256",
+    "rank35_row_manifest_sha256",
+    "rank35_weights_file_sha256",
+    "rank35_weights_array_sha256",
+    "capture_payload_sha256",
+    "capture_manifest_sha256",
+    "source_zero_array_sha256",
+    "source_on_array_sha256",
+    "row15_source_zero_sha256",
+    "row15_source_on_sha256",
+    "source_zero_parent_parity_sha256",
+    "complete_resource_receipt_sha256",
+    "output_payload_sha256",
+    "output_array_manifest_sha256",
+    "release_sha256",
+    "claim_sha256",
+    "target_values_opened_or_decoded",
+    "access"
+  ],
+  "target_score_result_exact_keys": [
+    "schema",
+    "status",
+    "rank",
+    "output_freeze_sha256",
+    "target_manifest_sha256",
+    "target_bundle_file_sha256",
+    "target_array_sha256",
+    "source_zero_mse",
+    "source_on_mse",
+    "source_on_below_1e_8",
+    "source_on_beats_source_zero",
+    "descriptive_only",
+    "release_sha256",
+    "claim_sha256",
+    "access",
+    "terminal",
+    "no_retry"
+  ],
+  "resource_gate": {
+    "metered_callable": "complete source-on modified estimator returning [16,1024]",
+    "flops_strictly_below": 2199023255552,
+    "absolute_peak_rss_bytes_strictly_below": 8589934592,
+    "wall_seconds_strictly_below": 120.0,
+    "provider_head_incremental_scalar_operations_upper": 92244992,
+    "provider_head_incremental_dense_gemm_equivalent_upper": 0.04297590605153884,
+    "incremental_streaming_workspace_upper_bytes": 262144,
+    "endpoint_or_head_only_meter_forbidden": true
+  },
+  "claim_and_failure_law": {
+    "each_transaction_has_separate_release_and_claim": true,
+    "release_claim_source_predecessor_runtime_permission_and_expected_path_hashes_recomputed": true,
+    "unknown_or_extra_permissions_forbidden": true,
+    "preclaim_failure_writes_exclusive_terminal_closure": true,
+    "postclaim_failure_writes_claim_owned_terminal_failure": true,
+    "durable_claim_without_PASS_is_terminal": true,
+    "retry_resume_overwrite_replacement_or_sample_extension": false,
+    "target_score_claim_created_only_after_output_freeze": true,
+    "target_bytes_decoded_only_after_target_score_claim": true
+  },
+  "global_successor_absence": [
+    "no target-score release claim result or failure before output freeze PASS",
+    "no second rank35 claim or result",
+    "no alternate-rank capture score release or claim",
+    "no MC release claim seal result or cache",
+    "no package board integration submission or continuation artifact"
+  ],
+  "hard_failures": [
+    "rank35 manifest weights capture output state label or target is opened before model freeze",
+    "rank35 target or physical state label is opened before immutable target-blind output freeze",
+    "the target score uses any row other than row15 or any network other than rank35",
+    "the head is refit normalized selected tuned or coefficient-adjusted after rank35 access",
+    "source-zero is not exact pinned-parent replay",
+    "source-on output is not frozen before the target-score claim",
+    "a pass is described as fresh confirmatory package or population evidence",
+    "a failure retries changes bytes changes data or opens another row"
+  ],
+  "access": {
+    "moving_implementation_bytes_inspected": 0,
+    "repository_data_or_cache_arrays_opened": 0,
+    "production_weight_or_feature_arrays_opened": 0,
+    "fit_truth_arrays_opened": 0,
+    "rank35_target_or_state_arrays_opened": 0,
+    "mc_arrays_generated_or_opened": 0,
+    "estimator_calls": 0,
+    "capture_runs": 0,
+    "meter_runs": 0,
+    "training_or_scoring_runs": 0,
+    "network_calls": 0
+  },
+  "authority": {
+    "fit_capture": false,
+    "fit_train": false,
+    "rank35_capture": false,
+    "rank35_target_score": false,
+    "mc": false,
+    "fresh_target": false,
+    "retry": false,
+    "package": false,
+    "board": false,
+    "submission": false,
+    "network": false
+  }
+}

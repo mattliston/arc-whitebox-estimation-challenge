@@ -1,0 +1,215 @@
+{
+  "completed": true,
+  "negative": true,
+  "candidate": false,
+  "scope": "Complete uniform-recursion depth/padding search for the two fixed catalogs, minimum leaf dimension8, classical core fringes; not all matrix algorithms or streaming schedules.",
+  "maximum_stages": 7,
+  "child_minimum_dimension": 8,
+  "removed_parent_dimension_restriction": true,
+  "depth_bound_verified": true,
+  "families": [
+    {
+      "name": "executable_smirnov_and_bank_winograd",
+      "states": 16962,
+      "passes_necessary_3e9_gate": false,
+      "leaf_storage_limit_passes_necessary_3e9_gate": false,
+      "records": [
+        {
+          "rank": 35,
+          "complete_cold_flops": 413448696909,
+          "outermost_mm_calls": 295,
+          "optimistic_saved": 56006976361,
+          "optimistic_fraction": 0.13546294081881488,
+          "optimistic_new_total": 357441720548,
+          "leaf_storage_limited_saved": 52334647243,
+          "leaf_storage_limited_fraction": 0.1265807526647468,
+          "leaf_storage_limited_new_total": 361114049666
+        },
+        {
+          "rank": 100,
+          "complete_cold_flops": 416264792412,
+          "outermost_mm_calls": 295,
+          "optimistic_saved": 59999025493,
+          "optimistic_fraction": 0.1441366807539555,
+          "optimistic_new_total": 356265766919,
+          "leaf_storage_limited_saved": 56203024832,
+          "leaf_storage_limited_fraction": 0.13501748371832706,
+          "leaf_storage_limited_new_total": 360061767580
+        }
+      ]
+    },
+    {
+      "name": "extended_optimistic_catalog",
+      "states": 780696,
+      "passes_necessary_3e9_gate": false,
+      "leaf_storage_limit_passes_necessary_3e9_gate": false,
+      "records": [
+        {
+          "rank": 35,
+          "complete_cold_flops": 413448696909,
+          "outermost_mm_calls": 295,
+          "optimistic_saved": 60692922797,
+          "optimistic_fraction": 0.14679674467654327,
+          "optimistic_new_total": 352755774112,
+          "leaf_storage_limited_saved": 56400524605,
+          "leaf_storage_limited_fraction": 0.13641480799590897,
+          "leaf_storage_limited_new_total": 357048172304
+        },
+        {
+          "rank": 100,
+          "complete_cold_flops": 416264792412,
+          "outermost_mm_calls": 295,
+          "optimistic_saved": 64745147745,
+          "optimistic_fraction": 0.1555383710686687,
+          "optimistic_new_total": 351519644667,
+          "leaf_storage_limited_saved": 60279657971,
+          "leaf_storage_limited_fraction": 0.1448108489351603,
+          "leaf_storage_limited_new_total": 355985134441
+        }
+      ]
+    }
+  ],
+  "required_uniform_fraction": 0.16304320665834504,
+  "changed_current_call_optima": 0,
+  "all_chosen_entries_identical": true,
+  "chosen_entries_verification": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/complete_catalog_depth_v1/chosen_entries_verified.json",
+    "sha256": "d820e0a2412d1195fb76fe18af7f93ad449161098e6a9a3e1cbf5f365bb453dd",
+    "bytes": 884
+  },
+  "comparison": [
+    {
+      "family": "executable_smirnov_and_bank_winograd",
+      "rank": 35,
+      "old_fraction": 0.13546294081881488,
+      "new_fraction": 0.13546294081881488,
+      "old_leaf_limited_fraction": 0.1265807526647468,
+      "new_leaf_limited_fraction": 0.1265807526647468,
+      "additional_optimistic_saved": 0,
+      "additional_leaf_limited_saved": 0
+    },
+    {
+      "family": "executable_smirnov_and_bank_winograd",
+      "rank": 100,
+      "old_fraction": 0.1441366807539555,
+      "new_fraction": 0.1441366807539555,
+      "old_leaf_limited_fraction": 0.13501748371832706,
+      "new_leaf_limited_fraction": 0.13501748371832706,
+      "additional_optimistic_saved": 0,
+      "additional_leaf_limited_saved": 0
+    },
+    {
+      "family": "extended_optimistic_catalog",
+      "rank": 35,
+      "old_fraction": 0.14679674467654327,
+      "new_fraction": 0.14679674467654327,
+      "old_leaf_limited_fraction": 0.13641480799590897,
+      "new_leaf_limited_fraction": 0.13641480799590897,
+      "additional_optimistic_saved": 0,
+      "additional_leaf_limited_saved": 0
+    },
+    {
+      "family": "extended_optimistic_catalog",
+      "rank": 100,
+      "old_fraction": 0.1555383710686687,
+      "new_fraction": 0.1555383710686687,
+      "old_leaf_limited_fraction": 0.1448108489351603,
+      "new_leaf_limited_fraction": 0.1448108489351603,
+      "additional_optimistic_saved": 0,
+      "additional_leaf_limited_saved": 0
+    }
+  ],
+  "verified_schedules": 2360,
+  "verified_call_records": 1180,
+  "exhaustive_small_checks": 64,
+  "small_padding_witnesses": [
+    {
+      "family": "executable_smirnov_and_bank_winograd",
+      "shape": [
+        15,
+        256,
+        64
+      ],
+      "classical_cost": 490560,
+      "minimum_cost": 490560,
+      "schedules": 2
+    },
+    {
+      "family": "executable_smirnov_and_bank_winograd",
+      "shape": [
+        64,
+        15,
+        256
+      ],
+      "classical_cost": 475136,
+      "minimum_cost": 467712,
+      "schedules": 2
+    },
+    {
+      "family": "executable_smirnov_and_bank_winograd",
+      "shape": [
+        64,
+        256,
+        15
+      ],
+      "classical_cost": 490560,
+      "minimum_cost": 490560,
+      "schedules": 2
+    },
+    {
+      "family": "extended_optimistic_catalog",
+      "shape": [
+        15,
+        256,
+        64
+      ],
+      "classical_cost": 490560,
+      "minimum_cost": 490560,
+      "schedules": 8
+    },
+    {
+      "family": "extended_optimistic_catalog",
+      "shape": [
+        64,
+        15,
+        256
+      ],
+      "classical_cost": 475136,
+      "minimum_cost": 467712,
+      "schedules": 8
+    },
+    {
+      "family": "extended_optimistic_catalog",
+      "shape": [
+        64,
+        256,
+        15
+      ],
+      "classical_cost": 490560,
+      "minimum_cost": 490560,
+      "schedules": 8
+    }
+  ],
+  "source_inverses": 2,
+  "resources": {
+    "guarded_groups": 3,
+    "all_groups_retired": true,
+    "controller_terminal_session": 37572,
+    "full_native_calls": 0,
+    "new_native_flops": 0,
+    "peak_group_rss_bytes": 731611136,
+    "peak_self_reported_rss_bytes": 739737600,
+    "max_swap_growth_bytes": 0,
+    "reference_arrays_decoded": 0,
+    "new_samples": 0,
+    "fits": 0,
+    "new_downloads": 0,
+    "GPU_calls": 0,
+    "metadata_prepare_failures": 1,
+    "artifact_bytes_before_closeout": 1129505,
+    "disk_free_bytes": 493907173376
+  },
+  "official_changed": false,
+  "goal_achieved": false,
+  "selected_next_numerical_study": null
+}

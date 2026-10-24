@@ -1,0 +1,18 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F3B3",
+    "label": "Deterministic quadrature route",
+    "kind": "phase2_mean_channel_program",
+    "status": "closed_measured",
+    "summary": "INFEASIBLE, impossibility MEASURED not assumed (rank 35, cross-checked 36/120/234): at budget an unbiased hybrid has 58,845 pairs, so 1e-9 needs 99.912 percent surrogate variance capture; measured ceilings - affine/Stein-chain 20.5, ANY degree<=2 oracle 43.2, perfect 512-dim active subspace 63.1, even a FREE degree-64-exact rule leaves 2.8 percent -> 2.85e-8 floor, above the fire bar. Rules race: best gain over MC 1.62x (lattice QMC 1.16x RMSE, antithetic 0.84x variance; GH-on-top-2 53x WORSE), every exponent -0.95..-1.09; predictions matched measurements. TWO NEW FACTS: (1) real nets carry ~21 percent final-layer linear-in-z Hermite mass (three methods: 0.205/0.210/0.222) vs 0.7 percent mean-field - retention saturates after layer 1; the depth-D degree mass law = Galton-Watson total progeny of the arccos-kernel PGF (m1=0.7335); (2) 'plain MC 1.5e-7 at 65k' in the briefing was the shipped hybrid - true plain MC is 1.0-1.3e-6. Leaders' faster-than-1/N spend cannot be quadrature-on-the-net; remaining doors are exact analytic carry or a pathwise-coupled surrogate outside the exactly-integrable algebra.",
+    "terminal_criterion": "Closed: QUADRATURE_VERDICT.json impossibility bound with matched predictions.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_quadrature_derivation_v1/QUADRATURE_VERDICT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_quadrature_derivation_v1/QUADRATURE_DERIVATION.md"
+    ],
+    "decomposition_children": []
+  }
+}

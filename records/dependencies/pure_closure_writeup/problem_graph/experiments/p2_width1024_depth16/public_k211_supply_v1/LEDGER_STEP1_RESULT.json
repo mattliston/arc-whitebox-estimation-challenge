@@ -1,0 +1,13 @@
+{
+  "schema": "ledger-step1-v1",
+  "question": "Do the order-3 marginal emission columns (He7 k3k4/144 + He9 k3^3/1296 + He5 closure-k5/120) own the per-step mean bias?",
+  "method": "oracle-state per-layer computation (rank 35, mc_oracle_deep + second_order taps): order-3 post-mean shift magnitude vs measured model-minus-oracle pre-mean error; per-unit correlation of the W-pushed prediction with the next-layer error",
+  "verdict": "NO - 25-50x too small and uncorrelated",
+  "numbers": {
+    "order3_net_rel_rms_per_layer": "1.1e-6 (L2) to 7.5e-6 (L14); k5-free and k5 halves partially cancel (net < either)",
+    "measured_pre_mean_err_rel": "1.8-2.3e-4, roughly FLAT with depth and near the 8M-MC noise floor (se 1.1-3.5e-4) - per-layer increments are below per-layer MC resolution",
+    "per_unit_corr_pushed_prediction_vs_next_layer_err": "|corr| <= 0.114, mostly <= 0.06 (noise level)"
+  },
+  "reframe": "The L16 mean-channel error (~2e-4 relative, = the whole residual) is the accumulated echo of per-layer k3/k4 STATE errors, not a marginal-density truncation: teacher-forcing true k3/k4 at every layer reaches 8.2e-9 (~0.9e-4 relative), and the L16 attribution's small k4 share (0.05) measures only the LAST-layer delta, not the trajectory echo. Corollary: trajectory-COHERENT state repair (all channels together, every layer - like the K22 supply, -60%) is the mechanism that moves the mean channel; single-channel partials perturb the co-adapted trajectory and lose (5 receipts).",
+  "next": "missing-routes both-arm (F-form + kappa211-planes coherently) rerunning; ledger-deriver respawns at session-limit reset to formalize the sufficient-set question as trajectory-coherence, not object count"
+}

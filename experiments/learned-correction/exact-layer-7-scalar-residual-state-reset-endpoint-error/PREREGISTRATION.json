@@ -1,0 +1,37 @@
+{
+  "anchor": {
+    "indexing": "h_7 means the post-ReLU state after the seventh nonlinear layer; zero-based tensor layer index 6",
+    "injection": "replace the learned residual state at h_7 by the exact target-minus-host residual at h_7, once; all layers after h_7 are autonomous",
+    "layer_one_based": 7,
+    "layer_zero_based": 6,
+    "statistic": "full width-1024 residual state (an oracle ceiling only; no target values enter any deployable estimator)"
+  },
+  "comparators": {
+    "autonomous": "the frozen checkpoint receives only its own preceding residual state at every layer",
+    "teacher_forced": "the frozen checkpoint receives the exact preceding residual state at every corrected layer",
+    "single_h7_reset": "the frozen checkpoint receives one exact h_7 residual reset, then rolls out layers 8:16 autonomously"
+  },
+  "data_firewall": {
+    "deployment_or_board_truth": "never open",
+    "network_names": "never open",
+    "observer_fit_targets_at_or_above_rank_200": "never open",
+    "observer_selection": "never open",
+    "role": "observer_fit",
+    "validation_ranks": [160, 200]
+  },
+  "decision": {
+    "primary": "record whether the single exact h_7 reset gives final MSE <1e-8",
+    "secondary": "report its fraction of the autonomous-to-teacher-forced MSE gap closed",
+    "terminal_rule": "run this one anchor only; do not choose another anchor from its result"
+  },
+  "hypothesis": "if a feasible N=65536 Kerdock prefix at h_7 can supply the missing action-relevant state accurately enough, then one exact h_7 state reset should expose a final-error ceiling near the 8.208e-9 all-layer teacher-forced result",
+  "model": {
+    "artifact": "../public_exposure_trained_residual_state_v1/MODEL.pt",
+    "artifact_sha256": "c998c4410bf36d3b4f1152c45d86fd4c654c7e05abe85e297f07b15f16d58cc7",
+    "parameters": 6688,
+    "training": "none; reuse the fixed final checkpoint without modification"
+  },
+  "rationale": "h_7 was fixed before this metric because it is the latest anchor reachable by the cross-lane N=65536 structured-point budget and is the primary state requested by the partition-complete cumulant lane",
+  "schema": "p2r0g1-kerdock-h7-anchor-ceiling-preregistration-v1",
+  "status": "frozen-before-metrics"
+}

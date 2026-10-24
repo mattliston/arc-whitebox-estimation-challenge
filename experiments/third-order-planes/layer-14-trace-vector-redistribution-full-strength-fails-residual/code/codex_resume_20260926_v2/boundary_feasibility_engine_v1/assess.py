@@ -1,0 +1,210 @@
+"""Future-only early boundary2 assessment from pinned JSON/source; no array reads.
+
+LIGHT -B assess.py STUDY/boundary_config.json CONFIG_SHA. Native2 is sufficient
+for this early rejection gate; actual native8 timing must be rechecked later.
+"""
+from pathlib import Path
+import hashlib
+import importlib.util
+import json
+import math
+import statistics
+import sys
+
+H2 = Path(__file__).resolve().parent.parent
+V1 = H2/'hill_climb_precision_g4_symdiag_v1'
+HELPER_SHA = '652650baaa5f525f09d43d08cf8cf6c181baacf4ade5637e424b63802432f2d2'
+CONTROL_SHA = '9091ca7be8089e8e170540309dd558433a8116d76648b6b854d068af526afbce'
+CONTROL_GUARD_SHA = '564a6609d319ed2e996cd5e408f9b6f205a82b30157a1fb35aa64d3c02770366'
+LIMITS = dict(seconds=240, rss_bytes=7500000000, added_swap_bytes=0,
+              setup_s_max=4.1, residual_s_max=.35, projected_wall_s_max=105,
+              cpu_disagreement_pp=5)
+
+
+def pin(path):
+    path = Path(path).resolve(); raw = path.read_bytes()
+    return dict(path=str(path), sha256=hashlib.sha256(raw).hexdigest(), bytes=len(raw))
+
+
+def helpers():
+    path = V1/'paired_boundary_assess.py'
+    assert pin(path)['sha256'] == HELPER_SHA
+    spec = importlib.util.spec_from_file_location('frozen_boundary_pair_helpers', path)
+    module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+    q = module.helper()  # Frozen stdlib definitions only; no assessor main runs.
+    q.checked(pin(path))
+    return module, q
+
+
+def native_two(q, receipt, cfg):
+    assert len(receipt['blocks']) == 1 and receipt['blocks'][0]['size'] == 2
+    outputs = {}
+    for role in ('candidate', 'base'):
+        arm = cfg['arms'][role]; block = arm['blocks']['2']
+        records = receipt['blocks'][0]['arms'][role]
+        folder = H2/block['tag']
+        assert block['ranks'] == [35, 100]
+        for key, path in (('manifest', folder/'manifest.json'), ('rows', folder/'rows.jsonl'),
+                          ('guard', Path(block['guard']))):
+            assert records[key] == pin(path); q.checked(records[key])
+            if role == 'base': assert records[key] == block['artifacts'][key]
+        manifest = json.loads(q.checked(records['manifest']))
+        assert manifest['candidate'] == arm['source']['path']
+        assert manifest['sha256'] == arm['source']['sha256'] and manifest['ranks'] == [35, 100]
+        assert manifest['runtime'] == str(q.NATIVE) and manifest['numpy'] == '2.4.6'
+        assert manifest['thread_env'] == dict.fromkeys(
+            ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', 'VECLIB_MAXIMUM_THREADS'), '1')
+        command = [str(q.NATIVE)] + (['-B'] if block['no_bytecode'] else [])
+        command += [block['driver']['path'], arm['source']['path'], '35,100', block['tag']]
+        q.checked(block['driver']); q.checked(arm['source'])
+        assert block['limits'] == dict(seconds=150, rss_bytes=7500000000)
+        q.guard(records['guard'], command, 150)
+        assert 0 <= manifest['setup']['setup_s'] <= 4.1
+        for key, count in arm['setup']['counts'].items():
+            assert [r[1] for r in manifest['setup']['pb_log'] if r[0] == key] == [count]
+        rows = [json.loads(line) for line in q.checked(records['rows']).decode().splitlines()]
+        assert [r['rank'] for r in rows] == [35, 100]
+        for row in rows:
+            assert math.isfinite(row['cpu_s']) and row['cpu_s'] > 0
+            assert type(row['flops']) is int and 0 < row['flops'] <= 2**41
+            if arm['ubc_retired_required']:
+                assert row['ubc']['retired'] is True
+                assert row['ubc']['retained_cache_bytes'] == row['ubc']['live_cache_bytes'] == 0
+                assert 0 <= row['ubc']['max_resident_bytes'] <= 512000000
+        outputs[role] = rows
+    ratio = math.fsum(r['cpu_s'] for r in outputs['candidate']) / math.fsum(r['cpu_s'] for r in outputs['base'])
+    return outputs, ratio
+
+
+def assess(config_path, digest):
+    m, q = helpers(); config_pin = pin(config_path)
+    assert config_pin['sha256'] == digest and len(digest) == 64
+    c = json.loads(q.checked(config_pin)); d = config_path.parent
+    assert c['schema'] == 'early-boundary-native2-v1' and c['prospective_authorization'] is True
+    assert c['engine'] == pin(__file__) and c['limits'] == LIMITS and c['ranks'] == [35, 100]
+    assert c['native8_runtime_recheck_required'] is True and c['no_automatic_retry'] is True
+    assert c['tag'] == d.name+'_boundary_feasibility_v1'
+    for key in ('engine', 'candidate', 'build', 'source_protocol', 'native_engine', 'probe', 'driver', 'harness'):
+        q.checked(c[key])
+    assert c['driver'] == q.fixed(H2/'run_boundary_census.py', q.DRIVER_SHA)
+    assert c['harness'] == q.fixed(H2/'census_boundary_setup_snapshot_v1.py', q.HARNESS_SHA)
+    q.fixed(q.P2/'fable_porter_v1/census_boundary_setup_v2.py', q.HARNESS_SHA)
+    build = json.loads(q.checked(c['build']))
+    assert build['candidate'] == c['candidate'] and build['source_inverse_exact'] is True
+    admission_pin = pin(d/'boundary_admission.json'); a = json.loads(q.checked(admission_pin))
+    assert a['root_admitted'] is True and a['source_changes'] is False and a['serving_qualified'] is False
+    assert a['config'] == config_pin and a['assessor'] == c['engine'] and a['candidate'] == c['candidate']
+    for key in ('native_config', 'native2', 'native2_guard', 'primitive', 'primitive_guard'):
+        q.checked(a[key])
+    assert a['native_config'] == pin(c['native_config_path'])
+    nc = json.loads(q.checked(a['native_config']))
+    assert nc['schema'] == 'native-screen-v1' and nc['engine'] == c['native_engine']
+    assert nc['prospective_authorization'] is True and nc['future_only'] is True
+    assert nc['arms']['candidate']['source'] == c['candidate']
+    assert nc['arms']['base']['source'] == q.fixed(H2/'hill_climb_star_projection32_v1/candidate.py', q.S32_SHA)
+    expected = [str(q.LIGHT), '-B', str(Path(__file__).resolve()), str(config_path), digest]
+    assert nc['boundary_before8']['assessment_command'] == expected
+    assert nc['boundary_before8']['assessor'] == c['engine']
+    assert nc['boundary_before8']['receipt'] == str(d/'boundary_assessment.json')
+    assert nc['boundary_before8']['assessment_guard'] == str(d/'boundary_assess_guard.json')
+    assert nc['boundary_before8']['assessment_limits'] == dict(seconds=120, rss_bytes=7500000000)
+    stage = nc['stages']['2']
+    assert a['native2'] == pin(stage['result']) and a['native2_guard'] == pin(stage['assessment_guard'])
+    r = json.loads(q.checked(a['native2']))
+    assert r['passed_integrity'] is True and r['admitted'] is True and r['n'] == 2 and r['ranks'] == [35, 100]
+    assert r['config'] == a['native_config'] and r['engine'] == c['native_engine']
+    assert r['candidate'] == c['candidate'] and r['comparator'] == nc['arms']['base']['source']
+    assert r['all16_predictions_finite'] is True and all(r['gates'].values())
+    assert stage['gates'] == c['native2_gates']
+    ng = c['native2_gates']; value = r['adjusted_pct']; cutoff = ng['adjusted_pct_at_most']
+    assert value < cutoff if ng['strict_adjusted'] else value <= cutoff
+    assert r['adjusted_wins'] >= ng['wins_min']
+    assert stage['assessment_limits'] == dict(seconds=120, rss_bytes=7500000000)
+    q.guard(a['native2_guard'], [str(q.NATIVE), '-B', c['native_engine']['path'],
+            a['native_config']['path'], a['native_config']['sha256'], '2'], 120)
+    native, native2_ratio = native_two(q, r, nc)
+    assert a['primitive'] == pin(d/'primitive_result.json') and a['primitive_guard'] == pin(d/'primitive_guard.json')
+    primitive = json.loads(q.checked(a['primitive']))
+    assert primitive['passed'] is True and primitive['source'] == c['candidate']
+    assert primitive['build'] == c['build'] and primitive['probe'] == c['probe']
+    q.guard(a['primitive_guard'], [str(q.NATIVE), '-B', c['probe']['path'], str(d/'primitive_result.json')], 45)
+    for failure in c['preserved_failures']:
+        old = json.loads(q.checked(failure))
+        assert old['passed'] is False and old['receipt_checks_passed'] is True
+
+    control_pin = q.fixed(V1/'paired_boundary_assessment.json', CONTROL_SHA)
+    paired = json.loads(q.checked(control_pin))
+    cg = q.fixed(V1/'paired_boundary_assess_guard.json', CONTROL_GUARD_SHA)
+    q.guard(cg, [str(q.LIGHT), '-B', str(V1/'paired_boundary_assess.py')], 120)
+    assert paired['passed'] is False and paired['receipt_checks_passed'] is True
+    control = paired['jobs'][0]
+    assert control['role'] == 's32' and control['source'] == nc['arms']['base']['source']
+    baseline, bg = q.boundary(control['census'], control['launcher'], control['guard'], control['source'],
+                             'hill_climb_precision_g4_symdiag_v1_boundary_fresh_s32_v1')
+    base_setup = m.setup_record(q, control['log']['path'], 624, 600)
+    census = pin(H2/(c['tag']+'_census.json')); launcher = pin(H2/(c['tag']+'_launcher.json'))
+    gp = pin(d/'boundary_guard.json')
+    current, g = q.boundary(census, launcher, gp, c['candidate'], c['tag'])
+    setup = m.setup_record(q, d/'boundary.log', c['setup_counts']['bound'], c['setup_counts']['lvfuse'])
+    assert nc['arms']['candidate']['setup']['counts'] == c['setup_counts']
+    for key, count in c['setup_counts'].items():
+        assert [r[1] for r in setup['setup_log'] if r[0] == key] == [count]
+    comparisons = []
+    for i, (child, base) in enumerate(zip(current, baseline)):
+        assert child['flops'] == native['candidate'][i]['flops'] and base['flops'] == native['base'][i]['flops']
+        comparisons.append(dict(rank=child['rank'], full_native_bills_exact=True,
+            candidate_residual_s=child['residual_s'], control_residual_s=base['residual_s'],
+            residual_delta_s=child['residual_s']-base['residual_s'], request_delta=child['requests']-base['requests'],
+            server_cpu_ratio=child['server_cpu_s']/base['server_cpu_s']))
+    official_pin = q.fixed(H2/'eval_332738.json', '6c4a0e3f3c84ab9756c391c0929bd4d51057a61bba4167b9d21c0a317e612fe6')
+    official = json.loads(q.checked(official_pin)); ev = official['evaluation']
+    assert official['submission_id'] == 332738 and ev['submission_id'] == '332738'
+    assert ev['progress']['mlps_completed'] == 100 and ev['progress']['mlps_failed'] == 0
+    telemetry = [x['telemetry'] for x in ev['results']['per_mlp']]; assert len(telemetry) == 100
+    assert all(math.isfinite(t[k]) and t[k] >= 0 for t in telemetry for k in
+               ('participant_predict_wall_s', 'flopscope_server_kernel_wall_s', 'residual_wall_time_s'))
+    maximum = max(t['residual_wall_time_s'] for t in telemetry)
+    assert math.isclose(maximum, .285450751, rel_tol=0, abs_tol=1e-12)
+    boundary_ratio = statistics.mean(x['server_cpu_ratio'] for x in comparisons)
+    disagreement = abs(100*(boundary_ratio-native2_ratio))
+    growth = max(0., native2_ratio-1, boundary_ratio-1)
+    requests = max(0., statistics.mean(x['request_delta'] for x in comparisons))
+    grid = [dict(native_fraction=f, request_cost_s=p, projected_worst_wall_s=max(
+        t['participant_predict_wall_s']+f*growth*t['flopscope_server_kernel_wall_s']+requests*p for t in telemetry))
+        for f in (.60, .78, .95) for p in (.00030, .00041, .00050)]
+    wall = max(x['projected_worst_wall_s'] for x in grid)
+    residual = maximum+4*max(0., *(x['residual_delta_s'] for x in comparisons))
+    gates = dict(setup=max(setup['setup_wall_s'], base_setup['setup_wall_s']) <= 4.1,
+        residual_projection=residual <= .35, runtime_projection=wall <= 105, cpu_agreement=disagreement <= 5)
+    for record in list(q.EVIDENCE.values()): q.checked(record)
+    return dict(passed=all(gates.values()), receipt_checks_passed=True, stage='EARLY_BOUNDARY2_AFTER_NATIVE2',
+        candidate=c['candidate'], assessor=c['engine'], config=config_pin, admission=admission_pin,
+        native2=a['native2'], native_config=a['native_config'], primitive=a['primitive'],
+        control_resolution=control_pin, fixed_fresh_control=control, current_census=census, launcher=launcher,
+        guard=gp, setup=setup, control_setup=base_setup, comparisons=comparisons, gates=gates,
+        residual=dict(official_s32_max_s=maximum, multiplier=4, projected_s=residual, gate_s=.35),
+        runtime=dict(native2_cpu_ratio=native2_ratio, boundary_mean_cpu_ratio=boundary_ratio,
+            native2_boundary_disagreement_pp=disagreement, disagreement_limit_pp=5, used_nonnegative_cpu_change=growth,
+            nonnegative_mean_request_delta=requests, projection_grid=grid, projected_worst_wall_s=wall, gate_s=105),
+        maximum_boundary_rss_bytes=max(g['max_rss_bytes'], bg['max_rss_bytes']), evidence=list(q.EVIDENCE.values()),
+        preserved_failures=c['preserved_failures'], no_control_reselection=True, no_automatic_retry=True,
+        native8_runtime_recheck_required=True, output_parity_claim=False, worker20_qualified=False,
+        setup_stress_qualified=False, release_qualified=False, submitted=False, arrays_read=False, model_executed=False)
+
+
+def main():
+    assert len(sys.argv) == 3
+    config = Path(sys.argv[1]).resolve(); target = config.parent/'boundary_assessment.json'
+    assert not target.exists()
+    try: result = assess(config, sys.argv[2])
+    except Exception as exc:
+        result = dict(passed=False, receipt_checks_passed=False, assessor=pin(__file__),
+            error=dict(type=type(exc).__name__, message=str(exc)), release_qualified=False,
+            submitted=False, arrays_read=False, model_executed=False)
+        with target.open('x') as stream: json.dump(result, stream, indent=2, allow_nan=False); stream.write('\n')
+        raise
+    with target.open('x') as stream: json.dump(result, stream, indent=2, allow_nan=False); stream.write('\n')
+    print(json.dumps({k: result[k] for k in ('passed', 'receipt_checks_passed', 'gates')}))
+
+
+if __name__ == '__main__': main()

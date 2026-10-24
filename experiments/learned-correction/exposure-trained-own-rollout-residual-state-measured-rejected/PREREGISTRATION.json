@@ -1,0 +1,69 @@
+{
+  "architecture": {
+    "first_corrected_layer": 2,
+    "hidden": 64,
+    "input": "raw20 plus physical-message/RMS and physical-message/(sigma*RMS)",
+    "parameters": 6688,
+    "recurrence": "e_l=a_l*Phi_l*(e_{l-1}@W_l)+local_shared(raw20,message)",
+    "transport_gain": "1 + 0.30*tanh(delta_l)"
+  },
+  "comparators": {
+    "autonomous": "the fixed checkpoint receives only its own preceding state",
+    "host": "corrected Q24 near-floor-min hybrid host",
+    "teacher_forced_ceiling": "the identical fixed checkpoint receives the true preceding residual at layers 3:15"
+  },
+  "data": {
+    "host_patch_rule": "within ranks 0:199, replace every old-source row with max(final_layer_mse,max_layer_mse)>5e-7 by its corrected near-floor-min trajectory",
+    "observer_fit_targets_at_or_above_rank_200": "never open",
+    "observer_selection": "never open",
+    "role": "observer_fit"
+  },
+  "decision_gates": {
+    "fatal_finite": "the complete autonomous validation rollout must be finite",
+    "primary_success": "autonomous validation final MSE <3.44e-8 (10% below the established 3.82e-8 family)",
+    "stretch": "record whether autonomous validation final MSE <1e-8"
+  },
+  "evaluation": {
+    "checkpoint": "fixed epoch 16; no validation checkpoint selection",
+    "fit_ranks": [
+      0,
+      160
+    ],
+    "metrics_opening": "score ranks 160:199 once after training finishes",
+    "validation_ranks": [
+      160,
+      200
+    ]
+  },
+  "hypothesis": "training the exact physical recurrence under progressively self-generated state exposure will reduce autonomous state-distribution shift enough to beat 3.44e-8 while retaining a teacher-forced ceiling near 1e-8",
+  "no_retuning": "stop after this one registered architecture and schedule regardless of validation outcome",
+  "schema": "public-exposure-trained-residual-state-preregistration-v1",
+  "status": "frozen-before-metrics",
+  "training": {
+    "batch_size_networks": 4,
+    "epochs": 16,
+    "exposure_schedule": [
+      0.0,
+      0.0,
+      0.25,
+      0.25,
+      0.5,
+      0.5,
+      0.75,
+      0.75,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "gradient_clip_norm": 5.0,
+    "loss": "normalized all-corrected-layer rollout MSE + equal final-layer focus + 1e-3 near-one transport-gain penalty",
+    "optimizer": "AdamW(weight_decay=2e-5), cosine LR 1.5e-3 to 1e-4",
+    "seed": 3899662374,
+    "threads": 2
+  }
+}

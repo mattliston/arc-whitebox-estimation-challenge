@@ -1,0 +1,47 @@
+{
+  "status": "FIXED_OUTSIDE_Q_TRACE_TESTED_ONCE",
+  "definition": "P=QQ^T,H=I-P,A=PJ,R=HJ,r=rank(P),q=n-r. Sym(v,M)_{ijk}=v_iM_jk+v_jM_ik+v_kM_ij.",
+  "fixed_correction": "Sym(tP/r,P)+Sym(tH/(q+2),H), tP=sum lambda||A||^2 R, tH=sum lambda||R||^2 R. Existing ARR trace intentionally excluded.",
+  "proof": "P-partial trace is tP; H-partial trace is tH; P\u2297P\u2297P projection vanishes. Tiny explicit signed cubic tensor agrees at<8e-15.",
+  "cheap_read": "After W: bP=W^T(tP/r),bH=W^T(tH/(q+2)), dP=diag(W^T P W),dH=diag(W^T H W). Approximate offdiagonal K_iij=dP_i*bP_j+dH_i*bH_j; exact diagonal of the completion=3*(dP_i*bP_i+dH_i*bH_i).",
+  "source_boundary": "Only last join13 newly joinedJ; parent F/core/cohorts/common256/diff384 kept. Parent complete read evaluated first; correction added to original response rows/livecols. Full diagonal passed through parentOTT/YNT then corrected. Compact deadcut output rows expanded; excluded rows stay0. No tensor carry or nextjoin modification.",
+  "cost": "STORE150 measured44,925,712 extra FLOPs,+0.0184786%; no shape/model changes from this onepilot. Request/boundary not qualified.",
+  "result": {
+    "status": "VALID_FIXED_STORE150",
+    "source_sha": "1a203e4cf4abe84a903ed1a4d026f821b80a83789f834905829fe0ffbb52795e",
+    "control_source_sha": "f784f0dae64e9a3a540daa5c6aee8a2e6bcc5411890dd41bb89a2a925025a41e",
+    "rank": 150,
+    "U": 1.5037194440523638e-08,
+    "control_U": 1.500190708957137e-08,
+    "flops": 243167599158,
+    "control_flops": 243122673446,
+    "raw_pct": 0.23521910075552377,
+    "bill_pct": 0.018478618782546974,
+    "adjusted_pct": 0.2537411847789883,
+    "pbt": {
+      "builds": 1,
+      "reads": 1,
+      "diagonals": 1,
+      "layers": [
+        13
+      ],
+      "shapes": [
+        {
+          "previous": 832,
+          "pushed": 896,
+          "rank": 384
+        }
+      ]
+    },
+    "resource": {
+      "seconds": 37.155719209462404,
+      "rss": 7215382528,
+      "footprint": 3394475456,
+      "minfree": 75,
+      "exit_code": 0,
+      "retired": true
+    },
+    "models": 1
+  },
+  "next": "No more models authorized or launched; parent decides fixed continuation. Saved effect alone does not bank a gain."
+}

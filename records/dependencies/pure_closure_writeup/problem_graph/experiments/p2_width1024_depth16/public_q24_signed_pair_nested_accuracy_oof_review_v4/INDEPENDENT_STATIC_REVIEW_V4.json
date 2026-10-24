@@ -1,0 +1,215 @@
+{
+  "authorization": {
+    "bank_or_data_open": false,
+    "deployment_or_integration": false,
+    "estimator_execution": false,
+    "execution_anchor_issue": false,
+    "execution_release_issue": false,
+    "nested_anchor_review_issue": false,
+    "package_board_or_submission": false,
+    "post_generation_seal_or_review_issue": false,
+    "static_compatibility_accepted": false,
+    "target_capability_issue": false,
+    "target_open": false,
+    "training_or_scoring": false
+  },
+  "checks": {
+    "all_19_manifest_artifacts_regular_single_link_and_sha256_exact": true,
+    "all_execution_authorizations_false": true,
+    "ambient_python_3_13_static_replay_exited_zero": true,
+    "ambient_python_3_13_static_stdout_matches_frozen_receipt": false,
+    "cpu_remains_sole_frozen_science_authority": true,
+    "exact_runtime_v4_generation_receipt_and_bank_schema_retained": true,
+    "fail_closed_execution_scaffolds": true,
+    "frozen_freeze_verification_replays_under_pinned_interpreter": true,
+    "frozen_static_verification_replays_under_pinned_interpreter": false,
+    "mps_authorized_for_this_frozen_run": false,
+    "post_generation_roots_null_and_not_static_freeze_dependencies": true,
+    "resource_and_novelty_diagnostics_can_veto_accuracy_or_H": false,
+    "runtime_v4_terminal_no_retry_no_bundle_and_incident_roots_exact": true,
+    "runtime_v5_frozen_reset_independent_go_and_live_source_roots_exact": true,
+    "v3_and_v4_frozen_science_function_source_bytes_exact": true,
+    "v3_and_v4_frozen_science_function_structural_ast_exact_on_both_tested_interpreters": true,
+    "v5_synthetic_fail_closed_provenance_fixtures_all_pass_under_pinned_interpreter": true
+  },
+  "date": "2026-08-28",
+  "decision": "HOLD_STATIC_COMPATIBILITY",
+  "decision_boundary": "THE_SCIENCE_AND_PROVENANCE_OVERLAY_ARE_STATICALLY_CONSISTENT_BUT_THE_CHECKED_IN_STATIC_VERIFIER_AND_FROZEN_STATIC_RECEIPT_ARE_NOT_REPRODUCIBLE_UNDER_THE_BOUND_INTERPRETER__NO_LIVE_NESTED_AUTHORITY_OR_EXECUTION",
+  "future_gates_not_satisfied_by_this_receipt": [
+    "a refrozen successor whose static verifier exits zero under the bound CPython 3.11.5 interpreter",
+    "byte-identical replay of the successor frozen STATIC_VERIFICATION.json from its checked-in verify_static.py",
+    "fresh independent static GO over that successor package",
+    "completed exact Runtime V5 three-bank generation receipt and seven-file bank bundle",
+    "post-generation seal and genuinely separate review over the completed exact bytes",
+    "canonical one-shot nested execution anchor binding the actual receipt, seal, review, ordered record, and six bank hashes",
+    "independent review of that exact nested execution anchor before capability and release",
+    "fresh unique observer-fit target capability and final release",
+    "any nested OOF numerical execution or empirical raw-MSE result",
+    "any integration, resource optimization, packaging, board action, or submission"
+  ],
+  "issued_utc": "2026-08-28T01:48:46Z",
+  "material_defects": [
+    {
+      "evidence": {
+        "ambient_cpython_3_13_3_ast_sha256": "2272d4e4dd3f225b41984f075fede69c194a3fde1e88b3692312bce8b49168ea",
+        "hard_coded_expected_ast_sha256": "2272d4e4dd3f225b41984f075fede69c194a3fde1e88b3692312bce8b49168ea",
+        "pinned_cpython_3_11_5_ast_sha256": "c7699a5a29f566b2e8b2efa588befd089a764121ba424587f200675233731133",
+        "source_segment_sha256_equal_v3_v4": "a889d4353b3c6471e1b9382c4f4886e923742b7010530ff4a43ace67738135d4",
+        "traceback_location": "verify_prefreeze.py:800"
+      },
+      "impact": "verify_static.py exits 1 under the exact interpreter bound by Runtime V5, so the frozen static PASS cannot be accepted",
+      "name": "PINNED_INTERPRETER_AST_DIGEST_MISMATCH",
+      "science_drift_detected": false
+    },
+    {
+      "evidence": {
+        "ambient_cpython_3_13_3_verify_static_exit_codes": [
+          0,
+          0,
+          0
+        ],
+        "ambient_cpython_3_13_3_verify_static_stdout_sha256": "ab94c9fe88476e4c0570bd52aae862fe399b846ff509f03f58cf448cdd2cf2a1",
+        "frozen_STATIC_VERIFICATION_json_sha256": "ddc136b71903cb90e3ea2d3a23c323ff01ed27fdba4bab9dd84b8c2d76f75879",
+        "stdout_byte_identical_to_frozen_json": false
+      },
+      "impact": "even the ambient interpreter that satisfies the version-sensitive AST assertion does not regenerate the checked-in frozen static receipt; no tested interpreter reproduced those bytes",
+      "name": "FROZEN_STATIC_RECEIPT_NOT_THE_CHECKED_IN_VERIFIER_OUTPUT"
+    }
+  ],
+  "package": "public_q24_signed_pair_nested_accuracy_oof_v4",
+  "rehashed_external_roots": {
+    "generation_execution_anchor_sha256": "4c105ab659bd5e749ae15b8d2f82603319a951aa618c80bb709c9ee0ab42fd55",
+    "generation_final_release_sha256": "b6fcb5c57a9890552aa9f277d81cb935d59412264fcb4001927470421520af25",
+    "generation_single_use_capability_consumed_sha256": "301edd86eb5d46fdbcd7238b934565902f6d1129cb907ba6ebbb275503df1004",
+    "independent_incident_root_cause_sha256": "060e7bab3094a7929d246f4bdf5fbe6790ccb3aa9c3b05734395a6376b24cd6c",
+    "oof_v3_independent_review_sha256": "11358f177bdf6f74df16b083565b2ce716656fb9971f3b14311bd6acfa55b309",
+    "oof_v3_package_manifest_sha256": "9879fb61decf05da4d8bbd464392b9afac8c4c47d8eda8a3cd517fa245f29eae",
+    "oof_v3_preregistration_sha256": "c63d14027ef5e036a27126eef6570a6ca036d687ebd85f2ae307ccca7048d270",
+    "runtime_v4_exclusive_claim_sha256": "d690aa5b42dd0bca12705795004640413368a4384bce467bad2a16c6560fd2b7",
+    "runtime_v4_terminal_failure_sha256": "fbac37a97c64983fbc56627b67fdebb59dca07d0f43f3762798495022ed74dae",
+    "runtime_v5_flopscope_reset_verification_sha256": "9253d354914da94d193dadd43e118ef7b6afaa9a2b11769c8d599cbfd62b26af",
+    "runtime_v5_independent_review_sha256": "26af3b9cf9cb4320b9dfff1917723655ee7ba4046dc99a302fcd2f1608cb2f8e",
+    "runtime_v5_package_manifest_sha256": "6307642b0ebe6397e9ffb7c5d163fe29970b5644fb39f76a240fe59afbd4935d",
+    "source_authority_review_sha256": "cff0066295f7b432868719e9ad274ef4a47dc0356889376df461ce3993551fef",
+    "source_authority_sha256": "fe74c7264767fda21c566e2cd993e96c5a61b2e5c5332734a8dbfe884b06d785",
+    "v4_terminal_successor_record_sha256": "4dcaa9865195caab75d8c6217ea51b94a27cc3c008c65212bed47d3b4293f42a"
+  },
+  "replay": {
+    "ambient_diagnostic_interpreter": {
+      "ast_dump_science_sha256": "2272d4e4dd3f225b41984f075fede69c194a3fde1e88b3692312bce8b49168ea",
+      "interpreter": "/opt/homebrew/bin/python3",
+      "interpreter_sha256": "b466cd87f0ecc035de0bb2d6d0addd867ff69508668f84e95b019d40850a73b8",
+      "resolved_version": "Python 3.13.3",
+      "verify_static": {
+        "exit_codes": [
+          0,
+          0,
+          0
+        ],
+        "frozen_json_sha256": "ddc136b71903cb90e3ea2d3a23c323ff01ed27fdba4bab9dd84b8c2d76f75879",
+        "runs": 3,
+        "stdout_byte_identical_to_frozen_json": false,
+        "stdout_sha256": "ab94c9fe88476e4c0570bd52aae862fe399b846ff509f03f58cf448cdd2cf2a1"
+      }
+    },
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "interpreter": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+      "invocation_symlink_target": "/Users/matt/anaconda3/bin/python3.11",
+      "package_pycache_absent_after_replay": true,
+      "resolved_interpreter_sha256": "6116d7bcb852d61f4384daa1c43488771e6794636d959f2a7065b54c92a070a1",
+      "resolved_version": "Python 3.11.5"
+    },
+    "verify_freeze": {
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "frozen_json_sha256": "c863794a3ae338aa4b28e422c7f751391dc9b37b18784f960c40550491124e11",
+      "runs": 3,
+      "stdout_byte_identical_to_frozen_json": true,
+      "stdout_sha256": "c863794a3ae338aa4b28e422c7f751391dc9b37b18784f960c40550491124e11",
+      "verdict": "PASS_EXACT_BYTE_FREEZE_REPLAY"
+    },
+    "verify_static": {
+      "error": "AssertionError: raw_science_ast_sha256 does not equal the hard-coded Python-3.13-derived digest",
+      "exit_codes": [
+        1,
+        1,
+        1
+      ],
+      "frozen_json_sha256": "ddc136b71903cb90e3ea2d3a23c323ff01ed27fdba4bab9dd84b8c2d76f75879",
+      "observed_ast_dump_science_sha256": "c7699a5a29f566b2e8b2efa588befd089a764121ba424587f200675233731133",
+      "runs": 3,
+      "stdout_byte_identical_to_frozen_json": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "traceback_location": "verify_prefreeze.py:800",
+      "verdict": "FAIL_PINNED_INTERPRETER_STATIC_REPLAY"
+    }
+  },
+  "review_scope": {
+    "actual_bank_file_bytes_opened": 0,
+    "actual_feature_or_row_manifest_bytes_opened": 0,
+    "actual_public_row_or_weight_values_opened": 0,
+    "actual_raw_statistics_opened": 0,
+    "actual_target_bundle_bytes_opened": 0,
+    "actual_target_values_decoded": 0,
+    "claims_or_capabilities_created": 0,
+    "deployment_package_board_or_submission": false,
+    "estimator_or_training_executions": 0,
+    "frozen_package_artifacts_modified": false,
+    "network": false,
+    "numerical_modules_imported": false,
+    "review_method": "read-only source and control-receipt audit, exact SHA256 rehash, three pinned-interpreter verifier replays, independent cross-version AST and source-segment comparison, null-gate inspection, and frozen synthetic stdlib-only fixtures",
+    "staging_payload_entries_opened": 0,
+    "synthetic_receipt_rows_constructed": 688,
+    "v4_terminal_staging_metadata_only_lstat_without_descent": true,
+    "workspace_mutation": "only this external independent HOLD receipt was added"
+  },
+  "reviewed_frozen_sha256": {
+    "BANK_SOURCE_AUTHORITY_CONTRACT.json": "028f49e89b8e78efccb69cd57a84e48a6457348942ad065e1a5910c6bc0a3aca",
+    "DESIGN.md": "45d7e65d7b22e4cb1ba44e81e6aaf708152696ba87b4f164f891e2b5f6388ed9",
+    "EXECUTION_ANCHOR_REVIEW_SCAFFOLD.json": "36334025e5dc6da8aa5a6d75b84be7a7f4ac3740673be9e7c74d6e19fbde48f1",
+    "EXECUTION_ANCHOR_SCAFFOLD.json": "e352680808644738d9333f87acad694fd4514b2d59a8373ca2163666871fb814",
+    "EXECUTION_RELEASE_SCAFFOLD.json": "48fa5f643e37f993cb804af21a941657f52e6f9743fdbb91774c53cdfeb5f2a2",
+    "FREEZE_RECEIPT.json": "02856338c53b4b8f0ff90048653667530dac8f5bedd15302aa66faca417246e1",
+    "FREEZE_VERIFICATION.json": "c863794a3ae338aa4b28e422c7f751391dc9b37b18784f960c40550491124e11",
+    "INDEPENDENT_REVIEW_REQUEST.md": "276618dc492ba93d3aa99d25003d0fbe65d72dac9e154971f80c6e788c1c986e",
+    "PACKAGE_MANIFEST.json": "d09398a79e43210ecf76ad307e3c91e89c23a1c8e10ac69c5c178ffed0cdd109",
+    "POST_GENERATION_SEAL_CONTRACT.json": "72f2fbc3d6ab44ac25427aa725fe1a164f8611a829e4c8be61efa8dc51913930",
+    "PREFREEZE_README.md": "187fd022134d4c57c695122ee61d1e5d0170abc01b9561f1a98832c55732ad12",
+    "PREREGISTRATION.json": "e96769b719665dbfb61a450b13cd222b22d3223698737da4cbeab7caf8291ba7",
+    "STATIC_VERIFICATION.json": "ddc136b71903cb90e3ea2d3a23c323ff01ed27fdba4bab9dd84b8c2d76f75879",
+    "TARGET_CAPABILITY_SCAFFOLD.json": "5af3a25291a467e28d8ddf3e4b7906c518938ad0324f0a2ca41d47e2bbed92cc",
+    "V5_BINDINGS_HOLD.json": "f93d6cd16d463090a5b04a3874a3e0d4841920f40f3556e260a5f65866180cf4",
+    "adversarial_fixtures.py": "200ec201ba8a14f056bddb21a0fbc3c72026bff7657268e38f3c65d2fdb91bb3",
+    "nested_accuracy_runner.py": "e963246f4980d1e90e7192cdc9892cc3cd0ebd8a7dc181580d375c2b875e7198",
+    "post_generation_sealer.py": "e9b70c1777fbc54c474621c7107acc4ef15d691a63b6ad0085f545e572086290",
+    "v5_provenance_fixtures.py": "eb52c54080c14356c571b87bd859e1a25d4c73fcd199369e21af29e2ef82d6b4",
+    "verify_freeze.py": "71ddd2dbc1089fa94ac403f9a15175715564669ca7cbb3db08e2ea948527fe1e",
+    "verify_prefreeze.py": "920a78012c76b23438e3f0187644aadcdfd174f808353d536e9f27588dd05d00",
+    "verify_static.py": "c68c1bd896b9b9767153264c53c0045738a4deb98a2c987bca0e03520c9f9d5a"
+  },
+  "schema": "public-q24-signed-pair-nested-accuracy-independent-static-review-v4",
+  "science_identity": {
+    "candidate_H_every_inner_program": [
+      16,
+      64,
+      256
+    ],
+    "cpu_authority": true,
+    "mps_authorized": false,
+    "mps_successor_requirement": "exact parity of selections, predictions, metrics, and fitted-state hashes",
+    "novelty_or_resource_diagnostic_can_veto": false,
+    "primary_raw_gate_strictly_below": 1.2425668176231516e-8,
+    "source_segment_byte_length": 10555,
+    "source_segment_sha256_equal_v3_v4": "a889d4353b3c6471e1b9382c4f4886e923742b7010530ff4a43ace67738135d4",
+    "structural_ast_equal_v3_v4_cpython_3_11_5": true,
+    "structural_ast_equal_v3_v4_cpython_3_13_3": true,
+    "v3_runner_sha256": "65615d4c69e41de7547cc29ff3537f3b48f2cca478b81f758fed4189bf49d6a0",
+    "v4_runner_sha256": "e963246f4980d1e90e7192cdc9892cc3cd0ebd8a7dc181580d375c2b875e7198"
+  },
+  "status": "HOLD_STATIC_VERIFIER_NOT_REPRODUCIBLE_UNDER_PINNED_INTERPRETER__NO_EXECUTION_AUTHORITY",
+  "summary": "The frozen OOF V4 artifact inventory and freeze receipt are byte-consistent, all requested Runtime V5/reset/incident/terminal/live-source roots rehash exactly, the provenance gates remain fail closed with every post-generation root null, the frozen V3 and V4 science function source bytes are identical, CPU remains authoritative, MPS remains held, and resource or novelty diagnostics cannot veto accuracy. Static GO is nevertheless refused: verify_static.py fails three times under the bound CPython 3.11.5 because its ast.dump digest was frozen from Python 3.13.3, and even Python 3.13.3 emits verifier stdout SHA ab94c9... rather than the frozen STATIC_VERIFICATION SHA ddc136.... A refrozen, pinned-interpreter-reproducible successor is required before any OOF authority can be issued."
+}

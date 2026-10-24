@@ -1,0 +1,38 @@
+{
+  "schema": "fb-ec4-v4-rejected-cap-strided-cp-scratch-v1",
+  "status": "REJECTED__DO_NOT_METER_FREEZE_OR_SUBMIT",
+  "date": "2026-08-24",
+  "snapshot": {
+    "path": "estimator_e76351b4f6565fce084d3024ad3c82d350bcd23f85dfb2d531a0b7231bd92ad2.py",
+    "bytes": 68539,
+    "sha256": "e76351b4f6565fce084d3024ad3c82d350bcd23f85dfb2d531a0b7231bd92ad2"
+  },
+  "failed_gate": {
+    "helper": "_cp_k3",
+    "width": 32,
+    "rank": 513,
+    "max_absolute_difference": 0.000030517578125,
+    "reference": "immutable 521/V3 compact product temporary",
+    "candidate": "persistent product scratch sliced from a (width, CP3_CAP) allocation",
+    "cause": "the active scratch view retained a CP3_CAP row stride; the final matrix-vector product therefore changed floating-point association relative to the compact temporary"
+  },
+  "chronology": [
+    "author HOLD initially passed the four fixed width-8 depth-16 fixtures, reset poison gates, and limited strided-matmul checks",
+    "independent strict audit issued a provisional target-free-meter verdict",
+    "a later random-rank n32/r513 gate exposed the K3 mismatch",
+    "the provisional verdict was immediately revoked before preregistration or meter launch"
+  ],
+  "repair_requirement": {
+    "product_scratch_layout": "allocate each scratch as flat (width * CP3_CAP,) storage",
+    "active_view": "scratch[:width * rank].reshape(width, rank)",
+    "reason": "the active matrix must be compact with row stride rank, matching the frozen temporary used by V3/521",
+    "required_regression": "bytewise CP-read/K3 rank sweep including n32/r513 and production-like ranks, followed by all four depth-16 fixtures and poison/alias gates"
+  },
+  "authority": {
+    "literal_meter_launched": false,
+    "targets_or_dataset_accessed": false,
+    "accuracy_or_mse_claimed": false,
+    "submission_authorized": false,
+    "problem_graph_mutated_here": false
+  }
+}

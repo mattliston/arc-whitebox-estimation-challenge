@@ -1,0 +1,72 @@
+{
+  "schema": "fb-ec4-q24-manual-rho-hybrid-near-floor-freeze-v1",
+  "status": "FROZEN_STATIC_PACKAGE_AND_PUBLIC_WITNESS_PASS__LITERAL_METER_NOT_RUN",
+  "frozen_at_utc": "2026-08-24T19:15:36Z",
+  "candidate": {
+    "path": "estimator.py",
+    "bytes": 69152,
+    "sha256": "96a19116bee4a85f14f826c0a1634fe93bf39a21d78100eb46cd7f31add1e52b"
+  },
+  "parent": {
+    "path": "../fullbudget_k21_k4_closure_q24_manual_rho_hybrid_floor_v1/estimator.py",
+    "sha256": "5e0fccfe8569b43aa85f77997c1dd890c5dd1173f114167e6fb50f7e1d85e5b5"
+  },
+  "intervention": {
+    "executable_diff_exact": "variance == _VAR_FLOOR -> variance <= 2.0 * _VAR_FLOOR",
+    "other_executable_diffs": 0,
+    "trigger": "any(variance <= 2.0 * _VAR_FLOOR)",
+    "raw_branch": "raw-covariance diagonal loading followed by congruence rescaling",
+    "ordinary_branch": "parent correlation-gauge eigenspectrum repair, byte unchanged"
+  },
+  "root_cause": {
+    "rank_55_requested_min_variance": 1.0000000000000003e-30,
+    "rank_55_parent_max_abs_repair": 0.00249167098660108,
+    "rank_71_requested_min_variance": 1.0000000000000008e-30,
+    "rank_71_parent_max_abs_repair": 0.008121398313472243,
+    "rank_106_requested_min_variance": 1.0000000000000004e-30,
+    "rank_106_parent_max_abs_repair": 0.010735367118163627,
+    "finding": "The hard-floor values were a few float64 ulps above the literal, so exact equality selected the ill-conditioned correlation normalization and amplified a tiny raw defect to milliscale."
+  },
+  "public_witnesses": [
+    {"role_rank": 0, "mlp_id": 383, "final_mse": 8.212919978878634e-08, "flops": 2131280829383, "parent_output_bytes_equal": true, "result_sha256": "6357d709a438d47455b346faac97380412a5dc00ff37728d7cab069b13f6598d"},
+    {"role_rank": 1, "mlp_id": 778, "final_mse": 8.153671237511408e-08, "flops": 2131280829383, "parent_output_bytes_equal": true, "result_sha256": "0e998a31df3c48ea2481e037cd1f92e0436cd9b8b631441ad219d7b100d1bb76"},
+    {"role_rank": 6, "mlp_id": 542, "final_mse": 8.146788543658644e-08, "flops": 2122674117583, "parent_output_bytes_equal": true, "result_sha256": "96ed929a6396dcf83d7a8ed09ca60fafc66543d19fbaa92ae532d836791af63d"},
+    {"role_rank": 7, "mlp_id": 759, "final_mse": 9.650439518288723e-08, "flops": 2118370761683, "parent_output_bytes_equal": true, "result_sha256": "5bcc073fb38b41ee215947a0bd371a010699a44fb2a84c13cecf46766528c404"},
+    {"role_rank": 34, "mlp_id": 663, "final_mse": 1.0788731593485305e-07, "flops": 2118370761683, "parent_output_bytes_equal": true, "result_sha256": "e6a7af4b584698c02dfd8cd5e82af624e6345abd4d83cb0dd3d4cb165f0b5690"},
+    {"role_rank": 55, "mlp_id": 247, "parent_final_mse": 7.8253356260761e-07, "final_mse": 9.026070978748427e-08, "flops": 2126977473483, "result_sha256": "d9f47aa46bdfbfc4230f571218f55da1fc4e845f7b9d8e6fe75cface5c34dcbe"},
+    {"role_rank": 71, "mlp_id": 87, "parent_final_mse": 9.667412401836157e-06, "final_mse": 9.729337028040185e-08, "flops": 2122674117583, "result_sha256": "a8abe075a85310988505e2fe4b5517241c7661eeec86f94a7344e1e1573c051b"},
+    {"role_rank": 106, "mlp_id": 397, "parent_final_mse": 0.00033922366657522865, "final_mse": 8.677724452114827e-08, "flops": 2122674117583, "result_sha256": "e4f00b0983a515d2052c68d867fda48a2e5539c15c085fcf30c618d766cb5cde"}
+  ],
+  "price": {
+    "phase2_budget": 2199023255552,
+    "exact_formula": "flops = 2131280829383 - t * 4303355900; 0 <= t <= 14",
+    "zero_trigger_flops": 2131280829383,
+    "zero_trigger_headroom": 67742426169,
+    "raw_branch_delta_per_trigger": -4303355900,
+    "manual_rho_global_raw_fallback_projected_flops": 2071033803789
+  },
+  "static_validation": {
+    "script": "verify_tiny.py",
+    "script_sha256": "c97b07366df1450a86cc791067849fb59eaab168444ba2dea75b05217b65e9f2",
+    "status": "PASS",
+    "source_diff_exactly_docstring_and_trigger": true,
+    "healthy_path_parent_bytes_equal": true,
+    "exact_floor_rank55_rank71_and_two_x_paths_global_raw_bytes_equal": true,
+    "above_two_x_path_parent_bytes_equal": true
+  },
+  "package": {
+    "path": "submissions/fb-ec4-q24-rho-nearfloor-v1-96a19116.tar.gz",
+    "bytes": 17035,
+    "sha256": "5681a419cb44474501fa0610c77360e4da7e947041692069b2762656dc00a271",
+    "members_exact": ["estimator.py", "manifest.json"],
+    "embedded_estimator_sha256": "96a19116bee4a85f14f826c0a1634fe93bf39a21d78100eb46cd7f31add1e52b",
+    "embedded_manifest_sha256": "30a1e01cb86e89436f0e0ba56ad337584b8ef7906ef69ec7bbe5caa1a3d36697",
+    "whest_validate_package": "PASS"
+  },
+  "scope": {
+    "observer_fit_public_rows_scored": 8,
+    "public_names_joined": 0,
+    "literal_meter_runs": 0,
+    "submissions": 0
+  }
+}

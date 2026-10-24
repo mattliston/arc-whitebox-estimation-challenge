@@ -1,0 +1,51 @@
+# Runtime repair: retain cap decisions, use the existing parent for every peel
+# product, and spend the removed read-peel setup work on the next 64 keys of
+# the unchanged historical fusion list. No new numerical owner or layout.
+_RF192_PARENT_TAKE = _peel_take
+_RF192_STATS = dict(fallbacks=0, setup_keys=0, setup_runs=0)
+def _peel_take(kind, key):
+    accepted = _RF192_PARENT_TAKE(kind, key)
+    if accepted:
+        _RF192_STATS['fallbacks'] += 1
+    return False
+
+# Replace the existing dead-plan setup wrapper, rather than nesting it.
+# The enclosing alias-retention facade and setup-GC lifecycle stay in force.
+_RF192_PARENT_INNER_BIND = _DPS_PARENT_BIND_V1
+_RF192_PREFIX = 192
+
+def _rf192_bind(t0):
+    global _PEEL_PUSH_PLANS, _PEEL_READ_PLANS, _SMX_FAMILIES
+    saved_push, saved_read, saved_families = _PEEL_PUSH_PLANS, _PEEL_READ_PLANS, _SMX_FAMILIES
+    live = {plan[1] for plan in _SM12_PLANS.values()}
+    assert live.issubset(saved_families)
+    _PEEL_PUSH_PLANS, _PEEL_READ_PLANS = {}, {}
+    _SMX_FAMILIES = {name:family for name,family in saved_families.items() if name in live}
+    try:
+        result = _RF192_PARENT_INNER_BIND(t0)
+        if _SCRATCH is not None:
+            # Preserve the original packed-vs-boxed class. In particular, do
+            # not mark any new key as setup-packed through _LB_SETUP.
+            saved_lb, saved_eager = _LB_SETUP[0], _LVF_EAGER[0]
+            _LB_SETUP[0], _LVF_EAGER[0] = False, True
+            try:
+                for kind,L,rows,cols in _PB_SINGLE[128:_RF192_PREFIX]:
+                    entry = _ipt_side(kind,L,rows,cols)
+                    assert entry[3] is not None
+                    slot = entry[2]
+                    if type(slot) is list and slot[1] is None:
+                        _l3o_pairs(slot,L) if kind == 2 else _l3_quad(slot,kind,L)
+                    _RF192_STATS['setup_keys'] += 1
+            finally:
+                _LB_SETUP[0], _LVF_EAGER[0] = saved_lb, saved_eager
+            # Keep the original hot prefix at the recent end of the cache.
+            for kind,L,rows,cols in reversed(_PB_SINGLE[:_RF192_PREFIX]):
+                cache = (_IPT_A,_IPT_B,_IPT_C)[kind]
+                if (L,rows,cols) in cache:
+                    cache.touch((L,rows,cols))
+        _RF192_STATS['setup_runs'] += 1
+        return result
+    finally:
+        _PEEL_PUSH_PLANS, _PEEL_READ_PLANS, _SMX_FAMILIES = saved_push, saved_read, saved_families
+
+_ASH_PARENT_BIND = _rf192_bind

@@ -1,0 +1,223 @@
+{
+ "all_passed": true,
+ "python": "/Users/matt/anaconda3/bin/python",
+ "results": {
+  "T1_transient_failures_survive": {
+   "passed": true,
+   "error": null,
+   "exit_code": 0,
+   "completed": true,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 13,
+   "failed_readings": 5,
+   "tolerated": [
+    [
+     5.706,
+     1,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     9.795,
+     2,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     13.837,
+     3,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     18.836,
+     1,
+     "CalledProcessError(1, ['/usr/sbin/sysctl', '-n', 'vm.swapusa"
+    ],
+    [
+     22.25,
+     1,
+     "AttributeError(\"'NoneType' object has no attribute 'group'\")"
+    ]
+   ],
+   "max_rss_mb": 15,
+   "max_footprint_mb": 11,
+   "wall_s": 30.9,
+   "injected_calls": {
+    "ps": 19,
+    "sysctl": 16
+   }
+  },
+  "T2_persistent_failure_retires_after_30s": {
+   "passed": true,
+   "error": "RuntimeError('monitor failure: 9 consecutive failed readings over 32.6 s')",
+   "exit_code": -15,
+   "completed": false,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 2,
+   "failed_readings": 9,
+   "tolerated": [
+    [
+     5.753,
+     1,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     9.832,
+     2,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     14.035,
+     3,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     18.138,
+     4,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     22.185,
+     5,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     26.229,
+     6,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     30.271,
+     7,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     34.306,
+     8,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ],
+    [
+     38.358,
+     9,
+     "TimeoutExpired(['/bin/ps', '-axo', 'pid=,pgid=,rss='], 3)"
+    ]
+   ],
+   "max_rss_mb": 14,
+   "max_footprint_mb": 10,
+   "wall_s": 41.5,
+   "injected_calls": {
+    "ps": 12,
+    "sysctl": 3
+   }
+  },
+  "T3_real_rss_breach_with_failures_retires": {
+   "passed": true,
+   "error": "RuntimeError('RSS backstop')",
+   "exit_code": -15,
+   "completed": false,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 2,
+   "failed_readings": 1,
+   "tolerated": [
+    [
+     1.143,
+     1,
+     "CalledProcessError(1, ['/bin/ps', '-axo', 'pid=,pgid=,rss=']"
+    ]
+   ],
+   "max_rss_mb": 411,
+   "max_footprint_mb": 408,
+   "wall_s": 2.8,
+   "injected_calls": {
+    "ps": 4,
+    "sysctl": 3
+   }
+  },
+  "T4_real_footprint_breach_retires": {
+   "passed": true,
+   "error": "RuntimeError('footprint trigger')",
+   "exit_code": -15,
+   "completed": false,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 1,
+   "failed_readings": 0,
+   "tolerated": [],
+   "max_rss_mb": 43,
+   "max_footprint_mb": 331,
+   "wall_s": 0.8,
+   "injected_calls": {
+    "ps": 2,
+    "sysctl": 2
+   }
+  },
+  "T5_wall_limit_while_ps_fails": {
+   "passed": true,
+   "error": "RuntimeError('Wall-time limit')",
+   "exit_code": -15,
+   "completed": false,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 0,
+   "failed_readings": 6,
+   "tolerated": [
+    [
+     0.3,
+     1,
+     "CalledProcessError(1, ['/bin/ps', '-axo', 'pid=,pgid=,rss=']"
+    ],
+    [
+     1.304,
+     2,
+     "CalledProcessError(1, ['/bin/ps', '-axo', 'pid=,pgid=,rss=']"
+    ],
+    [
+     2.311,
+     3,
+     "CalledProcessError(1, ['/bin/ps', '-axo', 'pid=,pgid=,rss=']"
+    ],
+    [
+     3.312,
+     4,
+     "CalledProcessError(1, ['/bin/ps', '-axo', 'pid=,pgid=,rss=']"
+    ],
+    [
+     4.314,
+     5,
+     "CalledProcessError(1, ['/bin/ps', '-axo', 'pid=,pgid=,rss=']"
+    ],
+    [
+     5.328,
+     6,
+     "CalledProcessError(1, ['/bin/ps', '-axo', 'pid=,pgid=,rss=']"
+    ]
+   ],
+   "max_rss_mb": 0,
+   "max_footprint_mb": 0,
+   "wall_s": 6.5,
+   "injected_calls": {
+    "ps": 7,
+    "sysctl": 1
+   }
+  },
+  "T6_control_one_reading_a_second": {
+   "passed": true,
+   "error": null,
+   "exit_code": 0,
+   "completed": true,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 5,
+   "failed_readings": 0,
+   "tolerated": [],
+   "max_rss_mb": 14,
+   "max_footprint_mb": 10,
+   "wall_s": 5.7,
+   "injected_calls": {
+    "ps": 6,
+    "sysctl": 6
+   }
+  }
+ }
+}

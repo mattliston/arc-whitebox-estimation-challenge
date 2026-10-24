@@ -1,0 +1,24 @@
+
+
+# BEGIN OPUS-RELEASE FRAGMENT cb_lazy_v2 (2026-10-16; append LAST, after compactB): setup trim, byte-exact predictions.
+# compactB's five compact B width frames are no longer built at setup (-95 setup requests). The first kind-1 side that needs ANY
+# compact width (never a setup hot prebind: those use full family widths) builds all five, from the same arena with the same
+# function, so every frame, view and product is identical. Cost moves to each process's first such network: +95 requests and the
+# frames' view FLOPs (about 808M, previously off-budget at setup); later networks are unchanged (frames persist; only setup's
+# _astra_sm40_clear resets them).
+_OPUS_CB_ORDER = tuple(_ASTRA_SM40_COMPACT_B_WIDTHS)
+_OPUS_CB_LAZY = frozenset(_OPUS_CB_ORDER)
+_ASTRA_SM40_COMPACT_B_WIDTHS = ()
+_OPUS_CB_PARENT_SIDE = _AstraSm40Kernel.side
+_OPUS_CB_STATS = dict(lazy_bind_events=0)
+def _opus_cb_side(self, kind, L, P, rows, cols):
+    if kind == 1:
+        M = self.M
+        if (self.family[0], cols // (1 << L)) in _OPUS_CB_LAZY and not M._sm40_compact_b and M._sm40_owner is not None:
+            for name, width in _OPUS_CB_ORDER:
+                family = next(f for f in _ASTRA_SM40_FAMILIES if f[0] == name)
+                M._sm40_compact_b[name, width] = _astra_sm40_bind_compact_b(M.fnp, M, M._sm40_owner, family, width)
+            _OPUS_CB_STATS['lazy_bind_events'] += 1
+    return _OPUS_CB_PARENT_SIDE(self, kind, L, P, rows, cols)
+_AstraSm40Kernel.side = _opus_cb_side
+# END OPUS-RELEASE FRAGMENT cb_lazy_v2

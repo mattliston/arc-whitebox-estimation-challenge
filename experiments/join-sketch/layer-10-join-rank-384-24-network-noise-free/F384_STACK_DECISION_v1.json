@@ -1,0 +1,44 @@
+{
+  "lane": "opus-f384",
+  "decision": "DROP Full384 from next-fire stack (lead rule: request-neutral vs 2b108 AND worst wall<=109.6 s with compactB)",
+  "S1": {
+    "sha256": "ca337b186b2be6fd4a22ec7d68a8e469d7f98b87ca6b1d3d09a34563ed9c54eb",
+    "content": "2b108 + Full384 e33563bc hunks + compactB 9288d12b hunks; byte-identical to Full384 on 7103248",
+    "official120": {
+      "p_loss_pct": 22.44,
+      "first": 48747,
+      "warm": 46446,
+      "worst_wall_s": 106.2,
+      "mean_wall_s": 98.5,
+      "setup_s": 4.461,
+      "slow_setup_s": 4.611,
+      "slow_setup_gate": "FAIL (limit 4.6)"
+    },
+    "ops_vs_2b108_7103248": 354,
+    "bill_vs_2b108_pct": 1.601
+  },
+  "repairs_tested_7103248": {
+    "full384": {
+      "ops": 354,
+      "bill_pct": 1.601
+    },
+    "request_prices_restored_5ee0b0e9": {
+      "ops": 382,
+      "bill_pct": 1.97
+    },
+    "all_prices_restored_a48c91d4": {
+      "ops": 789,
+      "bill_pct": 2.192
+    },
+    "half_request_prices_63921292": {
+      "ops": 341,
+      "bill_pct": 1.712
+    },
+    "region6A_x1p25_84ef18ea": {
+      "ops": 521,
+      "bill_pct": 2.095
+    }
+  },
+  "attribution": "Full384 +354 ops spread over Winograd tree kernels; Smirnov dispatch unchanged. Zero-price planners already pick paths cheaper in both FLOPs and requests.",
+  "compactB_flag": "compactB +95 setup requests pushes 1.3x-slow setup projection to 4.611 s (>4.6) on S1; 2b108 slow was 4.585 s, so 2b108+compactB likely ~4.61 s too"
+}

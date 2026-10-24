@@ -1,0 +1,107 @@
+{
+  "status": "HELD_EXACT_SOURCE_AND_TINY_READY_NO_NATIVE_GRANT",
+  "utc_from_date_u": "2026-10-14T00:46:09Z",
+  "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/s56k1tw_x/candidate.py",
+  "parent_sha256": "e7d85276a625611d098b305c59e5e527d9d0df7941b67044bc0928e97eb47141",
+  "pins": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_t22_reuse_v1/SOURCE_MANIFEST_v3.json": "15c668d4d3c42c1bf063ad6f1ddb9a245e778a2317aa5d92a777e3dea5215b51",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_t22_reuse_v1/fragment_gaussian_t22_reuse_UNVALIDATED_v3.py": "b49f488cad72b2d60d6ec775b25f8bce1dd5951112a44877f1d8548313221940",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_t22_reuse_v1/baseline_psp_series_v1.py": "bc96f4d65f5de6793d8b92a4296bd84e5b3704eb80dabff49374d8ccc0e79da6",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_t22_reuse_v1/baseline_rqd_get_v1.py": "5e7d33aea46d6663a501078d1f2055700c2a6099683deec501e7e8a88c500360",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_t22_reuse_v1/tiny_alias_counter_v5.py": "0723cd194a3cc0975309cd29d1c4704d5772c26018c72ad7fc37594b67ff0bdb",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_t22_reuse_v1/TINY_ALIAS_COUNTER_RECEIPT_v5.json": "7000a8ba7f71ff60cedf47d7a1c27aa1f049b595fc9c1a504db4bb899aa1c1a1",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_t22_reuse_v1/TINY_ACCOUNTING_FAILURE_v1.json": "e66035befa2254298f7623b2c32bf1b5b538c9b43ed16748cd6eb6f97356391d",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_gaussian_t22_reuse_v1/TINY_ALIAS_COUNTER_DIAGNOSTIC_v3.json": "65c8a5bdce3052d85da70e7f3ae5fe7cb441f66cc6f465928f10f95b429a3384"
+  },
+  "independent_tail_source_exact": true,
+  "original_RQD_calls_exact": true,
+  "new_global_array_or_context_references": false,
+  "active_reachability": "Both products are unconditional in active packed _psp_series Gaussian and mixed T22, regardless of HC column choice.",
+  "source_math": "Raw rounded float32 F2G2 and F3G3 are identical repeated operands. Store once in X2[2]; multiply by original Gaussian P2/P3 into original X1[1:3], preserve three-order sum. Later original X2 RR1 multiplication/two-order sum uses untouched raw products. All mixed/local terms, divisions and final ordered5 sum source-identical.",
+  "alias_proof": {
+    "BA_units": "nn=n*n elements",
+    "BA_X1_occupied_half_open_nn": [
+      [
+        1,
+        2
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "BA_raw_X2_row2_occupied_half_open_nn": [
+      [
+        13,
+        14
+      ],
+      [
+        16,
+        17
+      ]
+    ],
+    "packed_units": "q=36*(n/8)^2, Q=2q",
+    "packed_X1_half_open_q": [
+      0,
+      6
+    ],
+    "packed_raw_X2_row2_half_open_q": [
+      8,
+      12
+    ],
+    "packed_Z_starts_nn": 12,
+    "packed_X2_full_end_nn": 11.25,
+    "lifetime": "Gaussian Z0 written before X2 remaining rows overwrite X1. T reduction completes before overlapping X3 writes. No raw product/derived value is cached across calls."
+  },
+  "tiny_evidence": {
+    "cases": 96,
+    "layouts": "actual BA and packed shared scratch",
+    "sizes": [
+      16,
+      32,
+      64
+    ],
+    "persistent_flags": [
+      false,
+      true
+    ],
+    "same_owners_changed_content": true,
+    "replacement_owners": true,
+    "signed_zero_and_subnormal": true,
+    "all_Gaussian_Z_T_U_final_bytes_exact": true,
+    "input_immutability": true,
+    "no_op_cold_warm_bill_ops_exact": true,
+    "RQD_entry_counts_unchanged": true,
+    "counter_exact": true
+  },
+  "tariff": {
+    "per_call": "2Q+16H",
+    "dense_products_saved": 2,
+    "advanced_gather_elements_saved": "4H at4 FLOPs/element",
+    "extra_charged_ops_per_call": 5,
+    "Q_per_full_layer": 2228224,
+    "H_per_full_layer": 10240,
+    "projected_layers": 14,
+    "projected_flop_credit": 64684032,
+    "projected_extra_charged_ops": 140,
+    "current_native_credit_measured": false
+  },
+  "separate_scope": {
+    "standalone_fragment": true,
+    "E31_composition_requires_embedded_kernel": true,
+    "append_after_E31_would_be_bypassed": true,
+    "combined_credit_must_be_measured": true,
+    "no_independent_native_qualification_plan_or_slot": true
+  },
+  "remaining": [
+    "Independent source/tiny peer.",
+    "Exact current-parent native no-op and fixed paired seeds with all16 bytes/MSE and full bill counter.",
+    "Whole native setup/cache/context/ownership/guard retirement.",
+    "Any final combined source must retain prior certifiedcompute and own census/prebind/production/seal gates."
+  ],
+  "prior_failure": "Initial counter4H undercounted gather tariff4. Preserved failure and diagnostic; v2 only corrected counter16H. v3 replaced new cached basic slices with free call-local views; original RQD sites unchanged."
+}

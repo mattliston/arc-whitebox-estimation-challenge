@@ -1,0 +1,70 @@
+{
+  "status": "OFFLINE_FIXED_RANK128_ORACLE",
+  "rows": [
+    {
+      "next_layer": 13,
+      "rank": 128,
+      "trace": 88.77520513697945,
+      "minimum_eigenvalue": -8.648184623067548e-07,
+      "residual_diagonal_min": -8.645288625203792e-07,
+      "exact_diagonal_max_abs": 3.469446951953614e-18,
+      "offdiag_relative_Frobenius": 0.05522818015225645,
+      "next_covariance_relative_Frobenius": 0.04880263520924736,
+      "next_variance_relative_rms": 0.009239353768336381,
+      "next_variance_relative_mean": -3.081199885450036e-05,
+      "next_variance_relative_max_abs": 0.04528820023902236,
+      "gaussian_mean_linear_disturbance_mse": 1.268187456791288e-07,
+      "gaussian_mean_linear_disturbance_rms": 0.00035611619687839083,
+      "post_mu_rms": 0.8669069635987646,
+      "predicted_next_mean_rms": 1.2605007418524221
+    },
+    {
+      "next_layer": 14,
+      "rank": 128,
+      "trace": 81.98284664020287,
+      "minimum_eigenvalue": -1.1264259426254102e-06,
+      "residual_diagonal_min": -1.1255340100549546e-06,
+      "exact_diagonal_max_abs": 1.734723475976807e-18,
+      "offdiag_relative_Frobenius": 0.048020789692258564,
+      "next_covariance_relative_Frobenius": 0.04204468994852892,
+      "next_variance_relative_rms": 0.008768681764787423,
+      "next_variance_relative_mean": -0.0003054906116044487,
+      "next_variance_relative_max_abs": 0.03940753996645541,
+      "gaussian_mean_linear_disturbance_mse": 9.627102624829494e-08,
+      "gaussian_mean_linear_disturbance_rms": 0.00031027572616673535,
+      "post_mu_rms": 0.8968536766937395,
+      "predicted_next_mean_rms": 1.3439009819707426
+    },
+    {
+      "next_layer": 15,
+      "rank": 128,
+      "trace": 81.88298144966896,
+      "minimum_eigenvalue": -9.180389324399203e-07,
+      "residual_diagonal_min": -9.058025020478797e-07,
+      "exact_diagonal_max_abs": 1.734723475976807e-18,
+      "offdiag_relative_Frobenius": 0.04086889679472387,
+      "next_covariance_relative_Frobenius": 0.03679600175470823,
+      "next_variance_relative_rms": 0.008072988027322836,
+      "next_variance_relative_mean": -0.00020249850207464782,
+      "next_variance_relative_max_abs": 0.030552940409097784,
+      "gaussian_mean_linear_disturbance_mse": 8.10216969265686e-08,
+      "gaussian_mean_linear_disturbance_rms": 0.00028464310447746423,
+      "post_mu_rms": 1.0075741077920017,
+      "predicted_next_mean_rms": 1.4742661242179858
+    }
+  ],
+  "evidence_sha256": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/sealed_target_blind_feature_store_v3/rows/observer_fit/0016/weights.npy": "d619752852ebb9d6b80c33d4a693eecef4e2feb731b176b236b051433ab8e72b",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t128_cdump/t128_C_16_L13.npz": "5439aa438a445ec58358edff595e96b0c4a57ebe6dd25da83cc1d09c8ecab276",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t128_cdump/t128_C_16_L14.npz": "4183d90acfa08c67f169cecc573ed17d61a638cb81da7fb9277c59a2c7df87a1",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t128_cdump/t128_C_16_L15.npz": "862183608c06d30b86db281ed6748249742250ca9a4044ca2ac0ddc4bf363d64"
+  },
+  "source_sha256": "def7b1c2f63bfe135869d0207f7419837211e9f10754bcddd14df6ea3aa68707",
+  "formula": "C128 = V128 diag(lambda128) V128.T + diag(diag(C)-diag(V128 diag(lambda128) V128.T)); largest absolute eigenvalues, fixed128; exact real-arithmetic old C diagonal",
+  "limits": [
+    "Historical T128 S47e plain Torch carried covariance, not current QR physics.",
+    "Exact spectral oracle is not deployable at its full eigendecomposition price.",
+    "Derivative-weighted mean disturbance is a local Gaussian sensitivity, not measured final MSE or a fit.",
+    "No truth arrays, model calls, captures, parameter sweep or candidate selection."
+  ]
+}

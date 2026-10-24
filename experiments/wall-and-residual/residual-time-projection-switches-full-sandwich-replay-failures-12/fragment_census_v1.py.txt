@@ -1,0 +1,79 @@
+
+
+# BEGIN OPUS-GOVERNOR TEST CENSUS v1 (test copies only, never in a release file): requests (boundary client's counter), flops
+# (context's flops_used) and wall of each top-level call of the predict loop's components and of the learned hooks, by layer.
+import json as _ct_json
+import sys as _ct_sys
+import time as _ct_time
+_CT_PATH = '__CT_PATH__'
+_CT = {}
+_CT_LAYER = [-1]
+_CT_DEPTH = [0]
+_CT_PTS = []
+
+
+def _ct_now():
+    ctx = flops._budget._active_context
+    return _ct_sys.modules['__main__'].count['requests'], ctx.flops_used, _ct_time.perf_counter()
+
+
+def _ct_wrap(name, fn):
+    def w(*args, **kwargs):
+        if _CT_DEPTH[0]:
+            return fn(*args, **kwargs)
+        _CT_DEPTH[0] += 1
+        a = _ct_now()
+        try:
+            return fn(*args, **kwargs)
+        finally:
+            b = _ct_now()
+            _CT_DEPTH[0] -= 1
+            rec = _CT.setdefault((_CT_LAYER[0], name), [0, 0, 0, 0.0])
+            rec[0] += 1
+            rec[1] += b[0] - a[0]
+            rec[2] += b[1] - a[1]
+            rec[3] += b[2] - a[2]
+    return w
+
+
+for _ct_name in ('_deadcut_push', '_np_left', '_dcr_right', '_cp_read_young_sq', '_k4l_local', '_b6_old', '_k4l_dk', '_b6_qb',
+                 '_b6_m2', '_flms_star', 'omitted_radial_source', '_edge_source', '_gq', '_bsk', '_f4c_step', '_bd_update',
+                 '_k4l_birth', '_f4c_birth', '_shared_old384_commit', '_np_update', '_np_forms', '_ott_diagonal', '_gn_dcov',
+                 '_l15_rowcut_k3', '_k4l_final', '_dc_cov_diagonal', 'nonlinear_scalar', '_nonlinear_terminal_live', 'select',
+                 '_hc_put', '_w5_port_end_layer', '_dc_cov_star', '_flms_cov_star', '_resident_gram512', 'nonlinear',
+                 '_nonlinear_first_gaussian', '_ps32', '_ps_pre32', '_idc_get'):
+    globals()[_ct_name] = _ct_wrap(_ct_name, globals()[_ct_name])
+_ASTRA_DENSE_CONTEXT = tuple((name, globals()[name]) for name, _value in _ASTRA_DENSE_CONTEXT)
+_CT_PARENT_BEGIN = _w5_port_begin
+_CT_PARENT_PB = _predict_binary
+_CT_PARENT_PREDICT = Estimator.predict
+
+
+def _w5_port_begin(scope, network, layer, weight, previous):
+    _CT_LAYER[0] = layer
+    _CT_PTS.append([layer] + list(_ct_now()))
+    return _CT_PARENT_BEGIN(scope, network, layer, weight, previous)
+
+
+def _predict_binary(*args, **kwargs):
+    for k in ('hook', 'coefficient_hook', 'final_hook', 'covariance_hook'):
+        if kwargs.get(k) is not None:
+            kwargs[k] = _ct_wrap(k, kwargs[k])
+    return _CT_PARENT_PB(*args, **kwargs)
+
+
+def _ct_predict(self, *args, **kwargs):
+    _CT.clear()
+    del _CT_PTS[:]
+    _CT_LAYER[0] = -1
+    _CT_PTS.append([-1] + list(_ct_now()))
+    try:
+        return _CT_PARENT_PREDICT(self, *args, **kwargs)
+    finally:
+        _CT_PTS.append([16] + list(_ct_now()))
+        with open(_CT_PATH, 'a') as f:
+            f.write(_ct_json.dumps(dict(gov=_GOV, pts=_CT_PTS, rows=[[l, n] + v for (l, n), v in _CT.items()])) + '\n')
+
+
+Estimator.predict = _ct_predict
+# END OPUS-GOVERNOR TEST CENSUS v1

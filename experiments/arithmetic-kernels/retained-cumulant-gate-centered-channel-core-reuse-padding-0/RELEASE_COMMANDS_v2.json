@@ -1,0 +1,281 @@
+{
+  "status": "COMMANDS_PREPARED_NOT_EXECUTED",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py",
+  "candidate_sha256": "13330d6320c764109aaca98a98d3aa5f380c3463d7df079ecfba44d1f0d4f57c",
+  "gate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/final_gate_336935_authorized7_v1.py",
+  "gate_sha256": "5f202787a8b21f0e054bfc64d7ea850e9390728d4560b5411530741b5fcb8c0a",
+  "root": "/Users/matt/arc-white-box-estimation",
+  "authorization": "Root relayed Matt Oct18 shorter-test fire authorization; root owns final fire.",
+  "commands": [
+    {
+      "name": "create qualification directory",
+      "argv": [
+        "mkdir",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1"
+      ],
+      "shell_display": "mkdir /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1",
+      "condition": "Only after seven science clears; directory must be new."
+    },
+    {
+      "name": "freeze own seven",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/final_gate_336935_authorized7_v1.py",
+        "freeze-seven",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/science7_authorized_v1",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/OWN7_BYTE_REFS_v1.json"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/final_gate_336935_authorized7_v1.py freeze-seven /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/science7_authorized_v1 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/OWN7_BYTE_REFS_v1.json",
+      "condition": "Completed clean seven-only science; read-only validation."
+    },
+    {
+      "name": "mkdir normal",
+      "argv": [
+        "mkdir",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal"
+      ],
+      "shell_display": "mkdir /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal",
+      "condition": "Run sequentially; exclusive native slot; stop if preceding runtime screen holds."
+    },
+    {
+      "name": "normal runtime",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py",
+        "--record",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal/GUARD_v1.json",
+        "--seconds",
+        "600",
+        "--footprint-limit",
+        "7500000000",
+        "--rss-backstop",
+        "7500000000",
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/dual_thread_boundary_v3/boundary_run_dual_v3.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py",
+        "35,200",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal",
+        "--setup-slowdown",
+        "1.0"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py --record /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal/GUARD_v1.json --seconds 600 --footprint-limit 7500000000 --rss-backstop 7500000000 /Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/dual_thread_boundary_v3/boundary_run_dual_v3.py /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py 35,200 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal --setup-slowdown 1.0",
+      "condition": "Exclusive SDK; unchanged guard; normal first, assess before later steps.",
+      "env": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      }
+    },
+    {
+      "name": "normal current336935 screen",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/runtime_preliminary_336935_v2.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal",
+        "13330d6320c764109aaca98a98d3aa5f380c3463d7df079ecfba44d1f0d4f57c",
+        "normal",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/normal_PRELIMINARY_v1.json"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/runtime_preliminary_336935_v2.py /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal 13330d6320c764109aaca98a98d3aa5f380c3463d7df079ecfba44d1f0d4f57c normal /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/normal_PRELIMINARY_v1.json",
+      "condition": "Read-only. Runtime decision valid; inherited own32 limitation is superseded only by new final authorized7 gate."
+    },
+    {
+      "name": "mkdir slow13",
+      "argv": [
+        "mkdir",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13"
+      ],
+      "shell_display": "mkdir /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13",
+      "condition": "Run sequentially; exclusive native slot; stop if preceding runtime screen holds."
+    },
+    {
+      "name": "slow13 runtime",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py",
+        "--record",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13/GUARD_v1.json",
+        "--seconds",
+        "600",
+        "--footprint-limit",
+        "7500000000",
+        "--rss-backstop",
+        "7500000000",
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/dual_thread_boundary_v3/boundary_run_dual_v3.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py",
+        "35,200",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13",
+        "--setup-slowdown",
+        "1.3"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py --record /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13/GUARD_v1.json --seconds 600 --footprint-limit 7500000000 --rss-backstop 7500000000 /Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/dual_thread_boundary_v3/boundary_run_dual_v3.py /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py 35,200 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13 --setup-slowdown 1.3",
+      "condition": "Exclusive SDK; unchanged guard; normal first, assess before later steps.",
+      "env": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      }
+    },
+    {
+      "name": "slow13 current336935 screen",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/runtime_preliminary_336935_v2.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13",
+        "13330d6320c764109aaca98a98d3aa5f380c3463d7df079ecfba44d1f0d4f57c",
+        "slow13",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/slow13_PRELIMINARY_v1.json"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/runtime_preliminary_336935_v2.py /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13 13330d6320c764109aaca98a98d3aa5f380c3463d7df079ecfba44d1f0d4f57c slow13 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/slow13_PRELIMINARY_v1.json",
+      "condition": "Read-only. Runtime decision valid; inherited own32 limitation is superseded only by new final authorized7 gate."
+    },
+    {
+      "name": "mkdir cold259",
+      "argv": [
+        "mkdir",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_cold259"
+      ],
+      "shell_display": "mkdir /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_cold259",
+      "condition": "Run sequentially; exclusive native slot; stop if preceding runtime screen holds."
+    },
+    {
+      "name": "cold259 runtime",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py",
+        "--record",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_cold259/GUARD_v1.json",
+        "--seconds",
+        "600",
+        "--footprint-limit",
+        "7500000000",
+        "--rss-backstop",
+        "7500000000",
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/dual_thread_boundary_v3/boundary_run_dual_v3.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py",
+        "259",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_cold259",
+        "--setup-slowdown",
+        "1.0"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py --record /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_cold259/GUARD_v1.json --seconds 600 --footprint-limit 7500000000 --rss-backstop 7500000000 /Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/dual_thread_boundary_v3/boundary_run_dual_v3.py /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py 259 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_cold259 --setup-slowdown 1.0",
+      "condition": "Exclusive SDK; unchanged guard; normal first, assess before later steps.",
+      "env": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      }
+    },
+    {
+      "name": "official setup5",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py",
+        "--record",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/SETUP_GUARD_v1.json",
+        "--seconds",
+        "120",
+        "--footprint-limit",
+        "7500000000",
+        "--rss-backstop",
+        "7500000000",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/client310_v1/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/official_setup_five_v2.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/setup5",
+        "--setup-timeout",
+        "5"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/guard_memory50_v1.py --record /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/SETUP_GUARD_v1.json --seconds 120 --footprint-limit 7500000000 --rss-backstop 7500000000 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/client310_v1/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/official_setup_five_v2.py /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/setup5 --setup-timeout 5",
+      "condition": "Exclusive SDK after runtime screening; setup output directory is created by runner.",
+      "env": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      }
+    },
+    {
+      "name": "Stage A",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/stage_a_package.py",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py",
+        "astra_gate33_exact_stack_13330d63_v1",
+        "--proven",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/setup_memo_diet_v1/candidate_compact10_capacity35_memodiet_HELD_v1.py"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/stage_a_package.py /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/candidate95c_gate33_centered22_qcore_pad18_HELD_v2.py astra_gate33_exact_stack_13330d63_v1 --proven /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/setup_memo_diet_v1/candidate_compact10_capacity35_memodiet_HELD_v1.py",
+      "condition": "Exclusive SDK after runtime/setup; unchanged tiny-contract/package pipeline; no upload.",
+      "env": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      }
+    },
+    {
+      "name": "current336935 authorized7 final gate",
+      "argv": [
+        "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+        "-B",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/final_gate_336935_authorized7_v1.py",
+        "evaluate",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/setup5",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/SETUP_GUARD_v1.json",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/OWN7_BYTE_REFS_v1.json",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_cold259",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/astra_gate33_exact_stack_13330d63_v1/stage_a.json",
+        "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/FINAL_GATE_336935_AUTHORIZED7_v1.json"
+      ],
+      "shell_display": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/final_gate_336935_authorized7_v1.py evaluate /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_normal /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_slow13 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/setup5 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/SETUP_GUARD_v1.json /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/OWN7_BYTE_REFS_v1.json /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/candidate_cold259 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/astra_gate33_exact_stack_13330d63_v1/stage_a.json /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_gate33_exact_stack_v1/release_qualification_v1/FINAL_GATE_336935_AUTHORIZED7_v1.json",
+      "condition": "Read-only. All artifacts exact source; HOLD/FAIL stops release qualification."
+    }
+  ],
+  "notes": [
+    "No model, SDK, setup, Stage A, prefire or submission was launched while preparing this recipe.",
+    "Run each command only when preceding required gate passes; no batch automation or retry loop.",
+    "Old336867 final scaling and own32 mandate are not used. Current336935 telemetry/control pins are enforced.",
+    "Stage A output is prepared for root-owned prefire, seal, confirmation and fire; no submission command is included.",
+    "Normal first is fastest stop if strict current hosted residual cushion is not met."
+  ]
+}

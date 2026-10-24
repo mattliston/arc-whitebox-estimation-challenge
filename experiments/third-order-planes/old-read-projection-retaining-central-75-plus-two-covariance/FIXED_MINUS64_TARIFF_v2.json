@@ -1,0 +1,149 @@
+{
+  "status": "SOURCE_ONLY_FIXED_MINUS64_WARM_TARIFF",
+  "rows": [
+    {
+      "layer": 2,
+      "original": 960,
+      "selected_count": 896,
+      "incumbent_flops": 3909874608,
+      "new_flops": 3659554400,
+      "gross_saved_flops": 250320208,
+      "sample8_proxy_flops": 67182592,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 3,
+      "original": 928,
+      "selected_count": 864,
+      "incumbent_flops": 5559451424,
+      "new_flops": 5194321820,
+      "gross_saved_flops": 365129604,
+      "sample8_proxy_flops": 97588992,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 4,
+      "original": 896,
+      "selected_count": 832,
+      "incumbent_flops": 6612468050,
+      "new_flops": 6160420911,
+      "gross_saved_flops": 452047139,
+      "sample8_proxy_flops": 124915200,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 5,
+      "original": 864,
+      "selected_count": 800,
+      "incumbent_flops": 7369441006,
+      "new_flops": 6851460707,
+      "gross_saved_flops": 517980299,
+      "sample8_proxy_flops": 148309248,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 6,
+      "original": 800,
+      "selected_count": 736,
+      "incumbent_flops": 7462788007,
+      "new_flops": 6898742581,
+      "gross_saved_flops": 564045426,
+      "sample8_proxy_flops": 167967744,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 7,
+      "original": 800,
+      "selected_count": 736,
+      "incumbent_flops": 4642397044,
+      "new_flops": 4331865026,
+      "gross_saved_flops": 310532018,
+      "sample8_proxy_flops": 99152640,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 8,
+      "original": 768,
+      "selected_count": 704,
+      "incumbent_flops": 4723635088,
+      "new_flops": 4386068086,
+      "gross_saved_flops": 337567002,
+      "sample8_proxy_flops": 115927552,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 9,
+      "original": 768,
+      "selected_count": 704,
+      "incumbent_flops": 5590052113,
+      "new_flops": 5183521377,
+      "gross_saved_flops": 406530736,
+      "sample8_proxy_flops": 128672000,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 10,
+      "original": 704,
+      "selected_count": 640,
+      "incumbent_flops": 2984542431,
+      "new_flops": 2758057182,
+      "gross_saved_flops": 226485249,
+      "sample8_proxy_flops": 72407040,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 11,
+      "original": 704,
+      "selected_count": 640,
+      "incumbent_flops": 3293253945,
+      "new_flops": 3037786900,
+      "gross_saved_flops": 255467045,
+      "sample8_proxy_flops": 88922112,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 12,
+      "original": 736,
+      "selected_count": 672,
+      "incumbent_flops": 4015881132,
+      "new_flops": 3715459814,
+      "gross_saved_flops": 300421318,
+      "sample8_proxy_flops": 108192000,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 13,
+      "original": 736,
+      "selected_count": 672,
+      "incumbent_flops": 2420465040,
+      "new_flops": 2252208153,
+      "gross_saved_flops": 168256887,
+      "sample8_proxy_flops": 63756288,
+      "sample_charged_ops": 8
+    },
+    {
+      "layer": 14,
+      "original": 704,
+      "selected_count": 640,
+      "incumbent_flops": 2475664387,
+      "new_flops": 2290537842,
+      "gross_saved_flops": 185126545,
+      "sample8_proxy_flops": 77912064,
+      "sample_charged_ops": 8
+    }
+  ],
+  "whole_bill": 242136236203,
+  "gross_saved_flops": 4339909476,
+  "gross_pct": 1.792342007150696,
+  "sample8_proxy_flops": 1360905472,
+  "sample8_proxy_pct": 0.5620412266006548,
+  "net_before_gathers_cold_sort_scatter": 2979004004,
+  "net_pct_before_gathers_cold_sort_scatter": 1.230300780550041,
+  "limits": [
+    "TRAIN16 only, no model calls. Matmul/projection actualFNP; unsupported virtual sum/gate weighting priced explicitly as10*c2 float32 operations.",
+    "Exactly incumbent c1.5 count minus64 at each existing changed read. No band/rank/sample sweep.",
+    "Selector charged8xKxC2 read plus two-dimensional sample projection and gate-square weight. Initial sample basis and gathers/sort/scatter/cold route debt omitted, so net is optimistic.",
+    "Actual refined Q cannot select its own prefix without computing that prefix first; selector must use a pre-read proxy.",
+    "Full native bill and accuracy remain unknown."
+  ]
+}

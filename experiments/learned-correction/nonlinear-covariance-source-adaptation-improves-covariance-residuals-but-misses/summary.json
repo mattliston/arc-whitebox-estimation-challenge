@@ -1,0 +1,95 @@
+{
+  "completed": true,
+  "passed": false,
+  "negative": true,
+  "candidate": false,
+  "scope": "One fixed current-input nonlinear covariance-innovation adaptation versus matched output-only control; Gaussian-gain proxy on reused held networks, not a complete adjusted objective.",
+  "train": [
+    35,
+    100,
+    150,
+    200,
+    250,
+    300
+  ],
+  "valid": [
+    400,
+    500
+  ],
+  "rows": [
+    {
+      "rank": 400,
+      "arm": "output_only",
+      "covariance_ratio": 0.9956425543743552,
+      "response_ratio": 0.9864187475067495
+    },
+    {
+      "rank": 400,
+      "arm": "nonlinear",
+      "covariance_ratio": 0.9797197222660075,
+      "response_ratio": 0.981543255246642
+    },
+    {
+      "rank": 500,
+      "arm": "output_only",
+      "covariance_ratio": 0.9846279694382354,
+      "response_ratio": 0.9992271230103313
+    },
+    {
+      "rank": 500,
+      "arm": "nonlinear",
+      "covariance_ratio": 0.9706137418416056,
+      "response_ratio": 0.9917674184976162
+    }
+  ],
+  "gates": [
+    {
+      "rank": 400,
+      "covariance_ratio": 0.9797197222660075,
+      "response_ratio": 0.981543255246642,
+      "response_over_control": 0.9950573807802916,
+      "passed": false
+    },
+    {
+      "rank": 500,
+      "covariance_ratio": 0.9706137418416056,
+      "response_ratio": 0.9917674184976162,
+      "response_over_control": 0.9925345255938994,
+      "passed": false
+    }
+  ],
+  "trained_parameters": {
+    "output_only": 16,
+    "nonlinear": 528
+  },
+  "unchanged_deployment_architecture": true,
+  "source_normalizations_unchanged": true,
+  "previous_head_only_failure_preserved": true,
+  "derivative_fixtures": 3,
+  "derivative_coordinates_per_fixture": 528,
+  "wide_source_cells": 56,
+  "independent_held_predictions": 28,
+  "resources": {
+    "guarded_groups": 13,
+    "all_groups_retired": true,
+    "controller_terminal_session": 46086,
+    "peak_group_rss_bytes": 1423769600,
+    "peak_self_reported_rss_bytes": 1423769600,
+    "max_swap_growth_bytes": 0,
+    "full_native_calls": 0,
+    "fit_count": 2,
+    "epochs_per_arm": 40,
+    "updates_total": 3360,
+    "closeout_verifier_failures": 1,
+    "new_samples": 0,
+    "new_downloads": 0,
+    "GPU_calls": 0,
+    "ordinary_1B_targets_opened": false,
+    "existing_covariance_reference_networks": 8,
+    "artifact_bytes_before_closeout": 1296224959,
+    "disk_free_bytes": 492625203200
+  },
+  "official_changed": false,
+  "goal_achieved": false,
+  "selected_next_numerical_study": null
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "rrpi-graph57-ridge-grouped-cv-v1",
+  "root_diagnostic_authorized": true,
+  "ridge": 0.001,
+  "folds": 5,
+  "fold_assignment": "roster_index_modulo_5",
+  "features": [
+    65,
+    122
+  ],
+  "no_full_data_fit_or_export": true,
+  "baseline": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "cached_source": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/candidate_old_both_tail_trace_bounded_v6.py",
+    "sha256": "5d43930820d144db00aac86ace9281fe0232240e321f53701cfdd8fe1ec98f26",
+    "bytes": 925271
+  },
+  "runtime": {
+    "path": "/Users/matt/anaconda3/bin/python3.11",
+    "sha256": "6116d7bcb852d61f4384daa1c43488771e6794636d959f2a7065b54c92a070a1",
+    "bytes": 6008000
+  },
+  "pins": {
+    "data_index": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_head160_cached_v1/data_index.json",
+      "sha256": "add54eb0c7398e9900b74d3fc5385dc3e044ca7402d9f54a3b58acd813c57d0c",
+      "bytes": 271988
+    },
+    "source_editor": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/teammate_terminal_head_adapt_v1/source_edit.py",
+      "sha256": "cf1315f52df7bcdc1cbba2439d9c5faeb408042d495efd6434d967114e141943",
+      "bytes": 3921
+    },
+    "guard": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/learnable_joint_basis_training_qualification_v1/guard.py",
+      "sha256": "314ed428e1986abf6b7c05daa5c0ea7c1b5e6ebe6472ba4a34c2ed59a80b5f76",
+      "bytes": 4268
+    },
+    "fitter": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_graph57_ridge_v1/fit.py",
+      "sha256": "d6176ffcaf1b3463b7a5edf708382ba563cddb7d3511a8f9e63d08f7a48f2c6d",
+      "bytes": 12032
+    },
+    "graph_feature_source": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/native_final_graph_head_v1/graph.py",
+      "sha256": "3f51ce24f47e89df1829ebba1e248d442dd357e26b7ffb6c6b329cc72464959a",
+      "bytes": 2126
+    }
+  },
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "resource": {
+    "seconds": 120,
+    "rss_limit_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "serial_root_only": true,
+    "preferred_memory_bytes": 1000000000
+  },
+  "gates": {
+    "augmented_raw_pct_max": 0.0,
+    "raw_strict": true,
+    "augmented_adjusted_pct_max": -2.0,
+    "fold_adjusted_wins_min": 4,
+    "augmented_vs_additive_adjusted_pct_max": -1.5,
+    "all_finite": true
+  },
+  "feature_definition": "B122=physical_scale*[H,1,G57-TRAIN_center], B65=B122[:,:65]. H=control[:,30:94], G57=packet graph. Center57 is mean across128 training networks of each network graph feature mean; equal1024 neuron counts. No heldfold labels/features contribute to TRAIN center or RMS.",
+  "physical_scale": "Exactly prior head160: (sigma.float32*rms15_float32).float64 * (1+.25*tanh(gain15_float32))_float32.",
+  "fit_definition": "Five fixed grouped folds,32 networks held out each. Ridge.001 penalizes every column includingbias, standardized using fold-TRAIN weighted RMS. Weight per neuron=max(.1,cachedFLOPs/2**41), normalized over the128 training networks. Gram/RHS accumulated packetwise; additive65 uses leading65 block of identical Gram.",
+  "prediction_definition": "Same clipped-parent surrogate as head160. Add fitted first65 corrections to existing65 head, round tofloat32, subtract oldhead; new57 coefficients round tofloat32. Add basis correction to cached clipped parent, clip zero, round float32. No actual current-native replay claimed.",
+  "score_definition": "Pooled out-of-fold ratios of mean per-network MSE; adjusted proxy weights each MSE by cached parent max(.1,FLOPs/2**41). Added inference bill is not measured. Fold win means pooled augmented adjusted proxy below parent.",
+  "restrictions": [
+    "TRAIN160 targets only; noVALID targets, no hyperparameter or feature selection.",
+    "No full-data fit, coefficient/model/source export, native model execution, or automatic next-stage authority.",
+    "Fixed CV gates assess incremental information over the same additive65 ridge control.",
+    "OldS31 cached trajectory differs from currentRRPI; all15 learned payload fields must match. A passing diagnostic only allows root to consider separately authorizing full-data fit/export."
+  ],
+  "old_head160_fit_source": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_head160_cached_v1/fit.py",
+    "sha256": "9656d9448175674c9d687931c07510090c6fc63e2ea3da84528ea1d8fa4c82fb",
+    "bytes": 10191
+  },
+  "capture_check_scope": "Original smoke ranks35/100 independently checked all16 and bill; other158 rows preserve null independent-check flag. All packet/source/truth/authority pins and capture completion/no-target-access receipts are checked.",
+  "cost_rationale": "Before any execution/outcome, scalar source pricing identified about2.05G added billed FLOPs, conservative2.2G, about0.73-0.85% of260-300G parent (FP64rate2). Fix CV admission at2% parent gain and1.5% over65control, allowing possible>=1% net gain after addedcost. Actualfeatureparity/cost/runtime stillunqualified. No bank claim from cache.",
+  "diagnostic_lineage": {
+    "pooled_head_failed": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_pooled_head_v2/cv_result.json",
+      "sha256": "c9e63bd2d3d8ed28f7d50ac8fb180a8d5081c21a58b05883f6bd65900589ea0a",
+      "bytes": 65958
+    },
+    "same_folds_ridge_solver": true,
+    "changed_information_source": "Transported covariance graph57 instead of pooled-H interaction; old graph trial was large rowwise MLP. No same linear ridge trial in bounded history."
+  },
+  "pre_execution_cost_revision": true
+}

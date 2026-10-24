@@ -1,0 +1,51 @@
+{
+  "status": "S2TR_CONFIRMED_FIRE_READY_LEAD_FIRES",
+  "source": "46e9315d1a3e563cf669f27ec499be487ca7a437ee942b7be44ea1fad682ad9f",
+  "archive": "e07002ebaa0b26c5c134d2cad8b7f882bebdc5be4c61730934be761306a13c00",
+  "confirmation": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_release_v1/rel_s2tr_20261016_opus_v1/RELEASE_CONFIRMED_v1.json",
+    "sha256": "655aa13f13fbc214de8349ded3cd8e8a38ded05cc62670019760ce746889c2cd"
+  },
+  "refit": {
+    "prebind": "130 swaps (210 listed keys unused by 20 census networks) + reorder",
+    "ks_acc_keys": 26,
+    "lru": "hz_lru_v1",
+    "census": "9 sessions (4 of 7 three-network sessions hit the 10 GB RSS backstop at ~4.3 GB footprint; 9 networks re-run as 2-network sessions)"
+  },
+  "vs_S2t": {
+    "predictions": "byte-identical (diag 7103248 + boundary normal/slow 35/100)",
+    "normal_first": [
+      48313,
+      47336,
+      -977
+    ],
+    "normal_warm": [
+      45997,
+      45646,
+      -351
+    ],
+    "slow_first": [
+      48605,
+      47690,
+      -915
+    ],
+    "slow_warm": [
+      46097,
+      45776,
+      -321
+    ],
+    "flops_first_pct": -0.362,
+    "flops_warm_pct": -0.075,
+    "p_loss": [
+      17.44,
+      13.38
+    ],
+    "worst_wall": [
+      109.0,
+      109.5
+    ]
+  },
+  "platform_caveat": "S2t #336367 failed 6 RESIDUAL + 1 TIME of 100; completed residual mean .362 p95 .389 max .398 vs .4 cap; S2tr cuts warm requests 0.8% (~3 ms residual) and first 2%: fewer, but repeated residual failures remain plausible; wall tail unchanged (projected worst 109.5 s)",
+  "official120": "ALL PASS",
+  "owned_processes_retired": true
+}

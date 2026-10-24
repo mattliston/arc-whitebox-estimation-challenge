@@ -1,0 +1,36 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_PHYSICAL_V34_RANK35_DESCRIPTIVE_INTEGRATION",
+    "label": "Rank35 descriptive sentinel graph/integration support",
+    "kind": "phase2_active_workstream",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "PAUSED HANDOFF / STATIC ONLY. The canonical graph and fail-closed release harness aligned with the minimal sentinel. Do not build a production overlay, meter, score, package, or submit. Integration preparation becomes eligible only if the exact rank35 packaged spelling is strictly below 1e-8.",
+    "terminal_criterion": "Bind stable sentinel and audit hashes, preserve zero production counters, and after the raw result either keep integration closed or record its separately reviewed conditional unlock.",
+    "evidence": [
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/SELF_TEST_RECEIPT_V4.json",
+        "sha256": "6ba44d37d44e2c32eb1751becddfdf1940dc055002c50a63ff0d03f34f842574",
+        "claim": "baseline-only fail-closed harness mechanics; no candidate build or production authority"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/V34_RANK35_CONDITIONAL_INTEGRATION_CONTRACT.json",
+        "sha256": "aa00ec67c673bb0f4c045fddeea9c3719a32b4d917543606a7677e4c442ddac3",
+        "claim": "stable bytes/audits bound into minimal 899-head/final-row-only contract; build gate closed"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/V34_RANK35_CONDITIONAL_INTEGRATION_STATIC_VERIFICATION.json",
+        "sha256": "919cbc7d53e47ad1e17a416e1bee271cd8f71fa2ddcff79e5f4a43f40740849c",
+        "claim": "static fail-closed contract verification PASS with every production counter zero"
+      },
+      {
+        "claim": "unreachable: sentinel gate failed both conditions; integration contract never activated",
+        "receipt": "experiments/p2_width1024_depth16/public_v34_rank35_descriptive_sentinel_v3/CANDIDATE_TERMINAL_CLOSURE_NOTE.json"
+      }
+    ],
+    "decomposition_children": []
+  }
+}

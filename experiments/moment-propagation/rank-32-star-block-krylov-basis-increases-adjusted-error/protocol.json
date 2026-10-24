@@ -1,0 +1,59 @@
+{
+  "schema": "fixed-star-block-krylov32-v1",
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_krylov32_v1/candidate.py",
+    "sha256": "09ba57d5282a6b25900b150d8a69fe2e7d430ed2b498fca1c67a34e888958091",
+    "bytes": 978258
+  },
+  "source_parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "parent_retained": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/retained_component.json",
+    "sha256": "6dcd1a0f2b930232f0ef1b43f6f8d039b8acbb0a83067d3aebcecbea857e3aa1",
+    "bytes": 8321
+  },
+  "official_bank": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/official_bank_S35_v1.json",
+    "sha256": "e5a4280338766f893b69ade7c8194d399cbd6c46722dd7b6589abfa00038ad0f",
+    "bytes": 8058
+  },
+  "formula": "Keep Q0=orth(A[:,top32cols]) and Y=A orth(A.T Q0); Q=orth([Q0,Y]); B=Q.T A via two paid existing D3 rank32 products; economy SVD(B), truncate to32, return Q U32 and S32 Vt32.",
+  "scope": "Only the last active _lr_factor definition. All star callers use the same final rank32 shape. Learned tensors, joins, selection, covariance and source recurrences unchanged.",
+  "hypothesis": "A larger search subspace can improve the rank32 star approximation without increasing downstream contraction rank. The added factorization cost must be beaten by measured native accuracy.",
+  "source_inverse": {
+    "exact": true,
+    "before": "def _lr_factor(A32):\n    cn = fnp.sum(fnp.multiply(A32, A32, dtype=fnp.float64), axis=0)\n    cols = fnp.sort(fnp.argsort(-cn, kind='stable')[:_LR_K])\n    Q = fnp.linalg.qr(A32[:, cols])[0]\n    for _ in range(_LR_Q if _LRN_POWER else 0):\n        Q = fnp.linalg.qr(_tsr_mm(A32, fnp.linalg.qr(_tsr_mm(A32.T, Q))[0]))[0]\n    B = _tsr_mm(Q.T, A32)\n    if _LR_R is None:\n        return Q, B\n    U, S, Vt = fnp.linalg.svd(B, full_matrices=False)\n    return Q @ U[:, :_LR_R], S[:_LR_R, None] * Vt[:_LR_R]\n",
+    "after": "def _lr_factor(A32):\n    # Fixed two-block star subspace, with the downstream rank held at 32.\n    cn = fnp.sum(fnp.multiply(A32, A32, dtype=fnp.float64), axis=0)\n    cols = fnp.sort(fnp.argsort(-cn, kind='stable')[:_LR_K])\n    Q0 = fnp.linalg.qr(A32[:, cols])[0]\n    Z = fnp.linalg.qr(_tsr_mm(A32.T, Q0))[0]\n    Y = _tsr_mm(A32, Z)\n    Q = fnp.linalg.qr(fnp.concatenate((Q0, Y), axis=1))[0]\n    # Two existing rank-32 products retain the incumbent's routed kernel.\n    B = fnp.concatenate((_tsr_mm(Q[:, :32].T, A32),\n                         _tsr_mm(Q[:, 32:].T, A32)), axis=0)\n    U, S, Vt = fnp.linalg.svd(B, full_matrices=False)\n    return Q @ U[:, :32], S[:32, None] * Vt[:32]\n"
+  },
+  "caveats": [
+    "This is approximate, not an exact optimization.",
+    "Better local Frobenius error does not imply better final means.",
+    "No layer/rank/iteration/precision or coefficient variants after a failed fixed screen.",
+    "The old shared-old Krylov384 experiment concerns a different operator and join; its failure remains closed.",
+    "Two B32 matmuls are separately metered. No paper cost is a bill claim."
+  ],
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "strict_adjusted": false,
+    "wins_min": 1,
+    "ci_upper_below": null,
+    "max_per_network_regression_pct": 1.0,
+    "additional6_gain_required": false
+  },
+  "native8_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "strict_adjusted": false,
+    "wins_min": 6,
+    "ci_upper_below": 0,
+    "max_per_network_regression_pct": 1.0,
+    "additional6_gain_required": true
+  },
+  "parity_layers": [
+    0
+  ],
+  "authority": "N2 only; own boundary and N8 continuation only after actual N2 PASS; bank requires fully validated >=1% against S35.",
+  "model_executed": false
+}

@@ -1,0 +1,20 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F3A6",
+    "label": "Oracle kappa state-versus-map probe",
+    "kind": "phase2_floor_probe",
+    "status": "solved",
+    "summary": "SOLVED - verdict STATE, mechanism KAPPA4 PUSH LOSS: at 8M-sample MC precision across three networks, the model's kappa3 diagonal is accurate and flat through layer 6 (median unit ratios 0.97-1.00) while kappa4 starts EXACT at layer 2 (0.999-1.016 - the emission is right) and decays about 7 percent per layer (0.93, 0.85-0.87, 0.78-0.80, 0.72-0.75 at layers 3-6), classification push_loss_decay in every network. Compounded to depth 15 the deep kappa4 runs at 40-50 percent of truth. Substituting oracle cumulants at layers 2-6 improves the mean at every layer. The raw-MSE lane's named target: find and carry the kappa4 channel the push loses (successor A6A adjudicates CP4 dropped-plane mass versus un-carried generic-kappa4 content by measuring the same ratios on a cap-8192 variant and the carrier estimator).",
+    "terminal_criterion": "STATE|MAP|MIXED verdict with shrink percentages at 8M samples.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_oracle_kappa_probe_v1/ORACLE_KAPPA_RESULT.json"
+    ],
+    "decomposition_children": [
+      "P2R0F3A6A",
+      "P2R0F3A6B"
+    ]
+  }
+}

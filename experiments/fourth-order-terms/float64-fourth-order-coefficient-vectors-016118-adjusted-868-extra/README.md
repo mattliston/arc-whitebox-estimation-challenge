@@ -1,0 +1,36 @@
+# Float64 fourth-order coefficient vectors: -.016118% adjusted with 868 extra calls
+
+2026-10-21T02:37:30Z · experiment · rejected · measured
+
+Moving only small fourth-order polynomial coefficients to float64 saved FLOPs but introduced a small raw-error regression. The added request count and weak full-32 gain did not justify adoption.
+
+Recorded measurement:
+
+    Latest native closures vs422: K31 coeff64 SCI26f34f85 full32-0.016118%/held-0.041932%, raw+0.053217%,bill-0.069299%,SE0.106296,15/32lower. Full-network official roster price exactly matches bill; +868chargedcalls means added runtime risk, no meaningful piece, no sweep. Pair-energy JSK SCI23861f61 full32-0.063740%/held-0.125080%, raw-0.075665%,bill+0.011936%,SE0.227022,15/32lower; first7+0.155334%; too weak/noisy for bank. EnergyE2/E3mean-only SCI55df56dd full32-0.004428%/held+0.006531%, raw+0.107325%,bill-0.111633%,SE0.087069,17/32lower; accuracy spent saving. All completed12native guards PASS. Original energy attempt failed before any prediction because source path was absolute; v3 plan/new outputv2 fixed only metadata. Read-only grade plan later restored missing historical393 denominator; predictions/source/guards untouched.
+
+Program source is in [`code/`](code/), preserving the relative layout below `pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs`. Original machine paths and data requirements remain in the archived programs. [Run the designated estimators](../../../estimator/REPRODUCE.md); [research data availability](../../../data/DATA_INDEX.md).
+
+## Programs
+
+- [code/astra_oct20_bill_v1/k31_coeff64_v1/build_candidate_v1.py](code/astra_oct20_bill_v1/k31_coeff64_v1/build_candidate_v1.py)
+- [code/astra_oct20_bill_v1/k31_coeff64_v1/candidate_msg8_k31coeff64_sci_v1.py](code/astra_oct20_bill_v1/k31_coeff64_v1/candidate_msg8_k31coeff64_sci_v1.py)
+- [code/astra_oct20_bill_v1/k31_coeff64_v1/common_coefficients64_v1.py](code/astra_oct20_bill_v1/k31_coeff64_v1/common_coefficients64_v1.py)
+- [code/astra_oct20_bill_v1/k31_coeff64_v1/common_coefficients_batched64_v1.py](code/astra_oct20_bill_v1/k31_coeff64_v1/common_coefficients_batched64_v1.py)
+- [code/astra_oct20_bill_v1/k31_coeff64_v1/price_current32_v1.py](code/astra_oct20_bill_v1/k31_coeff64_v1/price_current32_v1.py)
+- [code/astra_oct20_bill_v1/k31_coeff64_v1/tail_msg8_k31coeff64_v1.py](code/astra_oct20_bill_v1/k31_coeff64_v1/tail_msg8_k31coeff64_v1.py)
+- [code/astra_oct20_vm_frontier_v1/msg8_loaderfix_v1/candidate_msg8_teacher_loaderfix_sci_v1.py](code/astra_oct20_vm_frontier_v1/msg8_loaderfix_v1/candidate_msg8_teacher_loaderfix_sci_v1.py)
+- [code/fable_oct19_kc_v1/agent_astra_joint_v1/fragment_k31_pair_shared_complete_v2.py](code/fable_oct19_kc_v1/agent_astra_joint_v1/fragment_k31_pair_shared_complete_v2.py)
+
+## Evidence
+
+- [TEAM_LOG_2026-10-01_to_10-22.md#L6462](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L6462)
+
+<details>
+<summary>All result files and records (1)</summary>
+
+- [TEAM_LOG_2026-10-01_to_10-22.md](../../../records/TEAM_LOG_2026-10-01_to_10-22.md) · record
+
+</details>
+
+[Research graph](../../../graph/index.html#node=2026-10-21-float64-fourth-order-coefficient-vectors-016118-adjusted-868-extra) · [Copy provenance](../../../PROVENANCE.json)
+

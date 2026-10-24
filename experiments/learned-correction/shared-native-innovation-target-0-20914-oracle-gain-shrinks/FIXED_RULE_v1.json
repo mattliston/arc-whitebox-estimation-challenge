@@ -1,0 +1,108 @@
+{
+  "status": "FROZEN_BEFORE_RESULTS",
+  "root_authority": "One bounded saved-data experiment on existing TRAIN32 L7-14; shared lowparameter innovation adapter and paired network-blocked CV; no captures or models.",
+  "script_sha256": "15b211adfe0db368584d2a9b45764ae9fde02cc84317f7feb3f77007821e99d7",
+  "features": "Physical30 plus returned recurrent state64, one shared coefficient vector across all eight layers and one intercept.",
+  "ridge": 10.0,
+  "shrink": 0.5,
+  "layers": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "train_ranks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "folds": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      12,
+      13,
+      14,
+      15
+    ],
+    [
+      16,
+      17,
+      18,
+      19
+    ],
+    [
+      20,
+      21,
+      22,
+      23
+    ],
+    [
+      24,
+      25,
+      26,
+      27
+    ],
+    [
+      28,
+      29,
+      30,
+      31
+    ]
+  ],
+  "target": "e_l - gate_l*(e_(l-1) @ W_l), where e is truth_mean minus native predicted mean; divide by native sigma for regression.",
+  "training_weight": "sigma squared divided by TRAIN network-layer innovation MSE, pooled normalization; train-only feature mean/population std floor1e-6.",
+  "evaluation": "Held-out innovation residual after nonnegative output clamp; accumulate one mean correction per layer through frozen gate-W transport to terminal native gate. Terminal surrogate only; no native gain claim.",
+  "advance": "At least 0.8 percent geometric terminal surrogate gain before root considers one fixed native8.",
+  "forbidden": "No coefficient/ridge/shrink/layer sweep, no new models/captures, no exported coefficients.",
+  "resources": "nice10/all7BLAS1; <=2GB; 175s ceiling; entryfree79%; no GPU."
+}

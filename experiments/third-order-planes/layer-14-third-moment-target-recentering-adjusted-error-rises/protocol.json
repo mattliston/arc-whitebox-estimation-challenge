@@ -1,0 +1,80 @@
+{
+  "schema": "s34-target-recenter14-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "layer": 14,
+  "coefficient": 1,
+  "formula": "F(m,C)_ij=m_j*C_ii+2*m_i*C_ij+m_i^2*m_j; R3_iij=T_ij+F(m,C). Set Tnew=Told+[F(host,_gn_C0)-F(m,C)].",
+  "raw_reference": "The raw third moment implied by the existing target and mean/covariance immediately before the learned mean hook, including already-applied GN/edge covariance additions.",
+  "closure_assumption": "Preserve that implied raw third moment while accepting the authoritative post-hook mean and partially recentered covariance. GN_RC is unchanged and need not preserve the raw second moment.",
+  "not_distribution_translation": true,
+  "not_claimed_accuracy_repair": true,
+  "unchanged": [
+    "posthook mean",
+    "posthook covariance and GN_RC",
+    "aux and radial",
+    "learned parameters",
+    "birth/BD algebra",
+    "all source outside one guarded target assignment"
+  ],
+  "state_effect": "New target changes L14 innovation/CP birth and residual-star assembly. Existing _ps_target32 identity cache misses this new target and converts it normally.",
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "only_prediction_layer_that_may_change": 15,
+  "cost": "FP64 O(n^2) elementwise/outer work at one layer, no GEMM, factorization, training or new arena.",
+  "duplicate_check": "Bounded H study filenames for recenter/recentr/centering/raw_moment/mean_shift and analyst/physicist/porter/H RESULTS for third-target mean recenter: no executed equivalent found. This is not an exhaustive repository search.",
+  "precedent": "Analyst RESULT section38 records covariance-recentering removal +4.00% raw on old VALID16; this supports relevance of centering, not expected gain from this new third-target closure.",
+  "audits": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/teammate_opus_accuracy_followon_audit_v1.md",
+      "sha256": "1df400ea0464d119a9d6e9f66bcb79a4751583dff229b325c55b238b7e48f773",
+      "bytes": 2234
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/teammate_s33_recent_lineage_cost_accuracy_review_v1.md",
+      "sha256": "88e9558d13f49e43b4e0178ef0bff5a151cc2a4c2c445416bae6df5dfb18f325",
+      "bytes": 3224
+    }
+  ],
+  "roster": [
+    35,
+    100
+  ],
+  "scope": "native2_only",
+  "gate_unchanged": true,
+  "no_coefficient_or_window_rescue_if_adverse": true,
+  "source_inverse_exact": true,
+  "setup_counts": {
+    "bound": 682,
+    "lvfuse": 649,
+    "psdb_fused": 9
+  },
+  "primitive": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_target_recenter14_v1/probe.py",
+    "sha256": "c2d16a07aa10e9be265b4e8f137910e43069e2c6a62f44bb14de5c0a4d39be5f",
+    "bytes": 2959
+  },
+  "serving_qualified": false,
+  "broad_qualified": false,
+  "submitted": false,
+  "model_executed": false
+}

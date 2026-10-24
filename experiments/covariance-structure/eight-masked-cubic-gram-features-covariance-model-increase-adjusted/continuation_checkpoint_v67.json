@@ -1,0 +1,541 @@
+{
+  "checkpoint": 67,
+  "utc": "2026-09-27T19:17:56.583857+00:00",
+  "status": "closed: fixed CP8 covariance supplier failed actual score gate",
+  "result": {
+    "passed": false,
+    "stage": "TRAIN2",
+    "rows": [
+      {
+        "name": "cp3_probe8_covariance",
+        "tag": "cp3_probe8_covariance_v1_cp3_probe8_covariance_train2_v1",
+        "passed": false,
+        "comparison": {
+          "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1_cp3_probe8_covariance_train2_comparison_v1.json",
+          "sha256": "a451932c813435d09a9f3b9673d18f028ea5e69a3f6140f82c9c708f45d218ef",
+          "bytes": 2966
+        },
+        "adjusted_pct": 9.756406449887645,
+        "raw_pct": 5.314774249066745
+      }
+    ],
+    "validation_opened": false
+  },
+  "comparison": {
+    "n": 2,
+    "ranks": [
+      35,
+      100
+    ],
+    "raw_pct": 5.314774249066745,
+    "raw_ci95_pct": [
+      3.693784802501643,
+      7.0503571789231945
+    ],
+    "adjusted_pct": 9.756406449887645,
+    "adjusted_ci95_pct": [
+      8.065030874213374,
+      11.562300884778143
+    ],
+    "raw_wins": 0,
+    "adjusted_wins": 0,
+    "base_mean_adjusted": 1.891284414466259e-09,
+    "candidate_mean_adjusted": 2.075805809064965e-09,
+    "mean_util_pct": 4.215159260673684,
+    "mean_cpu_pct": 6.2936951522589935,
+    "base_sources": [
+      {
+        "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/candidate_old_both_tail_trace_bounded_v6.py",
+        "sha256": "5d43930820d144db00aac86ace9281fe0232240e321f53701cfdd8fe1ec98f26",
+        "ranks": [
+          35,
+          100
+        ],
+        "runtime": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python",
+        "numpy": "2.4.6",
+        "setup": {
+          "setup_s": 0.25847254134714603,
+          "pb_log": [
+            [
+              "ksplit",
+              24,
+              0.001
+            ],
+            [
+              "lvfuse",
+              600,
+              0.258
+            ],
+            [
+              "bound",
+              624,
+              0.258
+            ]
+          ]
+        },
+        "thread_env": {
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1"
+        }
+      }
+    ],
+    "candidate_sources": [
+      {
+        "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/candidate.py",
+        "sha256": "322cc9ba107fe3443531b7849055c813b449bee78920bbbe34268adb3ed5d4a8",
+        "ranks": [
+          35,
+          100
+        ],
+        "runtime": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/openblas_runtime_env_v1/bin/python",
+        "numpy": "2.4.6",
+        "setup": {
+          "setup_s": 0.2489467915147543,
+          "pb_log": [
+            [
+              "ksplit",
+              24,
+              0.001
+            ],
+            [
+              "lvfuse",
+              600,
+              0.248
+            ],
+            [
+              "bound",
+              624,
+              0.248
+            ]
+          ]
+        },
+        "thread_env": {
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1"
+        }
+      }
+    ],
+    "per_network": [
+      {
+        "rank": 35,
+        "raw_pct": 7.0503571789231945,
+        "adjusted_pct": 11.562300884778143,
+        "util_pct": 4.214786222818212
+      },
+      {
+        "rank": 100,
+        "raw_pct": 3.693784802501643,
+        "adjusted_pct": 8.065030874213374,
+        "util_pct": 4.215533341788369
+      }
+    ]
+  },
+  "comparison_pin": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1_cp3_probe8_covariance_train2_comparison_v1.json",
+    "sha256": "a451932c813435d09a9f3b9673d18f028ea5e69a3f6140f82c9c708f45d218ef",
+    "bytes": 2966
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/candidate.py",
+    "sha256": "322cc9ba107fe3443531b7849055c813b449bee78920bbbe34268adb3ed5d4a8",
+    "bytes": 1165324
+  },
+  "model": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/model.npz",
+    "sha256": "2cfe8a68c77a9c7c19599296a34ec874664553facbd685e7f3848a7cb2147d09",
+    "bytes": 26374
+  },
+  "probes": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/probes.npz",
+    "sha256": "8d6df248c3ef5ed6e6503e2ab7bfe57b7fdfb3a6dd22cdc7accda146f1c49cda",
+    "bytes": 66038
+  },
+  "capture": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/feature/complete.json",
+    "sha256": "8fc20a8928d8d7548bbc506f83e17c9c59bbed95a34b0e75b58411c35b31a0c4",
+    "bytes": 78155
+  },
+  "fit": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/fit_result.json",
+    "sha256": "1344ae70ce52172580e90a1d442092bc8c2350f482eee4ef8448afe9bf482f92",
+    "bytes": 12486
+  },
+  "fit_mean_covariance_ratio": 0.9372807120727286,
+  "fit_mean_response_ratio": 0.9002982976832112,
+  "helper_max_relative_l2": 5.636468551537237e-07,
+  "unit": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/unit_result.json",
+    "sha256": "8f252198498876a1e145d61408a26fd4687d42b6102abc5b27a63c3edd8039a3",
+    "bytes": 15761
+  },
+  "disabled_parity": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/disabled_parity.json",
+    "sha256": "80fcb3b2d382d2793206e492cbd711a71ddb6d0f63b17f0a6b28113bdb9162b5",
+    "bytes": 3251
+  },
+  "actual_invariants": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/actual_invariants.json",
+    "sha256": "6fe76ab207704ff6df8e176c28394c2c32298feb184ecb8b6b52c533f5b3817b",
+    "bytes": 1532
+  },
+  "guard_count": 23,
+  "guards": [
+    {
+      "name": "assemble_capture_v2_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/assemble_capture_v2_guard.json",
+        "sha256": "ee4ab86ed23f17e572a77e732240f04e7f29f76ed0350c16094bf78169450401",
+        "bytes": 823
+      },
+      "completed": true,
+      "rss": 41304064,
+      "swap_growth": 0,
+      "elapsed_s": 0.20399416703730822
+    },
+    {
+      "name": "build_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/build_guard.json",
+        "sha256": "6b4616823ad90ac64fe43cf507ddb1e6bc8a4a76b7446c237cf4776a0ff1573b",
+        "bytes": 696
+      },
+      "completed": true,
+      "rss": 140410880,
+      "swap_growth": 0,
+      "elapsed_s": 0.3290707916021347
+    },
+    {
+      "name": "capture_mini0057_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/capture_mini0057_guard.json",
+        "sha256": "a591352d79318cb11f5732fd97a28d8d1ceb384b28e1c06d52f3dd6b1b2339e4",
+        "bytes": 823
+      },
+      "completed": true,
+      "rss": 4944248832,
+      "swap_growth": 0,
+      "elapsed_s": 23.60452533327043
+    },
+    {
+      "name": "capture_mini0068_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/capture_mini0068_guard.json",
+        "sha256": "98f59ae695a5dd4e58e9c07167067749fa86cdc7afd2b1ceb7c10cba9191f496",
+        "bytes": 824
+      },
+      "completed": false,
+      "rss": 5235851264,
+      "swap_growth": 0,
+      "elapsed_s": 25.08802045788616
+    },
+    {
+      "name": "capture_v2_mini0003_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/capture_v2_mini0003_guard.json",
+        "sha256": "c56e399535cee35fb877139353a4d8d0424ae3720824bf4cc17a0b7956bc6f3b",
+        "bytes": 824
+      },
+      "completed": true,
+      "rss": 4952260608,
+      "swap_growth": 0,
+      "elapsed_s": 24.23657920770347
+    },
+    {
+      "name": "capture_v2_mini0012_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/capture_v2_mini0012_guard.json",
+        "sha256": "c4d35be40e37a4b894360a3319d6c1223c24e5bdad197300a54ca13706546f73",
+        "bytes": 827
+      },
+      "completed": true,
+      "rss": 5672124416,
+      "swap_growth": 0,
+      "elapsed_s": 24.366164166480303
+    },
+    {
+      "name": "capture_v2_mini0045_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/capture_v2_mini0045_guard.json",
+        "sha256": "035fd9ae7f06695deb52b28fd10ea92f6c4cf66e5d0a733975342764917eb41c",
+        "bytes": 827
+      },
+      "completed": true,
+      "rss": 5197348864,
+      "swap_growth": 0,
+      "elapsed_s": 23.186912083998322
+    },
+    {
+      "name": "capture_v2_mini0059_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/capture_v2_mini0059_guard.json",
+        "sha256": "f2e3a11945def5e46f1394c9c3fa286a860ef51990a7932f6f6e12eea6de6c74",
+        "bytes": 827
+      },
+      "completed": true,
+      "rss": 4943822848,
+      "swap_growth": 0,
+      "elapsed_s": 23.909991499967873
+    },
+    {
+      "name": "compare_cp3_probe8_covariance_train2_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/compare_cp3_probe8_covariance_train2_guard.json",
+        "sha256": "632776a49735f068157d254e35595399225d26206b0a42a580c1aa9ceba8acbd",
+        "bytes": 858
+      },
+      "completed": true,
+      "rss": 35504128,
+      "swap_growth": 0,
+      "elapsed_s": 0.177435209043324
+    },
+    {
+      "name": "control_mini0003_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/control_mini0003_guard.json",
+        "sha256": "beefff91046fbc9ca2ed3d9c37cc0452a4e296629245730d507607d125d27185",
+        "bytes": 829
+      },
+      "completed": true,
+      "rss": 4847697920,
+      "swap_growth": 0,
+      "elapsed_s": 23.800780915655196
+    },
+    {
+      "name": "control_mini0012_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/control_mini0012_guard.json",
+        "sha256": "d891ce21494be9265244e6de09065e973650e261af73ffb0e5be63aba558fa37",
+        "bytes": 830
+      },
+      "completed": true,
+      "rss": 5115248640,
+      "swap_growth": 0,
+      "elapsed_s": 23.922345332801342
+    },
+    {
+      "name": "control_mini0045_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/control_mini0045_guard.json",
+        "sha256": "c941998d48f9cc8171afe623d8c0104c36f2ee8723bf6fc8692264d92de1db2d",
+        "bytes": 829
+      },
+      "completed": true,
+      "rss": 4773937152,
+      "swap_growth": 0,
+      "elapsed_s": 22.399218333885074
+    },
+    {
+      "name": "control_mini0059_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/control_mini0059_guard.json",
+        "sha256": "b003d743d4b295c98dbc98e80012b8b9d2a0cd91aa4c300f1753a31c1c318bb6",
+        "bytes": 830
+      },
+      "completed": true,
+      "rss": 4966268928,
+      "swap_growth": 0,
+      "elapsed_s": 23.266712083481252
+    },
+    {
+      "name": "control_mini0068_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/control_mini0068_guard.json",
+        "sha256": "db6facc5233fde01244c6d4e3a0232668635dca171fc7def32a6daaead5ecf97",
+        "bytes": 830
+      },
+      "completed": true,
+      "rss": 4924178432,
+      "swap_growth": 0,
+      "elapsed_s": 24.193279791623354
+    },
+    {
+      "name": "cp3_probe8_covariance_train2_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/cp3_probe8_covariance_train2_guard.json",
+        "sha256": "9475b25a06588573fbd6dbc88d0c6586440eb83a2359f325e2ac43905fb2e098",
+        "bytes": 1045
+      },
+      "completed": true,
+      "rss": 5031526400,
+      "swap_growth": 0,
+      "elapsed_s": 49.22520458325744
+    },
+    {
+      "name": "disabled_check_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/disabled_check_guard.json",
+        "sha256": "f9b807ebf8d7891342b764108f196a49b48a20ddf94509e8a36f1bbfd1279360",
+        "bytes": 670
+      },
+      "completed": true,
+      "rss": 163840,
+      "swap_growth": 0,
+      "elapsed_s": 0.10734391584992409
+    },
+    {
+      "name": "disabled_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/disabled_guard.json",
+        "sha256": "026ed230bc09db1ba1342aad2da38c004d6662b46114fe75bda4feeae3433ff5",
+        "bytes": 1026
+      },
+      "completed": true,
+      "rss": 5333598208,
+      "swap_growth": 0,
+      "elapsed_s": 48.03313920926303
+    },
+    {
+      "name": "fit_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/fit_guard.json",
+        "sha256": "9a49a68795ea51c9665fecbaf942b5dc98d35f15f20fd0817ebb4649f2dea8c1",
+        "bytes": 673
+      },
+      "completed": true,
+      "rss": 3711991808,
+      "swap_growth": 0,
+      "elapsed_s": 480.29614604171365
+    },
+    {
+      "name": "gradient_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/gradient_guard.json",
+        "sha256": "046a037d574aaea482682f205144748281ff2756854c5571f1929b504df8d9fe",
+        "bytes": 676
+      },
+      "completed": true,
+      "rss": 230817792,
+      "swap_growth": 0,
+      "elapsed_s": 1.2255685832351446
+    },
+    {
+      "name": "prepare_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/prepare_guard.json",
+        "sha256": "c117c827ac283a17249fdf0a8f852b4b55aae70b306f9ff3d1e54f8f6130092d",
+        "bytes": 810
+      },
+      "completed": true,
+      "rss": 113917952,
+      "swap_growth": 0,
+      "elapsed_s": 0.3323501665145159
+    },
+    {
+      "name": "probe_unit_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/probe_unit_guard.json",
+        "sha256": "590d1328211b04bbf644d238e7538635dba05346d39bf1abd662aa1a724bdc15",
+        "bytes": 827
+      },
+      "completed": true,
+      "rss": 73744384,
+      "swap_growth": 0,
+      "elapsed_s": 0.2562594171613455
+    },
+    {
+      "name": "recover_capture68_v2_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/recover_capture68_v2_guard.json",
+        "sha256": "fb77e178deb6574f5813c45ee17d14a3d681882cbc3bb91f9d9f16c3510b2112",
+        "bytes": 824
+      },
+      "completed": true,
+      "rss": 41598976,
+      "swap_growth": 0,
+      "elapsed_s": 0.24342504236847162
+    },
+    {
+      "name": "unit_guard.json",
+      "receipt": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/unit_guard.json",
+        "sha256": "d987dcf62e5311080ef58d69587a31cd5c463b6968898d6e96b4446052786704",
+        "bytes": 812
+      },
+      "completed": true,
+      "rss": 793542656,
+      "swap_growth": 0,
+      "elapsed_s": 10.615028416737914
+    }
+  ],
+  "max_rss_bytes": 5672124416,
+  "max_swap_growth_bytes": 0,
+  "preserved_failures": [
+    "capture68 compared fresh bill to historical warm bill; exact fresh control recovered same Z without re-running estimator"
+  ],
+  "implementation_amendments": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/CAPTURE_BILLING_V2.md",
+      "sha256": "05764a0bff87c8771e52b6e44201f07edd492da9468e57c3540bd4cdc0dd2310",
+      "bytes": 2603
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/WORKER_DTYPE_V2.md",
+      "sha256": "a2df4ee7be51575a7365ea5e60ab65f0fd786be7e516f78c8b6be999b79e5e27",
+      "bytes": 1840
+    }
+  ],
+  "sealed_sources": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/seal.json",
+      "sha256": "14b2f3cd77a5bdaf8f3bb227943c1d3781d21f1daf3f741c00fa2baf74cea91c",
+      "bytes": 3698
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/capture_seal.json",
+      "sha256": "82d6d4e5e355832291ee71119d4cc99c9a112f4b435c93268a39dd7f6feda93b",
+      "bytes": 3975
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/capture_seal_v2.json",
+      "sha256": "ef2ff8665fce08966c213b3ac777db0880de589d24fa2f4e17f2ac52654c84b9",
+      "bytes": 6001
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/fit_seal.json",
+      "sha256": "9c9403df8d8e0e48afba8f35423ae2202e0d2d5da462c2665dddc94075095906",
+      "bytes": 6355
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/native_seal.json",
+      "sha256": "0a59c9e7b7b1ac800200d16a17c128db9aaa75dd203b7944c1c5b37d615888c3",
+      "bytes": 3361
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/native_seal_v2.json",
+      "sha256": "1cc0be4822bf470ab170575deb3aab47888cafd440c41c453c1b0c4b9dc8de6f",
+      "bytes": 4047
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/cp3_probe8_covariance_v1/root_run_seal.json",
+      "sha256": "75a6322b97e53a259a9b66a7b56655ca0ba0ed5af0fb262c07434726662c813f",
+      "bytes": 1271
+    }
+  ],
+  "bank": {
+    "submission_id": 332517,
+    "saved_adjusted": 2.1736465056908115e-09,
+    "source": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/candidate_old_both_tail_trace_bounded_v6.py",
+      "sha256": "5d43930820d144db00aac86ace9281fe0232240e321f53701cfdd8fe1ec98f26",
+      "bytes": 925271
+    },
+    "archive": {
+      "path": "/Users/matt/arc-white-box-estimation/submissions/submission-20260926-213059.tar.gz",
+      "sha256": "8d3ae68e1550ff801ff8688c64e93787fdab6d0fd1064fbf72e71c02b58db7ff",
+      "bytes": 445592
+    },
+    "new_poll": false
+  },
+  "component": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/candidate_thin_star_route_v1.py",
+    "sha256": "25c22c219420c13db8eae758c16b96a322f24b4de5d40efb43890605b4d3b3ee",
+    "bytes": 927177
+  },
+  "submissions_authorized": true,
+  "goal_status": "active/unmet",
+  "new_submission": false
+}

@@ -1,0 +1,133 @@
+{
+  "schema": "q24-k42-k51-independent-integrated-accounting-receipt-v1",
+  "status": "PASS_STATIC_INTEGRATED_ASSOCIATION_AND_CAP_PROOF__NO_ROW_OR_ESTIMATOR_AUTHORITY",
+  "created_utc": "2026-08-27T13:34:00Z",
+  "review": {
+    "reviewer_identity": "/root/k4251_integrated_accounting",
+    "scope": "independent literal official-FlopScope integrated association, operation-call delta, and pre-row cap proof",
+    "source_execution_performed": false,
+    "row_opened": false,
+    "estimator_called": false
+  },
+  "binding_graph": {
+    "order": [
+      "final derivation/preregistration/source/runner/verifier",
+      "integrated accounting receipt",
+      "STATIC_VERIFICATION_V3.json records receipt SHA-256",
+      "SOURCE_FREEZE_V3.json pins both files"
+    ],
+    "receipt_self_hash_bound": false,
+    "verifier_source_embeds_receipt_sha256": false,
+    "verifier_semantically_recomputes_receipt_bindings": true,
+    "static_verification_records_receipt_sha256": true,
+    "freeze_pins_verifier_receipt_and_static_result": true
+  },
+  "bindings": {
+    "d4_source_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "d4_result_sha256": "6d8e7cf98d45b1c667d7d16c373cf9935f96d1f07e44674ca8f9584d51c111d1",
+    "d29_pricing_sha256": "bb8a55e3224da56139dc79fa2b65acc4cf8320f0991c7d77da5ec0892ad3b6cc",
+    "independent_hold_sha256": "1d5786631f2923c606d4be53f428f9e6fe88f9418dbf15ecc6abb111a592f7ff",
+    "accounting_erratum_sha256": "63fbf1da297b292b6340c688da3e20b16a850c296e165e05f111b0847534b8c3",
+    "meter_gate_amendment_sha256": "6ae06a43e0093849437a3eae784a19604e1bd2b451cf13cd9b484586e2f80de2",
+    "derivation_sha256": "6547a590d2db5f35d17a2f0290bab842df201707aa2d192c34f4791034d6a962",
+    "preregistration_sha256": "b5086f6365043afc4828d6684863e3b04e94a880f2089ae1c002f2f14210a950",
+    "instrumented_source_sha256": "547b45c219fd868d359ebb8deec9f564a89d433cd6fbdc9cc637940e164cd601",
+    "exec_cold_sink_and_worker_runner_sha256": "fd9a5f8f395f96af3569d7f2d422033bcd714c18d8b22760bb5e1fce0c9fbc8e",
+    "tiny_static_verifier_sha256": "75f83052da678e43da19d19faf8327123cfb10e8152856411577f5aa21a4ae65"
+  },
+  "official_environment": {
+    "interpreter": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+    "flopscope_version": "0.12.0",
+    "whestbench_version": "0.16.0",
+    "numpy_version": "2.4.6",
+    "width": 1024,
+    "binary64_provenance_pinned": true,
+    "advanced_float64_gather_units_per_output": 8,
+    "mixed_float64_float32_matmul_result": "float64"
+  },
+  "integrated_source_and_reduction_derivation": {
+    "initial_formula": "80*n^2 + 28*n",
+    "initial_width1024_flops": 83914752,
+    "later_fused_kernel_formula_each": "1360*n^2 + 476*n",
+    "later_fused_kernel_width1024_flops_each": 1426550784,
+    "later_reduction_formula_each": "132*n^2",
+    "later_reduction_width1024_flops_each": 138412032,
+    "later_combined_formula_each": "1492*n^2 + 476*n",
+    "later_combined_width1024_flops_each": 1564962816,
+    "later_source_count": 14,
+    "all_later_width1024_flops": 21909479424,
+    "integrated_source_and_reduction_width1024_flops": 21993394176,
+    "standalone_dense_later_formula_each": "1506*n^2",
+    "official_selection_law": "min(dense 1506*n^2, explicit fused 1492*n^2+476*n)",
+    "explicit_path_first_no_more_expensive_at_integer_width": 34
+  },
+  "complete_incremental_identity": {
+    "shared_coefficient_and_context_flops": 101869568,
+    "integrated_source_and_reduction_flops": 21993394176,
+    "connected_and_diagonal_flops": 692367360,
+    "actions_and_shared_sum_flops": 129037793280,
+    "production_endpoint_flops": 0,
+    "future_separately_licensed_shared_endpoint_formula": "15*3*n + 14*(n + 2*n^2)",
+    "future_separately_licensed_shared_endpoint_flops": 29420544,
+    "future_shared_endpoint_excluded_from_current_incremental_identity": true,
+    "predicted_integrated_incremental_flops": 151825424384,
+    "identity": "101869568 + 21993394176 + 692367360 + 129037793280 = 151825424384",
+    "standalone_dense_diagnostic_flops": 152024121344,
+    "standalone_dense_minus_integrated_prediction_flops": 198696960,
+    "standalone_dense_is_an_upper_bound_under_pinned_f64_provenance": true
+  },
+  "pre_outcome_hard_cap_proof": {
+    "hard_incremental_flop_cap": 152200000000,
+    "cap_margin_over_integrated_prediction": 374575616,
+    "cap_margin_over_standalone_dense_upper": 175878656,
+    "required_runtime_law": "A1 and A2 bills equal; B-A1 and B-A2 equal, nonnegative, and each <=152200000000",
+    "exact_runtime_equality_to_prediction_required": false,
+    "exact_runtime_equality_to_dense_diagnostic_required": false
+  },
+  "exact_official_operation_call_delta": {
+    "empty": 16,
+    "add": 165,
+    "concatenate": 30,
+    "copy": 15,
+    "getitem": 43,
+    "multiply": 1020,
+    "reshape": 15,
+    "stack": 45,
+    "subtract": 210,
+    "einsum": 29,
+    "diagonal": 15,
+    "fill_diagonal": 30,
+    "transpose": 15,
+    "copyto": 30,
+    "matmul": 15,
+    "sum": 15
+  },
+  "inventory_interpretation": {
+    "source_einsum_calls": 29,
+    "batched_matmul_calls": 15,
+    "logical_dense_actions": 30,
+    "syntactic_fill_diagonal_sites": 2,
+    "runtime_fill_diagonal_calls": 30,
+    "sink_work_is_outside_official_operation_delta": true,
+    "source_and_runner_are_exec_cold_and_hash_pinned": true
+  },
+  "resource_and_authority_boundary": {
+    "remote_scientific_scratch_ceiling_bytes": 309092352,
+    "largest_new_remote_array_bytes": 285212672,
+    "legacy_D4_plus_remote_projection_excluding_client_diagnostics_bytes": 7043162112,
+    "client_diagnostic_working_ceiling_bytes": 25165824,
+    "conservative_process_projection_including_client_diagnostics_bytes": 7068327936,
+    "conservative_projection_margin_below_8gib_bytes": 1521606656,
+    "process_rss_hard_gate_bytes": 8589934592,
+    "official_residual_hard_gate_seconds_strictly_below": 0.4,
+    "release_created": false,
+    "row_opened": false,
+    "weights_opened": false,
+    "target_or_score_read": false,
+    "estimator_imported": false,
+    "estimator_called": false,
+    "numerical_result_claimed": false,
+    "independent_transaction_and_science_review_required_before_release": true
+  },
+  "terminal_decision": "PASS_INTEGRATED_STATIC_ACCOUNTING_ONLY__BIND_V3_REVIEW_PACKAGE_AND_HOLD_RELEASE_ROWS_ESTIMATOR_TARGETS_AUTONOMY_SUBMISSION"
+}

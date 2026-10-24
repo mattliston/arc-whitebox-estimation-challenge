@@ -1,0 +1,252 @@
+{
+  "schema": "arc_whestbench.independent_q24_board_result_audit.v1",
+  "recorded_at_utc": "2026-08-24T11:38:01Z",
+  "status": "PASS_INDEPENDENT_UPSTREAM_REPLAY_AND_INTERNAL_CONSISTENCY__RAW_E8_TARGET_NOT_MET",
+  "audited_result": {
+    "path": "BOARD_ATTEMPT_328210_RESULT.json",
+    "sha256": "d8b488eddee2cd0c70aaaa75d53d1b519a75ccdbfdfbda7e78fb7896b7c48d1b",
+    "submission_id": 328210
+  },
+  "independent_upstream_retrieval": {
+    "authenticated_rails_status": {
+      "method": "pinned whestbench 0.16.0 AIcrowdClient.get_submission_status; read-only GET https://www.aicrowd.com/api/v1/submissions/328210",
+      "id": 328210,
+      "challenge_id": 1174,
+      "challenge_round_id": 1429,
+      "created_at": "2026-08-24T10:36:50.036Z",
+      "grading_status_cd": "graded",
+      "grading_message": "Graded successfully",
+      "score_adjusted_exact": 5.587487766740284e-07,
+      "score_secondary_raw_final_exact": 5.765125013112993e-07,
+      "matches_result_receipt": true
+    },
+    "anonymous_public_evaluation": {
+      "method": "read-only HTTPS GET of the public submission page; parse the unique submission-specific data-react-props JSON object and canonicalize evaluation with UTF-8 json.dumps(sort_keys=true,separators=(',',':'),ensure_ascii=false)",
+      "url": "https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026/submissions/328210",
+      "http_status": 200,
+      "submission_specific_embedded_objects": 1,
+      "submission_id": "328210",
+      "submission_status": "GRADED",
+      "session_id": "sess-c72778c55a53",
+      "canonical_public_evaluation_sha256": "bc943373d9d59f60cd39c4f7e9e93f399897f76548cd8e10de91df08f5186cd4",
+      "canonical_hash_matches_result_receipt": true,
+      "exact_scores_match_authenticated_status": true
+    }
+  },
+  "candidate_bindings_replayed": {
+    "source_estimator": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/estimator.py",
+      "bytes": 68115,
+      "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52"
+    },
+    "archive": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/submissions/fb-ec4-full-v4-q24-v1-b38cd865.tar.gz",
+      "bytes": 16850,
+      "sha256": "53962192f1d8eb07ba29e37c9d008a6ce1140b374e244fd3ae4c78c6f7b4a4b6",
+      "members_exact": [
+        {
+          "name": "estimator.py",
+          "bytes": 68115,
+          "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52"
+        },
+        {
+          "name": "manifest.json",
+          "bytes": 528,
+          "sha256": "c1beabc8e496012fe373142d1a963638f76b3abc299fbaeb187b9098af1f9292"
+        }
+      ]
+    },
+    "promotion_manifest_sha256": "850be6d220acd8ea07ebda5a2713001f0ff4cc38c363a362bdd6bef9d7ff58c9",
+    "source_manifest_sha256": "1627632a560e549a7df556dda07d8c9b8429815d43dbc47ff86735b856312e39",
+    "freeze_receipt_sha256": "565093c418a656510cc1ac15b6d93cd50b104a122bf2d71586c41e32f693026d",
+    "source_and_meter_audit_sha256": "716bfc2afedff263f633f694009325233523e7d29ecf62521db91d0d844c52ef",
+    "fullwidth_comparator_audit_sha256": "46e157583819efd0216ae6a416367326f481686beeb1302ad26acf8d3a333e5e",
+    "independent_ready_audit_sha256": "6b4afccaf4e558e46db3767c3b9d1599facdf9ad83159680ed1bf3f67176a1c4",
+    "local_meter_receipt_sha256": "d69fd338972386af2c45f120d2983d5036a9a52ae57845a01977658e4c21fd11",
+    "in_flight_receipt_sha256": "1bdb5c514b3709662b90aec5d5ff5927e7a18409b896883022588deb0c2d11f7",
+    "progress_65_receipt_sha256": "de06e717c1a1b32a280824116d58dffbd91416c5a8292aea74ce231ee27f2d60",
+    "all_present_hashes_match": true,
+    "archive_estimator_matches_source_estimator": true
+  },
+  "completion_and_failure_reconciliation": {
+    "configured_mlps": 100,
+    "public_per_mlp_telemetry_rows": 100,
+    "completed_rows": 100,
+    "failed_rows": 0,
+    "in_flight_rows": 0,
+    "rows_with_null_error_code": 100,
+    "public_score_rows": 50,
+    "public_score_indices": "exact consecutive range 0..49",
+    "progress_pct": 100.0,
+    "smoke_passed": true,
+    "smoke_duration_ms": 98.2084230001874,
+    "smoke_worker_passes": 12,
+    "smoke_worker_failures": 0,
+    "failure_breakdown": {
+      "budget_exhausted": 0,
+      "combined_budget_exhausted": 0,
+      "error": 0,
+      "residual_wall_time_exhausted": 0,
+      "time_exhausted": 0
+    },
+    "all_counts_reconcile": true
+  },
+  "exact_score_arithmetic": {
+    "raw_final_mse_exact": 5.765125013112993e-07,
+    "adjusted_score_exact": 5.587487766740284e-07,
+    "public_mean_score_multiplier": 0.9691876158854029,
+    "raw_times_multiplier": 5.587487766740283e-07,
+    "adjusted_minus_raw_times_multiplier": 1.0587911840678754e-22,
+    "adjusted_over_raw": 0.969187615885403,
+    "adjusted_formula_replays_to_floating_point_roundoff": true,
+    "public_aggregate_display": {
+      "adjusted_final_layer_score": 5.587e-07,
+      "final_layer_mse": 5.765e-07,
+      "all_layers_mse": 8.232e-08,
+      "sampling_mse": 1.133e-06,
+      "best_mlp_adjusted_final_layer_score": 5.142e-08,
+      "worst_mlp_adjusted_final_layer_score": 1.452e-05
+    },
+    "exact_adjusted_and_raw_round_to_public_aggregate_displays_at_four_significant_digits": true
+  },
+  "public_per_mlp_score_arithmetic": {
+    "scope": "50 public embedded score rows only; values are displayed/serialized at limited precision, so exact API aggregates remain authoritative",
+    "raw_final_mean_from_display_rows": 5.765848e-07,
+    "adjusted_mean_from_display_rows": 5.588545999999999e-07,
+    "all_layers_mean_from_display_rows": 8.23124e-08,
+    "raw_final_median_from_display_rows": 8.5555e-08,
+    "exact_raw_minus_display_row_mean": -7.229868870078216e-11,
+    "four_significant_digit_raw_mean_rounding_bound": 1.427e-10,
+    "exact_raw_consistent_with_display_rows_under_independent_four_significant_digit_rounding": true,
+    "exact_adjusted_minus_display_row_mean": -1.0582332597147873e-10,
+    "four_significant_digit_adjusted_mean_rounding_bound": 1.391e-10,
+    "exact_adjusted_consistent_with_display_rows_under_independent_four_significant_digit_rounding": true,
+    "aggregate_all_layers_minus_display_row_mean": 7.600000000000677e-12,
+    "aggregate_and_rows_four_significant_digit_all_layers_rounding_bound": 2.26e-11,
+    "aggregate_all_layers_consistent_with_display_rows_under_rounding": true,
+    "per_row_adjusted_formula": "adjusted_final_layer_score = final_layer_mse * (flops_used / 2^41), with both embedded score fields independently rounded",
+    "direct_four_significant_digit_product_matches": 37,
+    "public_rows": 50,
+    "all_50_rows_consistent_with_product_under_sum_of_raw_and_adjusted_four_significant_digit_rounding_intervals": true,
+    "maximum_absolute_display_product_discrepancy": 1.5695140366641031e-09,
+    "maximum_discrepancy_as_fraction_of_its_rounding_bound": 0.9137536320369312
+  },
+  "public_tail_replay": {
+    "scope": "arithmetic over the 50 rounded public score rows; not an unrounded or private-tail claim",
+    "threshold_raw_final_mse": 5e-07,
+    "outlier_count": 5,
+    "outlier_indices": [24, 30, 34, 36, 37],
+    "displayed_public_raw_sum": 2.882924e-05,
+    "outlier_raw_sum": 2.50101e-05,
+    "outlier_raw_share": 0.8675254706679747,
+    "mean_raw_below_threshold": 8.486977777777778e-08,
+    "outliers": [
+      {
+        "mlp_index": 24,
+        "final_layer_mse": 1.58e-06,
+        "all_layers_mse": 1.293e-07,
+        "adjusted_final_layer_score": 1.532e-06,
+        "raw_share_of_displayed_public_sum": 0.05480546833700784
+      },
+      {
+        "mlp_index": 30,
+        "final_layer_mse": 1.48e-06,
+        "all_layers_mse": 1.22e-07,
+        "adjusted_final_layer_score": 1.434e-06,
+        "raw_share_of_displayed_public_sum": 0.05133676780934912
+      },
+      {
+        "mlp_index": 34,
+        "final_layer_mse": 5.451e-07,
+        "all_layers_mse": 7.726e-08,
+        "adjusted_final_layer_score": 5.283e-07,
+        "raw_share_of_displayed_public_sum": 0.018907886576267706
+      },
+      {
+        "mlp_index": 36,
+        "final_layer_mse": 6.425e-06,
+        "all_layers_mse": 8.475e-07,
+        "adjusted_final_layer_score": 6.227e-06,
+        "raw_share_of_displayed_public_sum": 0.22286400890207306
+      },
+      {
+        "mlp_index": 37,
+        "final_layer_mse": 1.498e-05,
+        "all_layers_mse": 1.485e-06,
+        "adjusted_final_layer_score": 1.452e-05,
+        "raw_share_of_displayed_public_sum": 0.5196113390432769
+      }
+    ],
+    "interpretation": "The five-row concentration and the 45-row conditional mean localize the public error distribution only; they do not identify a mechanism or license deleting rows from the board score."
+  },
+  "resource_arithmetic_100_rows": {
+    "phase2_flop_budget": 2199023255552,
+    "board_flops_each": 2131266106325,
+    "board_flop_utilization_each": 0.9691876158854029,
+    "board_flop_utilization_percent_each": 96.91876158854029,
+    "board_flop_headroom_each": 67757149227,
+    "local_meter_flops": 2131249329109,
+    "board_minus_local_flops": 16777216,
+    "predict_wall_s": {
+      "min": 93.16533642800005,
+      "mean": 104.28372254559002,
+      "max": 118.63269021500003,
+      "headroom_at_max_to_120s": 1.367309784999975
+    },
+    "participant_roundtrip_wall_s": {
+      "min": 93.53644918300006,
+      "mean": 104.66372127019997,
+      "max": 119.02642567999999
+    },
+    "backend_wall_s": {
+      "min": 90.776829433,
+      "mean": 101.75746201246,
+      "max": 115.918807841
+    },
+    "overhead_wall_s": {
+      "min": 2.291860414000041,
+      "mean": 2.4627582407800306,
+      "max": 2.859784727999738
+    },
+    "residual_wall_s": {
+      "min": 0.05907878199998606,
+      "mean": 0.06350229234999916,
+      "max": 0.07064865599998882,
+      "headroom_at_max_to_0p4s": 0.3293513440000112
+    },
+    "all_flops_strictly_below_budget": true,
+    "all_predict_walls_strictly_below_120s": true,
+    "all_roundtrip_walls_strictly_below_120s": true,
+    "all_residual_walls_at_most_0p4s": true,
+    "all_exhaustion_flags_false": true,
+    "operational_resource_pass": true,
+    "board_minus_local_flops_interpretation": "Exact difference recorded without causal attribution."
+  },
+  "verdict_replay": {
+    "terminal_graded": true,
+    "attempt_consumed": true,
+    "numeric_aggregate_score_obtained": true,
+    "completion_gate_100_of_100_zero_failures": true,
+    "operational_gate_pass": true,
+    "raw_final_mse_strictly_below_1e_8": false,
+    "raw_e8_primary_gate_pass": false,
+    "all_layers_display_is_in_e8_range": true,
+    "median_public_raw_final_display_is_in_e8_range": true,
+    "unchanged_resubmission_authorized": false,
+    "mechanism_cause_established": false
+  },
+  "audit_boundary": {
+    "private_scores_accessed": false,
+    "raw_targets_or_dataset_accessed": false,
+    "private_evaluation_state_accessed": false,
+    "credentials_emitted_or_persisted": false,
+    "submission_created_or_mutated": false,
+    "estimator_source_mutated": false,
+    "canonical_graph_mutated": false,
+    "public_score_scope": "The page exposes 50 rounded public score rows and 100 public telemetry/state rows. No claim is made about hidden per-row scores.",
+    "noncanonical_full_page_capture_hash_rederived": false,
+    "noncanonical_full_page_capture_note": "The result receipt records a full-page capture hash but no retained byte path. Fresh full HTML contains volatile presentation material, so this audit uses the independently reproduced canonical evaluation hash as the scientific upstream binding.",
+    "upstream_values_rederived": true,
+    "cause_attribution": "No unobserved cause is inferred from the score tail or telemetry."
+  }
+}

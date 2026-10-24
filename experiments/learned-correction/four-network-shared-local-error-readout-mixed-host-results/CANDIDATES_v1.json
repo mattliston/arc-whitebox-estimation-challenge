@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-21T02:39:43Z",
+  "status": "BD_PADDING_SOURCE_FROZEN_NO_NATIVE",
+  "reference_submission": 337422,
+  "candidates": [
+    {
+      "name": "msg8_bd_padding_energy",
+      "append_tail": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/bd_padding_energy_v1/tail_msg8_bd_padding_energy_v1.py",
+      "append_tail_sha256": "8e61ce980adb75e234c6f98aa14ef5a2c84d820eb4afa374defcd706f80d6afb",
+      "fit": false,
+      "truth_used": false,
+      "science": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/bd_padding_energy_v1/candidate_msg8_bd_padding_energy_sci_v1.py",
+        "sha256": "74335f92d2336cf06fe9064e53274b9604cdf9ef3d9df3a0f360a18a077ba489",
+        "bytes": 2499952,
+        "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/msg8_loaderfix_v1/candidate_msg8_teacher_loaderfix_sci_v1.py",
+        "parent_sha256": "777a73b6d13ef0e1e51d70d4c0dc61f21b4c7287813e336c82c37ec7188ba510"
+      },
+      "release": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/bd_padding_energy_v1/candidate_msg8_bd_padding_energy_rel_v1.py",
+        "sha256": "e83342fee4f58e86a286e81a091f8bceae9c6deb52cf71edc50c66b97f304f98",
+        "bytes": 2499863,
+        "parent_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/msg8_loaderfix_v1/candidate_msg8_teacher_loaderfix_rel_v1.py",
+        "parent_sha256": "e41095e464be4f5973cae13252a716bc1d85a56bd3ba9d0837e28509c3d08f05"
+      }
+    }
+  ],
+  "parent_source_sha256": "777a73b6d13ef0e1e51d70d4c0dc61f21b4c7287813e336c82c37ec7188ba510",
+  "builder_sha256": "867a2f74739b45a3205771040f4e92104644faad30c785e370521189ea766907",
+  "selector_sha256": "762b3b89b9bc4d2aaf725645a71f437d8f1bfd08f95dd65a7e78bc55df72e4a4",
+  "moved_born_statements": [
+    "            _e2_bb = birth * births",
+    "            born = fnp.einsum('ij,ij,j->ij', _ps_bp32, _ps_bp32, _ps32(_e2_bb), optimize=False) + fnp.einsum('i,ji->ij', _ps32(beta * births), _ps_bp32, optimize=False)",
+    "            _ps_born_diag = (_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := (_e2_bb * (_e2_append_inline((_e2_value_inline := (_bk_3u2 + (_e2_append_inline((_e2_value_inline := (delta * delta))) or _e2_value_inline)))) or _e2_value_inline)))) or _e2_value_inline) / 4))) or _e2_value_inline)"
+  ],
+  "changed_functions": [
+    "_bd_update",
+    "_astra_fhm_core"
+  ],
+  "no_governor": true,
+  "numerical_change": "Only below-floor padding birth choices change. Every above-floor unit, original32-rounded count and finalgate order are preserved. Corrected BDbase uses the exact unchanged learned coefficients. Later propagated rosters may change.",
+  "old_closure_distinction": "Old all-distinct birthenergy selected the entire roster from the uncorrected alive*g*Cpre proxy. This candidate uses the actual BD-corrected base and changes only0\u201331 padding units.",
+  "accuracy_gain_unknown": true,
+  "tariff_unmeasured": true
+}

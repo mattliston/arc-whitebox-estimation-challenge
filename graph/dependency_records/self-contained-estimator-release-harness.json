@@ -1,0 +1,44 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_QHEAD_RELEASE_HARNESS",
+    "label": "Self-contained estimator release harness",
+    "kind": "phase2_release_gate",
+    "status": "blocked",
+    "priority": 1,
+    "summary": "BASELINE READY / CONDITIONAL HOLD. Production integration remains blocked until the descriptive rank35 raw sentinel is strictly below 1e-8 and a separate review activates it. Even that descriptive PASS would not clear the preserved fresh-panel, science, resource, or release gates. The harness pins D11 SHA 6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e, enforces deterministic same-byte AST/no-env/no-sibling-import staging and whest validation, then separates resource, 688-fit, 88-selection, release, and package gates. No production assembler may be built while the rank35 result is absent or fails.",
+    "terminal_criterion": "After a scientific release passes, one self-contained estimator.py must preserve output parity and source SHA through validation, resources, scoring, release, and package.",
+    "evidence": [
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/SELF_TEST_RECEIPT_V2.json",
+        "sha256": "65d0df4c324e7e6a6fdfc8ecae2848b398098b4b5b917547068e1a0a58333762",
+        "claim": "eight-component self-tests and pinned-baseline stage/whest dry run"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/SELF_TEST_RECEIPT_V4.json",
+        "sha256": "6ba44d37d44e2c32eb1751becddfdf1940dc055002c50a63ff0d03f34f842574",
+        "claim": "nine-component R1 self-tests plus pinned-baseline stage/whest dry run after MC seed-reference revocation"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/OWNED_PRODUCT_QHEAD_STATIC_SELF_TEST.json",
+        "sha256": "6c5e83ae0f396bb3faec57cb2f111e9ad77d4b8b29b2af5df77461c555ad68ba",
+        "claim": "input-86 overlay deterministic static test retained as terminal provenance"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/V34_V2R1_INTEGRATION_SCAFFOLD_RECEIPT_R1.json",
+        "sha256": "f4a6eb31973edc5193684a891afb4b2cc0aed34e59e3b744b85a9e8c45b303ff",
+        "claim": "superseded V2R1 provisional scaffold; baseline harness mechanics only, every production action held"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/V34_V2R1_PUBLIC_OUTPUT_BINDING_RULING.json",
+        "sha256": "3591a1e736c116bcb5b71d2711f9f4a0cd4fdbaad2ecfee497f13e49b5c1f424",
+        "claim": "binding R1 public-return and payload repair required before candidate build"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_QHEAD_BOARD_GOAL"
+    ]
+  }
+}

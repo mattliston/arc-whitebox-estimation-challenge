@@ -1,0 +1,82 @@
+{
+  "access_accounting": {
+    "control_result_scope_or_producer_receipt_opens": 0,
+    "package_mutations_or_freeze_actions": 0,
+    "producer_or_sealer_main_calls": 0,
+    "scientific_numpy_imports_or_RNG_draws": 0,
+    "stage1_target_network_or_submission_actions": 0,
+    "weight_path_resolution_stat_hash_or_open": 0
+  },
+  "authorization": {
+    "controller_execution": false,
+    "final_frozen_review_GO": false,
+    "freeze": false,
+    "scope_or_weight_access": false,
+    "seal_publication": false,
+    "stage1": false,
+    "stage1_issuer_build": false,
+    "submission": false,
+    "target": false
+  },
+  "date": "2026-08-28",
+  "decision": "DO_NOT_ISSUE_OR_INVENT_FINAL_FROZEN_GO__REQUIRE_NARROW_IMMUTABLE_FINAL_REVIEW_CONTRACT_SUCCESSOR",
+  "findings": {
+    "V1_repair_classes_pass": true,
+    "compiled_controller_and_stage1_roots_null": true,
+    "final_frozen_review_contract_complete": false,
+    "final_frozen_review_requested": true,
+    "frozen_tuple_and_custody_pass": true,
+    "inherited_static_seal_and_no_replace_laws_pass": true,
+    "material_defects_exactly_one": true,
+    "prefreeze_review_exact_and_fresh_at_freeze": true,
+    "preserved_V1_function_bodies_byte_exact": true
+  },
+  "frozen_tuple_sha256": {
+    "adversarial_verification": "87471f59cc3aed9f647f9a30c1f0161f482d1c75b5495c144ebafb45fbca3203",
+    "artifact_package": "bae042858a7acf646aaf9cfaf57231dd4dd5090593b178eba4f075e31e4b2467",
+    "freeze_receipt": "73266b11252425ef50f6144def9f9c4d1f4ed3fcccd1643411217e2e0d6a7e0b",
+    "freeze_verification": "1983df71bfac6ca378fa0c45ed84e72e66035dcdc51aceb444e9458abb0ddf52",
+    "package_manifest": "ac78241c061c945fb28207d6c8fe81133dc0ab8df699d78cdf3b763a7847cfec",
+    "prefreeze_review": "372d53a321e03c44f8c281838e74e6ce8a5cf2339a4b4ca965e19f824c17bb04",
+    "review_request": "99991f0e4594ef594a2c6f1b833082005ce4ecb64025bf1591672d62539d6c3b",
+    "sealer_source": "d8459f09c3bf03aaf50570fd9d490a8ea1dc738ed214ec4142d536fd90d9a63b",
+    "source_package": "f0fb3d171a33a476bfd280c61409b5e96fcc700340bb0b4f057a4ec5d26fc038",
+    "static_verification": "56734135c606f5bb8da4a37815d72d55ffcf6645d687daa0069f541cd2e2456a",
+    "verify_freeze_source": "41aa89466307f862c65bf096433e161bc18aa68c8bb680a48e531cdf4335d2d9"
+  },
+  "incident_id": "support3-k6-postproduction-scope-sealer-v1r1-frozen-review-contract-incident-001",
+  "issued_by": "support3_k6_scope_sealer_v1r1_frozen_reviewer",
+  "issued_utc": "2026-08-29T03:38:20Z",
+  "material_defects": [
+    {
+      "adversarial_witness": "The current package contains no final frozen-review file and verify_freeze.py still returns its exact PASS. An arbitrary fake review JSON at any sibling path would leave the same PASS because no final path, root, schema, status, decision, keyset, authorization map, chronology law, or semantic validator is defined or consumed.",
+      "classification": "MATERIAL_HOLD",
+      "code": "FINAL_FROZEN_REVIEW_CONTRACT_ABSENT",
+      "description": "The frozen package requests a fresh different-agent frozen review and names a frozen reviewer, but it prescribes only the prefreeze review. It provides no exact final frozen-review contract or receipt path, so no truthful final GO can be issued and future consumers cannot distinguish an authorized review from an arbitrary substitute.",
+      "evidence": [
+        "INDEPENDENT_REVIEW_REQUEST.md:1 and :38-93 define only the prefreeze review and its prefreeze sibling receipt",
+        "SEALER_CONTRACT_V1.json:7-12 names the frozen reviewer but :159-170 defines only the static freeze law and no final review law",
+        "FREEZE_SCAFFOLD.json:17-21 leaves final_independent_review null without a path or semantics",
+        "PACKAGE_MANIFEST.json:30-40 records only final_independent_review_requested=true",
+        "verify_freeze.py:253-282 validates only that request Boolean and returns PASS without opening or authenticating any final review"
+      ],
+      "required_repair": "Create a narrow immutable successor that binds this incident root and prescribes the exact final sibling path, schema, GO and HOLD statuses, decision, review ID, reviewer/package-author separation, top-level/findings/access/authorization keysets and types, exact frozen tuple roots, chronology/freshness law if intended, and a semantic validator. Then obtain a fresh different-agent frozen review under that contract."
+    }
+  ],
+  "package_inventory": {
+    "artifact_count_bound_by_manifest": 16,
+    "generated_freeze_outputs_mode_0400": true,
+    "package_entry_count": 18,
+    "regular_nonsymlink_unique_inode_entries": true
+  },
+  "package_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_ng_k6_difference_replica_source_gate_scope_sealer_v1r1",
+  "replay": {
+    "optimized_python_rejection_replays": 1,
+    "verify_freeze_pass_replays": 3,
+    "verify_freeze_stdout_byte_identical": true,
+    "verify_freeze_stdout_sha256": "1e3ae60f9e0a1fd8581ad602eafa4193751c4a2a118dbb710d50cda7be231172"
+  },
+  "review_scope": "FROZEN_STATIC_SEALER_V1R1_BYTE_AND_GOVERNANCE_QUALITY_ONLY__NO_LIVE_AUTHORITY",
+  "schema": "support3_k6_postproduction_scope_sealer_frozen_review_contract_incident_v1r1",
+  "status": "HOLD_FROZEN_STATIC_SCOPE_SEALER_V1R1__FINAL_REVIEW_CONTRACT_ABSENT__ALL_LIVE_GATES_HOLD"
+}

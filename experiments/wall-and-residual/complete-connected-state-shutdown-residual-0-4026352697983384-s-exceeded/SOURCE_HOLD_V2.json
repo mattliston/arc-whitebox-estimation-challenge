@@ -1,0 +1,72 @@
+{
+  "schema": "q24-certified-connected-carrier-shutdown-source-hold-v2",
+  "status": "IMMUTABLE_SOURCE_HOLD__INDEPENDENT_AUDIT_AND_TARGET_FREE_FULLWIDTH_RELEASE_ONLY",
+  "created_at_utc": "2026-08-24T12:32:16Z",
+  "bindings": {
+    "estimator": {
+      "path": "estimator.py",
+      "sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+      "bytes": 72277
+    },
+    "parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "e83d1bfd6578556853af6ad1b6a9de3f35a2f45869a1262b99241d12653928c0"
+    },
+    "source_probe_runner": {
+      "path": "run_source_probe.py",
+      "sha256": "d9e9e423103037058254d8d06e837fb8426f46ab6b2898ea47c7dab91c448aea"
+    },
+    "source_probe_result": {
+      "path": "runs/source_probe_v1/results.json",
+      "sha256": "c4c8231c17a68f89916fea5fdf87f9dd0fa52be34ad47d03fbe3ab4d0e21bb7f"
+    },
+    "v1_carrier_erratum_sha256": "50b81022490dc81c989a6db9d9d066cb3244c34efc9e33be05ce01b691660e6b",
+    "independent_stieltjes_redteam_sha256": "79c4087923e4d18b41420203c3a1bd93e95af3ab5634058ea97357b4ef19aee0",
+    "parent_literal_meter_receipt_sha256": "4ad5d4bb8e70a3f57ef7559f5dceffe0d92fc7b77626088cff87431bdbf18160"
+  },
+  "source_probe": {
+    "fixture_count": 10,
+    "certified_shutdown_activation_count": 2327,
+    "parent_finite_regression_count": 0,
+    "parent_failure_recovered_count": 3,
+    "stored_carrier_invariant_violation_count": 0,
+    "no_activation_output_byte_parity": true,
+    "finite_pair_parent_scale_gate": true
+  },
+  "projected_resources": {
+    "authority": "exact small-width polynomial projection; literal full-width meter remains authoritative",
+    "parent_flops": 2131280786389,
+    "increment_law": "350*w^2 + 4634*w + 98",
+    "projected_increment_flops_width1024": 371746914,
+    "projected_total_flops_width1024": 2131652533303,
+    "budget": 2199023255552,
+    "projected_headroom": 67370722249,
+    "projected_utilization_percent": 96.93633425299595,
+    "projected_calls": 9504
+  },
+  "gates": {
+    "source_ast_and_legal_imports": true,
+    "pinned_whestbench_0_16_validate": true,
+    "namespace_has_no_pycache_or_pyc": true,
+    "target_free_source_probe": true,
+    "independent_source_audit": false,
+    "full_width_comparator": false,
+    "literal_source_meter": false,
+    "moment_diagnostic": false,
+    "package": false,
+    "submission": false,
+    "raw_mse": false
+  },
+  "authority": {
+    "allowed": "independent exact-byte audit, then separately released target-free width1024 comparator and literal meter",
+    "forbidden": [
+      "source mutation",
+      "dataset or target access",
+      "score computation",
+      "packaging",
+      "submission",
+      "accuracy promotion"
+    ]
+  }
+}

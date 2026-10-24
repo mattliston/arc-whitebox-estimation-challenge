@@ -1,0 +1,81 @@
+{
+ "lane": "opus-ntsched",
+ "base": "S2tr 46e9315d",
+ "pricing": "warm_judge_v1 warm-up 7103248 -> target 7103256 vs opus_pushsm_v1/warm/base_7103256.json",
+ "price": {
+  "a5s": {
+   "schedule": "{5:(0,1),7:(2,2),10:(3,5),13:(6,8)} static",
+   "sha256": "8a573d69",
+   "first_bill_pct": -0.866,
+   "first_ops": 1194,
+   "warm_bill_pct": -1.182,
+   "warm_ops": 859
+  },
+  "a4s": {
+   "schedule": "{4:(0,0),7:(1,2),10:(3,5),13:(6,8)} static",
+   "sha256": "6f4fe048",
+   "first_bill_pct": 0.176,
+   "first_ops": 1477,
+   "warm_bill_pct": -0.33,
+   "warm_ops": 1390
+  },
+  "bs": {
+   "schedule": "{7:(0,3),10:(4,6),13:(7,9)} static",
+   "sha256": "0d084fcf",
+   "first_bill_pct": -1.963,
+   "first_ops": 1500,
+   "warm_bill_pct": -2.522,
+   "warm_ops": 492
+  },
+  "a5ps": {
+   "schedule": "{5:(0,0),7:(1,2),10:(3,5),13:(6,8)} static",
+   "sha256": "708e2985",
+   "first_bill_pct": 0.472,
+   "first_ops": 1293,
+   "warm_bill_pct": 0.004,
+   "warm_ops": 1224
+  },
+  "bn": {
+   "schedule": "bs + NTB64 (p64 q192) all joins",
+   "sha256": "3d49c380",
+   "first_bill_pct": -0.702,
+   "first_ops": 1690,
+   "warm_bill_pct": -1.364,
+   "warm_ops": 632
+  },
+  "a5n": {
+   "schedule": "a5s + NTB64 all joins",
+   "sha256": "3795ff80",
+   "first_bill_pct": 0.319,
+   "first_ops": 1443,
+   "warm_bill_pct": -0.113,
+   "warm_ops": 1028
+  }
+ },
+ "discriminating_test": {
+  "prereg": "TEAM_LOG [opus-ntsched] 10:15:24Z",
+  "seeds": "7103248-55 vs ctl_s2tr, noise-free",
+  "W13S": {
+   "sha": "09b5d221",
+   "xMSE": 2.12,
+   "se": 0.318,
+   "lower": "0/8",
+   "bill": -0.262,
+   "xnet": 1.858
+  },
+  "W13N": {
+   "sha": "65a5dc7d",
+   "xMSE": 1.407,
+   "se": 0.546,
+   "lower": "2/8",
+   "bill": 0.884,
+   "xnet": 2.29,
+   "by": "hunter, lead/runs/opus_ntconfirm_v1/W13N_8seed_v1.json"
+  },
+  "paired_S_minus_N": {
+   "mean": 0.713,
+   "se": 0.444
+  }
+ },
+ "verdict": "CONTENT: W13N +1.41% >= +1.2% -> schedule family stays CLOSED, no step 2 (pre-registered). A ~oracle L13 subspace buys back 0.71 (SE .44) of the 2.12-point age-4 absorption loss, ~0.3 of which is NT's ordinary L13 gain: ~80% of the loss is young-only content. Also every extra join adds +860..+1390 warm ops and B-type windows +490..+630 (all over a +200 gate)."
+}

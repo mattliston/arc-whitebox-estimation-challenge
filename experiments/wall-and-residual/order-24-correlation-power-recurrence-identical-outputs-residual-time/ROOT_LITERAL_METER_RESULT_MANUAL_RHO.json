@@ -1,0 +1,79 @@
+{
+  "schema": "phase2-root-target-free-literal-meter-result-manual-rho-v1",
+  "status": "PASS_LITERAL_RESOURCES__BIT_EQUIVALENT_RUNTIME_COMPONENT__ACCURACY_UNSCORED",
+  "created_at_utc": "2026-08-24T11:45:08Z",
+  "one_use_release": {
+    "path": "ROOT_LITERAL_METER_RELEASE_MANUAL_RHO.json",
+    "sha256": "bf3c7eb8e629d4f63e375fac3f575ec0972315440a5a12835212d5344175452c",
+    "consumed_exactly_once": true,
+    "label": "fb_ec4_q24_manual_rho_v1_7d0c9e30_n1_s8_seed20260824"
+  },
+  "bindings": {
+    "candidate_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "parent_q24_estimator_sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52",
+    "independent_source_audit_sha256": "b583911142d523e16ee2208289a8b79137669d256e45432877cf3bdf3785efc6",
+    "candidate_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_q24_manual_rho_v1_7d0c9e30_n1_s8_seed20260824/receipt.json",
+      "sha256": "4ad5d4bb8e70a3f57ef7559f5dceffe0d92fc7b77626088cff87431bdbf18160"
+    },
+    "parent_meter_receipt_sha256": "d69fd338972386af2c45f120d2983d5036a9a52ae57845a01977658e4c21fd11",
+    "meter_verifier_sha256": "91471a7d543020460359acf7db8548969182734e9469ec02194002e3008d37d8",
+    "meter_verifier_status": "PASS_METER_RECEIPT_VERIFICATION"
+  },
+  "candidate_measured": {
+    "flops": 2131280786389,
+    "budget_fraction": 0.9691942916056178,
+    "headroom_flops": 67742469163,
+    "operation_calls": 7208,
+    "wall_s": 25.132426790893078,
+    "backend_s": 24.164064712356776,
+    "flopscope_overhead_s": 0.591269311029464,
+    "residual_s": 0.37709276750683784,
+    "descendant_peak_rss_bytes": 4767105024,
+    "tree_peak_rss_bytes": 6164185088,
+    "output_shape": [16, 1024],
+    "output_dtype": "float32",
+    "all_values_finite": true,
+    "failed_mlps": 0
+  },
+  "paired_parent_delta": {
+    "same_synthetic_weight_hash": "4073521961bbac02491a2d1ba620c568fea73ed21bf052c73e42c807286a56ec",
+    "flops": 31457280,
+    "operation_calls": 330,
+    "wall_s": -4.0897680427879095,
+    "wall_percent": -13.99541706591496,
+    "backend_s": -4.190672894474119,
+    "backend_percent": -14.779445158626858,
+    "flopscope_overhead_s": 0.018303518649190664,
+    "residual_s": 0.08260133303701878,
+    "descendant_peak_rss_bytes": 260046848
+  },
+  "gates": {
+    "literal_flops_at_or_below_2p41": true,
+    "wall_at_or_below_120s": true,
+    "residual_at_or_below_0p4s": true,
+    "descendant_rss_below_8gib": true,
+    "finite_output_contract": true,
+    "zero_failures": true,
+    "paired_runtime_hypothesis_pass": true,
+    "residual_margin_s": 0.02290723249316218,
+    "operational_fragility_note": "Local residual passes by only 22.9 ms; any combined successor must be literally re-metered."
+  },
+  "interpretation": {
+    "proved": "The association-preserving manual rho recurrence is a target-free, bit-equivalent source component with a measured 14.0% local wall reduction on the registered full-shape fixture.",
+    "not_proved": [
+      "raw-MSE improvement",
+      "public-tail repair",
+      "board-wide wall distribution",
+      "general robustness beyond registered parity gates"
+    ],
+    "promotion": "Do not resubmit unchanged predictions; reuse only inside a separately frozen and re-metered tail-stability successor."
+  },
+  "access": {
+    "dataset_argument": null,
+    "public_or_private_target_values": 0,
+    "accuracy_scored": false,
+    "packages": 0,
+    "submissions": 0
+  }
+}

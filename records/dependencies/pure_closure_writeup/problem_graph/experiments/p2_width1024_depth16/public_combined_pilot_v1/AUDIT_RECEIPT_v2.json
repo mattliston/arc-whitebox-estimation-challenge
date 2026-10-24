@@ -1,0 +1,49 @@
+{
+  "schema": "combined-pilot-audit-receipt-v2",
+  "verdict": "FAIL",
+  "audited_utc": "2026-08-25",
+  "auditor": "independent-subagent",
+  "supersedes_note": "AUDIT_RECEIPT.json (v1, PASS) audited the a746d46e build before the clamp amendment; this receipt audits the 4ba5e4a2 amendment and FAILS it on effect, not on text.",
+  "preregistration_sha256": "2e6ee889362c7cc944427b0d4ab7890e9f69d4d0a45b57f9ab0880e450bf6046",
+  "checks": [
+    {
+      "name": "sha_repin",
+      "result": "PASS",
+      "detail": "public_combined_card_v1/estimator.py recomputes to 4ba5e4a2bc869429d83e08abcc2dd1fefc065006286c1fca1be81b2951f8802f, matching the expected value and the pins in PREREGISTRATION.json (line 22), generate_row.py ARMS (line 20), PREREGISTRATION_SEAL_v2.json, and BUILD_RECEIPT.json output_sha256."
+    },
+    {
+      "name": "diff_containment",
+      "result": "PASS",
+      "detail": "Reverse-edit proofs, all byte-exact: (1) replacing the clamped output lines with the original single line reproduces the previously audited estimator sha a746d46e... - the ONLY estimator delta is the fnp.maximum(fnp.stack(rows, axis=0), 0.0) wrapping at the single output-stack line in _predict; (2) removing the builder's clamp-patch block reproduces the audited builder sha cb9455d3...; (3) a full rebuild (base + 3 trim patches + clamp patch + 7 audited wiring replacements + deployment APPENDED) reproduces disk 4ba5e4a2... byte-for-byte; (4) the current generate_row.py is the sealed-v1 generator (9f931ca6...) with only the pin swapped; (5) the current PREREGISTRATION.json reverse-edits (un-pin + remove the clamp note sentence + remove amendment_log + restore the one-line resources form) to the audited 1c9166fd... exactly."
+    },
+    {
+      "name": "amendment_accuracy_and_seals",
+      "result": "FAIL",
+      "detail": "The seal chain is structurally correct: PREREGISTRATION_SEAL.json (v1) cites this auditor's v1 receipt (sha 034fd922... verified) and was superseded with zero rows generated under it (gen.log shows FAIL combined 35 at generate_row.py:79 host>=0 assert, which fires before any output directory is created; rows/ does not exist); SEAL_ADDENDUM_ORCHESTRATOR.json (sha bb3a86d6..., matching the v2 seal's reference) covers the orchestrator scheduling revision 7299c2fb -> bcd17829 (the revised orchestrator, read in full, changes only job scheduling to rank-pairs and fixes the stale docstring); PREREGISTRATION_SEAL_v2.json binds every current sha (estimator 4ba5e4a2, generator d1484893, orchestrator bcd17829, builder 3c616b27, prereg 2e6ee889 - all recomputed and equal). The amendment's DIAGNOSIS is accurate and was reproduced exactly: the pre-clamp build emits 322 negative unit means, min -1.3039742043474689e-05, mean -3.1e-6 (40 in the final layer) on rank 35. THE FIX DOES NOT WORK: the projection was inserted at _predict's output stack, but the deployed path is Estimator.predict -> _predict_corrected, which computes host = _predict(...) THEN output = host + transport_correction - the learned correction is added AFTER the clamp. Instrumented run of the sealed 4ba5e4a2 build on rank 35: host at the clamp site has ZERO negatives (min +1.5e-17), so the clamp is a billed no-op (+32768 flops), the final output is bit-identical to the unclamped a746d46e build, still contains the same 322 negatives at min -1.30e-5, and the generator's (host >= 0).all() validation fails again identically. The amendment text's claims 'a final fnp.maximum(...,0.0) projection', 'reported means clamped at zero', and 'can only reduce MSE' are therefore false for the shipped build: the projection is not final, does not touch the reported means, and changes nothing but billing. Generation under this seal will fail at its first row."
+    },
+    {
+      "name": "billing_and_cholesky",
+      "result": "PASS",
+      "detail": "The clamp bills via the elementwise maximum op (measured +32768 counted flops for the [16,1024] site, matching 2 per element under the mult+add-separate convention; the prereg note's '16384 comparisons' names the element count). maximum is a familiar op type - the graded base itself uses fnp.maximum 11 times. 'cholesky' appears zero times in the candidate (case-insensitive)."
+    }
+  ],
+  "computed_shas": {
+    "public_combined_card_v1/estimator.py": "4ba5e4a2bc869429d83e08abcc2dd1fefc065006286c1fca1be81b2951f8802f",
+    "public_combined_card_v1/build_estimator_combined.py": "3c616b2730bfb8b6a4036eec780ec5b57cb9a1573ba7aaf7e7414d1fde95e988",
+    "public_combined_pilot_v1/PREREGISTRATION.json": "2e6ee889362c7cc944427b0d4ab7890e9f69d4d0a45b57f9ab0880e450bf6046",
+    "public_combined_pilot_v1/generate_row.py": "d1484893945add4536de5bb15e9dcf2df3a09ff3cef5c229a434f82d2958f6dc",
+    "public_combined_pilot_v1/run_generation.py": "bcd17829034301366d674c35ad3b4be1760eeb9a3a3ef360439a8ace35decd3e",
+    "public_combined_pilot_v1/SEAL_ADDENDUM_ORCHESTRATOR.json": "bb3a86d6dc0e31b2d7c47582d923eb3207052a165f7574ea46f0fb701a7edd50",
+    "public_combined_pilot_v1/AUDIT_RECEIPT.json": "034fd922110a65769808b14eb4034f07c79b1d7d0e66bd1c1ec08382b7ed3c50",
+    "reverse_edit_estimator_recovers": "a746d46e1dea90d9f1ec73d66562f7a4a9eea16dd47f34c1b5ebb0c48e97dd3d",
+    "reverse_edit_builder_recovers": "cb9455d3560be7660094d709221190d0b6edbeee0fefd06bfdb263bec168b1d2",
+    "reverse_edit_preregistration_recovers": "1c9166fd76212198778acff7f9a1254afa79823d3adcb6c7bf83c448424e09e5",
+    "generator_pin_swap_recovers_sealed_v1": "9f931ca603b1115f16f498467cce9b51571c3f276c6b7259e9bfb398825d1fed"
+  },
+  "empirical_probes_rank35": {
+    "preclamp_a746d46e": {"negatives": 322, "min": -1.3039742043474689e-05, "mean_of_negatives": -3.145426262562978e-06, "final_layer_negatives": 40, "flops": 2175116166389},
+    "sealed_4ba5e4a2": {"host_min_at_clamp_site": 1.5255976587446208e-17, "host_negatives_at_clamp_site": 0, "final_output_negatives": 322, "final_output_min": -1.3039742043474689e-05, "final_output_bit_identical_to_preclamp": true, "flops": 2175116199157, "clamp_billed_delta": 32768},
+    "remediation_demo_clamp_at_corrected_output": {"demo_sha256": "f6876d5a1a27c1cf0fce1256d212cf78703b2d15eed0132649e19ae717717f52", "edit": "in _predict_corrected: output = fnp.asarray(fnp.maximum(host + correction, 0.0), dtype=fnp.float32)", "final_output_min": 0.0, "final_output_nonnegative": true, "would_pass_generator_validation": true, "flops": 2175116215541, "extra_flops_vs_sealed": 16384, "within_budget": true, "nonnegative_elements_bit_match_sealed": true, "location": "scratchpad only; no package file modified"}
+  },
+  "required_remediation": "Apply the projection where the reported means actually finalize: wrap host + correction in _predict_corrected (verified fix above; exact knowledge there, elementwise MSE can only decrease, +16384 counted flops, budget margin unaffected). Decide whether to keep or drop the inner _predict clamp (a no-op on the deploy path costing 32768 billed flops; it does guard predict_with_native_tape's host, which this pilot does not use). Rebuild, re-pin prereg + generator, seal v3, re-audit; verify empirically on rank 35 before sealing - the ~50 s single-forward check in this receipt's probe harness is sufficient."
+}

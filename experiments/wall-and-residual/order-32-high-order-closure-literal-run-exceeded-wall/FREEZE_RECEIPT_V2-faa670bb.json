@@ -1,0 +1,126 @@
+{
+  "schema": "fb-ec4-v4-normalized-moment-diagnostic-v2-freeze-v1",
+  "status": "PASS_SOURCE_STATIC_TINY_PARITY__REPLAY_AUTHORIZED",
+  "frozen_at_utc": "2026-08-24T09:30:00Z",
+  "bindings": {
+    "v2_source_manifest": {
+      "path": "SOURCE_MANIFEST_V2.json",
+      "bytes": 6777,
+      "sha256": "439e7a2aeb43ac38841037ba73321110cdfd954e7b5958133b715749d838f722"
+    },
+    "v2_files": [
+      {
+        "path": "estimator.py",
+        "bytes": 75950,
+        "sha256": "ac81482d2ac28ea97cc963309401405260328cea86bfd1bdc1b9b7a396e041b8"
+      },
+      {
+        "path": "build_v2_from_v1.py",
+        "bytes": 20910,
+        "sha256": "6a93008ace2aeb0f1771784565e30616755a243aa71bb886cdd3b9e98bebd12b"
+      },
+      {
+        "path": "verify_parity_v2.py",
+        "bytes": 8887,
+        "sha256": "daa56992541bbe22a52456800f00d802ba8fd4eef1e9e324e289a0af7740fac6"
+      },
+      {
+        "path": "verify_static_v2.py",
+        "bytes": 9469,
+        "sha256": "ad10ab7db64458bc7e60f6decf05d64d28d6969a3cd44054c135f6a5bd0d3684"
+      },
+      {
+        "path": "run_target_free_diagnostic_v2.py",
+        "bytes": 19756,
+        "sha256": "aa7818fc812968cd992c8d2b06ac3fe603ca913e9690a8e63758ccd33cbba29a"
+      }
+    ],
+    "parents": {
+      "frozen_v4": {
+        "estimator": {
+          "path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+          "bytes": 68698,
+          "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+        },
+        "independent_audit": {
+          "path": "../fullbudget_k21_k4_closure_v4/INDEPENDENT_SOURCE_AUDIT_V4.json",
+          "bytes": 7960,
+          "sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d"
+        },
+        "source_manifest": {
+          "path": "../fullbudget_k21_k4_closure_v4/SOURCE_MANIFEST.json",
+          "bytes": 3932,
+          "sha256": "0cad2cc4491fbb22de5dbf021612fac9d5dccd2c2dcb1f4e963314d0c90580bf"
+        },
+        "freeze_receipt": {
+          "path": "../fullbudget_k21_k4_closure_v4/FREEZE_RECEIPT_V4.json",
+          "bytes": 3479,
+          "sha256": "b730a3e21ba1d297de4b4be6c938cf842f955d951fd008518971cc0fafd8295e"
+        },
+        "literal_meter_receipt": {
+          "path": "../meter_protocol/runs/fb_ec4_v4_sparse_resetarena_cp3compact_n1_s8_seed20260824/receipt.json",
+          "bytes": 23603,
+          "sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017"
+        }
+      },
+      "v1_diagnostic_source": {
+        "estimator": {
+          "path": "../fullbudget_k21_k4_closure_v4_moment_diagnostic/estimator.py",
+          "bytes": 71241,
+          "sha256": "3428b9e37641bcae9c7fcc867a55672f1160fecd225dc084f8a980d07ffe4256"
+        },
+        "source_manifest": {
+          "path": "../fullbudget_k21_k4_closure_v4_moment_diagnostic/SOURCE_MANIFEST.json",
+          "bytes": 4272,
+          "sha256": "ab774cb80025309913e2f2b25a0de3b59615073d72dfd25df4f7c80f50914c29"
+        },
+        "freeze_receipt": {
+          "path": "../fullbudget_k21_k4_closure_v4_moment_diagnostic/FREEZE_RECEIPT.json",
+          "bytes": 3387,
+          "sha256": "843d7f47a7348b95b3fa07f6e4c14bf318e60128c79930e72bfc27bff67461ce"
+        }
+      },
+      "v1_hold_result93124980": {
+        "path": "../fullbudget_k21_k4_closure_v4_moment_diagnostic/runs/v4_target_free_moment_seed20260824/receipt.json",
+        "bytes": 29935,
+        "sha256": "93124980ee134d2b0bad4e6f00b46ced6a7329fcc356945c12736443f4723ee8",
+        "status": "SCIENTIFIC_HOLD__SEE_GATES"
+      }
+    }
+  },
+  "gates": {
+    "deterministic_transform": "PASS_EXACT_V1_HOLD_BOUND_NORMALIZED_V2_TRANSFORM",
+    "normal_estimator_tiny_output": "BITWISE_FROZEN_V4",
+    "diagnostic_shape": [4, 28],
+    "certified_outward_recurrence": "PASS_2POW_NEG52_AND_NEXTAFTER_UP_STATIC_FORM",
+    "tiny_parent_flops": 1279337,
+    "tiny_diagnostic_flops": 1286105,
+    "tiny_measured_incremental_flops": 6768,
+    "tiny_standalone_incremental_flops": 6768,
+    "exact_increment_formula": "depth * (360 * width + 252)",
+    "width1024_depth16_incremental_flops": 5902272,
+    "projected_total_flops": 2179748856741,
+    "projected_total_below_2pow41": true,
+    "projected_headroom": 19274398811,
+    "namespace_pycache_count": 0,
+    "namespace_pyc_count": 0
+  },
+  "self_hash_policy": {
+    "freeze_receipt_sha_intentionally_external": true,
+    "reason": "Embedding this receipt's own SHA would be a cryptographic self-reference. The replay records the computed receipt SHA, and independent launch authority pins it externally."
+  },
+  "authority": {
+    "granted": [
+      "ONE_TARGET_FREE_WIDTH1024_DEPTH16_CERTIFIED_NORMALIZED_MOMENT_REPLAY_SEED20260824"
+    ],
+    "withheld": [
+      "SUBMISSION",
+      "TARGET_OR_DATASET_TRUTH_ACCESS",
+      "RAW_MSE_OR_ACCURACY_CLAIM",
+      "FIT_OR_SAMPLING",
+      "SCALAR_REPAIR_OR_CLOSURE_FEEDBACK",
+      "PROBLEM_GRAPH_MUTATION"
+    ]
+  },
+  "claim_boundary": "The interval certifies only determinant arithmetic applied to stored fp64 r1..r4, with raw-input error zero. It does not cover upstream raw-moment generation. CERT_NEG means the represented tuple is infeasible at the observation point; ZERO_COMPATIBLE means determinant-evaluation cancellation is consistent with zero."
+}

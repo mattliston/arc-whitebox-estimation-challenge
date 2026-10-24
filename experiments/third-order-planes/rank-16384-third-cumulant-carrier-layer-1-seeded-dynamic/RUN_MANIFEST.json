@@ -1,0 +1,58 @@
+{
+  "schema": "p2r0c1d4-protected160-40-run-manifest-v1",
+  "status": "frozen-before-host-generation-and-target-metrics",
+  "invocation": [
+    "/Users/matt/anaconda3/bin/python3",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp16384_l1_seeded_dynamic_multistate_pilot_v1/run_protected_pilot.py",
+    "--launch"
+  ],
+  "smoke_invocation": [
+    "/Users/matt/anaconda3/bin/python3",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp16384_l1_seeded_dynamic_multistate_pilot_v1/run_protected_pilot.py",
+    "--smoke"
+  ],
+  "program_sha256": "864003f211973be52848fbc1104067188f96d3f60af2af934e4aa8273d3eb57d",
+  "decomposition_sha256": "c9bf028abd9692707e2bd9f95056f0187a7c371182d0636243fcbefa5975a403",
+  "host_helper_sha256": "09022af8b0c045d0ab98f951e3f7c47a3ec4d67213a4e4214e72c5c0ab739478",
+  "sealed_base_host_helper_sha256": "f9e39975c3892adefceb2d749536d65b9e9d5216cf4e7148195d41f9225044a8",
+  "host_python": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+  "frozen_roster": {
+    "role": "observer_fit",
+    "ordered_role_ranks_inclusive": [200, 399],
+    "count": 200
+  },
+  "frozen_split": {
+    "train_role_ranks_inclusive": [200, 359],
+    "eval_role_ranks_inclusive": [360, 399]
+  },
+  "causal_intervention": {
+    "only_scientific_change": "FIRST_CORRECTED_LAYER: 2 -> 1",
+    "dynamic4_source_is_byte_identical": true
+  },
+  "outputs": {
+    "hosts_complete": "runs/protected200_399_train160_eval40_v1/HOSTS_COMPLETE.json",
+    "target_claim": "runs/protected200_399_train160_eval40_v1/TARGET_OPEN_CLAIM.json",
+    "model": "runs/protected200_399_train160_eval40_v1/MODEL.pt",
+    "result": "runs/protected200_399_train160_eval40_v1/RESULT.json",
+    "smoke": "SMOKE_RESULT_V2.json",
+    "superseded_prelaunch_smoke": "SMOKE_RESULT.json"
+  },
+  "single_use": {
+    "fits": 1,
+    "autonomous_evaluations": 1,
+    "retries": 0,
+    "target_claim_is_irreversible": true
+  },
+  "launch_interlock": {
+    "release_receipt": "HEAVY_LANE_RELEASE.json",
+    "smoke_pass_required": true
+  },
+  "role_firewall": {
+    "target_role": "observer_fit",
+    "target_projection": ["mlp_id", "all_layer_means"],
+    "target_rows_used": 200,
+    "observer_selection": "forbidden",
+    "name_join": "forbidden",
+    "board_join": "forbidden"
+  }
+}

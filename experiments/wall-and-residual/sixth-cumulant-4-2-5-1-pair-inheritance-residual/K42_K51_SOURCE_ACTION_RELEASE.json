@@ -1,0 +1,85 @@
+{
+  "schema": "q24-k42-k51-source-action-singleton-release-v3",
+  "status": "RELEASE_TARGET_BLIND_K42_K51_SOURCE_ACTION_ONCE",
+  "created_utc": "2026-08-27T13:48:25Z",
+  "issued_by": "/root",
+  "allowed_role": "observer_fit",
+  "allowed_role_ranks": [
+    201
+  ],
+  "singleton_row_count": 1,
+  "no_retry": true,
+  "concurrent_heavy_run_allowed": false,
+  "targets_allowed": false,
+  "scores_allowed": false,
+  "truth_join_allowed": false,
+  "training_allowed": false,
+  "selection_allowed": false,
+  "autonomous_feedback_allowed": false,
+  "full_estimator_allowed": false,
+  "submission_allowed": false,
+  "independent_final_go": true,
+  "runtime_environment": {
+    "interpreter": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+    "flopscope_version": "0.12.0",
+    "whestbench_version": "0.16.0",
+    "numpy_version": "2.4.6"
+  },
+  "incremental_flop_cap": 152200000000,
+  "freeze_path": "SOURCE_FREEZE_V3.json",
+  "freeze_sha256": "2248c8dc67cceabdef1f1228a4d77acfd7b5d9aecd250dfb162a9e19b57a5b2a",
+  "frozen_files": {
+    "DERIVATION.md": "6547a590d2db5f35d17a2f0290bab842df201707aa2d192c34f4791034d6a962",
+    "INDEPENDENT_STATIC_REVIEW_HOLD_V1.json": "1d5786631f2923c606d4be53f428f9e6fe88f9418dbf15ecc6abb111a592f7ff",
+    "K42_K51_INTEGRATED_ACCOUNTING_RECEIPT_V1.json": "99eebca28f91ff48504eee45b58130933ee16c60c611186fe7c66d1471b5926b",
+    "K42_K51_RUNTIME_METER_GATE_AMENDMENT_V1.json": "6ae06a43e0093849437a3eae784a19604e1bd2b451cf13cd9b484586e2f80de2",
+    "K42_K51_STATIC_ACCOUNTING_ERRATUM_V1.json": "63fbf1da297b292b6340c688da3e20b16a850c296e165e05f111b0847534b8c3",
+    "PREREGISTRATION.json": "b5086f6365043afc4828d6684863e3b04e94a880f2089ae1c002f2f14210a950",
+    "STATIC_VERIFICATION_V3.json": "cb28747fedb5a7ea195386af193ea3c31462977d6d8be9a3e391d9bd6f8bf448",
+    "k42_k51_instrumented_source.py": "547b45c219fd868d359ebb8deec9f564a89d433cd6fbdc9cc637940e164cd601",
+    "source_action_runner_scaffold.py": "fd9a5f8f395f96af3569d7f2d422033bcd714c18d8b22760bb5e1fce0c9fbc8e",
+    "verify_static.py": "75f83052da678e43da19d19faf8327123cfb10e8152856411577f5aa21a4ae65"
+  },
+  "prerequisite_rank201_sha256": {},
+  "row_manifest_sha256": "6c5b0865f8869bfe2d40a93ecb5c212e0d24b1e3f280431cb79db0473191788a",
+  "weights_sha256": "192f040b22b55ebca2265e6a47e281872684f40ace09a16bd32bf5718308f943",
+  "sealed_row_binding": {
+    "role": "observer_fit",
+    "role_rank": 201,
+    "manifest_relative_path": "rows/observer_fit/0201/row_manifest.json",
+    "decoded_columns": [
+      "mlp_id",
+      "mlp_name",
+      "mlp_seed",
+      "weights"
+    ],
+    "zero_access_sentinels": {
+      "scores": 0,
+      "target_values_decoded": 0,
+      "target_columns_projected": 0,
+      "fits": 0,
+      "optimizers_constructed": 0
+    }
+  },
+  "review": {
+    "reviewer_identity": [
+      "/root/k4251_v3_transaction_review",
+      "/root/k4251_v3_science_review"
+    ],
+    "verdict": {
+      "transaction": "GO_RANK201_TARGET_BLIND_K42_K51_SOURCE_ACTION_SINGLETON_RELEASE_ONLY",
+      "science": "GO_FROZEN_V3_K42_K51_COORDINATE_ONLY_SOURCE_ACTION_FOR_SINGLETON_RANK201_RELEASE__NO_RUNTIME_RESULT_CLAIM_NO_TARGETS_NO_AUTONOMY_NO_ESTIMATOR_PROMOTION_NO_SUBMISSION"
+    },
+    "summary": {
+      "transaction": "Independent read-only audit passed: the frozen map rehashed exactly; the official verifier replay was byte-identical with 22/22 gates true; transaction self-tests passed 16/16; internal A1-B-A2 workers, exclusive pre-loader no-retry claim, distinct one-use capabilities, full preregistered gates, atomic three-file commit, exact 152200000000 FLOP cap and call inventory, and the rank643 semantic-rank201 prerequisite were verified; no release or runtime artifacts existed and no row, weight, target, or estimator access occurred.",
+      "science": "Independent read-only audit at SOURCE_FREEZE_V3 sha256 2248c8dc67cceabdef1f1228a4d77acfd7b5d9aecd250dfb162a9e19b57a5b2a: official verifier replay byte-identical to STATIC_VERIFICATION_V3; all 22 static gates true; science formulas/partition enumeration/Q7 centered coefficients/K42-K51 orientations/factors 15 and 6/two fill_diagonal sites and 30 calls passed; exact 16-operation delta including getitem=43 passed; integrated coordinate-only prediction 151825424384F is below cap152200000000 by374575616F; future endpoint29420544F is separately bound and excluded; conservative process projection7068327936 bytes is below8GiB; full-public A1/B/A2 parity and runtime FLOP/RSS/residual/nonzero gates are runner-owned; release/runtime artifacts were absent and no row/weight/target/estimator was opened or run by reviewer."
+    }
+  },
+  "authorized_command": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python -B /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_k42_k51_pair_inheritance_v1/source_action_runner_scaffold.py --execute --rank 201",
+  "transaction_launches_authorized": 1,
+  "instrumented_public_calls_authorized": 1,
+  "frozen_base_public_parity_calls_authorized": 2,
+  "numerical_calls_performed_at_release": 0,
+  "targets_read_at_release": 0,
+  "authority_scope": "rank201 target-blind K42+K51 source/action coordinate preservation only; no rank643, target, training, selection, autonomy, estimator promotion, or submission"
+}

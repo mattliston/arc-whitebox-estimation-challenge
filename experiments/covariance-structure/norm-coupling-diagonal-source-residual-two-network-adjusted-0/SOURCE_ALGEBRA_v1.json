@@ -1,0 +1,14 @@
+{
+  "status": "SOURCE_ONLY_HELD",
+  "mechanism": "Replace a diagonal source approximation, not an incoming K22 plane or a terminal mean.",
+  "law_decomposition": "dgn = dgn_iso + gamma*gbar*(diagB - aB*v), with original scaling implicit in the table. D subtracts existing carried/birth/row diagonals; all those subtractions stay unchanged.",
+  "residual": "delta_raw = rowsum(post22) - dgn_iso. On represented birth hubs, delta = delta_raw - radial_template*sum(delta_raw)/sum(radial_template). Unrepresented units are zero.",
+  "radial_template": "tr(C_post)*diag(C_post) + 2*rowsum(C_post*C_post), captured alongside post22 before learned corrections; original radial scalar untouched. Degenerate template falls back to a constant on the same eligible roster.",
+  "pair_identity": "With p+ - p- = gap*e_h and lam+ = birth/gap*s_new = -lam-, adding q=[z,-z], x=[-z,z] gives 2*kap_next*NP_DIAG*delta_h*e_h*e_h^T; z=2*kap_next*NP_DIAG*delta_h/(s_new*gap*birth).",
+  "retained": "Explicit anisotropic carry, old diagonal subtractions, source strength NP_DIAG, row/birth source coefficients, all K22 and marginal formulas, scalar radial update, and all existing head inputs.",
+  "limitations": "post22 and dgn_iso use different approximate cumulants and mean centering. Newborn hub restriction omits always-on units. Radial cancellation is exact at the represented post-source level up to floating point; later physical transport can change its trace. No gain or true-moment accuracy claim.",
+  "history": "TEAM_LOG234: post22 row sums identify norm-coupling diagonal. 346: incoming K22 companion failed, distinct from this source residual. 378: T25/T26 transported fourth cumulants dominate at late depth. 1094/1096-era T101 law-source-off about20%MSE establishes possible leverage only.",
+  "source_plan_sha256": "1e2254a438076de2e7f1d3b5d2884af7b1211305cec901ad6f07609e36265070",
+  "tiny_receipt_sha256": "b5d77093c58af4aeba6c0d96db31236a0f7c7a22f87b44922b932582f0f1c457",
+  "models_called": 0
+}

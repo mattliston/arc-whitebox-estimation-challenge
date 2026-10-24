@@ -1,0 +1,360 @@
+{
+  "access_accounting": {
+    "bank_or_staging_payload_bytes_opened": 0,
+    "board_or_score_payload_bytes_opened": 0,
+    "fitted_model_payload_bytes_opened": 0,
+    "live_archive_or_package_payload_bytes_opened": 0,
+    "live_estimator_or_MLP_executions": 0,
+    "live_package_builds": 0,
+    "mps_executions": 0,
+    "network_or_submission_actions": 0,
+    "numerical_training_or_scoring_runs": 0,
+    "public_row_or_weight_payload_bytes_opened": 0,
+    "static_and_synthetic_sources_only": true,
+    "synthetic_in_memory_archive_and_model_adversaries_executed": true,
+    "target_payload_bytes_opened": 0
+  },
+  "authorization": {
+    "accuracy": false,
+    "actual_state_parity": false,
+    "bank_ready": false,
+    "board": false,
+    "estimator_promotion": false,
+    "export": false,
+    "live_header_adapter": false,
+    "meter": false,
+    "model": false,
+    "model_path_access": false,
+    "mps": false,
+    "network": false,
+    "package": false,
+    "refit": false,
+    "static_semantic_successor_accepted": true,
+    "submission": false,
+    "target": false
+  },
+  "date": "2026-08-27",
+  "decision": "ACCEPT_IMMUTABLE_V1R1_AS_STATIC_SEMANTIC_INFERENCE_EXPORT_SUCCESSOR_ONLY__NO_LIVE_MODEL_EXPORT_METER_PACKAGE_OR_SUBMISSION_AUTHORITY",
+  "exact_repair_findings": {
+    "archive": {
+      "canonical_archive_sha256": "7900b603c453dbba9acede1b317d47e2db1fe2c89811c291dee1c8a81a00e920",
+      "canonical_gzip_header_hex": "1f8b08000000000002ff",
+      "canonical_manifest_sha256": "dc27912eec5cf25423cbea9f6595a2ca04fdec6115a1412d2a0584af5148b613",
+      "compressed_bytes": 31517,
+      "exact_full_byte_rebuild_equality": true,
+      "exact_members": [
+        "estimator.py",
+        "manifest.json"
+      ],
+      "gzip_single_member_no_trailing_encoding": true,
+      "member_headers": [
+        {
+          "data_offset": 512,
+          "header_offset": 0,
+          "name": "estimator.py",
+          "regular_typeflag": "0",
+          "size": 125991,
+          "ustar_magic_hex": "757374617200",
+          "ustar_version": "00"
+        },
+        {
+          "data_offset": 127488,
+          "header_offset": 126976,
+          "name": "manifest.json",
+          "regular_typeflag": "0",
+          "size": 419,
+          "ustar_magic_hex": "757374617200",
+          "ustar_version": "00"
+        }
+      ],
+      "post_member_zero_padding_bytes": 5120,
+      "tar_blocking_multiple": 10240,
+      "uncompressed_tar_bytes": 133120
+    },
+    "descriptor_types": {
+      "dtype_and_order_exact_builtin_strings": true,
+      "name_exact_builtin_string": true,
+      "nbytes_exact_builtin_positive_int_and_expected_value": true,
+      "offset_exact_builtin_nonnegative_int_and_consecutive_value": true,
+      "shape_exact_builtin_list_of_positive_builtin_ints": true
+    },
+    "pair_aggregate": {
+      "each_member_independently_mutated_with_individual_and_inventory_hashes_repaired_then_aggregate_rejection_observed": true,
+      "exact_order": [
+        "pair/state/U",
+        "pair/state/b",
+        "pair/state/V",
+        "pair/state/c",
+        "pair/state/d"
+      ]
+    },
+    "timestamp": {
+      "canonical_leap_day_fixture_accepted": "2024-02-29T23:59:59Z",
+      "exact_format": "YYYY-MM-DDTHH:MM:SSZ",
+      "exact_string_type_and_length": true,
+      "parse_and_roundtrip_equality": true
+    }
+  },
+  "frozen_inventory_recount": {
+    "counts_by_H": {
+      "16": 22,
+      "256": 22,
+      "64": 22
+    },
+    "exact_ordered_names": [
+      "J/state/centers",
+      "J/state/scales",
+      "J/state/layer_rms",
+      "J/state/trunk.0.weight",
+      "J/state/trunk.0.bias",
+      "J/state/trunk.2.weight",
+      "J/state/trunk.2.bias",
+      "J/state/source_weight",
+      "J/state/source_bias",
+      "J/state/gate_weight",
+      "J/state/gate_bias",
+      "J/state/transport_delta",
+      "J/state/mix_delta",
+      "J/normalizer/centers",
+      "J/normalizer/scales",
+      "J/normalizer/layer_rms",
+      "pair/r_l",
+      "pair/state/U",
+      "pair/state/b",
+      "pair/state/V",
+      "pair/state/c",
+      "pair/state/d"
+    ],
+    "independent_hard_coded_gold_matches_exporter_for_all_H": true,
+    "pair_U_shape_by_H": {
+      "16": [
+        68,
+        64
+      ],
+      "256": [
+        308,
+        64
+      ],
+      "64": [
+        116,
+        64
+      ]
+    },
+    "unique_name_count": 22
+  },
+  "independent_adversarial_replay": {
+    "additional_archive_negatives_rejected": [
+      "gzip filename header",
+      "extra canonical tar blocking record",
+      "altered terminal tar padding",
+      "non-bytes archive container"
+    ],
+    "additional_descriptor_negatives_rejected": [
+      "boolean tensor shape entry",
+      "boolean tensor nbytes"
+    ],
+    "all_packaged_negative_classes_rejected": true,
+    "all_requested_32_negative_classes_rejected": true,
+    "archive_negative_classes_independently_rejected": [
+      "trailing bytes",
+      "concatenated gzip stream",
+      "altered gzip XFL",
+      "altered gzip OS",
+      "GNU tar encoding",
+      "gzip filename header",
+      "extra tar blocks",
+      "altered tar padding"
+    ],
+    "descriptor_negative_classes_independently_rejected": [
+      "float shape",
+      "boolean shape",
+      "float offset",
+      "boolean offset",
+      "float nbytes",
+      "boolean nbytes",
+      "zero shape",
+      "negative shape",
+      "negative offset",
+      "zero noninitial offset",
+      "zero nbytes",
+      "negative nbytes",
+      "extra descriptor field"
+    ],
+    "independent_synthetic_archive_sha256_non_authoritative": "b2f830f64481e6949dcf6046f282e17e66b52fb9e42732510d2b1890bdacd4a9",
+    "invalid_timestamp_classes_independently_rejected": [
+      "Z",
+      "not-a-dateZ",
+      "2026-99-99T99:99:99Z",
+      "lowercase z",
+      "fractional seconds",
+      "numeric UTC offset"
+    ],
+    "packaged_negative_class_count": 33,
+    "selected_H_boolean_alias_rejected": true,
+    "wrong_selected_bank_export_binding_rejected": true
+  },
+  "independent_replay": {
+    "environment": {
+      "MPS_used": false,
+      "device": "CPU",
+      "numpy": "1.26.4",
+      "python": "CPython 3.11.5",
+      "torch": "2.7.0"
+    },
+    "freeze_stdout_byte_identical_to_frozen_FREEZE_VERIFICATION": true,
+    "freeze_stdout_sha256": "8cf8cc17f9d19dfb40128bdf5439e929f3c646afe2da24e470a762f04622f7f7",
+    "static_stdout_byte_identical_to_frozen_STATIC_VERIFICATION": true,
+    "static_stdout_sha256": "885d2d479c2656ed7e93440eaf3d521e7ba654d2c2a694f4b7820984f6e1e257",
+    "synthetic_parity": {
+      "candidate_H": [
+        16,
+        64,
+        256
+      ],
+      "cases": 6,
+      "entry_dtypes": [
+        "float32",
+        "float64"
+      ],
+      "final_composition_zero_boundary_byte_exact": true,
+      "maximum_absolute_seam_difference": 6.198883056640625e-06,
+      "maximum_relative_seam_difference": 0.00014548823760139653,
+      "prediction_outputs_equal": true,
+      "unit_permutation_outputs_equal": true,
+      "width": 9
+    }
+  },
+  "issued_by": "independent_reviewer",
+  "issued_utc": "2026-08-28T05:33:18Z",
+  "live_header_boundary": {
+    "current_semantic_parser_scope": "frozen exact-type 22-tensor inference core and deliberately reduced synthetic SPREFIT1 header",
+    "exact_strengthened_live_refit_header_adapter_frozen": false,
+    "live_export_pre_path_gate": "PASS_FAIL_CLOSED",
+    "model_and_source_roots_authenticatable_by_this_static_GO": false,
+    "required_next_adapter": "A separately frozen and reviewed successor must bind the final refit runtime, runner, model receipt, model seal, independent model review, and exact strengthened SPREFIT1 top-level, nested, and source-binding schemas before model-path access.",
+    "semantic_core_pass_does_not_accept_or_authorize_the_moving_live_header": true
+  },
+  "material_defects": [],
+  "package_root_metadata": {
+    "artifact_package_sha256": "ea9308584534dba2f806127c7e5e6f3484e3e4f347f0ff4675ae18e46cdb17d8",
+    "manifest_bound_artifact_count": 17,
+    "multiply_linked_regular_file_count": 0,
+    "regular_file_count": 19,
+    "symlink_count": 0
+  },
+  "predecessor_lineage": {
+    "duplicate_b_diagnosis_retracted": true,
+    "predecessor_V1_HOLD_review_sha256": "bf1690e2492b7000fe887cd52baba52b71bfb8721017f296b7b475626c3a6263",
+    "predecessor_V1_artifact_package_sha256": "c3dd833b03d27d3491a11a6229fa36b51dcde7d2e9cbffcb7d49aa44e025813d",
+    "predecessor_V1_export_builder_sha256": "14619de8da88ce1da9518788b03282306796c0f80e42c8c1e16f2de53ace2f5c",
+    "predecessor_V1_freeze_receipt_sha256": "7c65b919e0988e8fb0299cac828078a0c99910e3dcc9b0cf958af53c2925b075",
+    "predecessor_V1_freeze_verification_sha256": "e17fb9bbbdafdc2bf52cd45559c38fb4de0f26d9983790992135e087a184157d",
+    "predecessor_V1_manifest_sha256": "1293603e9a88cc54601b76dbe34fd3c0836af2bfb8e6fa50e31ff1a045a5dd2c",
+    "predecessor_V1_remains_held": true,
+    "predecessor_V1_static_sha256": "0f0c3c2ef89b87c2c9d34dcbc18114c4fb94dd83348cafcd35d9a2ca99e0cadd",
+    "successor_promotes_predecessor_authority": false
+  },
+  "preserved_science_and_source_findings": {
+    "action_source": "online selected-H action reconstruction at layers 2 through 14 with a distinct exact float32-zero layer-15 action",
+    "all688_host_and_action_byte_parity_still_required": true,
+    "deployment_core_byte_identical_to_V1": true,
+    "estimator_template_byte_identical_to_V1": true,
+    "final_composition": "one float32 host-plus-J addition; independent float64 base and delta conversion; pair add on layers 2 through 15; float64 nonnegative clamp; one C-order float32 cast",
+    "generic_host_predicate": "float(fnp.min(variance)) <= 2.0e-30",
+    "J_and_x36_law": "frozen float32 OOF V1 recurrence with exact layers 2 through 15 x36 tape",
+    "meter_validator_byte_identical_to_V1": true,
+    "no_obsolete_embedded_J_payload_in_source_cut": true,
+    "no_rank_MLP_identity_target_score_pair_zero_fold_ensemble_MPS_or_fallback_route": true,
+    "pair_on_law": "frozen OOF V1 selected-H recurrence with 2^-30 denominator floor and r_l scaling",
+    "resource_law": "resource observations cannot change H, retry/refit, or veto accuracy; operational package admission remains mandatory",
+    "synthetic_parity_source_byte_identical_to_V1": true
+  },
+  "requested_checklist_findings": [
+    {
+      "finding": "The exact generic parent, V5 capture source, and V5 action literal hashes match. The one-marker cut excludes the obsolete embedded J payload and retains the uniform value-only repair predicate. Actual all-688 host/action parity remains a future gate.",
+      "id": 1,
+      "verdict": "PASS_STATIC_SOURCE_CUT__LIVE_PARITY_HOLD"
+    },
+    {
+      "finding": "The parser matches an independent hard-coded 22-name gold inventory for H16/H64/H256, requires exact built-in descriptor types and values, verifies individual and aggregate payload hashes including explicit U,b,V,c,d order, duplicate normalizers, CPU/no-MPS, and structural host/OOF/bank provenance. Exact live receipt/schema authentication remains null-gated.",
+      "id": 2,
+      "verdict": "PASS_STATIC_SEMANTIC_CORE__LIVE_HEADER_HOLD"
+    },
+    {
+      "finding": "The byte-identical core and replayed Torch reference preserve J, x36, pair-on, action-layer, floor, dtype, addition, clamp, and final cast order. Width-9 synthetic evidence does not replace actual-state width-1024 parity.",
+      "id": 3,
+      "verdict": "PASS_STATIC_AND_SYNTHETIC__ACTUAL_STATE_PARITY_HOLD"
+    },
+    {
+      "finding": "The rendered-source AST remains free of Torch, NumPy, filesystem model loading, rank or MLP identity routing, benchmark target/score access, pair-zero, fold ensemble, MPS, and fallback inference paths.",
+      "id": 4,
+      "verdict": "PASS_STATIC"
+    },
+    {
+      "finding": "Every future empirical root remains null and every live authority remains false. The skeleton rejects before payload decoding or MLP access; export-live and meter-live reject before supplied path inspection.",
+      "id": 5,
+      "verdict": "PASS_FAIL_CLOSED"
+    },
+    {
+      "finding": "Synthetic parity covers every H, both entry dtypes, exact/below/above floor values, zero boundaries, and simultaneous unit permutations without empirical access.",
+      "id": 6,
+      "verdict": "PASS_SYNTHETIC__EMPIRICAL_PARITY_HOLD"
+    },
+    {
+      "finding": "UTC seconds are canonical and full archive regeneration equality binds every gzip/USTAR byte. All packaged and additional header, stream, format, member, padding, timestamp, and manifest adversaries reject. Pinned whestbench validation and package authority remain future.",
+      "id": 7,
+      "verdict": "PASS_EXACT_STATIC_ARCHIVE__PACKAGE_HOLD"
+    },
+    {
+      "finding": "Meter validation recomputes operational admission without target/score fields. Over-limit evidence remains valid accuracy evidence with package admission false and cannot revise H, retry/refit, or veto accuracy.",
+      "id": 8,
+      "verdict": "PASS_STATIC_AND_SYNTHETIC"
+    },
+    {
+      "finding": "The 19-file one-link regular package has no symlinks; all 17 manifest bindings, package digest, predecessor HOLD binding, static replay, freeze receipt, and freeze replay roots are exact and self-consistent.",
+      "id": 9,
+      "verdict": "PASS_BYTE_EXACT_FREEZE"
+    }
+  ],
+  "review_id": "q24-signed-pair-v4r1-all688-deployment-inference-review-v1r1-exact-types-canonical-archive-go",
+  "review_scope": "read-only static source, OOF-science comparison, predecessor-lineage, hash/freeze replay, and isolated synthetic adversaries; no live bank, staging row, weight, target, score, fitted model, estimator, archive, package, board, network, or submission payload access",
+  "review_scope_boundary": {
+    "first_live_blocker": "freeze and independently review the exact strengthened all-688 refit runtime/model header, receipt, seal, and review adapter",
+    "future_children_must_bind_this_exact_review_sha256": true,
+    "no_live_child_may_inherit_empirical_or_package_authority_from_this_GO": true,
+    "this_GO_accepts_only_the_frozen_static_V1R1_semantic_successor": true
+  },
+  "reviewed_artifact_sha256": {
+    "DESIGN.md": "842f721dc5b78f7d8a412cbb03c80bbae183f22bd4ea78c438487ad1cdcc235c",
+    "EXPORT_CONTRACT.json": "adb79d4e9b1ce92ec7f46406e90d2d46dea32a228b0b853a5b97fc301024f5c5",
+    "FREEZE_RECEIPT.json": "16beae29faeb21f315ef19772975bf8b829a328e58616691af25df612526b64e",
+    "FREEZE_VERIFICATION.json": "8cf8cc17f9d19dfb40128bdf5439e929f3c646afe2da24e470a762f04622f7f7",
+    "FUTURE_BINDINGS_HOLD.json": "2f3c7a2c102891375d00b0e15f35d36cef6a3a18aa9984d4fbb62dfbdec5c97a",
+    "INDEPENDENT_REVIEW_REQUEST.md": "01d61adc6b2b30d280d69c0b17a029b47be049d12eed10a7ee6bc702950b0223",
+    "KNOWN_BLOCKERS.json": "b81a11faa72784db830626137ea4ea38a7e2139658180ce93d0b9b3aef47c3ea",
+    "METER_CONTRACT.json": "f9d05501d2e0d0a379d01c142388f79373f9ce57fbd0841c8c64b761381c0058",
+    "PACKAGE_MANIFEST.json": "4cc656d483a5c7d5331d03d4b91cc1ceb99594805c456e98a26180003760d89d",
+    "STATIC_VERIFICATION.json": "885d2d479c2656ed7e93440eaf3d521e7ba654d2c2a694f4b7820984f6e1e257",
+    "V1_HOLD_BINDING.json": "f7b586262b1746c708e4fdabba2e20579952cb7d928cb44d531ab43345dbbda1",
+    "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+    "estimator_source_template.py": "dfd1a20c33f9ceebdc3054d4e43b13508ef4db6ccca734b60733c852f3e9c221",
+    "export_archive_builder.py": "a77c0864b20bdace9c64f6769a0fa4b9ff1500ad92a8f4eb42a1e6bd10b69015",
+    "freeze_package.py": "f81e6e33ed3acbf5c8dbb07f4be1eb4835b59e3041ca1d4022457de22af0eda4",
+    "meter_receipt.py": "a9fafd87594d8c86efb48828385b06ff6715a975c0084ee031085d6302f91ee4",
+    "synthetic_parity.py": "2b7f53cfa9ac0c4879bfb914fdc63fab9060a6a17a0e87bd35813c0bc2e98011",
+    "verify_freeze.py": "c27eabefcfaeb174d8657a1931910ec2d0838fd6e6d8a846919d56a352341fdf",
+    "verify_static.py": "501b166fba9ddab97db7a42f64d59c1ed3d8a7d9efd97dd6528feefdc4674031"
+  },
+  "reviewed_upstream_static_sha256": {
+    "action_suffix_sha256_after_mechanical_cut": "e4a677e0b5c957ea824937031a333a5acf49db1f00939fd214aafe57a37898b5",
+    "fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_min_v1/estimator.py": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d",
+    "parent_prefix_sha256_after_mechanical_cut_and_token_import_removal": "d56625985c5fc95ac2de0b29d9927c3e1113cfcb795a3fea52bcc00a087c60db",
+    "public_q24_native_transport_energy_pilot_v1/instrumented_estimator.py": "f539889324fb82cc1ded35a41c8b5a359014d9ddac52eab62949257e8e58a0ef",
+    "public_q24_signed_pair_nested_accuracy_oof_v1/nested_accuracy_runner.py": "fe88fac259998251feb014a2607a1a3978eb230e2369061a69778e03edc1dba0",
+    "public_q24_signed_pair_three_bank_runtime_v5/parent_capture.py": "10ed893bbd50257f21b434fb90e95185026bdf73740b3b6590a001cc1fecc425",
+    "public_q24_signed_pair_three_bank_runtime_v5/signed_pair_literal.py": "20a50cc065c0a9fc3c22fe5b5e178771b2b1fefeacc4a8a68ea48748fb2d2a57"
+  },
+  "reviewer_different_from_package_author": true,
+  "schema": "public-q24-signed-pair-v4r1-all688-deployment-inference-independent-static-review-v1r1",
+  "status": "GO_FROZEN_STATIC_DEPLOYMENT_INFERENCE_V1R1__EXACT_DESCRIPTOR_AND_ARCHIVE_REPAIR__ALL_LIVE_GATES_HOLD"
+}

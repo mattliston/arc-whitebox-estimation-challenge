@@ -1,0 +1,67 @@
+{
+  "schema": "p2r0f2j-q24-native-tape-meter-preregistration-v1",
+  "status": "frozen-before-target-free-literal-meter",
+  "node": "P2R0F2J_NATIVE",
+  "question": "Can the exact near-floor-min Q24 source expose a cheap native raw20/sigma tape without changing one prediction byte and while retaining enough budget for the frozen J correction?",
+  "source_authority": {
+    "path": "../fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_min_v1/estimator.py",
+    "sha256": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d",
+    "known_literal_flops_on_prior_fixture": 2126977459133
+  },
+  "meter_fixture": {
+    "role": "observer_fit",
+    "role_rank": 35,
+    "columns_permitted": [
+      "mlp_id",
+      "mlp_seed",
+      "weights"
+    ],
+    "target_columns_forbidden": true,
+    "observer_selection_forbidden": true,
+    "name_or_board_join_forbidden": true
+  },
+  "native_raw20_contract": {
+    "field_order": [
+      "depth_normalized",
+      "entering_cp3_rank_fraction",
+      "retained_fraction",
+      "alpha",
+      "centered_log_sigma",
+      "gaussian_gate",
+      "gaussian_density",
+      "gaussian_mean_over_sigma",
+      "q24_reported_mean_over_sigma",
+      "q24_minus_gaussian_over_sigma",
+      "q24_pre_k3_over_sigma3",
+      "gaussian_exact_variance_over_pre_variance",
+      "orthonormal_hermite_tail_energy_orders5_to10",
+      "pre_correlation_row_mean",
+      "pre_correlation_row_rms",
+      "pre_correlation_row_mean_absolute",
+      "weight_edge1_column_sum",
+      "weight_edge2_column_sum",
+      "weight_edge3_column_sum",
+      "weight_edge4_column_sum"
+    ],
+    "retained_fraction_law": "one at every layer because full-birth CP3 enters at ranks 0,1024,...,15360 and never exceeds cap 16384",
+    "old_cp1792_mismatch": "Field meanings are retained, but all state-dependent values are recomputed from the live Q24 CP16384/EC4 closure. Existing CP1792 raw20/sigma values are not parity targets and are never read.",
+    "storage_law": "Stack fields in float64, clip every raw field to [-1e30,1e30], then cast the stored tape to float32; sigma is cast to float32 without clipping.",
+    "prediction_semantics": "The reported host remains the exact near-floor-min Q24 output. Tape calculations may observe but must not mutate prediction state."
+  },
+  "gates": {
+    "prediction_byte_equal_to_exact_source": true,
+    "raw_shape": [16, 1024, 20],
+    "sigma_shape": [16, 1024],
+    "finite_all": true,
+    "sigma_strictly_positive": true,
+    "integrated_host_tape_plus_post_tape_j_upper_at_or_below_B": true,
+    "phase2_budget_B": 2199023255552,
+    "j_correction_upper": 1051656192,
+    "raw20_materialization_reserve_already_metered_in_tape": 268435456,
+    "post_tape_j_upper": 783220736
+  },
+  "outcome": {
+    "pass": "Freeze the native 160/40 J transfer pilot before opening its observer_fit targets.",
+    "fail": "Stop this native spelling before targets; do not treat CP1792 OOF accuracy as Q24-native evidence."
+  }
+}

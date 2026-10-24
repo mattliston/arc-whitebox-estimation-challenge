@@ -1,0 +1,47 @@
+{
+  "tag": "secsafe2_20261016_opus_v1",
+  "safe_sha256": "9124c6d9348ba689161f683b078e28200495c4c510926903927205eaaadbad1b",
+  "judge_lines": [
+    "  ok   P(loss) per 100 networks, first priced (override) 3.05% (first 43,765: cap/median 1.243; S47 hour)           limit <= 10%",
+    "  ok   requests, warm network (100)                 42,080                                                     limit <= 42,700",
+    "  ok   binding phase at the platform pace           17660 requests, 587 of 652 keys bound                      limit <= 18,600, >= 90% bound",
+    "  ok   projected platform setup wall (cap 5 s, whole run) 4.442 s (last phase 4.252 s + 0.19 s)                      limit <= 4.5 s",
+    "  ok   projected worst-network wall                 108.5 s (mean 100.6 s; mean residual 0.305 s from requests) limit <= 120 s",
+    "  ok   requests under a setup 1.3x slower           43,156 (+0.55%)                                            limit <= +2%",
+    "  ok   projected setup wall under a 1.3x slow setup 4.585 s                                                    limit <= 4.6 s"
+  ],
+  "any_fail": false,
+  "warm_target": 42700,
+  "delta_vs_primary": {
+    "normal": {
+      "bill_first_pct": 1.1071020259099984,
+      "bill_warm_pct": 1.1412783781627425,
+      "requests_first": -3745,
+      "requests_warm": -3476,
+      "safe_first": 43765,
+      "safe_warm": 42080
+    },
+    "slow": {
+      "bill_first_pct": 1.1043588129425634,
+      "bill_warm_pct": 1.140364552143921,
+      "requests_first": -3745,
+      "requests_warm": -3476,
+      "safe_first": 44103,
+      "safe_warm": 42210
+    }
+  },
+  "guards": {
+    "normal": {
+      "exit_code": 0,
+      "error": null,
+      "max_rss_bytes": 8626143232,
+      "max_footprint_bytes": 3994443888
+    },
+    "slow": {
+      "exit_code": 0,
+      "error": null,
+      "max_rss_bytes": 8610545664,
+      "max_footprint_bytes": 3979288640
+    }
+  }
+}

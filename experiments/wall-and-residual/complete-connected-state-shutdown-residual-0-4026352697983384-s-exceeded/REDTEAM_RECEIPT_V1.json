@@ -1,0 +1,138 @@
+{
+  "schema": "q24-stieltjes-repair-redteam-receipt-v1",
+  "status": "DESIGN_COMPLETE__PROBE_PASS__FIRST_SOURCE_REJECTED_CARRIER_HOLD",
+  "created_at_utc": "2026-08-24T12:19:06Z",
+  "bindings": {
+    "parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "two_point_probe": {
+      "preregister_sha256": "85038b2b53d8ebdbb1e2915adef257d5e7e8d3d9587d61f6382e76132b1534d5",
+      "results_sha256": "f6e3ed75d206d8b6a1810d07bd4830d7fd8c7690b572e3adfbc65a3acec3aece",
+      "rejection_receipt_sha256": "5b9af5b607b9102d2140bc92a643e9ab626c35e0ff7bead530d6e8abb247a519"
+    },
+    "gaussian_positive_part_marginal_probe": {
+      "preregister_sha256": "ef642a8e6b7f928427fcf1f395496fd2b839e5089c06046dbb138ea7d4054e0c",
+      "results_sha256": "5cf1cfaba2db35b08456da1b927c5802a096616196e492e55c4cfd6fd031ddee",
+      "rejection_receipt_sha256": "855819aeda1021c536136290402c45fd154c6d46c754505a34ef4e41565d6d0b"
+    },
+    "certified_connected_shutdown_probe": {
+      "preregister_sha256": "e538ed4c15f2d7bf08c5ad85dc7118793e54b78d4e670f1cbd18e71ecfc321ba",
+      "runner_sha256": "b9b7f55183483cb355da698a011af749803652d4622e848c3f5ec8da131ecc58",
+      "results_sha256": "5fe96611212de6beb5d785198d3f4635b46ea42169efa7257ebcf69e0e305bc7"
+    },
+    "first_connected_shutdown_source_hold": {
+      "estimator_sha256": "2532e58b76fd839d699b089c11e729d958f33edc1499816e9c75ac590b6aef2c",
+      "hold_receipt_sha256": "4ee1d35434ec0dabb85f1846856f04c4dfc0cc46292aad82ceb4cc72c72dac96",
+      "status": "REJECTED_INCOMPLETE_CARRIER_SHUTDOWN__DO_NOT_FREEZE_OR_METER"
+    },
+    "represented_tuple_certificate_receipt_sha256": "4a7929243f8813fc56be4b2fb9cf97970bd1766678d0d3dad86a856dc6578dcb",
+    "algebra_verifier_sha256": "b1e04875a6f8b7bc3c17a8be32217b9229bb209abba9318a1baf55c4d32e6a3d"
+  },
+  "mathematical_findings": {
+    "notation": {
+      "variance": "v=q-m^2",
+      "localizing_determinant": "A=m*t-q^2",
+      "moment_determinant": "B=v*(u-q^2)-(t-m*q)^2"
+    },
+    "exact_degree4_stieltjes_cases": [
+      "m=0 iff q=t=u=0",
+      "m>0 and v=0 iff t=m^3 and u=m^4",
+      "m>0 and v>0 iff A>0,B>=0 or A=B=0"
+    ],
+    "singular_face_warning": "A/B nonnegativity is necessary but at v=0 does not even replace the remaining principal condition u-q^2>=0; full PSD describes a closure whose A=0,B>0 and v=0,u>m^4 faces are not exactly representable",
+    "preserve_mq_lower_bounds": [
+      "t>=q^2/m",
+      "u>=q^3/m^2"
+    ],
+    "zero_mean_floor_result": "m=0,q>0 is impossible for a nonnegative law; _VAR_FLOOR must be separated from physical moments or m/q must be relaxed",
+    "universal_bounded_projection": "FALSIFIED_WHILE_PRESERVING_M_Q"
+  },
+  "arm_decisions": {
+    "two_point_boundary": {
+      "scalar_theorem": "EXACT_FEASIBLE_FOR_M_POSITIVE",
+      "recursive_form": "REJECTED_THIS_FORM",
+      "reason": "boundary roundoff plus intrinsic high-CV standardized-cumulant growth; 4741 activations, 4 finiteness regressions, A191/B337 represented negatives, 0 recoveries"
+    },
+    "gamma_preserve_mq": {
+      "scalar_theorem": "EXACT_STRICT_INTERIOR_FOR_M_POSITIVE_V_POSITIVE",
+      "stability_claim": "CLOSED_AS_UNIVERSALLY_BOUNDED_OR_DIVISION_FREE",
+      "recursive_measurement": "NOT_RUN",
+      "reason": "requires reciprocal powers and asymptotically has twice the minimal t and six times the minimal u"
+    },
+    "ordinary_gaussian_zero_cumulants_preserve_mq": {
+      "universal_stieltjes_claim": "FALSIFIED",
+      "lawful_domain": "m>0 and 0<=v<m^2, plus delta_0",
+      "failure": "A<0 for v>m^2; A=0,B>0 nonrepresentable at v=m^2"
+    },
+    "gaussian_positive_part_marginal_only": {
+      "recursive_form": "REJECTED_THIS_FORM",
+      "reason": "1609 activations, 3 finiteness regressions, 1 post-r4 negative, 2 recoveries, catastrophic HE32 disagreement"
+    },
+    "certified_connected_state_shutdown": {
+      "classification": "NOT_A_RAW_MOMENT_REPAIR",
+      "construction_probe": "PASS",
+      "first_source_spelling": "REJECTED_INCOMPLETE_CARRIER_SHUTDOWN",
+      "gates": {
+        "activation_count": 2647,
+        "parent_finite_regressions": 0,
+        "parent_failures_recovered": 3,
+        "invalid_incident_returned_target_nonzeros": 0,
+        "finite_pair_scale_gates": true
+      },
+      "open_gates": [
+        "global pairing_alpha=0 successor on any certified-invalid reset",
+        "post-reset carrier reconstruction and one-push exact incident-mask verification",
+        "literal width-1024 FlopScope meter",
+        "peak-memory and wall cap",
+        "source freeze and scientific accuracy",
+        "package and submission"
+      ]
+    }
+  },
+  "connected_shutdown_redteam": {
+    "seam_order_verified": [
+      "current reset mask refreshed inside wrapped univariate call",
+      "invalid-incident K21/K31/K22 and invalid K4 zeroed",
+      "CP3 post gate and birth masked",
+      "CP4 reset gate masked with already-masked K4 target",
+      "masked returned gate and masked CP3 birth reach CP3 grow",
+      "masked targets and provider planes reach residual-star reset"
+    ],
+    "important_limitations": [
+      "raw tuple remains infeasible and must not be called repaired",
+      "zero invariant is checked before star/pairing decomposition, not by reconstructing stored carriers",
+      "global pairing_alpha can create nonzero invalid-incident residual and pairing pieces that only cancel in aggregate",
+      "mutable monkeypatch holder should become an explicit source-local mask argument",
+      "certificate bounds determinant evaluation only and treats stored raw inputs as exact",
+      "scale gates are stability gates, not accuracy gates"
+    ],
+    "confirmed_source_failure": "The first source spelling leaves nonzero bad-incident quartic carrier state through global pairing_alpha and must not be frozen or metered.",
+    "smallest_successor": "On any certified-invalid reset, force pairing_alpha=0 before quartic construction; re-probe because this globally discards valid-valid K22 pairing information for that reset."
+  },
+  "cost_boundary": {
+    "frozen_parent_flops": 2131249329109,
+    "budget_flops": 2199023255552,
+    "probe_delta_observations": {
+      "width8": 92600,
+      "width32": 972512,
+      "width128": 13523840
+    },
+    "instrumentation_inclusive_fit": "784*w^2+5303*w",
+    "projected_width1024_delta": 827513856,
+    "projected_total": 2132076842965,
+    "projected_budget_percent": 96.955629622,
+    "projected_margin": 66946412587,
+    "claim_boundary": "projection only; no constructed-source or full-width literal meter and no wall pass"
+  },
+  "highest_value_next_action": "Preregister and probe the carrier-complete successor that forces pairing_alpha=0 on any certified-invalid reset, reconstructing CP3/CP4 plus residual-star/pairing state after each reset and after one push; only after that gate may a new source receive static and literal FlopScope/wall audits.",
+  "forbidden_adaptation": "No epsilon, mean, variance, scale, layer, row, identity, score, or public-tail threshold may be fitted to these probe outcomes.",
+  "scope": {
+    "estimator_edits": 0,
+    "dataset_rows": 0,
+    "targets_or_truth": 0,
+    "scores": 0,
+    "full_width_1024_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "graph_edits": 0
+  }
+}

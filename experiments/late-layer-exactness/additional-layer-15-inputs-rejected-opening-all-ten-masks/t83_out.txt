@@ -1,0 +1,39 @@
+T83 a_0mIJv: 24 training + 32 held-out networks; certificates: delta(0) from pre vs dumped max rel 4.60e-06; final MSE from the dump vs the run max rel 0.00e+00; kappa 0.7844..0.7844
+head normalisation at layer 15 (all networks): per input mean / sd of z and share of rows clipped at 8: 13 +0.00 / 0.98 / 0.0%; 14 +0.00 / 0.96 / 0.0%; 15 +0.00 / 0.96 / 0.0%; 22 +0.52 / 0.61 / 0.0%; 23 +0.31 / 1.09 / 0.0%; 24 -0.34 / 0.66 / 0.0%; 25 -0.07 / 1.28 / 0.0%; 26 -0.01 / 0.98 / 0.0%; 27 -0.04 / 1.00 / 0.3%; 28 -0.01 / 0.95 / 0.2%
+
+(1) FIXED LEARNED PARTS, the mask opened (exact; all 56 networks; final-layer error vs the card):
+  a  13,14,15,26                            +1.602% pooled, mean log +1.604% (se 0.199%), lower on 7 of 56
+  r  13,14,15                               +0.701% pooled, mean log +0.711% (se 0.108%), lower on 10 of 56
+  q  26                                     +0.474% pooled, mean log +0.471% (se 0.147%), lower on 20 of 56
+  f  13,24,25,26                            +0.583% pooled, mean log +0.586% (se 0.138%), lower on 20 of 56
+  p  22,23,24,25                            +5.739% pooled, mean log +5.593% (se 0.321%), lower on 1 of 56
+  o  27,28                                  +0.023% pooled, mean log +0.021% (se 0.020%), lower on 27 of 56
+  b  13,14,15,22,23,24,25,26                +7.195% pooled, mean log +6.985% (se 0.385%), lower on 0 of 56
+  c  13,14,15,22,23,24,25,26,27,28          +7.494% pooled, mean log +7.261% (se 0.394%), lower on 0 of 56
+  certificate vs the direct replay (t80_unmask): 12 rows, max rel difference of the arm's error 4.43e-04; base rows max rel 0.00e+00
+
+(2) REFIT: new layer-15 weights from 0 (cross-validated on the 24 training networks; held-out = 32 networks never used in the fit):
+  head 13    cv +0.009% (lam 100, step 1.25) | train -0.015% pooled, mean log -0.015% (se 0.010%), lower on 15 of 24 | HELD-OUT +0.011% pooled, mean log +0.012% (se 0.010%), lower on 15 of 32
+  head 14    cv +0.007% (lam 100, step 1.25) | train -0.031% pooled, mean log -0.030% (se 0.016%), lower on 17 of 24 | HELD-OUT -0.017% pooled, mean log -0.016% (se 0.011%), lower on 20 of 32
+  head 15    cv +0.008% (lam 100, step 1.25) | train -0.030% pooled, mean log -0.029% (se 0.016%), lower on 17 of 24 | HELD-OUT -0.016% pooled, mean log -0.016% (se 0.011%), lower on 19 of 32
+  head 22    cv +0.004% (lam 0.3, step 1.25) | train -0.398% pooled, mean log -0.383% (se 0.093%), lower on 18 of 24 | HELD-OUT -0.005% pooled, mean log -0.007% (se 0.076%), lower on 18 of 32
+  head 23    cv +0.050% (lam 100, step 1.25) | train -0.016% pooled, mean log -0.016% (se 0.006%), lower on 17 of 24 | HELD-OUT +0.001% pooled, mean log +0.001% (se 0.005%), lower on 15 of 32
+  head 24    cv +0.018% (lam 100, step 1.25) | train -0.019% pooled, mean log -0.017% (se 0.012%), lower on 11 of 24 | HELD-OUT -0.008% pooled, mean log -0.008% (se 0.009%), lower on 19 of 32
+  head 25    cv +0.045% (lam 100, step 1.25) | train -0.027% pooled, mean log -0.027% (se 0.009%), lower on 17 of 24 | HELD-OUT +0.000% pooled, mean log +0.000% (se 0.006%), lower on 17 of 32
+  head 26    cv +0.056% (lam 100, step 1.25) | train -0.034% pooled, mean log -0.031% (se 0.034%), lower on 11 of 24 | HELD-OUT -0.010% pooled, mean log -0.010% (se 0.020%), lower on 17 of 32
+  head 27    cv +0.007% (lam 100, step 1.25) | train -0.006% pooled, mean log -0.006% (se 0.002%), lower on 18 of 24 | HELD-OUT -0.003% pooled, mean log -0.003% (se 0.002%), lower on 22 of 32
+  head 28    cv +0.018% (lam 100, step 1.25) | train -0.007% pooled, mean log -0.007% (se 0.005%), lower on 13 of 24 | HELD-OUT -0.002% pooled, mean log -0.002% (se 0.003%), lower on 16 of 32
+  head a     cv +0.051% (lam 100, step 1.25) | train -0.081% pooled, mean log -0.078% (se 0.041%), lower on 12 of 24 | HELD-OUT -0.013% pooled, mean log -0.012% (se 0.028%), lower on 17 of 32
+  head r     cv +0.025% (lam 100, step 1.25) | train -0.063% pooled, mean log -0.062% (se 0.028%), lower on 16 of 24 | HELD-OUT -0.011% pooled, mean log -0.011% (se 0.021%), lower on 17 of 32
+  head f     cv -0.004% (lam 1, step 1.25) | train -1.007% pooled, mean log -0.972% (se 0.225%), lower on 23 of 24 | HELD-OUT +0.354% pooled, mean log +0.348% (se 0.155%), lower on 12 of 32
+  head p     cv -0.024% (lam 1, step 1.25) | train -0.820% pooled, mean log -0.803% (se 0.188%), lower on 20 of 24 | HELD-OUT +0.296% pooled, mean log +0.298% (se 0.199%), lower on 15 of 32
+  head o     cv -0.003% (lam 0.1, step 0.75) | train -0.302% pooled, mean log -0.294% (se 0.113%), lower on 18 of 24 | HELD-OUT +0.213% pooled, mean log +0.211% (se 0.077%), lower on 11 of 32
+  head b     cv -0.106% (lam 1, step 1.25) | train -1.335% pooled, mean log -1.299% (se 0.261%), lower on 22 of 24 | HELD-OUT +0.356% pooled, mean log +0.364% (se 0.156%), lower on 11 of 32
+  head c     cv -0.114% (lam 3, step 1.25) | train -1.130% pooled, mean log -1.102% (se 0.216%), lower on 23 of 24 | HELD-OUT +0.144% pooled, mean log +0.143% (se 0.116%), lower on 15 of 32
+  std  a     cv +0.064% (lam 100, step 1.25) | train -0.051% pooled, mean log -0.050% (se 0.022%), lower on 15 of 24 | HELD-OUT -0.004% pooled, mean log -0.003% (se 0.022%), lower on 16 of 32
+  std  r     cv +0.034% (lam 100, step 1.25) | train -0.040% pooled, mean log -0.040% (se 0.019%), lower on 15 of 24 | HELD-OUT -0.003% pooled, mean log -0.002% (se 0.019%), lower on 16 of 32
+  std  f     cv +0.075% (lam 100, step 1.25) | train -0.056% pooled, mean log -0.053% (se 0.018%), lower on 19 of 24 | HELD-OUT +0.006% pooled, mean log +0.006% (se 0.015%), lower on 16 of 32
+  std  p     cv -0.105% (lam 1, step 1.25) | train -0.976% pooled, mean log -0.977% (se 0.172%), lower on 22 of 24 | HELD-OUT -0.099% pooled, mean log -0.099% (se 0.129%), lower on 19 of 32
+  std  o     cv +0.028% (lam 100, step 1.25) | train -0.012% pooled, mean log -0.012% (se 0.007%), lower on 14 of 24 | HELD-OUT -0.003% pooled, mean log -0.003% (se 0.004%), lower on 15 of 32
+  std  b     cv -0.030% (lam 1, step 1.25) | train -1.278% pooled, mean log -1.270% (se 0.224%), lower on 20 of 24 | HELD-OUT +0.143% pooled, mean log +0.149% (se 0.165%), lower on 14 of 32
+  std  c     cv -0.025% (lam 3, step 1.25) | train -1.085% pooled, mean log -1.075% (se 0.164%), lower on 21 of 24 | HELD-OUT -0.090% pooled, mean log -0.089% (se 0.100%), lower on 19 of 32

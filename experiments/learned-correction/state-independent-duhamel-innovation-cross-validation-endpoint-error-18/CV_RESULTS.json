@@ -1,0 +1,129 @@
+{
+  "architecture": {
+    "first_corrected_layer": 2,
+    "hidden": 96,
+    "input_features": 20,
+    "parameters": 12880,
+    "predicted_state_inputs_to_source": 0,
+    "recurrence": "raw20-only local u_l; exact s_l=Phi_l*(s_{l-1}@W_l)+u_l"
+  },
+  "cost": {
+    "authority": "frozen conservative source-structure admission estimate; literal meter only after accuracy pass",
+    "correction_source_structure_upper_estimate": 792712192,
+    "headroom_under_upper_estimate": 72229828675,
+    "host_plus_correction_upper_estimate": 2127770171325,
+    "local_cell_dense_plus_special_reserve": 496355328,
+    "measured_host_flops": 2126977459133,
+    "output_addition": 16384,
+    "parameter_count": 12880,
+    "phase2_budget": 2200000000000,
+    "raw20_materialization_reserve": 268435456,
+    "raw20_standardization": 655360,
+    "single_phi_w_transport": 27249664,
+    "within_phase2_budget_by_upper_estimate": true
+  },
+  "decision_gate": {
+    "conjunctive_pass": false,
+    "finite_all_autonomous_rollouts": true,
+    "maximum_per_network_below_1e_7": false,
+    "mean_below_2_9672528546945005e_8": false
+  },
+  "fold_results": [
+    {
+      "autonomous_final_mse": 3.795135810791507e-08,
+      "fold": 0,
+      "host_final_mse": 9.065270147577671e-08,
+      "maximum_per_network_final_mse": 5.197454552345395e-08,
+      "model_sha256": "5bfbc370fe562846852dfd68a352b7b5f198ae60aada85f290d08571438ec546",
+      "result_sha256": "dc89fa734fca9e57616b2d5269db5b5b44d7ec6abc68bc849a3086b3b57df17c",
+      "valid_networks": 147
+    },
+    {
+      "autonomous_final_mse": 3.976691120439475e-08,
+      "fold": 1,
+      "host_final_mse": 9.228464256469024e-08,
+      "maximum_per_network_final_mse": 3.4112928798161795e-07,
+      "model_sha256": "7f4c295c66bccf29e33770ce18a93de92c1a0eaae395ee3a93c575aeae348111",
+      "result_sha256": "dcc526ca20b8c8874738dc8d8860bfd278b877094a1b57a1030dd6f0f17dadb4",
+      "valid_networks": 172
+    },
+    {
+      "autonomous_final_mse": 4.0072887445947036e-08,
+      "fold": 2,
+      "host_final_mse": 9.145150645608908e-08,
+      "maximum_per_network_final_mse": 2.4756245752716323e-07,
+      "model_sha256": "78c202a658f894c814af754cc9f5e0e76c6343bdb59dd84bb83d91ce5907ec71",
+      "result_sha256": "a57b868eec48aeec49ce5495ce7e72e97e98375069cbb2e06f9bf3ea22bcdd8c",
+      "valid_networks": 171
+    },
+    {
+      "autonomous_final_mse": 3.84672208824863e-08,
+      "fold": 3,
+      "host_final_mse": 9.030765580209394e-08,
+      "maximum_per_network_final_mse": 2.845837790419327e-07,
+      "model_sha256": "c99c4b14ed477dbff5d121734f2ebbaddc0510c7bd3bfbfef9c528ae34336d01",
+      "result_sha256": "2b3867cecc21c65449fb3953ad6b4be28328876aa08c4c6327a43e2a0a2c2c00",
+      "valid_networks": 198
+    }
+  ],
+  "folds": 4,
+  "group_key": "mlp_id",
+  "node": "P2R0F2H",
+  "observer_fit_networks": 688,
+  "observer_selection_targets_opened": 0,
+  "oof": {
+    "autonomous_final_mse": 3.908100560611721e-08,
+    "autonomous_layer_mse": [
+      6.81930450375131e-10,
+      6.019929004370853e-10,
+      8.919762092148675e-10,
+      1.9313311401998513e-09,
+      3.738576996320498e-09,
+      6.0522915183696e-09,
+      8.695881273726533e-09,
+      1.164960008827037e-08,
+      1.4668852134143e-08,
+      1.788332713497556e-08,
+      2.1085077775575198e-08,
+      2.4339531106077355e-08,
+      2.755188202589646e-08,
+      3.0956466820119904e-08,
+      3.422492276666993e-08,
+      3.908100560611721e-08
+    ],
+    "autonomous_ratio_to_host": 0.4287081760501623,
+    "host_final_mse": 9.115992600417403e-08,
+    "host_layer_mse": [
+      6.81930450375131e-10,
+      6.019929004370853e-10,
+      1.03900858362207e-09,
+      2.7151794985170306e-09,
+      5.852448668771472e-09,
+      1.0291133024551269e-08,
+      1.5810678088779633e-08,
+      2.234832050557086e-08,
+      2.9472445897537363e-08,
+      3.7338579530465225e-08,
+      4.5747455196665415e-08,
+      5.4430938345714485e-08,
+      6.33033988317353e-08,
+      7.250457289346736e-08,
+      8.14920080189007e-08,
+      9.115992600417403e-08
+    ],
+    "maximum_mlp_id": 364,
+    "maximum_per_network_final_mse": 3.4112928798161795e-07,
+    "maximum_role_rank": 643
+  },
+  "preregistration_sha256": "0824bef80a047d9bbd3eeb62fb57a6c410aeb784693017a5b1da325dc24e82db",
+  "program_sha256": "d1472e602cc0a7cd612da8ee4341050c907875e0261bbc117aa78580aceeb551",
+  "schema": "public-full688-state-independent-duhamel-cv-v1",
+  "status": "complete",
+  "training": {
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "fixed_final_checkpoint": true,
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001
+  }
+}

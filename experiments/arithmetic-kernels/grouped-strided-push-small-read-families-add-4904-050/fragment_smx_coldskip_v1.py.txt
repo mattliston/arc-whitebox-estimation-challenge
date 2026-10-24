@@ -1,0 +1,32 @@
+
+
+# BEGIN [opus-smx] SMX COLD-FIRST SKIP v1 (2026-10-16; append LAST, after pushsm_v2). STATIC by call order, not by any measurement: the
+# FIRST predict() after each setup() (a worker's cold network) runs with _SMX_ON = False, so the push-Smirnov family is neither bound nor
+# called there (no new first-call shapes on cold nets: the #336506 lesson); every later predict() binds it once (on the worker's second
+# network, which the boundary measures as its warm net) and routes as the rule says.
+_SMX_COLD = [True]
+_SMX_COLD_PARENT_SETUP = Estimator.setup
+_SMX_COLD_PARENT_PREDICT = Estimator.predict
+
+
+def _smx_cold_setup(self, *args, **kwargs):
+    _SMX_COLD[0] = True
+    return _SMX_COLD_PARENT_SETUP(self, *args, **kwargs)
+
+
+def _smx_cold_predict(self, *args, **kwargs):
+    global _SMX_ON
+    if not _SMX_COLD[0]:
+        return _SMX_COLD_PARENT_PREDICT(self, *args, **kwargs)
+    _SMX_COLD[0] = False
+    saved = _SMX_ON
+    _SMX_ON = False
+    try:
+        return _SMX_COLD_PARENT_PREDICT(self, *args, **kwargs)
+    finally:
+        _SMX_ON = saved
+
+
+Estimator.setup = _smx_cold_setup
+Estimator.predict = _smx_cold_predict
+# END [opus-smx] SMX COLD-FIRST SKIP v1

@@ -1,0 +1,23 @@
+{
+  "schema": "p2r0f2j-q24-native-tape-meter-run-manifest-v1",
+  "status": "authorized-target-free-meter-only",
+  "approved_actions": [
+    "load_observer_fit_rank35_weights_and_seed_without_targets",
+    "run_instrumented_q24_host_tape_once",
+    "run_exact_q24_source_once_for_prediction_parity",
+    "record_literal_flops_wall_rss_and_payload_hashes"
+  ],
+  "forbidden_actions": [
+    "open_any_target_before_meter_pass",
+    "open_observer_selection",
+    "join_name_or_board_identity",
+    "train_or_tune",
+    "submit_or_use_network"
+  ],
+  "threads_maximum": 4,
+  "resource_bounds": {
+    "rss_bytes_strictly_below": 8589934592,
+    "wall_seconds_strictly_below": 120.0,
+    "phase2_flops_at_or_below": 2199023255552
+  }
+}

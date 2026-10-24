@@ -1,0 +1,33 @@
+{
+  "status": "PASS_NARROW_SOURCE_MATH_LIFETIME_REVIEW",
+  "reviewer": "larger_accuracy",
+  "candidate_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_v1/candidate_prefix_energy22_HELD_v1.py",
+  "candidate_sha256": "7b1266280f75edd8e44800e6afdcc5981d9f5d27f1a8226e73cac6f1f1abc84a",
+  "parent_sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a",
+  "independent_source_inverse_exact": true,
+  "changed_existing_function_names": [
+    "_rtt_read"
+  ],
+  "checks": [
+    "One helper call after final refined Q, before tail contraction; all original read arithmetic and dispatch preserved.",
+    "Residual is newly allocated; no prefix/Q/variance/roster mutation. Energy vector retains independent ownership beyond read hold lifetime.",
+    "Normalization uses row variance times prefix column sigma; extrapolation ratio is tail inverse-variance sum divided by prefix inverse-variance sum.",
+    "Global i=j entries are removed by unique-ID intersection, including unsorted/noncontiguous/disjoint rosters.",
+    "Feature mutation is restricted to flattened row*30+22 indices; original 29 other columns and all read values preserved.",
+    "Pending layer correspondence checked; no-tail bypass creates no pending vector; success and exception cleanup clear all prediction-local pending state.",
+    "Eligible source range is affected hidden L1-14 when c15<c2; L0 and terminal L15 are untouched. Typical observed activation starts L2, but source does not hard-code L2."
+  ],
+  "tiny_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_prefix_row_energy22_v1/ACTUAL_FNP_TINY_v2.json",
+  "tiny_sha256": "97b3de27075822417dd21abfc0dad843382ca9878058235984e331df095abaa3",
+  "tiny_source_sha256": "1eafac1db4cdfcee35d6fe1edfd013f57c4018c245228bab1d5d8f862521b119",
+  "tiny_result_inspected": true,
+  "tiny_evidence": "Actual FNP five cases: rank0/1/2, overlapping and disjoint rosters, zero prefix, source immutability/detached energy, read ON/OFF exact, feature22-only exact, no-tail bypass and exception cleanup. Reported max error0 each.",
+  "scientific_limitations": [
+    "Full prefix includes older-bank residual even though the tail only approximates young contribution; +4.7 to32.9 percent contamination previously reported by owner.",
+    "This is a fixed conditional energy estimate, not exact missing energy. Source review establishes implementation of the frozen formula, not final accuracy."
+  ],
+  "new_models": 0,
+  "new_captures": 0,
+  "peer_reran_native": false,
+  "decision": "No source blocker to root-authorized fixed native8; do not broaden or retune from this review."
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "q24-cs2-root-one-use-target-free-fullwidth-comparator-release-v1",
+  "status": "ROOT_AUTHORIZED_ONE_TARGET_FREE_FULLWIDTH_COMPARATOR__NOT_YET_CONSUMED",
+  "created_at_utc": "2026-08-24T12:58:17Z",
+  "authorization": {
+    "authorized": true,
+    "authorized_at_utc": "2026-08-24T12:58:17Z",
+    "authorizer": "root agent via delegated release preparation",
+    "authority_source": "user ongoing pure-closure research directive and root instruction after independent strict-audit PASS",
+    "one_use": true,
+    "scope_id": "q24-cs2-v2-4efb2c40-fullwidth-official-he-seeds-20260824-20260826-v1",
+    "allowed_actions": [
+      "one target-free weights-only replay of exactly seeds 20260824, 20260825, and 20260826 in that order",
+      "one immutable comparator receipt in the fixed absent output namespace",
+      "read-only audit of the resulting receipt"
+    ],
+    "forbidden_actions": [
+      "source mutation",
+      "dataset or target access",
+      "truth computation",
+      "seed sweep or retry",
+      "threshold tuning",
+      "literal meter",
+      "package creation",
+      "submission",
+      "raw-MSE or accuracy claim",
+      "problem-graph mutation by this release"
+    ]
+  },
+  "bindings": {
+    "candidate_estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+    "source_hold_sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c",
+    "preregister_sha256": "e06a68a92a139c670b0fe2fcb38615e96fa8d96a0019b3eef58bc2e995d36dd0",
+    "runner": {
+      "path": "run_target_free_fullwidth_comparator.py",
+      "bytes": 23180,
+      "sha256": "c4251eabce9341c9f60da441a37d583fdea47c54102e54a8b89ece816d23b2f2"
+    },
+    "parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "parent_literal_meter_receipt_sha256": "4ad5d4bb8e70a3f57ef7559f5dceffe0d92fc7b77626088cff87431bdbf18160",
+    "independent_strict_audit": {
+      "path": "INDEPENDENT_STRICT_AUDIT_CS2.json",
+      "sha256": "cba8bfbb437f32aa377ca72da74b9504894e6380429e2acf0e5a059d7ef8afcb",
+      "status_exact": "PASS_INDEPENDENT_EXACT_BYTE_SOURCE_AND_TARGET_FREE_CARRIER_AUDIT__IMMUTABLE_HOLD__FULLWIDTH_UNMEASURED",
+      "verifier_path": "verify_independent_strict_audit.py",
+      "verifier_sha256": "5673d297a3c5fd7dd7bd1fd2ec1a57c6ad9f51259d94870fbfa6bc3513a4a342"
+    }
+  },
+  "fixed_output": "runs/fullwidth_official_he_seeds20260824_20260826_v1/receipt.json",
+  "fixed_durable_claim": "runs/fullwidth_official_he_seeds20260824_20260826_v1/CLAIM.json",
+  "execution": {
+    "cwd": "/Users/matt/arc-white-box-estimation",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "argv": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+      "-B",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_connected_shutdown_v2/run_target_free_fullwidth_comparator.py"
+    ],
+    "output_namespace_must_be_absent_before_launch": "runs/fullwidth_official_he_seeds20260824_20260826_v1",
+    "claim_must_be_created_and_fsynced_before_fixture_generation": true,
+    "any_surviving_namespace_consumes_release_and_forbids_retry": true,
+    "estimated_arm_count": 6,
+    "wall_limit_s_per_arm": 120.0,
+    "external_supervisor_timeout_s": 900.0
+  },
+  "outcome_law": {
+    "pass_status_exact": "PASS_TARGET_FREE_FULLWIDTH_STABILITY__LITERAL_METER_AND_ACCURACY_HOLD",
+    "failure_status_exact": "REJECT_TARGET_FREE_FULLWIDTH_STABILITY__SOURCE_CLOSED",
+    "no_retry": true,
+    "meter_authority_on_pass": "none; pass only satisfies the comparator prerequisite for a separate meter release",
+    "accuracy_authority": "none"
+  },
+  "immutability": {
+    "release_is_frozen_before_execution": true,
+    "permitted_existing_file_mutations_after_creation": [],
+    "only_permitted_new_artifacts": [
+      "the fixed one-use comparator output namespace",
+      "the durable CLAIM.json created before fixture generation",
+      "the atomic terminal receipt.json when the process reaches its decision"
+    ]
+  }
+}

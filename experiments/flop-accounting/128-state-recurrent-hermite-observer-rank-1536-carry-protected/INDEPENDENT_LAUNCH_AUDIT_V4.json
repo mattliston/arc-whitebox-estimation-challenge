@@ -1,0 +1,346 @@
+{
+  "schema": "phase2-observer-v4-independent-target-free-launch-audit-v1",
+  "status": "PASS_PHASE2_OBSERVER_V4_TARGET_FREE_LAUNCH_SCAFFOLD",
+  "audit_date_utc": "2026-08-23T21:36:28Z",
+  "scope": "Independent read-only audit of the frozen V4 target-free launch scaffold, converter parity, production-custody metadata binding, CPU one-use boundary, feature-store contract, and retained execution holds.",
+  "verdict": {
+    "frozen_source_and_receipt_bindings": "PASS",
+    "target_free_static_replay": "PASS",
+    "target_free_full_nonzero_parity_replay": "PASS",
+    "production_custody_metadata_binding": "PASS",
+    "cpu_one_use_claim_and_import_order": "PASS",
+    "feature_store_contract": "PASS_CONTRACT_ONLY__HOLD_GENERATION_AND_INDEPENDENT_ARTIFACT_AUDIT",
+    "launch_execution": "HOLD",
+    "no_launch_blocker_beyond_the_explicit_remaining_holds": true
+  },
+  "exact_frozen_bindings": {
+    "IMPLEMENTATION_MANIFEST_V4.json": "626c79ab8899b7234c5850f225127614cda13decc59bece2a3c6f71bc4949408",
+    "STATIC_LAUNCH_RECEIPT_V4.json": "e2de628eedba1f668a9696076edd3fa84615aea20d6b0642330d32cafc07c7ac",
+    "verify_launch_scaffold.py": "8090ef06746581e176cc61e1a8bd35a9873901563517a67c65a7cf3d38b9c09f",
+    "NONZERO_PARITY_RECEIPT_V4.json": "90f46ebe689edecd5a68a0a93f0acbedbbc27bfc297fbc6c69b34bc0d48c7b16",
+    "verify_nonzero_parity.py": "1ef65b320bb7f44ba829eb1574aa0a7137ac6ed03eb0615a6aa72dcaf793be19",
+    "checkpoint_converter.py": "bf4da1b4aac822af05c3910441cef3113a8c60d40ed3234361574056961e257c",
+    "flopscope_nonzero_worker.py": "d25c245bd1bc0b4aa9b6b2fa5ea0ec79b169a8e6beaf73c86542be04b6131656",
+    "torch_nonzero_worker.py": "b23fab8dec97d38236dd37b253aeac30891ed6bc8dc32559298aaf8f33801753",
+    "BUNDLE_BINDING_V4.json": "ce289adc995997182bc56c30206a96acca63d31797dc91bf29e89569b969df68",
+    "sealed_bundle_gate.py": "bd5d4c8a17202bc6869c2ed0c3c4191df1b374254e1851e6d6b29cbc7d368018",
+    "FEATURE_STORE_CONTRACT_V4.json": "b49086be2e4e81c07770bdb72ce92fdbd208f8315bf7accb7a00f9a916a7e44b",
+    "feature_store_contract.py": "633e70602a574adcf3beab3920ad55a86d3a6824139d383a81eaa6e70f21cad8",
+    "cpu_training_core.py": "b5d128da54001189850156bf84b8ae8f85919b27d02b4745eb9c396e60437337",
+    "trainer_evaluator_scaffold.py": "eb7353d18979d4b47d7df7043b62d34ad8670fea3a10fc2069f605b47f80e043",
+    "DESIGN_V4.md": "1bc1eadcce4876205e48c1d377686a83e68e836305f7d6e86b8b6799548aa48f"
+  },
+  "static_verifier_replay": {
+    "interpreter": "../../data_gate/.venv/bin/python",
+    "status": "PASS_TARGET_FREE_V4_LAUNCH_SCAFFOLD__HOLD_EXECUTION",
+    "canonical_stdout_bytes": 3585,
+    "canonical_stdout_sha256": "2558402328482fbc02947852b1ea09e3452cdf08cfda7d464aaa0459ea9dee9a",
+    "implementation_manifest_sha256": "626c79ab8899b7234c5850f225127614cda13decc59bece2a3c6f71bc4949408",
+    "role_parquet_files_opened_or_hashed": 0,
+    "target_values_decoded": 0,
+    "optimizers_constructed": 0,
+    "fits": 0,
+    "scores": 0,
+    "mps_used": false
+  },
+  "nonzero_parity": {
+    "status": "PASS_TARGET_FREE_NONZERO_CONVERTER_INTERNAL_STATE_CP_LATCH_PARITY",
+    "full_replay_canonical_stdout_bytes": 120239,
+    "full_replay_canonical_stdout_sha256": "a68c48b6ace0b9442eaf690c8cbf17e6a58dc5f5558cd0fe78979b4c5e98c3e8",
+    "independent_replay_exactly_matched_frozen_canonical_bytes": true,
+    "environments": {
+      "torch": {
+        "python": "3.11.5",
+        "numpy": "1.26.4",
+        "torch": "2.7.0",
+        "device": "cpu"
+      },
+      "deployment": {
+        "python": "3.11.5",
+        "numpy": "2.4.6",
+        "flopscope": "0.12.0",
+        "whestbench": "0.16.0"
+      }
+    },
+    "config_fixture_cases": 8,
+    "clean_torch_flopscope_arm_comparisons": 16,
+    "fault_latch_comparisons": 8,
+    "configs": {
+      "primary": {
+        "cp_cap": 1536,
+        "hidden_channels": 128,
+        "message_powers": 4,
+        "cell_width": 256,
+        "parameters": 171017,
+        "tensor_bundle_sha256": "66591ff5025920255146558a8a51e26cfe966f888d8a7a98ecf18b7d1c420085"
+      },
+      "host_fidelity_control": {
+        "cp_cap": 1792,
+        "hidden_channels": 64,
+        "message_powers": 4,
+        "cell_width": 96,
+        "parameters": 30377,
+        "tensor_bundle_sha256": "7e2f8a0492c18d8e2133b425995662e62f0379816e4838db0b3c774ffd3e3381"
+      }
+    },
+    "fixtures_per_config": [
+      "identity",
+      "official_seed20260823_mlp0",
+      "mini_ordinal_0",
+      "mini_ordinal_1"
+    ],
+    "clean_internal_states_compared": [
+      "standardized",
+      "messages",
+      "log_rms",
+      "hidden",
+      "unit_correction",
+      "physical_correction",
+      "predictions"
+    ],
+    "entering_cp_state_chain": {
+      "hashes_per_config_fixture_case": 16,
+      "torch_received_exact_flopscope_hash_sequence": true,
+      "chain_digest_recomputed_and_matched_in_each_comparison": true,
+      "same_fixture_weight_bytes_across_caps": true
+    },
+    "latch": {
+      "fault_injected_at_zero_based_layer": 2,
+      "exact_trace": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "permanent_after_first_failure": true,
+      "latched_hidden_unit_physical_and_prediction_fallback_bytes_exact": true
+    },
+    "layer1_structural_zero_in_both_runtimes": true,
+    "worst_clean_prediction_mse": 2.7625471354930653e-16,
+    "ephemeral_parity_trace_policy": "The authorized parity verifier created diagnostic checkpoint/tape/trace files only inside one fresh /private/tmp directory and deleted that directory on exit; it did not generate or persist the production feature store.",
+    "weight_only_mini_access_disclosure": {
+      "distinct_fixture_ordinals": [
+        0,
+        1
+      ],
+      "projection": [
+        "mlp_id",
+        "mlp_name",
+        "mlp_seed",
+        "weights"
+      ],
+      "target_columns_decoded": 0
+    },
+    "role_parquet_files_opened_or_hashed": 0,
+    "target_values_decoded": 0,
+    "optimizers_constructed": 0,
+    "fits": 0,
+    "scores": 0,
+    "mps_used": false
+  },
+  "observer_and_selection_semantics": {
+    "layer1_correction": "structurally zero in forward execution; no parameter can change it",
+    "layer1_hidden_state": "retained and trainable through hidden regularization and, for the recurrent arm, entry into layer 2",
+    "training_error_layers": "layers 2 through 16 only",
+    "layer2_non_regression": "mandatory aggregate raw-MSE gate on exactly 88 observer_selection rows; equality passes",
+    "within_cap_tie_order": [
+      "host",
+      "local_no_recurrence",
+      "recurrent"
+    ],
+    "cross_cap_tie_order": [
+      "CP1536",
+      "CP1792"
+    ],
+    "final_metric": "aggregate raw final-layer MSE on exactly 88 observer_selection rows",
+    "cp512_launch_eligible": false,
+    "observer_state_enters_host_propagator": false
+  },
+  "converter_semantics": {
+    "parameter_count": 11,
+    "parameter_order": [
+      "core1.weight",
+      "core1.bias",
+      "core2.weight",
+      "core2.bias",
+      "candidate_head.weight",
+      "candidate_head.bias",
+      "gate_head.weight",
+      "gate_head.bias",
+      "mean_head.weight",
+      "mean_head.bias",
+      "source_gate_logits"
+    ],
+    "wire_dtype": "little-endian float32",
+    "normalization_wire_dtype": "little-endian float64",
+    "exclusive_output_and_per_tensor_hash_validation": true,
+    "torch_roundtrip_tensor_bundle_hash_validation": true
+  },
+  "production_custody_binding": {
+    "independent_post_seal_receipt_sha256": "09a8c90833fedd44c541f9b61c74c1d4b4414f52b5b009cfe1ac630791a505ab",
+    "independent_post_seal_status": "PASS_PRODUCTION_CUSTODIAN_V3_POST_SEAL_PAYLOAD_INTEGRITY_AND_CUSTODY_BOUNDARY",
+    "production_seal_receipt_sha256": "9d8c22a243ffd9aeb34255443e62ec0ab1eba080d3ae0a2635784a9af46a8673",
+    "production_claim_sha256": "659d0f2e3c4eb10125c1c9363a1c9025cc6f9825fd5298b427e930aef629f1f6",
+    "bundle_manifest_sha256": "2c0ea0bb09d0c86d46ca07fdde3563c4cda046a1fff152cdff26fde965e1f7e6",
+    "sealed_reader_sha256": "43cdc72d6bcd7b534d6c661d670b5e718af75bf482aff954ca6507d8d640cdbe",
+    "observer_fit": {
+      "rows": 688,
+      "artifact_sha256_bound_not_recomputed_by_this_audit": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7"
+    },
+    "observer_selection": {
+      "rows": 88,
+      "artifact_sha256_bound_not_recomputed_by_this_audit": "a250885d9d7f15efb243264c7244265fcb64e175b438007d58d595896b13fb4e"
+    },
+    "withheld_roles_in_bundle": false,
+    "post_seal_integrity_targets_used_for_fit_prediction_score_or_scientific_metric": 0,
+    "post_seal_receipt_is_execution_authority": false
+  },
+  "common_driver_meter_binding": {
+    "LAUNCH_COMMON_DRIVER_METERS_V3.json": "180225c8ea7d1568bd6a7cb3faec1dcf3243f86e008d132a3442fb55963602b8",
+    "status": "PASS_ALL_FOUR_EXACT_LAUNCH_CAPACITY_ZEROHEAD_COMMON_DRIVER_METERS__ACCURACY_UNSCORED",
+    "largest_integer_at_0p1_floor": 219902325555,
+    "runs": {
+      "cp1536_h128_c256_local": {
+        "flops": 205868336750,
+        "receipt_sha256": "bf8a24100d638c98bec4c16c11cffd48230a18c5e622061a70ca5014a6afcb0f"
+      },
+      "cp1536_h128_c256_recurrent": {
+        "flops": 209904700250,
+        "receipt_sha256": "715536eef557918e2e3fca7ed3e90050cb757c5649af1ddc07941fd59aa358ab"
+      },
+      "cp1792_h64_c96_local": {
+        "flops": 216168217070,
+        "receipt_sha256": "00af09b0a39bce7384beae7e546aba4207af47f0743b437684094fac6793d439"
+      },
+      "cp1792_h64_c96_recurrent": {
+        "flops": 218186399450,
+        "receipt_sha256": "ce9a4f7a91d255569de6b74949315db9c0a78b4028296d6ae5bdbd13c8871e31"
+      }
+    },
+    "all_flops_below_floor": true,
+    "all_residual_seconds_strictly_below_0p4": true,
+    "all_descendant_peak_rss_strictly_below_8_gib": true,
+    "metered_source_is_the_unchanged_zerohead_final_source": true,
+    "selected_fitted_literal_source_requires_fresh_common_driver_meter": true
+  },
+  "cpu_one_use_boundary": {
+    "required_interpreter": "/Users/matt/anaconda3/bin/python",
+    "required_environment": {
+      "python": "3.11.5",
+      "numpy": "1.26.4",
+      "torch": "2.7.0",
+      "device": "cpu",
+      "mps_authorized": false
+    },
+    "preclaim_validation_order": [
+      "fresh claim/output/staging paths",
+      "sealed target-blind feature manifest and provider-source binding",
+      "post-seal, independent-launch, reader, and one-use training authority bindings",
+      "exact output path and authorization identity fields"
+    ],
+    "source_line_order": {
+      "consume_durable_o_excl_claim": 200,
+      "import_sealed_reader": 204,
+      "import_feature_provider": 205,
+      "import_training_core": 206,
+      "import_checkpoint_converter": 207,
+      "iterate_targets_and_construct_optimizer_via_training_session": 208
+    },
+    "claim_creation_count_in_execute_authorized_once": 1,
+    "postclaim_fit_capable_import_count": 4,
+    "claim_fsyncs_file_and_parent": true,
+    "retry_authorized": false,
+    "failure_after_claim_consumes_attempt": true,
+    "top_level_trainer_imports_torch_numpy_or_pyarrow": false,
+    "reader_provider_core_converter_target_and_optimizer_before_claim": false
+  },
+  "feature_store_contract": {
+    "status": "CONTRACT_ONLY__NO_FEATURE_STORE_GENERATED",
+    "host_caps": [
+      1536,
+      1792
+    ],
+    "roles": {
+      "observer_fit": 688,
+      "observer_selection": 88
+    },
+    "required_per_network_fields": [
+      "mlp_id",
+      "raw_locals",
+      "edge_matrices",
+      "host_rows",
+      "sigma",
+      "entering_cp_state_hashes",
+      "host_latch"
+    ],
+    "allowed_source_columns": [
+      "mlp_id",
+      "mlp_name",
+      "mlp_seed",
+      "weights"
+    ],
+    "raw_full_dataset_target_projection": "forbidden",
+    "feature_artifact_reads_and_hashes_before_claim": 0,
+    "generation_requires_separate_source_and_artifact_audit": true,
+    "current_artifacts": 0
+  },
+  "remaining_holds": [
+    "target-blind full feature-store generation and independent source/artifact audit",
+    "training-purpose observer_fit/observer_selection sealed-reader authorization",
+    "one-use CPU training authorization binding this exact audit receipt and every frozen input/source/path",
+    "688-row fit and 88-row non-regression/final-MSE selection execution",
+    "selected fitted checkpoint nonzero Torch-to-Flopscope internal-state parity replay",
+    "literal fitted final-source common-driver FLOP/residual/RSS meter",
+    "independent post-fit audit before any protected observer_audit release",
+    "separate observer_audit and then observer_lockbox custody and promotion gates"
+  ],
+  "current_execution_state": {
+    "feature_store_manifest_present": false,
+    "feature_store_artifacts": 0,
+    "training_reader_authorization_present": false,
+    "one_use_training_authorization_present": false,
+    "training_claim_present": false,
+    "training_output_present": false,
+    "training_staging_present": false,
+    "launch_execution_authorized_by_this_receipt": false,
+    "audit_or_lockbox_access_authorized": false
+  },
+  "audit_access_and_mutation": {
+    "role_parquet_files_opened_or_hashed": 0,
+    "role_target_rows_decoded": 0,
+    "target_values_decoded": 0,
+    "production_feature_store_generated_or_extracted": false,
+    "claims_created": 0,
+    "authorizations_created": 0,
+    "optimizers_constructed": 0,
+    "fits": 0,
+    "scores": 0,
+    "mps_uses": 0,
+    "graph_or_html_edits": 0,
+    "existing_v1_v2_v3_v4_bound_bytes_modified": 0,
+    "additive_files_created": 1
+  },
+  "authority_boundary": {
+    "this_receipt_is_independent_launch_audit_evidence": true,
+    "this_receipt_is_not_reader_authorization": true,
+    "this_receipt_is_not_training_authorization": true,
+    "this_receipt_is_not_execution_authority": true,
+    "this_receipt_is_not_feature_generation_authority": true,
+    "this_receipt_is_not_postfit_release_authority": true,
+    "exactly_zero_training_runs_authorized_by_this_receipt": true
+  },
+  "target_values_decoded": 0,
+  "fits": 0
+}

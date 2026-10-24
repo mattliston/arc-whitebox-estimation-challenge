@@ -1,0 +1,40 @@
+{
+  "status": "SOURCE_ONLY_PARKED_NO_MODEL_OR_CAPTURE_AUTHORITY",
+  "fixed_algorithm_assessed": "At each L10..14, take 8 evenly spaced response rows, compute I_sample=Dv_sample@Fv.T, score coordinate j by mean(I_sample[:,j]^2)*sum(R[j,:]^2), stable descending top224 then sorted scatter to original320. R is current physical right factor, including map at lazy L13/14. Reconstruction/common256/full outer read unchanged.",
+  "distinct_from_PRD": "PRD scores signed-lambda-weighted factor energy and L10 U norm once. Proposed score uses actual per-layer response coefficients and current physical output norm.",
+  "read_algebra": "Dv=lambda_plus*(t^2+s^2)=2*lambda_plus*(Pu^2+Pv^2), where t=Pu+Pv and s=Pu-Pv; old physical difference read is (Dv Fv^T) R.",
+  "cache_obstruction": "Different selected row sets change B trees. Fresh tags/invalidations are required per layer; reusing static PRD cache would silently return stale arithmetic.",
+  "tariff": [
+    {
+      "seed": 7100136,
+      "parent_read_bill": 6030195622,
+      "adaptive_read_bill": 4774745176,
+      "product_saving_before_selection": 1255450446,
+      "sample8_matmul_flops": 149913600,
+      "optimistic_saving_after_samples_only": 1105536846,
+      "optimistic_pct_257G": 0.4301699789883269,
+      "prior_selection_allowance": 22644736,
+      "pct_after_prior_allowance": 0.42135879766536966
+    },
+    {
+      "seed": 7100137,
+      "parent_read_bill": 6594033791,
+      "adaptive_read_bill": 5158002144,
+      "product_saving_before_selection": 1436031647,
+      "sample8_matmul_flops": 149913600,
+      "optimistic_saving_after_samples_only": 1286118047,
+      "optimistic_pct_257G": 0.5004350377431906,
+      "prior_selection_allowance": 23382016,
+      "pct_after_prior_allowance": 0.49133697704280155
+    }
+  ],
+  "tariff_scope": "Same historical shape sequences, metadata-only 720-byte numerical payload, no model/setup/predict/truth. Product prices use actual current tariffs. Sample cost is ordinary F32 matmul arithmetic; omits repeated scoring/gathers/current right-norm work and routing changes. Not whole-model measured saving.",
+  "available_cache": "TRAIN16/259/277 capture contains only L10 full U, Fv, signed lambda and block roster; lacks Fu, actual Dv, read response row IDs, later current right bases. Existing vector features are L12..15 only. Actual per-layer score/error cannot be recovered from these archives.",
+  "accuracy_bound": "For a dropped set E=I_drop@R_drop: ||E||F <= sum_j ||I[:,j]||2*||R[j,:]||2. Sampled diagonal scores are estimates and ignore cross-coordinate cancellation; cached U/Fv alone supplies no useful bound on actual read error.",
+  "decision": "Park the per-layer sampled224 proposal as a >=0.5% route. Eight-row selection leaves about0.43..0.50% optimistic product headroom, before other new work and accuracy loss; static PRD already lost materially on MSE. No new capture justified solely to rescue this marginal ceiling.",
+  "smallest_falsification_if_reopened": "One existing permitted parent call would need retain sampled and disjoint validation Dv rows plus current right-basis norms at L10..14; compare fixed adaptive224 against fixed PRD224 on held-out physical read error. This is a future proposed observation only, not authority to launch.",
+  "evidence_sha256": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_adaptive_difference_read224_v1/ADAPTIVE224_COLD_TARIFF_v1.json": "91ee8af15b34683f2330622de949418ccd59c4ec31220eafed5e6610a30ff018",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_protected_difference_read256_v1/run_prd224_diagnostic_v1/DIAGNOSTIC_RETIRED_v1.json": "351af468c4513cf2ee9fa67b36df5da9a55d7d13ae1f90dba101c7fb42676f52"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "public-aug7-source-observable-tape-prelaunch-audit-v1",
+  "node": "P2R0F2Q",
+  "stage": "generation",
+  "status": "PASS_INDEPENDENT_PRELAUNCH_AUDIT",
+  "auditor": "independent-subagent-no-design-stake",
+  "audited_file_sha256": {
+    "preregistration": "8879906791a24a846dd785712dd3e6ead3bebc97d1c93a356bf6a8c69c2d09c8",
+    "program": "7391d75ce5f3bc237a272749060b79c91eb9ac776316e730dd02a987a7a8d38e",
+    "evidence_row_manifest": "f6f9c27174e1758caf6029c9d53b089349718209821194d3ddc5fbf7a7c90978"
+  },
+  "checks": [
+    "1 REPLICATION FIDELITY: PASS - generate_row replicates _host_tape operation-for-operation (identical init dtypes, per-layer op order, fnp calls, covariance-series accumulation order); omissions are diagnostic-only outputs (raw64 retention, edges, cp_diag) outside every parity payload; aug computations use separate variables with no host-state mutation (power10 capture is a pure name binding); inline cp-grow discard capture recomputes _cp_grow's exact formulas (same concat order, energy formula, argsort/slice, _ENERGY_EPS fraction guard) and is cross-checked via np.array_equal against BASE._cp_grow on all four kept outputs at EVERY growth layer (capped and uncapped, strict zip); array_equal dtype-insensitivity is backstopped by the next layer's entering-state hash which digests dtype+shape+bytes.",
+    "2 PARITY SOUNDNESS: PASS - generator's array_payload_sha256 and raw_array_sha256 are byte-identical to v4_feature_store/contract.py originals and to the worker's _array_hash/_raw_weights_hash; _state_hash and _np byte-identical to flopscope_nonzero_worker.py; sealed comparison targets verified produced by host_feature_worker_v3.py calling frozen flopscope_nonzero_worker._host_tape (sealed row manifest binds frozen_host_worker_sha256=d25c245b...=live worker file=prereg tape_reference_worker_sha256, frozen_host_base_sha256=f8d48e5f...=live v3/estimator.py=generator V3_BASE_SHA); parity compares hosts['1792'] raw32/host/sigma payload hashes plus all 16 entering hashes with strict zip, requires all three booleans and 16/16, aborts before any write on failure.",
+    "3 CHANNEL CONFORMANCE: PASS - all seven channels match PREREGISTRATION.json exactly: sigma3 floor 1e-45, series floor 2^-40, bond threshold 0.9 strict-greater; D(l)=end-of-layer-(l-1) discard pushed through W_l via transpose(weights32)@drop, empty D gives zero vectors; ch22 uses rho^10 captured at order==_HERMITE_ORDER before the final in-loop multiply with series_diag=sum of squared coefficients orders 1..10; ch23 subtracts the exact identity from |rho| before the row max; ch24 counts offdiag>0.9 over 1024; ch25 uses the same k3 vector as existing channel 10 (float64 cast) over the preregistered floored sigma^3; ch26=(rho^2@alpha)/1024.",
+    "4 INFORMATION NOVELTY: PASS - ch20/21 derive from discarded CP components the sealed tape never exports; ch22 depends on off-diagonal rho^10 coupling, empirically confirmed on the evidence row (max ch22=1.567>1, impossible for the rejected diagonal-only candidate which is bounded by 1); ch23/24 are row max and threshold count, not derivable from the three exported row moments; ch25/26 are neighbor-weighted sums over other units' k3/alpha, not per-unit functions of the existing 20 channels.",
+    "5 TARGET AND FIREWALL SAFETY: PASS - no target, parquet, observer_selection, or public-name read (grep hits are docstring, sealed-store path/status strings, and zero-valued counter fields only); no network/subprocess/shutil modules; reads outside the package are exactly the hash-gated frozen v3 estimator, sealed store manifest.json, per-row sealed row_manifest.json (hash-verified against the store manifest entry), and weights.npy (read-only mmap, hash-verified against sealed weights_raw_sha256); all writes resolve under the package's own rows/observer_fit (mkdir, xb-mode npy with fsync, tmp+atomic-replace manifest); the sealed v3 store is never written.",
+    "6 RESUMABILITY AND INTEGRITY: PASS - a completed row is skipped only when status=='SEALED_ROW_AUG7' AND parity_pass is True AND program_sha256 equals the current program hash; any other existing manifest raises AssertionError; an orphan aug7_locals.npy without a manifest aborts via open('xb') FileExistsError (fail-closed); manifest written atomically after npy flush+fsync.",
+    "7 RESOURCES: PASS - per-row BudgetContext flop_budget=2^41 matches prereg 2199023255552 (evidence row used 2.725e11, about 12%); RSS bound 8 GiB and package-storage bound 2 GiB enforced by enforce_resources (every 20 ranks plus final rank; inter-check drift bounded ~9 MB, immaterial); projected total new storage 688*(458880+1084)+program+prereg ~= 316.5 MB, well under 2 GiB; observed evidence-row max RSS 1.16 GB.",
+    "8 EVIDENCE ROW: PASS - independently recomputed sha256 of aug7_locals.npy equals manifest aug7_sha256 (1f369e44...), payload sha equals aug7_array_sha256, prereg and program file hashes equal the manifest's bound values; v3_row_manifest_sha256 (28e7c706...) equals both the sealed store manifest rank-0 entry and the independently hashed sealed rank-0 row manifest file; weights_raw_sha256 and mlp_id 383 consistent; parity block all True with 16/16 entering matches; array shape (16,1024,7) float32 all finite; ch23 in [0.081,0.540]; ch24 in [0,1] and exactly quantized k/1024; layers 0-1 discard channels zero; discard-bearing layers exactly 2..15 matching cap_events=14 and layers_with_discard_channels=14; |ch20|<=ch21 elementwise."
+  ],
+  "material_defects_found": 0,
+  "minor_notes": [
+    "Prereg resumability text says 'partial rows are regenerated' but the program aborts on an orphan aug7_locals.npy (FileExistsError from xb mode); fail-closed and safer than the wording, but an operator must delete orphans manually after a crash before resuming.",
+    "enforce_resources runs every 20 ranks plus the final rank rather than per-row; drift between checks is bounded by ~9 MB of storage and is immaterial at 316 MB projected total.",
+    "The program does not itself pin threads or niceness (prereg resources: 1 process, 2 threads, nice 10); the launch command must impose them (e.g. OMP/VECLIB thread env plus nice -n 10).",
+    "import math in generate_aug7.py is unused.",
+    "torch_free = True; assert torch_free in main() is a hardcoded assertion, not a falsifiable check (factually correct: no torch import exists).",
+    "ch24 (coincident_bond_degree) is identically zero on the evidence row (max off-diagonal |rho|=0.54 < 0.9); if it remains zero across all 688 rows the channel is inert - a post-generation observation, not a generation defect since the threshold is preregistered."
+  ],
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0
+}

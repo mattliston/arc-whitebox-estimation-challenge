@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-11T00:30:33Z",
+  "all16_predictions_exact": true,
+  "all16_mse_exact": true,
+  "mse": 1.2023266716664697e-08,
+  "fixtures": {
+    "cert/cutsim_local_vjp_capture_v2/fixtures/layer07.pt": {
+      "sha256": "257ad9ae8c03abb9f911e8abab202fbecbfade38e0eb08a03f487ca5fca8e197",
+      "bytes": 286789157
+    },
+    "cert/cutsim_local_vjp_capture_v2/fixtures/layer13.pt": {
+      "sha256": "1582b32c18ed6e4ba6e91986353faa8c4e7bca029be80735d1f3f6d68e0fc3fc",
+      "bytes": 529991379
+    }
+  },
+  "guard": {
+    "pid": 22451,
+    "command": [
+      "/usr/bin/env",
+      "TRAINER_CARD=M",
+      "TRAINER_PL=1",
+      "TRAINER_F4C=1",
+      "TRAINER_THREADS=4",
+      "OMP_NUM_THREADS=4",
+      "OPENBLAS_NUM_THREADS=4",
+      "MKL_NUM_THREADS=4",
+      "VECLIB_MAXIMUM_THREADS=4",
+      "TRAINER_GENERATED_ALLOW_FILE=cert/refit/gen_worker_allow_v4.txt",
+      "/Users/matt/anaconda3/bin/python",
+      "-B",
+      "worker_generated_v3.py",
+      "cert/cutsim_local_vjp_capture_v2",
+      "0"
+    ],
+    "initial_swap_bytes": 2488532992.0,
+    "footprint_trigger_bytes": 7500000000,
+    "rss_backstop_bytes": 10000000000,
+    "poll_sleep_s": 0.05,
+    "max_rss_bytes": 4905320448,
+    "max_footprint_bytes": 1320194248,
+    "max_swap_growth_bytes": 0,
+    "completed": true,
+    "error": null,
+    "samples": 256,
+    "maximum_sample_interval_s": 0.09898754023015499,
+    "minimum_sample_interval_s": 0.07444308325648308,
+    "exit_code": 0,
+    "remaining_rows": [],
+    "elapsed_s": 22.578707041218877,
+    "whole_group_retired": true
+  }
+}

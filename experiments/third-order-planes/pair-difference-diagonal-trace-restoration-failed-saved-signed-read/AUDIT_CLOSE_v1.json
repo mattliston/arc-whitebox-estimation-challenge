@@ -1,0 +1,24 @@
+{
+  "status": "NO_QUALIFYING_EXACT_REUSE_IDENTIFIED",
+  "source_sha256": "95c8717670a5b4fbc2dcf57e289a5a0f5a8c6f9c656bee3a638655deb94b0cdf",
+  "trace": "astra_oct18_lead_v1/compact10_repair_qualification_v1/science32/candidate32/rows.jsonl rank35",
+  "scope": [
+    "Current covariance first-products and star factor assembly",
+    "L7 materialized and L10/L13 lazy UVP common/difference reads",
+    "K4-local Horner polynomial reuse"
+  ],
+  "findings": [
+    "14 covariance first-products remain large but operate on distinct C and W per layer; star factors do not contain their C@W result. Covariance second-products already use symmetric upper blocks.",
+    "Star factors are already rank-one: row-sum A, weighted contraction rows@A, W transpose times each vector. No repeated dense star GEMM to remove.",
+    "Final star diagonal already contracts P1*T2 rather than materializing the full star sandwich.",
+    "UVP common/difference matrix products have distinct operands; common mean and signed-difference outputs both feed reconstruction/read. Shared intermediates do not remove a complete >=0.48GF product.",
+    "K4 local Horner expression already reuses p2/p3 when supplied and evaluates coupled polynomial through one h/x chain; no large repeated contraction found."
+  ],
+  "actual_sdk_microprice": "STAR_FACTOR_CEILING_v1.json",
+  "whole_star_factor_ceiling_flops": 110115825,
+  "whole_star_factor_ceiling_percent_at240GF": 0.04588159375,
+  "candidate_built": false,
+  "model_run": false,
+  "banked_gain_percent": 0,
+  "decision": "Stop this directed pass. No actionable >=0.2% exact algebraic saving, no submission justified."
+}

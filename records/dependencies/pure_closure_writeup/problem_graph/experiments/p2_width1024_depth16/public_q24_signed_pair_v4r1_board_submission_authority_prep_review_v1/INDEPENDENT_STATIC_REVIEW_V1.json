@@ -1,0 +1,297 @@
+{
+  "access_accounting": {
+    "board_network_or_submission_payload_bytes_opened": 0,
+    "empirical_accuracy_score_or_target_payload_bytes_opened": 0,
+    "live_archive_payload_bytes_opened": 0,
+    "live_bank_or_staging_payload_bytes_opened": 0,
+    "live_estimator_or_MLP_executions": 0,
+    "live_model_row_or_weight_payload_bytes_opened": 0,
+    "mps_executions": 0,
+    "network_or_submission_actions": 0,
+    "original_frozen_package_mutations": 0,
+    "packaged_freeze_replays": 1,
+    "packaged_static_replays": 1,
+    "pinned_local_whest_validator_calls_on_synthetic_archives": 2,
+    "protected_payload_bytes_opened": 0,
+    "synthetic_adversary_classes": 8,
+    "synthetic_archive_or_control_fixtures_only": true,
+    "training_refit_export_or_scoring_runs": 0
+  },
+  "authorization": {
+    "accuracy": false,
+    "bank_ready": false,
+    "board": false,
+    "capability": false,
+    "export": false,
+    "live_artifact_access": false,
+    "meter": false,
+    "model": false,
+    "mps": false,
+    "network": false,
+    "package": false,
+    "parity": false,
+    "refit": false,
+    "submission": false,
+    "target": false
+  },
+  "date": "2026-08-27",
+  "decision": "BUILD_AND_FREEZE_A_FRESH_SUCCESSOR_THAT_BINDS_EXACT_PER_RANK_OOF_IDENTITIES_AND_VALUES_PARSES_THE_SPREFIT1_HEADER_REPLAYS_A_PROVENANCE_PINNED_WHEST_VALIDATOR_AND_MAKES_CAPABILITY_ISSUANCE_DURABLY_SINGLE_USE",
+  "independent_adversarial_replay": {
+    "evidence_stdout_sha256": "79ed518f9cbc2554fe64cf15daf4f50b3487cc4e68528dffcc85bae8bd665b44",
+    "negative_controls_that_rejected": {
+      "adjusted_score_at_exact_binary64_equality": true,
+      "checked_in_null_bindings_before_supplied_bundle_path_access": true,
+      "raw_score_above_exact_binary64_hurdle": true
+    },
+    "unsafe_witnesses_that_were_accepted": {
+      "bank_bundle_archive_hash_map_disagrees_with_bank_archive_sha256": true,
+      "complete_live_metadata_omits_authoritative_refit_model_header_schema": true,
+      "forged_whest_receipt_has_bogus_runtime_and_source_roots_submitted_true_and_all_authorities_true": true,
+      "same_fresh_request_mints_two_distinct_simultaneously_valid_capabilities": true,
+      "same_unconsumed_capability_validates_repeatedly": true,
+      "shadowed_whestbench_validation_module_differs_from_hashed_pinned_source": true,
+      "substituted_per_rank_oof_vector_preserves_raw_mean_but_changes_adjusted_result": true
+    }
+  },
+  "independent_replay": {
+    "artifact_sha256_recomputed_independently": true,
+    "compiled_live_control_six_value_gate_all_null": true,
+    "component_inodes_unique": true,
+    "directory_entry_count": 14,
+    "directory_inventory_exact": true,
+    "freeze_replay_exit_code": 0,
+    "freeze_replay_stdout_byte_identical": true,
+    "freeze_replay_stdout_sha256": "bc80d1150b2c6e975ce4da6df3374f6794ea994914cd2f80f459f8a121ac7ccb",
+    "multiply_linked_file_count": 0,
+    "regular_one_link_file_count": 14,
+    "static_replay_exit_code": 0,
+    "static_replay_ran_from_isolated_byte_copy": true,
+    "static_replay_stdout_byte_identical": true,
+    "static_replay_stdout_sha256": "58dce5aa5c7ff14a78c8ab3977e4645d4affe4a6dba97d05f40f3a3bd505535f",
+    "symlink_count": 0,
+    "unexpected_pycache_or_extra_entry_count": 0
+  },
+  "issued_by": "independent_reviewer",
+  "issued_utc": "2026-08-28T06:29:41Z",
+  "material_hold_blockers": [
+    {
+      "accepted_synthetic_witness": {
+        "actual_adjusted_score": 9.1e-09,
+        "actual_adjusted_score_binary64_hex": "0x1.38ac724df60e3p-27",
+        "actual_reviewed_vector": "alternating 2.0e-9 on multiplier-0.1 ranks and 1.8e-8 on multiplier-1.0 ranks",
+        "adjusted_hurdle": 7.7e-09,
+        "projected_adjusted_score": 1.9e-09,
+        "projected_adjusted_score_binary64_hex": "0x1.05224e95818a7p-29",
+        "substituted_projection_vector": "the same 688 values permuted onto the opposite multiplier ranks",
+        "unchanged_raw_mse": 1e-08,
+        "unchanged_raw_mse_binary64_hex": "0x1.5798ee2308c3ap-27"
+      },
+      "finding": "The reviewed OOF validator returns only one aggregate raw MSE. The projection carries 688 per-rank MSE values but no MLP identity and is checked against the OOF review only by equality of their means. Therefore an arbitrary permutation or substitution that preserves the mean can be correlated with the literal per-rank FLOP multipliers and can flip the adjusted admission result. Binding the OOF review file hash does not bind the source value used at each role rank.",
+      "id": "per_rank_oof_values_and_mlp_identities_are_not_cross_bound_to_projection_rows",
+      "locations": [
+        "board_authority.py:1102",
+        "board_authority.py:1119",
+        "board_authority.py:1265",
+        "board_authority.py:1319"
+      ],
+      "required_repair": "Require one exact ordered 688-row OOF source carrying role_rank, MLP identity, and binary64 MSE or an equivalently exact canonical row digest; require every projection row and meter row to match that same role rank and MLP identity and require every projected MSE byte to equal its reviewed OOF source byte. Add permutation, duplication, omission, identity-swap, and same-mean substitution negatives.",
+      "severity": "SCORE_ADMISSION_PROVENANCE_FAILURE"
+    },
+    {
+      "accepted_synthetic_witness": {
+        "authoritative_refit_model_header_schema_key_present": false,
+        "complete_metadata_preflight_accepted": true,
+        "model_header_parsed_by_live_bundle_validator": false,
+        "packaged_full_bundle_model_bytes": "SPREFIT1-SYNTHETIC-STATIC-FIXTURE-NOT-A-LIVE-MODEL"
+      },
+      "finding": "The future schema dictionary is not required to have an exact keyset, authoritative_refit_model_header_schema is absent from the preflight schema crosswalk, and REFIT_MODEL.sprefit1 is authenticated only as opaque bytes by SHA-256. The full-bundle path never parses its header. A reviewed successor can therefore pass metadata preflight without the promised header-schema binding, while arbitrary model bytes remain structurally admissible.",
+      "id": "sprefit1_header_schema_and_binary_semantics_are_not_authenticated",
+      "locations": [
+        "board_authority.py:596",
+        "board_authority.py:616",
+        "board_authority.py:634",
+        "board_authority.py:1298"
+      ],
+      "required_repair": "Require the exact twelve-key future_live_schema_bindings inventory, include authoritative_refit_model_header_schema in an exact crosswalk, and invoke the frozen strict SPREFIT1 semantic parser on the model bytes before acceptance. Cross-bind parsed header schema, selected H, runtime/source roots, tensor inventory, model seal, refit receipt, model review, and live adapter review. Add missing/extra header-schema and arbitrary/truncated/reordered model negatives.",
+      "severity": "MODEL_FORMAT_AND_SOURCE_PROVENANCE_FAILURE"
+    },
+    {
+      "accepted_synthetic_witness": {
+        "authority": {
+          "network": true,
+          "package": true,
+          "submission": true
+        },
+        "bogus_runtime_versions": true,
+        "bogus_validator_source_roots": true,
+        "full_synthetic_bundle_and_BANK_READY_replay_accepted": true,
+        "submitted": true
+      },
+      "finding": "Live bundle admission never reruns pinned_whest_validation on the bound archive and does not exact-replay the stored WHEST receipt. It checks only schema, status, archive SHA, ok, issues, and network_accessed. A forged receipt with bogus runtime and source provenance, submitted true, and package/network/submission authority true was accepted through the complete synthetic bundle and BANK_READY construction path when its hash was consistently bound.",
+      "id": "stored_whest_receipt_is_not_fully_revalidated_or_authority_checked",
+      "locations": [
+        "board_authority.py:1239",
+        "board_authority.py:1249",
+        "board_authority.py:1313",
+        "board_authority.py:1348"
+      ],
+      "required_repair": "During live bundle admission, run the pinned local validator against the exact already-hashed archive and require exact semantic replay of the entire canonical WHEST receipt, including exact schema/keyset, runtime versions, validator source roots, canonical archive replay, ok/issues, submitted false, network_accessed false, and every authority false. Add integrated forged nested-field and authority-escalation negatives.",
+      "severity": "PACKAGE_VALIDATION_EVIDENCE_AND_AUTHORITY_FAILURE"
+    },
+    {
+      "accepted_synthetic_witness": {
+        "hash_checked_source_path": "data_gate/.venv/lib/python3.11/site-packages/whestbench/validation.py",
+        "imported_validator_path": "synthetic PYTHONPATH shadow package/whestbench/validation.py",
+        "pinned_whest_validation_returned_ok": true,
+        "reported_distribution_version": "0.16.0"
+      },
+      "finding": "pinned_whest_validation hashes files under the Phase 2 virtual environment but imports whestbench.validation through the ambient module search path. It never proves that the executed validate_package function came from the hashed validation.py. A synthetic PYTHONPATH shadow module was executed and accepted while all unrelated pinned-path hashes and distribution-version checks still passed.",
+      "id": "executed_whest_validator_is_not_bound_to_the_hashed_pinned_source",
+      "locations": [
+        "board_authority.py:806",
+        "board_authority.py:829",
+        "board_authority.py:831",
+        "board_authority.py:839"
+      ],
+      "required_repair": "Load the validator from the exact authenticated source path in an isolated import context or authenticate the resolved module and all executed package initialization dependencies before import. Reject PYTHONPATH/sitecustomize/module-cache shadowing and add a shadow-package adversary.",
+      "severity": "PINNED_RUNTIME_CODE_PROVENANCE_FAILURE"
+    },
+    {
+      "accepted_synthetic_witness": {
+        "first_capability_valid": true,
+        "same_capability_validated_more_than_once": true,
+        "same_request_hash_used_twice": true,
+        "second_capability_distinct_and_simultaneously_valid": true
+      },
+      "finding": "Capability issuance is stateless. The same canonical fresh request can mint multiple distinct valid capabilities by choosing different issued seconds or output paths, and a capability can be copied and validated repeatedly because consumed remains a caller-carried false field. Exclusive creation protects only one chosen pathname. The proposed external rename of one file does not provide a global request claim or spent-capability ledger.",
+      "id": "single_user_request_and_capability_are_replayable",
+      "locations": [
+        "board_authority.py:1443",
+        "board_authority.py:1475",
+        "board_authority.py:1512",
+        "board_authority.py:1537",
+        "RUNBOOK.md:134"
+      ],
+      "required_repair": "Atomically claim the exact request hash in one durable root-controlled issuance ledger before minting, deterministically permit at most one capability for that request and BANK_READY pair, and require the executor to atomically claim the capability ID in a global spent ledger before networking. A file rename alone is insufficient. Add duplicate-output-path, alternate-output-path, alternate-issued-second, copied-capability, and concurrent-claim negatives.",
+      "severity": "ONE_ATTEMPT_AUTHORITY_REPLAY_FAILURE"
+    },
+    {
+      "accepted_synthetic_witness": {
+        "bank_archive_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "bundle_file_submission_archive_sha256_matches": false,
+        "standalone_bank_validator_accepted": true
+      },
+      "finding": "validate_bank_ready checks that the bundle hash map contains 18 syntactically valid hashes but does not require its submission.tar.gz member to equal the BANK_READY archive_sha256. The CLI capability path later recomputes BANK_READY from a live bundle, but capability_object and validate_capability rely on the weaker standalone validator, so the public validation surface does not enforce the claimed internal archive cross-binding.",
+      "id": "bank_ready_archive_hash_is_not_cross_bound_to_its_bundle_inventory",
+      "locations": [
+        "board_authority.py:1392",
+        "board_authority.py:1403",
+        "board_authority.py:1478"
+      ],
+      "required_repair": "Require bundle_file_sha256['submission.tar.gz'] to equal archive_sha256, require selected_H to be an exact allowed integer, and make every capability-construction API require either exact live-bundle replay or a separately authenticated immutable BANK_READY seal whose complete internal crosswalk has been replayed.",
+      "severity": "BANK_AND_CAPABILITY_DAG_CROSS_BINDING_GAP"
+    }
+  ],
+  "passes_preserved_for_successor": {
+    "adjusted_arithmetic_is_numpy_2_4_6_float64_mean_of_688_literal_per_rank_products": true,
+    "adjusted_hurdle_is_exact_binary64_and_strict": true,
+    "archive_manifest_is_canonical_ASCII_JSON_with_strict_UTC_seconds": true,
+    "archive_validator_requires_full_byte_equality_to_exact_two_member_gzip_USTAR_rebuild": true,
+    "checked_in_null_state_cannot_issue_BANK_READY_or_a_capability": true,
+    "compiled_six_value_live_control_successor_gate_is_null_and_precedes_bundle_path_access": true,
+    "frozen_inference_V1R1_review_is_authenticated_static_only": true,
+    "helper_contains_no_network_or_submission_executor": true,
+    "package_freeze_and_exact_fourteen_file_inventory_are_consistent": true,
+    "postrun_V1R1_independent_HOLD_is_authenticated_and_grants_no_downstream_authority": true,
+    "raw_hurdle_is_exact_binary64_and_strict": true,
+    "resource_failure_blocks_operational_package_admission_but_does_not_change_accuracy_or_select_H_model_checkpoint_archive_or_refit": true
+  },
+  "precise_successor_repair_contract": {
+    "lineage": "Do not mutate or promote the frozen package at manifest 36f739b990e9fce214343ec836e5ede0d21ece7664714223c54faf41d0b9250d. Build a new frozen sibling that binds this HOLD and request a fresh different-agent review.",
+    "minimum_repairs": [
+      "Bind each projection MSE and meter row to the exact reviewed OOF role-rank and MLP identity, not merely to the OOF aggregate mean.",
+      "Require the exact future schema keyset and parse and authenticate the complete SPREFIT1 header and body before model admission.",
+      "Replay the actual pinned Whest validator during live admission and exact-replay every WHEST receipt field with all authorities false.",
+      "Bind the actually imported Whest validator implementation to the authenticated pinned source path and reject module-search shadowing.",
+      "Implement durable global request issuance and capability consumption claims so one request cannot authorize multiple attempts.",
+      "Close the BANK_READY archive-to-bundle hash-map equality gap and require the strengthened bank replay on every capability API path."
+    ],
+    "required_negative_regressions": [
+      "same-mean per-rank OOF permutation against nonconstant multipliers",
+      "OOF-to-meter MLP identity swap",
+      "missing extra or wrong-type authoritative_refit_model_header_schema",
+      "arbitrary truncated reordered or source-mismatched SPREFIT1 bytes",
+      "forged WHEST runtime source authority submitted and nested archive fields",
+      "PYTHONPATH module-cache and package-initializer validator shadowing",
+      "same request to two outputs and two issued seconds",
+      "copied capability and concurrent duplicate claims",
+      "BANK_READY bundle archive hash mismatch"
+    ]
+  },
+  "requested_checklist_findings": {
+    "archive_exact_two_file_full_byte_law": "PASS_STATIC_AND_SYNTHETIC",
+    "bank_ready_current_null_state": "PASS_HOLD_BEFORE_BUNDLE_PATH_ACCESS",
+    "compiled_live_control_successor_binding": "PASS_CURRENT_SIX_NULLS__HOLD_SUCCESSOR_SEMANTIC_GAPS",
+    "exact_directory_inventory_lstat_inodes_and_freeze": "PASS_BYTE_EXACT",
+    "exact_raw_and_adjusted_arithmetic": "PASS_ARITHMETIC__HOLD_PER_RANK_OOF_PROVENANCE",
+    "future_artifact_independent_review_and_one_H_model_estimator_archive_crossbindings": "HOLD_MODEL_HEADER_AND_OOF_ROW_BINDINGS_INCOMPLETE",
+    "inference_V1R1_static_only_boundary": "PASS",
+    "null_future_roots_and_preaccess_gate": "PASS",
+    "one_use_capability_and_exact_BANK_READY_archive_DAG": "HOLD_REPLAYABLE_REQUEST_CAPABILITY_AND_BANK_MAP_MISMATCH",
+    "overall": "HOLD",
+    "pinned_whestbench_0_16_local_validation": "HOLD_STORED_RECEIPT_NOT_REPLAYED_AND_EXECUTED_MODULE_NOT_SOURCE_BOUND",
+    "postrun_V1R1_HOLD_preserved": "PASS",
+    "resource_accuracy_non_veto_boundary": "PASS_STATIC"
+  },
+  "review_id": "q24-signed-pair-v4r1-board-submission-authority-prep-v1-independent-static-hold",
+  "review_scope": "read-only audit of the hardened replacement frozen control package plus isolated synthetic source score archive metadata validator and capability adversaries; no live bank staging row weight target score model estimator archive board network package or submission payload access",
+  "review_scope_boundary": {
+    "checked_in_null_state_remains_fail_closed": true,
+    "frozen_static_and_freeze_PASS_receipts_are_insufficient_for_GO": true,
+    "future_live_control_successor_accepted": false,
+    "no_empirical_accuracy_claim_was_opened_created_or_changed": true,
+    "no_live_or_compiled_root_was_filled": true,
+    "postrun_V1R1_HOLD_cured": false,
+    "superseded_pre_hardening_tuple_received_a_disposition": false,
+    "this_HOLD_does_not_revoke_the_separate_inference_V1R1_static_GO": true
+  },
+  "reviewed_artifact_sha256": {
+    "CONTROL_CONTRACT.json": "2c4e4ff30b472a430c2939c4951c8d0513134b01c315e2a1b54ed5e163fd0311",
+    "FREEZE_RECEIPT.json": "2a38627e176fcbf34c4547ac6ebbf6194c08d3ec48ef60b59f67ea911cb7cfe5",
+    "FREEZE_VERIFICATION.json": "bc80d1150b2c6e975ce4da6df3374f6794ea994914cd2f80f459f8a121ac7ccb",
+    "FUTURE_BINDINGS_HOLD.json": "45c4538f0e429408a45e78ad0ee01e3974f567732093ffeb2033266f2b800f54",
+    "INDEPENDENT_REVIEW_REQUEST.md": "40a7091c26de0a724d313a8367d97156ed6e544fa4062ff971b8aac05ab00628",
+    "PACKAGE_MANIFEST.json": "36f739b990e9fce214343ec836e5ede0d21ece7664714223c54faf41d0b9250d",
+    "README.md": "7aaa6445328d89f02daa2504515b6080cd5b7b47515765163949839c9d80261f",
+    "RUNBOOK.md": "c9fd26bcb4ae45943520dcc4e1796c1c059d0e1948d7a7ff46698eeee057b995",
+    "SINGLE_USE_SUBMISSION_CAPABILITY_SCAFFOLD.json": "4005634270502e09ff60f7686c1cd1c0881c1f45eb42c565a5f1ec312a9e2f35",
+    "STATIC_VERIFICATION.json": "58dce5aa5c7ff14a78c8ab3977e4645d4affe4a6dba97d05f40f3a3bd505535f",
+    "SUBMISSION_REQUEST_SCAFFOLD.json": "fe34d7605ddbebd94fada8ccdd44a136c366d3384218cfbe7c0e507c529622e3",
+    "board_authority.py": "b3e9039eaa99357ae355bea3ed30711dceb01639819598aa8755e7bdd968aeb5",
+    "verify_freeze.py": "028009dd4c466d61227b20c9ef5850c721b29c8f95f5e660e8ecbeb53757d1e3",
+    "verify_static.py": "179843046252b01267dae13ae0798ed2560c393ca98149758d8a3fb990d0067f"
+  },
+  "reviewed_frozen_roots": {
+    "freeze_receipt_sha256": "2a38627e176fcbf34c4547ac6ebbf6194c08d3ec48ef60b59f67ea911cb7cfe5",
+    "freeze_verification_sha256": "bc80d1150b2c6e975ce4da6df3374f6794ea994914cd2f80f459f8a121ac7ccb",
+    "helper_sha256": "b3e9039eaa99357ae355bea3ed30711dceb01639819598aa8755e7bdd968aeb5",
+    "package_manifest_sha256": "36f739b990e9fce214343ec836e5ede0d21ece7664714223c54faf41d0b9250d",
+    "review_request_sha256": "40a7091c26de0a724d313a8367d97156ed6e544fa4062ff971b8aac05ab00628",
+    "static_verification_sha256": "58dce5aa5c7ff14a78c8ab3977e4645d4affe4a6dba97d05f40f3a3bd505535f"
+  },
+  "reviewed_upstream_control_roots": {
+    "inference_V1R1_review_sha256": "7e765482718dcd90452be2744b102d056a2881dca80e0670af97bd9206185c22",
+    "inference_V1R1_static_only_GO_preserved": true,
+    "postrun_V1R1_HOLD_preserved": true,
+    "postrun_V1R1_review_sha256": "47736aa88bd0443d4ed6a6f8aaa05c35e3d8573ec401c991a2c9e056b6a4410a"
+  },
+  "reviewer_different_from_package_author": true,
+  "schema": "public-q24-signed-pair-v4r1-board-submission-authority-prep-independent-static-review-v1",
+  "status": "HOLD_FROZEN_BOARD_AUTHORITY_PREP_V1__OOF_ROW_PROVENANCE_MODEL_HEADER_WHEST_PINNING_AND_SINGLE_USE_GAPS",
+  "supersession_lineage": {
+    "reviewed_replacement_manifest_sha256": "36f739b990e9fce214343ec836e5ede0d21ece7664714223c54faf41d0b9250d",
+    "superseded_pre_hardening_manifest_sha256": "b2de55013398e706afbc88ac46276b2d29e42dfe26b27d30e790d90d762294c7",
+    "superseded_tuple_disposition_issued": false,
+    "superseded_tuple_used_as_review_evidence": false
+  }
+}

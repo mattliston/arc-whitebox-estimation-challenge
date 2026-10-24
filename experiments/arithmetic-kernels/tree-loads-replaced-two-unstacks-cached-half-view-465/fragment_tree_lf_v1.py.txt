@@ -1,0 +1,91 @@
+
+# BEGIN OPUS-TREE FRAGMENT tree_lf_lazy_fusion_v1 (exact; 2026-10-16; append LAST)
+# On the platform the two-phase prebind's phase 2 ('lvfuse') gets no setup time, so tree keys bound in setup keep per-component level
+# ops (3/3/6 per level) on every network. Here a cached entry that has no fused ops and whose key was already cached when the current
+# predict started is fused at its first use in that predict, as phase 2 would: the same pair ops (LVF A/B/C), with the level arrays
+# rebuilt from the entry's tree T by basic slices and moveaxis (bill 0). Level 1 (A/B) is fused only while its natural-order view is
+# still held in the entry's slot; otherwise its three per-component ops stay. Keys first built inside the current predict are not
+# fused (usually one-network shapes). Same ops on the same operands in the same order; numpy buffers the overlapping unwind pairs:
+# bit-identical, FLOPs identical. The entry is updated in place (dict.__setitem__ keeps its LRU position).
+_OT_LF_PARENT = _ipt_side
+_OT_LF_ON = True
+_OT_LF_ACTIVE = [False]
+_OT_LF_SEEN = [None]
+_OT_LF_STATS = dict(fused=0, level1_fused=0, level1_plain=0, skipped_new=0)
+
+
+def _ot_lf_ops(kind, L, T, chunks, slot):
+    data = slice(0, 7, 2) if kind == 0 else slice(0, 4)
+    G = slot[0] if (type(slot) is list and len(slot) > 0 and slot[0] is not None) else None
+    ops = []
+    if kind == 0:
+        for j in range(1, L + 1):
+            X = chunks[j]
+            if j == 1:
+                if G is None:
+                    ops += [(fnp.subtract, X[4], X[0], X[5]), (fnp.subtract, X[2], X[5], X[3]), (fnp.subtract, X[6], X[5], X[1])]
+                    _OT_LF_STATS['level1_plain'] += 1
+                    continue
+                V = G
+                _OT_LF_STATS['level1_fused'] += 1
+            else:
+                nr = L - j
+                V = _lvf_front(T[(data,) * nr] if nr else T, nr)
+            ops += [(fnp.subtract, X[4], X[0], X[5]), (fnp.subtract, V[_LVF_A[0]], X[5], V[_LVF_A[1]])]
+    elif kind == 1:
+        for j in range(1, L + 1):
+            Y = chunks[j]
+            if j == 1:
+                if G is None:
+                    ops += [(fnp.add, Y[1], Y[0], Y[5]), (fnp.subtract, Y[5], Y[2], Y[6]), (fnp.subtract, Y[3], Y[5], Y[4])]
+                    _OT_LF_STATS['level1_plain'] += 1
+                    continue
+                V, ax = G, 0
+                _OT_LF_STATS['level1_fused'] += 1
+            else:
+                nr = L - j
+                V, ax = (T[(data,) * nr] if nr else T), nr
+            p53, p25, p64 = (_lvf_at(V, ax, s) for s in _LVF_B)
+            ops += [(fnp.add, Y[1], Y[0], Y[5]), (fnp.subtract, p53, p25, p64)]
+    else:
+        for j in range(L, 1, -1):
+            Z = chunks[j]
+            nr = L - j
+            V = _lvf_front(T[(data,) * nr] if nr else T, nr)
+            p52, p50, p31, p23 = (V[s] for s in _LVF_C)
+            ops += [(fnp.add, Z[0], p52, p50), (fnp.add, Z[5], Z[4], Z[5]), (fnp.add, Z[5], p31, p23), (fnp.add, Z[4], Z[6], Z[1])]
+    return tuple(ops)
+
+
+def _ipt_side(kind, L, rows, cols):
+    entry = _OT_LF_PARENT(kind, L, rows, cols)
+    if not (_OT_LF_ON and _OT_LF_ACTIVE[0]) or entry[3] is not None or L < 2:
+        return entry
+    cache = (_IPT_A, _IPT_B, _IPT_C)[kind]
+    key = (L, rows, cols)
+    if dict.get(cache, key) is not entry:
+        return entry
+    seen = _OT_LF_SEEN[0]
+    if seen is None or (id(cache), key) not in seen:
+        _OT_LF_STATS['skipped_new'] += 1
+        return entry
+    T, chunks, slot, _none, basis = entry
+    entry = (T, chunks, slot, _ot_lf_ops(kind, L, T, chunks, slot), basis)
+    dict.__setitem__(cache, key, entry)
+    _OT_LF_STATS['fused'] += 1
+    return entry
+
+
+_OT_LF_PARENT_PREDICT = Estimator.predict
+
+
+def _ot_lf_predict(self, *args, **kwargs):
+    _OT_LF_SEEN[0] = {(id(c), k) for c in (_IPT_A, _IPT_B, _IPT_C) for k in list(dict.keys(c))}
+    _OT_LF_ACTIVE[0] = True
+    try:
+        return _OT_LF_PARENT_PREDICT(self, *args, **kwargs)
+    finally:
+        _OT_LF_ACTIVE[0] = False
+        _OT_LF_SEEN[0] = None
+Estimator.predict = _ot_lf_predict
+# END OPUS-TREE FRAGMENT tree_lf_lazy_fusion_v1

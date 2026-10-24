@@ -1,0 +1,63 @@
+{
+  "status": "CLOSED_EXACT_DUPLICATE_AUDIT_NO_EXPERIMENT",
+  "requested_rank": 384,
+  "derivation": {
+    "tensor": "T=sum_i lambda_i p_i tensor p_i tensor p_i",
+    "full_mode1_gram": "H=T_(1)T_(1)^T=sum_ij lambda_i lambda_j (p_i^T p_j)^2 p_i p_j^T",
+    "diagonal_approximation": "Hdiag=sum_i lambda_i^2 ||p_i||^4 p_i p_i^T; exactly the old colk3 exponent4 experiment",
+    "within_signed_pair": "For plus/minus coefficient +/-lambda: Hpair=lambda^2 [A B] [[x^2,-dot^2],[-dot^2,y^2]] [A B]^T, x=A^T A,y=B^T B. Kernel computes its exact PSD square root with only Cauchy roundoff clamp.",
+    "c_h_equivalent": "Ignoring global positive factor3: coefficient(cc^T)=8(ab+t^2), coefficient(hh^T)=4(a^2+b^2)+8t^2, coefficient(ch^T+hc^T)=8(a+b)t; a=||c||^2,b=||h||^2,t=c^T h. T120 pairk3 omitted t terms; PCM retained them exactly.",
+    "remaining_omission": "Cross-pair terms i,j in different signed pairs; neither column reweighting nor within-pair whitening recovers them."
+  },
+  "previous_outcomes": [
+    {
+      "name": "colk3 pexp4",
+      "source": "engineer/a62_modules/s49/k3w4/candidate.py",
+      "sha_prefix": "31c1539f",
+      "scope": "S48b native eight fresh7100136-143",
+      "MSE_percent": 0.385,
+      "SE_percent": 0.19,
+      "wins": 3,
+      "bill_percent": -0.004,
+      "decision": "closed"
+    },
+    {
+      "name": "T120 diagonal pair-aware approximation",
+      "scope": "plain torch S47e/Nd,15networks7100136-150",
+      "MSE_pooled_percent": -0.147,
+      "mean_log_percent": -0.172,
+      "SE_percent": 0.352,
+      "wins": 8,
+      "decision": "closed below0.5%bar"
+    },
+    {
+      "name": "PCM exact within-pair mode1 Gram",
+      "scope": "native d401 eight7103248-55",
+      "candidate_sha256": "88cd815151606155008d994261585ef73b59e816eafba2f25e7d32930a23a749",
+      "MSE_percent": 0.16064847403625568,
+      "bill_percent": 0.06804463796581833,
+      "adjusted_percent": 0.22880242467462958,
+      "wins": 4,
+      "charged_ops_delta_each": 411,
+      "implementation_pass": true,
+      "decision": "closed pilot fail"
+    }
+  ],
+  "diversity_prior_audit": [
+    "Greedy block pivots, one-shot residual pivot swaps, candidate oversampling and sketch-driven selection were already tested in opus_joinx_v1, opus_join3_vb_v1, opus_sketchgb_v1. Same-rank pivot choice recovered only about3-4 rank units per join in exact saved Gram audit.",
+    "Firstjoin common-mode rank1 deflation exists in astra_firstjoin_commonmode_selector_v1; historical saved651 changes only3 of384 rows, weighted-factor residual -0.696% and Nystrom Gram residual +1.249%; not a credible independent>=0.5%terminal accuracy case.",
+    "Pushed-metric256 in astra_crunch_physics_v1 optimizes W-space projection at reduced rank, mathematically distinct; saved signed K21 error .05533 vs currentrank384 .01359, so closed."
+  ],
+  "decision": "No saved numerical rerun or new native candidate: exact proposed metrics already closed, and no distinct affordable diversity rule with evidence for >=0.5% terminal gain was established.",
+  "new_models": 0,
+  "new_captures": 0,
+  "new_training": 0,
+  "new_numeric_experiments": 0,
+  "evidence_sha256": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_exact_pair_cubic_metric_source_v1/kernel_pair_mode1_HELD_v1.py": "2b577c6fa0d58869f1e8d356b90a4309ff819088c8292a4a10fd0566cff6bc50",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_exact_pair_cubic_metric_source_v1/PILOT_CLOSURE_v1.json": "799adeb71ad767bb53a711490b5fd173ffe78579ce312394dc44d7666e2220e8",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_exact_pair_cubic_metric_source_v1/PCM_PILOT8_DECISION_v1.json": "3741524630a724c52dd1c155b8951c5202d8b59514388239204fd4786d030266",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t120_worker_pairsketch.py": "3c2d1dc3470dad31ace4b185e03e7aa204a02150a498769954d940f2dde6c640",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/make_k3w_v1.py": "d0c06559522f5d39f8445ecce80b25e5c6d8d8f82b8a5ad87b2f41f29c41ba1b"
+  }
+}

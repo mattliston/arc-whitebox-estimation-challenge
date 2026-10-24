@@ -1,0 +1,291 @@
+{
+  "schema": "phase2-p2r0g-independent-target-free-audit-v1",
+  "status": "PASS_INDEPENDENT_TARGET_FREE_EQUAL_BUDGET_RESOURCE_AND_SEMANTIC_AUDIT__ACCURACY_AND_PROMOTION_REMAIN_HOLD",
+  "audit_date": "2026-08-23",
+  "verdict": {
+    "frozen_byte_bindings": "PASS",
+    "iid_rqmc_and_affine_control_variate_semantics": "PASS_WITH_EXPLICIT_RQMC_ENDPOINT_CLAMP_SCOPE",
+    "cp1792_equal_bill_schedules_and_next_unit_maximality": "PASS",
+    "flopscope_0p12_receipts_raw_telemetry_output_and_resource_contracts": "PASS",
+    "target_blind_projection_and_zero_target_fit_score_boundary": "PASS",
+    "prediction_and_disagreement_receipt_consistency": "PASS_BOUND_RECEIPT_ONLY_NO_ROW_REPLAY",
+    "scientific_accuracy": "HOLD_TARGETS_UNOPENED",
+    "scientific_promotion": "HOLD_NO_ACCURACY_EVIDENCE",
+    "this_receipt_is_scoring_or_execution_authority": false
+  },
+  "frozen_bindings": {
+    "preregistration": {
+      "path": "PREREGISTRATION.md",
+      "sha256": "7b8cc493d679e51076da7553ff1f42d85d3576ddd9814730cefe1a3422edee4c"
+    },
+    "estimator": {
+      "path": "estimator.py",
+      "sha256": "71a2d14139ed8aeee96968a5848fdd63b9e5646d771e5cf155d7109227787c14"
+    },
+    "source_verifier": {
+      "path": "verify_source.py",
+      "sha256": "64aa86ed89283eeffd31d2e808425d57a91fb36c166b9bf7a2e5a1d7f57b617b"
+    },
+    "static_verification": {
+      "path": "STATIC_VERIFICATION.json",
+      "sha256": "7a64c0e7fd73863512f606a8180c6a4231fa6ca7278bdf8ad43089ca264e5fe8"
+    },
+    "discriminator_runner": {
+      "path": "run_target_blind_discriminator.py",
+      "sha256": "a3fbfdabc0f1813304b9c2aa70d4d579e2ed3acc67c50081f7aec7f5626d4d61"
+    },
+    "target_blind_discriminator_receipt": {
+      "path": "TARGET_BLIND_DISCRIMINATOR_RECEIPT.json",
+      "sha256": "c3ad6ce10ec1fb03da4e4107f140c4a75e4bdcc6dffa27c579cc1f41c402ff23"
+    },
+    "resource_result": {
+      "path": "RESOURCE_RESULT.json",
+      "sha256": "307d834538ca329fe22381b50e66c369cef1a13ece9cb40e97235f238977d040"
+    },
+    "result_verifier": {
+      "path": "verify_result.py",
+      "sha256": "61b2b3fd5d7554a8b27f0bafc8c3b57805fe485c58bcfd033b4eede17c7cc0ca"
+    },
+    "result_verification": {
+      "path": "RESULT_VERIFICATION.json",
+      "sha256": "cde0ab1ea271358b8b1c48fed6f99429456ebcbb56c2c04a8fcbbccf02f932f5"
+    },
+    "target_blind_loader": {
+      "path": "../data_gate/target_blind_mini_v2.py",
+      "sha256": "6778a3216377a4a7e588df71a08fb0e182dc7a14d42ab393c2ac80200cccf0e1"
+    },
+    "phase2_authority": {
+      "path": "../data_gate/authority.json",
+      "sha256": "b33aea75ee83be5cc7c2778aefd4cc35d731dcd702d8b258269fc2c895ef4ec5"
+    },
+    "cp1792_source": {
+      "path": "../cp3_cap1792_k3_readout/estimator.py",
+      "sha256": "035e3bd2fd08d3358f5424fc67f10281e5559e65fa9c6d6dce97791108b176dc"
+    },
+    "cp1792_meter_receipt": {
+      "path": "../meter_protocol/runs/cp3_cap1792_n1_s1000_seed20260823/receipt.json",
+      "sha256": "71c4eedf2b04f3430bbca3ebf20882b0dc08daadf8895be14112f85fca240115"
+    },
+    "iid_meter_receipt": {
+      "path": "../meter_protocol/runs/p2r0g_iid_n6372_n1_s1000_seed20260823/receipt.json",
+      "sha256": "cce64741a954da0049786a427290ce97419428acde5c840b68458d891bfef8df"
+    },
+    "rqmc_meter_receipt": {
+      "path": "../meter_protocol/runs/p2r0g_rqmc_n6334_n1_s1000_seed20260823/receipt.json",
+      "sha256": "e882d2aac61b3dd52b9af958b48c1b99f3af119973f897af7a26f5b83b71d041"
+    },
+    "affine_cv_meter_receipt": {
+      "path": "../meter_protocol/runs/p2r0g_affinecv_n3183_n1_s1000_seed20260823/receipt.json",
+      "sha256": "1b1495a1ffac19db4d7f695f7ff95f037c5cfc3f0ceda65f948970b1788834cf"
+    },
+    "synthetic_meter_driver": {
+      "path": "../meter_protocol/run_synthetic_meter.py",
+      "sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34"
+    },
+    "meter_receipt_verifier": {
+      "path": "../meter_protocol/verify_meter_run.py",
+      "sha256": "91471a7d543020460359acf7db8548969182734e9469ec02194002e3008d37d8"
+    },
+    "meter_requirements_lock": {
+      "path": "../data_gate/requirements.lock.txt",
+      "sha256": "dbd429c8eeb64c5809f7a045fc782173e476c943fbd6ce7d2616c94433481f98"
+    }
+  },
+  "estimator_semantics": {
+    "iid": {
+      "sample_count": 6372,
+      "input_law": "seeded float32 standard_normal",
+      "estimator": "raw sample mean after every one of 16 affine-ReLU layers",
+      "reduction_dtype": "float64",
+      "output_dtype": "float32",
+      "fitted_parameters": 0
+    },
+    "rqmc": {
+      "blocks": [2048, 2048, 2048, 128, 32, 16, 8, 4, 2],
+      "total_samples": 6334,
+      "independent_random_shifts": 9,
+      "lattice_rule": "base-two bit-reversed rank-1 lattice with a fixed odd multiplier in every coordinate",
+      "stratification_proof": "For a 2^m block, bit reversal maps indices to every m-bit high cell; multiplication by an odd integer is invertible modulo 2^m, so every coordinate remains a permutation of those cells.",
+      "block_combination": "sample-count-weighted mean of the nine independently shifted block means",
+      "normal_map": "flopscope.stats.norm.ppf followed by float32 materialization",
+      "endpoint_clamp": {
+        "epsilon": 2.3283064365386963e-10,
+        "scope": "The source clamps uniform coordinates to [2^-32, 1-2^-32] before ppf. Random shifting is unbiased for this explicitly clipped numerical integrand; this receipt does not elevate it to a proof of literal unbounded-Gaussian unbiasedness. Accuracy remains sealed."
+      },
+      "fitted_parameters": 0
+    },
+    "affine_control_variate": {
+      "sample_count": 3183,
+      "coupling": "The nonlinear and affine paths share each IID input and are pushed together through the same weights.",
+      "induction": "If E[s_(l-1)] equals anchor_(l-1), then E[anchor_l + gate_l * (s_(l-1) W_l - anchor_(l-1) W_l)] equals anchor_l.",
+      "reported_estimator": "anchor_l + mean(actual_l - affine_l)",
+      "known_control_expectation": true,
+      "fitted_coefficient": false,
+      "synthetic_algebra_replay_max_abs_mean_error": 2.220446049250313e-15
+    },
+    "seed_domain_separation": {
+      "source": "official grader-supplied mlp.seed",
+      "combiner": "xor with a lane constant followed by a 63-bit mask",
+      "iid_constant": "0x31a5c85c97cb3127",
+      "rqmc_constant": "0x6c8e9cf570932bd5",
+      "affine_cv_constant": "0x15d14e2f5a4d3c69",
+      "independent_rqmc_effective_constant": "0x482d81791f030082",
+      "all_four_effective_constants_distinct": true,
+      "target_derived_seed_or_choice": false
+    }
+  },
+  "equal_budget_reconciliation": {
+    "cp1792": {
+      "flops_used": 214122341378,
+      "residual_wall_time_s": 0.13626903528347611,
+      "wall_time_s": 1.350868500303477,
+      "sampled_descendant_peak_rss_bytes": 2371272704
+    },
+    "single_path_one_sample_matmul_lower_bound_flops": 33538048,
+    "lanes": {
+      "iid": {
+        "sample_schedule": 6372,
+        "flops_used": 214122102784,
+        "integer_gap_below_cp1792": 238594,
+        "next_structural_unit_matmul_lower_bound_flops": 33538048,
+        "bill_plus_that_lower_bound": 214155640832,
+        "next_structural_unit_must_cross_cp1792": true,
+        "residual_wall_time_s": 0.0063036298379302025,
+        "wall_time_s": 0.1858427501283586,
+        "sampled_descendant_peak_rss_bytes": 1858011136
+      },
+      "rqmc": {
+        "sample_schedule": [2048, 2048, 2048, 128, 32, 16, 8, 4, 2],
+        "total_samples": 6334,
+        "flops_used": 214111148686,
+        "integer_gap_below_cp1792": 11192692,
+        "next_nonempty_structural_unit_matmul_lower_bound_flops": 33538048,
+        "bill_plus_that_lower_bound": 214144686734,
+        "next_structural_unit_must_cross_cp1792": true,
+        "residual_wall_time_s": 0.024948168080300093,
+        "wall_time_s": 0.6799455410800874,
+        "sampled_descendant_peak_rss_bytes": 2071265280
+      },
+      "affine_cv": {
+        "sample_schedule": 3183,
+        "flops_used": 214114123776,
+        "integer_gap_below_cp1792": 8217602,
+        "next_paired_structural_unit_matmul_lower_bound_flops": 67076096,
+        "bill_plus_that_lower_bound": 214181199872,
+        "next_structural_unit_must_cross_cp1792": true,
+        "residual_wall_time_s": 0.015520860441029072,
+        "wall_time_s": 0.26064129220321774,
+        "sampled_descendant_peak_rss_bytes": 1911259136
+      }
+    },
+    "all_operation_total_sums_equal_reported_bills": true,
+    "all_outputs": {
+      "shape": [16, 1024],
+      "dtype": "float32",
+      "all_finite": true
+    },
+    "all_residual_wall_times_below_0p4_s": true,
+    "all_total_wall_times_below_120_s": true,
+    "all_sampled_descendant_peaks_below_8_gib": true,
+    "dummy_work_added": false
+  },
+  "meter_receipt_replay": {
+    "environment": {
+      "python": "3.11.5",
+      "numpy": "2.4.6",
+      "whestbench": "0.16.0",
+      "flopscope": "0.12.0",
+      "flopscope_server": "0.12.0"
+    },
+    "iid": "PASS_METER_RECEIPT_VERIFICATION",
+    "rqmc": "PASS_METER_RECEIPT_VERIFICATION",
+    "affine_cv": "PASS_METER_RECEIPT_VERIFICATION",
+    "verified_scopes": [
+      "raw artifact existence, byte counts, and SHA256 hashes",
+      "exact installed package and source fingerprints",
+      "embedded invocation equality and absence of a dataset argument",
+      "raw flops equality with each frozen receipt",
+      "finite float32 [16,1024] output contract",
+      "10 ms process-tree RSS sample counts, sums, peaks, error-free sampler, and 8 GiB limit",
+      "zero public Phase 2 target or truth access and no accuracy score"
+    ]
+  },
+  "target_blind_discriminator": {
+    "authority_revision": "v2-phase2",
+    "authority_commit": "ce926b7d1ced65faa668c01b94a43f8c4f43783d",
+    "allowed_decoded_columns": ["mlp_id", "mlp_name", "mlp_seed", "weights"],
+    "forbidden_value_columns": ["all_layer_means", "final_means", "avg_variance", "sampling_budget_breakdown"],
+    "projection_mechanism": "PyArrow Parquet iter_batches with columns set exactly to the allow-list, use_threads=false, batch_size=1; batch.schema.names and the deny-list are asserted before extraction.",
+    "historical_receipt_weight_rows_decoded": 1,
+    "historical_receipt_target_values_decoded": 0,
+    "historical_receipt_target_metrics_computed": 0,
+    "historical_receipt_fits": 0,
+    "historical_receipt_scores": 0,
+    "historical_receipt_submissions": 0,
+    "selection_rule": "first physical mini row; fixed before prediction",
+    "iterator_closed_after_first_row": true,
+    "disagreement_interpretation": "cross-prediction stability only; no accuracy ordering follows"
+  },
+  "prediction_and_disagreement_binding": {
+    "receipt_sha256": "c3ad6ce10ec1fb03da4e4107f140c4a75e4bdcc6dffa27c579cc1f41c402ff23",
+    "output_sha256": {
+      "iid": "b3bef9d77be03a79998aad06472fdb301468b490c97e1c8ce7c72fb8a23ca117",
+      "rqmc": "9aaefbcc05a9a023685bade0045e45caf647c28dc78d4ae50e2ac7143e5b908c",
+      "affine_cv": "436e7904b72d5225de3e067b7c01965d8d4e05a0e5d62ddfe22a6ff0c5dad120",
+      "cp1792": "40e19e2b70828774bc7fef617625c58efea07d7c0ba5e8f0220bb9750bffd3c7",
+      "rqmc_independent_shift_diagnostic": "026a28b5f90da090c28754be54b3ccb6369a49c25d1b6191cfea4a87968f9239"
+    },
+    "all_output_hashes_are_distinct_lowercase_sha256": true,
+    "all_expected_pairwise_disagreements_present_finite_and_positive": true,
+    "all_recorded_four-lane_rms_distances_satisfy_triangle_inequalities": true,
+    "rqmc_independent_shift_disagreement": {
+      "all_layer_rms": 0.0062656149277830345,
+      "layer16_rms": 0.004219968980759791
+    },
+    "independent_reproduction_boundary": "No prediction array was retained beside the compact receipt. Under the no-additional-row rule this audit binds and checks the receipt, hash formats, bills, pair roster, finite values, and Euclidean consistency, but does not claim to have recomputed output digests or disagreements from the pinned row."
+  },
+  "target_free_verifier_replays": {
+    "source_verifier": {
+      "successful_environment": "/Users/matt/anaconda3/bin/python; Python 3.11.5; NumPy 1.26.4",
+      "status": "PASS_TARGET_FREE_STATIC_AND_ALGEBRAIC_GATES",
+      "dataset_loader_imported": false,
+      "estimator_imported": false,
+      "dataset_rows_decoded": 0,
+      "target_values_decoded": 0,
+      "fits": 0,
+      "scores": 0,
+      "prior_system_python_attempt": "Stopped at import because NumPy was absent; no project module, loader, dataset, estimator, target, fit, or score was reached."
+    },
+    "result_verifier": {
+      "status": "PASS_RESOURCE_RESULT_REVERIFIED__ACCURACY_UNOPENED",
+      "target_values_decoded": 0,
+      "target_metrics_computed": 0
+    }
+  },
+  "independent_audit_access_and_mutation": {
+    "dataset_loader_modules_imported": 0,
+    "physical_dataset_files_opened": 0,
+    "physical_weight_rows_decoded": 0,
+    "target_values_decoded": 0,
+    "target_metrics_computed": 0,
+    "prediction_arrays_accessed": 0,
+    "comparator_predictions_executed": 0,
+    "target_blind_discriminator_executions": 0,
+    "fits": 0,
+    "scores": 0,
+    "optimizer_steps": 0,
+    "submissions": 0,
+    "scientific_accuracy_inferences": 0,
+    "synthetic_meter_receipts_and_raw_telemetry_read_only_reverified": 3,
+    "existing_comparator_artifacts_modified": 0,
+    "graph_or_html_modified": false,
+    "files_added": 1
+  },
+  "disposition": {
+    "resource_comparator_ready": true,
+    "accuracy_opening_authorized": false,
+    "lane_selection_authorized": false,
+    "fit_resize_retry_or_promotion_authorized": false,
+    "required_next_authority": "A separate sealed scorer authorization is required before any protected target comparison or scientific lane selection."
+  }
+}

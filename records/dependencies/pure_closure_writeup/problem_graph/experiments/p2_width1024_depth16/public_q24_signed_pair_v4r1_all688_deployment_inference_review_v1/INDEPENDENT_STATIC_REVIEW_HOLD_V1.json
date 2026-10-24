@@ -1,0 +1,259 @@
+{
+  "access_accounting": {
+    "bank_or_staging_payload_bytes_opened": 0,
+    "board_or_score_payload_bytes_opened": 0,
+    "fitted_model_payload_bytes_opened": 0,
+    "live_archive_or_package_payload_bytes_opened": 0,
+    "live_estimator_or_MLP_executions": 0,
+    "live_package_builds": 0,
+    "mps_executions": 0,
+    "network_or_submission_actions": 0,
+    "public_row_or_weight_payload_bytes_opened": 0,
+    "static_and_synthetic_sources_only": true,
+    "synthetic_in_memory_archive_and_model_adversaries_executed": true,
+    "target_payload_bytes_opened": 0
+  },
+  "authorization": {
+    "accuracy": false,
+    "bank_ready": false,
+    "board": false,
+    "export": false,
+    "live_header_adapter": false,
+    "meter": false,
+    "model": false,
+    "model_path_access": false,
+    "mps": false,
+    "network": false,
+    "package": false,
+    "refit": false,
+    "submission": false,
+    "target": false
+  },
+  "date": "2026-08-27",
+  "decision": "REPAIR_RESEAL_AND_INDEPENDENTLY_REVIEW_A_NARROW_SUCCESSOR_BEFORE_ANY_LIVE_HEADER_ADAPTER_MODEL_EXPORT_PACKAGE_OR_SUBMISSION",
+  "frozen_inventory_recount": {
+    "alleged_duplicate_pair_state_b_reproduced_in_this_exact_frozen_hash": false,
+    "descriptor_count": 22,
+    "J_state_descriptor_count": 13,
+    "J_state_normalizer_duplicate_descriptor_count": 3,
+    "pair_r_l_descriptor_count": 1,
+    "pair_trainable_aggregate_names": [
+      "pair/state/U",
+      "pair/state/b",
+      "pair/state/V",
+      "pair/state/c",
+      "pair/state/d"
+    ],
+    "pair_trainable_descriptor_count": 5,
+    "unique_name_count": 22
+  },
+  "independent_adversarial_replay": {
+    "archive_acceptances_that_must_reject": [
+      {
+        "fixture": "valid deterministic archive plus trailing ASCII JUNK",
+        "observed": "ACCEPTED"
+      },
+      {
+        "fixture": "valid deterministic archive plus a concatenated empty gzip member",
+        "observed": "ACCEPTED"
+      },
+      {
+        "fixture": "gzip OS header byte changed without changing tar content",
+        "observed": "ACCEPTED"
+      },
+      {
+        "fixture": "gzip XFL header byte changed without changing tar content",
+        "observed": "ACCEPTED"
+      },
+      {
+        "fixture": "GNU-format tar containing the same two regular members and metadata",
+        "observed": "ACCEPTED"
+      }
+    ],
+    "invalid_created_at_utc_values_accepted": [
+      "Z",
+      "not-a-dateZ",
+      "2026-99-99T99:99:99Z"
+    ],
+    "parser_acceptances_that_must_reject": [
+      {
+        "fixture": "tensor_inventory[0].offset is binary64 0.0 with recomputed canonical inventory digest",
+        "observed": "ACCEPTED"
+      },
+      {
+        "fixture": "tensor_inventory[0].offset is bool false with recomputed canonical inventory digest",
+        "observed": "ACCEPTED"
+      },
+      {
+        "fixture": "tensor_inventory[0].shape is [16.0,19.0] with recomputed canonical inventory digest",
+        "observed": "ACCEPTED"
+      }
+    ],
+    "why_parser_acceptance_is_material": "parse_sprefit1 accepts Python-equal numeric aliases, while the rendered estimator's _decode_payload requires exact built-in integers. The static exporter can therefore report success and render a source that deterministically rejects its own embedded inventory at import.",
+    "why_archive_acceptance_is_material": "The frozen contract says mtime-zero gzip containing USTAR and the validator reports exact deterministic two-file structure. Content-only tar inspection plus a four-byte mtime check does not establish that canonical byte law."
+  },
+  "independent_replay": {
+    "environment": {
+      "numpy": "1.26.4",
+      "python": "CPython 3.11.5",
+      "torch": "2.7.0",
+      "device": "CPU",
+      "MPS_used": false
+    },
+    "freeze_stdout_sha256": "e17fb9bbbdafdc2bf52cd45559c38fb4de0f26d9983790992135e087a184157d",
+    "freeze_stdout_byte_identical_to_frozen_FREEZE_VERIFICATION": true,
+    "static_stdout_sha256": "0f0c3c2ef89b87c2c9d34dcbc18114c4fb94dd83348cafcd35d9a2ca99e0cadd",
+    "static_stdout_byte_identical_to_frozen_STATIC_VERIFICATION": true,
+    "synthetic_parity": {
+      "candidate_H": [
+        16,
+        64,
+        256
+      ],
+      "cases": 6,
+      "entry_dtypes": [
+        "float32",
+        "float64"
+      ],
+      "final_composition_zero_boundary_byte_exact": true,
+      "maximum_absolute_seam_difference": 6.198883056640625e-06,
+      "maximum_relative_seam_difference": 0.00014548823760139653,
+      "prediction_outputs_equal": true,
+      "unit_permutation_outputs_equal": true,
+      "width": 9
+    }
+  },
+  "issued_by": "independent_reviewer",
+  "issued_utc": "2026-08-28T05:19:34Z",
+  "live_header_boundary": {
+    "current_semantic_parser_scope": "frozen 22-tensor inference core and a deliberately reduced synthetic SPREFIT1 header only",
+    "exact_strengthened_live_refit_header_adapter_frozen": false,
+    "live_export_pre_path_gate": "PASS_FAIL_CLOSED",
+    "moving_refit_runner_source_snapshot_sha256_non_authoritative": "285b9d6898daca13e303b743cc4eff25db493b0bdaa5929b3774cd1eec6d94d4",
+    "observed_schema_difference": "The moving source adds architecture and richer J, pair_on, runtime, OOF, seal, selected-A15-zero, and bank provenance fields that the frozen semantic parser intentionally cannot accept or authenticate.",
+    "required_disposition": "HOLD model-path access and live export. A frozen successor must bind exact final runtime, runner, receipt, seal, independent-review, and strengthened header schemas before reading any supplied path.",
+    "semantic_core_pass_does_not_accept_moving_live_header": true
+  },
+  "material_hold_blockers": [
+    {
+      "finding": "parse_sprefit1 compares descriptor offsets and shapes using Python numeric equality without first requiring exact built-in integer types. Canonical headers using 0.0 or false for offset, or binary64 integral shape entries, are accepted even though the rendered source's import-time decoder rejects them.",
+      "id": "sprefit_descriptor_exact_type_aliases_accepted",
+      "locations": [
+        "export_archive_builder.py:296",
+        "export_archive_builder.py:303",
+        "export_archive_builder.py:310",
+        "estimator_source_template.py:115",
+        "estimator_source_template.py:126"
+      ],
+      "required_repair": "Require exact built-in int for offset and nbytes, an exact built-in list of exact positive built-in ints for shape, and exact equality to the expected descriptor. Add float, bool, subclass, negative, zero, reordered, and extra-field adversaries and require rejection before rendering.",
+      "severity": "STATIC_SEMANTIC_PARSER_ACCEPTS_NONEXACT_AND_SELF_REJECTING_MODEL_DESCRIPTOR"
+    },
+    {
+      "finding": "validate_two_file_archive_bytes does not prove the builder's canonical gzip/USTAR bytes. It accepts trailing bytes, concatenated gzip streams, altered gzip OS/XFL bytes, and GNU tar. It also accepts arbitrary created_at_utc strings merely ending in Z.",
+      "id": "archive_validator_does_not_enforce_canonical_builder_bytes_or_exact_utc",
+      "locations": [
+        "export_archive_builder.py:513",
+        "export_archive_builder.py:533",
+        "export_archive_builder.py:554",
+        "export_archive_builder.py:610"
+      ],
+      "required_repair": "After strict structural extraction and exact UTC-seconds validation, deterministically rebuild from the extracted estimator and manifest timestamp and require full input-byte equality. Add regressions for trailing and concatenated streams, gzip header mutations, non-USTAR encodings, malformed timestamps, and all existing archive adversaries.",
+      "severity": "STATIC_EXACT_ARCHIVE_VALIDATION_CLAIM_FALSE"
+    }
+  ],
+  "package_root_metadata": {
+    "multiply_linked_regular_file_count": 0,
+    "regular_file_count": 18,
+    "symlink_count": 0
+  },
+  "passes_preserved_for_narrow_successor": {
+    "action_source_layers_2_through_14_and_distinct_layer15_zero": true,
+    "all_empirical_and_live_roots_null": true,
+    "archive_builder_is_deterministic_for_one_fixed_estimator_and_timestamp": true,
+    "capture_and_action_source_hash_cuts": true,
+    "exact_22_unique_tensor_scientific_inventory": true,
+    "export_and_meter_fail_before_supplied_path_access": true,
+    "final_float32_float64_order_and_clamp_law": true,
+    "generic_host_uniform_value_predicate": true,
+    "J_and_x36_recurrence_matches_frozen_OOF_v1_science": true,
+    "no_obsolete_embedded_J_payload_in_rendered_source_cut": true,
+    "no_rank_MLP_identity_target_score_pair_zero_fold_ensemble_or_MPS_route": true,
+    "pair_on_recurrence_matches_frozen_OOF_v1_science": true,
+    "public_null_skeleton_rejects_before_payload_decode_or_MLP_access": true,
+    "resource_observation_cannot_change_or_veto_accuracy": true,
+    "resource_operational_limits_remain_a_later_package_gate": true,
+    "synthetic_H_dtype_floor_zero_and_permutation_coverage": true
+  },
+  "requested_checklist_findings": [
+    {
+      "finding": "Full source hashes match. The mechanical parent cut has exactly one marker, removes the obsolete transport payload, and joins the exact action literal suffix. The generic repair predicate occurs exactly once and no rank/MLP identity law appears. Actual all-688 host/action byte parity remains future empirical evidence.",
+      "id": 1,
+      "verdict": "PASS_STATIC_SOURCE_CUT__LIVE_PARITY_HOLD"
+    },
+    {
+      "finding": "The parser enforces order, names, byte offsets by numeric value, float32-le/C payload bytes, hashes, duplicate normalizers, aggregate hashes, CPU/no-MPS, and structural provenance, but accepts nonexact JSON numeric descriptor types and cannot consume the moving strengthened live header.",
+      "id": 2,
+      "verdict": "HOLD_EXACT_TYPE_AND_LIVE_HEADER_ADAPTER"
+    },
+    {
+      "finding": "Line-by-line comparison to frozen OOF V1 and the independent synthetic replay confirm the J/x36 and pair-on recurrences, layer mapping, 2^-30 floors, float32 entry/state seams, and float32 host-plus-J followed by separate float64 pair add, clamp, and one final C-order float32 cast.",
+      "id": 3,
+      "verdict": "PASS_STATIC_AND_SYNTHETIC__ACTUAL_STATE_PARITY_HOLD"
+    },
+    {
+      "finding": "The shipping-source AST imports only standard modules, FlopScope, whestbench, and typing. It contains no Torch, NumPy, filesystem model load, role-rank/MLP identity route, benchmark target/score, pair-zero arm, fold ensemble, MPS, or fallback estimator law.",
+      "id": 4,
+      "verdict": "PASS_STATIC"
+    },
+    {
+      "finding": "Every future model/package root and authority is null/false. The public skeleton rejects at module import before payload decoding or MLP access; export-live and meter-live discard path arguments and reject before path inspection.",
+      "id": 5,
+      "verdict": "PASS_FAIL_CLOSED"
+    },
+    {
+      "finding": "The isolated suite covers H16/H64/H256, float32/float64 entry, exact/below/above 2^-30 values, zero and adjacent-to-zero final composition, and simultaneous unit permutations. It is synthetic width-9 evidence only and does not replace future width-1024/all-688 actual-state parity.",
+      "id": 6,
+      "verdict": "PASS_SYNTHETIC__EMPIRICAL_PARITY_HOLD"
+    },
+    {
+      "finding": "The builder reproduces identical bytes for fixed inputs and rejects the package's listed member adversaries, but the validator accepts independently constructed noncanonical gzip/tar encodings and malformed UTC timestamps.",
+      "id": 7,
+      "verdict": "HOLD_ARCHIVE_CANONICALITY"
+    },
+    {
+      "finding": "Meter validation recomputes observations and operational admission without score/target fields. An over-limit receipt remains valid observational evidence with package admission false and cannot alter H, retry/refit, or veto accuracy.",
+      "id": 8,
+      "verdict": "PASS_STATIC_AND_SYNTHETIC"
+    },
+    {
+      "finding": "The 18-file one-link regular package has no symlinks; all manifest bindings, the 16-component package digest, static replay, freeze receipt, and freeze replay hashes are self-consistent. Freeze consistency does not cure the two semantic defects.",
+      "id": 9,
+      "verdict": "PASS_HASH_FREEZE__SCIENTIFIC_PROMOTION_HOLD"
+    }
+  ],
+  "review_id": "q24-signed-pair-v4r1-all688-deployment-inference-review-hold-v1-exact-types-archive-canonicality",
+  "review_scope": "read-only static source, OOF-science comparison, hash/freeze replay, and isolated synthetic adversaries; no live bank, staging row, weight, target, score, fitted model, estimator, archive, package, board, network, or submission payload access",
+  "reviewed_frozen_sha256": {
+    "FREEZE_RECEIPT.json": "7c65b919e0988e8fb0299cac828078a0c99910e3dcc9b0cf958af53c2925b075",
+    "FREEZE_VERIFICATION.json": "e17fb9bbbdafdc2bf52cd45559c38fb4de0f26d9983790992135e087a184157d",
+    "PACKAGE_MANIFEST.json": "1293603e9a88cc54601b76dbe34fd3c0836af2bfb8e6fa50e31ff1a045a5dd2c",
+    "STATIC_VERIFICATION.json": "0f0c3c2ef89b87c2c9d34dcbc18114c4fb94dd83348cafcd35d9a2ca99e0cadd",
+    "artifact_package_sha256": "c3dd833b03d27d3491a11a6229fa36b51dcde7d2e9cbffcb7d49aa44e025813d",
+    "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+    "estimator_source_template.py": "dfd1a20c33f9ceebdc3054d4e43b13508ef4db6ccca734b60733c852f3e9c221",
+    "export_archive_builder.py": "14619de8da88ce1da9518788b03282306796c0f80e42c8c1e16f2de53ace2f5c",
+    "synthetic_parity.py": "2b7f53cfa9ac0c4879bfb914fdc63fab9060a6a17a0e87bd35813c0bc2e98011"
+  },
+  "reviewed_upstream_static_sha256": {
+    "action_suffix_sha256_after_mechanical_cut": "e4a677e0b5c957ea824937031a333a5acf49db1f00939fd214aafe57a37898b5",
+    "fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_min_v1/estimator.py": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d",
+    "parent_prefix_sha256_after_mechanical_cut_and_token_import_removal": "d56625985c5fc95ac2de0b29d9927c3e1113cfcb795a3fea52bcc00a087c60db",
+    "public_q24_native_transport_energy_pilot_v1/instrumented_estimator.py": "f539889324fb82cc1ded35a41c8b5a359014d9ddac52eab62949257e8e58a0ef",
+    "public_q24_signed_pair_nested_accuracy_oof_v1/nested_accuracy_runner.py": "fe88fac259998251feb014a2607a1a3978eb230e2369061a69778e03edc1dba0",
+    "public_q24_signed_pair_three_bank_runtime_v5/parent_capture.py": "10ed893bbd50257f21b434fb90e95185026bdf73740b3b6590a001cc1fecc425",
+    "public_q24_signed_pair_three_bank_runtime_v5/signed_pair_literal.py": "20a50cc065c0a9fc3c22fe5b5e178771b2b1fefeacc4a8a68ea48748fb2d2a57"
+  },
+  "reviewer_different_from_package_author": true,
+  "schema": "public-q24-signed-pair-v4r1-all688-deployment-inference-independent-static-review-hold-v1",
+  "status": "HOLD_FROZEN_STATIC_DEPLOYMENT_INFERENCE_V1__NONEXACT_SPREFIT_DESCRIPTORS_AND_ARCHIVE_CANONICALITY"
+}

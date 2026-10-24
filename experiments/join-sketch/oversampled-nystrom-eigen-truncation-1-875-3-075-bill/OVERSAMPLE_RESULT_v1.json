@@ -1,0 +1,29 @@
+{
+  "lane": "opus-oversample",
+  "base": "2b108+R256 (controls opus_gbfix_v1/screen_R256)",
+  "bar": "net <= -0.25%% vs R256",
+  "design": "r+p pivots (R256 recipe at r+p), QR(Y), M = Q[piv]^-1 R^T (=R W^-1 R^T), eigh, top-r eigvecs: Qn = Q V_r, core diag(lambda_r); append-last redefinition of the R256 join (own text + 2 hunks)",
+  "price_7103248": {
+    "p64": {
+      "sha": "8c9171f6",
+      "bill_pct": 1.875,
+      "ops": 360,
+      "mse_plain_pct": -0.091
+    },
+    "p128": {
+      "sha": "e743ec7e",
+      "bill_pct": 3.075,
+      "ops": 470,
+      "mse_plain_pct": -0.081
+    }
+  },
+  "cost_split_p64_G": {
+    "total": 4.522,
+    "eigh": 2.128,
+    "extra_pivot_block_products": 1.5,
+    "solve_rplusp": 0.631,
+    "qr_growth": 0.41,
+    "note": "flopscope bills eigh ~7.9 (r+p)^3"
+  },
+  "verdict": "CLOSED without screen: even with free truncation the extra pivot block + QR cost ~1%% bill, above the ~0.8%% oracle gap left by R256; net <= -0.25%% unreachable"
+}

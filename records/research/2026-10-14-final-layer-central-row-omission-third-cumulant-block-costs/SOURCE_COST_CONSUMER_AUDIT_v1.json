@@ -1,0 +1,106 @@
+{
+  "status": "SOURCE_ONLY_COST_CONSUMER_AUDIT_NO_QUALIFYING_GAIN_CLAIM",
+  "candidate_built": false,
+  "numerical_slot_requested": false,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/s56ubq1tw_x/candidate.py",
+    "sha256": "c149e5800751892eb4d203341154ab2444e824a067ffaf791293a49e035ca0a3",
+    "functions": {
+      "_l15_rowcut_k3": {
+        "lines": [
+          12244,
+          12249
+        ],
+        "ast_sha256": "da055fce1064bb26df6dc681bb963a6ba10f01cfe43a14c3439993683961338a"
+      },
+      "_hcf_rows15": {
+        "lines": [
+          12252,
+          12311
+        ],
+        "ast_sha256": "a40d07d25f9b868ec3bec13a9a1813dbdb70bddf3f3c39924872c3e10497711e"
+      },
+      "_k4l_final": {
+        "lines": [
+          13755,
+          13758
+        ],
+        "ast_sha256": "568d3970070f03c787315752c4570b646da8948372ed08c6da7a8b0d1c6323ef"
+      },
+      "_ott_trace": {
+        "lines": [
+          14880,
+          14887
+        ],
+        "ast_sha256": "1480ed9d4eab293c821f3d52a442965b4f49db4265c0c19fededc6d059f92d0d"
+      },
+      "_astra_bcc_recon_full_impl": {
+        "lines": [
+          16126,
+          16142
+        ],
+        "ast_sha256": "979a665b2461ac80298494705031f7603cdb0146e755946d779ebe4bcae69047"
+      },
+      "_astra_bcc_recon_impl": {
+        "lines": [
+          16145,
+          16184
+        ],
+        "ast_sha256": "437bf5cabb1d40b100ea54f3e0916dd7432b410cb7402f3170793310a9fd2ae8"
+      },
+      "_uvp_recon": {
+        "lines": [
+          8179,
+          8195
+        ],
+        "ast_sha256": "c07daf6c6ba3bec7cc4ebb31d9661043e046e878e407e3d108fc8dcfd79e65f8"
+      }
+    }
+  },
+  "active_final_columns": [
+    "f15_diag"
+  ],
+  "hypothesis": "Skip old-tier reconstruction on a fixed central final-layer alpha band; preserve young cohorts and star/b; replace old k3 by its first-chaos trace.",
+  "positive_math": {
+    "skew_mean_sensitivity": "-alpha*phi(alpha)/(6*v)",
+    "zero_at_alpha_zero": -0.0,
+    "note": "Motivates the central band, but is not an error or score certificate."
+  },
+  "blocking_consumer": {
+    "formula": "diagB_i = sum_r lam_r P_ir (q_r P_ir + xq_r P_i,partner(r))",
+    "path": "_l15_rowcut_k3 -> _k4l_local -> _hcf_rows15 -> f15_diag regression -> terminal head",
+    "effect": "Omitting old columns changes f15_diag on central rows, then its fitted residual changes on outside rows too.",
+    "exact_rescue": "With P=U F, diagB=diag(U [F Dsym F^T] U^T). Build and apply this weighted core, respecting u/v truncation and lazy groups, or retain original reconstruction.",
+    "dense_operation_comparison": "For rank r and R old columns: reconstruct h omitted rows costs about 2 h r R; a symmetric weighted core alone costs about r^2 R, before applying it. It does not beat direct reconstruction when h<=r/2 in this nominal model.",
+    "rank384_crossover_rows": 192,
+    "caution": "Native tree kernels alter the crossover and core construction requires signed pair weights. No exact native tariff or impossibility claim."
+  },
+  "historical_cost_ceiling": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/census_layer_s50tw.json",
+    "sha256": "0ca8b516d1a2430b6904402e2ed07c8ee31a8a5ae476a32a7f948e546254d047",
+    "parent": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/s49/jmS50_v1tw_x/candidate.py",
+    "network_bill": 258782500820,
+    "all_terminal_k3_bill": 9002771821,
+    "all_terminal_k3_bill_pct": 3.4788951310359315,
+    "caveat": "This 3.48% includes young push, old reconstruction, K4L, HCF, star and reductions. It is not old-only savings and is not a current-c149 price."
+  },
+  "tiny_checks": {
+    "cases": 24,
+    "max_core_relative_error": 4.0309424111294645e-16,
+    "outside_residual_changes_detected": 24,
+    "largest_shape": [
+      31,
+      28
+    ],
+    "no_models": true
+  },
+  "disposition": "Do not grant an ARC screen based on the central analytic zero alone. A distinct cheap exact HCF path or a separately justified approximation is required before this is a credible >=0.5% net candidate.",
+  "unlaunched_science_rule": {
+    "fresh": 16,
+    "independent_oos": 16,
+    "fresh_and_oos_and_all32_strict_negative_logMSE_plus_logbill": true,
+    "no_selection_on_7100584_to_7100591": true,
+    "actual_whole_native_bill_required": true,
+    "root_allocation_and_separate_grant_required": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "CLOSED_TERMINAL_FIXED_JENSEN",
+  "result_sha256": "186c22573bf5e395ae79cf7b2a44fdfb4dba02db08ef738c40c55eda14b533b7",
+  "summary": {
+    "status": "CLOSED",
+    "n": 32,
+    "geometric_MSE_pct": 0.01808624377564947,
+    "log_SE_pct": 0.04382773062662257,
+    "wins": 17,
+    "violations": 6099,
+    "positive_mu_violations": 2887,
+    "no_fit": true,
+    "no_native": true,
+    "scope": "Historical QR TRAIN32; estimated mu is transported actual saved previous postmean, not true mean. Jensen is rigorous only for true mu.",
+    "seconds": 0.23124895803630352,
+    "max_RSS_bytes": 63897600,
+    "script_sha256": "620f10b1b04babb54cda723582f6e7d230763931d9d0dda83377423a895319b0"
+  },
+  "reason": "Jensen lower bound requires true premean. Estimated premean includes inherited error, so negative learned corrections abovezero may be valid. Fixedprojection gives no gain."
+}

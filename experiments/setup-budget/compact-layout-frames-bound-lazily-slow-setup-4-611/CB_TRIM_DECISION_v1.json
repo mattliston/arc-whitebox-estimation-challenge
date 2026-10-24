@@ -1,0 +1,80 @@
+{
+  "status": "EXACT_PREDICTIONS_SETUP_TRIM_READY",
+  "utc": "2026-10-16T01:47:43Z",
+  "fragment": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_release_v1/cbtrim/fragment_cb_lazy_v2.py.txt",
+  "fragment_sha256": "6c3739ae0e98adbae0488e7480edb2e8896603cf962baceaae5910d552e0e00d",
+  "apply": "append LAST after compactB (and after Full384/GK4/table167/R7/request patches)",
+  "test_candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_release_v1/cbtrim/candidate_S1_cblazy_v2.py",
+  "test_candidate_sha256": "9f9e2eeed1c46e2da8e7d49bb3df9c2aded387a4b74cd3910a9484b0873a2dfb",
+  "base": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_f384_v1/stack/candidate_f384_compactB_S1_v1.py",
+  "base_sha256": "ca337b186b2be6fd4a22ec7d68a8e469d7f98b87ca6b1d3d09a34563ed9c54eb",
+  "comparison_vs_S1_boundary": [
+    {
+      "mode": "normal",
+      "rank": 35,
+      "pred_bytes_equal": true,
+      "dflops": 809972800,
+      "drequests": 95
+    },
+    {
+      "mode": "normal",
+      "rank": 100,
+      "pred_bytes_equal": true,
+      "dflops": 0,
+      "drequests": 0
+    },
+    {
+      "mode": "normal",
+      "setup_drequests": -95,
+      "keys_bound": [
+        588,
+        588
+      ]
+    },
+    {
+      "mode": "slow",
+      "rank": 35,
+      "pred_bytes_equal": true,
+      "dflops": 809972800,
+      "drequests": 95
+    },
+    {
+      "mode": "slow",
+      "rank": 100,
+      "pred_bytes_equal": true,
+      "dflops": 0,
+      "drequests": 0
+    },
+    {
+      "mode": "slow",
+      "setup_drequests": -95,
+      "keys_bound": [
+        411,
+        411
+      ]
+    }
+  ],
+  "official120_S1": {
+    "p_loss": 22.44,
+    "setup": 4.461,
+    "worst": 106.2,
+    "slow_setup": 4.611,
+    "slow_setup_pass": false
+  },
+  "official120_S1_cblazy_v2": {
+    "p_loss": 22.88,
+    "setup": 4.441,
+    "worst": 106.8,
+    "slow_setup": 4.585,
+    "slow_setup_pass": true,
+    "binding": "17670 req, 588/649"
+  },
+  "cost": "first network per worker process: +95 requests, +809,972,800 FLOPs (view FLOPs formerly off-budget at setup); warm networks identical; ~+0.017% mean bill at ~20 networks/worker; P(loss) +0.44 pp",
+  "b709_compatibility": "b709 _ASTRA_SM40_PREBIND: 9 entries, 4 kind-1, none at a compact width -> lazy bind never fires during setup",
+  "rejected": [
+    "lower _PB_WALL_S: 588/649 keys has only 3 keys of margin to the 90% bound",
+    "drop/merge frame views: all of T/levels/G/basis are read by the kind-1 consumer; restructuring saves no requests",
+    "per-frame lazy (v1): spreads cost into the judged warm network (+34 requests)"
+  ],
+  "all_owned_processes_retired": true
+}

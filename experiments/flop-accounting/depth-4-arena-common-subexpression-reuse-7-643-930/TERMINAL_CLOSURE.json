@@ -1,0 +1,27 @@
+{
+  "board_baseline": {
+    "adjusted_score": 1.783621478716186e-08,
+    "raw_mse": 2.9409071835573285e-08,
+    "submission_id": 328622
+  },
+  "bindings": {
+    "candidate_result_sha256": "295ef7bf06debeed15b5a6b52aee9f183db10e00f2b6eb8c40bd8972129e742d",
+    "candidate_runner_sha256": "a73f3c71b15c137dbb6c15e229049ef52cb8f7fb2bc566a256506cc0b1b3305b",
+    "candidate_source_sha256": "d8e2c1261bd8b77ce9b54b434aaa41f21704146d48e215ccb690dd38224398bb",
+    "d4_parent_result_sha256": "6d8e7cf98d45b1c667d7d16c373cf9935f96d1f07e44674ca8f9584d51c111d1",
+    "d4_parent_source_sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+    "static_receipt_sha256": "5fa58910132d4bca1c02a845b053a7de4bd673efe52afdb03f2c4513a76ea188"
+  },
+  "decision": "NO_RETRY",
+  "failed_gate": {
+    "candidate_flops": 1312220178807,
+    "expected_flops": 1312212577143,
+    "flop_prediction_delta": 7601664,
+    "maximum_absolute_delta_vs_d4": 2.384185791015625e-07,
+    "output_byte_identical_to_d4": false,
+    "rms_delta_vs_d4": 2.33258231135355e-08
+  },
+  "reason": "The M11/M22 transpose reconstruction changes floating-point evaluation and therefore is not a byte-exact descendant of the graded D4 baseline. The one-shot gate stopped after call 0. No scientific or runtime retry is authorized.",
+  "schema": "p2r0c1-d4-nongemm-cse-terminal-closure-v1",
+  "status": "FAIL_TERMINAL"
+}

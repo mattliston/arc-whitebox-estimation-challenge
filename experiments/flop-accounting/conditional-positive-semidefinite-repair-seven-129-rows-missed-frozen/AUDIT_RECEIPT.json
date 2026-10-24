@@ -1,0 +1,66 @@
+{
+  "schema": "public-condrepair-deployment-card-audit-v1",
+  "node": "P2R0F2W",
+  "status": "PASS_INDEPENDENT_PRELAUNCH_AUDIT",
+  "auditor": "independent-subagent-no-design-stake",
+  "audit_date": "2026-08-25",
+  "audited_file_sha256": {
+    "preregistration": "5c787495b0b8e538c6f785b9266b216270d66d0627dd83b37c96158762da4ee9",
+    "estimator": "24ed2325e4db0c0287a222189a986c2d6462f80832c717827c27b783a6655ee2",
+    "census_runner": "a599219065c8985de5baab18740a7557d60e20d6754d05aeff9c36639ee5f894"
+  },
+  "checks": [
+    {
+      "name": "source_delta_minimality",
+      "result": "PASS",
+      "evidence": "diff against banked parent (sha 2fd2d40d verified on disk) is exactly one 16-line insertion at parent line 756 (17 diff lines total); insertion matches the prereg source_delta text: subtract _PSD_EIGEN_FLOOR*eye into temporary, one fnp.linalg.cholesky attempt, success branch = two rescale multiplies of the symmetrized correlation by diagonal_scale into repaired + return, except branch = pass (falls through to the byte-identical eigh path); near-floor arm (min variance <= 2e-30, lines 724-749) precedes the insertion and is byte-identical; W estimator sha matches the prereg pin 24ed2325."
+    },
+    {
+      "name": "skip_vs_eigh_numerical_identity_including_diagonal",
+      "result": "PASS",
+      "evidence": "synthetic n=64 certified-PSD test with the module's own functions under BudgetContext: skip-path vs parent eigh-path max abs diff 1.38e-14, max diff relative to sqrt(v_i v_j) scale 9.65e-16 (~4 f64 ulps); diagonal vs variance max relative error 4.44e-16 on BOTH paths; signed mean relative diagonal difference (skip minus parent) -6.7e-17, max 5.8e-16 -> no systematic diagonal discrepancy. Confirmed the original gauge arm does NOT copyto variance onto the diagonal (unlike the floor arm); it restores the diagonal multiplicatively via the renormalizer, and the skip path's multiplicative restoration matches that semantics exactly. Skip output not bit-symmetric (+-1 ulp from row-then-column rescale order) but the parent eigh path is also not bit-symmetric (measured 3.9e-17 relative asymmetry), so no new property is introduced."
+    },
+    {
+      "name": "arena_safety",
+      "result": "PASS",
+      "evidence": "arena = fusion_context[17] = one fnp.empty((14,width,width)) array; slots 5 (repaired), 6 (correlation), 7 (temporary) are distinct non-overlapping slices; grep proves arena[5]/arena[6]/arena[7] are referenced nowhere in the file outside _repair_covariance; patch subtract reads arena[6] and writes arena[7] (no alias), cholesky reads arena[7] and returns a discarded new array, success branch reads arena[6] and writes arena[5] (no alias) then rescales arena[5] elementwise in place (safe); fallback finds correlation (arena[6]) unmodified and its only temporary uses are write-before-read (matmul out=temporary at the first use); across layers the next repair call writes both scratch slots before any read on every arm. Runtime proof: W with cholesky forced to raise returns bit-identical output to the parent; natural non-PSD fallback also bit-identical to parent; floor-arm input makes 0 cholesky attempts and is bit-identical to parent."
+    },
+    {
+      "name": "consistency_with_probed_variant",
+      "result": "PASS",
+      "evidence": "_repair_covariance in estimator.py is byte-identical (string compare) to public_host_compute_value_attribution_v1/estimator_condrepair.py's, including arena slot bindings and surrounding lines; probe file sha db529072 matches AB_CONDREPAIR_PROBE.json t30_sha256 and V_ATTRIBUTION_RECEIPT bindings; probe measured min savings 274890526728 flops/row (row classes 274.89e9/297.80e9/320.71e9), max delta_final_rms 8.73e-9, median effect-to-error 1.86e-5, all 8 rows finite; probe base flops 2122.7-2131.3e9 brackets the banked mean 2129.5e9, so the probe ran the same patch in the same function context at deployment shapes and the evidence transfers."
+    },
+    {
+      "name": "census_runner",
+      "result": "PASS",
+      "evidence": "roster = sorted union of 11 tails, 4 hard, range(0,688,6): exactly 129 rows (540 is the only tail/sixth duplicate), deterministic; shard split by sorted-index mod shards (65/64 at 2 shards), deterministic; resumable jsonl append with done-set keyed on rank; both source shas asserted before load; identical BudgetContext(flop_budget=2**41, wall_time_limit_s=300, quiet) for base and W via one shared closure, threadpool_limits(2); delta computed as full [16,1024] f64 difference with final-layer RMS and global max-abs recorded, plus base/W flops_used and flops_saved; cholesky counting wrapper installed on the shared flopscope.numpy module after both loads with call-time attribute lookup, so it intercepts W's calls; the parent contains zero cholesky call sites (grep) and made zero attempts at runtime, so the counter counts exactly the W gauge-arm attempts; the wrapper delegates to the original metered function (billing unchanged) and exists only in the census runner, not in the deployed source; target-free: reads only the sealed target-blind feature store (manifest.json, row_manifest.json, weights.npy with mmap_mode=r), zero parquet reads, MLP/seed construction byte-matches the banked probe runner pattern."
+    },
+    {
+      "name": "gates_match_prereg",
+      "result": "PASS",
+      "evidence": "ab_gates in PREREGISTRATION.json: mode all; all_finite true; flops_saved_per_row_at_least 260000000000; max_output_delta_final_rms_at_most 1e-7; w_flops_below_2pow41_every_row true; floor_arm_rows_take_floor_arm_unchanged true - exactly the checklist set; every gate input is recorded per census row (finite, flops_saved, delta_final_rms, w_flops; floor-arm attempts derivable from cumulative skip/fallback counters, and the floor arm is proven byte-identical and cholesky-free)."
+    },
+    {
+      "name": "dq_policy_statement",
+      "result": "PASS",
+      "evidence": "present in PREREGISTRATION.json and accurate: certified-identity redundancy elimination inside our own estimator with the exact path retained as fallback; no custom kernels, no op-pricing arbitrage, no cheaper-forward billing structure; consistent with V_ATTRIBUTION_RECEIPT dq_policy_note and the recorded organizer DQ policy; disclosed in the card."
+    },
+    {
+      "name": "no_submission_no_external_state",
+      "result": "PASS",
+      "evidence": "package contains only PREREGISTRATION.json, estimator.py, run_ab_census.py (plus this receipt); the runner's only write is census_shard_{shard}.jsonl inside the package; the sealed store is mode 400/500 read-only on disk and opened read-only; estimator.py imports only flopscope, flopscope.numpy, whestbench BaseEstimator, whestbench.domain MLP - no open/os/subprocess/socket/urllib/network, no submission pathway; prereg submission_firewall states the node ends at BANK_READY with no submission authority created."
+    }
+  ],
+  "material_defects_found": 0,
+  "minor_notes": [
+    "Prereg roster text says 'about 128 rows'; the constructive definition yields exactly 129 (115 sixths + 10 non-duplicate tails + 4 hard; 540 is both a tail and a sixth).",
+    "Prereg measurement text names 'the per-layer output delta RMS'; the runner stores final-layer delta RMS plus global delta_max_abs rather than all 16 per-layer values. All gate inputs are present; full per-layer profiles are already banked in AB_CONDREPAIR_PROBE.json.",
+    "skips_cum/fallbacks_cum are process-cumulative and restart at 0 on resume; per-row attempt counts are recoverable as within-segment differences (rows processed in roster order), which is adequate but indirect for the floor-arm gate.",
+    "Row 'finite' checks the W output only; the base is the banked board-graded artifact.",
+    "Census BudgetContext wall limit is 300 s (cold two-run processes); the 120 s wall gate belongs to the separately pinned three-call persistent-worker meter law, so there is no conflict.",
+    "Certificate edge: a matrix with lambda_min within ~1 ulp of the floor could pass Cholesky while eigh would have clipped; the induced perturbation is at the 9.09e-13 floor scale and is exactly what the per-row 1e-7 delta gate bounds end to end."
+  ],
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0
+}

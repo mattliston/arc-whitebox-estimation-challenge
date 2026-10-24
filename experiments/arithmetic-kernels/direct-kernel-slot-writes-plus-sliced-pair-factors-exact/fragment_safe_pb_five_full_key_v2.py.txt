@@ -1,0 +1,10 @@
+
+
+# BEGIN [opus-secondary] SAFE PREBIND PATCH v2 (between the two-strip and the five-full SAFE fragments): the five-full fragment needs
+# every key it binds in _PB_SINGLE; S2tr's census-refit list dropped (0, 6, 1024, 896) (position 473 of S2t's list). v2 puts it back at
+# the same position and drops the list's LAST (least frequent) key, so the list keeps the S2t SAFE's 652 keys and the >= 90% bound rule
+# holds at the platform pace (v1 inserted without a drop: 587 of 653 bound = 89.9%, C-boundary binding FAIL). Setup-only.
+assert (0, 6, 1024, 896) not in _PB_SINGLE and len(_PB_SINGLE) == 652
+_PB_SINGLE = tuple(_PB_SINGLE[:476]) + ((0, 6, 1024, 896),) + tuple(_PB_SINGLE[476:-1])
+assert len(_PB_SINGLE) == 652
+# END [opus-secondary] SAFE PREBIND PATCH v2

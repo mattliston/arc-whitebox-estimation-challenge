@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-11T00:32:31Z",
+  "status": "LOCAL_REPAIR_VJP_SUPPORTED_SCOPED_NOT_WHOLE_CARD_CERTIFICATION",
+  "runner": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t86_local_cut_vjp_v5.py",
+  "runner_sha256": "f4cfe5f313e444be708065ec69c5fecad2dfab5548b8d664883a3185e44b1b85",
+  "layers": [
+    {
+      "layer": 7,
+      "report": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t86_report_l07_v5.json",
+      "sha256": "0ed88dc3d5d734373f43e88a27c03b5956b6a51da3f467cf621a04a133285c8d",
+      "endpoint_checks": {
+        "repair": {
+          "exact": true,
+          "maxabs": 0.0
+        },
+        "pp": {
+          "exact": true,
+          "maxabs": 0.0
+        },
+        "energy": {
+          "exact": true,
+          "maxabs": 0.0
+        },
+        "column": {
+          "exact": true,
+          "maxabs": 0.0
+        },
+        "diagonal": {
+          "exact": true,
+          "maxabs": 0.0
+        }
+      },
+      "local_paths": 13,
+      "float64_max_relative_at_1e_4": 9.961802247306451e-09,
+      "production_max_relative_at_1e_2": 0.0014718615363139922,
+      "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t86_guard_l07_v5.json",
+      "max_rss": 3473211392,
+      "max_footprint": 1050348760,
+      "swap_growth": 0,
+      "retired": true,
+      "seconds": 7.514740792103112
+    },
+    {
+      "layer": 13,
+      "report": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t86_report_l13_v5.json",
+      "sha256": "1f6a5d986362aadb7cf2a732675d4e5c28015203dd1e5ae95c8203ca9805a5a5",
+      "endpoint_checks": {
+        "repair": {
+          "exact": true,
+          "maxabs": 0.0
+        },
+        "pp": {
+          "exact": true,
+          "maxabs": 0.0
+        },
+        "energy": {
+          "exact": true,
+          "maxabs": 0.0
+        },
+        "column": {
+          "exact": true,
+          "maxabs": 0.0
+        },
+        "diagonal": {
+          "exact": true,
+          "maxabs": 0.0
+        }
+      },
+      "local_paths": 19,
+      "float64_max_relative_at_1e_4": 4.828185649500656e-08,
+      "production_max_relative_at_1e_2": 0.002536968175673475,
+      "guard": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/physicist/t86_guard_l13_v5.json",
+      "max_rss": 5898518528,
+      "max_footprint": 1645367976,
+      "swap_growth": 0,
+      "retired": true,
+      "seconds": 14.24540216755122
+    }
+  ],
+  "findings": [
+    "Observed used651 fixture capture is all16 exactly equal to pinned v11 request13. Original pinned row15 AST local functions reproduce pp, repair, diagonal, radial energy and radial column endpoints bit exactly at L7 and L13.",
+    "32 local input/endpoint paths span each old-block U/F, young p, lam, aa, beta and additive diagonal/energy/column inputs. All gradients finite; float64 cubic repair errors converge quadratically and reach maxrelative4.83e-8 at eps1e-4.",
+    "Actual mixed arithmetic at relative inputstep .01 has worstrelative mismatch .002537; smallersteps display rounding/cancellation plateaus up to .0678. This is consistent with float32 matvec/reduction quantization, while float64 algebra controls converge.",
+    "Observed top ordering/count and keep/mask validated on every evaluation. Saved alpha is held fixed; all perturbed independent inputs leave alpha and therefore young-tail selection unchanged.",
+    "No new defect found in repair/radial derivatives. Coupled with full forward parity, exact checkpoint replay rosters, finite all-parameter gradients and used104 bridge, supports bounded independently accepted cut-aware refit."
+  ],
+  "limits": [
+    "Parent push/QR/join derivative is outside local AST scope; parent push result is a captured constant.",
+    "Whole-card finite differences recompute frozen smooth carriers/features and sometimes change selectors. They remain diagnostic, not a strict whole-path PASS. Bias ON eps.003 rosters stable; eps.001 has two changes each sign.",
+    "No candidate accuracy gain inferred from simulator fidelity; fresh candidate must be fixed and judged against same v11 baseline. No new seed/truth opened."
+  ]
+}

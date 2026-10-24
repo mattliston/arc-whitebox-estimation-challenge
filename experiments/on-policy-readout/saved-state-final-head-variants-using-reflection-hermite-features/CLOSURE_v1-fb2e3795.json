@@ -1,0 +1,36 @@
+{
+  "status": "CLOSED_NO_SUPPORTED_SHARED_BIAS_GAIN",
+  "result_sha256": "fee2111c2b9866776d81e48cb0e61705a9d5ea64b9578086c0d9ee3368fba2f3",
+  "CV": {
+    "n": 97,
+    "geometric_AB_U_pct": -0.01297616946817071,
+    "log_SE_pct": 0.13740289321198987,
+    "wins": 51,
+    "pooled_AB_U_pct": -0.04517872324512062
+  },
+  "folds_geometric_AB_U_pct": [
+    -0.2565613975845512,
+    0.2685518499324326,
+    -0.24162013194813955,
+    0.44315125769582775,
+    -0.27801918970746986
+  ],
+  "coherent_oracle": {
+    "mean_fraction_pct": -0.5082036057827386,
+    "SE_pct": 0.5194240963253519,
+    "positive_cross_halves": 50,
+    "note": "Unlearnable per-network sigma-shaped amplitude projection; independent A/B noise cross-term expected zero."
+  },
+  "held49_truth_opened": false,
+  "no_native": true,
+  "no_GPU": true,
+  "no_new_truth": true,
+  "distinctness": "Prior full-head and feature fits used pointwise inputs. This tests a network-shared coefficient from neuron-pooledstate64 (fixed4 unlabeled PCA components plus intercept), multiplying each neuron sigma.",
+  "limitation": "This closes only the fixed pooled4 normalized-bias hypothesis on existing S2tr TRAIN97, not arbitrary global-context models or currentv17 distributions. No PCA rank/ridge/response-shape sweep justified by this result.",
+  "estimated_forward": {
+    "fold_PCA_into_single64_vector": true,
+    "extra_reduction_flops": 65536,
+    "extra_public_requests_lower_estimate": 4,
+    "constant_storage_floats": 65
+  }
+}

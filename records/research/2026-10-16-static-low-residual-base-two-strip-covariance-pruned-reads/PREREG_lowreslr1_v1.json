@@ -1,0 +1,59 @@
+{
+ "tag": "lowreslr1_20261016_opus_v1",
+ "source": "lead/runs/opus_lowres_v1/cand_lowres_LR1_v3.py",
+ "source_sha8": "ebeca524",
+ "archive_sha8": "d7d5f189",
+ "release_confirmed_utc": "2026-10-16T15:01:46Z",
+ "utc": "2026-10-16T15:02:29Z",
+ "what": "S2tr -> dm2 -> lazybind v2 -> two-strip -> SAFE prebind v2 -> five-full -> prune r002 -> DC35 -> QL/compute/ubown/cluster off -> static cold-first rule (first predict after setup: D7/D7SQ off); no governor/pushSM/read grid",
+ "base": "336412 (S2tr) 1.475902e-9",
+ "count_gates_v3": {
+  "passed": true,
+  "normal": [
+   41173,
+   40862
+  ],
+  "slow": [
+   41583,
+   41063
+  ],
+  "worst_wall_s": 96.4,
+  "mean_wall_s": 89.4,
+  "setup_s": 4.442,
+  "slow_setup_s": 4.585,
+  "p_fail_pct": {
+   "family": {
+    "any": 0.4,
+    "public": 0.4
+   },
+   "post": {
+    "any": 17.7,
+    "public": 11.3
+   },
+   "pre": {
+    "any": 0.4,
+    "public": 0.4
+   }
+  }
+ },
+ "bill_vs_s2tr_pct": {
+  "boundary_first": 2.314,
+  "boundary_warm": 1.501,
+  "boundary_public_mix": 1.582,
+  "warm_judge_public_mix": 1.42,
+  "note": "boundary rank 100 is the worker's SECOND net (carries the cold rule's lazy D7 binds); 8-net worker-like comparison LR1 vs LR2 running (lr12_multinet_v1)"
+ },
+ "mse_vs_s2tr_pct": {
+  "expected": -0.222,
+  "source": "DC35 -0.234% (24 seeds); cold rule D7 off on first nets ~+0.12% on 10% of public nets -> +0.012%; prunes/strips rounding-level"
+ },
+ "projection_vs_336412_pct": {
+  "boundary_bill": 1.356,
+  "warm_judge_bill": 1.195
+ },
+ "projected_public": {
+  "boundary_bill": 1.4959224329313993e-09,
+  "warm_judge_bill": 1.493536779625352e-09
+ },
+ "note": "clean-base candidate (safe designation); not a board gain; lead fires on user approval"
+}

@@ -1,0 +1,37 @@
+{
+  "census_gates": {
+    "all_finite": true,
+    "census_mean_flops_saved_at_least": 260000000000,
+    "every_row_flops_saved_at_least": -10000000000,
+    "max_output_delta_final_rms_at_most": 1e-07,
+    "mode": "all",
+    "w_flops_below_2pow41_every_row": true
+  },
+  "dq_policy_statement": "Algorithmic redundancy elimination inside our own estimator; certified-identity computation skipped with the exact path as fallback; disclosed as method.",
+  "firewalls": {
+    "observer_selection_targets_allowed": false,
+    "public_name_join_allowed": false,
+    "targets_read": 0
+  },
+  "inherited_artifacts": {
+    "census_result_sha256": "3445f224d34c873934cd134ed612885705cea3e93c6264cd28cf47afec02b633",
+    "census_shard0_sha256": "4bf3467e094b40f09a172cc5b1aef027e7be30dba0cab80f159e1da0fb6322ee",
+    "census_shard1_sha256": "031c3fac32c001f1e9778108f858dd0adb174d106a2a14c1e5b4cd42ea551c04",
+    "estimator_path": "../public_condrepair_deployment_card_v1/estimator.py",
+    "estimator_sha256": "24ed2325e4db0c0287a222189a986c2d6462f80832c717827c27b783a6655ee2",
+    "inheritance_law": "The estimator source and the target-free census are inherited BY HASH, unchanged; only the gate thresholds differ, corrected to the measured savings mechanism (275.6e9 minus 23.6e9 per Cholesky fallback).",
+    "w_audit_sha256": "974e36eaa3f831ea8ecdcaad0f5a2f386fb83cd7eef3909f33a0f7bde8e3764c",
+    "w_closure_sha256": "7e667300afcc5e056b0cf414686ca695b07d0c44fbfe4aa10a64f32fd45afe98"
+  },
+  "meter_law": "The exact H7B three-call persistent-worker literal meter protocol (call order 35, 279, 35): every call finite float32[16,1024], flops below 2^41, wall below 120 s, residual wall below 0.4 s, RSS below 8 GiB, byte-exact repeat of call 1 by call 3; output hashes pinned at the first sealed run.",
+  "node": "P2R0F2W2",
+  "one_arm_law": {
+    "arms": 1,
+    "close_on_any_failed_conjunct": true
+  },
+  "package_law": "Exactly the banked H7B package construction: archive with estimator.py and manifest.json only, recorded hashes, package validation, BANK_READY receipt.",
+  "question": "Complete the conditional-repair deployment card with mechanism-correct gates: re-gate the frozen W census, pass the exact H7B literal meter protocol, and construct the package to BANK_READY.",
+  "schema": "public-condrepair-deployment-card-v2-preregistration-v1",
+  "status": "frozen-before-any-w2-metrics",
+  "submission_firewall": "This node ends at BANK_READY; submission requires fresh recorded user authority."
+}

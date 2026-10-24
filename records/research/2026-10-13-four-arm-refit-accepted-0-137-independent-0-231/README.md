@@ -1,0 +1,358 @@
+# Four-arm refit accepted: -0.137% independent and -0.231% sealed MSE change
+
+2026-10-13T11:58Z · decision · adopted · measured
+
+The first round with the new families: four lean arms sized on 64 networks froze at leave-one-out (LOO) -0.090% and passed its fresh check; the sealed stage 2 judged against the last submitted point under the round's config read -0.231%.
+
+Recorded measurement:
+
+    LOO -0.090% (noise-corrected -0.155%); check A55 7101480-511 -0.137% (se 0.059, 18/32); sealed 7101512-543 -0.231% (se 0.073, 24/32); weights arrp 11.21, dx2a1_7_7 4.97, dpe4_12_14 11.56
+
+## Programs
+
+- [candidate.py](candidate.py)
+- [candidate-850e5687.py](candidate-850e5687.py)
+- [../../../experiments/third-order-planes/aligning-pair-precision-covariance-arithmetic-still-fails-fidelity-maximum/code/astra_phase2_reexamination_v1/current_shared384_causal_p_v1/shared_operator.py](../../../experiments/third-order-planes/aligning-pair-precision-covariance-arithmetic-still-fails-fidelity-maximum/code/astra_phase2_reexamination_v1/current_shared384_causal_p_v1/shared_operator.py)
+- [../../../experiments/learned-correction/covariance-edge-refit-passes-native40-but-fails-independent-public8/code/codex_resume_20260919_v1/current_full_lower_p_allocator_v1/allocator.py](../../../experiments/learned-correction/covariance-edge-refit-passes-native40-but-fails-independent-public8/code/codex_resume_20260919_v1/current_full_lower_p_allocator_v1/allocator.py)
+- [../../../submissions/331824/estimator.py](../../../submissions/331824/estimator.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/common.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/common.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/guard.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/guard.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/native.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/native.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/qualify.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/qualify.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/records.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/records.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/retirement.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/retirement.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/run.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/run.py)
+
+<details>
+<summary>Additional programs and dependencies (42)</summary>
+
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_implementation_v1/zero.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/codex_resume_20260919_v1/learnable_joint_basis_implementation_v1/zero.py)
+- [../../../experiments/moment-propagation/consumer-constrained-rank-32-star-basis-increases-adjusted-error/code/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py](../../../experiments/moment-propagation/consumer-constrained-rank-32-star-basis-increases-adjusted-error/code/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py)
+- [../../../instruments/composite-estimator-builder-verifies-gain-correction-plane-scale-join/code/fable_analyst_v1/s2card.py](../../../instruments/composite-estimator-builder-verifies-gain-correction-plane-scale-join/code/fable_analyst_v1/s2card.py)
+- [../2026-09-23-training-normalization-constants-caused-70-loss-spike-network-weight/s6bcard.py](../2026-09-23-training-normalization-constants-caused-70-loss-spike-network-weight/s6bcard.py)
+- [../2026-09-23-partial-truth-plane-correction-outperforms-full-replacement-kink-row/covstep.py](../2026-09-23-partial-truth-plane-correction-outperforms-full-replacement-kink-row/covstep.py)
+- [../../../experiments/dials/extra-kink-row-carrier-scales-add-no-useful-gain/code/fable_covhunter_v1/covstep_s2.py](../../../experiments/dials/extra-kink-row-carrier-scales-add-no-useful-gain/code/fable_covhunter_v1/covstep_s2.py)
+- [../../../experiments/late-layer-exactness/local-final-layer-error-prediction-null-held-out-r/code/fable_covhunter_v1/gn3_knobs.py](../../../experiments/late-layer-exactness/local-final-layer-error-prediction-null-held-out-r/code/fable_covhunter_v1/gn3_knobs.py)
+- [../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_covhunter_v1/s6bcard_joint2.py](../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_covhunter_v1/s6bcard_joint2.py)
+- [../../../experiments/dials/third-dial-fit-round-nystrom-structure-null-sixteen-network/code/fable_covhunter_v1/s6bcard_joint2t.py](../../../experiments/dials/third-dial-fit-round-nystrom-structure-null-sixteen-network/code/fable_covhunter_v1/s6bcard_joint2t.py)
+- [../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_engineer_v1/gn_linear_hook.py](../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_engineer_v1/gn_linear_hook.py)
+- [../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_engineer_v1/join_nystrom_torch.py](../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_engineer_v1/join_nystrom_torch.py)
+- [../../../instruments/termwise-hermite-pair-series-implementation-reduces-training-intermediates-small/code/pair_series_torch.py](../../../instruments/termwise-hermite-pair-series-implementation-reduces-training-intermediates-small/code/pair_series_torch.py)
+- [../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_physicist_v1/refit6b/lrstar_s1zero_hook.py](../../../experiments/dials/consistent-semantics-physics-refit-improves-raw-error-1-98/code/fable_physicist_v1/refit6b/lrstar_s1zero_hook.py)
+- [../../../experiments/learned-correction/training-reduced-join-rank-fails-show-specific-co-adaptation/code/fable_physicist_v1/refit6b/s6bcard_loop5js.py](../../../experiments/learned-correction/training-reduced-join-rank-fails-show-specific-co-adaptation/code/fable_physicist_v1/refit6b/s6bcard_loop5js.py)
+- [../../../experiments/third-order-planes/nystrom-residual-plane-range-finder-needs-power-iteration-without/code/fable_porter_v1/star_nys_test.py](../../../experiments/third-order-planes/nystrom-residual-plane-range-finder-needs-power-iteration-without/code/fable_porter_v1/star_nys_test.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/fable_refit_v1/common.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/fable_refit_v1/common.py)
+- [../2026-09-23-rank-one-covariancemean-gain-mixture-explains-6368-2-1/model_bank_bfix.py](../2026-09-23-rank-one-covariancemean-gain-mixture-explains-6368-2-1/model_bank_bfix.py)
+- [../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/fable_refit_v1/model_bank_research.py](../../../instruments/differentiable-estimator-reproduces-native-layer-15-output-4-2e/code/fable_refit_v1/model_bank_research.py)
+- [../../../instruments/fresh-network-truth-generator-matches-organizer-results-after-masking/code/loader.py](../../../instruments/fresh-network-truth-generator-matches-organizer-results-after-masking/code/loader.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/n6y_cutsim_v2.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/n6y_cutsim_v2.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/pbase_cutsim_v1.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/pbase_cutsim_v1.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_cutsim_s46_v11.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_cutsim_s46_v11.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_push_native_v2.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_push_native_v2.py)
+- [../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_rowcuts_v15.py](../../../instruments/cut-simulated-research-estimator-removes-95-native-prediction-discrepancy/code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_rowcuts_v15.py)
+- [../../../experiments/learned-correction/least-squares-correction-refits-improve-unseen-error-0-170/code/opus_reexam_20261001_v1/engineer/a33_starsum/star_ss_torch.py](../../../experiments/learned-correction/least-squares-correction-refits-improve-unseen-error-0-170/code/opus_reexam_20261001_v1/engineer/a33_starsum/star_ss_torch.py)
+- [../2026-10-11-one-direction-covariance-star-adopted-0-26-mse-0/star_ss_torch_v2.py](../2026-10-11-one-direction-covariance-star-adopted-0-26-mse-0/star_ss_torch_v2.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/b6cols.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/b6cols.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/b7cols.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/b7cols.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/f4b.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/f4b.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/ncar_bank_frozen_s2s.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/physicist/ncar_bank_frozen_s2s.py)
+- [../../../experiments/learned-correction/continued-training-lowers-held-out-error-only-0-240/code/otr_common.py](../../../experiments/learned-correction/continued-training-lowers-held-out-error-only-0-240/code/otr_common.py)
+- [../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_cut_runtime_v2.py](../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_cut_runtime_v2.py)
+- [../../../experiments/learned-correction/least-squares-correction-refits-improve-unseen-error-0-170/code/opus_reexam_20261001_v1/trainer/otr_engine.py](../../../experiments/learned-correction/least-squares-correction-refits-improve-unseen-error-0-170/code/opus_reexam_20261001_v1/trainer/otr_engine.py)
+- [../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_generated_manifest_v1.py](../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_generated_manifest_v1.py)
+- [../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_generated_v1.py](../../../instruments/variable-sample-truth-consumer-validates-sample-counts-sealed-network/code/opus_reexam_20261001_v1/trainer/otr_generated_v1.py)
+- [../2026-10-11-research-native-parity-column-cut-covariance-star-strength-literals/otr_generated_v2.py](../2026-10-11-research-native-parity-column-cut-covariance-star-strength-literals/otr_generated_v2.py)
+- [../2026-10-12-weight-cache-growth-stops-regenerated-seed-weights-byte-identical/otr_generated_v3.py](../2026-10-12-weight-cache-growth-stops-regenerated-seed-weights-byte-identical/otr_generated_v3.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/trainer/otr_m.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/trainer/otr_m.py)
+- [../../../instruments/native-routes-add-pair-map-skew-kurtosis-kink-plane/code/opus_reexam_20261001_v1/trainer/otr_m_v6.py](../../../instruments/native-routes-add-pair-map-skew-kurtosis-kink-plane/code/opus_reexam_20261001_v1/trainer/otr_m_v6.py)
+- [../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/trainer/otr_pl.py](../../../instruments/estimator-builder-composes-implementation-fragments-checks-tensor-contractions/code/trainer/otr_pl.py)
+- [../../../instruments/native-routes-add-pair-map-skew-kurtosis-kink-plane/code/opus_reexam_20261001_v1/trainer/otr_pl_v2.py](../../../instruments/native-routes-add-pair-map-skew-kurtosis-kink-plane/code/opus_reexam_20261001_v1/trainer/otr_pl_v2.py)
+- [../../../instruments/native-routes-add-pair-map-skew-kurtosis-kink-plane/code/opus_reexam_20261001_v1/trainer/worker_generated_v15.py](../../../instruments/native-routes-add-pair-map-skew-kurtosis-kink-plane/code/opus_reexam_20261001_v1/trainer/worker_generated_v15.py)
+
+</details>
+
+## Evidence
+
+- [TEAM_LOG_2026-10-01_to_10-22.md#L2011](../../TEAM_LOG_2026-10-01_to_10-22.md#L2011)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L2012](../../TEAM_LOG_2026-10-01_to_10-22.md#L2012)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L2037](../../TEAM_LOG_2026-10-01_to_10-22.md#L2037)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L2052](../../TEAM_LOG_2026-10-01_to_10-22.md#L2052)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L2076](../../TEAM_LOG_2026-10-01_to_10-22.md#L2076)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L2077](../../TEAM_LOG_2026-10-01_to_10-22.md#L2077)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L2078](../../TEAM_LOG_2026-10-01_to_10-22.md#L2078)
+
+<details>
+<summary>All result files and records (260)</summary>
+
+- [FROZEN_POINT_v1.json](FROZEN_POINT_v1.json) · record
+- [CHECK_VERDICT_v1.json](CHECK_VERDICT_v1.json) · record
+- [manifest.json](manifest.json) · result
+- [COMPLETE.json](COMPLETE.json) · result
+- [STARTED.json](STARTED.json) · result
+- [allowed_seeds.txt](allowed_seeds.txt) · result
+- [t85_0_baseline_r7101512.w0.json](t85_0_baseline_r7101512.w0.json) · result
+- [t85_1_candidate_r7101512.w0.json](t85_1_candidate_r7101512.w0.json) · result
+- [t85_0_baseline_r7101512.json](t85_0_baseline_r7101512.json) · result
+- [t85_1_candidate_r7101512.json](t85_1_candidate_r7101512.json) · result
+- [worker.log](worker.log) · log
+- [COMPLETE-d549f641.json](COMPLETE-d549f641.json) · result
+- [STARTED-37dc5a8e.json](STARTED-37dc5a8e.json) · result
+- [allowed_seeds-078e9708.txt](allowed_seeds-078e9708.txt) · result
+- [t85_0_baseline_r7101513.w0.json](t85_0_baseline_r7101513.w0.json) · result
+- [t85_1_candidate_r7101513.w0.json](t85_1_candidate_r7101513.w0.json) · result
+- [t85_0_baseline_r7101513.json](t85_0_baseline_r7101513.json) · result
+- [t85_1_candidate_r7101513.json](t85_1_candidate_r7101513.json) · result
+- [worker-05a147da.log](worker-05a147da.log) · log
+- [COMPLETE-31515160.json](COMPLETE-31515160.json) · result
+- [STARTED-6b41b11d.json](STARTED-6b41b11d.json) · result
+- [allowed_seeds-2cc47dc6.txt](allowed_seeds-2cc47dc6.txt) · result
+- [t85_0_baseline_r7101514.w0.json](t85_0_baseline_r7101514.w0.json) · result
+- [t85_1_candidate_r7101514.w0.json](t85_1_candidate_r7101514.w0.json) · result
+- [t85_0_baseline_r7101514.json](t85_0_baseline_r7101514.json) · result
+- [t85_1_candidate_r7101514.json](t85_1_candidate_r7101514.json) · result
+- [worker-97ec3709.log](worker-97ec3709.log) · log
+- [COMPLETE-71e1c315.json](COMPLETE-71e1c315.json) · result
+- [STARTED-653cfe89.json](STARTED-653cfe89.json) · result
+- [allowed_seeds-af8d779b.txt](allowed_seeds-af8d779b.txt) · result
+- [t85_0_baseline_r7101515.w0.json](t85_0_baseline_r7101515.w0.json) · result
+- [t85_1_candidate_r7101515.w0.json](t85_1_candidate_r7101515.w0.json) · result
+- [t85_0_baseline_r7101515.json](t85_0_baseline_r7101515.json) · result
+- [t85_1_candidate_r7101515.json](t85_1_candidate_r7101515.json) · result
+- [worker-bb237398.log](worker-bb237398.log) · log
+- [COMPLETE-670b039c.json](COMPLETE-670b039c.json) · result
+- [STARTED-2f7a54b2.json](STARTED-2f7a54b2.json) · result
+- [allowed_seeds-e9727441.txt](allowed_seeds-e9727441.txt) · result
+- [t85_0_baseline_r7101516.w0.json](t85_0_baseline_r7101516.w0.json) · result
+- [t85_1_candidate_r7101516.w0.json](t85_1_candidate_r7101516.w0.json) · result
+- [t85_0_baseline_r7101516.json](t85_0_baseline_r7101516.json) · result
+- [t85_1_candidate_r7101516.json](t85_1_candidate_r7101516.json) · result
+- [worker-65572739.log](worker-65572739.log) · log
+- [COMPLETE-a66b5023.json](COMPLETE-a66b5023.json) · result
+- [STARTED-c0510da3.json](STARTED-c0510da3.json) · result
+- [allowed_seeds-a918ea64.txt](allowed_seeds-a918ea64.txt) · result
+- [t85_0_baseline_r7101517.w0.json](t85_0_baseline_r7101517.w0.json) · result
+- [t85_1_candidate_r7101517.w0.json](t85_1_candidate_r7101517.w0.json) · result
+- [t85_0_baseline_r7101517.json](t85_0_baseline_r7101517.json) · result
+- [t85_1_candidate_r7101517.json](t85_1_candidate_r7101517.json) · result
+- [worker-23a271bf.log](worker-23a271bf.log) · log
+- [COMPLETE-0ec519c5.json](COMPLETE-0ec519c5.json) · result
+- [STARTED-87a21562.json](STARTED-87a21562.json) · result
+- [allowed_seeds-c806a717.txt](allowed_seeds-c806a717.txt) · result
+- [t85_0_baseline_r7101518.w0.json](t85_0_baseline_r7101518.w0.json) · result
+- [t85_1_candidate_r7101518.w0.json](t85_1_candidate_r7101518.w0.json) · result
+- [t85_0_baseline_r7101518.json](t85_0_baseline_r7101518.json) · result
+- [t85_1_candidate_r7101518.json](t85_1_candidate_r7101518.json) · result
+- [worker-3b7bfe5b.log](worker-3b7bfe5b.log) · log
+- [COMPLETE-e0c6f595.json](COMPLETE-e0c6f595.json) · result
+- [STARTED-74518f99.json](STARTED-74518f99.json) · result
+- [allowed_seeds-2d898b64.txt](allowed_seeds-2d898b64.txt) · result
+- [t85_0_baseline_r7101519.w0.json](t85_0_baseline_r7101519.w0.json) · result
+- [t85_1_candidate_r7101519.w0.json](t85_1_candidate_r7101519.w0.json) · result
+- [t85_0_baseline_r7101519.json](t85_0_baseline_r7101519.json) · result
+- [t85_1_candidate_r7101519.json](t85_1_candidate_r7101519.json) · result
+- [worker-a18739fb.log](worker-a18739fb.log) · log
+- [COMPLETE-43600b2d.json](COMPLETE-43600b2d.json) · result
+- [STARTED-cc405f0a.json](STARTED-cc405f0a.json) · result
+- [allowed_seeds-8783261d.txt](allowed_seeds-8783261d.txt) · result
+- [t85_0_baseline_r7101520.w0.json](t85_0_baseline_r7101520.w0.json) · result
+- [t85_1_candidate_r7101520.w0.json](t85_1_candidate_r7101520.w0.json) · result
+- [t85_0_baseline_r7101520.json](t85_0_baseline_r7101520.json) · result
+- [t85_1_candidate_r7101520.json](t85_1_candidate_r7101520.json) · result
+- [worker-9e6b2ca2.log](worker-9e6b2ca2.log) · log
+- [COMPLETE-a75904d3.json](COMPLETE-a75904d3.json) · result
+- [STARTED-a4dd4705.json](STARTED-a4dd4705.json) · result
+- [allowed_seeds-bcde0ec8.txt](allowed_seeds-bcde0ec8.txt) · result
+- [t85_0_baseline_r7101521.w0.json](t85_0_baseline_r7101521.w0.json) · result
+- [t85_1_candidate_r7101521.w0.json](t85_1_candidate_r7101521.w0.json) · result
+- [t85_0_baseline_r7101521.json](t85_0_baseline_r7101521.json) · result
+- [t85_1_candidate_r7101521.json](t85_1_candidate_r7101521.json) · result
+- [worker-1dd2cf86.log](worker-1dd2cf86.log) · log
+- [COMPLETE-8cac8ec7.json](COMPLETE-8cac8ec7.json) · result
+- [STARTED-e09c41dd.json](STARTED-e09c41dd.json) · result
+- [allowed_seeds-b4f6745d.txt](allowed_seeds-b4f6745d.txt) · result
+- [t85_0_baseline_r7101522.w0.json](t85_0_baseline_r7101522.w0.json) · result
+- [t85_1_candidate_r7101522.w0.json](t85_1_candidate_r7101522.w0.json) · result
+- [t85_0_baseline_r7101522.json](t85_0_baseline_r7101522.json) · result
+- [t85_1_candidate_r7101522.json](t85_1_candidate_r7101522.json) · result
+- [worker-9fb47294.log](worker-9fb47294.log) · log
+- [COMPLETE-a743ee90.json](COMPLETE-a743ee90.json) · result
+- [STARTED-35099d6c.json](STARTED-35099d6c.json) · result
+- [allowed_seeds-4a1f253d.txt](allowed_seeds-4a1f253d.txt) · result
+- [t85_0_baseline_r7101523.w0.json](t85_0_baseline_r7101523.w0.json) · result
+- [t85_1_candidate_r7101523.w0.json](t85_1_candidate_r7101523.w0.json) · result
+- [t85_0_baseline_r7101523.json](t85_0_baseline_r7101523.json) · result
+- [t85_1_candidate_r7101523.json](t85_1_candidate_r7101523.json) · result
+- [worker-535325dd.log](worker-535325dd.log) · log
+- [COMPLETE-ea9d24d6.json](COMPLETE-ea9d24d6.json) · result
+- [STARTED-1443fb91.json](STARTED-1443fb91.json) · result
+- [allowed_seeds-f6fabc6e.txt](allowed_seeds-f6fabc6e.txt) · result
+- [t85_0_baseline_r7101524.w0.json](t85_0_baseline_r7101524.w0.json) · result
+- [t85_1_candidate_r7101524.w0.json](t85_1_candidate_r7101524.w0.json) · result
+- [t85_0_baseline_r7101524.json](t85_0_baseline_r7101524.json) · result
+- [t85_1_candidate_r7101524.json](t85_1_candidate_r7101524.json) · result
+- [worker-6a390587.log](worker-6a390587.log) · log
+- [COMPLETE-fa75dede.json](COMPLETE-fa75dede.json) · result
+- [STARTED-784de703.json](STARTED-784de703.json) · result
+- [allowed_seeds-4099c916.txt](allowed_seeds-4099c916.txt) · result
+- [t85_0_baseline_r7101525.w0.json](t85_0_baseline_r7101525.w0.json) · result
+- [t85_1_candidate_r7101525.w0.json](t85_1_candidate_r7101525.w0.json) · result
+- [t85_0_baseline_r7101525.json](t85_0_baseline_r7101525.json) · result
+- [t85_1_candidate_r7101525.json](t85_1_candidate_r7101525.json) · result
+- [worker-ba3dc701.log](worker-ba3dc701.log) · log
+- [COMPLETE-398967e7.json](COMPLETE-398967e7.json) · result
+- [STARTED-c3c939f9.json](STARTED-c3c939f9.json) · result
+- [allowed_seeds-7bc2bb86.txt](allowed_seeds-7bc2bb86.txt) · result
+- [t85_0_baseline_r7101526.w0.json](t85_0_baseline_r7101526.w0.json) · result
+- [t85_1_candidate_r7101526.w0.json](t85_1_candidate_r7101526.w0.json) · result
+- [t85_0_baseline_r7101526.json](t85_0_baseline_r7101526.json) · result
+- [t85_1_candidate_r7101526.json](t85_1_candidate_r7101526.json) · result
+- [worker-6b7d2089.log](worker-6b7d2089.log) · log
+- [COMPLETE-faecf0fe.json](COMPLETE-faecf0fe.json) · result
+- [STARTED-3995bb8c.json](STARTED-3995bb8c.json) · result
+- [allowed_seeds-c4d58c4b.txt](allowed_seeds-c4d58c4b.txt) · result
+- [t85_0_baseline_r7101527.w0.json](t85_0_baseline_r7101527.w0.json) · result
+- [t85_1_candidate_r7101527.w0.json](t85_1_candidate_r7101527.w0.json) · result
+- [t85_0_baseline_r7101527.json](t85_0_baseline_r7101527.json) · result
+- [t85_1_candidate_r7101527.json](t85_1_candidate_r7101527.json) · result
+- [worker-e51b8894.log](worker-e51b8894.log) · log
+- [COMPLETE-34153e90.json](COMPLETE-34153e90.json) · result
+- [STARTED-3f1b8a4f.json](STARTED-3f1b8a4f.json) · result
+- [allowed_seeds-e9c3ba98.txt](allowed_seeds-e9c3ba98.txt) · result
+- [t85_0_baseline_r7101528.w0.json](t85_0_baseline_r7101528.w0.json) · result
+- [t85_1_candidate_r7101528.w0.json](t85_1_candidate_r7101528.w0.json) · result
+- [t85_0_baseline_r7101528.json](t85_0_baseline_r7101528.json) · result
+- [t85_1_candidate_r7101528.json](t85_1_candidate_r7101528.json) · result
+- [worker-cfd68c45.log](worker-cfd68c45.log) · log
+- [COMPLETE-9e0ef965.json](COMPLETE-9e0ef965.json) · result
+- [STARTED-702fd3f3.json](STARTED-702fd3f3.json) · result
+- [allowed_seeds-6c0fbb3b.txt](allowed_seeds-6c0fbb3b.txt) · result
+- [t85_0_baseline_r7101529.w0.json](t85_0_baseline_r7101529.w0.json) · result
+- [t85_1_candidate_r7101529.w0.json](t85_1_candidate_r7101529.w0.json) · result
+- [t85_0_baseline_r7101529.json](t85_0_baseline_r7101529.json) · result
+- [t85_1_candidate_r7101529.json](t85_1_candidate_r7101529.json) · result
+- [worker-debd66cd.log](worker-debd66cd.log) · log
+- [COMPLETE-cd33d3ac.json](COMPLETE-cd33d3ac.json) · result
+- [STARTED-23991c54.json](STARTED-23991c54.json) · result
+- [allowed_seeds-d4f81edd.txt](allowed_seeds-d4f81edd.txt) · result
+- [t85_0_baseline_r7101530.w0.json](t85_0_baseline_r7101530.w0.json) · result
+- [t85_1_candidate_r7101530.w0.json](t85_1_candidate_r7101530.w0.json) · result
+- [t85_0_baseline_r7101530.json](t85_0_baseline_r7101530.json) · result
+- [t85_1_candidate_r7101530.json](t85_1_candidate_r7101530.json) · result
+- [worker-3e30a4ff.log](worker-3e30a4ff.log) · log
+- [COMPLETE-69eeecef.json](COMPLETE-69eeecef.json) · result
+- [STARTED-4861b092.json](STARTED-4861b092.json) · result
+- [allowed_seeds-8b73189a.txt](allowed_seeds-8b73189a.txt) · result
+- [t85_0_baseline_r7101531.w0.json](t85_0_baseline_r7101531.w0.json) · result
+- [t85_1_candidate_r7101531.w0.json](t85_1_candidate_r7101531.w0.json) · result
+- [t85_0_baseline_r7101531.json](t85_0_baseline_r7101531.json) · result
+- [t85_1_candidate_r7101531.json](t85_1_candidate_r7101531.json) · result
+- [worker-74f629e0.log](worker-74f629e0.log) · log
+- [COMPLETE-b7d98d8a.json](COMPLETE-b7d98d8a.json) · result
+- [STARTED-d3e964b7.json](STARTED-d3e964b7.json) · result
+- [allowed_seeds-85f307a3.txt](allowed_seeds-85f307a3.txt) · result
+- [t85_0_baseline_r7101532.w0.json](t85_0_baseline_r7101532.w0.json) · result
+- [t85_1_candidate_r7101532.w0.json](t85_1_candidate_r7101532.w0.json) · result
+- [t85_0_baseline_r7101532.json](t85_0_baseline_r7101532.json) · result
+- [t85_1_candidate_r7101532.json](t85_1_candidate_r7101532.json) · result
+- [worker-1dfe4d5e.log](worker-1dfe4d5e.log) · log
+- [COMPLETE-69df00e6.json](COMPLETE-69df00e6.json) · result
+- [STARTED-57493ff5.json](STARTED-57493ff5.json) · result
+- [allowed_seeds-7a27e488.txt](allowed_seeds-7a27e488.txt) · result
+- [t85_0_baseline_r7101533.w0.json](t85_0_baseline_r7101533.w0.json) · result
+- [t85_1_candidate_r7101533.w0.json](t85_1_candidate_r7101533.w0.json) · result
+- [t85_0_baseline_r7101533.json](t85_0_baseline_r7101533.json) · result
+- [t85_1_candidate_r7101533.json](t85_1_candidate_r7101533.json) · result
+- [worker-a99e4c6b.log](worker-a99e4c6b.log) · log
+- [COMPLETE-e449dbb9.json](COMPLETE-e449dbb9.json) · result
+- [STARTED-c0e046d1.json](STARTED-c0e046d1.json) · result
+- [allowed_seeds-81fa224e.txt](allowed_seeds-81fa224e.txt) · result
+- [t85_0_baseline_r7101534.w0.json](t85_0_baseline_r7101534.w0.json) · result
+- [t85_1_candidate_r7101534.w0.json](t85_1_candidate_r7101534.w0.json) · result
+- [t85_0_baseline_r7101534.json](t85_0_baseline_r7101534.json) · result
+- [t85_1_candidate_r7101534.json](t85_1_candidate_r7101534.json) · result
+- [worker-0ab4e8a9.log](worker-0ab4e8a9.log) · log
+- [COMPLETE-c23f6805.json](COMPLETE-c23f6805.json) · result
+- [STARTED-090268b4.json](STARTED-090268b4.json) · result
+- [allowed_seeds-7037d2f6.txt](allowed_seeds-7037d2f6.txt) · result
+- [t85_0_baseline_r7101535.w0.json](t85_0_baseline_r7101535.w0.json) · result
+- [t85_1_candidate_r7101535.w0.json](t85_1_candidate_r7101535.w0.json) · result
+- [t85_0_baseline_r7101535.json](t85_0_baseline_r7101535.json) · result
+- [t85_1_candidate_r7101535.json](t85_1_candidate_r7101535.json) · result
+- [worker-90e7c02a.log](worker-90e7c02a.log) · log
+- [COMPLETE-319fa915.json](COMPLETE-319fa915.json) · result
+- [STARTED-a77701a4.json](STARTED-a77701a4.json) · result
+- [allowed_seeds-5c5f1bf2.txt](allowed_seeds-5c5f1bf2.txt) · result
+- [t85_0_baseline_r7101536.w0.json](t85_0_baseline_r7101536.w0.json) · result
+- [t85_1_candidate_r7101536.w0.json](t85_1_candidate_r7101536.w0.json) · result
+- [t85_0_baseline_r7101536.json](t85_0_baseline_r7101536.json) · result
+- [t85_1_candidate_r7101536.json](t85_1_candidate_r7101536.json) · result
+- [worker-e6847653.log](worker-e6847653.log) · log
+- [COMPLETE-b6a30558.json](COMPLETE-b6a30558.json) · result
+- [STARTED-1b503d74.json](STARTED-1b503d74.json) · result
+- [allowed_seeds-747d58ab.txt](allowed_seeds-747d58ab.txt) · result
+- [t85_0_baseline_r7101537.w0.json](t85_0_baseline_r7101537.w0.json) · result
+- [t85_1_candidate_r7101537.w0.json](t85_1_candidate_r7101537.w0.json) · result
+- [t85_0_baseline_r7101537.json](t85_0_baseline_r7101537.json) · result
+- [t85_1_candidate_r7101537.json](t85_1_candidate_r7101537.json) · result
+- [worker-b6aa6261.log](worker-b6aa6261.log) · log
+- [COMPLETE-b01706a3.json](COMPLETE-b01706a3.json) · result
+- [STARTED-7348f584.json](STARTED-7348f584.json) · result
+- [allowed_seeds-034c69c7.txt](allowed_seeds-034c69c7.txt) · result
+- [t85_0_baseline_r7101538.w0.json](t85_0_baseline_r7101538.w0.json) · result
+- [t85_1_candidate_r7101538.w0.json](t85_1_candidate_r7101538.w0.json) · result
+- [t85_0_baseline_r7101538.json](t85_0_baseline_r7101538.json) · result
+- [t85_1_candidate_r7101538.json](t85_1_candidate_r7101538.json) · result
+- [worker-f1d96043.log](worker-f1d96043.log) · log
+- [COMPLETE-41837c89.json](COMPLETE-41837c89.json) · result
+- [STARTED-f0a6e029.json](STARTED-f0a6e029.json) · result
+- [allowed_seeds-5fbd3481.txt](allowed_seeds-5fbd3481.txt) · result
+- [t85_0_baseline_r7101539.w0.json](t85_0_baseline_r7101539.w0.json) · result
+- [t85_1_candidate_r7101539.w0.json](t85_1_candidate_r7101539.w0.json) · result
+- [t85_0_baseline_r7101539.json](t85_0_baseline_r7101539.json) · result
+- [t85_1_candidate_r7101539.json](t85_1_candidate_r7101539.json) · result
+- [worker-664a03ba.log](worker-664a03ba.log) · log
+- [COMPLETE-be10a900.json](COMPLETE-be10a900.json) · result
+- [STARTED-3dea13d4.json](STARTED-3dea13d4.json) · result
+- [allowed_seeds-9c2fdcc6.txt](allowed_seeds-9c2fdcc6.txt) · result
+- [t85_0_baseline_r7101540.w0.json](t85_0_baseline_r7101540.w0.json) · result
+- [t85_1_candidate_r7101540.w0.json](t85_1_candidate_r7101540.w0.json) · result
+- [t85_0_baseline_r7101540.json](t85_0_baseline_r7101540.json) · result
+- [t85_1_candidate_r7101540.json](t85_1_candidate_r7101540.json) · result
+- [worker-76f6a0c0.log](worker-76f6a0c0.log) · log
+- [COMPLETE-367a7e35.json](COMPLETE-367a7e35.json) · result
+- [STARTED-590b7e54.json](STARTED-590b7e54.json) · result
+- [allowed_seeds-0135059f.txt](allowed_seeds-0135059f.txt) · result
+- [t85_0_baseline_r7101541.w0.json](t85_0_baseline_r7101541.w0.json) · result
+- [t85_1_candidate_r7101541.w0.json](t85_1_candidate_r7101541.w0.json) · result
+- [t85_0_baseline_r7101541.json](t85_0_baseline_r7101541.json) · result
+- [t85_1_candidate_r7101541.json](t85_1_candidate_r7101541.json) · result
+- [worker-5fda9a58.log](worker-5fda9a58.log) · log
+- [COMPLETE-0bf83ad5.json](COMPLETE-0bf83ad5.json) · result
+- [STARTED-c273b40c.json](STARTED-c273b40c.json) · result
+- [allowed_seeds-0dadd669.txt](allowed_seeds-0dadd669.txt) · result
+- [t85_0_baseline_r7101542.w0.json](t85_0_baseline_r7101542.w0.json) · result
+- [t85_1_candidate_r7101542.w0.json](t85_1_candidate_r7101542.w0.json) · result
+- [t85_0_baseline_r7101542.json](t85_0_baseline_r7101542.json) · result
+- [t85_1_candidate_r7101542.json](t85_1_candidate_r7101542.json) · result
+- [worker-143803df.log](worker-143803df.log) · log
+- [COMPLETE-536dcc99.json](COMPLETE-536dcc99.json) · result
+- [STARTED-d49a1664.json](STARTED-d49a1664.json) · result
+- [allowed_seeds-395f4cf0.txt](allowed_seeds-395f4cf0.txt) · result
+- [t85_0_baseline_r7101543.w0.json](t85_0_baseline_r7101543.w0.json) · result
+- [t85_1_candidate_r7101543.w0.json](t85_1_candidate_r7101543.w0.json) · result
+- [t85_0_baseline_r7101543.json](t85_0_baseline_r7101543.json) · result
+- [t85_1_candidate_r7101543.json](t85_1_candidate_r7101543.json) · result
+- [worker-0000d984.log](worker-0000d984.log) · log
+- [TEAM_LOG_2026-10-01_to_10-22.md](../../TEAM_LOG_2026-10-01_to_10-22.md) · record
+
+</details>
+
+## Related work
+
+- enables: [Refit with absorbed late-layer quartic terms accepted; combined candidate seals at -0.2155%](../2026-10-13-refit-absorbed-late-layer-quartic-terms-accepted-combined-candidate/README.md)
+- shipped in: [Submission #335782: four-arm refit and hub quartic ages 3-4 extended through layers 8-14](../../../submissions/335782/README.md)
+- ← enables: [Native routes add pair-map skew, kurtosis, kink-plane and per-layer correction dials](../../../instruments/native-routes-add-pair-map-skew-kurtosis-kink-plane/README.md)
+- ← enables: [Small refit rounds rejected for native insignificance or independent-check failure](../../../experiments/learned-correction/small-refit-rounds-rejected-native-insignificance-or-independent-check/README.md)
+
+[Research graph](../../../graph/index.html#node=2026-10-13-four-arm-refit-accepted-0-137-independent-0-231) · [Copy provenance](../../../PROVENANCE.json)
+

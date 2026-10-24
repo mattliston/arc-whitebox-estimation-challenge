@@ -1,0 +1,105 @@
+{
+  "schema": "q24-c8-autonomous-correction-state-preregistration-v1",
+  "status": "FROZEN_BEFORE_ANY_C8_TARGET_OPEN",
+  "question": "Can an eight-channel exact-W autonomous coordinate field reconstruct enough missing q10:q15 hidden state to beat the scalar nonlinear-Z head and the deployed native bank broadly out of fold?",
+  "data_contract": {
+    "role": "observer_fit",
+    "networks": 688,
+    "folds": 4,
+    "fold_sizes": [172, 172, 172, 172],
+    "fold_assignment_sha256": "0f8619f00185aa5413e06c2b9aad8c1f2a6743ec8c628994bbbc9ca25fec047c",
+    "observer_selection_targets": "forbidden",
+    "board_feedback": "forbidden",
+    "submission": "forbidden"
+  },
+  "fixed_recipe": {
+    "base": "frozen alpha=.75 native-J state; c8 replaces rather than retrains the scalar nonlinear-Z q-head",
+    "suffix_layers_zero_based": [10, 11, 12, 13, 14, 15],
+    "channels": 8,
+    "architecture": "50 -> 64 SiLU -> 64 SiLU -> six layer-specific 8-channel source heads",
+    "parameters": 10544,
+    "inputs": "raw20 + alpha-J state A + local qJ + exact transported raw20 Z + normalized transported c8 message",
+    "recurrence": "M_l=Phi_l*(W_l.T@C_(l-1)); C_l=M_l+sigma_l*rms_l*f(raw20,A,qJ,Z,M_l/rms_l)",
+    "reported_state": "channel zero",
+    "loss": "normalized endpoint channel-zero MSE plus fixed 0.05 normalized six-layer channel-zero anchor",
+    "epochs": 6,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0008,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 0.00002,
+    "gradient_clip": 5.0,
+    "network_batch": 1,
+    "seed": 1127766545,
+    "checkpoint_selection": false,
+    "base_nonlinear_z_arm_retrained": false
+  },
+  "comparators": {
+    "exact_nonlinear_z_oof_mse": 3.053845857548064e-8,
+    "measured_same688_deployed_native_mse": 2.9736792457285063e-8,
+    "measured_native_authority": "public_q24_native_transport_energy_final_v1/FINAL_FIT_RESULT.json and FINAL_MODEL.pt; recomputed per network during the frozen run",
+    "legacy_scientific_admission_threshold": 2.9672528546945005e-8,
+    "legacy_threshold_note": "This is 0.9 times the P2R0F2D OOF scientific gate, not a measured native-bank score; it is intentionally an additional stricter check."
+  },
+  "scientific_gate": {
+    "mode": "all",
+    "requirements": [
+      "candidate relative OOF gain versus nonlinear-Z is at least 0.25 percent",
+      "at least three of four fold means improve nonlinear-Z",
+      "paired-network gain z is at least 2",
+      "at least 55 percent of networks improve nonlinear-Z",
+      "every fold has at least 50 percent network wins versus nonlinear-Z",
+      "the legacy protected40 OOF slice does not worsen"
+    ]
+  },
+  "absolute_deployment_gate": {
+    "mode": "all",
+    "requirements": [
+      "candidate OOF raw is strictly below the in-run recomputed same-688 deployed native bank",
+      "in-run native recomputation matches 2.9736792457285063e-8",
+      "candidate OOF raw is strictly below 2.9672528546945005e-8",
+      "at least 55 percent of networks improve the measured same-688 native bank",
+      "candidate raw times the c8 D3 multiplier is strictly below D4 board #328622 adjusted 1.783621478716186e-8"
+    ],
+    "board_economics": {
+      "d3_board_328620_multiplier": 0.6377160962460696,
+      "frozen_c8_incremental_vs_compute_only_d3_upper_flops": 758625259,
+      "structural_c8_d3_multiplier": 0.6380610790729154,
+      "structural_raw_threshold_to_beat_d4": 2.7953773348904733e-8,
+      "d4_board_328622_raw": 2.9409071835573285e-8,
+      "d4_board_328622_adjusted": 1.783621478716186e-8,
+      "literal_integrated_meter_required_before_any_submission_claim": true
+    }
+  },
+  "outcome_law": {
+    "scientific_pass_but_absolute_fail": "persist a scientific model only; it is not submission-worthy",
+    "scientific_and_absolute_pass": "persist a scientific model and prepare D3 integration, but require exact literal integrated FLOPs and target-free full gate before root packaging",
+    "scientific_fail": "persist result only and close this exact c8 recipe"
+  },
+  "deployability": {
+    "incremental_vs_nonlinear_z_upper_flops": 100159488,
+    "incremental_vs_22input_head_upper_flops": 661925888,
+    "incremental_vs_compute_only_d3_upper_flops": 758625259,
+    "live_c8_state_bytes_float32": 32768,
+    "parameter_bytes_float32": 42176,
+    "d3_is_initial_deployment_parent_for_residual_margin": true
+  },
+  "bindings": {
+    "program_sha256": "82df4b70b2d9262edea50cb4e659e6538e24fd28a93b6ec0224975f6bed98519",
+    "nonlinear_z_program_sha256": "032d994d45d0255d46ec09b5dca4fdff9f9baa3273972082e75014e0501dee96",
+    "nonlinear_z_result_sha256": "c1ef8105ac29b6f4ff75dc7aa5974b1d8f93668437ed402d32ebbad393f2dd35",
+    "nonlinear_z_model_sha256": "1b542406201a3f8757c8423d1f9b2c540784f7e6c98da687e8fca4e735388676",
+    "native_result_sha256": "e8261895c5d8f5f1feb1e15f257612d1d1b36a90e8bde1ab05e2844100a8ba08",
+    "native_model_sha256": "21ad1dede3373c90d2694158b6599c4c172d7181c72634a6ec8e362449b7d1f8",
+    "j_source_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "q_source_sha256": "1e4c906936f4685bd800f922ded6c582af8213ecad1fbe41da651faff82be9c3",
+    "d3_gate_sha256": "3e84fae43460a409a4212f90b912630c98589d1c2538ce0553a34a636b239eb4",
+    "d4_gate_sha256": "742bef9476c84c5c6afb2d6e3dced0e3d94e2b4a1ea3aae6c5a2c71d75f5eca2"
+  },
+  "access_declarations": {
+    "targets_opened_at_freeze": [],
+    "observer_selection_opened": [],
+    "board_opened": false,
+    "submission": false,
+    "training_started": false
+  }
+}

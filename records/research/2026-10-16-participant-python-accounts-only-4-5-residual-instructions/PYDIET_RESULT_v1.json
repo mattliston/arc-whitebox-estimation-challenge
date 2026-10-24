@@ -1,0 +1,43 @@
+{
+  "lane": "opus-pydiet",
+  "measured_per_request_residual": {
+    "real_candidates_instr_per_req": [
+      45042,
+      45571
+    ],
+    "synthetic_floor_instr_per_req": 43150,
+    "real_cycles_per_req_local": [
+      25925,
+      35704
+    ],
+    "synthetic_cycles_per_req_local": [
+      16592,
+      20518
+    ]
+  },
+  "our_python_overhead": {
+    "instr_per_req": [
+      1842,
+      2371
+    ],
+    "share_of_residual_instr_pct": [
+      4.1,
+      5.2
+    ],
+    "instr_per_network_M": [
+      85,
+      109
+    ],
+    "request_equivalents_total": [
+      2000,
+      2400
+    ]
+  },
+  "profile_2b108_warm": {
+    "candidate_functions_tottime_s": 0.21,
+    "total_profile_s": 59.19,
+    "note": "spread over hundreds of small kernels; no single hot helper (E2Hold.__call__ 11984 calls 0.005s, CapLRU.get 858 calls 0.002s)"
+  },
+  "verdict": "NO >=1000 request-equivalent lever: our Python is ~4-5%% of per-request residual instructions; a byte-exact helper diet plausibly recovers 10-30%% of it (~200-700 equivalents). ~95%% of residual is flopscope client per-call machinery (off-limits). Cycles/request locally are ~1.5-1.9x the synthetic floor at only +5%% instructions: IPC/cache effects of the real working set, not our bytecode.",
+  "gate_note": "judge prices 7.35 us/request from platform graded runs; local instructions/request on real candidates 45.0-45.6K are stable across 2b108/b709/S2/VN/R1, so the per-request model is not drifting with our changes"
+}

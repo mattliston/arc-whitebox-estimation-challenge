@@ -1,0 +1,12 @@
+TAG fable-engineer (E-53): gate record for S13 = S12 (c20d67c7) + --ipt v3 = fable_engineer_v1/candS12ipt3_mem.py (sha256 2a5dd324d78c...)
+build: python3 fable_engineer_v1/build_ipt_v3.py fable_fire_v1/fire_candS12/candS12_S11_cp_dc35_r6q_mem.py <out.py>   (post-stage, applied last)
+1 bit-identity in process (run_card.py, OpenBLAS env): r35 cold + r100 warm, 2 rounds for v2, 1 round for v3: byte-identical to S12 (pair_ipt_runs/)
+1b bit-identity at the production boundary (cs_probe.py nets, numpy-free client + OpenBLAS server): r35, r100 byte-identical to S12 (cs_runs/)
+1c single products at the boundary (cs_probe.py prod): push6 packet, colpack pair, rebuild, push5, read, square: checksums equal to S12
+2 einsum site gate: PASS, 0 new sites (gate_S12ipt3_einsum.txt)
+3 whest validate: PASS (gate_S12ipt3_whest_validate.log)
+4 porter's paired user-CPU census, 6 nets 35c,100,37,39,42,48, concurrent (pair_ipt3_usercpu.log; fable_engineer2_v1/platfit/optime_e_ipt3.json vs optime_e_S12ref3.json):
+  flops -1.750% (r35 -2.486, r100 -1.747, r37 -1.296, r39 -1.765, r42 -1.783, r48 -1.397), user CPU -35.24% (147.9 vs 228.3 s), backend -35.70%, major faults 6 vs 0
+5 server live memory, engineer2's run_mem.sh, same window, S12 then S13, r35 then r100 (mem_ipt3.log; fable_engineer2_v1/mem_e_memS12.jsonl, mem_e_memipt3.jsonl):
+  live-array peak 2555.0 -> 2423.7 MB; max handles 25655 -> 16202; server peak RSS 6109 -> 5622 MB
+  server CPU 45.26/44.53 -> 32.24/30.97 s; wall 50.38/49.22 -> 36.84/34.93 s; requests 48469/43061 -> 39309/37135; round trips 50793/45259 -> 41540/39256; residual 0.296/0.279 -> 0.269/0.234 s

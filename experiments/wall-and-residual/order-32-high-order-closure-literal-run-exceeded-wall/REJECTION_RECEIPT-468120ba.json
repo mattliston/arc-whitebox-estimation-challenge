@@ -1,0 +1,118 @@
+{
+  "schema": "fb-ec3-a2-third-only-rejection-receipt-v1",
+  "status": "CLOSED_EXACT_A2_BYTES__SCIENTIFIC_AND_REGISTERED_RESOURCE_GATES_FAILED",
+  "recorded_at_utc": "2026-08-24T10:59:31Z",
+  "candidate": {
+    "path": "estimator.py",
+    "bytes": 49872,
+    "sha256": "43ee43386c450b3384c9a20df70fa5793f3fe14d6e6395a2a8732334a8bb0d5c",
+    "source_structure": "no CP4; no H4 or pairing-alpha; no L4/K4/K31/K22; CP3+H3+Gaussian+L3+one-half-L3-squared retained",
+    "source_legality": "PASS_INDEPENDENTLY_AUDITED_NO_SOURCE_BUG"
+  },
+  "ancestry": {
+    "v4_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "a1_sha256": "5b222ef4f8120adb9443da5c2a1f89c79085a768ac2aef10c61c18413ef6a025",
+    "builder_sha256": "cb65f41f5a7dc1053f46b628fad83036f1be9e5631c56fd249520f17d81ccda6"
+  },
+  "scientific_rejection": {
+    "fatal_fixture": "official_he_w32_seed2026082432",
+    "candidate_error": "FloatingPointError: FB-EC3-32 A2 produced a nonfinite reported mean",
+    "independent_reference_error": "FloatingPointError: FB-EC4-32 produced a nonfinite reported mean",
+    "first_nonfinite_action": {
+      "covariance_reset": 3,
+      "K21_reset": 4
+    },
+    "complete_action_counts": {
+      "covariance_repairs": 14,
+      "K21_resets": 15
+    },
+    "v4_on_same_fixture": "finite float32 [16,32] output and finite complete traces",
+    "other_fixture_equivalence": {
+      "candidate_reference_output_bitwise_equal": 8,
+      "candidate_reference_action_traces_bitwise_equal": 8,
+      "fixture_count": 9,
+      "finite_official_he_widths": [8, 64],
+      "canonical_qr_and_pure_normal_fatal_gate": "PASS"
+    },
+    "candidate_minus_v4_official_he": {
+      "width8_final_mse": 3720663.712190629,
+      "width8_final_max_abs": 4848.196258544922,
+      "width8_maximum_layer_mse": 2643731596.213728,
+      "width32": "candidate nonfinite; metrics unavailable",
+      "width64_final_mse": 484004538890.2694,
+      "width64_final_max_abs": 2149774.375,
+      "width64_maximum_layer_mse": 1112002406245.0789
+    },
+    "interpretation": "The specialized source exactly implements intended A2, but intended third-only recursion is nonfinite on a registered official-law fixture and catastrophically disagrees with V4 on the other official widths. Exact bytes are rejected without tuning."
+  },
+  "resource_rejection": {
+    "small_width_sources_finite": true,
+    "fit_widths": [2, 4, 8, 16, 32],
+    "heldout_width": 64,
+    "registered_basis": ["n^3", "n^2", "n*log2(n)", "n", "1"],
+    "heldout_actual_a1_minus_a2_flops": 586859174,
+    "heldout_predicted_a1_minus_a2_flops": 588514982,
+    "heldout_prediction_error_flops": 1655808,
+    "mismatched_operation": "einsum",
+    "call_deletion_exact_on_width64": 2172,
+    "registered_exact_projection_gate": "FAIL",
+    "non_authoritative_extrapolation": {
+      "projected_a2_flops": 1598194551486,
+      "projected_a2_calls": 3781,
+      "budget_flops": 2199023255552,
+      "projected_budget_fraction": 0.7267747384894392,
+      "projected_headroom_flops": 600828704066,
+      "broad_flop_scaled_wall_seconds": [22.350915154768828, 36.76900899402599]
+    },
+    "literal_production_meter": "UNRUN_AND_FORBIDDEN",
+    "literal_a2_rss": "UNRUN_AND_FORBIDDEN"
+  },
+  "api_gate": {
+    "status": "PASS",
+    "offshape": "finite float32 [16,7] zeros",
+    "underbudget_production_geometry": "finite float32 [16,1024] zeros without entering production path"
+  },
+  "runner_metric_caveat": {
+    "results_json_contains_nonfinite_NaN_tokens": true,
+    "scope": "official width32 per-reset delta metrics after both implementations become nonfinite",
+    "interpretation": "Aggregate zero maximum-MSE fields must not be read as equality on that failed row; the independent verifier classifies the first nonfinite covariance/K21 resets directly. The strict rejection and verification receipts contain no NaN values."
+  },
+  "bound_evidence": {
+    "pre_run_seal": {
+      "path": "PRE_RUN_SEAL.json",
+      "sha256": "aa30ac0312fd0f9c021723da66c209e041ea845ae53ccfb9d3c91916aa151587"
+    },
+    "results": {
+      "path": "results.json",
+      "sha256": "42a0c6fbc96a7736e81b6a772a4fb3671b86a52ecfc590b661b309e689203791"
+    },
+    "verification": {
+      "path": "verification.json",
+      "sha256": "b25adc20c7f7ce38dfefcaee624a644508dc0b19b2ec3c5827522f402cda7e95",
+      "status": "PASS_VERIFIED_REJECTION"
+    },
+    "independent_source_audit": {
+      "path": "INDEPENDENT_SOURCE_AUDIT.json",
+      "sha256": "256aefbc46a153216cdd1b742493f6f53bbdd44c7afbd3a406331fa08080a9ee",
+      "status": "PASS_INDEPENDENT_SOURCE_AND_TINY_TARGET_FREE_AUDIT__NO_SOURCE_BUG_FOUND"
+    }
+  },
+  "scope": {
+    "target_free": true,
+    "dataset_rows_opened": 0,
+    "targets_or_teachers_opened": 0,
+    "raw_mse_or_scores_computed": 0,
+    "production_shape_runs": 0,
+    "canonical_graph_edits": 0,
+    "packages": 0,
+    "submissions": 0,
+    "pycache_or_pyc_at_rejection_seal": 0
+  },
+  "disposition": {
+    "source_hold": false,
+    "full_shape_or_target_access": "WITHHELD",
+    "package_or_board_action": "WITHHELD",
+    "allowed_use": "negative target-free evidence only",
+    "successor": "none inside this frozen A2 arm; root must reconcile Q24/current frontier"
+  }
+}

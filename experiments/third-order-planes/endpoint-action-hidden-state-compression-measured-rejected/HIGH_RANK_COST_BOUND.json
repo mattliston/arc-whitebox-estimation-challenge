@@ -1,0 +1,177 @@
+{
+  "schema": "p2r0f3b3-multilayer-joint-action-high-rank-cost-bound-v1",
+  "status": "CLOSE_COMPLETE_G2_DIRECTIONAL_STACK_AT_N65536_H7_OR_H9",
+  "inputs": {
+    "action_result": {
+      "path": "RESULT.json",
+      "sha256": "2b6e50e550f3da786269c8facf1c6bf3cdfa59a97232b82b52e711cd55940a71"
+    },
+    "optimal_rank13_basis": {
+      "path": "OPTIMAL_ENDPOINT_BASIS_R13.npy",
+      "sha256": "f7a9250edbbc6e9b5e91f58bf92dc2ea3b3137d3c86b76e1302c225d3a49f831"
+    },
+    "g2_query_law": {
+      "path": "../p2r0f3b2b6_fused_directional_innovation_action_v1/RECEIPT.json",
+      "sha256": "04c2c18ddf6281cfdaa14d0cfaea0730415b8f9410f3341400e20bbc788bb6d6"
+    },
+    "kerdock_prefix_ledger": {
+      "path": "../p2r0g1_kerdock_prefix_cost_v1/COST_LEDGER.json",
+      "sha256": "4090f58ef734d4148e77ab79dd9fe8e43f3a1b1c03fa4098410de7830c3bbf78"
+    }
+  },
+  "rank_lower_bound_proof": {
+    "statement": "Let E13 be top-13 retained action energy and lambda_13 the thirteenth eigenvalue. For every r>=13, E_r <= E13+(r-13)*lambda_13 <= r*E13/13. Therefore E_r>=0.70 requires r>=ceil(13*0.70/E13). The frozen result separately establishes r70>64 for every one of its 360 records, so the certified bound is max(65,ceil(9.1/E13)).",
+    "uses_new_network_data": false,
+    "uses_only_frozen_result_scalars": true,
+    "objective_relevance_energy": 0.70,
+    "completeness_energy": 0.99
+  },
+  "certified_rank_lower_bounds": {
+    "marginal": {
+      "r70_min_median_max": [
+        65,
+        65.0,
+        146
+      ],
+      "r99_min_median_max": [
+        65,
+        80.5,
+        206
+      ]
+    },
+    "joint": {
+      "r70_min_median_max": [
+        65,
+        150.0,
+        376
+      ],
+      "r99_min_median_max": [
+        65,
+        212.0,
+        532
+      ]
+    },
+    "mixed": {
+      "r70_min_median_max": [
+        65,
+        104.0,
+        192
+      ],
+      "r99_min_median_max": [
+        68,
+        146.5,
+        272
+      ]
+    },
+    "per_layer_worst_joint_or_mixed_r70": [
+      {
+        "source_layer_h_one_based": 2,
+        "rank_lower_bound": 376,
+        "witness_role_rank": 687,
+        "block": "q2_[11]",
+        "rank13_energy": 0.02420687052711266
+      },
+      {
+        "source_layer_h_one_based": 3,
+        "rank_lower_bound": 334,
+        "witness_role_rank": 0,
+        "block": "q2_[11]",
+        "rank13_energy": 0.027318847231392655
+      },
+      {
+        "source_layer_h_one_based": 4,
+        "rank_lower_bound": 275,
+        "witness_role_rank": 343,
+        "block": "q2_[11]",
+        "rank13_energy": 0.03321020215516745
+      },
+      {
+        "source_layer_h_one_based": 5,
+        "rank_lower_bound": 258,
+        "witness_role_rank": 343,
+        "block": "q3_[111]",
+        "rank13_energy": 0.035277395810638226
+      },
+      {
+        "source_layer_h_one_based": 6,
+        "rank_lower_bound": 226,
+        "witness_role_rank": 343,
+        "block": "q2_[11]",
+        "rank13_energy": 0.04043802995270797
+      },
+      {
+        "source_layer_h_one_based": 7,
+        "rank_lower_bound": 206,
+        "witness_role_rank": 343,
+        "block": "q3_[111]",
+        "rank13_energy": 0.04429885422536452
+      }
+    ],
+    "sum_of_most_favorably_shared_layerwise_rank_bounds": 1675,
+    "common_rank_bound_across_all_layers_and_blocks": 376,
+    "sum_if_every_layer_sector_uses_a_disjoint_bank": 15264
+  },
+  "optimistic_cost_lower_bound": {
+    "important_relaxation": "The saved U basis is an arbitrary tensor-query/output SVD and generally has no one-ray factorization. Pricing one U component as one shared symmetric G2 ray is an optimistic relaxation; a legal factor decomposition can only use at least as many projections.",
+    "N": 65536,
+    "width": 1024,
+    "g2_query_plus_reference_flops_per_layer_per_ray": 152631311,
+    "layer_specific_sector_shared": {
+      "equivalent_ray_count": 1675,
+      "query_plus_reference_flops": 255657445925
+    },
+    "one_common_rank376": {
+      "equivalent_ray_count": 2256,
+      "query_plus_reference_flops": 344336237616
+    },
+    "fully_sector_disjoint": {
+      "equivalent_ray_count": 15264,
+      "query_plus_reference_flops": 2329764331104
+    },
+    "endpoint_action_construction_flops_included": false,
+    "coefficient_tables_and_assembly_included": false,
+    "q4_q5_action_weighted_bias_gate_included": false
+  },
+  "budget_comparison_worst_d1": {
+    "phase2_budget": 2199023255552,
+    "d1_worst_bill": 1612602817032,
+    "h7": {
+      "kerdock_core": 369775235072,
+      "headroom_after_d1_and_core": 216645203448,
+      "layer_specific_query_lower_bound": 255657445925,
+      "minimum_over_budget_before_action_construction": 39012242477,
+      "hard_budget_pass": false
+    },
+    "h9": {
+      "kerdock_core": 503139084288,
+      "headroom_after_d1_and_core": 83281354232,
+      "layer_specific_query_lower_bound_for_h2_h7_only": 255657445925,
+      "minimum_over_budget_before_h8_h9_queries_or_action_construction": 172376091693,
+      "hard_budget_pass": false
+    }
+  },
+  "decision": {
+    "rank13_common_hidden_V": "closed by action energy",
+    "rank13_factor_query": "closed by stronger arbitrary-query upper bound",
+    "rank64_70pct": "closed for every measured layer/network/sector",
+    "higher_rank_layer_specific_complete_g2_at_N65536_h7": "closed by optimistic query-cost lower bound",
+    "higher_rank_layer_specific_complete_g2_at_N65536_h9": "closed by optimistic query-cost lower bound",
+    "kerdock_point_launch": "not licensed",
+    "marginal_all_column_sidecar": "not closed algebraically by rank, but independently submaterial as the principal repair",
+    "independent_q4_q5_blocker": "the Kerdock rule is degree-3 exact only; the frozen <=2e-5 action-weighted bias/error gate remains unmet"
+  },
+  "scope_boundary": {
+    "closed": "Complete multi-layer h2:h7 covariance/joint-cumulant/mixed-shell repair through the frozen G2 scalar directional-query law at N65536, whether rank<=13, rank<=64, one common higher rank, or the most favorably shared layer-specific ranks certified by the frozen spectrum.",
+    "not_closed": "An as-yet-unproved nonlinear compression or source interface that shares information more cheaply than one scalar projection per arbitrary action component; an incomplete selected-sector repair with a separately proved >=63.78% objective effect; or arbitrary high-rank action under a different literal cost law.",
+    "no_positive_candidate": "No deterministic factor rays are emitted because U is only an oracle upper-bound basis and the optimistic cost already fails."
+  },
+  "access": {
+    "new_network_data_opened": 0,
+    "targets_opened": 0,
+    "observer_selection_opened": 0,
+    "estimators_run": 0,
+    "fixtures_run": 0,
+    "submissions": 0,
+    "canonical_graph_edits": 0
+  }
+}

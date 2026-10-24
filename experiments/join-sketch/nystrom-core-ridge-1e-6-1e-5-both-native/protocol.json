@@ -1,0 +1,53 @@
+{
+  "root_selected": true,
+  "baseline": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "fixed_relative_ridge": 1e-06,
+  "operation": "After symmetric K, add (1e-6/rank)*trace(K) to diagonal before existing solve.",
+  "affected_cores": [
+    7,
+    10
+  ],
+  "no_future_core_at_last_join": true,
+  "hypothesis": "Regularize the FP32-derived future-core solve; accuracy benefit unknown.",
+  "previous_spectra_positive": true,
+  "no_exact_prior_trial_in_bounded_review": true,
+  "no_threshold_sweep": true,
+  "no_validation_targets_used": true,
+  "scope": "native2_only",
+  "roster": [
+    35,
+    100
+  ],
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "source_inverse_exact": true,
+  "source_edit": {
+    "before": "            K = (K + K.T) * 0.5\n            R64 = unused_R.astype(fnp.float64)\n",
+    "after": "            K = (K + K.T) * 0.5\n            fnp.fill_diagonal(K, fnp.diag(K) + (1e-6 / rank) * fnp.trace(K))\n            R64 = unused_R.astype(fnp.float64)\n"
+  },
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 1,
+    "max_per_network_regression_pct": 1.0
+  },
+  "native8_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 6,
+    "ci_upper_below": 0,
+    "additional6_negative": true
+  }
+}

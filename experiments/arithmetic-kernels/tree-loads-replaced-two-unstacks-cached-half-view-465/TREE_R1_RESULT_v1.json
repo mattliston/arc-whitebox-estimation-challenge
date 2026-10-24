@@ -1,0 +1,29 @@
+{
+  "lane": "opus-tree",
+  "patch": "tree_r1_load_views_v1",
+  "fragment": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_tree_v1/fragment_tree_r1_v1.py.txt",
+  "fragment_sha256": "402eed383e032489193f6ebc877f07e4508432f6be06e0a5f7660700f2cc6198",
+  "variant_on_2b108": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_tree_v1/candidate_2b108_treeR1_v1.py",
+    "sha256": "61b9c0651bd11e52babeb6c1052d47ed55414dc60b3650f9cd8589213b684bc1"
+  },
+  "change": "single-tree QL loads: 4 getitem views -> 2 unstacks of the same reshaped view + owner-checked persistent quad half view; same reshape, same 3 data ops/order",
+  "exactness": {
+    "native_7103248_pred_bytes_equal": true,
+    "native_flops_equal": true,
+    "boundary_flops_equal_rank35_rank100": true
+  },
+  "production_normal": {
+    "first": 47960,
+    "warm": 45664,
+    "first_delta": -465,
+    "warm_delta": -506,
+    "setup_requests": 19007,
+    "p_loss_2b108_base": "19.00 -> 14.51"
+  },
+  "native_note": "native charged ops +560 (unstack charged natively, getitem not); production requests are the gate",
+  "not_yet": [
+    "slow 1.3x boundary + official120 judge for the integrated stack",
+    "Full384 stack application (fragment is modular)"
+  ]
+}

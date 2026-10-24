@@ -1,0 +1,119 @@
+{
+  "bindings": {
+    "audit_program_sha256": "80b8bca06ed2829be0104e1b5f04d9c672e9f664b7f2e53483499b08ab644c62",
+    "baseline_repeatability_result_sha256": "834258b93ca8fbc511b8c8c25b56e5be660c359170c03c52d297b0a00d6cc0ff",
+    "baseline_source_sha256": "5e4d4e7b661739c613012390fb38c8972c22d0f05d181f79a34caa7b09d7a16f",
+    "feature_store_manifest_sha256": "9a43423982924bcc7a0c5b87288b19ff42452c90c9cc7b7f590e565d1b276f50",
+    "optimized_source_sha256": "2fd2d40d4e30cc32269afb0113e244ee76c0a51005bce166c7625510f66a8a76",
+    "prior_audit_receipt_sha256": "e5596438799bb757af8980abf3dd8cdaf562f04ae07a5f1bb9cbabf5a20be7ac"
+  },
+  "call_order": [
+    "fixture_a_role_rank_35",
+    "fixture_b_role_rank_279",
+    "fixture_a_role_rank_35"
+  ],
+  "calls": [
+    {
+      "exact_byte_parity": true,
+      "fixture": "a",
+      "flops_used": 2132366833051,
+      "maximum_process_rss_bytes": 3179347968,
+      "observed_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+      "ordinal": 0,
+      "reference_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+      "residual_wall_time_seconds": 0.3675203761085868
+    },
+    {
+      "exact_byte_parity": true,
+      "fixture": "b",
+      "flops_used": 2123756968456,
+      "maximum_process_rss_bytes": 3495804928,
+      "observed_output_sha256": "db57adf6c8e448ccf39e40ecefb4ba298fcc701536596987182fdfc550657aee",
+      "ordinal": 1,
+      "reference_output_sha256": "db57adf6c8e448ccf39e40ecefb4ba298fcc701536596987182fdfc550657aee",
+      "residual_wall_time_seconds": 0.3589775236323476
+    },
+    {
+      "exact_byte_parity": true,
+      "fixture": "a",
+      "flops_used": 2132363680256,
+      "maximum_process_rss_bytes": 3797565440,
+      "observed_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+      "ordinal": 2,
+      "reference_output_sha256": "9f434f8f7f8eef8452560a13909026eaa397b4e85be9e92d7816e63cc9620047",
+      "residual_wall_time_seconds": 0.3626168416813016
+    }
+  ],
+  "data_firewall": {
+    "name_or_board_join": false,
+    "observer_selection_opened": false,
+    "target_columns_opened": []
+  },
+  "fixtures": {
+    "a": {
+      "frozen_files": {
+        "host.npy": {
+          "array_sha256": "de643ecb9960a6698429363cb9bdc95ddccb1df4e9d663fac8d9c1d95185652e",
+          "sha256": "2df0935183dad7ee2442ceb2456304d18f85115f42fe950fdab7a9201475b206"
+        },
+        "raw20.npy": {
+          "array_sha256": "3e70d0f0ce988580de71ce119db927dad6249aa40d5b12ac4991be75c3c86d26",
+          "sha256": "0768502bbd8beb26b85ffdd6b347f0312e1f59e7d4416c849efac8c2dec88365"
+        },
+        "result.json": {
+          "sha256": "6526f04b69885855a6fd72b1f1c0940ce7697e0278f42c54a11ce911c1983875"
+        },
+        "sigma.npy": {
+          "array_sha256": "7fcdee94335037972f04309df20402dd27555bb854df7fe9db17243dddf3f025",
+          "sha256": "c22932b89b08a4ad6be821245a275b1126ef8410cebdc7d75335b62359e55ff5"
+        }
+      },
+      "mlp_id": 89,
+      "role_rank": 35,
+      "row_manifest_sha256": "5067b577620cb6d5dc97c61b62f10e8fb3f98880b99fe9320f1ef8a8ca567809",
+      "weights_array_sha256": "a21143fca7c62f3a600c134c2cdd6e5c61a8e80b12a2e7c4f1ccdf8a4b402ed0",
+      "weights_file_sha256": "14563b956b4e326aee081263077c0dd1dcb86037a0b7870dc58a5e33865f47f2"
+    },
+    "b": {
+      "frozen_files": {
+        "host.npy": {
+          "array_sha256": "bad8534926475be2afc1f51d3644ecd8f95252952ebe9dda3ac377247d712911",
+          "sha256": "0a0a94755a517d940fd87317fbedc620c8d2ba1e38b81b4b4db75c716dce00ac"
+        },
+        "raw20.npy": {
+          "array_sha256": "7db6cf8fc36bf7fe899dd070966f3a6fc96bada7daae8f374b083864f788d505",
+          "sha256": "eda288656ddd783b7038f3e72d22d4781108a33596bed42995fa0c8d45718b58"
+        },
+        "result.json": {
+          "sha256": "738a7e1549ff3cbca5a9554b2e210577a83057a379546e5e09b9d7f2c8c3db1a"
+        },
+        "sigma.npy": {
+          "array_sha256": "13b8e9b8466fe22c8c253fbb307dfc6a80b3a5680bd362e9236c31222de0f48b",
+          "sha256": "91e7c0b25a936026368af3bcbd9cc05fce99dc98ea9117e8a9efb2569f50163a"
+        }
+      },
+      "mlp_id": 534,
+      "role_rank": 279,
+      "row_manifest_sha256": "96850100a37a82803f4dfc0536230e7cf556bc9979024d7ada08e2c1c3108c6f",
+      "weights_array_sha256": "b5e6914da894c4a7c2382cfbb20269e25a5b68ed3f4adaa9301059c7e4fa85f6",
+      "weights_file_sha256": "46b1e740e32de76c0b5d4d855ac307e8ba1509497303456f2dfc42ece2f34298"
+    }
+  },
+  "gates": {
+    "all_three_exact_byte_parity": true,
+    "all_three_residuals_strictly_below_0_4_seconds": true,
+    "all_three_rss_below_8_gib": true,
+    "all_three_within_2pow41_flops": true,
+    "repeat_same_fixture_exact": true,
+    "two_distinct_fixtures_exact": true
+  },
+  "implementation": {
+    "first_call_flops_unchanged": true,
+    "mechanical_only": true,
+    "mutable_scratch_full_overwrite_audited": true,
+    "numerical_operations_changed_on_first_call": false,
+    "summary": "Lazy fixed-width Hermite/fusion/CP3/identity/diagonal context retention and reuse; no target, fit, estimator branch, or numerical-expression change."
+  },
+  "schema": "h7b-residual-wall-sequential-parity-result-v1",
+  "status": "PASS"
+}

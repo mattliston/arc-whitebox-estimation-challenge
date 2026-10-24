@@ -1,0 +1,124 @@
+{
+  "schema": "v34-physical-state-response-rank35-sentinel-design-freeze-v1",
+  "date": "2026-08-31",
+  "status": "STATIC_HOLD__ONLY_IF_START5_Q_ORACLE_FAILS__NO_TARGET_CACHE_RUN_OR_EXECUTION_AUTHORITY",
+  "bindings": {
+    "design_sha256": "e6cae82977371d31e9e32a89d9eeaf59d30fcfd03494142f6772a5ac025a5aab",
+    "perfect_state_ceiling_sha256": "4a476a61364476a3eb9d625c0831aeb580ae4575893a7abe8291aa2884de50e5",
+    "perfect_state_recurrence_source_sha256": "63cf25f83aab4d2dbd5c808bcebf0c57980e278a75fdbbbf9c2cd07e1ea08cb1",
+    "d11_f32_candidate_source_sha256": "ace56bf60b267666e4f2a6d8ae772a089f234ebc725f34a4798b2f9e8284cbc2",
+    "native_carrier_action_audit_sha256": "e7f2e410bfb8077f34534cb4ae21e00f724b6f6eb2a757ede2f3a04f73f572fb",
+    "failed_l1_dynamic4_terminal_sha256": "cbffd2482e220d76353e73d0a716a5bc6c28d0b5f96fd6285342189434ed487b",
+    "failed_backward_state_cv_sha256": "1c8fc334b1ba20fba82a82ced63361c9ff42ad079bb9a7ec54a5b1c9d7e2ce7b",
+    "direct_start5_preregistration_sha256": "861e97a719cbedf6bf198400ae7063370f6d3313042deaecb82e399f862b8235"
+  },
+  "branch_interlock": {
+    "reachable_only_if_direct_exact_start5_q_oracle_mse_is_not_below": 1e-8,
+    "same_rollout_q_heads_close_on_entry": true,
+    "automatic_execution_authority": false
+  },
+  "physical_state": {
+    "predicted_fields": [
+      "(truth_v-host_v)/sigma^2",
+      "(truth_k3-host_k3)/sigma^3",
+      "(truth_k4-host_k4)/sigma^4"
+    ],
+    "new_target_free_observables": [
+      "((W^2).T@(raw2_univariate-diag(M11_pair_before_overwrite)))/sigma_target^2",
+      "diag(cp_pre_k21)/sigma^3",
+      "cp4_pre_provider_diagonal/sigma^4"
+    ],
+    "layers_zero_based": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "generic_source_identifiability_guarantee": false,
+    "inference_is_target_free": true
+  },
+  "predictor": {
+    "input_width": 24,
+    "hidden_width": 32,
+    "output_width": 3,
+    "activation": "ReLU",
+    "shared_across_layers": true,
+    "parameter_count": 899,
+    "training_loss": "physical standardized v/k3/k4 state gaps only",
+    "endpoint_or_q_loss_weight": 0,
+    "fixed_last_epoch": true
+  },
+  "sentinel": {
+    "fit_networks": [
+      100,
+      150,
+      200,
+      250,
+      300,
+      400,
+      500,
+      600,
+      650
+    ],
+    "held_network": 35,
+    "rank35_loo_betas": {
+      "v": 0.8273280548817595,
+      "k3": 0.32346157239952833,
+      "k4": 0.15489222117700333
+    },
+    "rank35_exact_oracle_corrected_mse": 7.153517343378912e-9,
+    "source_zero_must_reproduce_matched_parent": true,
+    "minimum_endpoint_response_cosine": 0.983459,
+    "maximum_endpoint_response_rms_error": 3.79871e-6,
+    "held_noise_corrected_mse_strictly_below": 1e-8,
+    "each_component_dot_with_exact_column_nonnegative": true,
+    "retries": 0,
+    "retuning_or_feature_layer_selection": false,
+    "on_fail": "CLOSE_THIS_PHYSICAL_PROVIDER_SPLIT_V34_ROUTE",
+    "on_pass": "REQUEST_REMAINING_NINE_LOO_EVALUATIONS_WITH_UNCHANGED_BYTES"
+  },
+  "incremental_resource_shell_width1024": {
+    "variance_provider_w2_matvecs": 15,
+    "fused_response_w_matvecs": 14,
+    "exact_dense_action_flops": 60787712,
+    "exact_dense_action_gemm_equivalents": 0.0283203125,
+    "exact_head_affine_flops": 26542080,
+    "relu_comparisons": 491520,
+    "scalar_physical_response_reserve_flops": 4915200,
+    "total_arithmetic_upper_flops": 92244992,
+    "total_arithmetic_upper_gemm_equivalents": 0.04297590605153884,
+    "explicit_streaming_workspace_upper_bytes": 262144,
+    "parameter_bytes_float32": 3596
+  },
+  "access": {
+    "targets_opened_or_decoded": 0,
+    "native_or_derived_caches_opened": 0,
+    "derived_feature_caches_created": 0,
+    "training_or_scoring_runs": 0,
+    "estimator_calls": 0,
+    "network_or_submission_calls": 0
+  },
+  "authority": {
+    "target": false,
+    "cache": false,
+    "execution": false,
+    "training": false,
+    "remaining_networks": false,
+    "integration": false,
+    "meter": false,
+    "package": false,
+    "board": false,
+    "submission": false
+  }
+}

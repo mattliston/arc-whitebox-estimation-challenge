@@ -1,0 +1,70 @@
+{
+  "schema": "public-full688-state-independent-duhamel-cv-verification-v1",
+  "status": "PASS",
+  "scope": "Artifact-level hash, split, coverage, aggregation, gate, and cost verification",
+  "bindings": {
+    "preregistration_sha256": "0824bef80a047d9bbd3eeb62fb57a6c410aeb784693017a5b1da325dc24e82db",
+    "program_sha256": "d1472e602cc0a7cd612da8ee4341050c907875e0261bbc117aa78580aceeb551",
+    "run_manifest_sha256": "efa5eb3516eaa15e2883b437e71463f08dbb26b1cc691bcd2f350f7253e43b47",
+    "seal_sha256": "682647e8c6e1d5f0ef8ef42b9568e3a5ede5a5ec73bd0e5dbb97dc58cb384197",
+    "cv_results_sha256": "55fd5ec3c50cbe70fad9c9f83e88625afc374cb5dd4e32261c1a1a1518727104",
+    "verifier_sha256": "5e7317161fab07a6aa1d072e1ef27e473f92076746e94f181e439c163a65dcf1"
+  },
+  "fold_receipts": [
+    {
+      "fold": 0,
+      "result_sha256": "dc89fa734fca9e57616b2d5269db5b5b44d7ec6abc68bc849a3086b3b57df17c",
+      "model_sha256": "5bfbc370fe562846852dfd68a352b7b5f198ae60aada85f290d08571438ec546"
+    },
+    {
+      "fold": 1,
+      "result_sha256": "dcc526ca20b8c8874738dc8d8860bfd278b877094a1b57a1030dd6f0f17dadb4",
+      "model_sha256": "7f4c295c66bccf29e33770ce18a93de92c1a0eaae395ee3a93c575aeae348111"
+    },
+    {
+      "fold": 2,
+      "result_sha256": "a57b868eec48aeec49ce5495ce7e72e97e98375069cbb2e06f9bf3ea22bcdd8c",
+      "model_sha256": "78c202a658f894c814af754cc9f5e0e76c6343bdb59dd84bb83d91ce5907ec71"
+    },
+    {
+      "fold": 3,
+      "result_sha256": "2b3867cecc21c65449fb3953ad6b4be28328876aa08c4c6327a43e2a0a2c2c00",
+      "model_sha256": "c99c4b14ed477dbff5d121734f2ebbaddc0510c7bd3bfbfef9c528ae34336d01"
+    }
+  ],
+  "checks": {
+    "validation_networks_exactly_once": 688,
+    "fold_validation_sets_disjoint": true,
+    "each_training_set_is_validation_complement": true,
+    "all_fold_rollouts_finite": true,
+    "all_fold_training_traces_finite": true,
+    "all_11_data_derived_tails_repaired": true,
+    "predicted_state_inputs_to_source": 0,
+    "observer_selection_targets_opened": 0,
+    "weighted_layer_aggregation_recomputed": true,
+    "decision_gate_recomputed": true,
+    "cost_arithmetic_recomputed": true
+  },
+  "metrics": {
+    "oof_host_final_mse": 9.115992600417403e-8,
+    "oof_autonomous_final_mse": 3.908100560611721e-8,
+    "autonomous_ratio_to_host": 0.4287081760501623,
+    "regression_fraction_vs_p2r0f2d": 0.18536932199284342,
+    "ratio_vs_p2r0f2d": 1.1853693219928434,
+    "miss_fraction_vs_mean_gate": 0.31707702443649266,
+    "maximum_per_network_final_mse": 3.4112928798161795e-7,
+    "maximum_ratio_to_gate": 3.4112928798161795
+  },
+  "decision_gate": {
+    "finite_all_autonomous_rollouts": true,
+    "mean_below_2_9672528546945005e_8": false,
+    "maximum_per_network_below_1e_7": false,
+    "conjunctive_pass": false
+  },
+  "cost": {
+    "host_plus_correction_upper_estimate": 2127770171325,
+    "phase2_budget": 2200000000000,
+    "headroom_under_upper_estimate": 72229828675,
+    "literal_meter_not_run_because_accuracy_gate_failed": true
+  }
+}

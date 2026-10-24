@@ -1,0 +1,413 @@
+{
+  "completed": true,
+  "created_utc": "2026-09-20T08:54:49.502841+00:00",
+  "source_seal_sha256": "fe04b3ef3d3a4e22c4bca34d20accef4f8a8f6bccd86a60ab66ab8ee8c181f3e",
+  "parent_sha256": "b7c21ac7be5cafa45cd73ac0407605a144a724d62ffc7e2044e1432f5166377c",
+  "all16_prediction_and_total_bill_parity": true,
+  "each_charge_reconciled_once": true,
+  "records": [
+    {
+      "rank": 35,
+      "total_flops": 398080917697,
+      "attribution": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/lazy_cost_census_v1/rank0035/attribution.json",
+        "sha256": "bc9a4a0b27f4bb9880b473f9c6555817c55e8f64e8e952b56f015876575a137b",
+        "bytes": 2811376
+      },
+      "operation_flops": {
+        "matmul": 314509839959,
+        "stack": 9359094821,
+        "add": 16743065568,
+        "copyto": 1714934589,
+        "linalg.qr": 4510973952,
+        "multiply": 7457675123,
+        "subtract": 15783409882,
+        "reshape": 20523889932,
+        "sum": 1778753106,
+        "getitem": 2157179520,
+        "concatenate": 497083584,
+        "astype": 1342553592,
+        "outer": 236067840,
+        "true_divide": 517530740,
+        "mean": 159186944,
+        "cumprod": 73400320,
+        "clip": 68681728,
+        "exp": 63438848,
+        "put": 43776800,
+        "isfinite": 174190592,
+        "all": 174190535,
+        "asarray": 33710966,
+        "abs": 49668152,
+        "copy": 31705088,
+        "ones_like": 16807936,
+        "power": 14843904,
+        "log1p": 11796480,
+        "max": 18210808,
+        "negative": 4132512,
+        "argsort": 3686400,
+        "stats.norm.cdf": 3047424,
+        "log": 1048576,
+        "tanh": 917744,
+        "maximum": 956416,
+        "fill_diagonal": 548864,
+        "sqrt": 248796,
+        "where": 122880,
+        "ix_": 110336,
+        "greater_equal": 92184,
+        "minimum": 92160,
+        "nonzero": 68608,
+        "trace": 59392,
+        "invert": 37888,
+        "ones": 33792,
+        "diag": 30720,
+        "bitwise_and": 15368,
+        "arange": 4264,
+        "eye": 2048,
+        "full": 16,
+        "zeros": 0,
+        "empty": 0,
+        "unstack": 0,
+        "broadcast_to": 0,
+        "zeros_like": 0
+      },
+      "function_flops": {
+        "_push_bank_shared_newborn": 84428546894,
+        "_shared_old384_read": 74892106274,
+        "_slr_reconstruct": 53910272524,
+        "_shared_old384_push": 43815390480,
+        "_star_compact": 41111304211,
+        "_slr_inner": 33537071112,
+        "_cov_compact": 30568986787,
+        "_slr_join_factors": 8453737920,
+        "_predict_binary": 6468464686,
+        "gnn_step": 4477736266,
+        "_resident_gram512": 3245444608,
+        "tri": 2642411520,
+        "omitted_radial_source": 2314751488,
+        "_pair_series_fused": 1762812072,
+        "_bd_update": 1511108616,
+        "_nonlinear_pair_batch": 1004896340,
+        "_cp_diagonal_cube": 869007360,
+        "features": 853002300,
+        "_cov_compact_diagonal": 792830336,
+        "_star_compact_diagonal": 717260672,
+        "_shared_old384_finite": 348381123,
+        "_nonlinear_first_gaussian": 201711622,
+        "silu": 74711040,
+        "_slr_virtual_rotation_envelope": 36421708,
+        "_bdnh_coefficients": 14739312,
+        "final_scalar_features": 10719232,
+        "_shared_old384_commit": 7895040,
+        "gaussian_raw": 3997728,
+        "select": 3954464,
+        "derivatives": 952320,
+        "nonlinear_scalar": 167936,
+        "<dictcomp>": 92354,
+        "hook": 28672,
+        "scalar_terminal_hook": 2048,
+        "_bdnh_parameters": 512,
+        "_bd_coefficients": 120,
+        "_predict_learned_compact": 0
+      },
+      "outermost_mm_calls": 335,
+      "outermost_mm_fraction": 0.9270078720700784,
+      "matmul_fraction": 0.7900650997754927,
+      "reshape_fraction": 0.05155708053210879,
+      "layer_flops": [
+        {
+          "layer": -1,
+          "flops": 1989590074
+        },
+        {
+          "layer": 0,
+          "flops": 1643324950
+        },
+        {
+          "layer": 1,
+          "flops": 10906805436
+        },
+        {
+          "layer": 2,
+          "flops": 15918726844
+        },
+        {
+          "layer": 3,
+          "flops": 20691867164
+        },
+        {
+          "layer": 4,
+          "flops": 23793230992
+        },
+        {
+          "layer": 5,
+          "flops": 30521105130
+        },
+        {
+          "layer": 6,
+          "flops": 31332209220
+        },
+        {
+          "layer": 7,
+          "flops": 30557176090
+        },
+        {
+          "layer": 8,
+          "flops": 30438955107
+        },
+        {
+          "layer": 9,
+          "flops": 30447298811
+        },
+        {
+          "layer": 10,
+          "flops": 29367562235
+        },
+        {
+          "layer": 11,
+          "flops": 32818176517
+        },
+        {
+          "layer": 12,
+          "flops": 30494536351
+        },
+        {
+          "layer": 13,
+          "flops": 32298763839
+        },
+        {
+          "layer": 14,
+          "flops": 29563212765
+        },
+        {
+          "layer": 15,
+          "flops": 15298376172
+        }
+      ],
+      "recorded_constructor_rotation_removal_ceiling": 0.021236229982856344,
+      "old_factor_reconstruct_inner_rotation_fraction": 0.24090851204527036,
+      "recent_push_and_shared_plane_function_fraction": 0.4002217792546067,
+      "peak_rss_bytes": 6229655552,
+      "result": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/lazy_cost_census_v1/rank0035/result.json",
+        "sha256": "f23e0529cb075b8b760a35ebcb2ae72da2d4fc06c4bd41302c435f3db8871959",
+        "bytes": 1709
+      }
+    },
+    {
+      "rank": 100,
+      "total_flops": 400893063472,
+      "attribution": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/lazy_cost_census_v1/rank0100/attribution.json",
+        "sha256": "60c66cabf8ed959e046454d47eb888f7dba1932dd9c0bfeed78c852080e7d71a",
+        "bytes": 2765223
+      },
+      "operation_flops": {
+        "matmul": 321435629716,
+        "stack": 8677223109,
+        "add": 15472802832,
+        "linalg.qr": 4492099584,
+        "copyto": 1626773807,
+        "multiply": 7455161843,
+        "subtract": 14647907509,
+        "reshape": 19614643745,
+        "sum": 1778490962,
+        "getitem": 2150316160,
+        "concatenate": 496936000,
+        "astype": 1342227256,
+        "outer": 236067840,
+        "true_divide": 517524596,
+        "mean": 159186944,
+        "cumprod": 73400320,
+        "clip": 68681728,
+        "exp": 63438848,
+        "put": 43653792,
+        "isfinite": 174424064,
+        "all": 174424007,
+        "asarray": 33710966,
+        "abs": 49692728,
+        "copy": 31705088,
+        "ones_like": 16807936,
+        "power": 14843904,
+        "log1p": 11796480,
+        "max": 18235384,
+        "negative": 4132448,
+        "argsort": 3686400,
+        "stats.norm.cdf": 3047424,
+        "log": 1048576,
+        "tanh": 917744,
+        "maximum": 956416,
+        "fill_diagonal": 548864,
+        "sqrt": 248796,
+        "where": 122880,
+        "ix_": 110336,
+        "greater_equal": 92184,
+        "minimum": 92160,
+        "nonzero": 68608,
+        "trace": 59392,
+        "invert": 37888,
+        "ones": 33792,
+        "diag": 30720,
+        "bitwise_and": 15368,
+        "arange": 4264,
+        "eye": 2048,
+        "full": 16,
+        "zeros": 0,
+        "empty": 0,
+        "unstack": 0,
+        "broadcast_to": 0,
+        "zeros_like": 0
+      },
+      "function_flops": {
+        "_push_bank_shared_newborn": 88172742263,
+        "_shared_old384_read": 74542158958,
+        "_slr_reconstruct": 53791347050,
+        "_shared_old384_push": 43847215956,
+        "_star_compact": 41054361756,
+        "_slr_inner": 33031068672,
+        "_cov_compact": 30598303492,
+        "_slr_join_factors": 8446350336,
+        "_predict_binary": 6461886702,
+        "gnn_step": 4477736266,
+        "_resident_gram512": 3295776256,
+        "tri": 2642411520,
+        "omitted_radial_source": 2314751488,
+        "_pair_series_fused": 1762812072,
+        "_bd_update": 1511108616,
+        "_nonlinear_pair_batch": 1004896340,
+        "_cp_diagonal_cube": 868483072,
+        "features": 853002300,
+        "_cov_compact_diagonal": 759762379,
+        "_star_compact_diagonal": 752596779,
+        "_shared_old384_finite": 348848067,
+        "_nonlinear_first_gaussian": 201711622,
+        "silu": 74711040,
+        "_slr_virtual_rotation_envelope": 36470860,
+        "_bdnh_coefficients": 14739312,
+        "final_scalar_features": 10719232,
+        "_shared_old384_commit": 7895040,
+        "gaussian_raw": 3997728,
+        "select": 3954336,
+        "derivatives": 952320,
+        "nonlinear_scalar": 167936,
+        "<dictcomp>": 92354,
+        "hook": 28672,
+        "scalar_terminal_hook": 2048,
+        "_bdnh_parameters": 512,
+        "_bd_coefficients": 120,
+        "_predict_learned_compact": 0
+      },
+      "outermost_mm_calls": 335,
+      "outermost_mm_fraction": 0.9275925136254511,
+      "matmul_fraction": 0.801798930947206,
+      "reshape_fraction": 0.04892737124240606,
+      "layer_flops": [
+        {
+          "layer": -1,
+          "flops": 1989590074
+        },
+        {
+          "layer": 0,
+          "flops": 1643324950
+        },
+        {
+          "layer": 1,
+          "flops": 10906805436
+        },
+        {
+          "layer": 2,
+          "flops": 15918726844
+        },
+        {
+          "layer": 3,
+          "flops": 20691867164
+        },
+        {
+          "layer": 4,
+          "flops": 23793230992
+        },
+        {
+          "layer": 5,
+          "flops": 30838362234
+        },
+        {
+          "layer": 6,
+          "flops": 31175921094
+        },
+        {
+          "layer": 7,
+          "flops": 31809674172
+        },
+        {
+          "layer": 8,
+          "flops": 30922907021
+        },
+        {
+          "layer": 9,
+          "flops": 31400816415
+        },
+        {
+          "layer": 10,
+          "flops": 29811821889
+        },
+        {
+          "layer": 11,
+          "flops": 32476868554
+        },
+        {
+          "layer": 12,
+          "flops": 30053504611
+        },
+        {
+          "layer": 13,
+          "flops": 31957673173
+        },
+        {
+          "layer": 14,
+          "flops": 29612285773
+        },
+        {
+          "layer": 15,
+          "flops": 15889683076
+        }
+      ],
+      "recorded_constructor_rotation_removal_ceiling": 0.021068836319713295,
+      "old_factor_reconstruct_inner_rotation_fraction": 0.23764134313751717,
+      "recent_push_and_shared_plane_function_fraction": 0.4058810591826682,
+      "peak_rss_bytes": 6055149568,
+      "result": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/lazy_cost_census_v1/rank0100/result.json",
+        "sha256": "2fa726d104774ee7048b56bfce75ba85c406035adcf7f0670e16100e76d3a400",
+        "bytes": 1714
+      }
+    }
+  ],
+  "resources": {
+    "completed": true,
+    "all_groups_retired": true,
+    "guarded_stages": 2,
+    "new_full_parent_calls": 2,
+    "complete_parent_flops": 798973981169,
+    "guarded_seconds": 63.4212318751961,
+    "peak_rss_bytes": 6229655552,
+    "max_swap_growth_bytes": 0,
+    "new_physical_samples": 0,
+    "truth_arrays_read": 0,
+    "new_fits": 0,
+    "new_candidate": false,
+    "new_archive": false,
+    "new_upload": false,
+    "terminal_sessions": [
+      23356,
+      64631
+    ]
+  },
+  "official_adjusted": 3.8164492657795035e-09,
+  "official_raw": 2.169264529783277e-08,
+  "conditional_uniform_cost_reduction_to_3e9": 0.21392902379189493,
+  "unchanged_prediction_adjusted_floor": 2.169264529783277e-09,
+  "not_a_new_score": true,
+  "not_a_faster_estimator": true,
+  "not_deployment_wall_qualification": true,
+  "next_candidate_selected": false,
+  "goal_achieved": false
+}

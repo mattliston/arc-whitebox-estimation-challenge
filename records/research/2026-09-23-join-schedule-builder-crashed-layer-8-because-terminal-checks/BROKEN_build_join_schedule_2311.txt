@@ -1,0 +1,6 @@
+build_join_schedule.py as revised at 23:11 on 09-22 is BROKEN for every3 (and any schedule with non-join layers after the first
+join): its terminal check `len(state['joins']) != len(_JOIN_SCHEDULE)` runs at every non-join layer, so every3 raises
+'Shared-old384 terminal join history' at L8 (found by the porter, 00:20 09-23). Kept unedited for the record.
+USE build_join_schedule_v2.py (check applies only at layers >= the last scheduled join; verified: S2 rebuilt with v2 runs
+natively with MSE and flops identical to the fired #331947 on r35 and r100) or build_join_schedule_v1_fired_S2.py (the exact
+code that built S2; no count check).

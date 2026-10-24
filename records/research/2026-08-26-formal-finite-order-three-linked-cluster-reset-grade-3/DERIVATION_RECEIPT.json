@@ -1,0 +1,134 @@
+{
+  "schema": "p2r0f3b2b2-independent-gaussian-linked-cluster-grade3-derivation-v1",
+  "date": "2026-08-26",
+  "tag": "B2B2-IG-LC3-v1",
+  "status": "PASS_IGLC3_ALGEBRA__KILL_GENERIC_TT_CARRIER__OPEN_FC0_ONLY",
+  "scope": "target-free formal derivation and finite combinatorial enumeration",
+  "source_sha256": {
+    "../p2r0f3b2b_partition_complete_tt5_design_v1/DESIGN_RECEIPT.md": "eee173f564b655ff17aec9a8962ba490ec3f2b5013cebbf34f7ee1203b81e6ff",
+    "../p2r0f3b2b_partition_complete_tt5_independent_audit_v1/AUDIT_RECEIPT.json": "e7c34e7aec410f7b6c1ec9f94ce084afeb5030545ffda624aa39f56b6b04c99b",
+    "../public_trivariate_derivation_v1/L5_DERIVATION.md": "6c0dfdc022799953f8bd0f0372a7dbfdf8dbf9eeaf8649cb03f03600c49fee92",
+    "../public_trivariate_derivation_v1/DERIVATION.md": "5fec258709489fc5c36361bb6bb5fb3e0b8f780502d4ef9b48132bf040bb9444"
+  },
+  "artifact_sha256": {
+    "DERIVATION.md": "7c922b58d0baae6a90abd2edce1f19f03b5f5c0f219561630307ee07697332c1",
+    "enumerate_hypergraphs.py": "25cb168fc2678dca4497fb1e326e06b02ca08c3b9fbb47006b2d4d592eeaf540",
+    "verify_receipt.py": "85b69f58893551c05f451b5e657a5da39cb077155c6d5badea4aada624388939"
+  },
+  "access": {
+    "targets_opened": 0,
+    "target_values_decoded": 0,
+    "fits": 0,
+    "scores": 0,
+    "submissions": 0,
+    "experimental_runs": 0,
+    "static_enumerator_invocations": 1,
+    "estimators_executed": 0,
+    "graph_edits": 0,
+    "original_design_edits": 0
+  },
+  "operator": {
+    "base": "product of standardized one-dimensional Gaussian marginals",
+    "A_grade1": "Lambda2_offdiagonal + Lambda3",
+    "B_grade2": "Lambda4",
+    "C_grade3": "Lambda5",
+    "complete_through_grade3": "I + A + (B + A^2/2) + (C + A*B + A^3/6)",
+    "primitive_multiindex_weight": "standardized_kappa_r(alpha)/product(factorial(alpha_i)); rho_ij for offdiagonal Lambda2",
+    "semantics": "different formal joint-CLT-grade3 reset, not exact correlated-Gaussian E5"
+  },
+  "proved_scope": [
+    "finite factorization into one-dimensional c[p,q] response tables",
+    "complete primitive operator classes through joint grade 3",
+    "coverage of every order-3, order-4, and order-5 collision sector",
+    "exact generic connected primitive-monomial support counts",
+    "exact derivative-incidence bin counts",
+    "ordinary scalar, prefix-trie, and optimistic TT-fiber carrier cost witnesses exceed 8192"
+  ],
+  "not_proved": [
+    "compiled formal-log/Mobius response circuit at 6808 operations",
+    "uniform O(epsilon^4) numerical error on reached width-1024 states",
+    "rank-16 compression sufficiency",
+    "existence of a fused symmetry-aware carrier identity",
+    "exact parity with the original correlated-Gaussian E5 reset"
+  ],
+  "primitive_counts_by_distinct_coordinates": {
+    "s1": [1, 1, 1],
+    "s2": [5, 5, 6],
+    "s3": [13, 15, 21],
+    "s4": [26, 35, 56],
+    "s5": [45, 70, 126]
+  },
+  "raw_operator_multiset_counts_by_grade": {
+    "s1": [1, 2, 3],
+    "s2": [5, 20, 66],
+    "s3": [13, 106, 671],
+    "s4": [26, 386, 4242],
+    "s5": [45, 1105, 19491]
+  },
+  "connected_support_counts_by_grade": {
+    "s1": [1, 2, 3],
+    "s2": [3, 15, 56],
+    "s3": [1, 43, 418],
+    "s4": [0, 43, 1474],
+    "s5": [0, 15, 2546]
+  },
+  "incidence_bin_counts_by_grade": {
+    "s1": [1, 2, 3],
+    "s2": [3, 12, 30],
+    "s3": [1, 19, 80],
+    "s4": [0, 15, 125],
+    "s5": [0, 5, 126]
+  },
+  "s5_grade3_topology_counts": {
+    "K5": 1,
+    "K4_R": 20,
+    "K3_K4": 160,
+    "K3_R2": 150,
+    "K3_2_R": 870,
+    "K3_3": 1345,
+    "total": 2546
+  },
+  "omitted_grade4_shell": "Lambda6 + A*C + B^2/2 + A^2*B/2 + A^4/24",
+  "decisive_omission_control": "with K3=K4=K5=0, all-distinct post-ReLU K5 starts at the nonzero four-rho-edge spanning-tree class, so IG-LC3 emits zero through grade3 and the exact correlated-Gaussian reset does not",
+  "recursive_leaf_split": {
+    "dense_algebra_leaf": {
+      "status": "OPEN_FORMAL_LOG_MOBIUS_COMPILER_GATE",
+      "inputs": "all 10 rho and 231 K3/K4/K5 restricted values already in registers",
+      "optimistic_subtotal": 6808,
+      "qualification": "excludes carrier extraction and does not yet prove collision-specific formal-log response cost"
+    },
+    "generic_tt_carrier_leaf": {
+      "status": "CLOSED_UNDER_8192",
+      "scalar_231_reads": 362208,
+      "symmetry_prefix_trie": 107744,
+      "optimistic_varying_fiber": 61440
+    },
+    "fused_carrier_identity_leaf_FC0": {
+      "status": "ONLY_OPEN_CARRIER_LEAF",
+      "question": "direct symmetry-aware input-core to connected-IGLC3 contraction without 231 scalar reads or generic R^2/R^3 Hadamard carriers",
+      "hard_integrated_gate": 8192
+    }
+  },
+  "printed_budget_context": {
+    "queries": 39360000,
+    "original_cap": 8192,
+    "remaining_margin_flops": 68634022825,
+    "integer_extra_flops_per_query_if_all_margin_spent": 1743,
+    "maximum_cap_if_every_other_unpriced_operation_free": 9935
+  },
+  "frozen_next_gates": [
+    "E0_FORMAL_SOURCE_LOG_VS_BRUTE_MOBIUS_PARITY_ALL_SECTORS",
+    "E1_EPSILON_LADDER_GRADE0_TO3_PARITY_AND_RESIDUAL_SLOPE4",
+    "E2_DENSE_TARGET_FREE_FULL_RESET_ACTION_ERROR_AND_GRADE4_WITNESS",
+    "FC0_FUSED_SYMMETRY_AWARE_CARRIER_IDENTITY_COLD_OR_FULLY_AMORTIZED_LE8192"
+  ],
+  "FC0_fail_conditions": [
+    "explicit evaluation loop over 231 scalar TT cumulants",
+    "generic Hadamard carrier with R^2 or R^3 bond state",
+    "dense n^3 or larger cache",
+    "carrier reads excluded from the 8192 count",
+    "permutation symmetry not algebraically enforced",
+    "amortized cost omits cache construction, cold fibers, or final partial fibers"
+  ],
+  "next_legal_action": "STATIC_FC0_IDENTITY_DERIVATION_OR_CLOSE__NO_TARGET_GRAPH_OR_PRODUCTION_RUN"
+}

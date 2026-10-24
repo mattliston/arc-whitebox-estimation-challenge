@@ -1,0 +1,198 @@
+{
+  "schema": "q24-cs3-independent-dense-design-hold-v1",
+  "status": "HOLD_DENSE_FP32_CS3_BEFORE_SOURCE__REQUIRE_DISTINCT_RESOURCE_LAW_LOWRANK_HYBRID_PREREG",
+  "audited_at_utc": "2026-08-24T13:56:26Z",
+  "audit_scope": {
+    "mode": "independent read-only exact-byte, Wick-closure, reset/push seam, branch-legality, represented-precision, dense-budget, and sparse-invalid alternative audit",
+    "candidate_source_created_or_mutated": 0,
+    "candidate_or_parent_estimator_executions": 0,
+    "fullwidth_runs": 0,
+    "literal_meter_runs": 0,
+    "dataset_rows_opened": 0,
+    "targets_teachers_scores_or_board_rows_opened": 0,
+    "packages": 0,
+    "submissions": 0,
+    "network_or_credentials": 0,
+    "graph_edits": 0
+  },
+  "bindings": {
+    "sealed_dense_design_preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "3ddf814fa95737303fa0184d963f9ff734e6ff250d76ef5ab9dbd1db8197275e"
+    },
+    "risk_preregister": {
+      "path": "PREREGISTER_RISK_AUDIT_V1.json",
+      "sha256": "2b6079d1dfafc92aaeed543da77c1cef63dc725fbb3a9c0021d44fabdbd581f8"
+    },
+    "risk_runner": {
+      "path": "run_risk_microprobe.py",
+      "sha256": "e6a7140473b06ec9ea5c77049c0444d086c80b16684645e381820dc3b3b7a72c"
+    },
+    "risk_result": {
+      "path": "RISK_AUDIT_RESULT_V1.json",
+      "sha256": "0c343a290ef844a78df459e3b89f49516bb2bf543b142e2c4f24f41b65bdb04d",
+      "status_exact": "PASS_PINNED_BRANCH_AND_EXACT_COST_MICROPROBE__FP32_ROUNDING_QUANTIFIED__SOURCE_HOLD"
+    },
+    "author_risk_audit_and_supersession": {
+      "path": "DESIGN_RISK_AUDIT_AND_SUPERSESSION_V1.md",
+      "sha256": "4fbe0d3c227332504433cd648cb28978fdac27edeea18971d06d9902e9540306",
+      "status_exact": "DESIGN_RISK_AUDITED__EXPLICIT_NATIVE_BOOL_STATE_SELECTED__SOURCE_HOLD"
+    },
+    "author_design_receipt": {
+      "path": "DESIGN_RECEIPT_V1.json",
+      "sha256": "af9c919e900abb5cae1965c8c2e27cb564ade9d19886514e30b6262d091f8be3",
+      "status_exact": "CONDITIONAL_PASS_SOURCE_READY_DESIGN__EXPLICIT_BOOL_FP32_CARRIER__NO_CANDIDATE_SOURCE_AUTHORITY"
+    },
+    "pinned_flopscope_array_ops_source": {
+      "path": "../data_gate/.venv/lib/python3.11/site-packages/flopscope/_array_ops.py",
+      "sha256": "e45e927f18c54352503a4951d3d925a5f31f92ecea245e32360825d71a05da6c"
+    },
+    "cs2_parent": {
+      "estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+      "source_hold_sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c",
+      "independent_strict_audit_sha256": "cba8bfbb437f32aa377ca72da74b9504894e6380429e2acf0e5a059d7ef8afcb",
+      "fullwidth_comparator_receipt_sha256": "151de92da658f15de016b256c74cb00255bd1d4aea8c4d8ef3934bab10665645",
+      "independent_fullwidth_comparator_audit_sha256": "beaa6e1dc7d51e028250edf6ae6730bdb454b99a6bc297bf04f5e8b498d79421",
+      "board_promotion_rejection_sha256": "e1c9003a836684b7b064fa15a662b46b6ef0dff6e96a82d24749c60bc901b323",
+      "independent_literal_meter_terminal_audit_sha256": "a136f4031c14b354a00d983e249a406b5c03642a202042032e9f426034c836cc"
+    }
+  },
+  "coherent_dense_design_findings": {
+    "ideal_carrier_closure": "PASS",
+    "identity": "for Q=W^T*S*W, W^(tensor 4) Wick(S)=Wick(Q) in exact arithmetic",
+    "current_reset_invalid_incident_zero": "PASS because every Wick pairing containing an invalid endpoint contains a zero row or column factor from S=M*C*M",
+    "reset_push_lifetime": "PASS: construct from the current post-ReLU repaired covariance and current certificate, push exactly once, consume the old mask, then overwrite from the next reset",
+    "star_decomposition": "PASS after CP4 subtraction: subtract matching pairing K4/K31 from their representable coordinate-star planes; K22 remains an off-diagonal least-squares projection",
+    "ordinary_push_seam": "must use the selected pairing covariance and selected diagonal only inside the Wick term",
+    "final_diagonal_push_seam": "must use the same selected pairing diagonal",
+    "lower_state_boundary": "pre_covariance and pre_variance remain unmasked for Q24, moments, CP, and all lower-order paths",
+    "h1_boundary": "nominal lower-covariance pairing with no localized payload",
+    "no_activation_boundary": "exact alias of existing fp64 pre_covariance/pre_variance before pairing arithmetic",
+    "no_activation_byte_parity": "plausible and correctly fatal-gated, but remains unmeasured until a separately authorized source probe"
+  },
+  "scoped_null_face_correction": {
+    "original_claim": "represented <P,P>=0 implies the full Wick basis tensor is zero",
+    "verdict": "FALSE_AND_ALREADY_ACKNOWLEDGED_BY_AUTHOR_SUPERSESSION",
+    "counterexample": "S=diag(1,0,...) gives offdiag K22 plane P=0 while Wick(S)_1111=3",
+    "correct_fit_law": "all coefficients give the same null-plane off-diagonal K22 residual, and represented +0.0 is the unique minimum-absolute-value coefficient",
+    "decomposition_effect": "with alpha=+0.0, the surviving representable K4/K31 content remains in the quartic star",
+    "required_boundary_fixture": "exercise exactly one valid coordinate as well as the all-invalid face; verify alpha positive-zero, K4/K31 aggregate reconstruction, and the explicit unrepresented K22 residual",
+    "source_spelling_caveat": "the author-proposed fnp.asarray(1.0,float64) null-arm constructor is not established zero-cost by the pinned source: asarray bills a materialized scalar at the heavier dtype rate; a later source preregistration must freeze and meter an actually law-preserving zero/one constructor and division spelling"
+  },
+  "branch_and_state_legality": {
+    "verdict": "PASS_DESIGN_LEVEL_WITH_EXACT_SOURCE_SPELLING_STILL_REQUIRED",
+    "all_valid_reduction": "fnp.all(valid_high_order) on the length-w vector",
+    "all_valid_reduction_cost": "w-1 weighted FLOPs and one call",
+    "forbidden_reduction": "fnp.all(valid_plane), which would scan w^2 entries and break the frozen law",
+    "native_bool_conversion": "legal residual control flow in the pinned runtime; sealed probe measured zero added FLOPs and calls",
+    "explicit_state": "native pairing_localized bool plus optional payload is clearer than using None itself as the predicate",
+    "none_payload": "legal Python bookkeeping and never part of the estimator output API",
+    "numeric_native_extraction": "forbidden beyond the one-bit truth conversion of a billed zero-dimensional result",
+    "hybrid_resource_selector": "may inspect the metered invalid-index result shape and compare exact integer resource laws in Python; it may not use targets, scores, observed accuracy, or a tuned invalid-count threshold"
+  },
+  "dense_fp32_budget_replay": {
+    "verdict": "PASS_FLOP_ARITHMETIC_ONLY",
+    "per_affected_reset_derivation": "three matrix conversions contribute 6*w^2; one fp32 where contributes 4*w^2; two fp32 dense matmuls contribute 4*w^3-2*w^2",
+    "per_affected_reset_flops": "4*w^3+8*w^2",
+    "per_affected_reset_calls": 8,
+    "global_removed_scalar_where_flops": 112,
+    "global_removed_scalar_where_calls": 14,
+    "delta_law": "a*(4*w^3+8*w^2)-112",
+    "width1024_all14": {
+      "delta_flops": 60246982544,
+      "projected_total_flops": 2191899515847,
+      "budget_flops": 2199023255552,
+      "budget_percent": 99.67604982407465,
+      "headroom_flops": 7123739705,
+      "flop_gate": "PASS"
+    },
+    "resource_boundary": "FLOP projection is not a literal resource PASS: the exact CS2 parent meter already failed residual wall time by 0.002635269798338391 seconds, and CS3 has no source or meter"
+  },
+  "represented_precision_audit": {
+    "verdict": "RESOURCE_ADMISSIBLE_HYPOTHESIS_ONLY__NOT_A_FIDELITY_SELECTION_AUTHORITY",
+    "represented_closure": "fp32 two-GEMM propagation is an approximation to the exact Wick closure, not a bit-exact tensor push",
+    "sealed_probe_max_width": 256,
+    "sealed_probe_covariance_family": "synthetic explicitly symmetric positive covariance only",
+    "maximum_observed_pushed_s_relative_frobenius_vs_fp64": 3.4833473860727E-7,
+    "maximum_observed_wick_relative_frobenius_vs_fp64": 4.671457890011953E-7,
+    "uncovered": [
+      "width-1024 propagation",
+      "conditioning of the fitted alpha near a null plane",
+      "downstream cancellation and recursive mean sensitivity",
+      "the actual repaired covariance's represented asymmetry",
+      "raw-MSE or e-8 output behavior"
+    ],
+    "symmetry_caveat": "the parent repair symmetrizes before eigh but does not post-symmetrize the represented reconstructed covariance; no low-rank identity may substitute transpose-equivalent factors unless a later design explicitly guarantees represented symmetry"
+  },
+  "decisive_sparse_invalid_design_hold": {
+    "verdict": "DENSE_FP32_IS_NOT_THE_ONLY_WORST_CASE_ADMISSIBLE_SPELLING",
+    "conflicting_author_claim": "DESIGN_RISK_AUDIT_AND_SUPERSESSION_V1 and DESIGN_RECEIPT_V1 select dense fp32 after comparing only dense fp32 against dense fp64",
+    "why_decisive": "the certificate exposes a small invalid coordinate set, so M*C*M differs from C by a rank-at-most-2r correction and the already-required fp64 lower covariance push can be corrected without a new dense fp64 push",
+    "evidence_boundary": "the fixed target-free comparator contains 51 invalid unit-reset activations across 18 affected resets, with maximum invalid count r=11; these counts motivate but do not select the successor algorithm",
+    "effect": "the author conditional source-ready status is independently held; source must not be created from this dense-only decision"
+  },
+  "required_distinct_lowrank_hybrid_successor": {
+    "status": "DESIGN_PREREGISTRATION_REQUIRED_BEFORE_ANY_SOURCE",
+    "symbols": {
+      "E": "w-by-r selector of invalid coordinates",
+      "M": "I-E*E^T",
+      "U": "E^T*W, implemented as W[idx,:]",
+      "pre_left": "W^T*C, the already-computed first half of the parent lower covariance push",
+      "Q": "pre_left*W = W^T*C*W",
+      "B": "E^T*C*W",
+      "A": "W^T*C*E = pre_left[:,idx]",
+      "G": "E^T*C*E"
+    },
+    "exact_real_arithmetic_identity": "W^T*M*C*M*W = Q - U^T*B - A*U + U^T*G*U",
+    "symmetry_assumption_required": false,
+    "operation_spelling": [
+      "retain pre_left from the unchanged ordered parent computation pre_left=W.T@C; Q=pre_left@W",
+      "idx=flatnonzero(invalid); U=W[idx,:]; Crows=C[idx,:]; G=Crows[:,idx]; A=pre_left[:,idx]",
+      "B=Crows@W; L=U.T@B; R=A@U; H=G@U; J=U.T@H",
+      "selected_pairing_covariance=((Q-L)-R)+J",
+      "take its diagonal and use it only for ordinary/final Wick terms"
+    ],
+    "explicit_fp64_lowrank_delta_per_affected_reset": "16*r*w^2+4*r^2*w+8*w^2+8*r*w+4*r^2+2*w",
+    "delta_terms": {
+      "five_fp64_matmuls_plus_three_fp64_matrix_combines": "16*r*w^2+4*r^2*w-4*r*w",
+      "three_r_by_w_and_one_r_by_r_advanced_gathers": "12*r*w+4*r^2",
+      "one_fp64_current-reset_mask": "8*w^2",
+      "invert_plus_flatnonzero_scans_if_invalid_not_retained": "2*w"
+    },
+    "tentative_calls_per_lowrank_affected_reset": 18,
+    "tentative_call_components": "one where, two diag, one invert, one flatnonzero, four getitem, five matmul, one transpose, and three matrix combines",
+    "dense_fp32_comparator_per_affected_reset": "4*w^3+8*w^2",
+    "selector_law": "choose low-rank iff its exact frozen delta is <= the exact dense delta; otherwise use the frozen dense fp32 fallback",
+    "width1024_crossover": {
+      "largest_lowrank_invalid_count": 241,
+      "lowrank_flops_at_r241": 4291806084,
+      "dense_fp32_flops": 4303355904,
+      "lowrank_flops_at_r242": 4310571792,
+      "resource_selector_uses_observed_accuracy": false
+    },
+    "source_freeze_requirements": [
+      "derive or retain invalid indices through billed fnp operations only",
+      "branch all-valid before constructing indices or localized state",
+      "preserve exact no-activation operation order and byte parity",
+      "do not assume C or pre_left is represented symmetric",
+      "bind fp64 low-rank versus direct fp64 masked-push forward-error bounds before execution",
+      "freeze the dense fallback's extra selector scan in its exact worst-case law",
+      "keep the selector purely resource-law based",
+      "bind ordinary and final push seams plus reset overwrite",
+      "retain literal residual meter as final resource authority"
+    ]
+  },
+  "terminal_recommendation": {
+    "dense_cs3_design": "HOLD_BEFORE_SOURCE",
+    "author_design_receipt": "BOUND_AS_EVIDENCE_BUT_INDEPENDENTLY_OVERRIDDEN_BY_THIS_HOLD",
+    "next_allowed_artifact": "distinct immutable CS3B low-rank/dense-hybrid design preregistration and independent audit",
+    "candidate_source": "NOT_AUTHORIZED",
+    "source_probe": "NOT_AUTHORIZED",
+    "fullwidth": "NOT_AUTHORIZED",
+    "literal_meter": "NOT_AUTHORIZED",
+    "targets_or_board": "NOT_AUTHORIZED",
+    "package_or_submission": "NOT_AUTHORIZED",
+    "graph": "NOT_EDITED_BY_THIS_AUDIT",
+    "strongest_coherent_conclusion": "the localized masked Wick idea is mathematically viable, but the sealed dense-fp32 implementation decision is not source-ready because it omits an exact sparse-invalid fp64 correction that is cheaper under a frozen resource-law selector and avoids the newly introduced fp32 carrier state on the empirically relevant small-r regime"
+  }
+}

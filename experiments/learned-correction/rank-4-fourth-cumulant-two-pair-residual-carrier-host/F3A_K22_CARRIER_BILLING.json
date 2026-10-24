@@ -1,0 +1,66 @@
+{
+  "envelopes": {
+    "conditional_repair_dividend": 275000000000.0,
+    "raw_headroom": 66500000000.0,
+    "star_compression_dividend_contingent": 200000000000.0
+  },
+  "flopscope_version": "0.12.0+np2.4.6",
+  "layers_billed": 14,
+  "node": "P2R0F3A",
+  "report": {
+    "per_layer_components": {
+      "per_rank_G_gemm_spelling_n1024": 2147483648,
+      "per_rank_G_planning_price": 2147483648,
+      "per_rank_pairing_consumption": 2098176,
+      "plane_adds": 2098176
+    },
+    "per_rank_totals": {
+      "r16": {
+        "campaign_total_14_layers": 605060971788,
+        "emission_per_reset": 135764938,
+        "fits_raw_headroom_66.5e9": false,
+        "fits_with_both_dividends_541.5e9": false,
+        "fits_with_repair_dividend_341.5e9": false,
+        "per_layer_total": 43082875904,
+        "transport_fixed_per_layer": 8687468544
+      },
+      "r2": {
+        "campaign_total_14_layers": 180844010648,
+        "emission_per_reset": 16793684,
+        "fits_raw_headroom_66.5e9": false,
+        "fits_with_both_dividends_541.5e9": true,
+        "fits_with_repair_dividend_341.5e9": true,
+        "per_layer_total": 12900635648,
+        "transport_fixed_per_layer": 8599373824
+      },
+      "r4": {
+        "campaign_total_14_layers": 241444297500,
+        "emission_per_reset": 33636994,
+        "fits_raw_headroom_66.5e9": false,
+        "fits_with_both_dividends_541.5e9": true,
+        "fits_with_repair_dividend_341.5e9": true,
+        "per_layer_total": 17212384256,
+        "transport_fixed_per_layer": 8611958784
+      },
+      "r8": {
+        "campaign_total_14_layers": 362646981368,
+        "emission_per_reset": 67474340,
+        "fits_raw_headroom_66.5e9": false,
+        "fits_with_both_dividends_541.5e9": true,
+        "fits_with_repair_dividend_341.5e9": false,
+        "per_layer_total": 25835881472,
+        "transport_fixed_per_layer": 8637128704
+      }
+    },
+    "symmetric_einsum_orbit_discount": {
+      "client_bug": "fnp.einsum('ia,i,ib->ab', W, v, W) raises SymmetryError(max_deviation=inf) at n>=128 in flopscope 0.12.0 local backend (works at n=64; the GEMM spelling of the same map is symmetric to 3e-8 at every size). If the einsum spelling worked at n=1024 the orbit quotient would roughly halve the per-rank transport price. Report to arc-whestbench@aicrowd.com per the Phase-2 rules invitation; do not work around the accounting.",
+      "einsum_n64": 268256,
+      "gemm_n64": 524288,
+      "ratio": 0.51165771484375
+    }
+  },
+  "schema": "p2r0f3a-k22-carrier-billing-v1",
+  "status": "COMPLETE_SYNTHETIC_NO_DATA",
+  "targets_read": 0,
+  "width": 1024
+}

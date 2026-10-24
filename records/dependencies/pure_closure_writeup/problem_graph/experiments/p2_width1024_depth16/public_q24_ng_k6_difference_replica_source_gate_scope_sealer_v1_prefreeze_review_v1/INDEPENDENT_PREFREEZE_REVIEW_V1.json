@@ -1,0 +1,88 @@
+{
+  "schema": "support3_k6_postproduction_scope_sealer_independent_prefreeze_review_v1",
+  "date": "2026-08-28",
+  "status": "HOLD_UNFROZEN_STATIC_SCOPE_SEALER_V1_PREFREEZE__REVIEW_REPLAY_AND_TRUST_VERIFICATION_DEFECTS",
+  "decision": "DO_NOT_FREEZE__REPAIR_REVIEW_PROTOCOL_AND_REGENERATE_TRUTHFUL_STATIC_RECEIPTS__NO_LIVE_AUTHORITY",
+  "review_id": "support3-k6-postproduction-scope-sealer-v1-prefreeze-review-001",
+  "issued_by": "support3_k6_scope_sealer_v1_prefreeze_reviewer",
+  "issued_utc": "2026-08-29T03:06:05Z",
+  "package_author": "support3_k6_scope_sealer_v1_builder",
+  "different_agent": true,
+  "review_scope": "STOPPED_STATIC_SEALER_BYTE_AND_CONTROL_QUALITY_ONLY__NO_LIVE_AUTHORITY",
+  "source_package_sha256": "aabb5bd6e0a9f1af700cd6b6babd6592b04d475aa9731c6bc1eb9d959ae274f0",
+  "static_verification_sha256": "fe514619c67adbd4c63c528b50818d9d1e137545c486026ebbc14cfa4ceff1e4",
+  "adversarial_verification_sha256": "49504d805cad30b6ab0d48fabb7eeaa93668afaaea5df78b165912477a733aa8",
+  "review_request_sha256": "be1294f7f89930ffdeb992d2f4b486fa1bc22bbc9fcd83f452621846493d91bd",
+  "sealer_source_sha256": "d74b0c31dc2700727ff9509924c9ea5bd8bc38eea3017462e2cfdee48e3428e5",
+  "findings": {
+    "compiled_controller_roots_and_GO_law_null": true,
+    "deterministic_static_and_adversarial_replay": false,
+    "exact_24_key_seal_wire_law": true,
+    "fixed_path_no_caller_binding": true,
+    "held_FD_sequential_weight_and_stream_law": true,
+    "null_gate_before_argv_path_or_numpy": true,
+    "stage1_roots_null": true,
+    "terminal_no_replace_publication": true,
+    "upstream_static_roots_exact": true
+  },
+  "material_defects": [
+    {
+      "defect_id": "REVIEW_REQUEST_REPLAY_INVOCATION_CONTRADICTION",
+      "severity": "MATERIAL_HOLD",
+      "evidence": [
+        "INDEPENDENT_REVIEW_REQUEST.md:5-7 forbids invoking the producer or sealer.",
+        "INDEPENDENT_REVIEW_REQUEST.md:11-13 nevertheless requires two adversarial_fixtures.py and two verify_static.py replays.",
+        "adversarial_fixtures.py:446-458 invokes sealer.main([]).",
+        "verify_static.py:239-256 invokes sealer.main([]), and verify_static.py:258-260 invokes adversarial_fixtures.run() twice."
+      ],
+      "adversarial_witness": "Following the required replay literally executes sealer.main eight times: two direct adversarial replays plus two verifier replays with three calls each. Following the prohibition yields no required deterministic replay evidence. No compliant GO receipt exists under both laws."
+    },
+    {
+      "defect_id": "FALSE_MAIN_CALL_ACCESS_ACCOUNTING",
+      "severity": "MATERIAL_HOLD",
+      "evidence": [
+        "verify_static.py:249 executes sealer.main([]), then verify_static.py:258-259 executes two fixtures that each call it at adversarial_fixtures.py:455.",
+        "verify_static.py:300-306 nevertheless emits producer_or_sealer_main_calls=0.",
+        "adversarial_fixtures.py:549-561 emits producer_or_sealer_main_execution=false despite its direct call.",
+        "STATIC_VERIFICATION.json:2-8 and ADVERSARIAL_VERIFICATION.json:4-8 preserve those false claims; ACCESS_RECEIPT.json:11-19 and FUTURE_BINDINGS_HOLD.json:20-28 also claim zero-call lineage."
+      ],
+      "adversarial_witness": "One ordinary verify_static.verify() invocation necessarily performs three sealer.main calls while returning zero, and one adversarial_fixtures.run() necessarily performs one while returning false. The stored PASS receipts are internally disproved by their bound source."
+    },
+    {
+      "defect_id": "PREFREEZE_REVIEW_FRESHNESS_AND_CHRONOLOGY_NOT_VALIDATED",
+      "severity": "MATERIAL_HOLD",
+      "evidence": [
+        "README.md:61 requires a fresh different-agent prefreeze GO.",
+        "freeze_package.py:268-287 checks issued_utc only as a nonempty str at lines 278-279; it neither parses the timestamp nor orders review issuance at or before frozen_utc."
+      ],
+      "adversarial_witness": "An otherwise exact review with issued_utc set to 'not-a-timestamp' or '9999-12-31T23:59:59+00:00' satisfies the freezer and can precede a freeze receipt whose frozen_utc is earlier."
+    },
+    {
+      "defect_id": "FROZEN_VERIFIER_ACCEPTS_SELF_ASSERTED_REVIEW_AND_REMOVABLE_ASSERTIONS",
+      "severity": "MATERIAL_HOLD",
+      "evidence": [
+        "verify_freeze.py:88-128 expresses schema, status, artifact-map, digest, review, null-root, and custody validation almost entirely with assert statements and has no __debug__ guard.",
+        "verify_freeze.py:119-121 compares only manifest/freeze self-asserted prefreeze review hash/status/path fields; it never opens the fixed review, rehashes it, or validates its schema, decision, identity, findings, access map, authorization, issuance time, or source bindings.",
+        "verify_freeze.py never validates freeze or manifest date/decision/timestamp semantics and never checks custody of FREEZE_RECEIPT.json or PACKAGE_MANIFEST.json themselves."
+      ],
+      "adversarial_witness": "At normal optimization, mutually consistent freeze and manifest objects can use the same arbitrary prefreeze_review_sha256 while the fixed review is absent, and can use wrong date, decision, and timestamps, yet pass if the local artifact map and null authority fields match. Under python -O, lines 88-126 disappear, permitting wrong schemas, statuses, roots, and artifact claims before the remaining authority-map calls return PASS."
+    }
+  ],
+  "one_static_freeze": false,
+  "access_accounting": {
+    "control_result_scope_receipt_or_weight_opens": 0,
+    "producer_or_sealer_main_calls": 0,
+    "scientific_numpy_imports_or_RNG_draws": 0,
+    "stage1_target_network_or_submission_actions": 0
+  },
+  "authorization": {
+    "controller_execution": false,
+    "scope_or_weight_access": false,
+    "seal_publication": false,
+    "stage1_issuer_build": false,
+    "stage1": false,
+    "static_freeze": false,
+    "submission": false,
+    "target": false
+  }
+}

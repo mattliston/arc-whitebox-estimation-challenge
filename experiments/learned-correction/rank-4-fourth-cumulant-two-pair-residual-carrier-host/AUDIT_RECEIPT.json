@@ -1,0 +1,67 @@
+{
+  "schema": "k22pilot-audit-receipt-v1",
+  "verdict": "FAIL",
+  "audited_utc": "2026-08-25",
+  "auditor": "independent-subagent",
+  "preregistration_sha256": "30f4847bc5142f405bf538e3cf6907f6eac34837dcf97394012c1538f4505a5c",
+  "checks": [
+    {
+      "name": "sha_bindings",
+      "result": "PASS",
+      "detail": "Computed sha256 of public_condrepair_deployment_card_v3/estimator.py = e4d250563279a8c99dceb72bd71428855bd798d651730fca9c57d6577aa6f62d and of public_k22_carrier_ab_probe_v1/estimator_k22r.py = 0ecbbd4938a92cddd3a61266003035702496e8f4e91b7f7b27df1cd71d330841; both equal the arms' sha256 in PREREGISTRATION.json and in generate_pilot_row.py ARMS, and the generator asserts them at runtime before exec."
+    },
+    {
+      "name": "leakage_safety",
+      "result": "PASS",
+      "detail": "generate_pilot_row.py opens only: the two sha-pinned estimator sources, PREREGISTRATION.json (hash only), the sealed store manifest.json, the per-rank row_manifest.json, and weights.npy (mmap read-only); writes land only under this package's rows/ via tmp-dir + atomic replace. Greps for target/observer_fit.parquet/score/truth/parquet hit only benign strings (store path name, 'target-free' status, targets_read:0 receipt field, the row-manifest role key). The row manifest carries no truth payload: scores=0, target_columns_projected=0, target_values_decoded=0, decoded_columns=[mlp_id,mlp_name,mlp_seed,weights]; store status SEALED_TARGET_BLIND_FEATURE_STORE with target_columns_decoded=0. Both estimator sources perform zero file I/O (no open/np.load/read_text/Path hits). run_generation.py opens nothing. PREREGISTRATION.json allows truth only in stage 2 after complete stage-1 coverage of BOTH arms (stage2_scoring.truth + firewalls.targets_opened_only_in_stage2_after_full_coverage=true, observer_selection_targets_allowed=false, public_name_join_allowed=false)."
+    },
+    {
+      "name": "carrier_provenance",
+      "result": "PASS",
+      "detail": "build_estimator_k22r.py pins BASE to ../public_condrepair_deployment_card_v3/estimator.py with BASE_SHA equal to the base arm's sha and asserts it before patching. Each of the 7 replacement anchors occurs exactly once in the base (verified independently). Reconstructing base + the 7 declared replacements + the appended carrier block reproduces estimator_k22r.py byte-for-byte (reconstructed sha256 == on-disk sha256 == 0ecbbd49...), so the diff contains ONLY the declared changes: R1 factor-at-reset emission, R2-R5 tuple plumbing, R6 pushed-plane adds into pre_k4/pre_k31/pre_k22, R7 final-layer k4-diagonal consume, plus appended _factor_k22_residual/_push_k22_residual/_push_k22_residual_diagonal with K22R_RANK=4. Structural intent (rank-4 K22-residual carrier only) confirmed; the formula defect inside the appended push is recorded under math_spot_check."
+    },
+    {
+      "name": "math_spot_check",
+      "result": "FAIL",
+      "detail": "For the symmetric iijj-family tensor (T[perm(i,i,j,j)]=Q[i,j], Q symmetric zero-diagonal), exact transport was computed as np.einsum('ijkl,ia,jb,kc,ld->abcd') in float64 with .copy() on every extracted view, cross-checked by an einsum-free quadruple loop, with the code's expressions replicated verbatim using an exact eigendecomposed Q (d = true diagonal) and also a rank-4 truncation (nonzero d, exercising the spurs). RESULT: k4 channel and final-layer diagonal push EXACT (max rel err 3.9e-15) and k22 channel EXACT (max rel err 3.0e-15) in all four variants, spurs included. The k31 channel is EXACTLY DOUBLE the true transported channel: estimator_k22r.py line 8631 emits 6.0*s_one - 6.0*spur, while the exact entry channel T'[a,a,a,b] = 3*sum_{i!=j} Q_ij W2[i,a]W[j,a]W[j,b] (the aaab pattern has only 3 of the 6 arrangements of (i,i,j,j) placing the single leg on b). Elementwise code/exact ratio = 2.0 within 1.1e-13 across all off-diagonal entries in every variant; max rel err vs exact = 1.0, vs 2x exact = 1.3e-15. The host's plane convention is unambiguously tensor-entry value: _connected_planes measures k31[a,b] as the joint cumulant kappa(a,a,a,b); the deployed _push_quartic emits star_k31 and pairing_k31 (3*alpha*var_a*cov_ab) as exact entries; _edgeworth_weights consumes k31/k31^T as entries; and STAR_TRANSPORT_FIDELITY_PROBE_v2 (this preregistration's cited authority) validated the deployed push at ~2e-16 against the same entry-extraction reference, with k31 exact_norms nonzero for the k22-residual family. Therefore the pilot's k22r4 arm as pinned injects twice the k31 plane of the family it claims to transport exactly ('exact iijj-family transport' per its own comment); the three emitted channels are mutually inconsistent (no rescaling of the carried pattern makes all three exact). Minimal fix: change both 6.0 coefficients to 3.0 on line 8631's expression in the builder's APPENDED block, rebuild, re-pin the k22r4 sha in PREREGISTRATION.json and generate_pilot_row.py, and re-audit before any generation."
+    },
+    {
+      "name": "gates_and_licensing",
+      "result": "PASS",
+      "detail": "decision_gates are validity-only (mode all-for-validity: coverage 400/400 receipts, finite host/raw20/sigma, every flops_used <= 2^41; achievability is a citation, not an outcome gate). licensing_rules cover raw_improvement_at_least_10pct / raw_improvement_0_to_10pct / raw_worse plus a corrected-absorption note; no-retune is explicit twice (stage2_scoring.no_retune and firewalls.post_metric_retuning=false). resources block present (maximum_rss_bytes 8589934592, estimated_generation_wall_minutes 170) and enforced in the generator (MAX_RSS assert)."
+    },
+    {
+      "name": "orchestrator_sanity",
+      "result": "PASS",
+      "detail": "run_generation.py iterates ranks 35..234 and spawns BOTH arms per rank as two concurrent nice-10 subprocesses (2 workers; generator caps threadpools at 2), communicates each, and on any nonzero returncode prints FAIL with the child's output and sys.exit(1) immediately - no path continues past a failed row. The generator's only skip path requires an existing result.json with status complete-target-free-k22pilot AND matching source sha; any other partial output raises. Outputs are written to a tmp dir and atomically renamed, so a killed run cannot leave a row that later reads as complete."
+    }
+  ],
+  "computed_shas": {
+    "public_condrepair_deployment_card_v3/estimator.py": "e4d250563279a8c99dceb72bd71428855bd798d651730fca9c57d6577aa6f62d",
+    "public_k22_carrier_ab_probe_v1/estimator_k22r.py": "0ecbbd4938a92cddd3a61266003035702496e8f4e91b7f7b27df1cd71d330841",
+    "public_k22_carrier_ab_probe_v1/build_estimator_k22r.py": "882773857ac918501a128c088efa050616afa3e078fe6e05df5e38af13e428b6",
+    "public_k22_pilot_v1/PREREGISTRATION.json": "30f4847bc5142f405bf538e3cf6907f6eac34837dcf97394012c1538f4505a5c",
+    "reconstructed_base_plus_7_replacements": "0ecbbd4938a92cddd3a61266003035702496e8f4e91b7f7b27df1cd71d330841"
+  },
+  "math_check": {
+    "reference": "float64 einsum('ijkl,ia,jb,kc,ld->abcd') push of the iijj-family tensor built from offdiag(Q_approx), entry extraction with .copy() before fill_diagonal, cross-checked by direct quadruple loop",
+    "variants": [
+      "square_6x6/exact_fullrank_zero_diag",
+      "square_6x6/rank4_truncated_nonzero_diag",
+      "rect_6x5/exact_fullrank_zero_diag",
+      "rect_6x5/rank4_truncated_nonzero_diag"
+    ],
+    "max_rel_error_per_channel": {
+      "k4": 3.859388584081979e-15,
+      "k31": 1.0000000000000027,
+      "k22": 2.9897927130548863e-15,
+      "k4_final_layer_diagonal": 3.859388584081979e-15
+    },
+    "k31_vs_two_times_exact_max_rel_error": 1.2869876536281282e-15,
+    "k31_elementwise_code_over_exact_ratio_range": [1.9999999999999512, 2.0000000000001021],
+    "defect_location": "public_k22_carrier_ab_probe_v1/estimator_k22r.py:8631 (_push_k22_residual k31_channel; identical text in build_estimator_k22r.py APPENDED block)",
+    "defective_expression": "6.0 * s_one - 6.0 * (weight3_t @ (diag_q[:, None] * weight32))",
+    "exact_expression": "3.0 * s_one - 3.0 * (weight3_t @ (diag_q[:, None] * weight32))",
+    "positive_control": "the same harness reproduces the k4 and k22 channels and both diagonal spurs to <4e-15, and brute-force loop == einsum == 3x formula on a spot entry to 1e-15"
+  }
+}

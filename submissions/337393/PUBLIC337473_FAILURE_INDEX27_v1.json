@@ -1,0 +1,183 @@
+{
+  "observed_utc": "2026-10-21T05:33:49Z",
+  "scope": "Read-only exact public failure and same MLP comparison; no inference about final score or cause",
+  "candidate_raw": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/public_337473_v2/raw_20261021T053328Z.json",
+  "candidate_raw_sha256": "3b468ae4286690fc2eb9cdae6bba396c6c437a7edd0b3917f59e97ce4ba57259",
+  "bank_raw": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/public_337466_v2/raw_20261021T045554Z.json",
+  "bank_raw_sha256": "5d5cb926fca7e645bcd92d58f81db6ee42848d3e1c889227f2f6bdb20bc39b02",
+  "candidate_submission": 337473,
+  "bank_submission": 337466,
+  "status": "SUBMITTED",
+  "score": null,
+  "evaluation_state": "running",
+  "progress": {
+    "total_mlps": 100,
+    "mlps_completed": 29,
+    "mlps_in_flight": 5,
+    "mlps_failed": 1,
+    "pct_complete": 30.0
+  },
+  "row_state_counts": {
+    "completed": 29,
+    "failed": 1,
+    "in_flight": 5,
+    "pending": 65
+  },
+  "setup_executions": [
+    {
+      "worker_id": "w-1",
+      "generation": 0,
+      "flops": 27687266628,
+      "wall_s": 4.340123130000009,
+      "kernel_ns": 990361103,
+      "comms_ns": 219959930,
+      "error_code": "SUCCESS"
+    },
+    {
+      "worker_id": "w-4",
+      "generation": 0,
+      "flops": 27687266628,
+      "wall_s": 4.28257214700001,
+      "kernel_ns": 982799583,
+      "comms_ns": 218325336,
+      "error_code": "SUCCESS"
+    },
+    {
+      "worker_id": "w-3",
+      "generation": 0,
+      "flops": 27687266628,
+      "wall_s": 4.297871520000001,
+      "kernel_ns": 994183640,
+      "comms_ns": 219663723,
+      "error_code": "SUCCESS"
+    },
+    {
+      "worker_id": "w-2",
+      "generation": 0,
+      "flops": 27687266628,
+      "wall_s": 4.340672935000001,
+      "kernel_ns": 997583639,
+      "comms_ns": 220701200,
+      "error_code": "SUCCESS"
+    },
+    {
+      "worker_id": "w-0",
+      "generation": 0,
+      "flops": 27687266628,
+      "wall_s": 4.471761766,
+      "kernel_ns": 1020505095,
+      "comms_ns": 233813304,
+      "error_code": "SUCCESS"
+    }
+  ],
+  "failed_row": {
+    "mlp_index": 27,
+    "mlp_name": "brandy-johnston",
+    "dataset_row": null,
+    "state": "failed",
+    "telemetry": {
+      "flops_used": 245780486018.0,
+      "effective_compute": 245780486018.0,
+      "participant_predict_wall_s": 116.83155765000004,
+      "flopscope_server_kernel_wall_s": 106.697817466,
+      "flopscope_server_overhead_wall_s": 9.732010903000031,
+      "residual_wall_time_s": 0.4017292810000015,
+      "flopscope_self_report": {
+        "wall_s": 116.831259081,
+        "backend_s": 106.697817466,
+        "overhead_s": 9.731712333999994,
+        "residual_s": 0.4017292810000015
+      },
+      "participant_setup_wall_s": null,
+      "participant_roundtrip_wall_s": 117.22821894900005,
+      "flopscope_server_comms_wall_s": 0.984162355,
+      "budget_exhausted": false,
+      "time_exhausted": false,
+      "residual_wall_time_exhausted": true,
+      "combined_budget_exhausted": false,
+      "setup_generation": 0,
+      "telemetry_schema_version": 4
+    },
+    "error_code": "RESIDUAL_WALL_TIME_EXHAUSTED"
+  },
+  "matched_bank_row": {
+    "mlp_index": 27,
+    "mlp_name": "brandy-johnston",
+    "dataset_row": null,
+    "state": "completed",
+    "telemetry": {
+      "flops_used": 246153314300.0,
+      "effective_compute": 246153314300.0,
+      "participant_predict_wall_s": 109.9241201099976,
+      "flopscope_server_kernel_wall_s": 99.885878552,
+      "flopscope_server_overhead_wall_s": 9.655313897997601,
+      "residual_wall_time_s": 0.3829276600000071,
+      "flopscope_self_report": {
+        "wall_s": 109.924041762,
+        "backend_s": 99.885878552,
+        "overhead_s": 9.65523555,
+        "residual_s": 0.3829276600000071
+      },
+      "participant_setup_wall_s": null,
+      "participant_roundtrip_wall_s": 110.30152404399996,
+      "flopscope_server_comms_wall_s": 0.983744985,
+      "budget_exhausted": false,
+      "time_exhausted": false,
+      "residual_wall_time_exhausted": false,
+      "combined_budget_exhausted": false,
+      "setup_generation": 0,
+      "telemetry_schema_version": 4
+    },
+    "error_code": null
+  },
+  "paired_telemetry": {
+    "participant_predict_wall_s": {
+      "candidate": 116.83155765000004,
+      "bank": 109.9241201099976,
+      "absolute_delta": 6.907437540002434,
+      "relative_pct": 6.283823362052265
+    },
+    "flopscope_server_kernel_wall_s": {
+      "candidate": 106.697817466,
+      "bank": 99.885878552,
+      "absolute_delta": 6.8119389140000095,
+      "relative_pct": 6.819721679129809
+    },
+    "flopscope_server_overhead_wall_s": {
+      "candidate": 9.732010903000031,
+      "bank": 9.655313897997601,
+      "absolute_delta": 0.07669700500242982,
+      "relative_pct": 0.7943501973388445
+    },
+    "residual_wall_time_s": {
+      "candidate": 0.4017292810000015,
+      "bank": 0.3829276600000071,
+      "absolute_delta": 0.018801620999994384,
+      "relative_pct": 4.909966806783839
+    },
+    "participant_roundtrip_wall_s": {
+      "candidate": 117.22821894900005,
+      "bank": 110.30152404399996,
+      "absolute_delta": 6.92669490500009,
+      "relative_pct": 6.279781684826946
+    },
+    "flopscope_server_comms_wall_s": {
+      "candidate": 0.984162355,
+      "bank": 0.983744985,
+      "absolute_delta": 0.0004173700000000835,
+      "relative_pct": 0.0424266457632827
+    },
+    "flops_used": {
+      "candidate": 245780486018.0,
+      "bank": 246153314300.0,
+      "absolute_delta": -372828282.0,
+      "relative_pct": -0.1514618168194204
+    }
+  },
+  "residual_cap_seconds": 0.4,
+  "over_cap_seconds": 0.0017292810000014702,
+  "bank_margin_seconds": 0.017072339999992914,
+  "final_grade_observed": false,
+  "reference_mutated": false,
+  "retry_or_submission": false
+}

@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_PKG_SUB3_SUPPLY_LADDER",
+    "label": "SUB-3: supply-quality ladder by oracle input",
+    "kind": "phase2_g19b_subproblem",
+    "status": "closed_measured",
+    "priority": 3,
+    "summary": "Teammate B (fork 'supply-ladder'): on the deploy-frame engine (r35) make one input exact per arm - truth K22/K31 (ORACLE_FOURTH), truth univariate k3, truth pre-K21 plane, all three - and grade each at optimal beta_v (and the k3/k4 arms at their optima). Current rung: +10.6 at beta 0.40 (60% noise; plane ~7% accurate; carried fourth-order planes 17-24% error). Ceiling: exact v = -54% raw. Prices mechanism leaves N1.2c/d/e (P2R0G19B_MECH_N1_2C_CARRY, _N1_2D_FOURTH, _N1_2E_UNIVARIATE). RESULT (T-20 parts 1+2, teammate B; receipts experiments/p2_width1024_depth16/public_g19_attribution_v1/ladder_*.log, dvhat_rank0035_dep_*.npz, dvhat_rank0035_true_pairs.npz): current engine cuts 10.6% (beta 0.40); truth k4u+K22/K31 -> 7.4 (k4 arm +5.7); truth k3 -> 7.9 (k3 arm +6.8); truth pre-plane -> 7.8; all three -> 7.5 with identical per-layer dv fidelity; TRUTH pre-planes through the tangent -> 34.8 (53.3 joint); truth STATES 47.4 / 73.5. Wedges: gate-only carry 7.9 (CP-preserving carry keeps ~3/4); truth post-plane slices 8.1 (emission not the limiter); card-plane arm void (transcription). Transport is not the loss; collective mode negligible; per-layer beta vectors do not transfer. Closed.",
+    "terminal_criterion": "Closed when the ladder table names the binding input and whether the steps add (T-20).",
+    "evidence": [
+      {
+        "claim": "Running 2026-09-01 evening (one MPS engine at a time).",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-20 (pending)"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "Measure which of the estimator's inputs, if made perfect, would most improve its variance correction - so the next block of work goes at the input that actually limits it."
+  }
+}

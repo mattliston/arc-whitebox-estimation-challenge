@@ -1,0 +1,74 @@
+{
+  "access_declarations": {
+    "board_opened": false,
+    "common_driver_calls": 0,
+    "estimator_calls": 0,
+    "estimator_imported_by_terminal_audit": false,
+    "exact_shape_calls": 0,
+    "fixture_calls": 0,
+    "names_opened": [],
+    "network": false,
+    "production": false,
+    "scores_opened": [],
+    "submission": false,
+    "target_columns_opened": []
+  },
+  "bindings": {
+    "ACCOUNTING_AND_LIVENESS_MANIFEST.json": "bced5170098ccef0a702414a212dea606ef3c16e1c823c2ed2973888d5f0558c",
+    "BUILD_RECEIPT.json": "7a7c4f07975cca45a413656b44017571ccec7b65d4784ade0bfa54b365d28c2a",
+    "EXACT_SHAPE_SMOKE_DRAFT_MANIFEST.json": "8b1e09d9255057886a353c98ca8364c9da39e6a6d4c48c1a25cc012e9907c111",
+    "EXACT_SHAPE_SMOKE_TERMINAL_RECEIPT_SCHEMA.json": "b967980d31c3c94cdb0aa4d60e3339f4f4c6b9a60e63e923cdc2d5116800f16d",
+    "INDEPENDENT_D6_IMPLEMENTATION_AUDIT_VERIFICATION.json": "ef4fca7d85fa89e2e9b4c46f02f0540bd437dce466e58932ba42db2b56352506",
+    "INDEPENDENT_REDTEAM_D6_IMPLEMENTATION_AUDIT.md": "5ae738215f76b008384346d58fdb6cef0db39c61a056a99f6b7f8f05d907807a",
+    "INDEPENDENT_TINY_RESIDUAL_DIAGNOSTIC.json": "c08ce3f9a6ed054f2a3c5a8942ca0e4b93970ba5987d4699c6171765538ca7f8",
+    "SERIALIZATION_GUARD_RESULT.json": "9a3ffa19dab76b59443f86b2dbace7a1e2c172b66f3791f27d75d960fc01b45b",
+    "SOURCE_DIFF.patch": "73dd4e286bf09160abc41102c080607aabbf981c8bd3822ce37250e9a663df58",
+    "STATIC_VERIFICATION.json": "4756f8d22b032d3a96058caafab92ea18d3e76bb64a763642636b82944af2fe7",
+    "candidate_estimator.py": "e9ebe9abebe4d632e20d81396aea2bc64a511277d88bc6fd13fb6a80721ffd58",
+    "run_exact_shape_kernel_resource_smoke.py": "50f073ee7aafd54cbe9d1625a803ea820459c372fbf74ab213592a847023751f",
+    "run_independent_tiny_residual_diagnostic.py": "4e1f58c73d5d7d7fcc1622fdfb0c62f4f1d495f4f5d67a0a8ab8f00e49d45102",
+    "sealed_design_authority": "808a41b8fa1429e1efaf978cd3f17f18ecf7ae7f21c20a9359546922b3696da7",
+    "tiny_prototype_final_seal": "2f2f8d26a4892b727ce7be43664bcf001e48fa61f35ff184b98f1d6f891b85ed",
+    "verify_exact_shape_smoke_seal.py": "e84a667c30c8ce41984bf91822260359d9f82346ead28f3a9249732a34434d1d",
+    "verify_independent_d6_implementation_audit.py": "3cdc7a0d0a2c3006fa6f1d92db909716bc6c9fed57aefc33a4b941f29b288a4a"
+  },
+  "causal_decomposition": {
+    "candidate_hot_meter_records": 6786,
+    "candidate_hot_records_per_channel": 117,
+    "candidate_inventory": {
+      "add": 1624,
+      "copyto": 3248,
+      "matmul": 58,
+      "subtract": 1856
+    },
+    "candidate_minus_direct_median_residual_seconds": 0.04961721133440733,
+    "candidate_residual_median_seconds": 0.050043875351548195,
+    "direct_hot_meter_records": 58,
+    "direct_inventory": {
+      "matmul": 58
+    },
+    "direct_residual_median_seconds": 0.0004339558072388172,
+    "excess_candidate_records": 6728,
+    "gate_excess_seconds": 0.03961721133440733,
+    "minimum_fraction_of_measured_delta_that_must_disappear": 0.7984570327299824,
+    "residual_delta_to_gate_ratio": 4.961721133440733,
+    "verdict": "The arithmetic, arena, output aliasing, and exact bill pass. The failed mechanism is the fixed Python slicing/loop/wrapper control surface around 6786 hot records, measured against 58 direct matmul records in the same environment. Backend time is excluded from this residual quantity."
+  },
+  "date": "2026-08-26",
+  "disposition": "CLOSED_D6_ARENA_IMPLEMENTATION_FORM_NO_RETRY; EXACT_SHAPE_SMOKE_UNSEALED_AND_NOT_AUTHORIZED",
+  "gates": {
+    "accounting_and_static_liveness": true,
+    "arena_bytes_static": 3376660480,
+    "exact_shape_authorized": false,
+    "independent_terminal_verdict": "PASS_STATIC_AND_TINY_SEMANTICS; FAIL_RESIDUAL_GATE; CLOSE_D6_ARENA_FORM; DO_NOT_AUTHORIZE_EXACT_SHAPE_OR_COMMON_DRIVER",
+    "same_source_tiny_byte_parity_to_recursive_d5": true,
+    "same_source_tiny_exact_inventories": true,
+    "same_source_tiny_residual_delta_gate_seconds": 0.01,
+    "same_source_tiny_residual_delta_median_seconds": 0.04961721133440733,
+    "same_source_tiny_residual_gate_pass": false,
+    "sealed_tiny_semantics": true
+  },
+  "node": "P2R0C1D6",
+  "schema": "p2r0c1d6-terminal-closure-v1",
+  "status": "FAIL_RESIDUAL_GATE_TERMINAL_CLOSE_NO_RETRY"
+}

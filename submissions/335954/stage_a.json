@@ -1,0 +1,56 @@
+{
+ "stage": "A",
+ "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/variants/s56k1s_repair1r1_safe/candidate.py",
+ "candidate_sha256": "2905c1606179826740d6b1beae8feca6179156d4ad8271db9c6de4fdb0419b5b",
+ "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_s56k1s_repair1r1_safe/submission.tar.gz",
+ "gates": {
+  "contract": true,
+  "package": true,
+  "validate_package": true,
+  "archive_contents": true,
+  "no_numpy_import": true,
+  "einsum_signatures_proven": true,
+  "einsum_no_new_repeated_operand": true,
+  "python310": true
+ },
+ "passed": true,
+ "einsum_signatures": {
+  "ij,i,j->ij": 3,
+  "ij,i->ij": 5,
+  "lsjab,ak,bk->lsjk": 2,
+  "ij,ij->i": 2,
+  "i,ij->ij": 5,
+  "<non-literal>": 1,
+  "i,j->ij": 1,
+  "ij,aj->aij": 1,
+  ",i,ij->ij": 1,
+  "aj,j,j->aj": 1,
+  "als,lsjk,lk->asjk": 1,
+  "i,ji->ij": 7,
+  "i,i,i->i": 1,
+  "i,j,ij->ij": 2,
+  "oab,ak,bk->ok": 2,
+  "a,sj,k->asjk": 2,
+  "kn,kc->nc": 2,
+  "ij,ij,j->ij": 1,
+  "ij,c->ijc": 3,
+  "ik,ik->k": 3,
+  "ai,aj->ij": 1,
+  "ij,ij,j->i": 2,
+  "ij,ij,i->j": 2
+ },
+ "new_einsum_signatures": [
+  "a,sj,k->asjk",
+  "als,lsjk,lk->asjk"
+ ],
+ "reviewed_einsum_signatures": [
+  "a,sj,k->asjk",
+  "a,sq,k->aqsk",
+  "als,lsjk,lk->asjk",
+  "alsqj,lsjk,lk->aqsk",
+  "kn,kc->nc"
+ ],
+ "new_repeated_operand_einsums": [],
+ "uploaded": false,
+ "line": "[A package] PASS: source 1322878 bytes sha 2905c1606179; contract output shape [2, 4]; archive 565083 bytes sha 4b695f13a7c9; einsum signatures 23, new vs proven source: 2 ['als,lsjk,lk->asjk' at line 10742 on (weights, terms, amplitudes); 'a,sj,k->asjk' at line 10775 on (C['theta'], C['rule'], A); 'a,sj,k->asjk' at line 14964 on (C['theta'], C['rule'], A)], read and passed in --reviewed: ['a,sj,k->asjk', 'als,lsjk,lk->asjk']; under Python 3.10: compiles, no 3.11-only name (3.10.20 []); failed: none; NOT uploaded"
+}

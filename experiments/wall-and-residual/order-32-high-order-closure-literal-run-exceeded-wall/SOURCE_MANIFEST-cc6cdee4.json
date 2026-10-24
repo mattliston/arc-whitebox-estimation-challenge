@@ -1,0 +1,68 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-v2-final-byte-freeze-manifest-v2",
+  "status": "FINAL_BYTE_FREEZE__TARGET_FREE_LITERAL_METER_ONLY",
+  "parent": {
+    "path": "../fullbudget_k21_k4_closure_v1/estimator.py",
+    "sha256": "663a6593e5b6574f08634f921d5a871303d1f9cb981d06010b1b712df8ad4265",
+    "unchanged": true
+  },
+  "files": [
+    {
+      "path": "estimator.py",
+      "sha256": "de8023d8d34be4f588d5af8c87f99a5e7babf9f42a9d351602c838b19783673e"
+    },
+    {
+      "path": "verify_static.py",
+      "sha256": "e5b0d2d792bb0087eaf22fa36f4234f0a33f5da62b8a0e37c128348195e74f54"
+    },
+    {
+      "path": "verify_parity.py",
+      "sha256": "867852164fdb0fe53210fde4c4edd460aa6f7463c0720d7249d09099608ad933"
+    },
+    {
+      "path": "PROJECTED_RESOURCE.md",
+      "sha256": "65f66799d574104fde5b53edd3823faae57db93d4e1185ab86265f7c5f562a39"
+    },
+    {
+      "path": "DESIGN.md",
+      "sha256": "95b44ca09b74f25805bc2f57af8783d2a4d6f8024761c22d95f6e5747bccb3f6"
+    },
+    {
+      "path": "TIMEOUT_AUDIT.md",
+      "sha256": "4ba46e92439050f7baf932ad04e75ee8b34354c0a705c500815da0efd588ac81"
+    }
+  ],
+  "source_changes": {
+    "q32_terms": 33,
+    "derivative_channels": 17,
+    "pair_moment_families": 4,
+    "explicit_einsum_path": [[0, 3], [0, 1, 2]],
+    "v1_q32_einsum_calls": 339,
+    "v2_projected_q32_einsum_calls": 87,
+    "v1_group_temporary_bytes": 830472192,
+    "v2_max_full_reset_group_output_bytes": 100663296,
+    "edgeworth_weight_constructions_per_reset": 1
+  },
+  "projected_budget": {
+    "budget": 2199023255552,
+    "exact_v1_reference_bill": 2180584652856,
+    "provisional_v2_ceiling": 2181584652856,
+    "provisional_headroom": 17438602696,
+    "provisional_v2_increment_allowance": 1000000000,
+    "literal_meter_required": true
+  },
+  "holds": [
+    "LITERAL_FULL_SHAPE_FLOP_WALL_RESIDUAL_RSS_FINITE_METER",
+    "ACTUAL_CLOSURE_MOMENT_FEASIBILITY_REPLAY",
+    "TARGET_OR_ROLE_ACCESS",
+    "FIT_SAMPLING_SCORE_SUBMISSION"
+  ],
+  "negative_controls": {
+    "no_data_or_target_access": true,
+    "no_fit_or_sampling": true,
+    "no_accuracy_claim": true,
+    "no_submission_authority": true,
+    "v1_not_modified": true,
+    "v2_frozen": true
+  }
+}

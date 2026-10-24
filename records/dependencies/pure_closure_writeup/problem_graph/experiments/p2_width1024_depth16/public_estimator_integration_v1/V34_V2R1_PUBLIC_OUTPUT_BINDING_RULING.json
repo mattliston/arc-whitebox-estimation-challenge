@@ -1,0 +1,139 @@
+{
+  "schema": "phase2-v34-v2r1-public-output-binding-ruling-v1",
+  "date": "2026-08-31",
+  "status": "BINDING_INTERFACE_REPAIR_REQUIRED__NO_EXECUTION_AUTHORITY",
+  "purpose": "Bind the V34 scientific endpoint spelling to the exact public WhestBench output bytes before any data, meter, score, package, or submission release.",
+  "evidence": {
+    "accepted_d11_one_file": {
+      "path": "../p2r0c1d11_cp3_arena_depth4_full_estimator_v1/estimator.py",
+      "sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e",
+      "finding": "Estimator.predict returns _predict_corrected; the production return is a finite float32 array with depth-major geometry."
+    },
+    "whestbench_scoring_contract": {
+      "path": "../data_gate/.venv/lib/python3.11/site-packages/whestbench/scoring.py",
+      "sha256": "e6d05ca38e3a69daf6d25e3024e33a79e5bb9571e03b9dc53580d727c64384e3",
+      "finding": "Predictions must have shape (depth,width), are materialized as float32 inside the metered window, and the primary raw score uses row -1."
+    },
+    "frozen_v34_design": {
+      "path": "../public_v34_physical_state_response_sentinel_v2/DESIGN.md",
+      "sha256": "6db96ef9c3fd59b87dddab46f2466102fa16a425dd27afa6b8d819aa4c95379a",
+      "finding": "Section 4 binds prediction_15 = deployed_15 + r_15; intermediate response states are recurrence state, not edits to public rows 1 through 14."
+    },
+    "current_endpoint_only_deploy": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/deploy_runtime.py",
+      "sha256": "349280d22ce69325b785ac49334858591d1b2c15ed6d3beb55ae74e741aa2f75",
+      "finding": "fused_source_on returns a diagnostic dictionary whose source-on value is only a float64 endpoint; it is not a lawful public estimator return."
+    },
+    "frozen_training_inference": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/trainer.py",
+      "sha256": "001879b55f6a9033a8cc31f72aee8f971189e78465db4f7ea842a28aa04acd01",
+      "finding": "Normalization arrays are float64; normalized features are cast contiguous float32 before both float32 affine layers; standardized outputs are cast float64 before multiplying float64 label_rms."
+    },
+    "stale_static_integration_contract": {
+      "path": "V34_V2R1_INTEGRATION_CONTRACT.json",
+      "sha256": "c4666ca5b6ec6d5657b8f68c0bc6e81113ef53c76e9a4e26cef9405d5d83561d",
+      "finding": "The provisional scaffold quantizes all 51 normalizer values to float32 and therefore understates the payload as 3,800 bytes."
+    },
+    "stale_static_assembler": {
+      "path": "prepare_v34_v2r1_overlay.py",
+      "sha256": "f3bf0d11d316fd44b82810aa44fbbe216772f638e88f550dc8469b183fac33f7",
+      "finding": "The synthetic parity recurrence edits rows 1 through 15 and serializes every tensor as float32; those semantics are not the frozen deploy contract."
+    }
+  },
+  "authoritative_public_return": {
+    "shape": [16, 1024],
+    "dtype": "float32",
+    "layout": "C-contiguous depth-major",
+    "row_0_through_14": "byte-identical copy of the accepted D11 parent rows 0 through 14",
+    "row_15": "float32(parent_row_15_as_float64 + fused_r15_float64)",
+    "response_layer_scope": "Only row 15 is overlaid. The r1 through r14 values are recurrence state and may not replace public rows 1 through 14.",
+    "clipping": "none; any clipping or nonnegativity projection would be a new scientific spelling",
+    "return_value": "the full float32 array, never an endpoint vector or diagnostic dictionary"
+  },
+  "exact_construction_order": [
+    "Obtain the literal accepted-D11 parent output and prove shape [16,1024], dtype float32, finiteness, and capture-enabled byte parity.",
+    "Run the frozen head with trainer-identical mixed-dtype normalization and affine order.",
+    "Run the fused physical response recurrence in float64 through r15; retain intermediate states only as streaming recurrence state.",
+    "Compute endpoint64 = parent_output[-1].astype(float64) + r15_float64.",
+    "Compute endpoint32 = asarray(endpoint64, dtype=float32).",
+    "Create one full float32 parent copy, replace only row 15 with endpoint32, and return that full array."
+  ],
+  "head_and_payload_dtype_contract": {
+    "input_center": {"shape": [24], "dtype": "float64", "bytes": 192},
+    "input_scale": {"shape": [24], "dtype": "float64", "bytes": 192},
+    "label_rms": {"shape": [3], "dtype": "float64", "bytes": 24},
+    "weight1": {"shape": [32, 24], "dtype": "float32", "bytes": 3072},
+    "bias1": {"shape": [32], "dtype": "float32", "bytes": 128},
+    "weight2": {"shape": [3, 32], "dtype": "float32", "bytes": 384},
+    "bias2": {"shape": [3], "dtype": "float32", "bytes": 12},
+    "trainable_values_float32": 899,
+    "normalizer_values_float64": 51,
+    "trainable_bytes": 3596,
+    "normalizer_bytes": 408,
+    "uncompressed_payload_bytes": 4004,
+    "normalization_and_affine_order": "(head24_float64-center_float64)/scale_float64 -> contiguous float32 -> affine32/ReLU/affine32 -> float64 -> multiply label_rms_float64"
+  },
+  "source_zero_contract": {
+    "zero_point": "set dV,d3,d4 to exact zero after frozen head inference",
+    "required_fast_path": "return the unmodified accepted-D11 parent full output without addition, cast, concatenation, clipping, or row replacement",
+    "shape": [16, 1024],
+    "dtype": "float32",
+    "required_identity": "shape, dtype, C-order bytes, and SHA256 equal the capture-enabled accepted-D11 parent output",
+    "reason": "Arithmetic add-zero is not the byte-identity contract, even if a synthetic fixture happens to round back to the parent."
+  },
+  "scientific_and_package_byte_identity": {
+    "held_and_official_source_on_dtype": "float32",
+    "held_and_official_source_zero_dtype": "float32",
+    "diagnostic_fused_response_dtype": "float64",
+    "required_endpoint_relation": "array_equal(source_on_endpoint_float32, asarray(source_zero_endpoint_float32.astype(float64) + fused_r15_float64, dtype=float32))",
+    "scientific_raw_score_input": "the exact persisted float32 packaged endpoint bytes",
+    "full_output_hash_required_before_meter": true,
+    "same_source_sha_required_for_whest_resource_688_88_release_and_package": true,
+    "endpoint_float64_raw_score_is_forbidden": true
+  },
+  "public_output_resource_and_copy_accounting": {
+    "parent_full_output_bytes_float32": 65536,
+    "new_full_output_copy_bytes_float32": 65536,
+    "endpoint32_temporary_bytes": 4096,
+    "minimum_incremental_public_assembly_workspace_bytes": 69632,
+    "endpoint_float64_additions": 1024,
+    "endpoint_float64_to_float32_values": 1024,
+    "intermediate_public_rows_edited": 0,
+    "final_public_rows_edited": 1,
+    "accounting_boundary": "The 69,632-byte assembly reserve is in addition to the already-live parent, fused response, head, provider, and scratch buffers. A lower claim requires an exact liveness proof.",
+    "measurement_requirement": "Meter the literal full-return estimator path, including output copy, row replacement, dtype conversion, Whest materialization, FlopScope count, absolute RSS, wall time, and returned shape/dtype. Endpoint-only metering is nonbinding.",
+    "streaming_256k_claim_proven": false
+  },
+  "blocking_repairs_before_any_release": [
+    "Replace endpoint-only deploy return with the full [16,1024] float32 construction.",
+    "Make deploy head inference byte-identical to trainer inference and preserve all 51 normalizers as float64.",
+    "Change held semantic and official target payloads from float64 source-on endpoints to the exact float32 packaged endpoint relation.",
+    "Replace the synthetic all-row response parity test with final-row-only source-on coverage and an explicit source-zero parent-byte fast-path test.",
+    "Update payload accounting from 3,800 to 4,004 uncompressed bytes.",
+    "Obtain independent static audits and a complete exact-source resource measurement after these bytes freeze."
+  ],
+  "authority": {
+    "static_ruling": true,
+    "implementation_binding": false,
+    "data": false,
+    "target": false,
+    "production_estimator_call": false,
+    "meter": false,
+    "score": false,
+    "release": false,
+    "package": false,
+    "board": false,
+    "submission": false
+  },
+  "scope": {
+    "estimator_imports": 0,
+    "estimator_calls": 0,
+    "target_rows_opened": 0,
+    "state_or_label_rows_opened": 0,
+    "resource_calls": 0,
+    "public_score_calls": 0,
+    "packages_created": 0,
+    "network_actions": 0,
+    "submission_actions": 0
+  }
+}

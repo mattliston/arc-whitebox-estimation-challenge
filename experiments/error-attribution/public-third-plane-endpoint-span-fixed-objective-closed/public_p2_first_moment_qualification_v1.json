@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "identity": {
+    "global_index": 57,
+    "mlp_name": "gregory-wilson",
+    "n_samples": 100000000,
+    "sample_seed": 151321001905
+  },
+  "checks": {
+    "pre_M11_diagonal": {
+      "max_float32_ulps": 0.4999843370169401,
+      "passed": true
+    },
+    "pre_M21_diagonal": {
+      "max_float32_ulps": 0.49996424466371536,
+      "passed": true
+    },
+    "input_gaussian_covariance": {
+      "standardized_rms": 1.001161338721445,
+      "passed": true
+    },
+    "input_gaussian_mean": {
+      "standardized_rms": 0.9304123674803709,
+      "standardized_max": 3.377948811900335,
+      "passed": true
+    },
+    "input_gaussian_third": {
+      "standardized_rms": 1.0002485078479704,
+      "standardized_max": 5.303288830072912,
+      "passed": true
+    },
+    "affine_pre13": {
+      "mean_rms": 8.95982402120906e-11,
+      "covariance_relative": 2.658711391722729e-06,
+      "passed": true
+    },
+    "pre13_stored_rounding": {
+      "bound_residual_rms_ratio": 0.0002805665535280754,
+      "residual_rms": 0.0016791237874155516,
+      "bound_rms": 4.711059739821906e-07,
+      "passed": true
+    }
+  },
+  "decoded_keys": [
+    "global_index",
+    "mlp_name",
+    "n_samples",
+    "sample_seed",
+    "pre_mean",
+    "pre_m2",
+    "pre_m3",
+    "pre_M11",
+    "pre_M21",
+    "mean",
+    "M11"
+  ],
+  "mean_score_targets_decoded": false,
+  "heldout_files_opened": 0,
+  "source_sha256": "f2c79442c4adbf4e12a7db98f6a72a74c66d9c50872f99f8ff63599834d72670",
+  "frozen_input_sha256": "505cce285dd51f909c08d05676bc0a0ec77b4afaa6a4ce8f46d8b57ec3a9e715",
+  "centering_helper_sha256": "f505a0b9e844c136faa8fba781449c880a925e9fa37f1247550db97ac4173a13",
+  "wall_s": 0.07707691192626953,
+  "utc_finished": "2026-09-06T11:42:08.401245+00:00",
+  "qualification": "One public mini training file numerical/identity qualification. Gaussian input checks have analytic sampling scales; late-layer storage bound excludes Monte Carlo error and shared forward/accumulation bias. No predictor fit or score.",
+  "output_sha256": "039d30cc6f160d74c986d70afcc9c0028a9c18461e2a4a46ac45f5595fed9e8f"
+}

@@ -1,0 +1,22 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_PKG_SUB1_EMISSION_RETROFIT",
+    "label": "SUB-1: engine plane emission retrofitted into the card",
+    "kind": "phase2_g19b_subproblem",
+    "status": "closed_measured",
+    "priority": 3,
+    "summary": "Teammate A (fork 'emission-retrofit'): term-level diff of the engine's validated emission_K21 (Mehler stack + Edgeworth on m,v,k3,k4,C,K21,K22,K31) vs the card's _gaussian_pair -> _connected_planes + _cp_post_read; retrofit into a COPY of the card (public_g20_emission_retrofit_v1), certified per term; raw on r35/r100 with F2J on/off; billed-flop delta. Prices mechanism leaves N1.2a/N1.2b (P2R0G19B_MECH_N1_2A_EMISSION, _N1_2B_PUSHREAD) and N4. RESULT (T-25/T-28, public_g20_emission_retrofit_v1): emission null; mechanism = carried pushed residual; in-card carry is net-negative with F2J on and +17% util; realizing it needs F2J refit + a >=3x cheaper carrier (rank, not rows). Closed as measured.",
+    "terminal_criterion": "Closed when raw delta and bill delta are measured on both nets with F2J on/off (either a deployable gain at ~zero cost, or a coadaptation loss with per-layer plane accuracies reported for SUB-2).",
+    "evidence": [
+      {
+        "claim": "Running 2026-09-01 evening.",
+        "receipt": "experiments/p2_width1024_depth16/public_g20_emission_retrofit_v1/LANE.md (pending)"
+      }
+    ],
+    "decomposition_children": [],
+    "goal_path_summary": "Test whether dropping the engine's better per-layer correlation formula straight into the estimator makes it more accurate for free - or whether the estimator's other parts, tuned around the old formula, fight the change."
+  }
+}

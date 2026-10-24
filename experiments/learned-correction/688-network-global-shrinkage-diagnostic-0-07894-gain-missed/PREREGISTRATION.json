@@ -1,0 +1,33 @@
+{
+  "schema": "q24-g11b-all688-target-blind-shrink-preregistration-v1",
+  "status": "FROZEN_BEFORE_TARGET_BLIND_DIAGNOSTIC",
+  "purpose": "Use only the fleet energy of the integrated alpha=.75 J plus q-head correction and the two same-board raw scores to test whether scalar shrinkage can plausibly recover hidden-board raw gain before any refit.",
+  "formula": {
+    "E": "mean over all 688 networks and 1024 final coordinates of integrated_correction squared",
+    "R0": 2.9409214512554626e-8,
+    "R1": 3.065038697513956e-8,
+    "c": "(E + R0 - R1) / 2",
+    "beta_star": "clip(c/E, 0, 1)",
+    "implied_raw": "R0 + beta_star^2 E - 2 beta_star c"
+  },
+  "integrated_correction": "frozen alpha=.75 native-J final correction plus frozen autonomous q10:q15 final state on each lawful target-free Q24 native tape",
+  "access": {
+    "networks": 688,
+    "role": "observer_fit",
+    "weights_and_target_free_native_tapes": true,
+    "target_columns": [],
+    "names": [],
+    "board_scores": [328586, 328616],
+    "training": false,
+    "submission": false
+  },
+  "decision_law": "diagnostic only; beta_star may motivate a separately validated D1/cap shrink arm but cannot authorize a package or submission",
+  "bindings": {
+    "program_sha256": "3c037779f79174f50911308270c5dfbdd64152366258b2a0141281e0b481298c",
+    "j_source_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "q_source_sha256": "1e4c906936f4685bd800f922ded6c582af8213ecad1fbe41da651faff82be9c3",
+    "alpha_model_sha256": "fc65528720c7e1378ed7011b7b201f4086217a544b092de208ea1064656d9ef5",
+    "q_model_sha256": "5fb57a510d933940f19ddd5ab11650c3a966c2039c6bd12f73988457c2ce91b8",
+    "native_row_aggregate_sha256": "204097b1e43387fdc2080eb690606d7dc34aeda7ca4794cb98382137ebfa3db3"
+  }
+}

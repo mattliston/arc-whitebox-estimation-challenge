@@ -1,0 +1,56 @@
+"""Participant-facing estimator base interfaces."""
+
+from __future__ import annotations
+
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from typing import Optional
+
+import flopscope.numpy as fnp
+
+from .domain import MLP
+
+
+@dataclass(frozen=True)
+class SetupContext:
+    """Runtime context passed to ``BaseEstimator.setup``."""
+
+    width: int
+    depth: int
+    flop_budget: int
+    api_version: str
+    scratch_dir: Optional[str] = None
+    submission_dir: Optional[str] = None
+    """Read-only path to the extracted submission directory (estimator.py plus
+    any files shipped alongside it, e.g. weights). Load shipped files with
+    ``fnp.load(Path(ctx.submission_dir) / "weights.npz")`` (0 FLOPs) or
+    ``MyModule.from_file(...)``. ``None`` outside the runner/grader."""
+    seed: int = 0
+    """Run-level seed for setup-time randomness.
+
+    Same value across all MLPs in a single run. ``0`` when ``--seed`` was not
+    passed. Participants seed their setup-time RNG via
+    ``np.random.default_rng(ctx.seed)``. See
+    docs/reference/estimator-contract.md for the reproducibility contract.
+    """
+
+
+class BaseEstimator(ABC):
+    """Estimator contract for participant implementations.
+
+    Participants subclass this and implement ``predict`` to return
+    predicted means for all layers as a single ``(depth, width)`` flopscope array.
+    """
+
+    @abstractmethod
+    def predict(self, mlp: MLP, budget: int) -> fnp.ndarray:
+        """Return predicted means for all layers, shape ``(depth, width)``."""
+        raise NotImplementedError
+
+    def setup(self, context: SetupContext) -> None:
+        """Optional one-time setup hook before prediction calls."""
+        return None
+
+    def teardown(self) -> None:
+        """Optional cleanup hook after scoring completes."""
+        return None

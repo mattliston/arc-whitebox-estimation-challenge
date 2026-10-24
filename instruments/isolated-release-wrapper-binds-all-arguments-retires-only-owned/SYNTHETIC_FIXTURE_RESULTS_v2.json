@@ -1,0 +1,518 @@
+{
+  "utc": "2026-10-21T10:15:06Z",
+  "status": "EIGHT_SYNTHETIC_METADATA_FIXTURES_PASS_NO_REAL_PROCESS_ACTION",
+  "source": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_release_v1/run_release_isolated_root_v2.py",
+  "source_sha256": "75f0c976d29da6ea94c72281376fbdeccb2a7cc6bd2e9a6b8de0cb45c5ddcd45",
+  "fixture_sha256": "a0c042ed924fa74c30a4553c2356970b2d647635245adc91237f49bead3a7201",
+  "cases": [
+    {
+      "case": "ordinary_tracked_completion",
+      "passed": true,
+      "proof": {
+        "proven": true,
+        "initially_live_after_command": [],
+        "checks": [
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": []
+          },
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": []
+          }
+        ],
+        "uncertainty": [],
+        "owned": [
+          {
+            "pid": 200,
+            "ppid": 100,
+            "pgid": 200,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/bash_release_min",
+            "started": "synthetic-new-200",
+            "state": "S",
+            "via": "Popen root"
+          }
+        ],
+        "observed_new_groups": [
+          200
+        ],
+        "individually_checked_signals": [],
+        "broad_group_signals_used": false
+      }
+    },
+    {
+      "case": "early_bash_exit_nested_sessions_and_reparented_child",
+      "passed": true,
+      "proof": {
+        "proven": true,
+        "initially_live_after_command": [
+          300,
+          301,
+          400,
+          302
+        ],
+        "checks": [
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": []
+          },
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": []
+          }
+        ],
+        "uncertainty": [],
+        "owned": [
+          {
+            "pid": 200,
+            "ppid": 100,
+            "pgid": 200,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/bash_release_min",
+            "started": "synthetic-new-200",
+            "state": "S",
+            "via": "Popen root"
+          },
+          {
+            "pid": 300,
+            "ppid": 200,
+            "pgid": 300,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/new_session_setup",
+            "started": "synthetic-new-300",
+            "state": "S",
+            "via": "observed parent"
+          },
+          {
+            "pid": 301,
+            "ppid": 300,
+            "pgid": 300,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/setup_worker",
+            "started": "synthetic-new-301",
+            "state": "S",
+            "via": "observed parent"
+          },
+          {
+            "pid": 400,
+            "ppid": 301,
+            "pgid": 400,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nested_new_session",
+            "started": "synthetic-new-400",
+            "state": "S",
+            "via": "observed parent"
+          },
+          {
+            "pid": 302,
+            "ppid": 1,
+            "pgid": 300,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/newly_observed_reparented_same_group_worker",
+            "started": "synthetic-new-302",
+            "state": "S",
+            "via": "live owned group anchor"
+          }
+        ],
+        "observed_new_groups": [
+          200,
+          300,
+          400
+        ],
+        "individually_checked_signals": [
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/new_session_setup",
+            "signal": 17
+          },
+          {
+            "pid": 301,
+            "started": "synthetic-new-301",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/setup_worker",
+            "signal": 17
+          },
+          {
+            "pid": 400,
+            "started": "synthetic-new-400",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nested_new_session",
+            "signal": 17
+          },
+          {
+            "pid": 302,
+            "started": "synthetic-new-302",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/newly_observed_reparented_same_group_worker",
+            "signal": 17
+          },
+          {
+            "pid": 301,
+            "started": "synthetic-new-301",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/setup_worker",
+            "signal": 2
+          },
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/new_session_setup",
+            "signal": 2
+          },
+          {
+            "pid": 302,
+            "started": "synthetic-new-302",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/newly_observed_reparented_same_group_worker",
+            "signal": 2
+          },
+          {
+            "pid": 400,
+            "started": "synthetic-new-400",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nested_new_session",
+            "signal": 2
+          }
+        ],
+        "broad_group_signals_used": false
+      }
+    },
+    {
+      "case": "root_exited_before_initial_observation",
+      "passed": true,
+      "proof": {
+        "proven": false,
+        "initially_live_after_command": [],
+        "checks": [
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": [
+              {
+                "pid": 500,
+                "ppid": 1,
+                "pgid": 500,
+                "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/unobserved_orphan",
+                "started": "synthetic-new-500",
+                "state": "S"
+              }
+            ]
+          },
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": [
+              {
+                "pid": 500,
+                "ppid": 1,
+                "pgid": 500,
+                "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/unobserved_orphan",
+                "started": "synthetic-new-500",
+                "state": "S"
+              }
+            ]
+          }
+        ],
+        "uncertainty": [
+          "release root exited before its identity was observed"
+        ],
+        "owned": [],
+        "observed_new_groups": [],
+        "individually_checked_signals": [],
+        "broad_group_signals_used": false
+      }
+    },
+    {
+      "case": "pid_reuse_not_signalled",
+      "passed": true,
+      "proof": {
+        "proven": false,
+        "initially_live_after_command": [],
+        "checks": [
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": [
+              {
+                "pid": 300,
+                "ppid": 1,
+                "pgid": 300,
+                "command": "/Applications/unrelated_reused_pid",
+                "started": "synthetic-reused-start",
+                "state": "S"
+              }
+            ]
+          },
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": [
+              {
+                "pid": 300,
+                "ppid": 1,
+                "pgid": 300,
+                "command": "/Applications/unrelated_reused_pid",
+                "started": "synthetic-reused-start",
+                "state": "S"
+              }
+            ]
+          }
+        ],
+        "uncertainty": [],
+        "owned": [
+          {
+            "pid": 200,
+            "ppid": 100,
+            "pgid": 200,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/bash_release_min",
+            "started": "synthetic-new-200",
+            "state": "S",
+            "via": "Popen root"
+          },
+          {
+            "pid": 300,
+            "ppid": 200,
+            "pgid": 300,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/old_owned_worker",
+            "started": "synthetic-new-300",
+            "state": "S",
+            "via": "observed parent"
+          }
+        ],
+        "observed_new_groups": [
+          200,
+          300
+        ],
+        "individually_checked_signals": [],
+        "broad_group_signals_used": false
+      }
+    },
+    {
+      "case": "unknown_project_process_holds_restoration",
+      "passed": true,
+      "proof": {
+        "proven": false,
+        "initially_live_after_command": [],
+        "checks": [
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": [
+              {
+                "pid": 888,
+                "ppid": 1,
+                "pgid": 888,
+                "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/unowned_new_project_process",
+                "started": "synthetic-new-888",
+                "state": "S"
+              }
+            ]
+          },
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": [
+              {
+                "pid": 888,
+                "ppid": 1,
+                "pgid": 888,
+                "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/unowned_new_project_process",
+                "started": "synthetic-new-888",
+                "state": "S"
+              }
+            ]
+          }
+        ],
+        "uncertainty": [],
+        "owned": [
+          {
+            "pid": 200,
+            "ppid": 100,
+            "pgid": 200,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/bash_release_min",
+            "started": "synthetic-new-200",
+            "state": "S",
+            "via": "Popen root"
+          }
+        ],
+        "observed_new_groups": [
+          200
+        ],
+        "individually_checked_signals": [],
+        "broad_group_signals_used": false
+      }
+    },
+    {
+      "case": "inventory_failure_stays_uncertain_after_recovery",
+      "passed": true,
+      "proof": {
+        "proven": false,
+        "initially_live_after_command": [],
+        "checks": [
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": []
+          },
+          {
+            "owned_survivors": [],
+            "unknown_project_or_group_processes": []
+          }
+        ],
+        "uncertainty": [
+          "process inventory failed: RuntimeError('SYNTHETIC process inventory failure')"
+        ],
+        "owned": [
+          {
+            "pid": 200,
+            "ppid": 100,
+            "pgid": 200,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/bash_release_min",
+            "started": "synthetic-new-200",
+            "state": "S",
+            "via": "Popen root"
+          }
+        ],
+        "observed_new_groups": [
+          200
+        ],
+        "individually_checked_signals": [],
+        "broad_group_signals_used": false
+      }
+    },
+    {
+      "case": "survivor_after_all_three_signals_holds_restoration",
+      "passed": true,
+      "proof": {
+        "proven": false,
+        "initially_live_after_command": [
+          300
+        ],
+        "checks": [
+          {
+            "owned_survivors": [
+              {
+                "pid": 300,
+                "ppid": 1,
+                "pgid": 300,
+                "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+                "started": "synthetic-new-300",
+                "state": "T"
+              }
+            ],
+            "unknown_project_or_group_processes": []
+          },
+          {
+            "owned_survivors": [
+              {
+                "pid": 300,
+                "ppid": 1,
+                "pgid": 300,
+                "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+                "started": "synthetic-new-300",
+                "state": "T"
+              }
+            ],
+            "unknown_project_or_group_processes": []
+          }
+        ],
+        "uncertainty": [],
+        "owned": [
+          {
+            "pid": 200,
+            "ppid": 100,
+            "pgid": 200,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/bash_release_min",
+            "started": "synthetic-new-200",
+            "state": "S",
+            "via": "Popen root"
+          },
+          {
+            "pid": 300,
+            "ppid": 200,
+            "pgid": 300,
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "started": "synthetic-new-300",
+            "state": "S",
+            "via": "observed parent"
+          }
+        ],
+        "observed_new_groups": [
+          200,
+          300
+        ],
+        "individually_checked_signals": [
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "signal": 17
+          },
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "signal": 2
+          },
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "signal": 19
+          },
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "signal": 17
+          },
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "signal": 15
+          },
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "signal": 19
+          },
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "signal": 17
+          },
+          {
+            "pid": 300,
+            "started": "synthetic-new-300",
+            "command": "/Users/matt/arc-white-box-estimation/SYNTHETIC/nonretiring_worker",
+            "signal": 9
+          }
+        ],
+        "broad_group_signals_used": false
+      }
+    },
+    {
+      "case": "all_six_argv_and_identity_verdict_bindings",
+      "passed": true,
+      "rejected_mutations": [
+        "argv_0",
+        "argv_1",
+        "argv_2",
+        "argv_3",
+        "argv_4",
+        "argv_5",
+        "candidate",
+        "candidate_sha256",
+        "reference_archive",
+        "reference_archive_sha256",
+        "archive_directory",
+        "isolation_helper",
+        "runtime_verdict_sha256",
+        "unsafe_tag",
+        "changed_original_release_pin",
+        "verdict_successful",
+        "verdict_material_measured_margin_accepted",
+        "verdict_release_source_sha256"
+      ],
+      "in_memory_only": true,
+      "no_actual_manifest": true
+    }
+  ],
+  "all_eight_pass": true,
+  "real_process_apis_explicitly_forbidden_during_tests": true,
+  "process_table_signal_clock_sleep_dependencies_all_injected": true,
+  "source_imported": "wrapper only; no candidate imports",
+  "main_called": false,
+  "restoration_static_predicate_verified": true,
+  "no_real_signals": true,
+  "no_native": true,
+  "no_actual_release_or_check": true,
+  "no_actual_manifest_or_verdict": true,
+  "no_fire": true
+}

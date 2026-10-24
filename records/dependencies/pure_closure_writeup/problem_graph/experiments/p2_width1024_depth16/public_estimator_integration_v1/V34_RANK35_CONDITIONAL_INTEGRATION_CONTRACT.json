@@ -1,0 +1,234 @@
+{
+  "schema": "phase2-v34-rank35-descriptive-conditional-one-file-integration-contract-v1",
+  "date": "2026-08-31",
+  "status": "STATIC_CONTRACT_READY__STABLE_BYTES_AND_AUDITS_BOUND__BUILD_DENIED_PENDING_RANK35_RAW_LT_1E8",
+  "purpose": "Define the smallest lawful one-file integration spelling for the fixed V34 899-parameter physical head without building, staging, metering, scoring, packaging, or submitting it before the descriptive rank35 raw gate passes.",
+  "pinned_inputs": {
+    "accepted_d11_host": {
+      "path": "../p2r0c1d11_cp3_arena_depth4_full_estimator_v1/estimator.py",
+      "sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e"
+    },
+    "public_output_binding_ruling": {
+      "path": "V34_V2R1_PUBLIC_OUTPUT_BINDING_RULING.json",
+      "sha256": "3591a1e736c116bcb5b71d2711f9f4a0cd4fdbaad2ecfee497f13e49b5c1f424"
+    },
+    "physical_design": {
+      "path": "../public_v34_physical_state_response_sentinel_v2/DESIGN.md",
+      "sha256": "6db96ef9c3fd59b87dddab46f2466102fa16a425dd27afa6b8d819aa4c95379a"
+    },
+    "h4_descriptive_scope_amendment": {
+      "path": "../public_v34_physical_state_response_sentinel_v1/H4_RANK35_DESCRIPTIVE_SCOPE_AMENDMENT_R1.json",
+      "sha256": "5674c5f21ddd523c4def4d94ef86de6807538081bea006f49e04bbeaae542f62"
+    }
+  },
+  "sentinel_binding": {
+    "artifact_directory": "../public_v34_rank35_descriptive_sentinel_v1",
+    "stable_final_declared": true,
+    "freeze_path": "../public_v34_rank35_descriptive_sentinel_v1/IMPLEMENTATION_FREEZE.json",
+    "freeze_sha256": "d77a1348edbe1d67025489a7221802c3ddb56c03a5d138b232196be539254037",
+    "matrix_manifest_path": "../public_v34_rank35_descriptive_sentinel_v1/IMPLEMENTATION_MANIFEST.json",
+    "matrix_manifest_sha256": "4efc59b30c30ddfa46dbac2a21dfc6857247bfa40f358721d60d3ed2d93f5ce3",
+    "static_verification_path": "../public_v34_rank35_descriptive_sentinel_v1/STATIC_VERIFICATION.json",
+    "static_verification_sha256": "e10f69045fcdc5893fcdd4fd0d51e4993b54090276268c60cabfd6353e9674e7",
+    "direct_audit_path": "../public_v34_rank35_descriptive_sentinel_v1/INDEPENDENT_DIRECT_IMPLEMENTATION_AUDIT.json",
+    "direct_audit_sha256": "5ebe12067868940a115e5c0341e5a26c262946a972c1426cf4e360e7d7af77d8",
+    "cubic_audit_path": "../public_v34_rank35_descriptive_sentinel_v1/INDEPENDENT_CUBIC_IMPLEMENTATION_AUDIT.json",
+    "cubic_audit_sha256": "c055739ebb830d8f4b27e29935e9861ac29739d15358fe510993f2ec70f8c343",
+    "h4_audit_path": "../public_v34_rank35_descriptive_sentinel_v1/INDEPENDENT_H4_RELEASE_AUDIT.json",
+    "h4_audit_sha256": "38b78383984fc1f087f61450b393f0c1d16073659789fc5a56e064f6cd400633",
+    "result_path": null,
+    "result_sha256": null,
+    "raw_mse": null,
+    "rank35_preexposed": true,
+    "evidence_scope": "DESCRIPTIVE_ONLY_NOT_FRESH_HELD"
+  },
+  "activation_gate": {
+    "state": "CLOSED_AWAITING_EXECUTION_RELEASE_AND_RAW_RESULT",
+    "comparison": "finite rank35 source_on_mse < 1e-8 and source_on_mse < source_zero_mse",
+    "threshold_strictly_below": 1e-8,
+    "requires_same_frozen_bytes": true,
+    "requires_stable_final_declaration": true,
+    "requires_matrix_manifest": true,
+    "requires_direct_candidate_audit_pass": true,
+    "requires_cubic_candidate_audit_pass": true,
+    "requires_h4_candidate_audit_pass": true,
+    "requires_result_receipt": true,
+    "requires_source_on_beats_source_zero": true,
+    "requires_root_integration_review_after_pass": true,
+    "raw_mse_equal_to_threshold_passes": false,
+    "missing_or_nonfinite_raw_mse_passes": false,
+    "raw_gate_pass_alone_grants_build_authority": false,
+    "raw_gate_pass_alone_grants_package_authority": false
+  },
+  "fixed_head": {
+    "input_order": [
+      "native20",
+      "total_k4_over_sigma4",
+      "uV",
+      "u3",
+      "u4"
+    ],
+    "input_width": 24,
+    "hidden_width": 32,
+    "output_order": [
+      "dV",
+      "d3",
+      "d4"
+    ],
+    "output_width": 3,
+    "activation": "ReLU",
+    "layers": "Linear(24,32)-ReLU-Linear(32,3)",
+    "trainable_float32_values": 899,
+    "normalizer_float64_values": 51,
+    "trainable_bytes": 3596,
+    "normalizer_bytes": 408,
+    "uncompressed_payload_bytes": 4004,
+    "tensor_order": [
+      "input_center",
+      "input_scale",
+      "label_rms",
+      "weight1",
+      "bias1",
+      "weight2",
+      "bias2"
+    ],
+    "tensor_shapes_and_dtypes": {
+      "input_center": {"shape": [24], "dtype": "float64"},
+      "input_scale": {"shape": [24], "dtype": "float64"},
+      "label_rms": {"shape": [3], "dtype": "float64"},
+      "weight1": {"shape": [32, 24], "dtype": "float32"},
+      "bias1": {"shape": [32], "dtype": "float32"},
+      "weight2": {"shape": [3, 32], "dtype": "float32"},
+      "bias2": {"shape": [3], "dtype": "float32"}
+    },
+    "inference_order": "(head24_float64-center_float64)/scale_float64 -> C-contiguous float32 -> float32 affine/ReLU/affine -> float64 -> multiply label_rms_float64"
+  },
+  "public_return": {
+    "shape": [16, 1024],
+    "dtype": "float32",
+    "layout": "C-contiguous depth-major",
+    "rows_0_through_14": "byte-identical accepted-D11 parent rows",
+    "row_15": "float32(parent_row_15.astype(float64) + fused_r15_float64)",
+    "overlaid_rows": [15],
+    "clipping": "forbidden",
+    "endpoint_only_return": "forbidden",
+    "intermediate_response_state_is_public_output": false
+  },
+  "descriptive_target_and_resource_scope": {
+    "target_claim_must_precede_materialization": true,
+    "allowed_target_materialization_after_claim": "already-exposed rank35 all_layer_means with shape [16,1024]",
+    "scored_rows": [15],
+    "scored_target_values": 1024,
+    "other_network_targets_forbidden": true,
+    "complete_modified_estimator_flops_strictly_below": 2199023255552,
+    "absolute_peak_rss_bytes_strictly_below": 8589934592,
+    "wall_seconds_strictly_below": 120.0,
+    "metered_literal_return_shape": [16, 1024],
+    "metered_literal_return_dtype": "float32",
+    "rows_0_through_14_parent_byte_identical": true,
+    "source_zero_exact_pinned_parent": true,
+    "streaming_workspace_262144_byte_proof_required_for_descriptive_pass": false,
+    "streaming_workspace_262144_byte_proof_deferred_to_packaging": true,
+    "descriptive_pass_grants_package_or_streaming_authority": false
+  },
+  "source_zero": {
+    "zero_point": "set dV,d3,d4 to exact zero after frozen head inference",
+    "required_fast_path": "return the unmodified full accepted-D11 parent output",
+    "addition_or_recast_on_fast_path": false,
+    "required_identity": "shape, dtype, C-order bytes, and SHA256 equal the accepted-D11 parent output"
+  },
+  "conditional_one_file_recipe": {
+    "recipe_status": "DECLARATIVE_ONLY_NOT_EXECUTABLE",
+    "host_source_must_match_pinned_sha256": true,
+    "mechanically_inline_only_after_activation": [
+      "frozen provider capture hooks",
+      "frozen 899-parameter mixed-dtype payload",
+      "trainer-identical head inference",
+      "frozen fused response recurrence",
+      "final-row-only full-output assembly",
+      "source-zero parent-byte fast path"
+    ],
+    "forbidden_runtime_dependencies": [
+      "sibling imports",
+      "environment-variable feature flags",
+      "network access",
+      "cache reads",
+      "target reads",
+      "network identity or role branching"
+    ],
+    "required_static_checks_before_any_candidate_call": [
+      "single self-contained estimator.py",
+      "AST parse and py_compile",
+      "no sibling imports or environment reads",
+      "literal payload tensor hashes and decoded-byte hash",
+      "source-zero full-parent byte identity",
+      "source-on final-row-only parity with frozen scientific bytes",
+      "full return shape [16,1024], float32, finite, C-contiguous",
+      "same source SHA through stage, whest, meter, scoring, release, and package"
+    ]
+  },
+  "post_activation_gates_still_required": [
+    "explicit root integration/build authorization",
+    "stable candidate-specific payload and runtime hashes",
+    "source-zero and source-on exact-byte parity receipts",
+    "full-return resource meter under the required runtime",
+    "real incremental streaming workspace proof strictly for any later package gate",
+    "whest validation on the same source SHA",
+    "observer_fit 688 raw MSE strictly below 1e-8",
+    "observer_selection 88 raw MSE strictly below 1e-8",
+    "any separately required fresh-panel scientific release",
+    "release receipt and package receipt on the same source SHA",
+    "explicit root board-submission authorization"
+  ],
+  "fresh_panel_boundary": {
+    "ordered_rows": [757, 746, 780, 759],
+    "official_targets_opened": false,
+    "infrastructure_status": "PAUSED_NONCRITICAL",
+    "rank35_pass_grants_panel_authority": false,
+    "rank35_pass_is_population_inference": false
+  },
+  "closed_gates": {
+    "stable_sentinel_freeze_bound": true,
+    "all_three_candidate_audits_bound": true,
+    "rank35_result_bound": false,
+    "rank35_raw_strictly_below_1e_8": false,
+    "rank35_source_on_beats_source_zero": false,
+    "conditional_integration_reviewed": false,
+    "one_file_built": false,
+    "candidate_staged": false,
+    "whest_validated": false,
+    "resource_meter_run": false,
+    "observer_fit_688_scored": false,
+    "observer_selection_88_scored": false,
+    "package_created": false,
+    "board_submitted": false
+  },
+  "authority": {
+    "static_contract": true,
+    "target": false,
+    "capture": false,
+    "training": false,
+    "estimator_build": false,
+    "estimator_import": false,
+    "estimator_call": false,
+    "staging": false,
+    "whest_candidate_validation": false,
+    "resource": false,
+    "public_score": false,
+    "release": false,
+    "package": false,
+    "network": false,
+    "board": false,
+    "submission": false
+  },
+  "scope": {
+    "target_rows_opened": 0,
+    "estimator_imports": 0,
+    "estimator_calls": 0,
+    "resource_calls": 0,
+    "public_score_calls": 0,
+    "packages_created": 0,
+    "network_actions": 0,
+    "submission_actions": 0
+  }
+}

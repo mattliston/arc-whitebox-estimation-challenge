@@ -1,0 +1,36 @@
+{
+  "asof_utc": "2026-09-26T23:45:49.254020+00:00",
+  "experiments": [
+    {
+      "version": 1,
+      "receipt": "hk233_batch_bench_v1.json",
+      "helper_sha256": "6b3dd9f8f28c20bfa458b0ab7422a49072fca73a5c14ec1c85aa8013d5677328",
+      "status": "Closed at unchanged primitive gate",
+      "batch_cpu_vs_sequential": 0.921641861690504,
+      "batch_cpu_vs_parent": 2.2032121579176067,
+      "aggregate_batch_bill_pct": -4.922131874965608,
+      "all_batch_outputs_equal_sequential": true,
+      "tiny_basis_cases": 54,
+      "native_fp64_fixture_max_abs": 7.105427357601002e-15,
+      "max_rss_bytes": 2271707136,
+      "swap_growth_bytes": 0
+    },
+    {
+      "version": 2,
+      "receipt": "hk233_batch_bench_v2.json",
+      "helper_sha256": "75488ea9ba88781d237e303eda0279bd84735dbbe76f250e145ab36f46d1819f",
+      "status": "Closed at unchanged primitive gate",
+      "batch_cpu_vs_sequential": 0.8880422737941764,
+      "batch_cpu_vs_parent": 2.0561962899262527,
+      "aggregate_batch_bill_pct": -4.922131874965608,
+      "all_batch_outputs_equal_sequential": true,
+      "tiny_basis_cases": 54,
+      "native_fp64_fixture_max_abs": 7.105427357601002e-15,
+      "max_rss_bytes": 2602614784,
+      "swap_growth_bytes": 0
+    }
+  ],
+  "scope": "Four fixed synthetic matrix shapes selected previously from training metadata. No network/target access, estimator score, or general algorithmic lower bound.",
+  "decision": "No estimator candidate, shape/depth retuning, held-out validation or submission. Preserve all sources/results; both batches fail their preregistered CPU gates.",
+  "arena": "v2 repartitions the original total depth6 capacity with separate bounded view caches; no extra arithmetic arena allocated"
+}

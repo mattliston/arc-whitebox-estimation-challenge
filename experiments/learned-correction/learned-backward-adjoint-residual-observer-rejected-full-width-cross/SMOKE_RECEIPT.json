@@ -1,0 +1,58 @@
+{
+  "schema": "public-full688-backward-adjoint-state-cv-smoke-v1",
+  "node": "P2R0F2M",
+  "status": "pass-sealed-smoke-training-held",
+  "seal_sha256": "9220689a0c4b6ff867d0fa4f35fa169a72c77c8380163a2c4aa11bb38f46581b",
+  "preregistration_sha256": "4960dacfaa5b4818aa12a331dd98440399dfbf584ff6eb373877f4e21e940ddd",
+  "program_sha256": "f701c41733d3b58f765b65d0f7767602ed56baeb6f02362d6b2fdac76e7fe808",
+  "run_manifest_sha256": "e01360f99e4a2b92acd3d0432574ca9a18f47e279abcf05e6206f47989fca17a",
+  "observer_fit_readiness": {
+    "available": 688,
+    "expected": 688,
+    "missing": [],
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "repaired_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "unpatched_tail_ranks": [],
+    "ready": true
+  },
+  "fold_sizes": [147, 172, 171, 198],
+  "architecture": {
+    "forward_channels": 4,
+    "backward_channels": 4,
+    "forward_input_features": 44,
+    "backward_input_features": 28,
+    "parameters": 39944,
+    "output_shape": [1, 16, 1024],
+    "forward_state_shape": [1, 16, 1024, 4],
+    "backward_state_shape": [1, 16, 1024, 4],
+    "all_outputs_finite": true,
+    "forward_energy_nonnegative": true,
+    "backward_state_byte_equal_under_two_different_teacher_truths": true,
+    "protected_layers_l0_l1_backward_zero": true
+  },
+  "cost": {
+    "added_over_j_correction": 468946944,
+    "backward_exact_adjoint_transport": 108998656,
+    "backward_typed_cell_reserve": 337928192,
+    "forward_typed_cell_reserve": 586571776,
+    "m_correction_upper": 1520603136,
+    "old_q24_host_plus_m_upper": 2128498062269,
+    "native_q24_host_tape_plus_m_upper": 2133212740857,
+    "headroom_below_exact_2pow41_native_total": 65810514695,
+    "within_phase2_budget": true
+  },
+  "launch_hold": {
+    "training_release_present": false,
+    "fold_files_present": 0,
+    "cv_results_present": false,
+    "release_guard_direct_check": "PASS: training_release_or_raise raised RuntimeError before any dataset/model/optimizer work",
+    "release_guard_reason": "P2R0F2M training is held until a post-native-transfer root release",
+    "required_release": "TRAINING_RELEASE.json must bind a terminal native-transfer result and explicit root authority"
+  },
+  "data_governance": {
+    "observer_selection_targets_opened": 0,
+    "board_or_name_join": false,
+    "training_launched": false,
+    "canonical_graph_edited": false
+  }
+}

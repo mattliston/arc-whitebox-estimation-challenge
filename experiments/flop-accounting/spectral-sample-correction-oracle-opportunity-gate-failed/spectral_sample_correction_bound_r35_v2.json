@@ -1,0 +1,139 @@
+{
+  "rank": 35,
+  "baseline_max_abs": 0.0,
+  "covariance_only_full_read_mean_max_abs": 9.935486892931333e-08,
+  "baseline_raw": 2.0725681550711183e-08,
+  "baseline_projected_adjusted": 4.624306921883503e-09,
+  "measured_bank_first_context_flops": 490645310609,
+  "covariance_reference_samples": 8000000,
+  "card_covariance_min_eigenvalue": -1.0391173775726931e-06,
+  "empirical_projected_variance_min": 2.9130262660247106e-25,
+  "empirical_projected_variance_negative_count": 0,
+  "empirical_covariance_trace": 68.93929476090605,
+  "spectrum": [
+    {
+      "variance_relative_to_mean": 0.001,
+      "modes": 220,
+      "error_energy_fraction": 0.0005331320185332024
+    },
+    {
+      "variance_relative_to_mean": 0.01,
+      "modes": 309,
+      "error_energy_fraction": 0.0034508064462520625
+    },
+    {
+      "variance_relative_to_mean": 0.1,
+      "modes": 530,
+      "error_energy_fraction": 0.06700784612940835
+    },
+    {
+      "variance_relative_to_mean": 1,
+      "modes": 892,
+      "error_energy_fraction": 0.3776811140377557
+    },
+    {
+      "variance_relative_to_mean": 10,
+      "modes": 998,
+      "error_energy_fraction": 0.8182276806919144
+    }
+  ],
+  "records": [
+    {
+      "samples": 512,
+      "optimistic_sample_flops": 9889161216.0,
+      "optimistic_total_utilization": 0.22761672508977426,
+      "empirical8M": {
+        "oracle_expected_raw": 2.070360497058625e-08,
+        "oracle_expected_adjusted": 4.712486760957214e-09,
+        "adjusted_ratio": 1.0190687686962168,
+        "raw_ratio": 0.9989348200651005,
+        "oracle_gain_above_half": 61
+      },
+      "card_model": {
+        "oracle_expected_raw": 2.0702984644978504e-08,
+        "oracle_expected_adjusted": 4.71234556447389e-09,
+        "adjusted_ratio": 1.0190382351512535,
+        "raw_ratio": 0.9989048897775861,
+        "oracle_gain_above_half": 115
+      }
+    },
+    {
+      "samples": 2048,
+      "optimistic_sample_flops": 38349897728.0,
+      "optimistic_total_utilization": 0.24055916962288393,
+      "empirical8M": {
+        "oracle_expected_raw": 2.0638369459140338e-08,
+        "oracle_expected_adjusted": 4.964749019461088e-09,
+        "adjusted_ratio": 1.0736201345041607,
+        "raw_ratio": 0.9957872511281614,
+        "oracle_gain_above_half": 72
+      },
+      "card_model": {
+        "oracle_expected_raw": 2.0637801150965404e-08,
+        "oracle_expected_adjusted": 4.964612307718435e-09,
+        "adjusted_ratio": 1.0735905707781879,
+        "raw_ratio": 0.9957598306463044,
+        "oracle_gain_above_half": 116
+      }
+    },
+    {
+      "samples": 8192,
+      "optimistic_sample_flops": 153399590912.0,
+      "optimistic_total_utilization": 0.2928777128186084,
+      "empirical8M": {
+        "oracle_expected_raw": 2.0387797775271223e-08,
+        "oracle_expected_adjusted": 5.9711315818297486e-09,
+        "adjusted_ratio": 1.2912489769164537,
+        "raw_ratio": 0.9836973382702405,
+        "oracle_gain_above_half": 80
+      },
+      "card_model": {
+        "oracle_expected_raw": 2.0387281852120954e-08,
+        "oracle_expected_adjusted": 5.970980479437508e-09,
+        "adjusted_ratio": 1.2912163012323365,
+        "raw_ratio": 0.9836724453300973,
+        "oracle_gain_above_half": 118
+      }
+    },
+    {
+      "samples": 32768,
+      "optimistic_sample_flops": 613598363648.0,
+      "optimistic_total_utilization": 0.5021518856015064,
+      "empirical8M": {
+        "oracle_expected_raw": 1.951470049765018e-08,
+        "oracle_expected_adjusted": 9.799343651843693e-09,
+        "adjusted_ratio": 2.1190945621430273,
+        "raw_ratio": 0.9415709900734507,
+        "oracle_gain_above_half": 97
+      },
+      "card_model": {
+        "oracle_expected_raw": 1.9514118599567212e-08,
+        "oracle_expected_adjusted": 9.799051450624102e-09,
+        "adjusted_ratio": 2.1190313740319167,
+        "raw_ratio": 0.9415429138877994,
+        "oracle_gain_above_half": 128
+      }
+    },
+    {
+      "samples": 131072,
+      "optimistic_sample_flops": 2454393454592.0,
+      "optimistic_total_utilization": 1.3392485767330982,
+      "empirical8M": {
+        "oracle_expected_raw": 1.712917142552627e-08,
+        "oracle_expected_adjusted": 2.2940218452253313e-08,
+        "adjusted_ratio": 4.960790630849746,
+        "raw_ratio": 0.8264708392635945,
+        "oracle_gain_above_half": 154
+      },
+      "card_model": {
+        "oracle_expected_raw": 1.7128486428152075e-08,
+        "oracle_expected_adjusted": 2.2939301070494854e-08,
+        "adjusted_ratio": 4.960592248308545,
+        "raw_ratio": 0.8264377886074549,
+        "oracle_gain_above_half": 179
+      }
+    }
+  ],
+  "wall_s": 12.562744140625,
+  "qualification": "Nondeployable per-mode oracle opportunity bound in a target-blind full-pair covariance endpoint read of the bank prefix; exact scalar-final bank mean baseline. Existing documented1e9 means and noisy float32 8M covariance. Cost omits eigensolver, random generation, projection and reductions. No new samples, training, candidate score, measured total bill or runtime claim."
+}

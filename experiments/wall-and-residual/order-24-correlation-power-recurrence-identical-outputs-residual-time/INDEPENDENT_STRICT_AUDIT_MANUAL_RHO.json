@@ -1,0 +1,309 @@
+{
+  "schema": "fb-ec4-q24-manual-rho-independent-strict-audit-v1",
+  "status": "PASS_INDEPENDENT_EXACT_BYTE_SOURCE_AND_METER_PROJECTION__IMMUTABLE_HOLD__RUNTIME_UNMEASURED",
+  "audited_at_utc": "2026-08-24T11:35:46Z",
+  "audit_scope": {
+    "mode": "independent read-only exact-byte source audit, target-free small-fixture replay, IEEE-754 poison probe, native-out verification, and exact FlopScope bill projection",
+    "candidate_edits": 0,
+    "canonical_graph_edits": 0,
+    "dataset_members_opened": 0,
+    "public_targets_opened": 0,
+    "synthetic_targets_opened": 0,
+    "truth_computed": false,
+    "raw_mse_or_score_computed": false,
+    "fits": 0,
+    "samples": 0,
+    "fullshape_width1024_runs": 0,
+    "packages": 0,
+    "submissions": 0
+  },
+  "bindings": {
+    "candidate_estimator": {
+      "path": "estimator.py",
+      "bytes": 68143,
+      "sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00"
+    },
+    "parent_q24_estimator": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/estimator.py",
+      "bytes": 68115,
+      "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52"
+    },
+    "preregister": {
+      "path": "PREREGISTER.md",
+      "bytes": 7076,
+      "sha256": "9ae59456d76296352b25fae973b6fcc6f50c37d39e5d46b0192577ed1a2c5eb4"
+    },
+    "billing_amendment": {
+      "path": "PREREGISTER_AMENDMENT_001.md",
+      "bytes": 2177,
+      "sha256": "277450dba06934c9d6387e4d0d9b684d252e6b9b5d437335bb69460498160d3b"
+    },
+    "source_manifest": {
+      "path": "SOURCE_MANIFEST.json",
+      "bytes": 6684,
+      "sha256": "e3b9200ccc2fd0c96862c78c8ad0f6163e2de782c002a66fd031b108f5c1ac3b"
+    },
+    "author_freeze_receipt": {
+      "path": "FREEZE_RECEIPT_MANUAL_RHO.json",
+      "bytes": 4778,
+      "sha256": "3f5df4f1d8e72afaec93e9e87c1e738e56f4a37350ef88ab33a3d35c0b46dc61"
+    },
+    "author_verification": {
+      "path": "AUTHOR_VERIFICATION.json",
+      "bytes": 9622,
+      "sha256": "7fd2d0d0c60b57f62bce611705ede248bdfd06b790fc2072e440070f9b672e4f"
+    },
+    "author_verifier": {
+      "path": "verify_candidate.py",
+      "bytes": 23129,
+      "sha256": "6f86026bd4ffb7f5c25dacdce8bcc086012463f405146a284996c0436912cdec"
+    },
+    "parent_literal_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_q24_full_v1_b38cd865_n1_s8_seed20260824/receipt.json",
+      "sha256": "d69fd338972386af2c45f120d2983d5036a9a52ae57845a01977658e4c21fd11"
+    }
+  },
+  "source_delta": {
+    "whole_source_exact_single_replacement": true,
+    "changed_executable_functions_exact": [
+      "_q24_context"
+    ],
+    "removed": "broadcast_to(correlation,(24,w,w)) followed by axis-0 cumprod into powers[1:]",
+    "added": "copy correlation into powers[1], then q=2..24 multiply powers[q-1] by correlation into powers[q]",
+    "left_associated": true,
+    "q0_is_positive_one": true,
+    "q1_is_post_clip_correlation_copy": true,
+    "q2_through_q24_use_immediately_preceding_stored_plane": true,
+    "inclusive_q_axis": [
+      0,
+      24
+    ],
+    "all_other_source_bytes_equal_parent": true,
+    "imports_unchanged_and_legal": true,
+    "production_guard_unchanged": true
+  },
+  "native_out_legality": {
+    "status": "PASS_PINNED_FLOPSCOPE_UFUNC_NATIVE_OUT",
+    "flopscope_version": "0.12.0",
+    "numpy_backend_version": "2.4.6",
+    "installed_pointwise_source_path": "../data_gate/.venv/lib/python3.11/site-packages/flopscope/_pointwise.py",
+    "installed_pointwise_source_sha256": "7d376515446f1b174bef375c48116a552098bd514f5552450876f56822beb0c7",
+    "static_route": "fnp.multiply is _counted_binary(_np.multiply); NumPy ufuncs declare supports_out true; the supplied output is forwarded to the NumPy ufunc",
+    "dynamic_shape": [
+      4,
+      4
+    ],
+    "dynamic_dtype": "float64",
+    "return_is_supplied_destination": true,
+    "return_shares_supplied_destination": true,
+    "metered_multiply_calls": 1,
+    "metered_multiply_flops": 32,
+    "fallback_copy_observed": false
+  },
+  "ieee754_poison_and_association": {
+    "status": "PASS_PARENT_BITWISE_AND_COMPLETE_OVERWRITE",
+    "arena_shape": [
+      25,
+      4,
+      4
+    ],
+    "arena_initial_poison_bits": "0x7ff80000deadbeef",
+    "initial_poison_elements": 400,
+    "surviving_poison_elements": 0,
+    "all_five_returned_context_fields_parent_bitwise_equal": true,
+    "candidate_equals_manual_recurrence_from_parent_post_clip_rho1": true,
+    "post_clip_nan_payload_at_q1": "0x7ff8000000005678",
+    "negative_zero_power_bits_q1_through_q5": [
+      "0x8000000000000000",
+      "0x0000000000000000",
+      "0x8000000000000000",
+      "0x0000000000000000",
+      "0x8000000000000000"
+    ],
+    "context_flop_delta": 32,
+    "context_call_delta": 22,
+    "scope_note": "FlopScope clip quiets a signaling NaN before either rho-power implementation consumes it. The candidate copies the resulting q1 payload exactly and matches the parent bitwise through q24."
+  },
+  "canonical_depth16_replay": {
+    "status": "PASS_ALL_FOUR_FINITE_AND_RAW_OUTPUT_BYTES_EQUAL",
+    "width": 8,
+    "rows": [
+      {
+        "fixture": "identity_width8_float32",
+        "raw_c_order_output_sha256": "ba83ddeb5a0b86ce04aec1d29c0403d97ceeba8f0d08355f44afade720560307",
+        "flop_delta": 1920,
+        "call_delta": 330
+      },
+      {
+        "fixture": "near_identity_seed20260823_scale0p02_float32",
+        "raw_c_order_output_sha256": "23f5a66b2fe711d13ad0d75ba65f178d7af056061298c18a031627a9114484d9",
+        "flop_delta": 1920,
+        "call_delta": 330
+      },
+      {
+        "fixture": "qr_seed20260823_scale0p35_float64",
+        "raw_c_order_output_sha256": "24eb16d8e537e729412f3ccd2b3d29351b908fe10f4cbaf0df7e60e9b0a549c0",
+        "flop_delta": 1920,
+        "call_delta": 330
+      },
+      {
+        "fixture": "pure_normal_seed17_scale0p12_float32",
+        "raw_c_order_output_sha256": "48aa0ae65e1c3a1b8c2be00dd3e9905636c2bb366dec7bae64c1bfb046c95453",
+        "flop_delta": 1920,
+        "call_delta": 330
+      }
+    ]
+  },
+  "official_he_small_panel_replay": {
+    "status": "PASS_ALL_SIX_PARENT_OUTCOMES_EQUAL",
+    "weight_law": "float32(default_rng(seed).standard_normal((w,w))*sqrt(2/w)), depth16",
+    "rows": [
+      {
+        "width": 32,
+        "seed": 20260825,
+        "outcome": "FINITE_BITWISE_EQUAL",
+        "raw_c_order_output_sha256": "d6b20d625721afa58bad733ad52633d121c8d99a63a504ab6d05f33e8c8fdbef"
+      },
+      {
+        "width": 32,
+        "seed": 20260826,
+        "outcome": "MATCHED_EXCEPTION",
+        "exception_type": "FloatingPointError",
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean"
+      },
+      {
+        "width": 64,
+        "seed": 20260825,
+        "outcome": "MATCHED_EXCEPTION",
+        "exception_type": "FloatingPointError",
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean"
+      },
+      {
+        "width": 64,
+        "seed": 20260826,
+        "outcome": "MATCHED_EXCEPTION",
+        "exception_type": "FloatingPointError",
+        "exception_message": "FB-EC4-Q24 produced a nonfinite reported mean"
+      },
+      {
+        "width": 128,
+        "seed": 20260825,
+        "outcome": "FINITE_BITWISE_EQUAL",
+        "raw_c_order_output_sha256": "34c4146cd7f0660e296416f171af6007174e2c5ac9d016dfdd3ae9ede0bf02f3"
+      },
+      {
+        "width": 128,
+        "seed": 20260826,
+        "outcome": "FINITE_BITWISE_EQUAL",
+        "raw_c_order_output_sha256": "61a593ab0f8e20e878898afba652c0f730b99d9a115baa06583d229ece4de4a0"
+      }
+    ],
+    "claim_boundary": "The three matched exceptions preserve pre-existing off-contract Q24 nonfiniteness; they do not establish global stability."
+  },
+  "exact_price_replay": {
+    "status": "PASS_ALL_REGISTERED_WIDTHS_AND_OPERATION_COMPONENTS",
+    "widths": [
+      4,
+      5,
+      6,
+      8,
+      12,
+      16
+    ],
+    "whole_prediction_delta_law": "+30*w^2 weighted FLOPs and +330 calls",
+    "observed_flop_deltas": [
+      480,
+      750,
+      1080,
+      1920,
+      4320,
+      7680
+    ],
+    "observed_call_deltas": [
+      330,
+      330,
+      330,
+      330,
+      330,
+      330
+    ],
+    "operation_delta_law": {
+      "copyto": {
+        "calls": 15,
+        "flops": "+30*w^2"
+      },
+      "multiply": {
+        "calls": 345,
+        "flops": "+690*w^2"
+      },
+      "broadcast_to": {
+        "calls": -15,
+        "flops": 0
+      },
+      "cumprod": {
+        "calls": -15,
+        "flops": "-690*w^2"
+      }
+    }
+  },
+  "production_projection": {
+    "authority": "immutable parent literal meter plus independently verified exact source-delta law; no candidate full-shape run",
+    "phase2_budget_flops": 2199023255552,
+    "parent_literal_flops": 2131249329109,
+    "candidate_delta_flops": 31457280,
+    "candidate_projected_flops": 2131280786389,
+    "candidate_projected_budget_fraction": 0.9691942916056178,
+    "candidate_projected_budget_percent": 96.91942916056178,
+    "candidate_projected_headroom_flops": 67742469163,
+    "parent_literal_calls": 6878,
+    "candidate_projected_calls": 7208,
+    "candidate_literal_fullshape_meter": null,
+    "candidate_wall_seconds": null,
+    "candidate_residual_seconds": null,
+    "candidate_descendant_rss_bytes": null
+  },
+  "replay": {
+    "author_verifier_command": "../data_gate/.venv/bin/python -B verify_candidate.py",
+    "author_verifier_exit_code": 0,
+    "author_verifier_core_status": "PASS_TARGET_FREE_BITWISE_AND_EXACT_PRICE__IMMUTABLE_HOLD",
+    "author_verifier_stdout_sha256": "e768f69dc20c6c50bd73d3ea30d0923954fb3dd1ddde454285aac88cc5def4ea",
+    "independent_probe_status": "PASS_INDEPENDENT_EXACT_BYTE_METER_ONLY_AUDIT",
+    "namespace_pycache_count_after_replay": 0,
+    "namespace_pyc_count_after_replay": 0
+  },
+  "audit_diagnostic": {
+    "initial_external_reference_assertion": "The first independent poison probe incorrectly expected raw NumPy clip to preserve the same signaling-NaN payload as the pinned FlopScope clip path.",
+    "observed": "Pinned FlopScope clip quieted the signaling NaN before both parent and candidate rho builders. All parent-versus-candidate context fields were already bitwise equal.",
+    "correction": "The independent recurrence authority was correctly anchored at the parent's post-clip rho1 bytes, then advanced left-associatively through q24.",
+    "candidate_gate_changed": false,
+    "candidate_rerun_or_mutation": false
+  },
+  "verdict": {
+    "exact_source_scope": "PASS",
+    "left_associated_rho_powers": "PASS",
+    "native_out_legality": "PASS",
+    "signed_zero_and_nan_poison_behavior": "PASS_PARENT_BITWISE",
+    "canonical_target_free_bitwise_parity": "PASS",
+    "official_he_small_panel_outcome_parity": "PASS",
+    "exact_flops_and_call_projection": "PASS",
+    "phase2_projected_flop_admission": "PASS",
+    "fullshape_literal_meter": "NOT_RUN_NOT_AUTHORIZED",
+    "wall_residual_memory": "UNMEASURED",
+    "raw_mse_accuracy_or_score": "UNOPENED_AND_UNSCORED",
+    "strongest_authority": "IMMUTABLE_METER_ONLY_HOLD",
+    "promotion": "HOLD_PENDING_SEPARATE_FULLSHAPE_RUNTIME_AUTHORITY"
+  },
+  "negative_controls": {
+    "self_hash_intentionally_external": true,
+    "candidate_estimator_unchanged_after_author_handoff": true,
+    "candidate_estimator_unchanged_during_independent_audit": true,
+    "dataset_argument": null,
+    "target_reads": 0,
+    "truth_computed": false,
+    "accuracy_scored": false,
+    "fullshape_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "graph_edits": 0
+  }
+}

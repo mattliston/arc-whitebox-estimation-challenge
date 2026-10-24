@@ -1,0 +1,988 @@
+{
+ "dir": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_release_v1/rel_lowreslr2_20261016_opus_v1",
+ "limits": {
+  "first": 42700,
+  "warm": 41200,
+  "worst_wall_s": 106.0,
+  "setup_s": 4.6
+ },
+ "normal_35_requests": 41911,
+ "normal_100_requests": 40744,
+ "slow_35_requests": 42304,
+ "slow_100_requests": 40945,
+ "worst_wall_s": 92.1,
+ "mean_wall_s": 85.3,
+ "setup_s": 4.442,
+ "slow_setup_s": 4.585,
+ "residual_projection": {
+  "mean": 0.31559837404772706,
+  "median": 0.3169365363647362,
+  "p95": 0.3285789534398193,
+  "max": 0.37561783700149365,
+  "ratio_first": 0.885559096126396,
+  "ratio_warm": 0.8898466739570537,
+  "ref_mean": 0.35475500305999946,
+  "ref_median": 0.3563534375000046,
+  "ref_p95": 0.36925344899999857,
+  "ref_max": 0.42211523399998896,
+  "over_0p4": 0,
+  "median_7p77us_warm": 0.31658088,
+  "median_7p77us_first": 0.32564847
+ },
+ "wall_projection": {
+  "ref_median_roundtrip_s": 96.32181180499902,
+  "judge_mean_ratio_vs_s2tr": 0.8403940886699507,
+  "median_roundtrip_s": 80.94828125090065
+ },
+ "residual_median_gate": {
+  "median": 0.3170999211125419,
+  "limit": 0.32,
+  "passed": true
+ },
+ "python_instr_per_request": {
+  "35": {
+   "build": 45328.1803106583,
+   "s2tr": 45319.718480648975,
+   "ratio": 1.0001867140903125
+  },
+  "100": {
+   "build": 45062.089240133515,
+   "s2tr": 45201.94047671209,
+   "ratio": 0.9969060789182131
+  }
+ },
+ "noise": {
+  "family": {
+   "runs": [
+    "336412",
+    "336389",
+    "336381",
+    "336397",
+    "336392"
+   ],
+   "nets": 500,
+   "residual_sd": 0.02824498190227504,
+   "residual_q999": 0.16946430796649514,
+   "wall_sd": 0.030608825053315462,
+   "wall_q999": 0.14867820060142126
+  },
+  "post": {
+   "runs": [
+    "336506",
+    "336412",
+    "336367",
+    "336389",
+    "336381",
+    "336397",
+    "336392",
+    "336351"
+   ],
+   "nets": 800,
+   "residual_sd": 0.035475609849654234,
+   "residual_q999": 0.2611433962194575,
+   "wall_sd": 0.03759561254418368,
+   "wall_q999": 0.2122762753255407
+  },
+  "pre": {
+   "runs": [
+    "336075",
+    "336101",
+    "336119",
+    "336334",
+    "336294",
+    "336178",
+    "336185",
+    "335661",
+    "335696",
+    "335709",
+    "335822",
+    "335782",
+    "335954",
+    "335894",
+    "335920",
+    "336342",
+    "336125"
+   ],
+   "nets": 1700,
+   "residual_sd": 0.02485560576351616,
+   "residual_q999": 0.11991008473975469,
+   "wall_sd": 0.02624944205634254,
+   "wall_q999": 0.10615429813347155
+  }
+ },
+ "network_effect_sd": {
+  "residual": 0.017803777479022634,
+  "wall": 0.032495145221521055
+ },
+ "p_fail": {
+  "THIS BUILD": {
+   "median_residual": 0.3170999211125419,
+   "median_wall": 80.94828125090065,
+   "family": {
+    "residual": {
+     "any": 0.0040000000000000036,
+     "public": 0.0040000000000000036,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.0040000000000000036,
+     "public": 0.0040000000000000036,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 5
+    }
+   },
+   "post": {
+    "residual": {
+     "any": 0.16702430812616065,
+     "public": 0.10657784090786326,
+     "worst_nets": [
+      4,
+      1,
+      0,
+      3,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.16702430812616065,
+     "public": 0.10657784090786326,
+     "worst_nets": [
+      4,
+      1,
+      0,
+      3,
+      7
+     ]
+    },
+    "run_boot": {
+     "any": 0.25,
+     "public": 0.25,
+     "runs": 8
+    }
+   },
+   "pre": {
+    "residual": {
+     "any": 0.0035242255223241203,
+     "public": 0.0035242255223241203,
+     "worst_nets": [
+      0,
+      1,
+      3,
+      4,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.0035242255223241203,
+     "public": 0.0035242255223241203,
+     "worst_nets": [
+      0,
+      1,
+      3,
+      4,
+      7
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 17
+    }
+   }
+  },
+  "this build, residual = warm requests x 7.77 us": {
+   "median_residual": 0.31658088,
+   "median_wall": 80.94828125090065,
+   "family": {
+    "residual": {
+     "any": 0.0040000000000000036,
+     "public": 0.0040000000000000036,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.0040000000000000036,
+     "public": 0.0040000000000000036,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 5
+    }
+   },
+   "post": {
+    "residual": {
+     "any": 0.1575626470400887,
+     "public": 0.09868991425400853,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      3,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.1575626470400887,
+     "public": 0.09868991425400853,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      3,
+      7
+     ]
+    },
+    "run_boot": {
+     "any": 0.25,
+     "public": 0.25,
+     "runs": 8
+    }
+   },
+   "pre": {
+    "residual": {
+     "any": 0.0035242255223241203,
+     "public": 0.0035242255223241203,
+     "worst_nets": [
+      0,
+      1,
+      3,
+      4,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.0035242255223241203,
+     "public": 0.0035242255223241203,
+     "worst_nets": [
+      0,
+      1,
+      3,
+      4,
+      7
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 17
+    }
+   }
+  },
+  "check: lead family .32 -> 1.3% (post .355 -> 89/70)": {
+   "median_residual": 0.32,
+   "median_wall": null,
+   "family": {
+    "residual": {
+     "any": 0.007987999999999995,
+     "public": 0.007987999999999995,
+     "worst_nets": [
+      4,
+      1,
+      0,
+      2,
+      3
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.007987999999999995,
+     "public": 0.007987999999999995,
+     "worst_nets": [
+      4,
+      1,
+      0,
+      2,
+      3
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 5
+    }
+   },
+   "post": {
+    "residual": {
+     "any": 0.19979009534864178,
+     "public": 0.12762963125474436,
+     "worst_nets": [
+      4,
+      1,
+      3,
+      9,
+      0
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.19979009534864178,
+     "public": 0.12762963125474436,
+     "worst_nets": [
+      4,
+      1,
+      3,
+      9,
+      0
+     ]
+    },
+    "run_boot": {
+     "any": 0.375,
+     "public": 0.25,
+     "runs": 8
+    }
+   },
+   "pre": {
+    "residual": {
+     "any": 0.006451590638315241,
+     "public": 0.006451590638315241,
+     "worst_nets": [
+      0,
+      1,
+      3,
+      4,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.006451590638315241,
+     "public": 0.006451590638315241,
+     "worst_nets": [
+      0,
+      1,
+      3,
+      4,
+      7
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 17
+    }
+   }
+  },
+  "check: lead family .315 -> 0%": {
+   "median_residual": 0.315,
+   "median_wall": null,
+   "family": {
+    "residual": {
+     "any": 0.0020000000000000018,
+     "public": 0.0020000000000000018,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.0020000000000000018,
+     "public": 0.0020000000000000018,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 5
+    }
+   },
+   "post": {
+    "residual": {
+     "any": 0.14049977879107856,
+     "public": 0.08502814054880647,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      3,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.14049977879107856,
+     "public": 0.08502814054880647,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      3,
+      7
+     ]
+    },
+    "run_boot": {
+     "any": 0.25,
+     "public": 0.25,
+     "runs": 8
+    }
+   },
+   "pre": {
+    "residual": {
+     "any": 0.0023508658659499027,
+     "public": 0.0023508658659499027,
+     "worst_nets": [
+      1,
+      3,
+      4,
+      9,
+      0
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.0023508658659499027,
+     "public": 0.0023508658659499027,
+     "worst_nets": [
+      1,
+      3,
+      4,
+      9,
+      0
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 17
+    }
+   }
+  },
+  "check: post .355 / lead 89/70": {
+   "median_residual": 0.355,
+   "median_wall": null,
+   "family": {
+    "residual": {
+     "any": 0.6969911721813351,
+     "public": 0.480482758112725,
+     "worst_nets": [
+      4,
+      1,
+      9,
+      0,
+      2
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.6969911721813351,
+     "public": 0.480482758112725,
+     "worst_nets": [
+      4,
+      1,
+      9,
+      0,
+      2
+     ]
+    },
+    "run_boot": {
+     "any": 1.0,
+     "public": 0.2,
+     "runs": 5
+    }
+   },
+   "post": {
+    "residual": {
+     "any": 0.8776993592916387,
+     "public": 0.6895716100361353,
+     "worst_nets": [
+      4,
+      1,
+      9,
+      3,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.8776993592916387,
+     "public": 0.6895716100361353,
+     "worst_nets": [
+      4,
+      1,
+      9,
+      3,
+      7
+     ]
+    },
+    "run_boot": {
+     "any": 1.0,
+     "public": 0.5,
+     "runs": 8
+    }
+   },
+   "pre": {
+    "residual": {
+     "any": 0.21341358012084477,
+     "public": 0.16571362179391103,
+     "worst_nets": [
+      4,
+      1,
+      9,
+      3,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.21341358012084477,
+     "public": 0.16571362179391103,
+     "worst_nets": [
+      4,
+      1,
+      9,
+      3,
+      7
+     ]
+    },
+    "run_boot": {
+     "any": 0.23529411764705882,
+     "public": 0.23529411764705882,
+     "runs": 17
+    }
+   }
+  },
+  "check: lead family wall 96.6 s -> ~0%": {
+   "median_residual": 0.3,
+   "median_wall": 96.6,
+   "family": {
+    "residual": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 5
+    }
+   },
+   "post": {
+    "residual": {
+     "any": 0.01119546263455462,
+     "public": 0.01119546263455462,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      3,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.126531990544117,
+     "public": 0.0942289514715755,
+     "worst_nets": [
+      1,
+      21,
+      23,
+      28,
+      68
+     ]
+    },
+    "either": {
+     "any": 0.13089933745824023,
+     "public": 0.09875781383501459,
+     "worst_nets": [
+      1,
+      4,
+      21,
+      23,
+      28
+     ]
+    },
+    "run_boot": {
+     "any": 0.125,
+     "public": 0.125,
+     "runs": 8
+    }
+   },
+   "pre": {
+    "residual": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "wall": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "either": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 17
+    }
+   }
+  },
+  "check: lead family wall 100 s -> 2.9%": {
+   "median_residual": 0.3,
+   "median_wall": 100.0,
+   "family": {
+    "residual": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "wall": {
+     "any": 0.045021203825413414,
+     "public": 0.03540610097290653,
+     "worst_nets": [
+      1,
+      21,
+      23,
+      68,
+      74
+     ]
+    },
+    "either": {
+     "any": 0.045021203825413414,
+     "public": 0.03540610097290653,
+     "worst_nets": [
+      1,
+      21,
+      23,
+      68,
+      74
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 5
+    }
+   },
+   "post": {
+    "residual": {
+     "any": 0.01119546263455462,
+     "public": 0.01119546263455462,
+     "worst_nets": [
+      4,
+      0,
+      1,
+      3,
+      7
+     ]
+    },
+    "wall": {
+     "any": 0.3213208454678653,
+     "public": 0.21604728554473906,
+     "worst_nets": [
+      68,
+      74,
+      1,
+      21,
+      23
+     ]
+    },
+    "either": {
+     "any": 0.32302502256007004,
+     "public": 0.21801580667644693,
+     "worst_nets": [
+      68,
+      74,
+      1,
+      21,
+      23
+     ]
+    },
+    "run_boot": {
+     "any": 0.25,
+     "public": 0.25,
+     "runs": 8
+    }
+   },
+   "pre": {
+    "residual": {
+     "any": 0.0,
+     "public": 0.0,
+     "worst_nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "wall": {
+     "any": 0.0011761245674740683,
+     "public": 0.0,
+     "worst_nets": [
+      68,
+      74,
+      0,
+      1,
+      2
+     ]
+    },
+    "either": {
+     "any": 0.0011761245674740683,
+     "public": 0.0,
+     "worst_nets": [
+      68,
+      74,
+      0,
+      1,
+      2
+     ]
+    },
+    "run_boot": {
+     "any": 0.0,
+     "public": 0.0,
+     "runs": 17
+    }
+   }
+  }
+ },
+ "count_gates_v4_pass": true
+}

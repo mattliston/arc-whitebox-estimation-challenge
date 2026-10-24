@@ -1,0 +1,367 @@
+{
+  "status": "METADATA_ONLY",
+  "models": 0,
+  "source_sha256": "6c972ee07e4fc1cc1b6abce7437bdd371f7f7253963611bb66f2083dc27e7b7c",
+  "rows": [
+    {
+      "label": "four",
+      "excluded": [
+        [
+          "push",
+          [
+            1024,
+            992,
+            8064
+          ]
+        ],
+        [
+          "push",
+          [
+            1024,
+            992,
+            8128
+          ]
+        ],
+        [
+          "read",
+          [
+            992,
+            6144,
+            928,
+            0
+          ]
+        ],
+        [
+          "read",
+          [
+            1024,
+            4096,
+            960,
+            0
+          ]
+        ]
+      ],
+      "dead_families": [
+        "peel6_p20_5_11_5"
+      ],
+      "phases": {
+        "_smx_bind": {
+          "flops": 5082368140,
+          "requests": 1006,
+          "charged": 335,
+          "backend": {
+            "reshape": 146,
+            "moveaxis": 150,
+            "transpose": 39
+          },
+          "views": {
+            "getitem": 671
+          }
+        },
+        "_peel_bind_read_io": {
+          "flops": 786161664,
+          "requests": 465,
+          "charged": 117,
+          "backend": {
+            "empty": 1,
+            "reshape": 116
+          },
+          "views": {
+            "getitem": 348
+          }
+        },
+        "_peel_prebind_topology": {
+          "flops": 3248582656,
+          "requests": 2887,
+          "charged": 1901,
+          "backend": {
+            "unstack": 530,
+            "split": 1175,
+            "reshape": 139,
+            "moveaxis": 57
+          },
+          "views": {
+            "getitem": 986
+          }
+        },
+        "_sm12_prebind_topology": {
+          "flops": 562913280,
+          "requests": 725,
+          "charged": 574,
+          "backend": {
+            "unstack": 119,
+            "split": 392,
+            "reshape": 47,
+            "moveaxis": 16
+          },
+          "views": {
+            "getitem": 151
+          }
+        }
+      },
+      "calls": 5083,
+      "flops": 9680025740,
+      "frames": 13,
+      "side_cache": 104,
+      "io_cache": 114,
+      "groups": 86,
+      "read_io": 58
+    },
+    {
+      "label": "all_push_off_three_reads",
+      "excluded": [
+        [
+          "push",
+          [
+            736,
+            768,
+            6272
+          ]
+        ],
+        [
+          "push",
+          [
+            736,
+            800,
+            6464
+          ]
+        ],
+        [
+          "push",
+          [
+            768,
+            800,
+            6144
+          ]
+        ],
+        [
+          "push",
+          [
+            832,
+            768,
+            4928
+          ]
+        ],
+        [
+          "push",
+          [
+            896,
+            928,
+            5568
+          ]
+        ],
+        [
+          "push",
+          [
+            896,
+            928,
+            7168
+          ]
+        ],
+        [
+          "push",
+          [
+            960,
+            896,
+            7232
+          ]
+        ],
+        [
+          "push",
+          [
+            960,
+            928,
+            5504
+          ]
+        ],
+        [
+          "push",
+          [
+            960,
+            928,
+            5568
+          ]
+        ],
+        [
+          "push",
+          [
+            960,
+            928,
+            7360
+          ]
+        ],
+        [
+          "push",
+          [
+            960,
+            960,
+            5632
+          ]
+        ],
+        [
+          "push",
+          [
+            1024,
+            928,
+            9984
+          ]
+        ],
+        [
+          "push",
+          [
+            1024,
+            960,
+            8128
+          ]
+        ],
+        [
+          "push",
+          [
+            1024,
+            960,
+            9920
+          ]
+        ],
+        [
+          "push",
+          [
+            1024,
+            960,
+            9984
+          ]
+        ],
+        [
+          "push",
+          [
+            1024,
+            992,
+            8064
+          ]
+        ],
+        [
+          "push",
+          [
+            1024,
+            992,
+            8128
+          ]
+        ],
+        [
+          "push",
+          [
+            1024,
+            992,
+            9984
+          ]
+        ],
+        [
+          "read",
+          [
+            992,
+            6144,
+            896,
+            0
+          ]
+        ],
+        [
+          "read",
+          [
+            992,
+            6144,
+            928,
+            0
+          ]
+        ],
+        [
+          "read",
+          [
+            1024,
+            4096,
+            960,
+            0
+          ]
+        ]
+      ],
+      "dead_families": [
+        "peel6_p10_5_16_5_tight",
+        "peel6_p10_5_5_21_tight",
+        "peel6_p10_5_5_26",
+        "peel6_p20_4_4_17",
+        "peel6_p20_5_11_5",
+        "peel6_p20_5_5_14"
+      ],
+      "phases": {
+        "_smx_bind": {
+          "flops": 3200972382,
+          "requests": 611,
+          "charged": 205,
+          "backend": {
+            "reshape": 91,
+            "moveaxis": 90,
+            "transpose": 24
+          },
+          "views": {
+            "getitem": 406
+          }
+        },
+        "_peel_bind_read_io": {
+          "flops": 774561792,
+          "requests": 457,
+          "charged": 115,
+          "backend": {
+            "empty": 1,
+            "reshape": 114
+          },
+          "views": {
+            "getitem": 342
+          }
+        },
+        "_peel_prebind_topology": {
+          "flops": 2184318976,
+          "requests": 1883,
+          "charged": 1335,
+          "backend": {
+            "unstack": 324,
+            "split": 874,
+            "reshape": 95,
+            "moveaxis": 42
+          },
+          "views": {
+            "getitem": 548
+          }
+        },
+        "_sm12_prebind_topology": {
+          "flops": 599285760,
+          "requests": 729,
+          "charged": 577,
+          "backend": {
+            "unstack": 120,
+            "split": 393,
+            "reshape": 48,
+            "moveaxis": 16
+          },
+          "views": {
+            "getitem": 152
+          }
+        }
+      },
+      "calls": 3680,
+      "flops": 6759138910,
+      "frames": 8,
+      "side_cache": 80,
+      "io_cache": 86,
+      "groups": 67,
+      "read_io": 57
+    }
+  ],
+  "removed_setup_calls": 1403,
+  "removed_setup_flops": 2920886830,
+  "added_read_parent_has_mainread_plan": false,
+  "seconds": 0.3486243337392807,
+  "maxrss": 200458240,
+  "surviving_family_dimensions_and_orientation_sets_unchanged": true,
+  "limitations": [
+    "Only fixed SMX/peel/smallSM setup components differ; runtime must measure full startup and hidden free trips.",
+    "The added read parent is generic if no mainread plan; its cold cache demand is not priced here."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_late_birthfloor05_v1/candidate.py",
+    "sha256": "9c6dd5ffd42e110e1122338c3ff8d4e96f34b1cc62a5441891931f7ee5877209",
+    "bytes": 962953
+  },
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_late_birthfloor05_v1/build.py",
+    "sha256": "9480a9ff6b78b9ec600955f90b929891b4311729750871bd4164d48e2e99e1a2",
+    "bytes": 5887
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_late_birthfloor05_v1/protocol.json",
+    "sha256": "22167421890afadaf5a41e727cb8d2982294c26fa67e236bd4c5f5ea1320d12c",
+    "bytes": 2561
+  },
+  "diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_late_birthfloor05_v1/source_diff.patch",
+    "sha256": "d8db9e68b87ed3cc058149542a0eb9d1fc245284e9357613c7c579a7c994e682",
+    "bytes": 1066
+  },
+  "edits": [
+    {
+      "before": "            selected, births = select(_e2_gate_min, gate_floor)   # E2: g is bitwise response_gate (same operations on the same inputs)",
+      "after": "            selected, births = select(_e2_gate_min, .05 if l >= 12 else gate_floor)   # Fixed L12-14 birth-only pruning; terminal layer exits before this line."
+    }
+  ],
+  "source_inverse_exact": true,
+  "one_function_ast_changed": true,
+  "one_assignment_changed": true,
+  "arrays_imported": false,
+  "model_executed": false
+}

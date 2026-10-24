@@ -1,0 +1,37 @@
+{
+  "schema": "phase2-cp1792-deferred-w3-target-free-resource-result-v1",
+  "status": "PASS_FULL_BUDGET_RESOURCE_AND_INTERFACE__DIAGNOSTIC_RUNG__ACCURACY_UNSCORED",
+  "candidate": {
+    "class": "Estimator",
+    "estimator_sha256": "4fd53d230adb4dca2244b5be03927cb20d2442919b690f4e6c4e567e58948a63",
+    "preregistration_sha256_before_run": "4043622b58d8a7a54e1e7252f3f82d8ed5dda7decaa7a26c7214877b2db38526",
+    "intervention": "retain rank 2048 after h2, act through W3, restore cap 1792 after h3"
+  },
+  "control": {
+    "label": "cp3_cap1792",
+    "flops": 214122341378,
+    "sampled_solution_rss_bytes": 2371272704,
+    "receipt_sha256": "71c4eedf2b04f3430bbca3ebf20882b0dc08daadf8895be14112f85fca240115"
+  },
+  "measured": {
+    "flops": 215171868674,
+    "flop_delta_from_control": 1049527296,
+    "full_budget": 2199023255552,
+    "full_budget_fraction": 0.09784883726479165,
+    "full_budget_headroom": 1983851386878,
+    "sampled_solution_rss_bytes": 2363080704,
+    "wall_time_s": 1.2078457078896463,
+    "residual_wall_time_s": 0.09595640702173114,
+    "failed_mlps": 0,
+    "output_shape": [16, 1024],
+    "output_dtype": "float32",
+    "output_finite": true
+  },
+  "interpretation": "The local rank schedule is feasible and scientifically distinct from a global cap increase, but the full-birth cap ladder supersedes it as a production candidate once the full 2^41 budget is treated as available.",
+  "accuracy_scope": "No dataset, public target, role target, teacher state, fitted parameter, or scientific score was read. The deterministic 1000-sample truth is only an interface fixture.",
+  "authoritative_run": {
+    "directory": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/meter_protocol/runs/cp3_cap1792_deferred_w3_n1_s1000_seed20260823",
+    "receipt_sha256": "37de07f2a668cbb377f921ba938f4e66cbc5ecef8c03badd56045906ca366338",
+    "verifier_status": "PASS_METER_RECEIPT_VERIFICATION"
+  }
+}

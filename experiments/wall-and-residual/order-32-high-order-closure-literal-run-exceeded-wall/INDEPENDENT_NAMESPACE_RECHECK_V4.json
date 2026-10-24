@@ -1,0 +1,71 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-v4-independent-namespace-recheck-v1",
+  "status": "PASS_CURRENT_NAMESPACE_RESTORED__FROZEN_SOURCE_UNCHANGED__ARCHIVE_UNAFFECTED",
+  "checked_at_utc": "2026-08-24T09:17:56Z",
+  "reason": "A generated CPython bytecode cache appeared after final source freeze and the original zero-cache audit. This additive receipt records its exact removal and rechecks current package cleanliness without modifying the frozen source or the original audit receipt.",
+  "frozen_bindings_rechecked": {
+    "estimator": {
+      "path": "estimator.py",
+      "bytes": 68698,
+      "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+    },
+    "independent_source_audit": {
+      "path": "INDEPENDENT_SOURCE_AUDIT_V4.json",
+      "sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d"
+    },
+    "source_manifest": {
+      "path": "SOURCE_MANIFEST.json",
+      "sha256": "0cad2cc4491fbb22de5dbf021612fac9d5dccd2c2dcb1f4e963314d0c90580bf"
+    },
+    "freeze_receipt": {
+      "path": "FREEZE_RECEIPT_V4.json",
+      "sha256": "b730a3e21ba1d297de4b4be6c938cf842f955d951fd008518971cc0fafd8295e"
+    }
+  },
+  "removed_generated_artifact": {
+    "path": "__pycache__/estimator.cpython-311.pyc",
+    "bytes": 72116,
+    "sha256": "7295b9af6c1871fdf3ae020ce40204ace1403f28fc830177bc7f262d5bce4666",
+    "classification": "generated CPython bytecode cache; not estimator source and not a member of the frozen board archive",
+    "removal_scope": "Only this exact file and its then-empty __pycache__ directory were removed."
+  },
+  "post_removal_namespace_gate": {
+    "pycache_directories": 0,
+    "pyc_files": 0,
+    "estimator_source_changed": false,
+    "all_future_imports_require_dash_B_or_PYTHONDONTWRITEBYTECODE": true,
+    "status": "PASS"
+  },
+  "prebuilt_board_archive_read_only_crosscheck": {
+    "path": "../../../../../submissions/fb-ec4-32-v4-3ddddd87.tar.gz",
+    "sha256": "2df56c53253494fc75da3de8a0a7bd29d0bf2b97fa8f052bd2378ba7534d5a82",
+    "members_in_order": [
+      "estimator.py",
+      "manifest.json"
+    ],
+    "extracted_estimator_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "cache_artifact_present_in_archive": false,
+    "status": "PASS_UNAFFECTED_BY_LIVE_NAMESPACE_CACHE"
+  },
+  "authority": {
+    "granted": [
+      "CURRENT_LIVE_NAMESPACE_CLEANLINESS_RECHECK",
+      "READ_ONLY_PREBUILT_ARCHIVE_MEMBER_AND_SOURCE_PARITY"
+    ],
+    "withheld": [
+      "ACCURACY_OR_RAW_MSE_CLAIM",
+      "SCIENTIFIC_MOMENT_PROMOTION",
+      "BOARD_OR_SUBMISSION_AUTHORITY",
+      "ESTIMATOR_MUTATION",
+      "PROBLEM_GRAPH_MUTATION"
+    ]
+  },
+  "negative_controls": {
+    "original_independent_audit_modified": false,
+    "frozen_estimator_modified": false,
+    "archive_modified": false,
+    "numerical_execution_performed": false,
+    "official_dataset_or_targets_accessed": false,
+    "fit_or_sampling": false
+  }
+}

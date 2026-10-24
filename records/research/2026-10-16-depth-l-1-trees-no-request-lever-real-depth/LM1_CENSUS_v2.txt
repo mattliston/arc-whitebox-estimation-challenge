@@ -1,0 +1,24 @@
+L-1 census v2 (all leaf shapes) on S0 517fb1d0 warm rank 100; bill 2.468e+11. dF/call = batch*7^(L-1)*(2pqr-4pq-4qr-7pr); requests saved/call ~ one level (15 ipt/bb/r7, 11 resident-A routes)
+route                  band %/1000  calls req saved   bill %
+_d7_product_kpad            <=0.10    146      1606    0.025
+_hz_leaf                    <=0.10     53       583    0.020
+_ipt_leaf_unwind_ab         <=0.10     17       255   -0.041
+_ks_unwind                  <=0.10      2        22    0.001
+_d7_product_kpad            <=0.25     26       286    0.043
+_hz_leaf                    <=0.25     60       660    0.101
+_ipt_leaf_unwind_ab         <=0.25     23       345    0.071
+_ks_unwind                  <=0.25      1        11    0.001
+_d7_product_kpad            <=0.50      8        88    0.042
+_hz_leaf                    <=0.50     67       737    0.277
+_ipt_leaf_unwind_ab         <=0.50     21       315    0.111
+_ks_product                 <=0.50      4        44    0.018
+_hz_leaf                     <=1.0     49       539    0.381
+_ipt_leaf_unwind_ab          <=1.0     17       255    0.178
+_ks_product                  <=1.0      2        22    0.011
+_hz_leaf                      >1.0     55       605    1.097
+_ipt_leaf_unwind_ab           >1.0     26       390    0.676
+_ks_product                   >1.0     27       297    1.231
+_r7_product                   >1.0      1        15    0.027
+bb_batch                      >1.0      3        45    0.172
+{'<=0.10': 2466, '<=0.10_bill': 0.005, '<=0.25': 1302, '<=0.25_bill': 0.216, '<=0.50': 1184, '<=0.50_bill': 0.448, '<=1.0': 816, '<=1.0_bill': 0.57, '>1.0': 1352, '>1.0_bill': 3.204}
+leaf calls covered 608

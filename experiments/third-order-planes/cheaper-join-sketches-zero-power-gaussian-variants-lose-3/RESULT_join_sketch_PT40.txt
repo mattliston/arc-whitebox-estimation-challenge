@@ -1,0 +1,21 @@
+TAG fable-porter PT-40: join sketch, S21-physics torch card (ep2 + round-1 dials, shared, lrstar), no refit, VALID16; n(A) = 16
+  control A vs covhunter r1 fit rows: max |rel| 0.00e+00 over 16 nets (must be ~0)
+  B_lit: n=16 pooled raw vs A +3.463% [+2.519, +4.439]  better 0/16  per-net +0.09..+7.67%  -> adjusted at -1.76% bill +1.64%  bar (raw <= +0.1%): FAIL
+  B    : n=16 pooled raw vs A +3.588% [+2.134, +5.159]  better 3/16  per-net -0.99..+10.40%  -> adjusted at -1.76% bill +1.76%  bar (raw <= +0.1%): FAIL
+  C    : n=16 pooled raw vs A +0.489% [-0.205, +1.197]  better 6/16  per-net -2.32..+2.89%  -> adjusted at -1.76% bill -1.28%  bar (raw <= +0.1%): FAIL
+
+METHOD (join_sketch_test.py PT-40; raw rows stack/join_sketch_valid16.jsonl): torch, no refit, learned ON, VALID16 (inputs.json valid[:16]),
+3 threads. Card = fable_covhunter_v1/valid40_dials.py's S21-physics construction: s6bcard_joint2 (shared semantics) + DIALS dials_r1_ep2.json +
+ep2 literals (s6b_j05_ep2/params_epoch0.pt) + the engineer's lrstar r32 hook (no gn_linear_hook, no pair series). The card's push
+(s2card.make_push, EVERY3 joins at L7/10/13) is replaced by a copy whose join builds Y four ways; QR, Fj = Qn^T J, the weighted core and the
+old-tier overlap/factor update are unchanged:
+  A      Y = J (w o (J^T Omega)) + Qp core Qp^T Omega, Omega = W[live, :384]              (control = current native join)
+  B_lit  Y = J (w o G) + Qp core Qp^T Omega, G seeded Gaussian width x 384                  (the lead's formula)
+  B      Y = J (w^1/2 o G1) + Qp core^1/2 G2                                               (scale-consistent q=0 sketch of [J w^1/2 | Qp core^1/2])
+  C      Omega = E_rows, the 384 rows with the largest Gram diagonal sum_c w_c J_ic^2 + (Qp core Qp^T)_ii (Nystrom; a gather replaces J^T Omega)
+Control A reproduces covhunter's r1 fit rows bit-exactly on all 16 nets.
+READING: both q=0 sketches lose ~3.5% raw (star-plane lesson holds for the join: the Gram form's implicit half power step matters); the Nystrom
+selection keeps the Gram weighting and is much closer (+0.49%, CI -0.21..+1.20, 6/16 better) but fails the lead's +0.1% bar.
+NATIVE SITE (if ever built): _shared_old384_push, the join block of the fired S21 (lines ~5094-5102): Omega = w32[previous, :rank];
+Y = _shared_old384_mm(J, weight * _join_rows_mm(J.T, Omega)); if old_columns: Y += Qp core Qp^T Omega. C would replace _join_rows_mm(J.T, Omega)
+with J[rows].T and Qp.T @ Omega with Qp[rows].T (rows from the Gram diagonal: an elementwise square + a matvec + rowsum((Qp core) o Qp)).

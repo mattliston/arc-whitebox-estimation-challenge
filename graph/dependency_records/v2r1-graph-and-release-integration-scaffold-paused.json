@@ -1,0 +1,37 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_PHYSICAL_V34_V2R1_INTEGRATION",
+    "label": "V2R1 graph and release integration scaffold (paused)",
+    "kind": "phase2_active_workstream",
+    "status": "blocked",
+    "priority": 1,
+    "summary": "PAUSED / NONCRITICAL / PRODUCTION HOLD. Static harness mechanics and the pinned D11 whest path remain valid, but the old assembler's 3,800-byte all-float32 payload and all-row synthetic response spelling are non-authoritative. R1 must ship 899 float32 trainables plus 51 float64 normalizers (4,004 bytes), return full (16,1024) float32 with only row 15 overlaid, preserve exact source-zero parent bytes, and bind the full-return meter. Integration may be prepared only after rank35 raw MSE is strictly below 1e-8.",
+    "terminal_criterion": "A stable independently audited V2R1 freeze is bound into the static assembler and validator harness; scoring, packaging, and submission remain separately gated.",
+    "evidence": [
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/V34_V2R1_INTEGRATION_CONTRACT.json",
+        "sha256": "c4666ca5b6ec6d5657b8f68c0bc6e81113ef53c76e9a4e26cef9405d5d83561d",
+        "claim": "superseded provisional contract: fail-closed mechanics only; 3,800-byte payload semantics rejected"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/V34_V2R1_STATIC_SELF_TEST_R1.json",
+        "sha256": "1e6d9aeb5bad03a8ce758b68fa7311cffdea2e23d07fb2deb48a7db5a90aa0e2",
+        "claim": "superseded synthetic all-row/all-float32 spelling; mechanical negative gates passed"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/V34_V2R1_INTEGRATION_SCAFFOLD_RECEIPT_R1.json",
+        "sha256": "f4a6eb31973edc5193684a891afb4b2cc0aed34e59e3b744b85a9e8c45b303ff",
+        "claim": "superseded provisional scaffold receipt retained as HOLD provenance; every production gate held"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_estimator_integration_v1/V34_V2R1_PUBLIC_OUTPUT_BINDING_RULING.json",
+        "sha256": "3591a1e736c116bcb5b71d2711f9f4a0cd4fdbaad2ecfee497f13e49b5c1f424",
+        "claim": "authoritative R1 full-output, final-row-only, mixed-dtype payload, and source-zero repair ruling"
+      }
+    ],
+    "decomposition_children": []
+  }
+}

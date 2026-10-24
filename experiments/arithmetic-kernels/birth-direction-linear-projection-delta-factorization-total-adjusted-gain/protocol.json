@@ -1,0 +1,61 @@
+{
+  "schema": "combo-bd-linear-delta-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_linear_v1/candidate.py",
+    "sha256": "3dbed0c626a8c9a12e6a328222f83b1abe1394e8eb9dcd0ec32a3f6e29f4f600",
+    "bytes": 973278
+  },
+  "comparator": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/candidate.py",
+    "sha256": "1078e51058e7674e9a322ebfee10ffa8cb124b70a68b1127cc6011ee274b0dde",
+    "bytes": 972220
+  },
+  "scope": "native2_only",
+  "intervention": "Factor only the stored-FP32 compensation scalar identity in the active _bd_update; preserve new64 until delta is computed, then delete it. All linear fusion, weight, quadratic term, born timing, masks and diagonal clearing stay identical.",
+  "formula": "difference=new64-old64; 2*old64*difference+difference*difference = (new64+old64)*difference in real arithmetic.",
+  "arithmetic": "Different FP64 association; no claim of full byte parity. Source inputs and returned new32 unchanged. new64 lives through delta calculation, adding at most one n*n float64 temporary lifetime (8 MiB at1024), with no persistent state.",
+  "parity_layers": [
+    0
+  ],
+  "forecast": {
+    "additional_saved_flops": 62914560,
+    "approx_additional_s34_bill_saved_pct": 0.023527806374381715,
+    "qualification": "Two full-plane FP64 operations removed per call. Forecast only; compare native bills and rounding empirically."
+  },
+  "selection": "Explicit prospective root selection after BD-linear N2 and boundary passed; combine two small algebraic changes once before N8. Fitted/evaluated TRAIN2 evidence is not independent validation.",
+  "gates": "N2 incremental vs retained BD: gain>=.08%,2wins,maxreg<=.1%,L0 parity, abs(raw change)<=.01%, plus root verifies >=.015% increment vs saved linear N2. Own boundary before combined N8 gain>=.08%,>=6wins,CIupper<0,additional6negative,abs(raw change)<=.01%. Total S34>=.8% before broad; final bank>=1% VALID40/fullserving.",
+  "mandatory_root_review": {
+    "abs_raw_pct_at_most": 0.01,
+    "applies_stages": [
+      2,
+      8
+    ],
+    "automatic_continuation": false,
+    "native2_incremental_gain_vs_linear_pct_min": 0.015,
+    "linear_native2_reference": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_linear_v1/native2_assessment.json",
+      "sha256": "c4b0858e24e38fef87bb34ad9c41f5fb6089512d37828a778d166d6ccb7ab9df",
+      "bytes": 16500
+    }
+  },
+  "no_coefficient_layer_or_formula_rescue": true,
+  "formula_fixture": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_linear_delta_v1/formula_fixture.py",
+    "sha256": "f69ddf830a78779b9fcfe940c34ad04b98c784f99b6273723c89389bbac7c634",
+    "bytes": 995
+  },
+  "parent_retained": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_j1_skip_v1/retained_component.json",
+    "sha256": "6175c8e06d0335ee8fd719b89ffc77358f68373098b0d4c5097f0169e2a01e15",
+    "bytes": 1434
+  },
+  "linear_native2": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_combo_bd_linear_v1/native2_assessment.json",
+    "sha256": "c4b0858e24e38fef87bb34ad9c41f5fb6089512d37828a778d166d6ccb7ab9df",
+    "bytes": 16500
+  },
+  "model_executed": false,
+  "serving_qualified": false,
+  "submitted": false
+}

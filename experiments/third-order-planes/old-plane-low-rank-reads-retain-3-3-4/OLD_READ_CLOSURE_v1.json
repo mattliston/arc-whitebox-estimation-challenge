@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-21T02:30:04Z",
+  "status": "CLOSED_WITHOUT_NATIVE_CANDIDATE",
+  "reference_submission": 337422,
+  "source_sha256": "777a73b6d13ef0e1e51d70d4c0dc61f21b4c7287813e336c82c37ec7188ba510",
+  "measured_adjusted_gain": null,
+  "truth_access": false,
+  "candidate_prediction_launches": 0,
+  "capture35": "v1 failed only post-prediction expected-layer assertion; complete diagnostic buffers salvaged after exact source/schema/hash/control-byte parity and clean resource checks; original capture/guard remain unsuccessful",
+  "capture150": "v2 clean success; complete actual777a prediction byte-identical to existing same-host control; full schema and binary hashes verified",
+  "capture_receipts": {
+    "CAPTURE35_SALVAGED_v1.json": "457be375a42b22d1a0bf17b3eab2d2e3e7340ddd8dbaca7399920f55638533b2",
+    "CAPTURE35_FAILED_GUARD_v1.json": "ac9068d61477c550f59f546e93db1b872020e56b261a3555124caf7cdb55ed96",
+    "CAPTURE150_AUDIT_v1.json": "a50875e4217e69305eb72a5b39d104f66a92637fb5b729106b79bb7a6d7ff981",
+    "CAPTURE150_GUARD_v1.json": "7781b0b62560ac11a7323c3c077eda2a1864bb75f363ca24a81a91c6277db8f6"
+  },
+  "lowrank": {
+    "ranks": [
+      35,
+      150
+    ],
+    "records": 14,
+    "rank128_sampled_physical_relative_l2_range": [
+      0.21629100950277388,
+      0.30094151780882317
+    ],
+    "rank128_oracle_physical_relative_l2_range": [
+      0.04975402193175409,
+      0.1440083151065403
+    ],
+    "conclusion": "Whole Dv/read compression is not remotely close to exact at cheap ranks; no native candidate justified."
+  },
+  "tail": {
+    "rank": 35,
+    "exact_first320_plus_mean_plus_rank8_physical_relative_l2_range": [
+      0.0328523152143922,
+      0.04277710149812296
+    ],
+    "exact_energy_top320_physical_relative_l2_range": [
+      0.0410346578969352,
+      0.052862850187118254
+    ],
+    "conclusion": "Tail-only low rank remains several-percent local error; exact actual-coefficient energy selection only modestly improves prefix truncation; eight sampled rows often worse. No evidence this escapes credible carrier-cut closures."
+  },
+  "additional_source_closures": {
+    "early_only_cm6": "Current all-layer CM6 bill saving only~0.06%; early half<~0.05% plus projector/input changes; not a worthwhile repeat.",
+    "omitted_jsk_diagonal": "Exact mechanism already tested Oct18: probe_jsk_tail_completion_v1.py, six joins, omitted young diagonal injected in Y before QR produces dominant coordinate artifacts; no rerun."
+  },
+  "artifacts": {
+    "CAPTURE150_AUDIT_v1.json": {
+      "sha256": "a50875e4217e69305eb72a5b39d104f66a92637fb5b729106b79bb7a6d7ff981",
+      "bytes": 947
+    },
+    "CAPTURE150_GUARD_v1.json": {
+      "sha256": "7781b0b62560ac11a7323c3c077eda2a1864bb75f363ca24a81a91c6277db8f6",
+      "bytes": 2481
+    },
+    "CAPTURE35_FAILED_GUARD_v1.json": {
+      "sha256": "ac9068d61477c550f59f546e93db1b872020e56b261a3555124caf7cdb55ed96",
+      "bytes": 2487
+    },
+    "CAPTURE35_SALVAGED_v1.json": {
+      "sha256": "457be375a42b22d1a0bf17b3eab2d2e3e7340ddd8dbaca7399920f55638533b2",
+      "bytes": 1944
+    },
+    "LOWRANK150_GUARD_v1.json": {
+      "sha256": "6034fddfcd918c3d39073545d6f7098748ac4d4b95aa24ce2e3fe89fec864a6d",
+      "bytes": 2085
+    },
+    "LOWRANK150_RESULT_v1.json": {
+      "sha256": "1cb4481cb8042e5ea96d91485b9924d5e5b30772666e62c2efbfec440fc2ecf8",
+      "bytes": 51129
+    },
+    "LOWRANK35_GUARD_v1.json": {
+      "sha256": "94c380e0cec4a03f8888dd4e2f1a27bbf969269fadb417d572dd5c37b3b8b208",
+      "bytes": 2075
+    },
+    "LOWRANK35_RESULT_v1.json": {
+      "sha256": "fbf0c5be3919d133de1dbc4814c15b118e2ded5071ee6cb8ee90d5cb14670d3d",
+      "bytes": 51131
+    },
+    "TAIL35_GUARD_v1.json": {
+      "sha256": "aa2c77d6615bc01e92a4307ef242c343acae1e221a7dce53da82e24540616a4e",
+      "bytes": 2074
+    },
+    "TAIL35_RESULT_v1.json": {
+      "sha256": "28314e846bbbef69d5408ecde1c86131df1da2d00afa3bbc00dbdd4d06835de6",
+      "bytes": 112779
+    }
+  },
+  "safety": "All analysis used unchanged original v7 guard, no OOM/swap/owned process leaks; predictions and source bytes preserved; raw capture stays on privateVM."
+}

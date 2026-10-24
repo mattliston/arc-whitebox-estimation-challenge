@@ -1,0 +1,39 @@
+{
+  "schema": "p2r0f2p-one-graph-ready-successor-proposal-v1",
+  "node": "P2R0F2P",
+  "status": "DESIGN_ONLY_NOT_IMPLEMENTED_OR_LAUNCHED",
+  "bindings": {
+    "decomposition_sha256": "9ced4d4bdf72428e769b0945720ff571348a0d9629364f7839e74ccabe0c1290",
+    "cv_results_sha256": "b11009bcf3168099cf284a0614211a7821d446a0feec73e5ab222440bcd504aa",
+    "verification_sha256": "a6cc298c875bf01d762651638048774de8cc95f269206fa4e97fb65cf2f8d0ca"
+  },
+  "evidence_chain": {
+    "m_future_raw_tape_adjoint_context": "P2R0F2M ran a complete L15-to-L2 exact-adjoint backward scan over future raw tape features before the forward pass and regressed 0.00836% versus J (3.233766009119748e-8).",
+    "n_learned_rank16_covariance": "P2R0F2N improved J by only 0.1044049% and its truth-derived span oracle capped at 2.8928320722187982e-8, capturing 10.535% of endpoint error versus 69.076% needed.",
+    "p_fullrank_nonlinear_roundtrip": "P2R0F2P improved J by only 0.0106558% and its truth-optimal emitted-direction oracle capped at 3.216608956319193e-8, capturing 0.5222% of endpoint error.",
+    "teacher_forcing_capacity": "With the true previous-layer residual state supplied, the same local innovation form reaches 8.207963477637236e-9, below target.",
+    "conclusion": "The observer-on-fixed-tape family is information-capped near 3.23e-8, not capacity-capped. Three materially different operator classes (future-raw adjoint state, learned rank-16 covariance, full-rank nonlinear weight round trip) all land within 0.11% of J, and both truth oracles show learned corrections cannot even point at the residual error. The missing information is what the Q24 host discarded while building its approximation; it is not a function of the recorded 20-feature tape."
+  },
+  "proposal": {
+    "name": "host-uncertainty observable tape augmentation",
+    "one_line": "Widen the lawful observer tape at the source with the host's own internal approximation-quality observables, then retrain the exact frozen J architecture once on the widened input under the identical nested-OOF law.",
+    "candidate_observables_defined_in_host_source_terms": [
+      "per-layer PSD covariance repair magnitude (pre/post eigenvalue-floor congruence deltas)",
+      "per-unit CP3/CP4 carrier cap and compression truncation norms (third/fourth-order structure discarded at the cap)",
+      "per-unit Hermite tail energy at the ReLU moment evaluation (order-tail partial sums beyond the kept expansion)",
+      "correlation-gauge rescale factors and near-floor variance-trigger margins",
+      "per-layer closure self-consistency deltas between emitted and consumed moments"
+    ],
+    "why_this_is_new_information": "Every closed family consumed the same sealed 20-feature tape; none changed what the host records. The host computes exactly where and how much it is approximating; those signals never reach the observer. This changes the information set at the source rather than fitting a fourth operator class on inputs already proven insufficient.",
+    "deployment_cost_note": "The native host already computes these quantities internally during its rollout; exposing them to the correction costs only the widened encoder input rows, on the order of tens of millions of FLOPs against a 6.5e10 headroom.",
+    "explicitly_not_proposed": [
+      "any further operator, ensemble, rank, or scalar family on the fixed tape (closed by M/N/P/O)",
+      "retuning J on the old tape (closed)",
+      "any truth-derived or observer_selection input (forbidden)"
+    ]
+  },
+  "required_before_any_launch": "Freeze the exact observable definitions in host source terms, a deterministic append-only v4 feature-store regeneration preregistration with per-row manifests preserving the sealed v3 store, identical target-first mlp_id split law, the exact frozen J retrain law, conservative cost, and strict conjunctive gates; independent prelaunch audit; one arm only.",
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0
+}

@@ -1,0 +1,4639 @@
+{
+  "access": {
+    "board_accessed": false,
+    "estimator_runs": 0,
+    "full_refit_performed": false,
+    "names": [],
+    "observer_selection_targets": [],
+    "role": "observer_fit",
+    "scores": [],
+    "target_columns": [
+      "mlp_id",
+      "all_layer_means"
+    ]
+  },
+  "aggregate": {
+    "absolute_gain_vs_saved_shared256": 1.2359506749839335e-10,
+    "candidate_endpoint_mse": 2.9728904042473882e-08,
+    "candidate_local_q_mse": 5.254981674768097e-09,
+    "candidate_minus_current_board_raw": 3.198322064738811e-10,
+    "current_board_raw_reference": 2.9409071836e-08,
+    "exact_q_oracle_endpoint_mse": 6.141640911984781e-09,
+    "foldJ_base_endpoint_mse": 3.048918630419429e-08,
+    "material_threshold_mse": 2.9553974118872554e-08,
+    "network_win_fraction_vs_saved_shared256": 0.6162790697674418,
+    "networks": 688,
+    "paired_network_z_vs_saved_shared256": 7.78298417926875,
+    "relative_gain_vs_saved_shared256": 0.004140191648380495,
+    "saved_shared256_endpoint_mse": 2.985249910997227e-08
+  },
+  "architecture": {
+    "absolute_weight_raw20": 20,
+    "epochs": 13,
+    "folds": 4,
+    "hidden": 256,
+    "hidden_layers": 3,
+    "inputs": 82,
+    "local22": 22,
+    "signed_recurrent_raw20": 20,
+    "squared_weight_raw20": 20
+  },
+  "bindings": {
+    "abs_sq_cache_summary_sha256": "180e2f3458f64552583877dec80c8558e61bf0bebda7676f0921df9db823e9e9",
+    "baseline_result_sha256": "5c940c501c383fe65e9e4b5dda103ba287797d0cb18ed22bc6314588f37245fd",
+    "fold_assignment_sha256": "0f8619f00185aa5413e06c2b9aad8c1f2a6743ec8c628994bbbc9ca25fec047c",
+    "fold_models_sha256": "cff45c489c743f5de31454875e7dedfeb7d5a0fb9102663bd756b91dea482ee4",
+    "oof_models_sha256": "21572ccd20eb339057c9c32a127fd794c14355dc654df517a27091000ee807d2",
+    "preregistration_sha256": "3e30b7f9c9ada81a7e15b2e6ac3792af5f47ddab7c176f808b162fafa665a4d1",
+    "program_sha256": "e5028cfe8cd088abc6f4997d9995f2c6b1ba65afd1ee280e763856578a6390ba",
+    "run_claim_sha256": "64bd82fd4961c63c8fe413ca842e450f4b35b703d7992886b80687d381b83a68",
+    "signed_cache_summary_sha256": "fbe6656b064847ee5895f87e4333ff4753bb5339b0bd78d8353371d6bbf0aa9d"
+  },
+  "decision": "STOP_NO_REFIT",
+  "fold_results": [
+    {
+      "candidate_beats_saved_shared256": true,
+      "candidate_endpoint_mse": 3.0023717906766396e-08,
+      "candidate_local_q_mse": 5.276099810147771e-09,
+      "exact_q_oracle_endpoint_mse": 6.1455295488600225e-09,
+      "extra_diagnostic": {
+        "clip_fraction": 1.6165642159237727e-06,
+        "maximum_absolute_before_clip": 12.881553436854942,
+        "scale_maximum": 49.396636962890625,
+        "scale_minimum": 9.5367431640625e-07
+      },
+      "fit_rows": 516,
+      "fold": 0,
+      "foldJ_base_endpoint_mse": 3.0923227278552953e-08,
+      "held_rows": 172,
+      "saved_shared256_endpoint_mse": 3.01886482724548e-08,
+      "training": {
+        "initial_state_sha256": "908183c9b4edca03844dbc181350310e1e1026c9458ee5f0f440bf08baa3b057",
+        "q_rms": [
+          7.048059342196211e-05,
+          7.202130655059591e-05,
+          7.333858957281336e-05,
+          7.466313400072977e-05,
+          7.585606363136321e-05,
+          7.653995999135077e-05
+        ],
+        "row_order_sha256": "763b453ac7c9d284d00ffccb38ff7ddd4938f98167dbf35806a444d82472eadb",
+        "sample_index_sha256": "db70f29f998354929a34c67e23a145372f271426b967d923e92e7c3f9fed2569",
+        "samples_per_layer_per_network_per_epoch": 256,
+        "trace": [
+          {
+            "epoch": 1,
+            "full_node_normalized_q_loss": 0.9995799896328948,
+            "learning_rate": 0.001184017999584329,
+            "maximum_process_rss_bytes": 2400272384
+          },
+          {
+            "epoch": 2,
+            "full_node_normalized_q_loss": 0.992379671843477,
+            "learning_rate": 0.0011370008141092657,
+            "maximum_process_rss_bytes": 2402484224
+          },
+          {
+            "epoch": 3,
+            "full_node_normalized_q_loss": 0.9915790530138238,
+            "learning_rate": 0.001061680911494104,
+            "maximum_process_rss_bytes": 2405711872
+          },
+          {
+            "epoch": 4,
+            "full_node_normalized_q_loss": 0.979268958864286,
+            "learning_rate": 0.0009624356107021286,
+            "maximum_process_rss_bytes": 2405744640
+          },
+          {
+            "epoch": 5,
+            "full_node_normalized_q_loss": 0.9805280487666759,
+            "learning_rate": 0.0008450326878733883,
+            "maximum_process_rss_bytes": 2405793792
+          },
+          {
+            "epoch": 6,
+            "full_node_normalized_q_loss": 0.9775170536004296,
+            "learning_rate": 0.0007162951741404229,
+            "maximum_process_rss_bytes": 2407055360
+          },
+          {
+            "epoch": 7,
+            "full_node_normalized_q_loss": 0.9745476324428883,
+            "learning_rate": 0.0005837048258595688,
+            "maximum_process_rss_bytes": 2407071744
+          },
+          {
+            "epoch": 8,
+            "full_node_normalized_q_loss": 0.9662826204484747,
+            "learning_rate": 0.0004549673121266052,
+            "maximum_process_rss_bytes": 2409250816
+          },
+          {
+            "epoch": 9,
+            "full_node_normalized_q_loss": 0.9658718275469403,
+            "learning_rate": 0.00033756438929786423,
+            "maximum_process_rss_bytes": 2410364928
+          },
+          {
+            "epoch": 10,
+            "full_node_normalized_q_loss": 0.9674133159393488,
+            "learning_rate": 0.0002383190885058954,
+            "maximum_process_rss_bytes": 2410364928
+          },
+          {
+            "epoch": 11,
+            "full_node_normalized_q_loss": 0.9628808211910632,
+            "learning_rate": 0.00016299918589073525,
+            "maximum_process_rss_bytes": 2468036608
+          },
+          {
+            "epoch": 12,
+            "full_node_normalized_q_loss": 0.9610506758209347,
+            "learning_rate": 0.0001159820004156716,
+            "maximum_process_rss_bytes": 2484912128
+          },
+          {
+            "epoch": 13,
+            "full_node_normalized_q_loss": 0.9586663255395815,
+            "learning_rate": 0.0001,
+            "maximum_process_rss_bytes": 2484961280
+          }
+        ]
+      }
+    },
+    {
+      "candidate_beats_saved_shared256": true,
+      "candidate_endpoint_mse": 2.9492970899820393e-08,
+      "candidate_local_q_mse": 5.2529521712169565e-09,
+      "exact_q_oracle_endpoint_mse": 6.154783454445576e-09,
+      "extra_diagnostic": {
+        "clip_fraction": 1.5179932271479328e-06,
+        "maximum_absolute_before_clip": 12.80002698578572,
+        "scale_maximum": 49.44409942626953,
+        "scale_minimum": 9.5367431640625e-07
+      },
+      "fit_rows": 516,
+      "fold": 1,
+      "foldJ_base_endpoint_mse": 3.000472828050081e-08,
+      "held_rows": 172,
+      "saved_shared256_endpoint_mse": 2.9551042589062662e-08,
+      "training": {
+        "initial_state_sha256": "33da3aa0d9067ae69a07390da831b074f29c8bffaca55eaa1fd534edbfa0034e",
+        "q_rms": [
+          7.002219354035333e-05,
+          7.15960850357078e-05,
+          7.285197352757677e-05,
+          7.437929889420047e-05,
+          7.569365698145702e-05,
+          7.639525574631989e-05
+        ],
+        "row_order_sha256": "2221f08a92a946eb9975425dfa6c286833b643668671a6336341e244616d613a",
+        "sample_index_sha256": "ae8c62c19332f14ca178368b789d4d9fddef831651d247b13a1201da16af63bf",
+        "samples_per_layer_per_network_per_epoch": 256,
+        "trace": [
+          {
+            "epoch": 1,
+            "full_node_normalized_q_loss": 0.9986851889957753,
+            "learning_rate": 0.001184017999584329,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 2,
+            "full_node_normalized_q_loss": 0.9956574698751287,
+            "learning_rate": 0.0011370008141092657,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 3,
+            "full_node_normalized_q_loss": 0.9964881728785907,
+            "learning_rate": 0.001061680911494104,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 4,
+            "full_node_normalized_q_loss": 0.9842151639073394,
+            "learning_rate": 0.0009624356107021286,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 5,
+            "full_node_normalized_q_loss": 0.9828067685282508,
+            "learning_rate": 0.0008450326878733883,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 6,
+            "full_node_normalized_q_loss": 0.9799423721409584,
+            "learning_rate": 0.0007162951741404229,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 7,
+            "full_node_normalized_q_loss": 0.9796621679335602,
+            "learning_rate": 0.0005837048258595688,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 8,
+            "full_node_normalized_q_loss": 0.9753557443618774,
+            "learning_rate": 0.0004549673121266052,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 9,
+            "full_node_normalized_q_loss": 0.9716161133707032,
+            "learning_rate": 0.00033756438929786423,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 10,
+            "full_node_normalized_q_loss": 0.9711663233217342,
+            "learning_rate": 0.0002383190885058954,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 11,
+            "full_node_normalized_q_loss": 0.9670753728511722,
+            "learning_rate": 0.00016299918589073525,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 12,
+            "full_node_normalized_q_loss": 0.9664687371069147,
+            "learning_rate": 0.0001159820004156716,
+            "maximum_process_rss_bytes": 2510258176
+          },
+          {
+            "epoch": 13,
+            "full_node_normalized_q_loss": 0.9626573980316635,
+            "learning_rate": 0.0001,
+            "maximum_process_rss_bytes": 2510258176
+          }
+        ]
+      }
+    },
+    {
+      "candidate_beats_saved_shared256": true,
+      "candidate_endpoint_mse": 2.968070596804098e-08,
+      "candidate_local_q_mse": 5.240918519843249e-09,
+      "exact_q_oracle_endpoint_mse": 6.1547595201059026e-09,
+      "extra_diagnostic": {
+        "clip_fraction": 1.6638782905361758e-06,
+        "maximum_absolute_before_clip": 12.941439199557951,
+        "scale_maximum": 49.3663444519043,
+        "scale_minimum": 9.5367431640625e-07
+      },
+      "fit_rows": 516,
+      "fold": 2,
+      "foldJ_base_endpoint_mse": 3.062658882131979e-08,
+      "held_rows": 172,
+      "saved_shared256_endpoint_mse": 2.9771224993200252e-08,
+      "training": {
+        "initial_state_sha256": "3742bf1092e1da58cbf5f7f45f3d2004344a007094ee56cfef90108b3d4cf6bc",
+        "q_rms": [
+          7.027311949059367e-05,
+          7.204270514193922e-05,
+          7.309423381229863e-05,
+          7.45508586987853e-05,
+          7.587905565742403e-05,
+          7.647109305253252e-05
+        ],
+        "row_order_sha256": "db128531d5b4116cbbc8ed477609d58b1626aadab8992ad0b5bed9de04cfb5fe",
+        "sample_index_sha256": "5dcf6c9ad99a8cd01fa74de84560e6bf3c9e71d4ff70e3f7b382180aecc71419",
+        "samples_per_layer_per_network_per_epoch": 256,
+        "trace": [
+          {
+            "epoch": 1,
+            "full_node_normalized_q_loss": 0.9987438473590585,
+            "learning_rate": 0.001184017999584329,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 2,
+            "full_node_normalized_q_loss": 0.9969781022663264,
+            "learning_rate": 0.0011370008141092657,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 3,
+            "full_node_normalized_q_loss": 0.9951328584390093,
+            "learning_rate": 0.001061680911494104,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 4,
+            "full_node_normalized_q_loss": 0.9866055615188539,
+            "learning_rate": 0.0009624356107021286,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 5,
+            "full_node_normalized_q_loss": 0.9850139368412106,
+            "learning_rate": 0.0008450326878733883,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 6,
+            "full_node_normalized_q_loss": 0.9803267024284186,
+            "learning_rate": 0.0007162951741404229,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 7,
+            "full_node_normalized_q_loss": 0.9779155226640923,
+            "learning_rate": 0.0005837048258595688,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 8,
+            "full_node_normalized_q_loss": 0.9724284456681835,
+            "learning_rate": 0.0004549673121266052,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 9,
+            "full_node_normalized_q_loss": 0.9691381422124168,
+            "learning_rate": 0.00033756438929786423,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 10,
+            "full_node_normalized_q_loss": 0.9715580288753953,
+            "learning_rate": 0.0002383190885058954,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 11,
+            "full_node_normalized_q_loss": 0.9685030584187471,
+            "learning_rate": 0.00016299918589073525,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 12,
+            "full_node_normalized_q_loss": 0.9667751188426055,
+            "learning_rate": 0.0001159820004156716,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 13,
+            "full_node_normalized_q_loss": 0.964272255583327,
+            "learning_rate": 0.0001,
+            "maximum_process_rss_bytes": 2532999168
+          }
+        ]
+      }
+    },
+    {
+      "candidate_beats_saved_shared256": true,
+      "candidate_endpoint_mse": 2.9718221395267752e-08,
+      "candidate_local_q_mse": 5.249956197864411e-09,
+      "exact_q_oracle_endpoint_mse": 6.11149112452762e-09,
+      "extra_diagnostic": {
+        "clip_fraction": 1.4588506338824288e-06,
+        "maximum_absolute_before_clip": 12.79083134356734,
+        "scale_maximum": 49.61733627319336,
+        "scale_minimum": 9.5367431640625e-07
+      },
+      "fit_rows": 516,
+      "fold": 3,
+      "foldJ_base_endpoint_mse": 3.040220083640361e-08,
+      "held_rows": 172,
+      "saved_shared256_endpoint_mse": 2.989908058517138e-08,
+      "training": {
+        "initial_state_sha256": "20ec0e01bb1445e6d3c1832715d5987ec612d5afb257ab3e9e9c575ec0da0c91",
+        "q_rms": [
+          7.031655695755035e-05,
+          7.201969856396317e-05,
+          7.318644929910079e-05,
+          7.456838648067787e-05,
+          7.591467874590307e-05,
+          7.670871127629653e-05
+        ],
+        "row_order_sha256": "1eb245558bec6cd911a666ef29324bb5eca780918639a9028a42936c39559cdc",
+        "sample_index_sha256": "13c309a39b0bfe77f9eec0f4c1eb7254c4029883d492d42e32fd95b0aab569b1",
+        "samples_per_layer_per_network_per_epoch": 256,
+        "trace": [
+          {
+            "epoch": 1,
+            "full_node_normalized_q_loss": 1.0003507548524428,
+            "learning_rate": 0.001184017999584329,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 2,
+            "full_node_normalized_q_loss": 0.9926181735918503,
+            "learning_rate": 0.0011370008141092657,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 3,
+            "full_node_normalized_q_loss": 0.9911469863366711,
+            "learning_rate": 0.001061680911494104,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 4,
+            "full_node_normalized_q_loss": 0.9801428729249525,
+            "learning_rate": 0.0009624356107021286,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 5,
+            "full_node_normalized_q_loss": 0.9769432281338891,
+            "learning_rate": 0.0008450326878733883,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 6,
+            "full_node_normalized_q_loss": 0.9728235727132752,
+            "learning_rate": 0.0007162951741404229,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 7,
+            "full_node_normalized_q_loss": 0.972108944441921,
+            "learning_rate": 0.0005837048258595688,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 8,
+            "full_node_normalized_q_loss": 0.9669945665108141,
+            "learning_rate": 0.0004549673121266052,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 9,
+            "full_node_normalized_q_loss": 0.9646669168804967,
+            "learning_rate": 0.00033756438929786423,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 10,
+            "full_node_normalized_q_loss": 0.9681547242541646,
+            "learning_rate": 0.0002383190885058954,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 11,
+            "full_node_normalized_q_loss": 0.9637317851532338,
+            "learning_rate": 0.00016299918589073525,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 12,
+            "full_node_normalized_q_loss": 0.9598649070244427,
+            "learning_rate": 0.0001159820004156716,
+            "maximum_process_rss_bytes": 2532999168
+          },
+          {
+            "epoch": 13,
+            "full_node_normalized_q_loss": 0.9591644715893176,
+            "learning_rate": 0.0001,
+            "maximum_process_rss_bytes": 2532999168
+          }
+        ]
+      }
+    }
+  ],
+  "gates": {
+    "aggregate_below_0_99_times_saved_shared256": false,
+    "all_four_folds_beat_saved_shared256": true,
+    "finite_complete_688_oof": true,
+    "full_refit_performed": false,
+    "observer_selection_targets_opened_zero": true,
+    "single_combined_candidate_only": true
+  },
+  "per_network": [
+    {
+      "candidate_mse": 3.051953731298466e-08,
+      "exact_q_oracle_mse": 5.645950937121645e-09,
+      "foldJ_base_mse": 3.095591978840097e-08,
+      "role_rank": 0
+    },
+    {
+      "candidate_mse": 2.8362534682769844e-08,
+      "exact_q_oracle_mse": 6.60392576181781e-09,
+      "foldJ_base_mse": 2.9413287543573576e-08,
+      "role_rank": 1
+    },
+    {
+      "candidate_mse": 3.601172608906178e-08,
+      "exact_q_oracle_mse": 6.122348400967046e-09,
+      "foldJ_base_mse": 3.7927639668335526e-08,
+      "role_rank": 2
+    },
+    {
+      "candidate_mse": 3.415248911511105e-08,
+      "exact_q_oracle_mse": 5.075882382749261e-09,
+      "foldJ_base_mse": 3.2864067767535405e-08,
+      "role_rank": 3
+    },
+    {
+      "candidate_mse": 2.7456834913920478e-08,
+      "exact_q_oracle_mse": 6.95968524154457e-09,
+      "foldJ_base_mse": 2.8687984155896305e-08,
+      "role_rank": 4
+    },
+    {
+      "candidate_mse": 2.553201368715139e-08,
+      "exact_q_oracle_mse": 5.1669404647899125e-09,
+      "foldJ_base_mse": 2.5833674384666216e-08,
+      "role_rank": 5
+    },
+    {
+      "candidate_mse": 3.3623491399540945e-08,
+      "exact_q_oracle_mse": 6.9870977639916464e-09,
+      "foldJ_base_mse": 3.474527879592029e-08,
+      "role_rank": 6
+    },
+    {
+      "candidate_mse": 2.840757037386589e-08,
+      "exact_q_oracle_mse": 6.39444793640376e-09,
+      "foldJ_base_mse": 3.025892279858124e-08,
+      "role_rank": 7
+    },
+    {
+      "candidate_mse": 2.8459250863704905e-08,
+      "exact_q_oracle_mse": 7.314974055374752e-09,
+      "foldJ_base_mse": 2.88390559002038e-08,
+      "role_rank": 8
+    },
+    {
+      "candidate_mse": 3.3995923661110685e-08,
+      "exact_q_oracle_mse": 7.905718357838084e-09,
+      "foldJ_base_mse": 3.614336385857073e-08,
+      "role_rank": 9
+    },
+    {
+      "candidate_mse": 2.7735628792191658e-08,
+      "exact_q_oracle_mse": 6.616414346424211e-09,
+      "foldJ_base_mse": 2.802349039503115e-08,
+      "role_rank": 10
+    },
+    {
+      "candidate_mse": 3.379838293679227e-08,
+      "exact_q_oracle_mse": 5.657398142134693e-09,
+      "foldJ_base_mse": 3.622990493335332e-08,
+      "role_rank": 11
+    },
+    {
+      "candidate_mse": 3.027572887870755e-08,
+      "exact_q_oracle_mse": 7.70679353173362e-09,
+      "foldJ_base_mse": 3.042067647747465e-08,
+      "role_rank": 12
+    },
+    {
+      "candidate_mse": 3.247732454900938e-08,
+      "exact_q_oracle_mse": 7.291514458147079e-09,
+      "foldJ_base_mse": 3.344228893234718e-08,
+      "role_rank": 13
+    },
+    {
+      "candidate_mse": 3.378301613448794e-08,
+      "exact_q_oracle_mse": 7.413944871700325e-09,
+      "foldJ_base_mse": 3.401085724248164e-08,
+      "role_rank": 14
+    },
+    {
+      "candidate_mse": 3.074611692068711e-08,
+      "exact_q_oracle_mse": 4.974338159218997e-09,
+      "foldJ_base_mse": 3.292601073579442e-08,
+      "role_rank": 15
+    },
+    {
+      "candidate_mse": 2.4915015079907335e-08,
+      "exact_q_oracle_mse": 6.314050297041551e-09,
+      "foldJ_base_mse": 2.5387665770452197e-08,
+      "role_rank": 16
+    },
+    {
+      "candidate_mse": 3.338797303175194e-08,
+      "exact_q_oracle_mse": 5.225108705914287e-09,
+      "foldJ_base_mse": 3.3924724262810976e-08,
+      "role_rank": 17
+    },
+    {
+      "candidate_mse": 2.9280896832601024e-08,
+      "exact_q_oracle_mse": 7.033094126938216e-09,
+      "foldJ_base_mse": 3.208587893038345e-08,
+      "role_rank": 18
+    },
+    {
+      "candidate_mse": 2.8999708414305187e-08,
+      "exact_q_oracle_mse": 7.878283783516523e-09,
+      "foldJ_base_mse": 3.0378162641205054e-08,
+      "role_rank": 19
+    },
+    {
+      "candidate_mse": 2.99428364581793e-08,
+      "exact_q_oracle_mse": 4.975670728749345e-09,
+      "foldJ_base_mse": 3.129183083446657e-08,
+      "role_rank": 20
+    },
+    {
+      "candidate_mse": 2.7590353720688458e-08,
+      "exact_q_oracle_mse": 5.3884476965876356e-09,
+      "foldJ_base_mse": 2.768708383999006e-08,
+      "role_rank": 21
+    },
+    {
+      "candidate_mse": 2.845805762216211e-08,
+      "exact_q_oracle_mse": 6.96960281227409e-09,
+      "foldJ_base_mse": 3.037729210129595e-08,
+      "role_rank": 22
+    },
+    {
+      "candidate_mse": 2.504846325049464e-08,
+      "exact_q_oracle_mse": 4.837012105808553e-09,
+      "foldJ_base_mse": 2.5753331046120996e-08,
+      "role_rank": 23
+    },
+    {
+      "candidate_mse": 3.1661508016175376e-08,
+      "exact_q_oracle_mse": 6.278320408302724e-09,
+      "foldJ_base_mse": 3.292479660076831e-08,
+      "role_rank": 24
+    },
+    {
+      "candidate_mse": 3.005914839215036e-08,
+      "exact_q_oracle_mse": 5.556101047815446e-09,
+      "foldJ_base_mse": 2.9788781900091163e-08,
+      "role_rank": 25
+    },
+    {
+      "candidate_mse": 2.8590284379693276e-08,
+      "exact_q_oracle_mse": 5.72306783925192e-09,
+      "foldJ_base_mse": 2.8773145087888872e-08,
+      "role_rank": 26
+    },
+    {
+      "candidate_mse": 2.9596764157350943e-08,
+      "exact_q_oracle_mse": 4.503065401286851e-09,
+      "foldJ_base_mse": 2.9488893857948127e-08,
+      "role_rank": 27
+    },
+    {
+      "candidate_mse": 2.8781959193430845e-08,
+      "exact_q_oracle_mse": 6.048176759273485e-09,
+      "foldJ_base_mse": 3.0102676286173804e-08,
+      "role_rank": 28
+    },
+    {
+      "candidate_mse": 3.1122159067477404e-08,
+      "exact_q_oracle_mse": 7.0621976440175584e-09,
+      "foldJ_base_mse": 3.2347845086760764e-08,
+      "role_rank": 29
+    },
+    {
+      "candidate_mse": 2.449270552828839e-08,
+      "exact_q_oracle_mse": 5.085558567489603e-09,
+      "foldJ_base_mse": 2.5763651911409883e-08,
+      "role_rank": 30
+    },
+    {
+      "candidate_mse": 3.061810647982375e-08,
+      "exact_q_oracle_mse": 6.839559371372728e-09,
+      "foldJ_base_mse": 3.274053390426302e-08,
+      "role_rank": 31
+    },
+    {
+      "candidate_mse": 3.653449840952507e-08,
+      "exact_q_oracle_mse": 4.36079500207058e-09,
+      "foldJ_base_mse": 3.689955598014815e-08,
+      "role_rank": 32
+    },
+    {
+      "candidate_mse": 3.027863324939111e-08,
+      "exact_q_oracle_mse": 6.820003167372232e-09,
+      "foldJ_base_mse": 3.0133005126831e-08,
+      "role_rank": 33
+    },
+    {
+      "candidate_mse": 3.0179616523895793e-08,
+      "exact_q_oracle_mse": 5.942488636052633e-09,
+      "foldJ_base_mse": 3.1201895564739504e-08,
+      "role_rank": 34
+    },
+    {
+      "candidate_mse": 2.4707461923024017e-08,
+      "exact_q_oracle_mse": 4.7133986948265265e-09,
+      "foldJ_base_mse": 2.5087076612482876e-08,
+      "role_rank": 35
+    },
+    {
+      "candidate_mse": 3.0634717895981395e-08,
+      "exact_q_oracle_mse": 6.903168944862952e-09,
+      "foldJ_base_mse": 3.2624534637094474e-08,
+      "role_rank": 36
+    },
+    {
+      "candidate_mse": 3.067333124555256e-08,
+      "exact_q_oracle_mse": 4.957677522371194e-09,
+      "foldJ_base_mse": 3.167486410596359e-08,
+      "role_rank": 37
+    },
+    {
+      "candidate_mse": 2.6954076759130332e-08,
+      "exact_q_oracle_mse": 6.635741774952588e-09,
+      "foldJ_base_mse": 2.7246093981503803e-08,
+      "role_rank": 38
+    },
+    {
+      "candidate_mse": 2.4089569575335355e-08,
+      "exact_q_oracle_mse": 4.624517177369108e-09,
+      "foldJ_base_mse": 2.500059194990356e-08,
+      "role_rank": 39
+    },
+    {
+      "candidate_mse": 2.716445757405158e-08,
+      "exact_q_oracle_mse": 4.918502862201394e-09,
+      "foldJ_base_mse": 2.7160356690856113e-08,
+      "role_rank": 40
+    },
+    {
+      "candidate_mse": 3.440471637657298e-08,
+      "exact_q_oracle_mse": 5.71553649162304e-09,
+      "foldJ_base_mse": 3.598662333431698e-08,
+      "role_rank": 41
+    },
+    {
+      "candidate_mse": 2.9651705496142748e-08,
+      "exact_q_oracle_mse": 8.341382895548694e-09,
+      "foldJ_base_mse": 3.0908971279841345e-08,
+      "role_rank": 42
+    },
+    {
+      "candidate_mse": 3.84636277226615e-08,
+      "exact_q_oracle_mse": 6.40285060955764e-09,
+      "foldJ_base_mse": 4.0688931051676344e-08,
+      "role_rank": 43
+    },
+    {
+      "candidate_mse": 2.626282707761876e-08,
+      "exact_q_oracle_mse": 5.543118213259244e-09,
+      "foldJ_base_mse": 2.6940684628009727e-08,
+      "role_rank": 44
+    },
+    {
+      "candidate_mse": 2.609494673966156e-08,
+      "exact_q_oracle_mse": 4.923158405962585e-09,
+      "foldJ_base_mse": 2.6103802535224648e-08,
+      "role_rank": 45
+    },
+    {
+      "candidate_mse": 2.9409500981607884e-08,
+      "exact_q_oracle_mse": 5.2014156640532385e-09,
+      "foldJ_base_mse": 3.0691740352498595e-08,
+      "role_rank": 46
+    },
+    {
+      "candidate_mse": 3.325465902873787e-08,
+      "exact_q_oracle_mse": 5.653758611441754e-09,
+      "foldJ_base_mse": 3.365010594275321e-08,
+      "role_rank": 47
+    },
+    {
+      "candidate_mse": 2.5792852389162194e-08,
+      "exact_q_oracle_mse": 8.424762173573998e-09,
+      "foldJ_base_mse": 2.632497928639375e-08,
+      "role_rank": 48
+    },
+    {
+      "candidate_mse": 2.327819276768318e-08,
+      "exact_q_oracle_mse": 6.474420627737981e-09,
+      "foldJ_base_mse": 2.348972518858607e-08,
+      "role_rank": 49
+    },
+    {
+      "candidate_mse": 3.618272384248322e-08,
+      "exact_q_oracle_mse": 7.185707761418389e-09,
+      "foldJ_base_mse": 3.753752106481134e-08,
+      "role_rank": 50
+    },
+    {
+      "candidate_mse": 2.7852956337899307e-08,
+      "exact_q_oracle_mse": 4.415850955944009e-09,
+      "foldJ_base_mse": 2.8814510107456836e-08,
+      "role_rank": 51
+    },
+    {
+      "candidate_mse": 2.732629144843415e-08,
+      "exact_q_oracle_mse": 5.4392523708459425e-09,
+      "foldJ_base_mse": 2.876399297013778e-08,
+      "role_rank": 52
+    },
+    {
+      "candidate_mse": 2.5756883072783175e-08,
+      "exact_q_oracle_mse": 4.889831858494368e-09,
+      "foldJ_base_mse": 2.63737968055375e-08,
+      "role_rank": 53
+    },
+    {
+      "candidate_mse": 3.7311466243889385e-08,
+      "exact_q_oracle_mse": 7.21473437181051e-09,
+      "foldJ_base_mse": 3.818065734697662e-08,
+      "role_rank": 54
+    },
+    {
+      "candidate_mse": 3.225408209361938e-08,
+      "exact_q_oracle_mse": 8.524787438159733e-09,
+      "foldJ_base_mse": 3.1514468706228176e-08,
+      "role_rank": 55
+    },
+    {
+      "candidate_mse": 3.065364621934654e-08,
+      "exact_q_oracle_mse": 7.1949185380517745e-09,
+      "foldJ_base_mse": 2.956209145553596e-08,
+      "role_rank": 56
+    },
+    {
+      "candidate_mse": 3.018789382285783e-08,
+      "exact_q_oracle_mse": 6.443219896811214e-09,
+      "foldJ_base_mse": 3.0828014935575764e-08,
+      "role_rank": 57
+    },
+    {
+      "candidate_mse": 2.9303614048673605e-08,
+      "exact_q_oracle_mse": 5.51537301306774e-09,
+      "foldJ_base_mse": 3.023429464115015e-08,
+      "role_rank": 58
+    },
+    {
+      "candidate_mse": 3.443865054195127e-08,
+      "exact_q_oracle_mse": 5.625197222245308e-09,
+      "foldJ_base_mse": 3.502415427689871e-08,
+      "role_rank": 59
+    },
+    {
+      "candidate_mse": 3.0736796473451826e-08,
+      "exact_q_oracle_mse": 4.106157780068274e-09,
+      "foldJ_base_mse": 3.0697705578711104e-08,
+      "role_rank": 60
+    },
+    {
+      "candidate_mse": 3.3043054961021054e-08,
+      "exact_q_oracle_mse": 8.117319992525995e-09,
+      "foldJ_base_mse": 3.250760592894981e-08,
+      "role_rank": 61
+    },
+    {
+      "candidate_mse": 2.833314247478745e-08,
+      "exact_q_oracle_mse": 5.290657087130628e-09,
+      "foldJ_base_mse": 2.8512814391421805e-08,
+      "role_rank": 62
+    },
+    {
+      "candidate_mse": 2.8273374353374533e-08,
+      "exact_q_oracle_mse": 5.8259543413617014e-09,
+      "foldJ_base_mse": 3.048295848660692e-08,
+      "role_rank": 63
+    },
+    {
+      "candidate_mse": 4.2358827294465336e-08,
+      "exact_q_oracle_mse": 8.449748889578211e-09,
+      "foldJ_base_mse": 4.4332695252643534e-08,
+      "role_rank": 64
+    },
+    {
+      "candidate_mse": 3.1028083314463326e-08,
+      "exact_q_oracle_mse": 7.667278514613323e-09,
+      "foldJ_base_mse": 3.1594775570739294e-08,
+      "role_rank": 65
+    },
+    {
+      "candidate_mse": 2.845395626913062e-08,
+      "exact_q_oracle_mse": 6.863508023395012e-09,
+      "foldJ_base_mse": 2.9345401038783506e-08,
+      "role_rank": 66
+    },
+    {
+      "candidate_mse": 2.8826704520255053e-08,
+      "exact_q_oracle_mse": 8.077970262586687e-09,
+      "foldJ_base_mse": 2.9343723004154054e-08,
+      "role_rank": 67
+    },
+    {
+      "candidate_mse": 2.8847896373543983e-08,
+      "exact_q_oracle_mse": 5.038102463915847e-09,
+      "foldJ_base_mse": 3.069561116936067e-08,
+      "role_rank": 68
+    },
+    {
+      "candidate_mse": 2.9589207539108186e-08,
+      "exact_q_oracle_mse": 4.766341095608727e-09,
+      "foldJ_base_mse": 3.051202079011908e-08,
+      "role_rank": 69
+    },
+    {
+      "candidate_mse": 3.085278501943056e-08,
+      "exact_q_oracle_mse": 6.55088689440357e-09,
+      "foldJ_base_mse": 3.345176813902903e-08,
+      "role_rank": 70
+    },
+    {
+      "candidate_mse": 3.701920573906995e-08,
+      "exact_q_oracle_mse": 6.397906452488318e-09,
+      "foldJ_base_mse": 3.7652316673396944e-08,
+      "role_rank": 71
+    },
+    {
+      "candidate_mse": 2.3892541911554567e-08,
+      "exact_q_oracle_mse": 5.2443307208111884e-09,
+      "foldJ_base_mse": 2.4605134154924593e-08,
+      "role_rank": 72
+    },
+    {
+      "candidate_mse": 2.59653522342374e-08,
+      "exact_q_oracle_mse": 6.094600657447162e-09,
+      "foldJ_base_mse": 2.723562094989537e-08,
+      "role_rank": 73
+    },
+    {
+      "candidate_mse": 2.8536319862373578e-08,
+      "exact_q_oracle_mse": 5.1779332159598e-09,
+      "foldJ_base_mse": 2.991518358991206e-08,
+      "role_rank": 74
+    },
+    {
+      "candidate_mse": 2.2811789595314106e-08,
+      "exact_q_oracle_mse": 5.658890257422178e-09,
+      "foldJ_base_mse": 2.3751293244979772e-08,
+      "role_rank": 75
+    },
+    {
+      "candidate_mse": 2.8931504920247254e-08,
+      "exact_q_oracle_mse": 4.5117716692154306e-09,
+      "foldJ_base_mse": 2.9072992310061786e-08,
+      "role_rank": 76
+    },
+    {
+      "candidate_mse": 3.42084879474987e-08,
+      "exact_q_oracle_mse": 8.06949133595666e-09,
+      "foldJ_base_mse": 3.4399274006874616e-08,
+      "role_rank": 77
+    },
+    {
+      "candidate_mse": 2.6773079122609786e-08,
+      "exact_q_oracle_mse": 5.932617380305422e-09,
+      "foldJ_base_mse": 2.7035325182712664e-08,
+      "role_rank": 78
+    },
+    {
+      "candidate_mse": 3.1224082322231955e-08,
+      "exact_q_oracle_mse": 8.136566118720097e-09,
+      "foldJ_base_mse": 3.2200380381500965e-08,
+      "role_rank": 79
+    },
+    {
+      "candidate_mse": 2.5244416553408345e-08,
+      "exact_q_oracle_mse": 6.696183528753933e-09,
+      "foldJ_base_mse": 2.534283121027391e-08,
+      "role_rank": 80
+    },
+    {
+      "candidate_mse": 2.9404200363985884e-08,
+      "exact_q_oracle_mse": 6.33253678368342e-09,
+      "foldJ_base_mse": 3.022624566024418e-08,
+      "role_rank": 81
+    },
+    {
+      "candidate_mse": 2.8567392897062968e-08,
+      "exact_q_oracle_mse": 5.495085108971298e-09,
+      "foldJ_base_mse": 2.961839503230109e-08,
+      "role_rank": 82
+    },
+    {
+      "candidate_mse": 3.780353706474078e-08,
+      "exact_q_oracle_mse": 8.237214876137572e-09,
+      "foldJ_base_mse": 3.87169663927291e-08,
+      "role_rank": 83
+    },
+    {
+      "candidate_mse": 3.671886287599617e-08,
+      "exact_q_oracle_mse": 6.105267167433646e-09,
+      "foldJ_base_mse": 3.826458379349111e-08,
+      "role_rank": 84
+    },
+    {
+      "candidate_mse": 3.2973000290884376e-08,
+      "exact_q_oracle_mse": 7.990490904074005e-09,
+      "foldJ_base_mse": 3.325830940665345e-08,
+      "role_rank": 85
+    },
+    {
+      "candidate_mse": 2.37495246147775e-08,
+      "exact_q_oracle_mse": 5.483537602888572e-09,
+      "foldJ_base_mse": 2.479246441189956e-08,
+      "role_rank": 86
+    },
+    {
+      "candidate_mse": 2.745390776124314e-08,
+      "exact_q_oracle_mse": 6.696939670746537e-09,
+      "foldJ_base_mse": 2.7570527730044073e-08,
+      "role_rank": 87
+    },
+    {
+      "candidate_mse": 2.5146029406137566e-08,
+      "exact_q_oracle_mse": 4.4121485351407776e-09,
+      "foldJ_base_mse": 2.590458223792636e-08,
+      "role_rank": 88
+    },
+    {
+      "candidate_mse": 3.083570135472619e-08,
+      "exact_q_oracle_mse": 6.589492437576185e-09,
+      "foldJ_base_mse": 3.1286051764857516e-08,
+      "role_rank": 89
+    },
+    {
+      "candidate_mse": 2.230221732684589e-08,
+      "exact_q_oracle_mse": 4.72968728126558e-09,
+      "foldJ_base_mse": 2.2925230870717807e-08,
+      "role_rank": 90
+    },
+    {
+      "candidate_mse": 3.8836942414598574e-08,
+      "exact_q_oracle_mse": 8.122056863229795e-09,
+      "foldJ_base_mse": 3.9381939564905945e-08,
+      "role_rank": 91
+    },
+    {
+      "candidate_mse": 2.9325765660708243e-08,
+      "exact_q_oracle_mse": 8.256330708458009e-09,
+      "foldJ_base_mse": 3.047753025237474e-08,
+      "role_rank": 92
+    },
+    {
+      "candidate_mse": 2.8299215794036074e-08,
+      "exact_q_oracle_mse": 6.356039506251985e-09,
+      "foldJ_base_mse": 2.9247269010784523e-08,
+      "role_rank": 93
+    },
+    {
+      "candidate_mse": 3.496165275307509e-08,
+      "exact_q_oracle_mse": 5.620838295006849e-09,
+      "foldJ_base_mse": 3.5992684512475356e-08,
+      "role_rank": 94
+    },
+    {
+      "candidate_mse": 2.4351459379312042e-08,
+      "exact_q_oracle_mse": 5.935849596150673e-09,
+      "foldJ_base_mse": 2.6402536005341707e-08,
+      "role_rank": 95
+    },
+    {
+      "candidate_mse": 3.188125026988615e-08,
+      "exact_q_oracle_mse": 4.972108292104374e-09,
+      "foldJ_base_mse": 3.231309939765633e-08,
+      "role_rank": 96
+    },
+    {
+      "candidate_mse": 3.5628820283512585e-08,
+      "exact_q_oracle_mse": 9.021574190617594e-09,
+      "foldJ_base_mse": 3.50524985558729e-08,
+      "role_rank": 97
+    },
+    {
+      "candidate_mse": 2.8015181946130235e-08,
+      "exact_q_oracle_mse": 6.215989658203386e-09,
+      "foldJ_base_mse": 2.992325626979802e-08,
+      "role_rank": 98
+    },
+    {
+      "candidate_mse": 2.6272455780738737e-08,
+      "exact_q_oracle_mse": 6.356747449392148e-09,
+      "foldJ_base_mse": 2.7092418010862075e-08,
+      "role_rank": 99
+    },
+    {
+      "candidate_mse": 2.525455006461715e-08,
+      "exact_q_oracle_mse": 5.247075988639131e-09,
+      "foldJ_base_mse": 2.572316312517762e-08,
+      "role_rank": 100
+    },
+    {
+      "candidate_mse": 3.086521093282692e-08,
+      "exact_q_oracle_mse": 6.335232335360697e-09,
+      "foldJ_base_mse": 2.9189150428368238e-08,
+      "role_rank": 101
+    },
+    {
+      "candidate_mse": 2.536300384311042e-08,
+      "exact_q_oracle_mse": 3.4234027098248787e-09,
+      "foldJ_base_mse": 2.6654973078308852e-08,
+      "role_rank": 102
+    },
+    {
+      "candidate_mse": 2.674102377930775e-08,
+      "exact_q_oracle_mse": 5.008381298572354e-09,
+      "foldJ_base_mse": 2.7734657106383923e-08,
+      "role_rank": 103
+    },
+    {
+      "candidate_mse": 2.7827762385152194e-08,
+      "exact_q_oracle_mse": 5.120632318445195e-09,
+      "foldJ_base_mse": 2.8293795728876767e-08,
+      "role_rank": 104
+    },
+    {
+      "candidate_mse": 2.93974134970332e-08,
+      "exact_q_oracle_mse": 7.817020082278874e-09,
+      "foldJ_base_mse": 3.0053349964820045e-08,
+      "role_rank": 105
+    },
+    {
+      "candidate_mse": 2.6185536575526017e-08,
+      "exact_q_oracle_mse": 5.886246644681137e-09,
+      "foldJ_base_mse": 2.5362155406653387e-08,
+      "role_rank": 106
+    },
+    {
+      "candidate_mse": 3.135975431512202e-08,
+      "exact_q_oracle_mse": 6.61804901380152e-09,
+      "foldJ_base_mse": 3.233750105084831e-08,
+      "role_rank": 107
+    },
+    {
+      "candidate_mse": 3.623847746346585e-08,
+      "exact_q_oracle_mse": 6.3401775276729e-09,
+      "foldJ_base_mse": 3.64171596367947e-08,
+      "role_rank": 108
+    },
+    {
+      "candidate_mse": 2.3402539133347447e-08,
+      "exact_q_oracle_mse": 5.5387239706479705e-09,
+      "foldJ_base_mse": 2.5301138586622902e-08,
+      "role_rank": 109
+    },
+    {
+      "candidate_mse": 3.147843922026201e-08,
+      "exact_q_oracle_mse": 6.4395556707163115e-09,
+      "foldJ_base_mse": 3.2467278414108874e-08,
+      "role_rank": 110
+    },
+    {
+      "candidate_mse": 2.794146924495036e-08,
+      "exact_q_oracle_mse": 6.264813355490022e-09,
+      "foldJ_base_mse": 2.9674146352233524e-08,
+      "role_rank": 111
+    },
+    {
+      "candidate_mse": 2.7999200634396115e-08,
+      "exact_q_oracle_mse": 4.696199147282176e-09,
+      "foldJ_base_mse": 2.9648236971574092e-08,
+      "role_rank": 112
+    },
+    {
+      "candidate_mse": 2.740157136196697e-08,
+      "exact_q_oracle_mse": 5.641352479622696e-09,
+      "foldJ_base_mse": 2.6170407118469766e-08,
+      "role_rank": 113
+    },
+    {
+      "candidate_mse": 2.743734687151531e-08,
+      "exact_q_oracle_mse": 5.265604943116431e-09,
+      "foldJ_base_mse": 2.8710937242725802e-08,
+      "role_rank": 114
+    },
+    {
+      "candidate_mse": 2.919324301229521e-08,
+      "exact_q_oracle_mse": 5.198720859318435e-09,
+      "foldJ_base_mse": 3.006794807208829e-08,
+      "role_rank": 115
+    },
+    {
+      "candidate_mse": 3.255237667750027e-08,
+      "exact_q_oracle_mse": 6.8736770500294316e-09,
+      "foldJ_base_mse": 3.2070906120468824e-08,
+      "role_rank": 116
+    },
+    {
+      "candidate_mse": 2.9161746227380805e-08,
+      "exact_q_oracle_mse": 6.04031300538277e-09,
+      "foldJ_base_mse": 3.018313143093329e-08,
+      "role_rank": 117
+    },
+    {
+      "candidate_mse": 2.38777292357058e-08,
+      "exact_q_oracle_mse": 5.419777019791628e-09,
+      "foldJ_base_mse": 2.4139078182356602e-08,
+      "role_rank": 118
+    },
+    {
+      "candidate_mse": 2.2600455097877053e-08,
+      "exact_q_oracle_mse": 5.315475588147503e-09,
+      "foldJ_base_mse": 2.324646065971534e-08,
+      "role_rank": 119
+    },
+    {
+      "candidate_mse": 2.962891331501067e-08,
+      "exact_q_oracle_mse": 7.925072783364643e-09,
+      "foldJ_base_mse": 2.994318196122495e-08,
+      "role_rank": 120
+    },
+    {
+      "candidate_mse": 2.848222102533458e-08,
+      "exact_q_oracle_mse": 5.5511708842755086e-09,
+      "foldJ_base_mse": 2.8263343489816303e-08,
+      "role_rank": 121
+    },
+    {
+      "candidate_mse": 2.5905792038145057e-08,
+      "exact_q_oracle_mse": 5.9031535319526165e-09,
+      "foldJ_base_mse": 2.6737329565607143e-08,
+      "role_rank": 122
+    },
+    {
+      "candidate_mse": 3.964604061997689e-08,
+      "exact_q_oracle_mse": 8.388515608337848e-09,
+      "foldJ_base_mse": 3.948503614370317e-08,
+      "role_rank": 123
+    },
+    {
+      "candidate_mse": 3.262520048621372e-08,
+      "exact_q_oracle_mse": 6.751803785542562e-09,
+      "foldJ_base_mse": 3.3823073402909616e-08,
+      "role_rank": 124
+    },
+    {
+      "candidate_mse": 2.4211904078830443e-08,
+      "exact_q_oracle_mse": 5.524701056621114e-09,
+      "foldJ_base_mse": 2.517777961539132e-08,
+      "role_rank": 125
+    },
+    {
+      "candidate_mse": 3.1585970131233726e-08,
+      "exact_q_oracle_mse": 4.3646539528049945e-09,
+      "foldJ_base_mse": 3.234877215070422e-08,
+      "role_rank": 126
+    },
+    {
+      "candidate_mse": 2.730563326318868e-08,
+      "exact_q_oracle_mse": 5.27811830189797e-09,
+      "foldJ_base_mse": 2.8493896185131316e-08,
+      "role_rank": 127
+    },
+    {
+      "candidate_mse": 2.583033918937179e-08,
+      "exact_q_oracle_mse": 6.519867331745408e-09,
+      "foldJ_base_mse": 2.7201742464920038e-08,
+      "role_rank": 128
+    },
+    {
+      "candidate_mse": 2.387324457531901e-08,
+      "exact_q_oracle_mse": 5.390263051627942e-09,
+      "foldJ_base_mse": 2.4209253936600845e-08,
+      "role_rank": 129
+    },
+    {
+      "candidate_mse": 2.5010339903049267e-08,
+      "exact_q_oracle_mse": 4.386424426704236e-09,
+      "foldJ_base_mse": 2.5906133625868433e-08,
+      "role_rank": 130
+    },
+    {
+      "candidate_mse": 2.772666582946001e-08,
+      "exact_q_oracle_mse": 4.7903427743232685e-09,
+      "foldJ_base_mse": 2.8526647163623202e-08,
+      "role_rank": 131
+    },
+    {
+      "candidate_mse": 2.9368004044412498e-08,
+      "exact_q_oracle_mse": 6.310282284596119e-09,
+      "foldJ_base_mse": 3.024857576320376e-08,
+      "role_rank": 132
+    },
+    {
+      "candidate_mse": 2.753241358382471e-08,
+      "exact_q_oracle_mse": 4.591678130200627e-09,
+      "foldJ_base_mse": 2.7525254221783532e-08,
+      "role_rank": 133
+    },
+    {
+      "candidate_mse": 2.9148924982454862e-08,
+      "exact_q_oracle_mse": 5.189195651448188e-09,
+      "foldJ_base_mse": 3.050366074893132e-08,
+      "role_rank": 134
+    },
+    {
+      "candidate_mse": 2.41190834195004e-08,
+      "exact_q_oracle_mse": 5.723691074547155e-09,
+      "foldJ_base_mse": 2.4581857141693702e-08,
+      "role_rank": 135
+    },
+    {
+      "candidate_mse": 2.4762854617398578e-08,
+      "exact_q_oracle_mse": 5.2573051008981775e-09,
+      "foldJ_base_mse": 2.552920785261006e-08,
+      "role_rank": 136
+    },
+    {
+      "candidate_mse": 2.90839708310731e-08,
+      "exact_q_oracle_mse": 6.065913759952367e-09,
+      "foldJ_base_mse": 3.050577829182279e-08,
+      "role_rank": 137
+    },
+    {
+      "candidate_mse": 2.921388744143689e-08,
+      "exact_q_oracle_mse": 5.794799870820159e-09,
+      "foldJ_base_mse": 3.091137451021944e-08,
+      "role_rank": 138
+    },
+    {
+      "candidate_mse": 3.1387626711219416e-08,
+      "exact_q_oracle_mse": 6.77514333237686e-09,
+      "foldJ_base_mse": 3.3243025087948384e-08,
+      "role_rank": 139
+    },
+    {
+      "candidate_mse": 2.4758252087033793e-08,
+      "exact_q_oracle_mse": 6.547955261384764e-09,
+      "foldJ_base_mse": 2.4756041042696122e-08,
+      "role_rank": 140
+    },
+    {
+      "candidate_mse": 2.889513247977263e-08,
+      "exact_q_oracle_mse": 5.228458517472304e-09,
+      "foldJ_base_mse": 3.063855373267031e-08,
+      "role_rank": 141
+    },
+    {
+      "candidate_mse": 2.925956885011352e-08,
+      "exact_q_oracle_mse": 6.55884432320798e-09,
+      "foldJ_base_mse": 2.975383325080612e-08,
+      "role_rank": 142
+    },
+    {
+      "candidate_mse": 2.9484473736194378e-08,
+      "exact_q_oracle_mse": 6.487264586035787e-09,
+      "foldJ_base_mse": 2.9930017370426155e-08,
+      "role_rank": 143
+    },
+    {
+      "candidate_mse": 3.4455852204313605e-08,
+      "exact_q_oracle_mse": 6.955380394234247e-09,
+      "foldJ_base_mse": 3.600136230766717e-08,
+      "role_rank": 144
+    },
+    {
+      "candidate_mse": 3.058878748049223e-08,
+      "exact_q_oracle_mse": 5.000981896304356e-09,
+      "foldJ_base_mse": 3.215182978797557e-08,
+      "role_rank": 145
+    },
+    {
+      "candidate_mse": 3.137514707222778e-08,
+      "exact_q_oracle_mse": 4.8453627321225536e-09,
+      "foldJ_base_mse": 3.162596351662663e-08,
+      "role_rank": 146
+    },
+    {
+      "candidate_mse": 2.580471872111955e-08,
+      "exact_q_oracle_mse": 5.265676910300535e-09,
+      "foldJ_base_mse": 2.5810810938735438e-08,
+      "role_rank": 147
+    },
+    {
+      "candidate_mse": 3.290894222957463e-08,
+      "exact_q_oracle_mse": 6.6797676989584875e-09,
+      "foldJ_base_mse": 3.448377825600092e-08,
+      "role_rank": 148
+    },
+    {
+      "candidate_mse": 2.5179166510068772e-08,
+      "exact_q_oracle_mse": 5.633234325649173e-09,
+      "foldJ_base_mse": 2.553344249448378e-08,
+      "role_rank": 149
+    },
+    {
+      "candidate_mse": 3.034456690554487e-08,
+      "exact_q_oracle_mse": 5.663519784811471e-09,
+      "foldJ_base_mse": 3.2401582274956054e-08,
+      "role_rank": 150
+    },
+    {
+      "candidate_mse": 2.9941840983347554e-08,
+      "exact_q_oracle_mse": 7.650950339669015e-09,
+      "foldJ_base_mse": 2.96128128857023e-08,
+      "role_rank": 151
+    },
+    {
+      "candidate_mse": 2.876610018195842e-08,
+      "exact_q_oracle_mse": 5.6034595839104246e-09,
+      "foldJ_base_mse": 2.9577602177691218e-08,
+      "role_rank": 152
+    },
+    {
+      "candidate_mse": 2.7646832456687454e-08,
+      "exact_q_oracle_mse": 5.126694472232576e-09,
+      "foldJ_base_mse": 2.8950385827253783e-08,
+      "role_rank": 153
+    },
+    {
+      "candidate_mse": 2.8484685621994106e-08,
+      "exact_q_oracle_mse": 5.12046292778236e-09,
+      "foldJ_base_mse": 2.938043488560464e-08,
+      "role_rank": 154
+    },
+    {
+      "candidate_mse": 2.980756547125447e-08,
+      "exact_q_oracle_mse": 5.659102352252372e-09,
+      "foldJ_base_mse": 3.096485360885793e-08,
+      "role_rank": 155
+    },
+    {
+      "candidate_mse": 2.101989433654161e-08,
+      "exact_q_oracle_mse": 6.323606090565279e-09,
+      "foldJ_base_mse": 2.2058064433239623e-08,
+      "role_rank": 156
+    },
+    {
+      "candidate_mse": 2.8442499970288147e-08,
+      "exact_q_oracle_mse": 6.569130272087435e-09,
+      "foldJ_base_mse": 2.9579225687174707e-08,
+      "role_rank": 157
+    },
+    {
+      "candidate_mse": 3.4799404710623574e-08,
+      "exact_q_oracle_mse": 5.513531523482817e-09,
+      "foldJ_base_mse": 3.469203907495724e-08,
+      "role_rank": 158
+    },
+    {
+      "candidate_mse": 3.943605985824381e-08,
+      "exact_q_oracle_mse": 6.486647685684706e-09,
+      "foldJ_base_mse": 4.062318214547458e-08,
+      "role_rank": 159
+    },
+    {
+      "candidate_mse": 2.4335508028910752e-08,
+      "exact_q_oracle_mse": 5.9827723539188285e-09,
+      "foldJ_base_mse": 2.450507454022055e-08,
+      "role_rank": 160
+    },
+    {
+      "candidate_mse": 2.4448826042875147e-08,
+      "exact_q_oracle_mse": 5.613809806285481e-09,
+      "foldJ_base_mse": 2.5553298338302173e-08,
+      "role_rank": 161
+    },
+    {
+      "candidate_mse": 3.481337952469331e-08,
+      "exact_q_oracle_mse": 6.191430458576372e-09,
+      "foldJ_base_mse": 3.493898151903004e-08,
+      "role_rank": 162
+    },
+    {
+      "candidate_mse": 2.9643538617648162e-08,
+      "exact_q_oracle_mse": 5.722776155070594e-09,
+      "foldJ_base_mse": 3.090075695041351e-08,
+      "role_rank": 163
+    },
+    {
+      "candidate_mse": 3.2180546125656884e-08,
+      "exact_q_oracle_mse": 8.509093377524808e-09,
+      "foldJ_base_mse": 3.342206602101348e-08,
+      "role_rank": 164
+    },
+    {
+      "candidate_mse": 3.135669612262559e-08,
+      "exact_q_oracle_mse": 7.4448119515141e-09,
+      "foldJ_base_mse": 3.247842678344521e-08,
+      "role_rank": 165
+    },
+    {
+      "candidate_mse": 2.860683798667816e-08,
+      "exact_q_oracle_mse": 6.628306561578068e-09,
+      "foldJ_base_mse": 2.979075318168612e-08,
+      "role_rank": 166
+    },
+    {
+      "candidate_mse": 2.8249992394230682e-08,
+      "exact_q_oracle_mse": 4.69192358682583e-09,
+      "foldJ_base_mse": 2.8437799054206077e-08,
+      "role_rank": 167
+    },
+    {
+      "candidate_mse": 2.8524437584611967e-08,
+      "exact_q_oracle_mse": 5.7385915356593705e-09,
+      "foldJ_base_mse": 2.955757729104799e-08,
+      "role_rank": 168
+    },
+    {
+      "candidate_mse": 2.527028423038444e-08,
+      "exact_q_oracle_mse": 5.712079995244282e-09,
+      "foldJ_base_mse": 2.6859667596219963e-08,
+      "role_rank": 169
+    },
+    {
+      "candidate_mse": 3.384098784361015e-08,
+      "exact_q_oracle_mse": 6.005235218562881e-09,
+      "foldJ_base_mse": 3.679133951651258e-08,
+      "role_rank": 170
+    },
+    {
+      "candidate_mse": 3.180474532936642e-08,
+      "exact_q_oracle_mse": 8.462013898748823e-09,
+      "foldJ_base_mse": 3.2547530040234916e-08,
+      "role_rank": 171
+    },
+    {
+      "candidate_mse": 3.4909799255492756e-08,
+      "exact_q_oracle_mse": 7.589732308886216e-09,
+      "foldJ_base_mse": 3.5839378529511466e-08,
+      "role_rank": 172
+    },
+    {
+      "candidate_mse": 3.2576214651336456e-08,
+      "exact_q_oracle_mse": 5.392539388896973e-09,
+      "foldJ_base_mse": 3.316117768770856e-08,
+      "role_rank": 173
+    },
+    {
+      "candidate_mse": 3.245661585642737e-08,
+      "exact_q_oracle_mse": 5.0236589854931865e-09,
+      "foldJ_base_mse": 3.3039447408369436e-08,
+      "role_rank": 174
+    },
+    {
+      "candidate_mse": 3.1992592612211436e-08,
+      "exact_q_oracle_mse": 9.484567547306654e-09,
+      "foldJ_base_mse": 3.3291404249190965e-08,
+      "role_rank": 175
+    },
+    {
+      "candidate_mse": 2.7661417827081764e-08,
+      "exact_q_oracle_mse": 4.557611343322703e-09,
+      "foldJ_base_mse": 2.77509780123114e-08,
+      "role_rank": 176
+    },
+    {
+      "candidate_mse": 2.929032396043128e-08,
+      "exact_q_oracle_mse": 4.230807497802436e-09,
+      "foldJ_base_mse": 3.048750914216468e-08,
+      "role_rank": 177
+    },
+    {
+      "candidate_mse": 2.7773455241020276e-08,
+      "exact_q_oracle_mse": 5.7107216944302625e-09,
+      "foldJ_base_mse": 2.8813816660205137e-08,
+      "role_rank": 178
+    },
+    {
+      "candidate_mse": 3.491088333246987e-08,
+      "exact_q_oracle_mse": 5.92378952285922e-09,
+      "foldJ_base_mse": 3.630432546458715e-08,
+      "role_rank": 179
+    },
+    {
+      "candidate_mse": 3.235923749959319e-08,
+      "exact_q_oracle_mse": 4.786003784348211e-09,
+      "foldJ_base_mse": 3.367481208023424e-08,
+      "role_rank": 180
+    },
+    {
+      "candidate_mse": 3.034940463701225e-08,
+      "exact_q_oracle_mse": 6.503642283593351e-09,
+      "foldJ_base_mse": 3.124133143964556e-08,
+      "role_rank": 181
+    },
+    {
+      "candidate_mse": 3.031755737045593e-08,
+      "exact_q_oracle_mse": 6.9894330795729895e-09,
+      "foldJ_base_mse": 3.111042708642205e-08,
+      "role_rank": 182
+    },
+    {
+      "candidate_mse": 3.368772146944221e-08,
+      "exact_q_oracle_mse": 5.2894459943266405e-09,
+      "foldJ_base_mse": 3.489016518215886e-08,
+      "role_rank": 183
+    },
+    {
+      "candidate_mse": 3.074288790843872e-08,
+      "exact_q_oracle_mse": 3.9888346312151415e-09,
+      "foldJ_base_mse": 3.110579709195253e-08,
+      "role_rank": 184
+    },
+    {
+      "candidate_mse": 2.8221027776397563e-08,
+      "exact_q_oracle_mse": 5.962230919935699e-09,
+      "foldJ_base_mse": 2.9476168003065918e-08,
+      "role_rank": 185
+    },
+    {
+      "candidate_mse": 3.452264340912569e-08,
+      "exact_q_oracle_mse": 4.507945001855153e-09,
+      "foldJ_base_mse": 3.521190882814064e-08,
+      "role_rank": 186
+    },
+    {
+      "candidate_mse": 3.210547005997486e-08,
+      "exact_q_oracle_mse": 4.579402949546404e-09,
+      "foldJ_base_mse": 3.338565374684093e-08,
+      "role_rank": 187
+    },
+    {
+      "candidate_mse": 3.5762249248719025e-08,
+      "exact_q_oracle_mse": 5.826362400199933e-09,
+      "foldJ_base_mse": 3.626259605733545e-08,
+      "role_rank": 188
+    },
+    {
+      "candidate_mse": 3.091598181215628e-08,
+      "exact_q_oracle_mse": 5.552413202495005e-09,
+      "foldJ_base_mse": 3.0772855437180317e-08,
+      "role_rank": 189
+    },
+    {
+      "candidate_mse": 2.5617410304428454e-08,
+      "exact_q_oracle_mse": 5.334674228673165e-09,
+      "foldJ_base_mse": 2.532987261190553e-08,
+      "role_rank": 190
+    },
+    {
+      "candidate_mse": 4.0257763735582505e-08,
+      "exact_q_oracle_mse": 6.172060935823817e-09,
+      "foldJ_base_mse": 4.1146404644607465e-08,
+      "role_rank": 191
+    },
+    {
+      "candidate_mse": 2.374023610560337e-08,
+      "exact_q_oracle_mse": 5.370067266977699e-09,
+      "foldJ_base_mse": 2.5464353341025145e-08,
+      "role_rank": 192
+    },
+    {
+      "candidate_mse": 2.3950126507255898e-08,
+      "exact_q_oracle_mse": 5.175274019544473e-09,
+      "foldJ_base_mse": 2.471571133659374e-08,
+      "role_rank": 193
+    },
+    {
+      "candidate_mse": 2.8927938153366147e-08,
+      "exact_q_oracle_mse": 6.471560879807369e-09,
+      "foldJ_base_mse": 2.8566667112997894e-08,
+      "role_rank": 194
+    },
+    {
+      "candidate_mse": 2.9267594706255486e-08,
+      "exact_q_oracle_mse": 4.897731239572958e-09,
+      "foldJ_base_mse": 2.9100464564205177e-08,
+      "role_rank": 195
+    },
+    {
+      "candidate_mse": 2.4133010057058824e-08,
+      "exact_q_oracle_mse": 8.144562325306746e-09,
+      "foldJ_base_mse": 2.501322488634309e-08,
+      "role_rank": 196
+    },
+    {
+      "candidate_mse": 2.3590329382578548e-08,
+      "exact_q_oracle_mse": 4.499058594401964e-09,
+      "foldJ_base_mse": 2.3899479049661993e-08,
+      "role_rank": 197
+    },
+    {
+      "candidate_mse": 2.5801089516824087e-08,
+      "exact_q_oracle_mse": 6.095679447671682e-09,
+      "foldJ_base_mse": 2.7511408892799876e-08,
+      "role_rank": 198
+    },
+    {
+      "candidate_mse": 2.7720008903646474e-08,
+      "exact_q_oracle_mse": 6.222980495599582e-09,
+      "foldJ_base_mse": 2.743956219310688e-08,
+      "role_rank": 199
+    },
+    {
+      "candidate_mse": 4.008559151627647e-08,
+      "exact_q_oracle_mse": 7.231346120683167e-09,
+      "foldJ_base_mse": 4.123734859769573e-08,
+      "role_rank": 200
+    },
+    {
+      "candidate_mse": 2.6212163809629503e-08,
+      "exact_q_oracle_mse": 6.700361263116625e-09,
+      "foldJ_base_mse": 2.8005925739057927e-08,
+      "role_rank": 201
+    },
+    {
+      "candidate_mse": 2.843954692264995e-08,
+      "exact_q_oracle_mse": 6.184801272633537e-09,
+      "foldJ_base_mse": 2.9103341193122627e-08,
+      "role_rank": 202
+    },
+    {
+      "candidate_mse": 3.532766839989472e-08,
+      "exact_q_oracle_mse": 5.30901804589726e-09,
+      "foldJ_base_mse": 3.536275977689695e-08,
+      "role_rank": 203
+    },
+    {
+      "candidate_mse": 2.5017108793679893e-08,
+      "exact_q_oracle_mse": 6.0741225776460425e-09,
+      "foldJ_base_mse": 2.59943871141431e-08,
+      "role_rank": 204
+    },
+    {
+      "candidate_mse": 3.000543153815169e-08,
+      "exact_q_oracle_mse": 4.231086793490996e-09,
+      "foldJ_base_mse": 3.0409724163825295e-08,
+      "role_rank": 205
+    },
+    {
+      "candidate_mse": 3.0419862687059624e-08,
+      "exact_q_oracle_mse": 6.730212165706155e-09,
+      "foldJ_base_mse": 3.325935402034702e-08,
+      "role_rank": 206
+    },
+    {
+      "candidate_mse": 2.7034571668801104e-08,
+      "exact_q_oracle_mse": 6.6718878867437945e-09,
+      "foldJ_base_mse": 2.88554273393245e-08,
+      "role_rank": 207
+    },
+    {
+      "candidate_mse": 2.828001289404909e-08,
+      "exact_q_oracle_mse": 4.769628834163719e-09,
+      "foldJ_base_mse": 3.0103078951406326e-08,
+      "role_rank": 208
+    },
+    {
+      "candidate_mse": 2.365829499144994e-08,
+      "exact_q_oracle_mse": 5.433708223883281e-09,
+      "foldJ_base_mse": 2.3572809146545846e-08,
+      "role_rank": 209
+    },
+    {
+      "candidate_mse": 2.962234406714955e-08,
+      "exact_q_oracle_mse": 4.9285436514533794e-09,
+      "foldJ_base_mse": 3.004592979478589e-08,
+      "role_rank": 210
+    },
+    {
+      "candidate_mse": 3.1970810153449906e-08,
+      "exact_q_oracle_mse": 4.985329925492545e-09,
+      "foldJ_base_mse": 3.270261997579746e-08,
+      "role_rank": 211
+    },
+    {
+      "candidate_mse": 2.3075149883549442e-08,
+      "exact_q_oracle_mse": 5.741620528775101e-09,
+      "foldJ_base_mse": 2.3637273241781557e-08,
+      "role_rank": 212
+    },
+    {
+      "candidate_mse": 3.098242970556517e-08,
+      "exact_q_oracle_mse": 4.643863212365365e-09,
+      "foldJ_base_mse": 3.188382446171055e-08,
+      "role_rank": 213
+    },
+    {
+      "candidate_mse": 3.027618417339765e-08,
+      "exact_q_oracle_mse": 5.7846885766070496e-09,
+      "foldJ_base_mse": 3.077746962335493e-08,
+      "role_rank": 214
+    },
+    {
+      "candidate_mse": 3.1757903617262056e-08,
+      "exact_q_oracle_mse": 4.8968488853481256e-09,
+      "foldJ_base_mse": 3.27001163552215e-08,
+      "role_rank": 215
+    },
+    {
+      "candidate_mse": 2.810105238769425e-08,
+      "exact_q_oracle_mse": 4.420688624413792e-09,
+      "foldJ_base_mse": 2.780070015669667e-08,
+      "role_rank": 216
+    },
+    {
+      "candidate_mse": 2.66195928248487e-08,
+      "exact_q_oracle_mse": 5.7283606511174905e-09,
+      "foldJ_base_mse": 2.6802505533035408e-08,
+      "role_rank": 217
+    },
+    {
+      "candidate_mse": 3.0083068443838065e-08,
+      "exact_q_oracle_mse": 6.571390927281921e-09,
+      "foldJ_base_mse": 3.0550955024099837e-08,
+      "role_rank": 218
+    },
+    {
+      "candidate_mse": 2.9686928122670124e-08,
+      "exact_q_oracle_mse": 6.149201440311474e-09,
+      "foldJ_base_mse": 3.031478097060002e-08,
+      "role_rank": 219
+    },
+    {
+      "candidate_mse": 3.367690198664507e-08,
+      "exact_q_oracle_mse": 5.716054564846397e-09,
+      "foldJ_base_mse": 3.505076756901525e-08,
+      "role_rank": 220
+    },
+    {
+      "candidate_mse": 2.5056189673701823e-08,
+      "exact_q_oracle_mse": 6.977121897426734e-09,
+      "foldJ_base_mse": 2.5761417744012792e-08,
+      "role_rank": 221
+    },
+    {
+      "candidate_mse": 2.943405538662511e-08,
+      "exact_q_oracle_mse": 4.412439125316545e-09,
+      "foldJ_base_mse": 2.961907741508701e-08,
+      "role_rank": 222
+    },
+    {
+      "candidate_mse": 3.06542389913796e-08,
+      "exact_q_oracle_mse": 6.02417007283063e-09,
+      "foldJ_base_mse": 3.14007426595169e-08,
+      "role_rank": 223
+    },
+    {
+      "candidate_mse": 2.9200538178445797e-08,
+      "exact_q_oracle_mse": 7.592164532442047e-09,
+      "foldJ_base_mse": 3.121459431160428e-08,
+      "role_rank": 224
+    },
+    {
+      "candidate_mse": 2.7882002072456494e-08,
+      "exact_q_oracle_mse": 5.940816433661251e-09,
+      "foldJ_base_mse": 2.863570271947401e-08,
+      "role_rank": 225
+    },
+    {
+      "candidate_mse": 3.5417859088731834e-08,
+      "exact_q_oracle_mse": 7.098683108521524e-09,
+      "foldJ_base_mse": 3.6194282209467665e-08,
+      "role_rank": 226
+    },
+    {
+      "candidate_mse": 3.101206698262735e-08,
+      "exact_q_oracle_mse": 6.141599889919433e-09,
+      "foldJ_base_mse": 3.127874646885556e-08,
+      "role_rank": 227
+    },
+    {
+      "candidate_mse": 2.7982293665008918e-08,
+      "exact_q_oracle_mse": 5.197116126954449e-09,
+      "foldJ_base_mse": 2.8123141494405735e-08,
+      "role_rank": 228
+    },
+    {
+      "candidate_mse": 3.6614097341170916e-08,
+      "exact_q_oracle_mse": 9.81998180920317e-09,
+      "foldJ_base_mse": 3.813470491039279e-08,
+      "role_rank": 229
+    },
+    {
+      "candidate_mse": 3.00951053516757e-08,
+      "exact_q_oracle_mse": 5.4843136431508564e-09,
+      "foldJ_base_mse": 3.071901195733089e-08,
+      "role_rank": 230
+    },
+    {
+      "candidate_mse": 3.3781067171751105e-08,
+      "exact_q_oracle_mse": 5.3346636267139226e-09,
+      "foldJ_base_mse": 3.509315914876869e-08,
+      "role_rank": 231
+    },
+    {
+      "candidate_mse": 3.05218211018185e-08,
+      "exact_q_oracle_mse": 6.1355643143462925e-09,
+      "foldJ_base_mse": 3.066510764055914e-08,
+      "role_rank": 232
+    },
+    {
+      "candidate_mse": 2.779957454457783e-08,
+      "exact_q_oracle_mse": 5.599518983166364e-09,
+      "foldJ_base_mse": 2.832015712305384e-08,
+      "role_rank": 233
+    },
+    {
+      "candidate_mse": 3.005502670405833e-08,
+      "exact_q_oracle_mse": 3.749722213435029e-09,
+      "foldJ_base_mse": 3.143181323848419e-08,
+      "role_rank": 234
+    },
+    {
+      "candidate_mse": 2.5734107047940124e-08,
+      "exact_q_oracle_mse": 4.4797216645699395e-09,
+      "foldJ_base_mse": 2.6405403147421158e-08,
+      "role_rank": 235
+    },
+    {
+      "candidate_mse": 2.8883826136485198e-08,
+      "exact_q_oracle_mse": 6.932439466671903e-09,
+      "foldJ_base_mse": 2.9158953208711514e-08,
+      "role_rank": 236
+    },
+    {
+      "candidate_mse": 2.8469725185725772e-08,
+      "exact_q_oracle_mse": 5.9800448364384945e-09,
+      "foldJ_base_mse": 2.93213688524871e-08,
+      "role_rank": 237
+    },
+    {
+      "candidate_mse": 3.400158880706954e-08,
+      "exact_q_oracle_mse": 7.324990175085758e-09,
+      "foldJ_base_mse": 3.592205864996236e-08,
+      "role_rank": 238
+    },
+    {
+      "candidate_mse": 4.041855250744141e-08,
+      "exact_q_oracle_mse": 5.84814525076312e-09,
+      "foldJ_base_mse": 3.953956342527371e-08,
+      "role_rank": 239
+    },
+    {
+      "candidate_mse": 2.6986242137697142e-08,
+      "exact_q_oracle_mse": 5.872906608433491e-09,
+      "foldJ_base_mse": 2.766677462498698e-08,
+      "role_rank": 240
+    },
+    {
+      "candidate_mse": 2.4684767654834542e-08,
+      "exact_q_oracle_mse": 4.861613090332148e-09,
+      "foldJ_base_mse": 2.545056905614273e-08,
+      "role_rank": 241
+    },
+    {
+      "candidate_mse": 3.017433560913371e-08,
+      "exact_q_oracle_mse": 4.884549932939272e-09,
+      "foldJ_base_mse": 3.119100090564525e-08,
+      "role_rank": 242
+    },
+    {
+      "candidate_mse": 2.68140702867315e-08,
+      "exact_q_oracle_mse": 7.809870160350666e-09,
+      "foldJ_base_mse": 2.858629662050571e-08,
+      "role_rank": 243
+    },
+    {
+      "candidate_mse": 3.117055288826344e-08,
+      "exact_q_oracle_mse": 7.053378036241267e-09,
+      "foldJ_base_mse": 3.124819188903916e-08,
+      "role_rank": 244
+    },
+    {
+      "candidate_mse": 2.947259840818378e-08,
+      "exact_q_oracle_mse": 4.8283048034046355e-09,
+      "foldJ_base_mse": 3.157158798238784e-08,
+      "role_rank": 245
+    },
+    {
+      "candidate_mse": 2.929928567883153e-08,
+      "exact_q_oracle_mse": 8.567201848913239e-09,
+      "foldJ_base_mse": 3.01525051447364e-08,
+      "role_rank": 246
+    },
+    {
+      "candidate_mse": 3.250446088869606e-08,
+      "exact_q_oracle_mse": 5.50817452722085e-09,
+      "foldJ_base_mse": 3.331252860755321e-08,
+      "role_rank": 247
+    },
+    {
+      "candidate_mse": 3.4298709011314797e-08,
+      "exact_q_oracle_mse": 7.279007735209611e-09,
+      "foldJ_base_mse": 3.490406149625944e-08,
+      "role_rank": 248
+    },
+    {
+      "candidate_mse": 3.21283246494912e-08,
+      "exact_q_oracle_mse": 7.860658077042266e-09,
+      "foldJ_base_mse": 3.241076151288787e-08,
+      "role_rank": 249
+    },
+    {
+      "candidate_mse": 2.679865393535038e-08,
+      "exact_q_oracle_mse": 6.2957107383729344e-09,
+      "foldJ_base_mse": 2.8565402225724434e-08,
+      "role_rank": 250
+    },
+    {
+      "candidate_mse": 2.26210039769904e-08,
+      "exact_q_oracle_mse": 5.0265355743194534e-09,
+      "foldJ_base_mse": 2.2650200400526833e-08,
+      "role_rank": 251
+    },
+    {
+      "candidate_mse": 2.8885133697222064e-08,
+      "exact_q_oracle_mse": 6.457027771194814e-09,
+      "foldJ_base_mse": 2.8398006105313194e-08,
+      "role_rank": 252
+    },
+    {
+      "candidate_mse": 2.3711227739351484e-08,
+      "exact_q_oracle_mse": 6.5438496076334185e-09,
+      "foldJ_base_mse": 2.4163402280663724e-08,
+      "role_rank": 253
+    },
+    {
+      "candidate_mse": 3.206520583926481e-08,
+      "exact_q_oracle_mse": 5.021667428663531e-09,
+      "foldJ_base_mse": 3.334986992282797e-08,
+      "role_rank": 254
+    },
+    {
+      "candidate_mse": 2.878655848934181e-08,
+      "exact_q_oracle_mse": 7.398137923168786e-09,
+      "foldJ_base_mse": 2.84529344643914e-08,
+      "role_rank": 255
+    },
+    {
+      "candidate_mse": 2.8124810932275022e-08,
+      "exact_q_oracle_mse": 5.061503134506855e-09,
+      "foldJ_base_mse": 2.884306651014818e-08,
+      "role_rank": 256
+    },
+    {
+      "candidate_mse": 2.8032448141592224e-08,
+      "exact_q_oracle_mse": 6.756688813357884e-09,
+      "foldJ_base_mse": 2.81850553469489e-08,
+      "role_rank": 257
+    },
+    {
+      "candidate_mse": 3.211947021177616e-08,
+      "exact_q_oracle_mse": 5.354788100071158e-09,
+      "foldJ_base_mse": 3.4153617255473385e-08,
+      "role_rank": 258
+    },
+    {
+      "candidate_mse": 3.897750002998034e-08,
+      "exact_q_oracle_mse": 8.890722324461361e-09,
+      "foldJ_base_mse": 4.0613726399326385e-08,
+      "role_rank": 259
+    },
+    {
+      "candidate_mse": 2.6613440516690908e-08,
+      "exact_q_oracle_mse": 6.819373366888001e-09,
+      "foldJ_base_mse": 2.8053272654536637e-08,
+      "role_rank": 260
+    },
+    {
+      "candidate_mse": 3.207249566810852e-08,
+      "exact_q_oracle_mse": 6.730585141948737e-09,
+      "foldJ_base_mse": 3.272591149874718e-08,
+      "role_rank": 261
+    },
+    {
+      "candidate_mse": 3.2015885760294557e-08,
+      "exact_q_oracle_mse": 5.371148406303464e-09,
+      "foldJ_base_mse": 3.162109111430001e-08,
+      "role_rank": 262
+    },
+    {
+      "candidate_mse": 2.880303116987343e-08,
+      "exact_q_oracle_mse": 5.848649625341002e-09,
+      "foldJ_base_mse": 3.02294700064768e-08,
+      "role_rank": 263
+    },
+    {
+      "candidate_mse": 2.821769450534884e-08,
+      "exact_q_oracle_mse": 4.4182110231333264e-09,
+      "foldJ_base_mse": 2.873042562426051e-08,
+      "role_rank": 264
+    },
+    {
+      "candidate_mse": 2.8526083016010197e-08,
+      "exact_q_oracle_mse": 6.655557411119168e-09,
+      "foldJ_base_mse": 2.952233374406587e-08,
+      "role_rank": 265
+    },
+    {
+      "candidate_mse": 2.909480851780946e-08,
+      "exact_q_oracle_mse": 6.4520912937021676e-09,
+      "foldJ_base_mse": 2.9704732787240396e-08,
+      "role_rank": 266
+    },
+    {
+      "candidate_mse": 3.252430862484444e-08,
+      "exact_q_oracle_mse": 6.442500178088109e-09,
+      "foldJ_base_mse": 3.2883521174020194e-08,
+      "role_rank": 267
+    },
+    {
+      "candidate_mse": 4.133694849116749e-08,
+      "exact_q_oracle_mse": 8.811093702991977e-09,
+      "foldJ_base_mse": 4.068949078796892e-08,
+      "role_rank": 268
+    },
+    {
+      "candidate_mse": 3.13585727218357e-08,
+      "exact_q_oracle_mse": 6.157024816600236e-09,
+      "foldJ_base_mse": 3.281009642297248e-08,
+      "role_rank": 269
+    },
+    {
+      "candidate_mse": 2.8547524602979825e-08,
+      "exact_q_oracle_mse": 5.75199376934987e-09,
+      "foldJ_base_mse": 2.956921175921892e-08,
+      "role_rank": 270
+    },
+    {
+      "candidate_mse": 2.7587768166894423e-08,
+      "exact_q_oracle_mse": 4.424700250335926e-09,
+      "foldJ_base_mse": 2.7844044198039415e-08,
+      "role_rank": 271
+    },
+    {
+      "candidate_mse": 3.544354865089719e-08,
+      "exact_q_oracle_mse": 8.544205508760373e-09,
+      "foldJ_base_mse": 3.5122803765576915e-08,
+      "role_rank": 272
+    },
+    {
+      "candidate_mse": 2.265222108122312e-08,
+      "exact_q_oracle_mse": 4.7118771754375384e-09,
+      "foldJ_base_mse": 2.2946097573033443e-08,
+      "role_rank": 273
+    },
+    {
+      "candidate_mse": 2.5480268102845784e-08,
+      "exact_q_oracle_mse": 4.661017962655765e-09,
+      "foldJ_base_mse": 2.654728420744423e-08,
+      "role_rank": 274
+    },
+    {
+      "candidate_mse": 3.931356415026622e-08,
+      "exact_q_oracle_mse": 9.903280023873175e-09,
+      "foldJ_base_mse": 3.920101628999689e-08,
+      "role_rank": 275
+    },
+    {
+      "candidate_mse": 3.0393475015338326e-08,
+      "exact_q_oracle_mse": 6.617939756871912e-09,
+      "foldJ_base_mse": 3.130880988828662e-08,
+      "role_rank": 276
+    },
+    {
+      "candidate_mse": 2.3635787469890028e-08,
+      "exact_q_oracle_mse": 4.852873499785426e-09,
+      "foldJ_base_mse": 2.4309495193895207e-08,
+      "role_rank": 277
+    },
+    {
+      "candidate_mse": 2.7336181012887436e-08,
+      "exact_q_oracle_mse": 5.488684750479221e-09,
+      "foldJ_base_mse": 2.8389901237412965e-08,
+      "role_rank": 278
+    },
+    {
+      "candidate_mse": 3.175908287661492e-08,
+      "exact_q_oracle_mse": 6.081329708990996e-09,
+      "foldJ_base_mse": 3.2691864347137186e-08,
+      "role_rank": 279
+    },
+    {
+      "candidate_mse": 3.319390423677204e-08,
+      "exact_q_oracle_mse": 5.40866853922228e-09,
+      "foldJ_base_mse": 3.5692736217510076e-08,
+      "role_rank": 280
+    },
+    {
+      "candidate_mse": 2.748460695589908e-08,
+      "exact_q_oracle_mse": 5.075486629998343e-09,
+      "foldJ_base_mse": 2.8198916178041246e-08,
+      "role_rank": 281
+    },
+    {
+      "candidate_mse": 3.142875404384746e-08,
+      "exact_q_oracle_mse": 7.156019226255084e-09,
+      "foldJ_base_mse": 3.289871863156118e-08,
+      "role_rank": 282
+    },
+    {
+      "candidate_mse": 2.661019524591967e-08,
+      "exact_q_oracle_mse": 3.778390577452706e-09,
+      "foldJ_base_mse": 2.7183145157604597e-08,
+      "role_rank": 283
+    },
+    {
+      "candidate_mse": 3.037179719627471e-08,
+      "exact_q_oracle_mse": 6.927183681649525e-09,
+      "foldJ_base_mse": 3.063572663585608e-08,
+      "role_rank": 284
+    },
+    {
+      "candidate_mse": 2.2728214548709077e-08,
+      "exact_q_oracle_mse": 4.67179999698623e-09,
+      "foldJ_base_mse": 2.3498148618983286e-08,
+      "role_rank": 285
+    },
+    {
+      "candidate_mse": 2.892028591430034e-08,
+      "exact_q_oracle_mse": 5.435070946128305e-09,
+      "foldJ_base_mse": 2.897917821730717e-08,
+      "role_rank": 286
+    },
+    {
+      "candidate_mse": 3.3615741943042916e-08,
+      "exact_q_oracle_mse": 9.229856340723049e-09,
+      "foldJ_base_mse": 3.474659951205544e-08,
+      "role_rank": 287
+    },
+    {
+      "candidate_mse": 2.549809755148457e-08,
+      "exact_q_oracle_mse": 4.851425764024898e-09,
+      "foldJ_base_mse": 2.6371195591283705e-08,
+      "role_rank": 288
+    },
+    {
+      "candidate_mse": 3.15173296000056e-08,
+      "exact_q_oracle_mse": 6.551208370553198e-09,
+      "foldJ_base_mse": 3.304129009311322e-08,
+      "role_rank": 289
+    },
+    {
+      "candidate_mse": 2.9452578616353348e-08,
+      "exact_q_oracle_mse": 6.090024402152811e-09,
+      "foldJ_base_mse": 2.9924432438485825e-08,
+      "role_rank": 290
+    },
+    {
+      "candidate_mse": 2.9775534333023062e-08,
+      "exact_q_oracle_mse": 7.366198161582399e-09,
+      "foldJ_base_mse": 3.076064896818464e-08,
+      "role_rank": 291
+    },
+    {
+      "candidate_mse": 2.9168485726335556e-08,
+      "exact_q_oracle_mse": 6.294301147751311e-09,
+      "foldJ_base_mse": 2.9697611507836232e-08,
+      "role_rank": 292
+    },
+    {
+      "candidate_mse": 3.4376281547300396e-08,
+      "exact_q_oracle_mse": 6.135708800491911e-09,
+      "foldJ_base_mse": 3.49711468982045e-08,
+      "role_rank": 293
+    },
+    {
+      "candidate_mse": 2.5698844634340182e-08,
+      "exact_q_oracle_mse": 3.423812645561561e-09,
+      "foldJ_base_mse": 2.600258514707165e-08,
+      "role_rank": 294
+    },
+    {
+      "candidate_mse": 2.7048498790916086e-08,
+      "exact_q_oracle_mse": 4.5882935709845386e-09,
+      "foldJ_base_mse": 2.736062193629769e-08,
+      "role_rank": 295
+    },
+    {
+      "candidate_mse": 3.0229923567706984e-08,
+      "exact_q_oracle_mse": 6.101513589584674e-09,
+      "foldJ_base_mse": 3.012221103943362e-08,
+      "role_rank": 296
+    },
+    {
+      "candidate_mse": 2.9748661873722894e-08,
+      "exact_q_oracle_mse": 6.881781924971109e-09,
+      "foldJ_base_mse": 3.015341501073059e-08,
+      "role_rank": 297
+    },
+    {
+      "candidate_mse": 2.3849152738208873e-08,
+      "exact_q_oracle_mse": 4.211442685935494e-09,
+      "foldJ_base_mse": 2.402943835166076e-08,
+      "role_rank": 298
+    },
+    {
+      "candidate_mse": 2.787100289950378e-08,
+      "exact_q_oracle_mse": 5.659416625762482e-09,
+      "foldJ_base_mse": 2.873807670245477e-08,
+      "role_rank": 299
+    },
+    {
+      "candidate_mse": 3.22907981768178e-08,
+      "exact_q_oracle_mse": 6.275080825058698e-09,
+      "foldJ_base_mse": 3.411183455075697e-08,
+      "role_rank": 300
+    },
+    {
+      "candidate_mse": 2.6982884195123966e-08,
+      "exact_q_oracle_mse": 6.235263316375248e-09,
+      "foldJ_base_mse": 2.846388882853777e-08,
+      "role_rank": 301
+    },
+    {
+      "candidate_mse": 2.651177976789332e-08,
+      "exact_q_oracle_mse": 5.710768246111578e-09,
+      "foldJ_base_mse": 2.7070644000490456e-08,
+      "role_rank": 302
+    },
+    {
+      "candidate_mse": 2.8020506891845015e-08,
+      "exact_q_oracle_mse": 6.33700287850663e-09,
+      "foldJ_base_mse": 2.866504738979984e-08,
+      "role_rank": 303
+    },
+    {
+      "candidate_mse": 3.0730895532033625e-08,
+      "exact_q_oracle_mse": 6.2567179393631485e-09,
+      "foldJ_base_mse": 3.158312331668887e-08,
+      "role_rank": 304
+    },
+    {
+      "candidate_mse": 3.162869047048923e-08,
+      "exact_q_oracle_mse": 8.62150846545845e-09,
+      "foldJ_base_mse": 3.2219880494515233e-08,
+      "role_rank": 305
+    },
+    {
+      "candidate_mse": 3.887089793511238e-08,
+      "exact_q_oracle_mse": 6.5357354504843695e-09,
+      "foldJ_base_mse": 3.909361064241143e-08,
+      "role_rank": 306
+    },
+    {
+      "candidate_mse": 2.831841527195291e-08,
+      "exact_q_oracle_mse": 4.4467573899753755e-09,
+      "foldJ_base_mse": 2.8086543633853563e-08,
+      "role_rank": 307
+    },
+    {
+      "candidate_mse": 2.1581850392473635e-08,
+      "exact_q_oracle_mse": 5.132182767447818e-09,
+      "foldJ_base_mse": 2.1904907049166153e-08,
+      "role_rank": 308
+    },
+    {
+      "candidate_mse": 3.313219670574854e-08,
+      "exact_q_oracle_mse": 9.345740215314972e-09,
+      "foldJ_base_mse": 3.2556443459777705e-08,
+      "role_rank": 309
+    },
+    {
+      "candidate_mse": 3.045689227489981e-08,
+      "exact_q_oracle_mse": 9.17404919776377e-09,
+      "foldJ_base_mse": 3.1984101321744465e-08,
+      "role_rank": 310
+    },
+    {
+      "candidate_mse": 3.150866884297196e-08,
+      "exact_q_oracle_mse": 6.0021551080214545e-09,
+      "foldJ_base_mse": 3.307173452206019e-08,
+      "role_rank": 311
+    },
+    {
+      "candidate_mse": 2.879563808236658e-08,
+      "exact_q_oracle_mse": 5.621464869009805e-09,
+      "foldJ_base_mse": 2.8773488061990387e-08,
+      "role_rank": 312
+    },
+    {
+      "candidate_mse": 2.8418263410158352e-08,
+      "exact_q_oracle_mse": 4.406837734668796e-09,
+      "foldJ_base_mse": 2.880702410225801e-08,
+      "role_rank": 313
+    },
+    {
+      "candidate_mse": 2.7540239893140485e-08,
+      "exact_q_oracle_mse": 5.125317343264626e-09,
+      "foldJ_base_mse": 2.7928787568519283e-08,
+      "role_rank": 314
+    },
+    {
+      "candidate_mse": 3.112951175276012e-08,
+      "exact_q_oracle_mse": 6.124017530970176e-09,
+      "foldJ_base_mse": 3.142372011087942e-08,
+      "role_rank": 315
+    },
+    {
+      "candidate_mse": 2.7668863008835593e-08,
+      "exact_q_oracle_mse": 7.17349375791938e-09,
+      "foldJ_base_mse": 2.8241863952467607e-08,
+      "role_rank": 316
+    },
+    {
+      "candidate_mse": 3.349171273913625e-08,
+      "exact_q_oracle_mse": 1.0235277155999693e-08,
+      "foldJ_base_mse": 3.33914984566883e-08,
+      "role_rank": 317
+    },
+    {
+      "candidate_mse": 3.2862837214846663e-08,
+      "exact_q_oracle_mse": 6.4776952659317e-09,
+      "foldJ_base_mse": 3.551314808220656e-08,
+      "role_rank": 318
+    },
+    {
+      "candidate_mse": 3.251569154636198e-08,
+      "exact_q_oracle_mse": 6.2858243305532455e-09,
+      "foldJ_base_mse": 3.317245742034999e-08,
+      "role_rank": 319
+    },
+    {
+      "candidate_mse": 2.600825624018012e-08,
+      "exact_q_oracle_mse": 9.170538732533937e-09,
+      "foldJ_base_mse": 2.7332108166161988e-08,
+      "role_rank": 320
+    },
+    {
+      "candidate_mse": 2.8756145276253773e-08,
+      "exact_q_oracle_mse": 6.829194731507701e-09,
+      "foldJ_base_mse": 2.8515931260962864e-08,
+      "role_rank": 321
+    },
+    {
+      "candidate_mse": 3.1395081784285653e-08,
+      "exact_q_oracle_mse": 7.792168634328773e-09,
+      "foldJ_base_mse": 3.2573070651677026e-08,
+      "role_rank": 322
+    },
+    {
+      "candidate_mse": 2.177821480322973e-08,
+      "exact_q_oracle_mse": 5.1377065266118315e-09,
+      "foldJ_base_mse": 2.206487126001524e-08,
+      "role_rank": 323
+    },
+    {
+      "candidate_mse": 3.797991462351753e-08,
+      "exact_q_oracle_mse": 7.989032339344302e-09,
+      "foldJ_base_mse": 3.914556761126677e-08,
+      "role_rank": 324
+    },
+    {
+      "candidate_mse": 2.9428421314020113e-08,
+      "exact_q_oracle_mse": 6.964227710826003e-09,
+      "foldJ_base_mse": 3.1095787858911755e-08,
+      "role_rank": 325
+    },
+    {
+      "candidate_mse": 2.315925440861318e-08,
+      "exact_q_oracle_mse": 5.735105711239936e-09,
+      "foldJ_base_mse": 2.4478336493797878e-08,
+      "role_rank": 326
+    },
+    {
+      "candidate_mse": 2.5970234545767014e-08,
+      "exact_q_oracle_mse": 4.382180022435601e-09,
+      "foldJ_base_mse": 2.708021340651409e-08,
+      "role_rank": 327
+    },
+    {
+      "candidate_mse": 2.9062024906610664e-08,
+      "exact_q_oracle_mse": 6.663216448489301e-09,
+      "foldJ_base_mse": 2.9716576105378993e-08,
+      "role_rank": 328
+    },
+    {
+      "candidate_mse": 3.162400862902869e-08,
+      "exact_q_oracle_mse": 6.851888941900627e-09,
+      "foldJ_base_mse": 3.2501227397268707e-08,
+      "role_rank": 329
+    },
+    {
+      "candidate_mse": 2.8497531446268828e-08,
+      "exact_q_oracle_mse": 6.412683236344822e-09,
+      "foldJ_base_mse": 3.040443278926775e-08,
+      "role_rank": 330
+    },
+    {
+      "candidate_mse": 2.649672086154162e-08,
+      "exact_q_oracle_mse": 4.9016384609303625e-09,
+      "foldJ_base_mse": 2.7984752078723738e-08,
+      "role_rank": 331
+    },
+    {
+      "candidate_mse": 3.1013909244133745e-08,
+      "exact_q_oracle_mse": 7.581383733870391e-09,
+      "foldJ_base_mse": 3.200388657594026e-08,
+      "role_rank": 332
+    },
+    {
+      "candidate_mse": 3.2383654343987805e-08,
+      "exact_q_oracle_mse": 6.4080738967499385e-09,
+      "foldJ_base_mse": 3.1497983909453955e-08,
+      "role_rank": 333
+    },
+    {
+      "candidate_mse": 3.12614050121761e-08,
+      "exact_q_oracle_mse": 5.6306459660610605e-09,
+      "foldJ_base_mse": 3.182501978991632e-08,
+      "role_rank": 334
+    },
+    {
+      "candidate_mse": 2.8178573966633682e-08,
+      "exact_q_oracle_mse": 6.419653869994661e-09,
+      "foldJ_base_mse": 2.9188742054795638e-08,
+      "role_rank": 335
+    },
+    {
+      "candidate_mse": 2.9691327516801343e-08,
+      "exact_q_oracle_mse": 5.753087686096165e-09,
+      "foldJ_base_mse": 2.982208470063564e-08,
+      "role_rank": 336
+    },
+    {
+      "candidate_mse": 2.574253694370856e-08,
+      "exact_q_oracle_mse": 4.901615091961991e-09,
+      "foldJ_base_mse": 2.6863493419874294e-08,
+      "role_rank": 337
+    },
+    {
+      "candidate_mse": 2.7611950898025234e-08,
+      "exact_q_oracle_mse": 6.264081011711162e-09,
+      "foldJ_base_mse": 2.824827584409621e-08,
+      "role_rank": 338
+    },
+    {
+      "candidate_mse": 2.5192834535378354e-08,
+      "exact_q_oracle_mse": 5.671793946798296e-09,
+      "foldJ_base_mse": 2.5985279548885715e-08,
+      "role_rank": 339
+    },
+    {
+      "candidate_mse": 3.0714990437788315e-08,
+      "exact_q_oracle_mse": 7.486102553374125e-09,
+      "foldJ_base_mse": 3.108625217248546e-08,
+      "role_rank": 340
+    },
+    {
+      "candidate_mse": 2.8867547782282995e-08,
+      "exact_q_oracle_mse": 7.015913789943471e-09,
+      "foldJ_base_mse": 2.8523385104709522e-08,
+      "role_rank": 341
+    },
+    {
+      "candidate_mse": 3.872556330562281e-08,
+      "exact_q_oracle_mse": 7.581259178544432e-09,
+      "foldJ_base_mse": 3.914105471473252e-08,
+      "role_rank": 342
+    },
+    {
+      "candidate_mse": 2.583085200414183e-08,
+      "exact_q_oracle_mse": 3.946043675217511e-09,
+      "foldJ_base_mse": 2.640448992423535e-08,
+      "role_rank": 343
+    },
+    {
+      "candidate_mse": 2.8690726507801798e-08,
+      "exact_q_oracle_mse": 4.902543010949187e-09,
+      "foldJ_base_mse": 2.879589761808992e-08,
+      "role_rank": 344
+    },
+    {
+      "candidate_mse": 2.472635171413627e-08,
+      "exact_q_oracle_mse": 4.564614189920044e-09,
+      "foldJ_base_mse": 2.5244545146731682e-08,
+      "role_rank": 345
+    },
+    {
+      "candidate_mse": 3.4007519522756665e-08,
+      "exact_q_oracle_mse": 5.300717823979104e-09,
+      "foldJ_base_mse": 3.3993242066905e-08,
+      "role_rank": 346
+    },
+    {
+      "candidate_mse": 3.402687456605867e-08,
+      "exact_q_oracle_mse": 7.845652695938473e-09,
+      "foldJ_base_mse": 3.4567015810057996e-08,
+      "role_rank": 347
+    },
+    {
+      "candidate_mse": 3.086382985254461e-08,
+      "exact_q_oracle_mse": 8.235594435467746e-09,
+      "foldJ_base_mse": 3.1390469837448795e-08,
+      "role_rank": 348
+    },
+    {
+      "candidate_mse": 2.7413191061500713e-08,
+      "exact_q_oracle_mse": 5.982183169852305e-09,
+      "foldJ_base_mse": 2.813454416610635e-08,
+      "role_rank": 349
+    },
+    {
+      "candidate_mse": 2.8204387273044836e-08,
+      "exact_q_oracle_mse": 5.2867505513765885e-09,
+      "foldJ_base_mse": 2.9932336258955225e-08,
+      "role_rank": 350
+    },
+    {
+      "candidate_mse": 2.7408797078492974e-08,
+      "exact_q_oracle_mse": 4.3521891347046395e-09,
+      "foldJ_base_mse": 2.9517278569443434e-08,
+      "role_rank": 351
+    },
+    {
+      "candidate_mse": 2.8366405031909694e-08,
+      "exact_q_oracle_mse": 7.2740805353789e-09,
+      "foldJ_base_mse": 3.0263799850545094e-08,
+      "role_rank": 352
+    },
+    {
+      "candidate_mse": 3.244965009772434e-08,
+      "exact_q_oracle_mse": 6.033013233372674e-09,
+      "foldJ_base_mse": 3.210523868033791e-08,
+      "role_rank": 353
+    },
+    {
+      "candidate_mse": 2.991180100601172e-08,
+      "exact_q_oracle_mse": 6.604885080697829e-09,
+      "foldJ_base_mse": 3.005599036362933e-08,
+      "role_rank": 354
+    },
+    {
+      "candidate_mse": 3.429659153897092e-08,
+      "exact_q_oracle_mse": 6.602125469625531e-09,
+      "foldJ_base_mse": 3.49452218145006e-08,
+      "role_rank": 355
+    },
+    {
+      "candidate_mse": 3.025105347707417e-08,
+      "exact_q_oracle_mse": 6.6509037633721185e-09,
+      "foldJ_base_mse": 3.027495200326043e-08,
+      "role_rank": 356
+    },
+    {
+      "candidate_mse": 2.080329670438868e-08,
+      "exact_q_oracle_mse": 5.868113647886797e-09,
+      "foldJ_base_mse": 2.1184947279881894e-08,
+      "role_rank": 357
+    },
+    {
+      "candidate_mse": 2.6633301909914183e-08,
+      "exact_q_oracle_mse": 4.38037570662213e-09,
+      "foldJ_base_mse": 2.7558100031405245e-08,
+      "role_rank": 358
+    },
+    {
+      "candidate_mse": 3.228464969325935e-08,
+      "exact_q_oracle_mse": 1.1077964551434089e-08,
+      "foldJ_base_mse": 3.427766740196189e-08,
+      "role_rank": 359
+    },
+    {
+      "candidate_mse": 2.8794596542958268e-08,
+      "exact_q_oracle_mse": 4.31174537297168e-09,
+      "foldJ_base_mse": 2.953540216642543e-08,
+      "role_rank": 360
+    },
+    {
+      "candidate_mse": 3.3122596683323755e-08,
+      "exact_q_oracle_mse": 5.4064864013365155e-09,
+      "foldJ_base_mse": 3.4028335255265e-08,
+      "role_rank": 361
+    },
+    {
+      "candidate_mse": 3.405811911567093e-08,
+      "exact_q_oracle_mse": 7.522823467868757e-09,
+      "foldJ_base_mse": 3.451470628145697e-08,
+      "role_rank": 362
+    },
+    {
+      "candidate_mse": 3.013511350640522e-08,
+      "exact_q_oracle_mse": 6.842504913093968e-09,
+      "foldJ_base_mse": 3.0880612075295835e-08,
+      "role_rank": 363
+    },
+    {
+      "candidate_mse": 2.9134196065568064e-08,
+      "exact_q_oracle_mse": 5.7659226156068636e-09,
+      "foldJ_base_mse": 2.9998610290951335e-08,
+      "role_rank": 364
+    },
+    {
+      "candidate_mse": 2.7053744730366616e-08,
+      "exact_q_oracle_mse": 5.948025798723188e-09,
+      "foldJ_base_mse": 2.837532490810347e-08,
+      "role_rank": 365
+    },
+    {
+      "candidate_mse": 2.6921366533133887e-08,
+      "exact_q_oracle_mse": 5.399028601414904e-09,
+      "foldJ_base_mse": 2.8018326102609857e-08,
+      "role_rank": 366
+    },
+    {
+      "candidate_mse": 3.126477895596076e-08,
+      "exact_q_oracle_mse": 8.661795841233315e-09,
+      "foldJ_base_mse": 3.2427265982514145e-08,
+      "role_rank": 367
+    },
+    {
+      "candidate_mse": 3.245500547077226e-08,
+      "exact_q_oracle_mse": 7.978158440431058e-09,
+      "foldJ_base_mse": 3.3497545982879235e-08,
+      "role_rank": 368
+    },
+    {
+      "candidate_mse": 2.7199451220905752e-08,
+      "exact_q_oracle_mse": 3.958428820240962e-09,
+      "foldJ_base_mse": 2.7669569991716588e-08,
+      "role_rank": 369
+    },
+    {
+      "candidate_mse": 2.5499212141574328e-08,
+      "exact_q_oracle_mse": 5.6007669982228986e-09,
+      "foldJ_base_mse": 2.544141309585029e-08,
+      "role_rank": 370
+    },
+    {
+      "candidate_mse": 3.002092547361e-08,
+      "exact_q_oracle_mse": 5.543383861947174e-09,
+      "foldJ_base_mse": 3.076601576421822e-08,
+      "role_rank": 371
+    },
+    {
+      "candidate_mse": 3.005586707958254e-08,
+      "exact_q_oracle_mse": 5.3215865503619736e-09,
+      "foldJ_base_mse": 3.080731877071858e-08,
+      "role_rank": 372
+    },
+    {
+      "candidate_mse": 3.508134848200152e-08,
+      "exact_q_oracle_mse": 5.583545497374145e-09,
+      "foldJ_base_mse": 3.615583784351547e-08,
+      "role_rank": 373
+    },
+    {
+      "candidate_mse": 3.7783356603084477e-08,
+      "exact_q_oracle_mse": 8.530896311323966e-09,
+      "foldJ_base_mse": 3.819097383612084e-08,
+      "role_rank": 374
+    },
+    {
+      "candidate_mse": 2.5551165148363338e-08,
+      "exact_q_oracle_mse": 5.210906320450752e-09,
+      "foldJ_base_mse": 2.594941695096708e-08,
+      "role_rank": 375
+    },
+    {
+      "candidate_mse": 3.8500161441795904e-08,
+      "exact_q_oracle_mse": 8.870685601355165e-09,
+      "foldJ_base_mse": 3.9192996881115896e-08,
+      "role_rank": 376
+    },
+    {
+      "candidate_mse": 3.112501679678433e-08,
+      "exact_q_oracle_mse": 5.435160751939109e-09,
+      "foldJ_base_mse": 3.0476719030000076e-08,
+      "role_rank": 377
+    },
+    {
+      "candidate_mse": 2.77349422598704e-08,
+      "exact_q_oracle_mse": 6.842840606307465e-09,
+      "foldJ_base_mse": 2.857921571244265e-08,
+      "role_rank": 378
+    },
+    {
+      "candidate_mse": 2.604359683980773e-08,
+      "exact_q_oracle_mse": 5.9376174972380965e-09,
+      "foldJ_base_mse": 2.7071906231035432e-08,
+      "role_rank": 379
+    },
+    {
+      "candidate_mse": 3.221626033207603e-08,
+      "exact_q_oracle_mse": 7.200259636012823e-09,
+      "foldJ_base_mse": 3.177261410660223e-08,
+      "role_rank": 380
+    },
+    {
+      "candidate_mse": 3.525490089516124e-08,
+      "exact_q_oracle_mse": 6.2343016404327786e-09,
+      "foldJ_base_mse": 3.5722756229461255e-08,
+      "role_rank": 381
+    },
+    {
+      "candidate_mse": 3.1519977522045275e-08,
+      "exact_q_oracle_mse": 7.45768731734893e-09,
+      "foldJ_base_mse": 3.2374526371714835e-08,
+      "role_rank": 382
+    },
+    {
+      "candidate_mse": 3.799632093980942e-08,
+      "exact_q_oracle_mse": 6.742101386683171e-09,
+      "foldJ_base_mse": 3.8797239084435414e-08,
+      "role_rank": 383
+    },
+    {
+      "candidate_mse": 3.3013818547778015e-08,
+      "exact_q_oracle_mse": 6.761802186488981e-09,
+      "foldJ_base_mse": 3.3960828211063505e-08,
+      "role_rank": 384
+    },
+    {
+      "candidate_mse": 3.356228485482879e-08,
+      "exact_q_oracle_mse": 7.259965273766782e-09,
+      "foldJ_base_mse": 3.495072557764656e-08,
+      "role_rank": 385
+    },
+    {
+      "candidate_mse": 3.47571789235349e-08,
+      "exact_q_oracle_mse": 6.096273050620962e-09,
+      "foldJ_base_mse": 3.5216406169955844e-08,
+      "role_rank": 386
+    },
+    {
+      "candidate_mse": 3.516946869997713e-08,
+      "exact_q_oracle_mse": 7.1658018264380555e-09,
+      "foldJ_base_mse": 3.556539444410181e-08,
+      "role_rank": 387
+    },
+    {
+      "candidate_mse": 2.8099994513709576e-08,
+      "exact_q_oracle_mse": 6.3119630499777426e-09,
+      "foldJ_base_mse": 2.8641067328966976e-08,
+      "role_rank": 388
+    },
+    {
+      "candidate_mse": 3.145905588118701e-08,
+      "exact_q_oracle_mse": 5.610456985096922e-09,
+      "foldJ_base_mse": 3.238495734136144e-08,
+      "role_rank": 389
+    },
+    {
+      "candidate_mse": 3.2115187253212e-08,
+      "exact_q_oracle_mse": 6.789741565904587e-09,
+      "foldJ_base_mse": 3.332001840332903e-08,
+      "role_rank": 390
+    },
+    {
+      "candidate_mse": 2.993582617172905e-08,
+      "exact_q_oracle_mse": 8.61104502195142e-09,
+      "foldJ_base_mse": 3.030722950816654e-08,
+      "role_rank": 391
+    },
+    {
+      "candidate_mse": 2.8001297220567286e-08,
+      "exact_q_oracle_mse": 5.10711106682426e-09,
+      "foldJ_base_mse": 2.8266518339416567e-08,
+      "role_rank": 392
+    },
+    {
+      "candidate_mse": 3.22688885749074e-08,
+      "exact_q_oracle_mse": 5.905890249261036e-09,
+      "foldJ_base_mse": 3.304413173269946e-08,
+      "role_rank": 393
+    },
+    {
+      "candidate_mse": 3.316597462365235e-08,
+      "exact_q_oracle_mse": 8.847655406074854e-09,
+      "foldJ_base_mse": 3.300443182327726e-08,
+      "role_rank": 394
+    },
+    {
+      "candidate_mse": 2.955812174125445e-08,
+      "exact_q_oracle_mse": 6.592736159458368e-09,
+      "foldJ_base_mse": 2.959117182014688e-08,
+      "role_rank": 395
+    },
+    {
+      "candidate_mse": 2.9498046404564467e-08,
+      "exact_q_oracle_mse": 5.060464629866598e-09,
+      "foldJ_base_mse": 3.0080941685666256e-08,
+      "role_rank": 396
+    },
+    {
+      "candidate_mse": 2.9145843260685525e-08,
+      "exact_q_oracle_mse": 5.489915722804916e-09,
+      "foldJ_base_mse": 3.0086919149779957e-08,
+      "role_rank": 397
+    },
+    {
+      "candidate_mse": 2.916552371148632e-08,
+      "exact_q_oracle_mse": 4.965130628391385e-09,
+      "foldJ_base_mse": 3.0550586715069165e-08,
+      "role_rank": 398
+    },
+    {
+      "candidate_mse": 1.875699263507246e-08,
+      "exact_q_oracle_mse": 3.418169952628596e-09,
+      "foldJ_base_mse": 2.029708163671415e-08,
+      "role_rank": 399
+    },
+    {
+      "candidate_mse": 3.8632061333101154e-08,
+      "exact_q_oracle_mse": 7.1186640995565315e-09,
+      "foldJ_base_mse": 4.073076377877847e-08,
+      "role_rank": 400
+    },
+    {
+      "candidate_mse": 2.769361446039366e-08,
+      "exact_q_oracle_mse": 5.125029520388058e-09,
+      "foldJ_base_mse": 2.8291129414604277e-08,
+      "role_rank": 401
+    },
+    {
+      "candidate_mse": 2.6928703500457288e-08,
+      "exact_q_oracle_mse": 4.592236586047088e-09,
+      "foldJ_base_mse": 2.8581120496372595e-08,
+      "role_rank": 402
+    },
+    {
+      "candidate_mse": 2.1629693632898975e-08,
+      "exact_q_oracle_mse": 4.150402990125029e-09,
+      "foldJ_base_mse": 2.15531234862062e-08,
+      "role_rank": 403
+    },
+    {
+      "candidate_mse": 2.656098123338382e-08,
+      "exact_q_oracle_mse": 5.676843681802961e-09,
+      "foldJ_base_mse": 2.6458361639902783e-08,
+      "role_rank": 404
+    },
+    {
+      "candidate_mse": 4.020190009359987e-08,
+      "exact_q_oracle_mse": 7.042911595564068e-09,
+      "foldJ_base_mse": 3.98775491736481e-08,
+      "role_rank": 405
+    },
+    {
+      "candidate_mse": 3.1761367542652025e-08,
+      "exact_q_oracle_mse": 5.379761377207611e-09,
+      "foldJ_base_mse": 3.206192456569248e-08,
+      "role_rank": 406
+    },
+    {
+      "candidate_mse": 2.685809040805992e-08,
+      "exact_q_oracle_mse": 6.6983688334421966e-09,
+      "foldJ_base_mse": 2.6306659894880468e-08,
+      "role_rank": 407
+    },
+    {
+      "candidate_mse": 2.6612554897639935e-08,
+      "exact_q_oracle_mse": 6.445419692990879e-09,
+      "foldJ_base_mse": 2.7417429238121225e-08,
+      "role_rank": 408
+    },
+    {
+      "candidate_mse": 2.842036384618996e-08,
+      "exact_q_oracle_mse": 6.048415427496103e-09,
+      "foldJ_base_mse": 2.9171052610634115e-08,
+      "role_rank": 409
+    },
+    {
+      "candidate_mse": 2.578140287591979e-08,
+      "exact_q_oracle_mse": 4.6346698726741005e-09,
+      "foldJ_base_mse": 2.6422033243133565e-08,
+      "role_rank": 410
+    },
+    {
+      "candidate_mse": 3.348417175796327e-08,
+      "exact_q_oracle_mse": 5.449375995236689e-09,
+      "foldJ_base_mse": 3.516837850006052e-08,
+      "role_rank": 411
+    },
+    {
+      "candidate_mse": 2.368856994117279e-08,
+      "exact_q_oracle_mse": 3.957365796054478e-09,
+      "foldJ_base_mse": 2.4490732395653525e-08,
+      "role_rank": 412
+    },
+    {
+      "candidate_mse": 2.5585968363093684e-08,
+      "exact_q_oracle_mse": 3.952101654526649e-09,
+      "foldJ_base_mse": 2.5048368412133865e-08,
+      "role_rank": 413
+    },
+    {
+      "candidate_mse": 2.8929304838619665e-08,
+      "exact_q_oracle_mse": 5.317469881517263e-09,
+      "foldJ_base_mse": 3.044040353472849e-08,
+      "role_rank": 414
+    },
+    {
+      "candidate_mse": 3.418179642491128e-08,
+      "exact_q_oracle_mse": 7.0432237793027805e-09,
+      "foldJ_base_mse": 3.409386780055952e-08,
+      "role_rank": 415
+    },
+    {
+      "candidate_mse": 3.3242889697646884e-08,
+      "exact_q_oracle_mse": 6.473384468963067e-09,
+      "foldJ_base_mse": 3.3758579911188427e-08,
+      "role_rank": 416
+    },
+    {
+      "candidate_mse": 3.621955499379018e-08,
+      "exact_q_oracle_mse": 9.724553589675194e-09,
+      "foldJ_base_mse": 3.72875224533869e-08,
+      "role_rank": 417
+    },
+    {
+      "candidate_mse": 3.4160551545557255e-08,
+      "exact_q_oracle_mse": 7.275183195009532e-09,
+      "foldJ_base_mse": 3.4691251603460074e-08,
+      "role_rank": 418
+    },
+    {
+      "candidate_mse": 2.5041757756280946e-08,
+      "exact_q_oracle_mse": 3.6679140832419594e-09,
+      "foldJ_base_mse": 2.579685374580885e-08,
+      "role_rank": 419
+    },
+    {
+      "candidate_mse": 2.8114216389378603e-08,
+      "exact_q_oracle_mse": 6.154314292194655e-09,
+      "foldJ_base_mse": 2.7636655549883536e-08,
+      "role_rank": 420
+    },
+    {
+      "candidate_mse": 2.8380536102177666e-08,
+      "exact_q_oracle_mse": 6.5614123044414296e-09,
+      "foldJ_base_mse": 2.958853768736104e-08,
+      "role_rank": 421
+    },
+    {
+      "candidate_mse": 2.285743006124603e-08,
+      "exact_q_oracle_mse": 4.802875102886872e-09,
+      "foldJ_base_mse": 2.3266583240170027e-08,
+      "role_rank": 422
+    },
+    {
+      "candidate_mse": 2.3437716902010696e-08,
+      "exact_q_oracle_mse": 5.226837261088028e-09,
+      "foldJ_base_mse": 2.3773822939909132e-08,
+      "role_rank": 423
+    },
+    {
+      "candidate_mse": 2.867205647577908e-08,
+      "exact_q_oracle_mse": 6.484571562478684e-09,
+      "foldJ_base_mse": 2.8722897473098294e-08,
+      "role_rank": 424
+    },
+    {
+      "candidate_mse": 2.7983452628469216e-08,
+      "exact_q_oracle_mse": 6.3072780735839995e-09,
+      "foldJ_base_mse": 2.7683774507013702e-08,
+      "role_rank": 425
+    },
+    {
+      "candidate_mse": 2.803855450435571e-08,
+      "exact_q_oracle_mse": 5.3842331075433e-09,
+      "foldJ_base_mse": 2.949279982222236e-08,
+      "role_rank": 426
+    },
+    {
+      "candidate_mse": 2.9727426657004714e-08,
+      "exact_q_oracle_mse": 5.1479685902609996e-09,
+      "foldJ_base_mse": 3.153414992448116e-08,
+      "role_rank": 427
+    },
+    {
+      "candidate_mse": 2.971681757576367e-08,
+      "exact_q_oracle_mse": 5.281880423359485e-09,
+      "foldJ_base_mse": 3.0812783792684157e-08,
+      "role_rank": 428
+    },
+    {
+      "candidate_mse": 2.83781899931417e-08,
+      "exact_q_oracle_mse": 4.7755782943048876e-09,
+      "foldJ_base_mse": 2.8936455433677287e-08,
+      "role_rank": 429
+    },
+    {
+      "candidate_mse": 3.328295432292107e-08,
+      "exact_q_oracle_mse": 8.44565597982056e-09,
+      "foldJ_base_mse": 3.422433789920837e-08,
+      "role_rank": 430
+    },
+    {
+      "candidate_mse": 2.5353039410454965e-08,
+      "exact_q_oracle_mse": 5.7152318394345615e-09,
+      "foldJ_base_mse": 2.5595201125696046e-08,
+      "role_rank": 431
+    },
+    {
+      "candidate_mse": 3.671280530728215e-08,
+      "exact_q_oracle_mse": 7.46773837674199e-09,
+      "foldJ_base_mse": 3.839843907401974e-08,
+      "role_rank": 432
+    },
+    {
+      "candidate_mse": 3.1864818286617946e-08,
+      "exact_q_oracle_mse": 4.1747421258129095e-09,
+      "foldJ_base_mse": 3.3060664301903704e-08,
+      "role_rank": 433
+    },
+    {
+      "candidate_mse": 2.384236547978167e-08,
+      "exact_q_oracle_mse": 5.597754393518738e-09,
+      "foldJ_base_mse": 2.4959600398515216e-08,
+      "role_rank": 434
+    },
+    {
+      "candidate_mse": 2.5102318813377407e-08,
+      "exact_q_oracle_mse": 5.43380954407395e-09,
+      "foldJ_base_mse": 2.6403013063785584e-08,
+      "role_rank": 435
+    },
+    {
+      "candidate_mse": 2.8451638708693607e-08,
+      "exact_q_oracle_mse": 6.220776957005112e-09,
+      "foldJ_base_mse": 2.8253152240467208e-08,
+      "role_rank": 436
+    },
+    {
+      "candidate_mse": 3.0954283339527024e-08,
+      "exact_q_oracle_mse": 7.470572931131186e-09,
+      "foldJ_base_mse": 3.198276530544034e-08,
+      "role_rank": 437
+    },
+    {
+      "candidate_mse": 2.9758864788813952e-08,
+      "exact_q_oracle_mse": 5.3774083142587e-09,
+      "foldJ_base_mse": 3.129189124527151e-08,
+      "role_rank": 438
+    },
+    {
+      "candidate_mse": 2.6245312644278202e-08,
+      "exact_q_oracle_mse": 5.5073712838739404e-09,
+      "foldJ_base_mse": 2.7157071451206397e-08,
+      "role_rank": 439
+    },
+    {
+      "candidate_mse": 3.218689228941759e-08,
+      "exact_q_oracle_mse": 5.239341761951316e-09,
+      "foldJ_base_mse": 3.314059873278793e-08,
+      "role_rank": 440
+    },
+    {
+      "candidate_mse": 2.8825461470759984e-08,
+      "exact_q_oracle_mse": 8.025807757957525e-09,
+      "foldJ_base_mse": 3.005919681147766e-08,
+      "role_rank": 441
+    },
+    {
+      "candidate_mse": 2.2174704808653358e-08,
+      "exact_q_oracle_mse": 3.625887064957541e-09,
+      "foldJ_base_mse": 2.3286595820999325e-08,
+      "role_rank": 442
+    },
+    {
+      "candidate_mse": 2.5766672801139213e-08,
+      "exact_q_oracle_mse": 4.811517337766402e-09,
+      "foldJ_base_mse": 2.6044472764843643e-08,
+      "role_rank": 443
+    },
+    {
+      "candidate_mse": 2.77851849375329e-08,
+      "exact_q_oracle_mse": 6.139819304075124e-09,
+      "foldJ_base_mse": 2.912085654726241e-08,
+      "role_rank": 444
+    },
+    {
+      "candidate_mse": 2.7621540539577543e-08,
+      "exact_q_oracle_mse": 4.407685893411376e-09,
+      "foldJ_base_mse": 2.848308340495561e-08,
+      "role_rank": 445
+    },
+    {
+      "candidate_mse": 3.687159768485077e-08,
+      "exact_q_oracle_mse": 6.5484589235603265e-09,
+      "foldJ_base_mse": 3.687549864598613e-08,
+      "role_rank": 446
+    },
+    {
+      "candidate_mse": 3.290969107752882e-08,
+      "exact_q_oracle_mse": 6.136127146161461e-09,
+      "foldJ_base_mse": 3.4198743531437995e-08,
+      "role_rank": 447
+    },
+    {
+      "candidate_mse": 3.338786298289671e-08,
+      "exact_q_oracle_mse": 5.553884636960686e-09,
+      "foldJ_base_mse": 3.389927348603845e-08,
+      "role_rank": 448
+    },
+    {
+      "candidate_mse": 2.863419820099048e-08,
+      "exact_q_oracle_mse": 6.238837510011157e-09,
+      "foldJ_base_mse": 3.056060132404668e-08,
+      "role_rank": 449
+    },
+    {
+      "candidate_mse": 3.250222459864418e-08,
+      "exact_q_oracle_mse": 4.905990798738116e-09,
+      "foldJ_base_mse": 3.154092932068601e-08,
+      "role_rank": 450
+    },
+    {
+      "candidate_mse": 3.3066101871211564e-08,
+      "exact_q_oracle_mse": 9.525015553603445e-09,
+      "foldJ_base_mse": 3.3966355381287446e-08,
+      "role_rank": 451
+    },
+    {
+      "candidate_mse": 2.249349464957198e-08,
+      "exact_q_oracle_mse": 4.3128731596675845e-09,
+      "foldJ_base_mse": 2.274075761646288e-08,
+      "role_rank": 452
+    },
+    {
+      "candidate_mse": 2.7456659726136133e-08,
+      "exact_q_oracle_mse": 5.140924501238493e-09,
+      "foldJ_base_mse": 2.7368549264114333e-08,
+      "role_rank": 453
+    },
+    {
+      "candidate_mse": 2.9679271456806676e-08,
+      "exact_q_oracle_mse": 6.354069533278504e-09,
+      "foldJ_base_mse": 3.112244587116397e-08,
+      "role_rank": 454
+    },
+    {
+      "candidate_mse": 3.559608477331175e-08,
+      "exact_q_oracle_mse": 5.555865744760029e-09,
+      "foldJ_base_mse": 3.499646954948115e-08,
+      "role_rank": 455
+    },
+    {
+      "candidate_mse": 2.6751118896585526e-08,
+      "exact_q_oracle_mse": 7.3243081958049045e-09,
+      "foldJ_base_mse": 2.6642916554415432e-08,
+      "role_rank": 456
+    },
+    {
+      "candidate_mse": 3.072558152742874e-08,
+      "exact_q_oracle_mse": 6.505580799882948e-09,
+      "foldJ_base_mse": 3.1673198801255e-08,
+      "role_rank": 457
+    },
+    {
+      "candidate_mse": 3.0595242761968586e-08,
+      "exact_q_oracle_mse": 7.930052858825607e-09,
+      "foldJ_base_mse": 3.107525956278389e-08,
+      "role_rank": 458
+    },
+    {
+      "candidate_mse": 2.3756854037041782e-08,
+      "exact_q_oracle_mse": 4.397509033436053e-09,
+      "foldJ_base_mse": 2.434976785023896e-08,
+      "role_rank": 459
+    },
+    {
+      "candidate_mse": 2.5744821629445022e-08,
+      "exact_q_oracle_mse": 4.737507687199545e-09,
+      "foldJ_base_mse": 2.7250106557466922e-08,
+      "role_rank": 460
+    },
+    {
+      "candidate_mse": 3.039925697545777e-08,
+      "exact_q_oracle_mse": 6.584349928177117e-09,
+      "foldJ_base_mse": 3.0673993340811986e-08,
+      "role_rank": 461
+    },
+    {
+      "candidate_mse": 3.586914859221798e-08,
+      "exact_q_oracle_mse": 6.806061661818234e-09,
+      "foldJ_base_mse": 3.660272498367365e-08,
+      "role_rank": 462
+    },
+    {
+      "candidate_mse": 3.3485174150461143e-08,
+      "exact_q_oracle_mse": 6.409635735662596e-09,
+      "foldJ_base_mse": 3.59222778585753e-08,
+      "role_rank": 463
+    },
+    {
+      "candidate_mse": 3.0882786000574676e-08,
+      "exact_q_oracle_mse": 5.2974930401029405e-09,
+      "foldJ_base_mse": 3.1400939074174286e-08,
+      "role_rank": 464
+    },
+    {
+      "candidate_mse": 3.585205321024123e-08,
+      "exact_q_oracle_mse": 5.702320440136985e-09,
+      "foldJ_base_mse": 3.5892901321874135e-08,
+      "role_rank": 465
+    },
+    {
+      "candidate_mse": 3.47573562795292e-08,
+      "exact_q_oracle_mse": 8.2316929077147e-09,
+      "foldJ_base_mse": 3.515569042771453e-08,
+      "role_rank": 466
+    },
+    {
+      "candidate_mse": 3.318888351728341e-08,
+      "exact_q_oracle_mse": 7.343958203566887e-09,
+      "foldJ_base_mse": 3.414027537215773e-08,
+      "role_rank": 467
+    },
+    {
+      "candidate_mse": 3.2668309900397195e-08,
+      "exact_q_oracle_mse": 8.574736999728428e-09,
+      "foldJ_base_mse": 3.3964989313960564e-08,
+      "role_rank": 468
+    },
+    {
+      "candidate_mse": 2.6665968908703707e-08,
+      "exact_q_oracle_mse": 4.797918658030262e-09,
+      "foldJ_base_mse": 2.6841543135014434e-08,
+      "role_rank": 469
+    },
+    {
+      "candidate_mse": 2.9515285416296952e-08,
+      "exact_q_oracle_mse": 5.0226913404734525e-09,
+      "foldJ_base_mse": 3.005609971194811e-08,
+      "role_rank": 470
+    },
+    {
+      "candidate_mse": 2.9255464447751597e-08,
+      "exact_q_oracle_mse": 8.45118842901544e-09,
+      "foldJ_base_mse": 2.988468051018968e-08,
+      "role_rank": 471
+    },
+    {
+      "candidate_mse": 3.491137324802231e-08,
+      "exact_q_oracle_mse": 8.143689531305152e-09,
+      "foldJ_base_mse": 3.5936021847400575e-08,
+      "role_rank": 472
+    },
+    {
+      "candidate_mse": 2.282770444875314e-08,
+      "exact_q_oracle_mse": 3.8428134633336545e-09,
+      "foldJ_base_mse": 2.369934746888668e-08,
+      "role_rank": 473
+    },
+    {
+      "candidate_mse": 2.8009072167094877e-08,
+      "exact_q_oracle_mse": 6.4318507216042235e-09,
+      "foldJ_base_mse": 2.8531180409202173e-08,
+      "role_rank": 474
+    },
+    {
+      "candidate_mse": 3.165384891731212e-08,
+      "exact_q_oracle_mse": 4.818350289558014e-09,
+      "foldJ_base_mse": 3.50612075770931e-08,
+      "role_rank": 475
+    },
+    {
+      "candidate_mse": 2.8445122111558858e-08,
+      "exact_q_oracle_mse": 7.023923335820784e-09,
+      "foldJ_base_mse": 3.011045060815552e-08,
+      "role_rank": 476
+    },
+    {
+      "candidate_mse": 3.0279221263495026e-08,
+      "exact_q_oracle_mse": 7.222855537520482e-09,
+      "foldJ_base_mse": 2.9289992268227823e-08,
+      "role_rank": 477
+    },
+    {
+      "candidate_mse": 3.309500088604071e-08,
+      "exact_q_oracle_mse": 5.930839917382289e-09,
+      "foldJ_base_mse": 3.464747632709293e-08,
+      "role_rank": 478
+    },
+    {
+      "candidate_mse": 3.052982115586001e-08,
+      "exact_q_oracle_mse": 6.204058818922371e-09,
+      "foldJ_base_mse": 3.0023600858043975e-08,
+      "role_rank": 479
+    },
+    {
+      "candidate_mse": 2.928826758400032e-08,
+      "exact_q_oracle_mse": 5.251061478089382e-09,
+      "foldJ_base_mse": 3.0384521543269515e-08,
+      "role_rank": 480
+    },
+    {
+      "candidate_mse": 3.0212831317588786e-08,
+      "exact_q_oracle_mse": 6.128158888052278e-09,
+      "foldJ_base_mse": 2.9758291879062788e-08,
+      "role_rank": 481
+    },
+    {
+      "candidate_mse": 2.9277725561322098e-08,
+      "exact_q_oracle_mse": 6.778532126568501e-09,
+      "foldJ_base_mse": 3.0169355558140774e-08,
+      "role_rank": 482
+    },
+    {
+      "candidate_mse": 2.8915179005854366e-08,
+      "exact_q_oracle_mse": 5.897381669163459e-09,
+      "foldJ_base_mse": 2.980719886606211e-08,
+      "role_rank": 483
+    },
+    {
+      "candidate_mse": 2.8180192259130963e-08,
+      "exact_q_oracle_mse": 6.30185265798267e-09,
+      "foldJ_base_mse": 2.925771383049829e-08,
+      "role_rank": 484
+    },
+    {
+      "candidate_mse": 3.7559395492138665e-08,
+      "exact_q_oracle_mse": 1.103264714558979e-08,
+      "foldJ_base_mse": 3.876196652986186e-08,
+      "role_rank": 485
+    },
+    {
+      "candidate_mse": 2.1069143879086584e-08,
+      "exact_q_oracle_mse": 3.841996010132637e-09,
+      "foldJ_base_mse": 2.212848019300561e-08,
+      "role_rank": 486
+    },
+    {
+      "candidate_mse": 2.7377166022402613e-08,
+      "exact_q_oracle_mse": 5.9600956887781394e-09,
+      "foldJ_base_mse": 2.8923003447416575e-08,
+      "role_rank": 487
+    },
+    {
+      "candidate_mse": 2.894386747653295e-08,
+      "exact_q_oracle_mse": 5.980441020720988e-09,
+      "foldJ_base_mse": 3.001870254581099e-08,
+      "role_rank": 488
+    },
+    {
+      "candidate_mse": 2.5062305191045033e-08,
+      "exact_q_oracle_mse": 4.345253624860837e-09,
+      "foldJ_base_mse": 2.4822324810452697e-08,
+      "role_rank": 489
+    },
+    {
+      "candidate_mse": 3.752959388045146e-08,
+      "exact_q_oracle_mse": 7.76622264815881e-09,
+      "foldJ_base_mse": 3.855855603500317e-08,
+      "role_rank": 490
+    },
+    {
+      "candidate_mse": 2.9840547264050306e-08,
+      "exact_q_oracle_mse": 6.83077582223325e-09,
+      "foldJ_base_mse": 3.138847792264639e-08,
+      "role_rank": 491
+    },
+    {
+      "candidate_mse": 3.028021363634649e-08,
+      "exact_q_oracle_mse": 8.577882497819462e-09,
+      "foldJ_base_mse": 3.155031969411958e-08,
+      "role_rank": 492
+    },
+    {
+      "candidate_mse": 3.327996069627526e-08,
+      "exact_q_oracle_mse": 7.227026833316889e-09,
+      "foldJ_base_mse": 3.3970586336708184e-08,
+      "role_rank": 493
+    },
+    {
+      "candidate_mse": 3.159039657859785e-08,
+      "exact_q_oracle_mse": 5.704052641062693e-09,
+      "foldJ_base_mse": 3.2073093733435935e-08,
+      "role_rank": 494
+    },
+    {
+      "candidate_mse": 2.756539230108184e-08,
+      "exact_q_oracle_mse": 6.046196364103393e-09,
+      "foldJ_base_mse": 2.7813032126153834e-08,
+      "role_rank": 495
+    },
+    {
+      "candidate_mse": 3.702208204975669e-08,
+      "exact_q_oracle_mse": 7.319136262924443e-09,
+      "foldJ_base_mse": 3.6740425913192014e-08,
+      "role_rank": 496
+    },
+    {
+      "candidate_mse": 2.774508608323745e-08,
+      "exact_q_oracle_mse": 5.299507616065508e-09,
+      "foldJ_base_mse": 2.931662135458601e-08,
+      "role_rank": 497
+    },
+    {
+      "candidate_mse": 2.274916979006978e-08,
+      "exact_q_oracle_mse": 3.216214225356297e-09,
+      "foldJ_base_mse": 2.387491445003373e-08,
+      "role_rank": 498
+    },
+    {
+      "candidate_mse": 2.7520390702990048e-08,
+      "exact_q_oracle_mse": 5.032094189551419e-09,
+      "foldJ_base_mse": 2.8193329105972876e-08,
+      "role_rank": 499
+    },
+    {
+      "candidate_mse": 3.3881747219665455e-08,
+      "exact_q_oracle_mse": 9.4665010177008e-09,
+      "foldJ_base_mse": 3.364570791613174e-08,
+      "role_rank": 500
+    },
+    {
+      "candidate_mse": 2.8802878170964704e-08,
+      "exact_q_oracle_mse": 5.495011236537781e-09,
+      "foldJ_base_mse": 2.8945609521572132e-08,
+      "role_rank": 501
+    },
+    {
+      "candidate_mse": 3.3376952120293203e-08,
+      "exact_q_oracle_mse": 5.408554628082961e-09,
+      "foldJ_base_mse": 3.422809093043321e-08,
+      "role_rank": 502
+    },
+    {
+      "candidate_mse": 2.8883877222893176e-08,
+      "exact_q_oracle_mse": 5.531849593581081e-09,
+      "foldJ_base_mse": 2.985459132624711e-08,
+      "role_rank": 503
+    },
+    {
+      "candidate_mse": 2.6408664423736617e-08,
+      "exact_q_oracle_mse": 5.21266648088126e-09,
+      "foldJ_base_mse": 2.6561927783460987e-08,
+      "role_rank": 504
+    },
+    {
+      "candidate_mse": 3.155593875565008e-08,
+      "exact_q_oracle_mse": 5.558515083831845e-09,
+      "foldJ_base_mse": 3.196209828421296e-08,
+      "role_rank": 505
+    },
+    {
+      "candidate_mse": 2.29068930644324e-08,
+      "exact_q_oracle_mse": 3.824419175326848e-09,
+      "foldJ_base_mse": 2.3233195452430644e-08,
+      "role_rank": 506
+    },
+    {
+      "candidate_mse": 3.221033886918597e-08,
+      "exact_q_oracle_mse": 6.389349533174431e-09,
+      "foldJ_base_mse": 3.261305872366027e-08,
+      "role_rank": 507
+    },
+    {
+      "candidate_mse": 2.810762813592894e-08,
+      "exact_q_oracle_mse": 5.932420819302416e-09,
+      "foldJ_base_mse": 2.995770139352931e-08,
+      "role_rank": 508
+    },
+    {
+      "candidate_mse": 3.160513635860783e-08,
+      "exact_q_oracle_mse": 6.0287992682568525e-09,
+      "foldJ_base_mse": 3.227881919458601e-08,
+      "role_rank": 509
+    },
+    {
+      "candidate_mse": 2.647948192379239e-08,
+      "exact_q_oracle_mse": 4.5627160219457035e-09,
+      "foldJ_base_mse": 2.8121013157087308e-08,
+      "role_rank": 510
+    },
+    {
+      "candidate_mse": 2.8377278309428897e-08,
+      "exact_q_oracle_mse": 5.887457335847636e-09,
+      "foldJ_base_mse": 2.95274367673511e-08,
+      "role_rank": 511
+    },
+    {
+      "candidate_mse": 2.8132590491031428e-08,
+      "exact_q_oracle_mse": 4.47782254215301e-09,
+      "foldJ_base_mse": 2.8821808450086253e-08,
+      "role_rank": 512
+    },
+    {
+      "candidate_mse": 3.860402657966998e-08,
+      "exact_q_oracle_mse": 6.9398819750001005e-09,
+      "foldJ_base_mse": 3.9348556658307556e-08,
+      "role_rank": 513
+    },
+    {
+      "candidate_mse": 3.0943346424129036e-08,
+      "exact_q_oracle_mse": 7.029403687184813e-09,
+      "foldJ_base_mse": 3.2174014233652694e-08,
+      "role_rank": 514
+    },
+    {
+      "candidate_mse": 2.371654169125382e-08,
+      "exact_q_oracle_mse": 4.277182524307291e-09,
+      "foldJ_base_mse": 2.3696065965294735e-08,
+      "role_rank": 515
+    },
+    {
+      "candidate_mse": 3.6702806128797996e-08,
+      "exact_q_oracle_mse": 6.4504839476793475e-09,
+      "foldJ_base_mse": 3.690804650948403e-08,
+      "role_rank": 516
+    },
+    {
+      "candidate_mse": 2.7263135913480238e-08,
+      "exact_q_oracle_mse": 6.360987951025511e-09,
+      "foldJ_base_mse": 2.784971211257398e-08,
+      "role_rank": 517
+    },
+    {
+      "candidate_mse": 2.9656112418597952e-08,
+      "exact_q_oracle_mse": 9.275941594307622e-09,
+      "foldJ_base_mse": 3.043698114392144e-08,
+      "role_rank": 518
+    },
+    {
+      "candidate_mse": 2.6854047397193686e-08,
+      "exact_q_oracle_mse": 4.539099215272237e-09,
+      "foldJ_base_mse": 2.6716931291211186e-08,
+      "role_rank": 519
+    },
+    {
+      "candidate_mse": 2.712474410594502e-08,
+      "exact_q_oracle_mse": 6.3847579395558815e-09,
+      "foldJ_base_mse": 2.7888758007610046e-08,
+      "role_rank": 520
+    },
+    {
+      "candidate_mse": 2.7007756606171288e-08,
+      "exact_q_oracle_mse": 5.697031154241495e-09,
+      "foldJ_base_mse": 2.726695317515754e-08,
+      "role_rank": 521
+    },
+    {
+      "candidate_mse": 2.9696132387760208e-08,
+      "exact_q_oracle_mse": 5.996169073591681e-09,
+      "foldJ_base_mse": 2.989197154468016e-08,
+      "role_rank": 522
+    },
+    {
+      "candidate_mse": 2.6845500420037703e-08,
+      "exact_q_oracle_mse": 5.1911356403724426e-09,
+      "foldJ_base_mse": 2.687812823117759e-08,
+      "role_rank": 523
+    },
+    {
+      "candidate_mse": 2.8685618573765388e-08,
+      "exact_q_oracle_mse": 4.634368959026049e-09,
+      "foldJ_base_mse": 2.9746474713856276e-08,
+      "role_rank": 524
+    },
+    {
+      "candidate_mse": 3.651200917583627e-08,
+      "exact_q_oracle_mse": 7.234443683079405e-09,
+      "foldJ_base_mse": 3.7654669500762595e-08,
+      "role_rank": 525
+    },
+    {
+      "candidate_mse": 2.5089972848397944e-08,
+      "exact_q_oracle_mse": 6.188491376198869e-09,
+      "foldJ_base_mse": 2.6430680680232993e-08,
+      "role_rank": 526
+    },
+    {
+      "candidate_mse": 2.5838229698881137e-08,
+      "exact_q_oracle_mse": 5.761370433813014e-09,
+      "foldJ_base_mse": 2.714365571783232e-08,
+      "role_rank": 527
+    },
+    {
+      "candidate_mse": 2.796965745459755e-08,
+      "exact_q_oracle_mse": 6.109182339969111e-09,
+      "foldJ_base_mse": 2.82906025932871e-08,
+      "role_rank": 528
+    },
+    {
+      "candidate_mse": 3.171464929235493e-08,
+      "exact_q_oracle_mse": 6.645898947506511e-09,
+      "foldJ_base_mse": 3.1494719035028245e-08,
+      "role_rank": 529
+    },
+    {
+      "candidate_mse": 2.8032217623554794e-08,
+      "exact_q_oracle_mse": 4.123086899122075e-09,
+      "foldJ_base_mse": 2.8320405531673477e-08,
+      "role_rank": 530
+    },
+    {
+      "candidate_mse": 2.98042731195606e-08,
+      "exact_q_oracle_mse": 5.884919488389851e-09,
+      "foldJ_base_mse": 2.905920672692784e-08,
+      "role_rank": 531
+    },
+    {
+      "candidate_mse": 2.514369530490299e-08,
+      "exact_q_oracle_mse": 5.552312243045965e-09,
+      "foldJ_base_mse": 2.5138364119226796e-08,
+      "role_rank": 532
+    },
+    {
+      "candidate_mse": 3.14661180264111e-08,
+      "exact_q_oracle_mse": 7.189519027047179e-09,
+      "foldJ_base_mse": 3.151995061061898e-08,
+      "role_rank": 533
+    },
+    {
+      "candidate_mse": 3.120129848504702e-08,
+      "exact_q_oracle_mse": 6.969243988952278e-09,
+      "foldJ_base_mse": 3.2086668107630863e-08,
+      "role_rank": 534
+    },
+    {
+      "candidate_mse": 2.915099837271558e-08,
+      "exact_q_oracle_mse": 6.793609133059671e-09,
+      "foldJ_base_mse": 3.002454559812057e-08,
+      "role_rank": 535
+    },
+    {
+      "candidate_mse": 3.5065908860020095e-08,
+      "exact_q_oracle_mse": 5.319140449835228e-09,
+      "foldJ_base_mse": 3.566667384284157e-08,
+      "role_rank": 536
+    },
+    {
+      "candidate_mse": 2.4987666027085365e-08,
+      "exact_q_oracle_mse": 8.159032474637302e-09,
+      "foldJ_base_mse": 2.4653941884530118e-08,
+      "role_rank": 537
+    },
+    {
+      "candidate_mse": 3.07959456474864e-08,
+      "exact_q_oracle_mse": 5.3085579928525196e-09,
+      "foldJ_base_mse": 3.176688283922691e-08,
+      "role_rank": 538
+    },
+    {
+      "candidate_mse": 2.4889555398449225e-08,
+      "exact_q_oracle_mse": 5.829666292733067e-09,
+      "foldJ_base_mse": 2.537351594132709e-08,
+      "role_rank": 539
+    },
+    {
+      "candidate_mse": 3.127620976432743e-08,
+      "exact_q_oracle_mse": 9.919244883421284e-09,
+      "foldJ_base_mse": 3.217186748134305e-08,
+      "role_rank": 540
+    },
+    {
+      "candidate_mse": 3.384496612932697e-08,
+      "exact_q_oracle_mse": 6.679271273397452e-09,
+      "foldJ_base_mse": 3.450601242032655e-08,
+      "role_rank": 541
+    },
+    {
+      "candidate_mse": 2.6875618011036435e-08,
+      "exact_q_oracle_mse": 5.535507402381428e-09,
+      "foldJ_base_mse": 2.7508796426162306e-08,
+      "role_rank": 542
+    },
+    {
+      "candidate_mse": 3.000161657932615e-08,
+      "exact_q_oracle_mse": 6.057017240341206e-09,
+      "foldJ_base_mse": 2.9969167346271515e-08,
+      "role_rank": 543
+    },
+    {
+      "candidate_mse": 3.181784465490178e-08,
+      "exact_q_oracle_mse": 5.2412898771985896e-09,
+      "foldJ_base_mse": 3.2055334137698155e-08,
+      "role_rank": 544
+    },
+    {
+      "candidate_mse": 2.6033418204879925e-08,
+      "exact_q_oracle_mse": 5.604403593662065e-09,
+      "foldJ_base_mse": 2.6847957078387886e-08,
+      "role_rank": 545
+    },
+    {
+      "candidate_mse": 3.655551411234478e-08,
+      "exact_q_oracle_mse": 8.825584581388439e-09,
+      "foldJ_base_mse": 3.7671123777401456e-08,
+      "role_rank": 546
+    },
+    {
+      "candidate_mse": 2.9970043930043334e-08,
+      "exact_q_oracle_mse": 5.31232436620026e-09,
+      "foldJ_base_mse": 3.0194842165664546e-08,
+      "role_rank": 547
+    },
+    {
+      "candidate_mse": 2.77913371025052e-08,
+      "exact_q_oracle_mse": 6.154485393894133e-09,
+      "foldJ_base_mse": 2.9302910226297348e-08,
+      "role_rank": 548
+    },
+    {
+      "candidate_mse": 3.032109779930651e-08,
+      "exact_q_oracle_mse": 8.26203255427594e-09,
+      "foldJ_base_mse": 3.112206167656153e-08,
+      "role_rank": 549
+    },
+    {
+      "candidate_mse": 3.239982337931818e-08,
+      "exact_q_oracle_mse": 8.265896950472845e-09,
+      "foldJ_base_mse": 3.325832329631423e-08,
+      "role_rank": 550
+    },
+    {
+      "candidate_mse": 3.2577136175409934e-08,
+      "exact_q_oracle_mse": 6.674942341528427e-09,
+      "foldJ_base_mse": 3.219562693944538e-08,
+      "role_rank": 551
+    },
+    {
+      "candidate_mse": 2.5232250710982122e-08,
+      "exact_q_oracle_mse": 6.670795810147617e-09,
+      "foldJ_base_mse": 2.554994610165684e-08,
+      "role_rank": 552
+    },
+    {
+      "candidate_mse": 3.045466952800717e-08,
+      "exact_q_oracle_mse": 7.376572364525708e-09,
+      "foldJ_base_mse": 3.134165198479063e-08,
+      "role_rank": 553
+    },
+    {
+      "candidate_mse": 3.028464550334738e-08,
+      "exact_q_oracle_mse": 5.948420652440988e-09,
+      "foldJ_base_mse": 3.1558563812636165e-08,
+      "role_rank": 554
+    },
+    {
+      "candidate_mse": 3.1793126097698957e-08,
+      "exact_q_oracle_mse": 3.845564505989082e-09,
+      "foldJ_base_mse": 3.3682113098848516e-08,
+      "role_rank": 555
+    },
+    {
+      "candidate_mse": 3.066769615619316e-08,
+      "exact_q_oracle_mse": 7.024832772168652e-09,
+      "foldJ_base_mse": 3.237335796451001e-08,
+      "role_rank": 556
+    },
+    {
+      "candidate_mse": 2.5984257092748393e-08,
+      "exact_q_oracle_mse": 5.141778851653012e-09,
+      "foldJ_base_mse": 2.6438721912144062e-08,
+      "role_rank": 557
+    },
+    {
+      "candidate_mse": 3.0199066396294e-08,
+      "exact_q_oracle_mse": 6.796949470315991e-09,
+      "foldJ_base_mse": 3.162992104666411e-08,
+      "role_rank": 558
+    },
+    {
+      "candidate_mse": 3.0064439656467006e-08,
+      "exact_q_oracle_mse": 6.579133134911919e-09,
+      "foldJ_base_mse": 3.009396360745998e-08,
+      "role_rank": 559
+    },
+    {
+      "candidate_mse": 2.3197512573744388e-08,
+      "exact_q_oracle_mse": 6.79531454298654e-09,
+      "foldJ_base_mse": 2.3663836959332953e-08,
+      "role_rank": 560
+    },
+    {
+      "candidate_mse": 2.9050687317376717e-08,
+      "exact_q_oracle_mse": 7.014595938985302e-09,
+      "foldJ_base_mse": 3.0128806483334856e-08,
+      "role_rank": 561
+    },
+    {
+      "candidate_mse": 2.988284632788536e-08,
+      "exact_q_oracle_mse": 4.9280795474259885e-09,
+      "foldJ_base_mse": 3.0861588916635064e-08,
+      "role_rank": 562
+    },
+    {
+      "candidate_mse": 2.775213212638477e-08,
+      "exact_q_oracle_mse": 7.319684183539656e-09,
+      "foldJ_base_mse": 2.9197658794368003e-08,
+      "role_rank": 563
+    },
+    {
+      "candidate_mse": 3.687754038494716e-08,
+      "exact_q_oracle_mse": 9.402295372383982e-09,
+      "foldJ_base_mse": 3.6214986031418774e-08,
+      "role_rank": 564
+    },
+    {
+      "candidate_mse": 3.3858647189219764e-08,
+      "exact_q_oracle_mse": 6.002606662194727e-09,
+      "foldJ_base_mse": 3.581250753915455e-08,
+      "role_rank": 565
+    },
+    {
+      "candidate_mse": 3.2486330484293744e-08,
+      "exact_q_oracle_mse": 8.209654118268718e-09,
+      "foldJ_base_mse": 3.1581544299206545e-08,
+      "role_rank": 566
+    },
+    {
+      "candidate_mse": 2.6291060711193975e-08,
+      "exact_q_oracle_mse": 6.04994511602174e-09,
+      "foldJ_base_mse": 2.7418068981599764e-08,
+      "role_rank": 567
+    },
+    {
+      "candidate_mse": 2.770474032077489e-08,
+      "exact_q_oracle_mse": 5.264079593756698e-09,
+      "foldJ_base_mse": 2.7656325005453692e-08,
+      "role_rank": 568
+    },
+    {
+      "candidate_mse": 3.395544436359018e-08,
+      "exact_q_oracle_mse": 7.174524985328783e-09,
+      "foldJ_base_mse": 3.471676541969521e-08,
+      "role_rank": 569
+    },
+    {
+      "candidate_mse": 2.3737031613850702e-08,
+      "exact_q_oracle_mse": 5.214186797574534e-09,
+      "foldJ_base_mse": 2.4782509166795478e-08,
+      "role_rank": 570
+    },
+    {
+      "candidate_mse": 2.7776062113927973e-08,
+      "exact_q_oracle_mse": 6.336620971724175e-09,
+      "foldJ_base_mse": 2.9539531976821494e-08,
+      "role_rank": 571
+    },
+    {
+      "candidate_mse": 3.01562951177433e-08,
+      "exact_q_oracle_mse": 5.192355572900838e-09,
+      "foldJ_base_mse": 3.2098461280581495e-08,
+      "role_rank": 572
+    },
+    {
+      "candidate_mse": 2.2886778657939877e-08,
+      "exact_q_oracle_mse": 5.295900465638984e-09,
+      "foldJ_base_mse": 2.471710203613137e-08,
+      "role_rank": 573
+    },
+    {
+      "candidate_mse": 2.5432724455280254e-08,
+      "exact_q_oracle_mse": 6.630386649501382e-09,
+      "foldJ_base_mse": 2.5364948359855127e-08,
+      "role_rank": 574
+    },
+    {
+      "candidate_mse": 2.8581728384772816e-08,
+      "exact_q_oracle_mse": 5.587355300769849e-09,
+      "foldJ_base_mse": 2.9343891677863358e-08,
+      "role_rank": 575
+    },
+    {
+      "candidate_mse": 2.7409522689179568e-08,
+      "exact_q_oracle_mse": 6.837325122541912e-09,
+      "foldJ_base_mse": 2.7902689168079274e-08,
+      "role_rank": 576
+    },
+    {
+      "candidate_mse": 3.0597512983340524e-08,
+      "exact_q_oracle_mse": 5.760054000836354e-09,
+      "foldJ_base_mse": 3.1527317866080124e-08,
+      "role_rank": 577
+    },
+    {
+      "candidate_mse": 3.0283175939129324e-08,
+      "exact_q_oracle_mse": 7.024361647563423e-09,
+      "foldJ_base_mse": 3.069233851132166e-08,
+      "role_rank": 578
+    },
+    {
+      "candidate_mse": 2.7860685187537524e-08,
+      "exact_q_oracle_mse": 6.005626914029239e-09,
+      "foldJ_base_mse": 2.89686723355226e-08,
+      "role_rank": 579
+    },
+    {
+      "candidate_mse": 3.19066074529618e-08,
+      "exact_q_oracle_mse": 5.529218333389415e-09,
+      "foldJ_base_mse": 3.357198524107262e-08,
+      "role_rank": 580
+    },
+    {
+      "candidate_mse": 3.26089241619748e-08,
+      "exact_q_oracle_mse": 6.248444169334626e-09,
+      "foldJ_base_mse": 3.3107322714300254e-08,
+      "role_rank": 581
+    },
+    {
+      "candidate_mse": 3.6580290845923434e-08,
+      "exact_q_oracle_mse": 5.9943741259368825e-09,
+      "foldJ_base_mse": 3.707186938318373e-08,
+      "role_rank": 582
+    },
+    {
+      "candidate_mse": 2.767708039338901e-08,
+      "exact_q_oracle_mse": 6.348737542621922e-09,
+      "foldJ_base_mse": 2.772470369180819e-08,
+      "role_rank": 583
+    },
+    {
+      "candidate_mse": 2.5705872674272343e-08,
+      "exact_q_oracle_mse": 5.2281603417942355e-09,
+      "foldJ_base_mse": 2.697176669525109e-08,
+      "role_rank": 584
+    },
+    {
+      "candidate_mse": 3.0642464355692984e-08,
+      "exact_q_oracle_mse": 5.611787357912343e-09,
+      "foldJ_base_mse": 3.360401560309279e-08,
+      "role_rank": 585
+    },
+    {
+      "candidate_mse": 3.097752186235033e-08,
+      "exact_q_oracle_mse": 6.172788250887189e-09,
+      "foldJ_base_mse": 3.126248617405115e-08,
+      "role_rank": 586
+    },
+    {
+      "candidate_mse": 3.0242370214022765e-08,
+      "exact_q_oracle_mse": 6.9936069931164975e-09,
+      "foldJ_base_mse": 3.148656712896659e-08,
+      "role_rank": 587
+    },
+    {
+      "candidate_mse": 3.0894159012176145e-08,
+      "exact_q_oracle_mse": 6.3561104163237026e-09,
+      "foldJ_base_mse": 3.100633903440785e-08,
+      "role_rank": 588
+    },
+    {
+      "candidate_mse": 2.8188280462227392e-08,
+      "exact_q_oracle_mse": 7.058426183028338e-09,
+      "foldJ_base_mse": 2.8723393699685532e-08,
+      "role_rank": 589
+    },
+    {
+      "candidate_mse": 2.8320008640754035e-08,
+      "exact_q_oracle_mse": 5.728190673987308e-09,
+      "foldJ_base_mse": 3.0200995633417275e-08,
+      "role_rank": 590
+    },
+    {
+      "candidate_mse": 3.4448417217665004e-08,
+      "exact_q_oracle_mse": 6.76865751601663e-09,
+      "foldJ_base_mse": 3.417734180865522e-08,
+      "role_rank": 591
+    },
+    {
+      "candidate_mse": 2.6785077138816192e-08,
+      "exact_q_oracle_mse": 7.475151011203914e-09,
+      "foldJ_base_mse": 2.68517769611331e-08,
+      "role_rank": 592
+    },
+    {
+      "candidate_mse": 3.362688390759936e-08,
+      "exact_q_oracle_mse": 6.362743190736389e-09,
+      "foldJ_base_mse": 3.528500243553586e-08,
+      "role_rank": 593
+    },
+    {
+      "candidate_mse": 3.831779835719208e-08,
+      "exact_q_oracle_mse": 8.51060371640041e-09,
+      "foldJ_base_mse": 3.918833458975595e-08,
+      "role_rank": 594
+    },
+    {
+      "candidate_mse": 2.230384453080368e-08,
+      "exact_q_oracle_mse": 5.366880531568591e-09,
+      "foldJ_base_mse": 2.312083514555239e-08,
+      "role_rank": 595
+    },
+    {
+      "candidate_mse": 2.6301586730348223e-08,
+      "exact_q_oracle_mse": 6.589285748569285e-09,
+      "foldJ_base_mse": 2.7983405254652495e-08,
+      "role_rank": 596
+    },
+    {
+      "candidate_mse": 3.214624754888476e-08,
+      "exact_q_oracle_mse": 7.438318001599557e-09,
+      "foldJ_base_mse": 3.348202188582244e-08,
+      "role_rank": 597
+    },
+    {
+      "candidate_mse": 3.10698493360094e-08,
+      "exact_q_oracle_mse": 5.8122386597913975e-09,
+      "foldJ_base_mse": 3.192580582327524e-08,
+      "role_rank": 598
+    },
+    {
+      "candidate_mse": 2.2570526826888444e-08,
+      "exact_q_oracle_mse": 5.859076512263607e-09,
+      "foldJ_base_mse": 2.298305449324684e-08,
+      "role_rank": 599
+    },
+    {
+      "candidate_mse": 3.267648542516891e-08,
+      "exact_q_oracle_mse": 6.5526783050708744e-09,
+      "foldJ_base_mse": 3.3387319460277425e-08,
+      "role_rank": 600
+    },
+    {
+      "candidate_mse": 3.093740803261439e-08,
+      "exact_q_oracle_mse": 6.984205883499013e-09,
+      "foldJ_base_mse": 3.1177706519420544e-08,
+      "role_rank": 601
+    },
+    {
+      "candidate_mse": 2.4084901944072263e-08,
+      "exact_q_oracle_mse": 4.70853358506214e-09,
+      "foldJ_base_mse": 2.4498798827265056e-08,
+      "role_rank": 602
+    },
+    {
+      "candidate_mse": 2.7988123634824938e-08,
+      "exact_q_oracle_mse": 8.102425403235744e-09,
+      "foldJ_base_mse": 2.8392649727306444e-08,
+      "role_rank": 603
+    },
+    {
+      "candidate_mse": 2.53263818762181e-08,
+      "exact_q_oracle_mse": 4.615992419129745e-09,
+      "foldJ_base_mse": 2.650909608305565e-08,
+      "role_rank": 604
+    },
+    {
+      "candidate_mse": 3.3885745655951636e-08,
+      "exact_q_oracle_mse": 6.216901702740013e-09,
+      "foldJ_base_mse": 3.397700895262892e-08,
+      "role_rank": 605
+    },
+    {
+      "candidate_mse": 2.8807075885743576e-08,
+      "exact_q_oracle_mse": 5.017700458849509e-09,
+      "foldJ_base_mse": 2.9111697815919798e-08,
+      "role_rank": 606
+    },
+    {
+      "candidate_mse": 2.835344033104337e-08,
+      "exact_q_oracle_mse": 5.358853274306846e-09,
+      "foldJ_base_mse": 2.9665022978701938e-08,
+      "role_rank": 607
+    },
+    {
+      "candidate_mse": 2.5757762338831885e-08,
+      "exact_q_oracle_mse": 3.719965958028366e-09,
+      "foldJ_base_mse": 2.595632961866721e-08,
+      "role_rank": 608
+    },
+    {
+      "candidate_mse": 3.165726419257005e-08,
+      "exact_q_oracle_mse": 7.47364513118969e-09,
+      "foldJ_base_mse": 3.2521437207126344e-08,
+      "role_rank": 609
+    },
+    {
+      "candidate_mse": 3.557776202219081e-08,
+      "exact_q_oracle_mse": 7.597769824411055e-09,
+      "foldJ_base_mse": 3.7913619968377126e-08,
+      "role_rank": 610
+    },
+    {
+      "candidate_mse": 2.3427561782218633e-08,
+      "exact_q_oracle_mse": 4.245893474078156e-09,
+      "foldJ_base_mse": 2.3636289952765824e-08,
+      "role_rank": 611
+    },
+    {
+      "candidate_mse": 3.507370737826731e-08,
+      "exact_q_oracle_mse": 5.222764068692255e-09,
+      "foldJ_base_mse": 3.709804813590078e-08,
+      "role_rank": 612
+    },
+    {
+      "candidate_mse": 2.8959220902881792e-08,
+      "exact_q_oracle_mse": 6.501577192933155e-09,
+      "foldJ_base_mse": 2.9522180086867116e-08,
+      "role_rank": 613
+    },
+    {
+      "candidate_mse": 3.258307135010348e-08,
+      "exact_q_oracle_mse": 9.490363068350325e-09,
+      "foldJ_base_mse": 3.334747472493091e-08,
+      "role_rank": 614
+    },
+    {
+      "candidate_mse": 2.3612414234909367e-08,
+      "exact_q_oracle_mse": 5.4913561580825335e-09,
+      "foldJ_base_mse": 2.413714731201312e-08,
+      "role_rank": 615
+    },
+    {
+      "candidate_mse": 2.8583957618454746e-08,
+      "exact_q_oracle_mse": 5.732676347569653e-09,
+      "foldJ_base_mse": 2.957457025834774e-08,
+      "role_rank": 616
+    },
+    {
+      "candidate_mse": 2.9528473153182904e-08,
+      "exact_q_oracle_mse": 6.0026089187654494e-09,
+      "foldJ_base_mse": 2.9471006296592697e-08,
+      "role_rank": 617
+    },
+    {
+      "candidate_mse": 3.6433403065462106e-08,
+      "exact_q_oracle_mse": 6.447307913612013e-09,
+      "foldJ_base_mse": 3.684771290337966e-08,
+      "role_rank": 618
+    },
+    {
+      "candidate_mse": 2.7893765873144107e-08,
+      "exact_q_oracle_mse": 8.514974043518927e-09,
+      "foldJ_base_mse": 2.9707446549482488e-08,
+      "role_rank": 619
+    },
+    {
+      "candidate_mse": 3.705490534867453e-08,
+      "exact_q_oracle_mse": 5.473058838092908e-09,
+      "foldJ_base_mse": 3.848080159681877e-08,
+      "role_rank": 620
+    },
+    {
+      "candidate_mse": 2.7406987223430444e-08,
+      "exact_q_oracle_mse": 4.653312349386088e-09,
+      "foldJ_base_mse": 2.8729302346464347e-08,
+      "role_rank": 621
+    },
+    {
+      "candidate_mse": 2.2248743049417527e-08,
+      "exact_q_oracle_mse": 4.029089837240894e-09,
+      "foldJ_base_mse": 2.19751358211894e-08,
+      "role_rank": 622
+    },
+    {
+      "candidate_mse": 3.2415394353566126e-08,
+      "exact_q_oracle_mse": 4.96161585181602e-09,
+      "foldJ_base_mse": 3.151391324741565e-08,
+      "role_rank": 623
+    },
+    {
+      "candidate_mse": 2.6084726636299247e-08,
+      "exact_q_oracle_mse": 4.784142328670979e-09,
+      "foldJ_base_mse": 2.73781993655671e-08,
+      "role_rank": 624
+    },
+    {
+      "candidate_mse": 3.090095221815383e-08,
+      "exact_q_oracle_mse": 5.980651048252985e-09,
+      "foldJ_base_mse": 3.2375637767750675e-08,
+      "role_rank": 625
+    },
+    {
+      "candidate_mse": 2.5391472627660596e-08,
+      "exact_q_oracle_mse": 5.099642320342215e-09,
+      "foldJ_base_mse": 2.4840601292034877e-08,
+      "role_rank": 626
+    },
+    {
+      "candidate_mse": 2.8659736921028047e-08,
+      "exact_q_oracle_mse": 6.030118554657744e-09,
+      "foldJ_base_mse": 3.065045065693609e-08,
+      "role_rank": 627
+    },
+    {
+      "candidate_mse": 2.7942640734471942e-08,
+      "exact_q_oracle_mse": 7.707606054299486e-09,
+      "foldJ_base_mse": 2.797682660325507e-08,
+      "role_rank": 628
+    },
+    {
+      "candidate_mse": 3.108270515627983e-08,
+      "exact_q_oracle_mse": 7.993755490049836e-09,
+      "foldJ_base_mse": 3.179051373273209e-08,
+      "role_rank": 629
+    },
+    {
+      "candidate_mse": 2.110533445866286e-08,
+      "exact_q_oracle_mse": 4.0090547867272044e-09,
+      "foldJ_base_mse": 2.1600219795173334e-08,
+      "role_rank": 630
+    },
+    {
+      "candidate_mse": 3.2170145725389936e-08,
+      "exact_q_oracle_mse": 5.089123649822926e-09,
+      "foldJ_base_mse": 3.295359449738375e-08,
+      "role_rank": 631
+    },
+    {
+      "candidate_mse": 3.251070023315327e-08,
+      "exact_q_oracle_mse": 5.8160450836985905e-09,
+      "foldJ_base_mse": 3.496256717299238e-08,
+      "role_rank": 632
+    },
+    {
+      "candidate_mse": 2.7369580755905577e-08,
+      "exact_q_oracle_mse": 3.958416232820227e-09,
+      "foldJ_base_mse": 2.8142718781138044e-08,
+      "role_rank": 633
+    },
+    {
+      "candidate_mse": 3.060922723173094e-08,
+      "exact_q_oracle_mse": 6.208123446857217e-09,
+      "foldJ_base_mse": 3.108218775199178e-08,
+      "role_rank": 634
+    },
+    {
+      "candidate_mse": 3.039668570706053e-08,
+      "exact_q_oracle_mse": 9.898148553890284e-09,
+      "foldJ_base_mse": 3.074166686907566e-08,
+      "role_rank": 635
+    },
+    {
+      "candidate_mse": 3.337846680981786e-08,
+      "exact_q_oracle_mse": 7.138799110330641e-09,
+      "foldJ_base_mse": 3.6377006100133155e-08,
+      "role_rank": 636
+    },
+    {
+      "candidate_mse": 3.089552662055733e-08,
+      "exact_q_oracle_mse": 6.496740404407761e-09,
+      "foldJ_base_mse": 3.14470440175482e-08,
+      "role_rank": 637
+    },
+    {
+      "candidate_mse": 2.748221117505146e-08,
+      "exact_q_oracle_mse": 4.645183908956526e-09,
+      "foldJ_base_mse": 2.747128187147638e-08,
+      "role_rank": 638
+    },
+    {
+      "candidate_mse": 3.042325608653297e-08,
+      "exact_q_oracle_mse": 5.853312853316731e-09,
+      "foldJ_base_mse": 3.163830110895312e-08,
+      "role_rank": 639
+    },
+    {
+      "candidate_mse": 2.642681858590977e-08,
+      "exact_q_oracle_mse": 4.998877149269273e-09,
+      "foldJ_base_mse": 2.6997676450219218e-08,
+      "role_rank": 640
+    },
+    {
+      "candidate_mse": 3.393834881882691e-08,
+      "exact_q_oracle_mse": 7.612493356248231e-09,
+      "foldJ_base_mse": 3.51197247704238e-08,
+      "role_rank": 641
+    },
+    {
+      "candidate_mse": 2.923516929995234e-08,
+      "exact_q_oracle_mse": 7.490331562629425e-09,
+      "foldJ_base_mse": 3.130523075279176e-08,
+      "role_rank": 642
+    },
+    {
+      "candidate_mse": 3.4516889273955256e-08,
+      "exact_q_oracle_mse": 6.004054922510794e-09,
+      "foldJ_base_mse": 3.545670148225229e-08,
+      "role_rank": 643
+    },
+    {
+      "candidate_mse": 3.11791927971304e-08,
+      "exact_q_oracle_mse": 6.325578048754102e-09,
+      "foldJ_base_mse": 3.049156256419983e-08,
+      "role_rank": 644
+    },
+    {
+      "candidate_mse": 3.645591815150829e-08,
+      "exact_q_oracle_mse": 4.995615255785451e-09,
+      "foldJ_base_mse": 3.8058156792822924e-08,
+      "role_rank": 645
+    },
+    {
+      "candidate_mse": 3.8129518947690706e-08,
+      "exact_q_oracle_mse": 6.799683699673573e-09,
+      "foldJ_base_mse": 3.877129260828869e-08,
+      "role_rank": 646
+    },
+    {
+      "candidate_mse": 2.823939625513803e-08,
+      "exact_q_oracle_mse": 5.3379175087656674e-09,
+      "foldJ_base_mse": 2.9260634887536497e-08,
+      "role_rank": 647
+    },
+    {
+      "candidate_mse": 3.417225398305068e-08,
+      "exact_q_oracle_mse": 6.967168352521124e-09,
+      "foldJ_base_mse": 3.51738762572182e-08,
+      "role_rank": 648
+    },
+    {
+      "candidate_mse": 3.009955726687411e-08,
+      "exact_q_oracle_mse": 5.986937060730801e-09,
+      "foldJ_base_mse": 3.002594865223901e-08,
+      "role_rank": 649
+    },
+    {
+      "candidate_mse": 3.371430394775299e-08,
+      "exact_q_oracle_mse": 8.181067669218843e-09,
+      "foldJ_base_mse": 3.44898415915621e-08,
+      "role_rank": 650
+    },
+    {
+      "candidate_mse": 3.34952162970664e-08,
+      "exact_q_oracle_mse": 4.652877431150012e-09,
+      "foldJ_base_mse": 3.449487117219821e-08,
+      "role_rank": 651
+    },
+    {
+      "candidate_mse": 2.9016765679910947e-08,
+      "exact_q_oracle_mse": 5.1030338733992036e-09,
+      "foldJ_base_mse": 2.9999222042983416e-08,
+      "role_rank": 652
+    },
+    {
+      "candidate_mse": 2.648675403803278e-08,
+      "exact_q_oracle_mse": 6.833025579509469e-09,
+      "foldJ_base_mse": 2.76308050312773e-08,
+      "role_rank": 653
+    },
+    {
+      "candidate_mse": 3.109010428176285e-08,
+      "exact_q_oracle_mse": 7.458946580884488e-09,
+      "foldJ_base_mse": 3.009081560044652e-08,
+      "role_rank": 654
+    },
+    {
+      "candidate_mse": 2.5797443476656847e-08,
+      "exact_q_oracle_mse": 5.421315940767358e-09,
+      "foldJ_base_mse": 2.6989706768587814e-08,
+      "role_rank": 655
+    },
+    {
+      "candidate_mse": 3.306784793646298e-08,
+      "exact_q_oracle_mse": 8.470890738708142e-09,
+      "foldJ_base_mse": 3.411545422182778e-08,
+      "role_rank": 656
+    },
+    {
+      "candidate_mse": 2.2047762057984455e-08,
+      "exact_q_oracle_mse": 4.192974318841351e-09,
+      "foldJ_base_mse": 2.2412304572025113e-08,
+      "role_rank": 657
+    },
+    {
+      "candidate_mse": 3.2232881250317135e-08,
+      "exact_q_oracle_mse": 6.445307472358884e-09,
+      "foldJ_base_mse": 3.3374809260142587e-08,
+      "role_rank": 658
+    },
+    {
+      "candidate_mse": 2.630037931359549e-08,
+      "exact_q_oracle_mse": 6.391882986593163e-09,
+      "foldJ_base_mse": 2.7264015930825946e-08,
+      "role_rank": 659
+    },
+    {
+      "candidate_mse": 2.9331452152896837e-08,
+      "exact_q_oracle_mse": 6.539698362667505e-09,
+      "foldJ_base_mse": 3.093283493509621e-08,
+      "role_rank": 660
+    },
+    {
+      "candidate_mse": 3.7065816787211527e-08,
+      "exact_q_oracle_mse": 5.918677052353702e-09,
+      "foldJ_base_mse": 3.710279789166582e-08,
+      "role_rank": 661
+    },
+    {
+      "candidate_mse": 2.7588650258190555e-08,
+      "exact_q_oracle_mse": 5.375297702408473e-09,
+      "foldJ_base_mse": 2.819019305669089e-08,
+      "role_rank": 662
+    },
+    {
+      "candidate_mse": 3.340041628180894e-08,
+      "exact_q_oracle_mse": 5.559778855998407e-09,
+      "foldJ_base_mse": 3.351806707771336e-08,
+      "role_rank": 663
+    },
+    {
+      "candidate_mse": 3.603402687471171e-08,
+      "exact_q_oracle_mse": 6.79535678034755e-09,
+      "foldJ_base_mse": 3.5144058345664655e-08,
+      "role_rank": 664
+    },
+    {
+      "candidate_mse": 3.173065365477357e-08,
+      "exact_q_oracle_mse": 7.059225976966398e-09,
+      "foldJ_base_mse": 3.2096552576377197e-08,
+      "role_rank": 665
+    },
+    {
+      "candidate_mse": 3.895754139982028e-08,
+      "exact_q_oracle_mse": 1.0597657313814985e-08,
+      "foldJ_base_mse": 4.062345568310405e-08,
+      "role_rank": 666
+    },
+    {
+      "candidate_mse": 4.159455878711125e-08,
+      "exact_q_oracle_mse": 7.621910566013395e-09,
+      "foldJ_base_mse": 4.3136080585904226e-08,
+      "role_rank": 667
+    },
+    {
+      "candidate_mse": 3.4196949411320005e-08,
+      "exact_q_oracle_mse": 6.232805224328988e-09,
+      "foldJ_base_mse": 3.570094217820731e-08,
+      "role_rank": 668
+    },
+    {
+      "candidate_mse": 3.28069443490386e-08,
+      "exact_q_oracle_mse": 5.715767241465778e-09,
+      "foldJ_base_mse": 3.365249598375637e-08,
+      "role_rank": 669
+    },
+    {
+      "candidate_mse": 2.060818613398263e-08,
+      "exact_q_oracle_mse": 5.2504468907174636e-09,
+      "foldJ_base_mse": 2.094635599162939e-08,
+      "role_rank": 670
+    },
+    {
+      "candidate_mse": 2.6676697712831145e-08,
+      "exact_q_oracle_mse": 4.648651708507521e-09,
+      "foldJ_base_mse": 2.7966810452578783e-08,
+      "role_rank": 671
+    },
+    {
+      "candidate_mse": 2.5771169582188784e-08,
+      "exact_q_oracle_mse": 6.9365935581366e-09,
+      "foldJ_base_mse": 2.6955471132565662e-08,
+      "role_rank": 672
+    },
+    {
+      "candidate_mse": 3.128354708356464e-08,
+      "exact_q_oracle_mse": 4.589012688735393e-09,
+      "foldJ_base_mse": 3.1180012886659275e-08,
+      "role_rank": 673
+    },
+    {
+      "candidate_mse": 2.6260241551303645e-08,
+      "exact_q_oracle_mse": 4.8095198772291146e-09,
+      "foldJ_base_mse": 2.658938002150359e-08,
+      "role_rank": 674
+    },
+    {
+      "candidate_mse": 2.7921135038586535e-08,
+      "exact_q_oracle_mse": 5.850079804733035e-09,
+      "foldJ_base_mse": 2.8742021916304735e-08,
+      "role_rank": 675
+    },
+    {
+      "candidate_mse": 3.521694731690064e-08,
+      "exact_q_oracle_mse": 5.594491995791858e-09,
+      "foldJ_base_mse": 3.7168410935362295e-08,
+      "role_rank": 676
+    },
+    {
+      "candidate_mse": 2.8590091543866408e-08,
+      "exact_q_oracle_mse": 5.248893467471702e-09,
+      "foldJ_base_mse": 2.9416690781247755e-08,
+      "role_rank": 677
+    },
+    {
+      "candidate_mse": 2.624413719735722e-08,
+      "exact_q_oracle_mse": 6.015539600578384e-09,
+      "foldJ_base_mse": 2.6900247881575287e-08,
+      "role_rank": 678
+    },
+    {
+      "candidate_mse": 3.225720517090468e-08,
+      "exact_q_oracle_mse": 7.01630830855154e-09,
+      "foldJ_base_mse": 3.3485536736941247e-08,
+      "role_rank": 679
+    },
+    {
+      "candidate_mse": 2.5953435250353476e-08,
+      "exact_q_oracle_mse": 4.858096037793192e-09,
+      "foldJ_base_mse": 2.6540842580368812e-08,
+      "role_rank": 680
+    },
+    {
+      "candidate_mse": 3.812187545852375e-08,
+      "exact_q_oracle_mse": 7.2701127382054784e-09,
+      "foldJ_base_mse": 3.851742994905353e-08,
+      "role_rank": 681
+    },
+    {
+      "candidate_mse": 3.1324295532877924e-08,
+      "exact_q_oracle_mse": 6.210955702702163e-09,
+      "foldJ_base_mse": 3.1555191145032354e-08,
+      "role_rank": 682
+    },
+    {
+      "candidate_mse": 2.9320866992760154e-08,
+      "exact_q_oracle_mse": 6.475465288401673e-09,
+      "foldJ_base_mse": 3.012159271069061e-08,
+      "role_rank": 683
+    },
+    {
+      "candidate_mse": 3.3627195335072536e-08,
+      "exact_q_oracle_mse": 8.263170066982817e-09,
+      "foldJ_base_mse": 3.4306100618383644e-08,
+      "role_rank": 684
+    },
+    {
+      "candidate_mse": 2.7953501781967982e-08,
+      "exact_q_oracle_mse": 5.032341520692402e-09,
+      "foldJ_base_mse": 2.9580135804060654e-08,
+      "role_rank": 685
+    },
+    {
+      "candidate_mse": 2.587798736235164e-08,
+      "exact_q_oracle_mse": 6.1773430873601466e-09,
+      "foldJ_base_mse": 2.650612585047046e-08,
+      "role_rank": 686
+    },
+    {
+      "candidate_mse": 2.851365689064948e-08,
+      "exact_q_oracle_mse": 8.944259103205028e-09,
+      "foldJ_base_mse": 2.871497670646211e-08,
+      "role_rank": 687
+    }
+  ],
+  "schema": "q24-abs-sq-message-qhead-oof-result-v1",
+  "status": "FAIL_MATERIAL_OOF__STOP_NO_REFIT"
+}

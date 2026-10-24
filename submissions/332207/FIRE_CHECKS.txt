@@ -1,0 +1,11 @@
+FIRE CHECKS S15 = S14 (9003e536) + engineer2 --altbasis (alternative-basis variants on the IPT kernel; rounding-level), 2026-09-24 15:20
+file /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_fire_v1/fire_candS15/candS15_S14_altbasis_mem.py
+sha256 e313ab775de8c0995f8e9920151021ad1992cb9b6979d95dd1daa9bd74f5154c (porter stack_S14_ab_mem.py e313ab77...)
+validate: Validation passed in 161ms
+einsum gate vs fired S13: VERDICT PASS: 0 new repeated-operand einsum site(s), 0 new symmetric-tag call(s) vs ref
+import lines new vs S13: (empty = none)
+recipe rebuild sha e313ab775de8c0995f8e9920151021ad1992cb9b6979d95dd1daa9bd74f5154c (must equal the fire file); S14 intermediate 9003e5368e7fc278 (S14 9003e536)
+recipe: fired S11 -> build_colpack -> build_deadcut --round=64 -> build_m64.py -> build_read6.py q -> build_ipt_v3.py -> cat ipt_read6_fragment.py -> build_altbasis.py
+client/server smoke: 2 of 2 nets OK (fable_porter_v1/cz_S15ab_census.json)
+VALID40 vs S14 rows: raw (pooled MSE ratio): +0.037%  95% CI [-0.023%, +0.094%]  wins 17/40 (ties 0) util: mean 0.165596 vs 0.167602 (-1.197%); pooled util (= pooled flops) -1.197%  95% CI [-1.202%, -1.191%] adjusted (pooled): -1.161%  95% CI [-1.218%, -1.106%]  wins 40/40; per-net min -1.54% median -1.14% max -0.89% 
+bar: {"verdict": "PASS", "pooled_adjusted_pct": -1.161, "ci": [-1.218, -1.106], "wins": 40, "n": 40, "errors": 0, "bar": {"max_pct": -0.7, "ci_excludes_0": true, "min_wins": 0}, "clears_3e9_bar_minus_1p6": false} | pooled raw vs S14 +0.037% on 40 nets -> RAW PASS (|raw| <= 0.15%)

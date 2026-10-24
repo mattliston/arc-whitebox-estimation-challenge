@@ -1,0 +1,50 @@
+{
+  "schema": "public-joint-redesign-study-audit-v1",
+  "node": "P2R0F3",
+  "status": "PASS_INDEPENDENT_AUDIT",
+  "auditor": "independent-subagent-no-design-stake",
+  "audited_file_sha256": {
+    "study": "3c238c9851e0c22fd251a0ff67d0624d0f937fe498881910d273aa3d9c7255fc"
+  },
+  "checks": [
+    {
+      "check": "evidence_hashes",
+      "result": "PASS",
+      "detail": "All five evidence_base sha256s match on-disk files, located by exhaustive hash sweep of the experiment tree: x_closure=public_lambda3_native_pilot_v1/X_CLOSURE.json, x_pilot_result=public_lambda3_native_pilot_v1/PILOT_RESULT.json, r_pilot_closure=public_native_r10_source_uncertainty_pilot_v1/R_PILOT_CLOSURE.json, q_decomposition=public_full688_aug7_widened_j_cv_v1/Q_VS_J_OOF_DECOMPOSITION_AND_CLOSURE.json, s_localization=public_host_error_localization_v1/LOCALIZATION_RESULT.json. Defense in depth: X_CLOSURE's own bindings to PILOT_RESULT (46bc1874...) and the X AUDIT_RECEIPT (0de67381...) re-verified against disk; the J-native baseline pair (3.107235383605394e-8, host 8.919980524938374e-8) is frozen in the hash-bound PREREGISTRATION.json authority block, i.e. pinned before the X run."
+    },
+    {
+      "check": "central_arithmetic",
+      "result": "PASS_EXACT",
+      "detail": "From the pinned PILOT_RESULT.json: host improvement 8.919980524938374e-8 - 8.030968799749751e-8 = 0.889012e-8 (study: 0.889). Corrected residual move 3.136551362360925e-8 - 3.107235383605394e-8 = +0.029316e-8 (study: +0.029). Removal base 5.812745e-8 (study 5.813), removal X 4.894417e-8 (study 4.894), shrink 0.918328e-8 (study prints 0.919 from rounded operands; see minor note). Additive identity shrink - residual_move = host_improvement holds to machine precision. Reconstruction percentages 65.17%/60.94% exact. 'Approximately zero transfer' is faithful and conservative: measured transfer is slightly negative (host improved 10.0% while the corrected endpoint worsened 0.94%)."
+    },
+    {
+      "check": "logic_d1_d2_rejections",
+      "result": "PASS_WITH_CAVEAT",
+      "detail": "D1 (jointly fitted shell scales): entailed for the named family. The five-arm observer closure (M/N/P/Q/R in R_PILOT_CLOSURE, spanning operator classes and information supply in both frames, ceiling ~3.23e-8 dev / ~3.11e-8 native, corroborated by the N-vs-Q ceiling coincidence at 3.1e-6 relative in the Q decomposition) establishes information-cap not capacity-cap; the invariant arithmetic shows ~103% substitution (0.918 removal shrink vs 0.889 host gain), so shell-scale interpolation trades along a curve that is approximately flat at both measured endpoints. D2 (observer redesigned for X residual): supported; 60.94% < 65.17% directly measures that the X residual is enriched in exactly the component the five arms proved unpredictable from lawful inputs. Caveat recorded in minor_notes: neither closure covers full joint host-observer CO-TRAINING against the endpoint loss."
+    },
+    {
+      "check": "logic_d3_mechanism_bound_classification",
+      "result": "PASS_WITH_CLASSIFICATION",
+      "detail": "'Corrected error is bounded above by host error' is NOT structural for the applied correction operator: the corrected system is an autonomous rollout whose own preregistration carries a finite_full_rollout gate and a networkwise_wins_at_least 28-of-40 gate, which exist precisely because per-network corrected > host (up to divergence) is possible. The bound is (i) empirical with wide margin in every measured arm (ratio-to-host 0.35-0.39, 40/40 wins), and (ii) structural only at the protocol level via correction-optionality: the conjunctive gates force declining any correction that regresses, and a host below 1e-8 needs no correction at all. Under (ii) the operative inference survives intact: host raw <= 3e-8 guarantees an achievable endpoint <= 3e-8 < current 3.107e-8, i.e. guaranteed progress, and the 5e-8-class full-absorption warning is consistent with the invariant."
+    },
+    {
+      "check": "bar_arithmetic_3e8",
+      "result": "PASS_WITH_SLIP",
+      "detail": "The 3e-8 bar itself is consistent: it sits just below the measured invariant 3.107e-8 (native frame), so reaching it guarantees endpoint progress under the bound as classified above, and 'below 1e-8 with no correction' meets the governing raw-MSE goal. One parenthetical multiplier is wrong: 8.030968799749751e-8 / 3e-8 = 2.68x, not the stated 2.9x (2.9x matches the BASE host over the invariant, 8.92/3.107 = 2.87). The slip overstates the required improvement, i.e. errs conservative; bar and adjudication unaffected."
+    },
+    {
+      "check": "scope_and_license",
+      "result": "PASS",
+      "detail": "Design-only confirmed: the study directory contains only the study JSON; all firewall counters zero; every quantitative claim traces to hash-pinned prior receipts (each carrying its own closed/pass status), none re-executed and no targets opened by the study or by this audit. Budget note spot-checked: the ~275e9 conditional-repair saving matches the condrepair v2 card's measured 275.6e9 mechanism, and the 10% shell value matches host_fractional_improvement 0.0997. The next-node license explicitly front-loads reproduce-first in the current frame, then a 2^41 cost envelope, then a minimal-width pilot under the measure-first protocol before any full-width commitment - compliant with the reproduce-first and cost-bar laws."
+    }
+  ],
+  "material_defects_found": 0,
+  "minor_notes": [
+    "Rounding artifact: the study's '0.919e-8 reduction in reconstructed error' is the rounded-operands difference (5.813 - 4.894); the exact value is 0.9183e-8, which rounds to 0.918. The underlying additive identity is exact; no conclusion is affected.",
+    "Ratio slip: '(a 2.9x improvement over the lambda-cubed host's 8.03e-8)' should read ~2.7x for the cited pair (8.031/3.0 = 2.68); 2.9x corresponds to the base host over the invariant (8.92/3.107 = 2.87). The error direction is conservative (overstates the required improvement).",
+    "CAVEAT the study should carry on D1/D2: the five-arm information-cap closures measure the unpredictability of a FIXED host's error from lawful inputs; together with the two-endpoint invariant arithmetic they entail the rejection of the NAMED directions (shell-scale joint fitting; observer redesign for the X residual), but they do not close a fully jointly TRAINED host+observer system co-optimized against the corrected endpoint, which could in principle reshape host error to be observer-predictable. That direction remains merely unexplored-without-a-measured-mechanism, which is sufficient grounds for not selecting it under the study's stated criterion, but the rejection wording should not be read as closing it.",
+    "CAVEAT on D3's mechanism sentence: 'corrected error is bounded above by host error' is a protocol-enforced bound (conjunctive gates plus the option to decline the correction; observed ratios 0.35-0.39), not a mathematical property of the correction operator - the pilot's own finite_full_rollout gate exists because the autonomous corrected rollout can in principle diverge. The 3e-8 milestone logic survives under the protocol-level reading.",
+    "The 'three host arms' count inside the central-measurement interpretation is relied on via the hash-pinned X_CLOSURE synthesis (itself carrying a hash-verified audit receipt), not independently re-derived here; the five-observer-arm count was independently confirmed against R_PILOT_CLOSURE (arms M/N/P/Q/R)."
+  ],
+  "targets_read": 0
+}

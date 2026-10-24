@@ -1,0 +1,100 @@
+{
+  "schema": "phase2-root-one-use-target-free-literal-meter-release-v1",
+  "status": "ROOT_AUTHORIZED_ONE_TARGET_FREE_LITERAL_METER__NOT_YET_CONSUMED",
+  "created_at_utc": "2026-08-24T11:40:39Z",
+  "authority": {
+    "source": "user ongoing pure-closure research directive and authorization to use local compute/resources appropriately",
+    "scope_id": "fb-ec4-q24-manual-rho-7d0c9e30-literal-meter-20260824",
+    "approving_role": "root agent recording existing user authority",
+    "one_use": true,
+    "allowed_actions": [
+      "one target-free full-shape synthetic FlopScope meter invocation",
+      "local whestbench synthetic fixture construction required by the meter harness",
+      "write the immutable meter run namespace and verification artifacts"
+    ],
+    "forbidden_actions": [
+      "dataset argument or private/public corpus access",
+      "using synthetic truth to select or tune estimator science",
+      "raw-MSE promotion or accuracy claim",
+      "package creation",
+      "submission",
+      "network write",
+      "frozen estimator mutation"
+    ]
+  },
+  "bindings": {
+    "candidate_estimator": {
+      "path": "estimator.py",
+      "bytes": 68143,
+      "sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00"
+    },
+    "source_manifest_sha256": "e3b9200ccc2fd0c96862c78c8ad0f6163e2de782c002a66fd031b108f5c1ac3b",
+    "author_freeze_sha256": "3f5df4f1d8e72afaec93e9e87c1e738e56f4a37350ef88ab33a3d35c0b46dc61",
+    "independent_strict_audit_sha256": "b583911142d523e16ee2208289a8b79137669d256e45432877cf3bdf3785efc6",
+    "meter_driver": {
+      "path": "../meter_protocol/run_synthetic_meter.py",
+      "sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34"
+    },
+    "parent_q24_literal_meter_receipt_sha256": "d69fd338972386af2c45f120d2983d5036a9a52ae57845a01977658e4c21fd11"
+  },
+  "resource_envelope": {
+    "width": 1024,
+    "depth": 16,
+    "n_mlps": 1,
+    "n_samples": 8,
+    "seed": 20260824,
+    "max_threads": 4,
+    "phase2_flop_budget": 2199023255552,
+    "wall_time_limit_s": 120.0,
+    "residual_wall_time_limit_s": 0.4,
+    "memory_limit_bytes": 8589934592,
+    "external_process_timeout_s": 300.0,
+    "projected_flops": 2131280786389,
+    "projected_headroom_flops": 67742469163
+  },
+  "execution": {
+    "cwd": "/Users/matt/arc-white-box-estimation",
+    "label": "fb_ec4_q24_manual_rho_v1_7d0c9e30_n1_s8_seed20260824",
+    "output_namespace_must_be_absent_before_launch": "../meter_protocol/runs/fb_ec4_q24_manual_rho_v1_7d0c9e30_n1_s8_seed20260824",
+    "argv": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+      "-B",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/meter_protocol/run_synthetic_meter.py",
+      "--estimator",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_manual_rho_v1/estimator.py",
+      "--class",
+      "Estimator",
+      "--label",
+      "fb_ec4_q24_manual_rho_v1_7d0c9e30_n1_s8_seed20260824",
+      "--n-mlps",
+      "1",
+      "--n-samples",
+      "8",
+      "--seed",
+      "20260824",
+      "--max-threads",
+      "4"
+    ]
+  },
+  "outcome_law": {
+    "pass_requires": [
+      "literal FLOPs <= 2199023255552",
+      "wall <= 120 seconds",
+      "residual <= 0.4 seconds",
+      "descendant RSS < 8589934592 bytes",
+      "one finite float32 output of shape [16,1024]",
+      "zero failed MLPs",
+      "source hash and deterministic weight hashes match the release"
+    ],
+    "runtime_hypothesis": "manual left-associated rho recurrence materially reduces backend and wall time versus frozen Q24 while preserving output bytes",
+    "accuracy_authority": "none; this run cannot justify a board attempt"
+  },
+  "negative_controls": {
+    "dataset_argument": null,
+    "public_or_private_targets_authorized": false,
+    "target_guided_selection_authorized": false,
+    "package_authorized": false,
+    "submission_authorized": false,
+    "graph_mutation_authorized_by_this_receipt": false
+  }
+}

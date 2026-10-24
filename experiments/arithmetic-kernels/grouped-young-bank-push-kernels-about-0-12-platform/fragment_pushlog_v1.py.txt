@@ -1,0 +1,44 @@
+
+
+# BEGIN OPUS-PUSHSM TEST LOG v1 (test copies only): the (m, k, n) of every _mm call made inside the young-bank push, by layer
+import json as _pl_json
+_PL_PATH = '__PL_PATH__'
+_PL_ROWS = []
+_PL_LAYER = [-1]
+_PL_IN = [False]
+_PL_PARENT_PUSH = _astra_bcc_newborn_impl
+_PL_PARENT_MM = _mm
+_PL_PARENT_BEGIN = _w5_port_begin
+_PL_PARENT_PREDICT = Estimator.predict
+
+
+def _w5_port_begin(scope, network, layer, weight, previous):
+    _PL_LAYER[0] = layer
+    return _PL_PARENT_BEGIN(scope, network, layer, weight, previous)
+
+
+def _astra_bcc_newborn_impl(w, p, previous, newborn):
+    _PL_IN[0] = True
+    try:
+        return _PL_PARENT_PUSH(w, p, previous, newborn)
+    finally:
+        _PL_IN[0] = False
+
+
+def _mm(a, b):
+    if _PL_IN[0]:
+        _PL_ROWS.append([_PL_LAYER[0], int(a.shape[0]), int(a.shape[1]), int(b.shape[1])])
+    return _PL_PARENT_MM(a, b)
+
+
+def _pl_predict(self, *args, **kwargs):
+    del _PL_ROWS[:]
+    try:
+        return _PL_PARENT_PREDICT(self, *args, **kwargs)
+    finally:
+        with open(_PL_PATH, 'a') as f:
+            f.write(_pl_json.dumps(_PL_ROWS) + '\n')
+
+
+Estimator.predict = _pl_predict
+# END OPUS-PUSHSM TEST LOG v1

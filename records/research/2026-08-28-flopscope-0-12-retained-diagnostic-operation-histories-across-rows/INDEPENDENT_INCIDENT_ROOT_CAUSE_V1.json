@@ -1,0 +1,280 @@
+{
+  "access_accounting": {
+    "bank_payloads_opened": 0,
+    "estimator_runs": 0,
+    "row_manifests_opened": 0,
+    "score_artifacts_opened": 0,
+    "staging_payloads_opened": 0,
+    "submissions": 0,
+    "target_artifacts_opened": 0,
+    "training_runs": 0,
+    "weight_arrays_opened": 0
+  },
+  "acceptance_law": {
+    "adversarial_mock_checks_required": [
+      "record validation failure must occur before reset and must produce zero reset calls for that failed row",
+      "a progress-boundary row and a non-progress row must each produce exactly one reset call",
+      "event order must be generate_then_validate_then_append_receipt_then_optional_progress_then_reset_then_next_generate",
+      "reset must be invoked through the exact FlopScope module object already stored in the adapter session",
+      "reset failure must fail closed rather than continue with unbounded accumulator history",
+      "the reset boundary must observe no active explicit BudgetContext"
+    ],
+    "dynamic_pinned_stack_checks_required": [
+      "after one synthetic closed context, capture a deep detached context summary and synthetic output bytes; budget_reset must leave both unchanged",
+      "context.summary_dict after reset must preserve the closed context flops, calls, operations, and timing values",
+      "budget_summary_dict after reset must report zero accumulated flops and zero closed accumulator records",
+      "a synthetic memmap or ndarray byte hash captured before reset must be identical after reset",
+      "repeat at least 1000 tiny synthetic contexts with reset after every captured summary; every detached meter and output must remain invariant, the pre-reset accumulator record count must never exceed one, and the final count must be zero",
+      "no dynamic check may open a row manifest, weight, target, score, estimator output, V4 staging payload, or bank payload"
+    ],
+    "memory_claim": {
+      "admitted_asymptotic_bound": "FlopScope retained diagnostic history is O(one completed row) at each inter-row boundary, not O(completed row count)",
+      "excluded_claims": [
+        "budget_reset guarantees that the operating system RSS high-water mark decreases",
+        "budget_reset releases Python allocator arenas to the operating system",
+        "total process RSS is constant in row count",
+        "the endpoint linear projection is an observed row-688 RSS value"
+      ],
+      "remaining_row_count_dependent_state": [
+        "row receipt dictionaries",
+        "session meter dictionaries",
+        "written output-bank pages and operating-system page-cache behavior"
+      ]
+    },
+    "reset_count": {
+      "failed_or_unvalidated_rows": 0,
+      "successful_validated_rows": 688
+    },
+    "single_admitted_runtime_order": [
+      "adapter generate_one_target_blind_row returns",
+      "the row BudgetContext has exited",
+      "context.summary_dict has been copied into a detached summary and exact meters",
+      "all row comparator checks, hashes, bank writes, row ledgers, and scheduled bank flushes inside the adapter are complete",
+      "runner _validate_row_result accepts the detached result",
+      "runner appends the detached result to row_receipts",
+      "runner emits the optional progress line",
+      "runner invokes exactly one budget_reset through session flops",
+      "the next row begins, or after rank 687 the finish pass begins"
+    ],
+    "static_checks_required": [
+      "the frozen V4 runner and adapter hashes remain unchanged",
+      "the V5 execution stack binds FlopScope 0.12.0 and _budget.py sha256 ad9e78172bd0e8175533d4aae75b67df749d96ecc1ca868135eb3d781e542d01",
+      "exactly one syntactic row-loop reset site exists and it is unconditional at the successful loop tail",
+      "no reset exists inside BudgetContext, before context exit, before context.summary_dict, before exact meter construction, before bank writes, before row validation, before receipt append, or only inside the modulo-8 progress branch",
+      "no scientific parent, literal source, reference source, row ordering, sentinel, bank geometry, byte derivation, comparator, meter, receipt, or publication law changes",
+      "no session-wide budget summary is used as a scientific or receipt input after per-row reset"
+    ]
+  },
+  "evidence_bindings": {
+    "claim": {
+      "path": "public_q24_signed_pair_lean_v4_three_bank_generation_transaction_v1/THREE_BANK_RUN.CLAIM.json",
+      "sha256": "d690aa5b42dd0bca12705795004640413368a4384bce467bad2a16c6560fd2b7"
+    },
+    "execution_stack_manifest": {
+      "path": "public_q24_signed_pair_three_bank_runtime_v4/EXECUTION_STACK_MANIFEST.json",
+      "sha256": "e4204ec69ab30a5bb9e441558722edb7bcd80d45bba380ee9cc84217bfa6d433"
+    },
+    "failure": {
+      "path": "public_q24_signed_pair_lean_v4_three_bank_generation_transaction_v1/THREE_BANK_RUN.FAILURE.json",
+      "sha256": "fbac37a97c64983fbc56627b67fdebb59dca07d0f43f3762798495022ed74dae"
+    },
+    "flopscope_budget_source": {
+      "distribution": "flopscope 0.12.0",
+      "path": "data_gate/.venv/lib/python3.11/site-packages/flopscope/_budget.py",
+      "sha256": "ad9e78172bd0e8175533d4aae75b67df749d96ecc1ca868135eb3d781e542d01"
+    },
+    "v4_adapter": {
+      "path": "public_q24_signed_pair_three_bank_runtime_v4/capture_adapter.py",
+      "sha256": "3888f14a6bc0ad7c3447465265259de0969b59a2a183ec6474310fb12b440d81"
+    },
+    "v4_runner": {
+      "path": "public_q24_signed_pair_three_bank_runtime_v4/runtime_runner.py",
+      "sha256": "9cbb4e5057e4ee635372ea0428d94ed563a3a3fbf0f0e6739ae908953b797f66"
+    }
+  },
+  "incident": {
+    "claim_digest_crosswalk_valid": true,
+    "error_message": "",
+    "error_type": "KeyboardInterrupt",
+    "published_bundle": false,
+    "staging_preserved_for_forensics": true,
+    "terminal_status": "TERMINAL_POST_CLAIM_FAILURE__NO_RETRY"
+  },
+  "issued_by": "independent Codex incident auditor",
+  "issued_utc": "2026-08-28T00:33:31Z",
+  "limitations": {
+    "causal_scope": "The source audit establishes an unbounded retained-history mechanism consistent with the measured near-linear RSS growth. It does not claim that every measured resident byte is an OpRecord.",
+    "protected_execution_performed": false,
+    "v5_review_state": "This receipt states the acceptance law; it does not approve any V5 bytes until their frozen hashes and tests are independently reviewed."
+  },
+  "memory_analysis": {
+    "authoritative_stdout_checkpoints": [
+      {
+        "completed_rows": 8,
+        "last_rank": 7,
+        "last_row_wall_seconds": 56.468417334370315,
+        "peak_rss_bytes": 9138126848
+      },
+      {
+        "completed_rows": 16,
+        "last_rank": 15,
+        "last_row_wall_seconds": 57.01417199987918,
+        "peak_rss_bytes": 11317264384
+      },
+      {
+        "completed_rows": 24,
+        "last_rank": 23,
+        "last_row_wall_seconds": 58.40330750029534,
+        "peak_rss_bytes": 13628096512
+      }
+    ],
+    "endpoint_linear_projection": {
+      "formula": "projected_peak_rss_bytes(row) = 6893142016 + 280623104 * row",
+      "intercept_bytes": 6893142016,
+      "midpoint_row16_residual_observed_minus_projection_bytes": -65847296,
+      "projection_is_not_a_bound_or_observation": true,
+      "row688_projected_bytes": 199961837568,
+      "row688_projected_decimal_gb": 199.961837568,
+      "row688_projected_gib": 186.22897338867188,
+      "slope_bytes_per_row": 280623104
+    },
+    "operational_warning_band": {
+      "projected_bytes_at_row115": 39164798976,
+      "projected_bytes_at_row150": 48986607616,
+      "rows": [
+        115,
+        150
+      ]
+    },
+    "other_observational_checkpoint": {
+      "elapsed": "00:28:33",
+      "ps_rss_bytes_from_14747360_kib": 15101296640,
+      "vmmap_dirty_reported": "11.0G",
+      "vmmap_physical_footprint_peak_reported": "11.5G",
+      "vmmap_physical_footprint_reported": "11.0G",
+      "vmmap_total_resident_reported": "13.8G",
+      "vmmap_vm_allocate_resident_reported": "7.3G"
+    }
+  },
+  "reset_semantics": {
+    "cannot_mutate": [
+      "detached dicts returned earlier by context.summary_dict because they are deep copies",
+      "closed-context public flops_used, op_log, summary rollup, wall time, backend time, or overhead time",
+      "NumPy arrays, memmaps, returned bank arrays, or their bytes",
+      "detached row receipt values or hashes"
+    ],
+    "clears": [
+      "BudgetAccumulator._records",
+      "BudgetAccumulator aggregate rollup",
+      "BudgetAccumulator aggregate flop, wall, backend, and overhead totals",
+      "BudgetAccumulator display totals",
+      "BudgetAccumulator diagnostic operation locations",
+      "BudgetAccumulator closed and stable summary caches through cache invalidation",
+      "unrecorded accumulator baselines for weakly tracked BudgetContext objects"
+    ],
+    "does_not_clear": [
+      "BudgetContext._op_log",
+      "BudgetContext._summary_rollup",
+      "BudgetContext._flops_used",
+      "BudgetContext completed timing totals",
+      "Python allocator arenas or the process RSS high-water mark"
+    ],
+    "pinned_source_lines": {
+      "accumulator_record_append": [
+        2461,
+        2519
+      ],
+      "accumulator_reset": [
+        2661,
+        2673
+      ],
+      "budget_context_exit_records": [
+        2262,
+        2269
+      ],
+      "budget_reset": [
+        2786,
+        2820
+      ],
+      "context_reset_baseline": [
+        2187,
+        2217
+      ],
+      "context_summary_deepcopy": [
+        1996,
+        2055
+      ]
+    }
+  },
+  "root_cause": {
+    "classification": "FLOPSCOPE_0_12_PROCESS_GLOBAL_DIAGNOSTIC_HISTORY_RETENTION",
+    "mechanism": "Every completed per-row BudgetContext exits through BudgetAccumulator.record, which appends a NamespaceRecord retaining that row's diagnostic OpRecord list. The accumulator is process-global and V4 never invokes budget_reset, so retained diagnostic history grows with completed rows.",
+    "source_to_runtime_crosswalk": {
+      "adapter_bank_write_lines": [
+        699,
+        727
+      ],
+      "adapter_context_exit_then_summary_lines": [
+        602,
+        604
+      ],
+      "adapter_exact_meter_lines": [
+        728,
+        759
+      ],
+      "adapter_row_ledger_flush_return_lines": [
+        788,
+        824
+      ],
+      "runner_generate_validate_append_progress_lines": [
+        1750,
+        1768
+      ],
+      "runner_next_phase_line": 1769
+    },
+    "v4_reset_call_count": 0
+  },
+  "schema": "public-q24-lean-v4-flopscope-accumulator-incident-independent-audit-v1",
+  "status": "PASS_ROOT_CAUSE_CONFIRMED__V5_PER_ROW_POST_COMMIT_RESET_REQUIRED",
+  "synthetic_pinned_stack_evidence": {
+    "independent_auditor_run": {
+      "closed_context_flops_before_and_after_reset": 3,
+      "context_summary_unchanged": true,
+      "detached_summary_unchanged": true,
+      "final_accumulator_record_count": 0,
+      "flopscope_version_reported": "0.12.0+np2.4.6",
+      "global_flops_after_reset": 0,
+      "maximum_accumulator_records_before_each_reset": 1,
+      "output_hash_unchanged": true,
+      "output_value_before_and_after_reset": 3.0,
+      "records_after_first_reset": 0,
+      "records_before_first_reset": 1,
+      "repeat_count": 1000,
+      "repeat_meter_value_set": [
+        3
+      ],
+      "repeat_output_value_set": [
+        3.0
+      ]
+    },
+    "parallel_main_agent_run": {
+      "closed_context_flops_before_and_after_reset": 6,
+      "context_summary_unchanged": true,
+      "detached_summary_unchanged": true,
+      "final_accumulator_record_count": 0,
+      "global_records_after_reset": 0,
+      "maximum_global_records_before_each_reset": 1,
+      "output_value_before_and_after_reset": 3.0,
+      "records_after_first_reset": 0,
+      "records_before_first_reset": 1,
+      "repeat_count": 1000,
+      "repeat_meter_value_set": [
+        6
+      ],
+      "repeat_output_value_set": [
+        3.0
+      ]
+    },
+    "protected_execution_performed": false
+  }
+}

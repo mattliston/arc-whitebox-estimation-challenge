@@ -1,0 +1,58 @@
+{
+  "lane": "opus-join",
+  "oracle": "candidate_2b108_join_oracle_v1.py (5fb48bd3), not deployable",
+  "reference": "2b108 native-ten controls",
+  "seeds": [
+    7103248,
+    7103249,
+    7103250,
+    7103251,
+    7103252,
+    7103253,
+    7103254,
+    7103255
+  ],
+  "variant_a_L10": {
+    "xMSE_mean_pct": -0.83,
+    "se": 0.521,
+    "lower": "5/8",
+    "MSE_plain_pct": -0.588
+  },
+  "variant_b_all": {
+    "xMSE_mean_pct": -1.805,
+    "se": 0.602,
+    "lower": "6/8",
+    "MSE_plain_pct": -1.321
+  },
+  "rule": ">=0.8%% noise-free improvement -> pursue deployable sketch",
+  "passed": {
+    "a": true,
+    "b": true
+  },
+  "frobenius": {
+    "7": {
+      "n": 8,
+      "rank": 384,
+      "rows_mean": 936,
+      "err_nystrom_mean": 0.00113259723383925,
+      "err_eigen_mean": 0.0001949832929382776,
+      "ratio_mean": 5.804242334460213
+    },
+    "10": {
+      "n": 8,
+      "rank": 320,
+      "rows_mean": 876,
+      "err_nystrom_mean": 0.0008175467044268163,
+      "err_eigen_mean": 0.00013183587657420782,
+      "ratio_mean": 6.199209261896167
+    },
+    "13": {
+      "n": 8,
+      "rank": 384,
+      "rows_mean": 828,
+      "err_nystrom_mean": 7.746411271902911e-05,
+      "err_eigen_mean": 1.0374238872305431e-05,
+      "ratio_mean": 7.474780276831008
+    }
+  }
+}

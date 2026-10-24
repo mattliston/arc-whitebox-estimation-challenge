@@ -1,0 +1,101 @@
+{
+  "deployed_frame_sealed_targets": {
+    "all200_deployed_layer_mse": [
+      6.809785359739029e-10,
+      5.987800855724117e-10,
+      8.856914221311315e-10,
+      1.9119141880788976e-09,
+      3.649657075293863e-09,
+      5.830496007975532e-09,
+      8.109658874809978e-09,
+      1.0663856038301461e-08,
+      1.3205038403914586e-08,
+      1.5968204658726614e-08,
+      1.8620331873844095e-08,
+      2.1622224648387927e-08,
+      2.413484938496842e-08,
+      2.7028289143863588e-08,
+      2.9679362887327585e-08,
+      3.252087053339989e-08
+    ],
+    "all200_final_mse_IN_SAMPLE": 3.252087053339989e-08,
+    "all200_host_final_mse": 3.627327957883479e-08,
+    "clamp_engaged_elements_of_3276800": 86773,
+    "finite": true,
+    "train160_final_mse_in_sample": 3.25819915026088e-08,
+    "valid40_final_mse": 3.227638665656432e-08
+  },
+  "independent_truth_scoring": {
+    "100": {
+      "cut_vs_deployed_full_indep4M_pct": -4.5,
+      "deployed_full_card_indep4M_ref": 2.7787e-08,
+      "deployed_host_indep4M_ref": 7.696e-08,
+      "in_training_split": "train160",
+      "indep32M": {
+        "host_f2j_off": 3.73202598454119e-08,
+        "refit_f2j_on": 3.0610483403593537e-08
+      },
+      "indep4M": {
+        "host_f2j_off": 3.707667501397373e-08,
+        "refit_f2j_on": 2.9047091180392787e-08
+      }
+    },
+    "35": {
+      "cut_vs_deployed_full_indep4M_pct": -6.5,
+      "deployed_full_card_indep4M_ref": 2.7038e-08,
+      "deployed_host_indep4M_ref": 8.622e-08,
+      "in_training_split": "train160",
+      "indep32M": {
+        "host_f2j_off": 3.145251035714519e-08,
+        "refit_f2j_on": 2.7575274704031278e-08
+      },
+      "indep4M": {
+        "host_f2j_off": 3.092012470325582e-08,
+        "refit_f2j_on": 2.8802836163780574e-08
+      }
+    }
+  },
+  "protocol": {
+    "device_used": "cpu",
+    "epochs": 6,
+    "epochs_override": null,
+    "host_source_sha256": "717578a4a8465dfaac126c35821a8f5906acd6d5c5d9d9dc4cc0aee4a0b82d7a",
+    "j_source": "jext/run_experiment_ext.py (extended-width copy of the pinned J)",
+    "j_source_sha256": "2bbf97112062f7919e934d069bfc17ffc1c390de70460a0d85a68ab814ee4490",
+    "k4_table_sha256": "cbc87def2958f6740aa6a752f3322117c27de8ebd9499bae5ec440451435db8b",
+    "law": "frozen 160/40 J-native transfer protocol",
+    "local_features": 20,
+    "memory_gate_log": [],
+    "model_seed": 1753362478,
+    "mps_failure_note": null,
+    "n_params": 25600,
+    "parameters": 25600,
+    "rows": "rows_k22chain ranks 35..234",
+    "shuffle_stream_id": 40
+  },
+  "reference_prior_refit_floor": {
+    "base_refit_valid40": 3.133419038664782e-08,
+    "deployed_baseline_all200_in_sample": 2.958e-08,
+    "joint_refit_valid40": 3.133856737168449e-08
+  },
+  "schema": "k4panel-refit-deployed-v1",
+  "training": {
+    "finite_full_rollout": true,
+    "j_removal_fraction_valid40": 0.10079358334060973,
+    "model_sha256": "4884e4cc6feebcaa1f04cb1fe94baeb67ac0dee13d13e29eec2651b05f44886b",
+    "training_seconds": 48.02476291637868,
+    "training_trace_final": {
+      "elapsed_seconds": 47.29008274991065,
+      "epoch": 6,
+      "fit_objective": 1.773222418129444,
+      "fold": 40,
+      "learning_rate": 0.0001,
+      "max_rss_bytes": 1871724544,
+      "mix_delta_max_abs": 0.1327347457408905,
+      "own_primary_state_exposure": 1.0,
+      "transport_delta_max_abs": 0.06672702729701996
+    },
+    "valid40_corrected_final_mse_protocol_unclamped": 3.227811003730106e-08,
+    "valid40_host_final_mse": 3.589621853146502e-08
+  }
+}

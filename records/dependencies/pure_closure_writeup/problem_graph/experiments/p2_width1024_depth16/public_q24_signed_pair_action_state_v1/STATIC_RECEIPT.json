@@ -1,0 +1,75 @@
+{
+  "schema": "public-q24-signed-pair-action-state-static-receipt-v1",
+  "date": "2026-08-27",
+  "status": "PASS_STATIC_ONLY",
+  "decision": "GO_STATIC_BUILD_SOURCE_GATES_ONLY",
+  "artifact_bindings": {
+    "derivation_sha256": "439d4cafc866fd9fa1bd74526dea2cdd4dcea941cee8931efa75b563082cbf76",
+    "preregistration_sha256": "3206ccd4ec91078da521051543e367d6735f2c73545dc40b0df28e9e719d434b",
+    "verifier_sha256": "72b9aed6cb7de2c0194774dceab5ce60501316bf6eeb612cbb431cffedc6c92f",
+    "packed_d4_receipt_sha256": "832220c4c9467d8d57569649198e2465e97bc908ebb96103e549e683964c4b51"
+  },
+  "mechanism": {
+    "name": "fixed signed K31/K22 pair-action bank plus 16-channel autonomous recurrent residual state",
+    "pair_heads": 16,
+    "learned_pair_parameters": 0,
+    "learned_state_parameters": 19200,
+    "pair_planes_persisted": 0,
+    "per_row_action_tape_shape": [13, 1024, 16],
+    "per_row_action_tape_bytes": 851968,
+    "full_688_action_payload_bytes": 586153984
+  },
+  "verified_static": {
+    "scalar_collision_actions": {
+      "a": [-1, 1, -1, 1],
+      "b": [3, -3, 3, -3]
+    },
+    "permutations_checked": 24,
+    "physical_standardized_k4": "-41/25",
+    "physical_matched_standardized_k22": "9/25",
+    "physical_next_relu_means": ["109/32", "7/2"],
+    "physical_next_relu_separation": "3/32",
+    "pair_action_flops": 901249024,
+    "state_transport_flops": 442517504,
+    "state_update_flops": 173049856,
+    "j_feature_copy_flops": 516096,
+    "derived_added_flops": 1517332480,
+    "implementation_reserve_flops": 2667520,
+    "sealed_added_flop_cap": 1520000000,
+    "combined_maximum_flops": 1358115288584,
+    "combined_flop_headroom": 840907966968,
+    "allocation_upper_bytes": 62627840,
+    "combined_projected_peak_bytes": 5474000896,
+    "projected_rss_margin_bytes": 3115933696
+  },
+  "economics": {
+    "combined_utilization_at_cap": 0.6175993296819797,
+    "raw_ceiling_to_improve_d4_adjusted": 2.8879912800984186e-8,
+    "raw_ceiling_to_beat_live_leader": 1.2425667579050766e-8,
+    "outcomes": ["CLOSE", "PROMOTE_BANK", "LEADER_CANDIDATE"]
+  },
+  "unproven_and_required": [
+    "source implementation",
+    "synthetic fp32/fp64 and two-reset stability",
+    "public target-blind novelty gate",
+    "full D4 zero-gain five-component byte parity",
+    "literal FlopScope call/FLOP meter",
+    "measured RSS and residual",
+    "all-688 target-blind action bank",
+    "OOF raw-MSE improvement",
+    "production integration",
+    "package or submission"
+  ],
+  "scope": {
+    "estimator_imports": 0,
+    "estimator_calls": 0,
+    "public_rows_opened": 0,
+    "targets_opened": 0,
+    "observer_selection_opened": 0,
+    "names_opened": 0,
+    "board_opened": false,
+    "network": false,
+    "package": false,
+    "submission": false
+  }
+}

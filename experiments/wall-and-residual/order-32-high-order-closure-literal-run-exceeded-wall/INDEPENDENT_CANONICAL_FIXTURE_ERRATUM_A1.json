@@ -1,0 +1,91 @@
+{
+  "schema": "fb-ec4-32-a1-no-cp4-independent-canonical-fixture-erratum-v1",
+  "status": "SOURCE_SCIENCE_REGRESSION_HOLD__CANONICAL_QR35_NONFINITE_FAILURE",
+  "audited_at_utc": "2026-08-24T10:05:47Z",
+  "candidate": {
+    "path": "estimator.py",
+    "bytes": 63205,
+    "sha256": "5b222ef4f8120adb9443da5c2a1f89c79085a768ac2aef10c61c18413ef6a025"
+  },
+  "frozen_evidence_superseded_in_part": {
+    "independent_audit_path": "INDEPENDENT_SOURCE_AND_METER_AUDIT_A1.json",
+    "independent_audit_bytes": 8206,
+    "independent_audit_sha256": "02d16c3f2bc1a6476dfb2ee18aa8a1add8ec8b8d5e7608f011d4923b54bc00ed",
+    "source_manifest_sha256": "dffd9ebad6bba4ad1d05fdd578f2648c8c8ce6a5cf256d27f8124e52a58adb5d",
+    "freeze_receipt_sha256": "856bb3b339441df409c329e39c29d600b022a87146bc3c5d8ea79760e04597ff",
+    "superseded_fields": [
+      "science_equivalence_gate.four_depth16_intended_reference_outputs_bitwise as evidence for the canonical frozen V4 fixture suite",
+      "verdict.intended_no_cp4_science_transform=PASS as a complete fixed-regression qualification",
+      "authorized_next_actions that could be read as permitting scientific or board promotion"
+    ],
+    "not_superseded": [
+      "exact estimator and evidence hashes",
+      "Phase-2 import/API legality",
+      "complete CP4 deletion algebra",
+      "exact FlopScope bill and resource receipt",
+      "wall-safe claim HOLD"
+    ]
+  },
+  "cause": {
+    "canonical_v4_qr_fixture": "rng=default_rng(20260823); per layer q,_=numpy.linalg.qr(rng.normal(size=(8,8))); weight=(0.35*q).astype(float64)",
+    "canonical_v4_contractive_fixture": "rng=default_rng(17); per layer rng.normal(scale=0.12,size=(8,8)).astype(float32)",
+    "author_qr_substitution": "(identity + 0.35*q).astype(float64)",
+    "author_contractive_substitution": "(0.88*identity + 0.12*normal/sqrt(8)).astype(float32)",
+    "interpretation": "The author verifier's latter two fixtures were not the canonical frozen V4 QR.35 and contractive fixtures. Passing them did not satisfy the requested canonical all-four regression gate."
+  },
+  "independent_replay": {
+    "verifier_path": "/private/tmp/audit_a1_canonical_fixtures.py",
+    "verifier_bytes": 4027,
+    "verifier_sha256": "59b9bc6aa92000b19d8e7d6318a048f7c1b21997f458b9cfbdc0855df50241ca",
+    "execution": "pinned data-gate Python with -B; target-free width8 depth16 only",
+    "parent_reference": "frozen V4 with the complete CP4 family disabled through the established no-provider seams",
+    "fixtures": [
+      {
+        "name": "identity_width8_float32",
+        "candidate_finite": true,
+        "candidate_bitwise_intended_reference": true,
+        "output_sha256": "51e880b193b662072af52b5c5de8474fce87b3e292a019aef335bd71dca0914b"
+      },
+      {
+        "name": "near_identity_seed20260823_scale0p02_float32",
+        "candidate_finite": true,
+        "candidate_bitwise_intended_reference": true,
+        "output_sha256": "2137a209be3630334e4d112a36bbb2cfb028ecd1d575130fdf73ba2c0da1e1bf"
+      },
+      {
+        "name": "qr_seed20260823_scale0p35_float64",
+        "candidate_finite": false,
+        "candidate_error": "LinAlgError: Eigenvalues did not converge",
+        "intended_reference_finite": false,
+        "intended_reference_error": "LinAlgError: Eigenvalues did not converge"
+      },
+      {
+        "name": "contractive_seed17_scale0p12_float32",
+        "candidate_finite": true,
+        "candidate_bitwise_intended_reference": true,
+        "output_sha256": "f4f7297a07b23f03496c78ff824d3b3b4973338cb69d2af1a5b0a9320c42d89d"
+      }
+    ],
+    "dataset_members_opened": 0,
+    "targets_opened": 0,
+    "scores_computed": 0,
+    "full_shape_runs": 0
+  },
+  "corrected_verdict": {
+    "phase2_source_legality": "PASS",
+    "literal_resource_admission": "PASS",
+    "canonical_fixed_science_regressions": "FAIL_QR35",
+    "robust_wall_safe_claim": "HOLD",
+    "accuracy": "UNSCORED",
+    "board_promotion": "REJECT",
+    "archive_interpretation": "retain the immutable A1 package only as a resource-qualified rejected ablation"
+  },
+  "withheld": [
+    "A1_BOARD_SUBMISSION",
+    "A1_SCIENTIFIC_PROMOTION",
+    "CANONICAL_ALL_FOUR_FIXTURE_PASS_CLAIM",
+    "MUTATION_OF_ALREADY_FROZEN_BYTES",
+    "RAW_MSE_OR_ACCURACY_CLAIM",
+    "CANONICAL_GRAPH_MUTATION_FROM_THIS_RECEIPT_ALONE"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "p2r0f2v-compute-value-attribution-v1",
+  "status": "SOLVED_READ_AND_PROBE_ONLY",
+  "node": "P2R0F2V",
+  "scope": "Component cost census by synthetic flopscope billing at production shapes, an eigenvalue-clip census on the frozen eight-row roster, and one target-free conditional-repair A/B probe; no targets read, no deployment change.",
+  "bindings": {
+    "condrepair_source_sha256": "db529072cd16351b309b1432ccb0f207a9d16bda3120a38df7c177bf577e1a1b",
+    "condrepair_probe_sha256": "f511248064be7b976dfbc02d76198c140db35a0319f04c05936d978b4cc0549a",
+    "probe_program_sha256": "009221d391bbbf7b022b24d243bbfa1e58b6b73f3090efc143adc937be2a71e1"
+  },
+  "component_cost_census_per_call_at_production_shapes": {
+    "cp3_push_rank15360": 64393052160,
+    "cp3_read_rank15360": 64520978432,
+    "repair_covariance_eigh": 23639111678,
+    "push_quartic": 12936292356,
+    "g_four_all_T25": 10556350464,
+    "push_cubic": 8607759360,
+    "cp4_read_planes_rank2048": 8617197568,
+    "cp4_push_rank2048": 4292870144
+  },
+  "eigenvalue_clip_census": {
+    "rows": [
+      0,
+      1,
+      2,
+      55,
+      100,
+      201,
+      400,
+      643
+    ],
+    "repair_calls": 112,
+    "clipped_eigenvalues_total": 9,
+    "clips_cooccur_with_floor_arm_events": true,
+    "clean_layer_min_eigenvalue_scale": 0.01,
+    "psd_floor": 9.094947017729282e-13
+  },
+  "conditional_repair_probe": {
+    "mechanism": "Attempt Cholesky of the symmetrized correlation minus the PSD floor times identity; on success the eigh round trip is a numerical identity and is skipped (rescale and return); on failure the exact original path runs unchanged; the floor arm is untouched.",
+    "flops_saved_per_row": 274890526728,
+    "all_finite_8_of_8": true,
+    "median_delta_final_rms": 5.620173941986716e-09,
+    "max_delta_final_rms": 8.729277023885873e-09,
+    "median_effect_to_error_ratio": 1.861434569039214e-05
+  },
+  "attribution_verdict": {
+    "repair_eigh": "The standout low-value component: about 275e9 FLOPs per row buys a numerical identity on roughly 92% of calls; skipping it under a Cholesky certificate changes outputs by 1.9e-5 of the error scale.",
+    "cp3_exact_carrier": "Dominant cost (~0.9e12) but protected by the exact-carry law; not a candidate.",
+    "stars_and_cp4": "Mid-cost and mechanism-load-bearing (the quartic star is the localization's birth marker); not candidates.",
+    "adjusted_score_implication": "At the banked raw 2.9409640056599073e-8, freeing 274.89e9 lowers F/2^41 from 0.9694 to about 0.8444 and the per-row adjusted score to about 2.483e-8, a 12.8% board improvement with raw unchanged at the 1.9e-5 relative level - contingent on full-688 validation, an exact literal meter, and fresh user submission authority.",
+    "lambda3_funding_implication": "The freed budget exceeds the full lambda-cubed shell cost (156.5e9) with about 118e9 margin, so the U cost closure is conditionally reopened only through this reallocation; the shell's effect size remains unmeasured and is a separate question.",
+    "dq_policy_note": "This is algorithmic redundancy elimination inside our own estimator (a certified identity is skipped), not op-pricing arbitrage or a cheaper-forward billing exploit; it is defensible as method under the recorded DQ policy, and the distinction must be restated in any deployment preregistration."
+  },
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0,
+  "targets_read": 0
+}

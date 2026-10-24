@@ -1,0 +1,77 @@
+{
+  "affected_frontier_point": {
+    "id": "cp16384_recursive_mean_plus_dynamic4_hypothetical",
+    "original_effective_compute_flops": 621011197954,
+    "original_projected_adjusted_score_decimal": "9.3106854765526499090247969452320830896496772766113281250e-9",
+    "original_status_remains_projection_only": true
+  },
+  "authoritative_evidence": {
+    "cp16384_recursive_mean_literal_meter": {
+      "json_pointer": "/arms/cap16384_recursive_mean_carry/flops",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/cp3_cap16384_mean_recurrence_ablation/SYNTHETIC_RESOURCE_RESULT.json",
+      "sha256": "1a30f3432aa0ef68b02af90de0025ef1a81b5fd8ca0c5866f86643f6d7ed95a8",
+      "value": 620090560514
+    },
+    "dynamic4_accuracy_and_correction_upper": {
+      "correction_flops_json_pointer": "/cost/correction_source_structure_upper_estimate",
+      "correction_flops_value": 920637440,
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_full688_dynamic_multistate_residual_cv_v1/CV_RESULTS.json",
+      "raw_mse_json_pointer": "/oof/autonomous_final_mse",
+      "raw_mse_value_decimal": "3.2969476163272226e-8",
+      "sha256": "ddaf1ede02733eb4429dcaf003ff65f8d9fba2460352e8deba4fb54a3c111dbf"
+    },
+    "existing_cp1792_raw20_sigma_tape_meter": {
+      "json_pointer": "/host_and_edge_semantics/cp1792_flops_used_every_row",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/learned_residual_observer_design/v4_feature_store_v3/INDEPENDENT_ARTIFACT_AUDIT_V3.json",
+      "sha256": "2900bca91a4e3e98aca9705e1e783ec71b513452fe99e8000a19e264f39bc9d7",
+      "value": 214480630686
+    }
+  },
+  "correction": {
+    "conditional_single_host_projection": {
+      "components": {
+        "cp16384_recursive_mean_host_flops": 620090560514,
+        "dynamic4_correction_upper_flops": 920637440,
+        "sum_flops": 621011197954
+      },
+      "execution_status": "NOT_EXECUTABLE_TODAY__REQUIRES_A_NEW_CP16384_NATIVE_RAW20_SIGMA_TAPE",
+      "missing_component": "The existing dynamic4 correction consumes a raw20/sigma tape. The sealed tape available today is produced by a separate CP1792 host call; the CP16384 host receipt does not produce a CP16384-native tape in the same invocation.",
+      "score_claim_status": "conditional_projection_only"
+    },
+    "current_two_host_upper": {
+      "components": {
+        "cp16384_recursive_mean_host_flops": 620090560514,
+        "dynamic4_correction_upper_flops": 920637440,
+        "separate_cp1792_raw20_sigma_tape_flops": 214480630686,
+        "sum_flops": 835491828640
+      },
+      "constant_F_multiplier_decimal": "0.379937695761327631771564483642578125",
+      "execution_semantics": "The component compute path is executable today as two host calls plus the correction upper. The substituted dynamic4 OOF accuracy is still a projection, not a measured CP16384-hybrid result.",
+      "projected_adjusted_at_dynamic4_raw_decimal": "1.2526346803931666412092159880558028817176818847656250e-8",
+      "reference_raw_mse_decimal": "3.2969476163272226e-8",
+      "strict_break_even_raw_for_adjusted_below_1e_8_decimal": "2.6320104879200724961862267340343332361331327454645014707465445834644494770363599e-8"
+    }
+  },
+  "d3_single_host_instrumentation": {
+    "current_precursor": {
+      "capability": "Generates the CP16384 recursive-mean host row only; it does not yet emit the native raw20/sigma tape.",
+      "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp16384_dynamic_multistate_pilot_v1/generate_host_row.py",
+      "sha256": "62129ed62e67045fefb27b3d2a234754b40be413b5d887daf9fe0e78442fa897"
+    },
+    "node": "P2R0C1D3",
+    "planned_artifact_directory": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp16384_dynamic_multistate_pilot_v1",
+    "required_executability_receipt": "A literal single-invocation meter and payload receipt proving that the CP16384 host emits the exact raw20/sigma tape consumed by dynamic4 without a second CP1792 host call.",
+    "status": "PENDING_NOT_YET_MATERIALIZED_OR_METERED"
+  },
+  "immutable_parent_receipt": {
+    "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_adjusted_score_pareto_v1/RECEIPT.json",
+    "sha256": "12e82f5b952c6b2786c834f028360cb25bea483f6ee0261a6ee1b198d4ff81e2"
+  },
+  "phase2_score_constants": {
+    "budget_flops_B": 2199023255552,
+    "strict_target_adjusted_score": "1e-8"
+  },
+  "scope": "Additive executability correction only. RECEIPT.json remains byte-identical and retains its score-law and projection ledger; this erratum narrows the execution interpretation of one hypothetical point.",
+  "schema": "phase2-public-adjusted-score-pareto-executability-erratum-v1",
+  "status": "COMPLETE_IMMUTABLE_ADDITIVE_EXECUTABILITY_ERRATUM"
+}

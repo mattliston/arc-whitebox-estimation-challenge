@@ -1,0 +1,8 @@
+
+
+# BEGIN [opus-secondary] SAFE PREBIND PATCH v1 (between the two-strip and the five-full SAFE fragments): the five-full fragment needs
+# every key it binds in _PB_SINGLE; S2tr's census-refit list dropped (0, 6, 1024, 896) (it sat at position 473 of S2t's list), so it is
+# put back at the same position (after the two-strip's three insertions at 128). Setup-only: which tree keys setup binds.
+assert (0, 6, 1024, 896) not in _PB_SINGLE and len(_PB_SINGLE) == 652
+_PB_SINGLE = tuple(_PB_SINGLE[:476]) + ((0, 6, 1024, 896),) + tuple(_PB_SINGLE[476:])
+# END [opus-secondary] SAFE PREBIND PATCH v1

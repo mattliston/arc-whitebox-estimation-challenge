@@ -1,0 +1,93 @@
+{
+  "schema": "q24-c8-autonomous-correction-state-procedural-terminal-receipt-v1",
+  "status": "CLOSED_SCIENTIFICALLY_AFTER_COMPLETED_FOLDS_RESULT_SERIALIZATION_FAILED",
+  "decision": "CLOSED_NO_BROAD_OOF_GAIN",
+  "scientific_retry": false,
+  "model_created": false,
+  "submission_authority": false,
+  "completed_work": {
+    "target_free_preparation_rows": 688,
+    "same688_native_recompute_rows": 688,
+    "folds_trained_and_scored": 4,
+    "fold_sizes": [172, 172, 172, 172],
+    "all_candidate_fold_means_finite": true
+  },
+  "fold_summaries_from_terminal_stdout": [
+    {
+      "fold": 0,
+      "candidate_final_mse": 3.1514135525985166e-8,
+      "nonlinear_z_oof_final_mse": 3.0891040942767815e-8,
+      "native_bank_same688_final_mse": 3.0020276611745e-8,
+      "win_fraction_vs_nonlinear_z": 0.18604651162790697,
+      "win_fraction_vs_native_bank": 0.023255813953488372,
+      "epoch6_endpoint_objective": 0.9905110671538715
+    },
+    {
+      "fold": 1,
+      "candidate_final_mse": 3.113491270602386e-8,
+      "nonlinear_z_oof_final_mse": 3.034356338558233e-8,
+      "native_bank_same688_final_mse": 2.9533354174480986e-8,
+      "win_fraction_vs_nonlinear_z": 0.09302325581395349,
+      "win_fraction_vs_native_bank": 0.011627906976744186,
+      "epoch6_endpoint_objective": 0.9911544418843218
+    },
+    {
+      "fold": 2,
+      "candidate_final_mse": 3.099098300244557e-8,
+      "nonlinear_z_oof_final_mse": 3.0361725755667916e-8,
+      "native_bank_same688_final_mse": 2.9640518785779888e-8,
+      "win_fraction_vs_nonlinear_z": 0.18023255813953487,
+      "win_fraction_vs_native_bank": 0.05813953488372093,
+      "epoch6_endpoint_objective": 0.9906585168006808
+    },
+    {
+      "fold": 3,
+      "candidate_final_mse": 3.1219469271313054e-8,
+      "nonlinear_z_oof_final_mse": 3.0557504217904495e-8,
+      "native_bank_same688_final_mse": 2.9753020293960347e-8,
+      "win_fraction_vs_nonlinear_z": 0.1686046511627907,
+      "win_fraction_vs_native_bank": 0.06395348837209303,
+      "epoch6_endpoint_objective": 0.9922366194253744
+    }
+  ],
+  "pooled_equal_fold_metrics": {
+    "candidate_oof_final_mse": 3.121487512644192e-8,
+    "nonlinear_z_oof_final_mse": 3.053845857548064e-8,
+    "recomputed_native_bank_same688_final_mse": 2.9736792466491554e-8,
+    "relative_gain_vs_nonlinear_z": -0.022149662507994772,
+    "relative_gain_vs_native_bank": -0.04970551755425263,
+    "improving_folds_vs_nonlinear_z": 0,
+    "improving_folds_vs_native_bank": 0,
+    "structural_c8_d3_adjusted_projection": 1.9916996906303837e-8,
+    "d4_board_328622_adjusted_to_beat": 1.783621478716186e-8
+  },
+  "gate_conclusions": {
+    "scientific_broad_oof_gate": false,
+    "strictly_below_recomputed_native_bank": false,
+    "strictly_below_legacy_2_9672528546945005e_8": false,
+    "structural_adjusted_projection_beats_d4_328622": false,
+    "terminal_decision_does_not_depend_on_missing_per_network_rows": true
+  },
+  "procedural_failure": {
+    "stage": "final RESULT.json serialization after all four fold scores completed",
+    "exception": "TypeError: Object of type bool_ is not JSON serializable",
+    "source_location": "run_c8_oof.py:587 write_json_once; json.dumps at line122",
+    "scientific_computation_lost": "per-network rows and paired-z were held only in process memory",
+    "why_no_retry": "Every fold mean worsened both comparators by a wide margin, so no missing statistic can rescue the conjunctive gate. Root directed a procedural close instead of a scientific rerun."
+  },
+  "interpretation": "The zero-initialized c8 source was an optimization failure, not a clean capacity bound: all fold endpoint objectives remained about 0.99 after six epochs. A successor must reproduce nonlinear-Z exactly at epoch zero before exposing extra channels.",
+  "bindings": {
+    "runner_sha256": "82df4b70b2d9262edea50cb4e659e6538e24fd28a93b6ec0224975f6bed98519",
+    "preregistration_sha256": "d96a71941eb2722157e966a388495bce6cd0aab46e3d72fd31567395ce47ff93",
+    "nonlinear_z_result_sha256": "c1ef8105ac29b6f4ff75dc7aa5974b1d8f93668437ed402d32ebbad393f2dd35",
+    "native_result_sha256": "e8261895c5d8f5f1feb1e15f257612d1d1b36a90e8bde1ab05e2844100a8ba08",
+    "native_model_sha256": "21ad1dede3373c90d2694158b6599c4c172d7181c72634a6ec8e362449b7d1f8"
+  },
+  "access_declarations": {
+    "role": "observer_fit",
+    "observer_selection_targets_opened": [],
+    "board_opened": false,
+    "submission": false,
+    "network": false
+  }
+}

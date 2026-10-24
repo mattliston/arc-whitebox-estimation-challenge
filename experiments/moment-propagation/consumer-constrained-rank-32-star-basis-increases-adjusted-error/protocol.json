@@ -1,0 +1,32 @@
+{
+  "schema": "star-consumer-basis32-v1",
+  "source_parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_consumer_basis32_v1/candidate.py",
+    "sha256": "ef36200144fed8873c62754a9aea1b3694e6c6f2020531b518592928bc8d5b2f",
+    "bytes": 978755
+  },
+  "formula": "s=sum(w*w,axis1); q=normalize(A@s). Initialize QR([q,top31 energy columns of A]); existing32-wide power Z=QR(A.T Q),Y=A Z; final Q=QR([q,Y[:,1:]]), B=Q.T A. Zero-y uses unchanged parent factorization.",
+  "scope": "14 hidden plus one terminal star factor; fixed32 directions, one power step, existing D3 routes and consumer arithmetic. Terminal uses its actual selected output-weight columns.",
+  "rationale": "Contains A@s in exact arithmetic, targeting squared-weight aggregate consumer. Not an optimal weighted SVD or full-tensor exactness claim. Existing additive residual native16 small positive was statistically inconclusive; this is a distinct fixed-rank reallocation hypothesis.",
+  "screen": "Own N2 raw <= -0.1%, adjusted <= -0.1%, at least1 adjusted win, max regression <=1%, finite16/L0 exact; then existing boundary/N8 gates. No rank/layer/scale/seed sweep or rescue.",
+  "official_bank": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/official_bank_S35_v1.json",
+    "sha256": "e5a4280338766f893b69ade7c8194d399cbd6c46722dd7b6589abfa00038ad0f",
+    "bytes": 8058
+  },
+  "prior_additive_result": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_consumer_residual_v2/RESULT.md",
+    "sha256": "b2e06c150b86d630df80dfc2808976c0c0614d5c410ec23ed606d9c295949e18",
+    "bytes": 1622
+  },
+  "prior_selector_result": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_residual_pivots_v1/RESULT.md",
+    "sha256": "9c5b3cf11997123f1a90367e6532ed9d5b65d95d51d035d70ce35ca02a7696f5",
+    "bytes": 625
+  }
+}

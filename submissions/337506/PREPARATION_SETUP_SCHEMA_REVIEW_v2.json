@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-21T10:37:41Z",
+  "status": "HOSTED_SCHEMA_REFINEMENT_NOT_RUNTIME_GUARD_CHANGE",
+  "prior_script_sha256": "8a0832140b8efd124e459417aa483cbd51b47289f1fbc9761a60290cff8c9d31",
+  "new_script_sha256": "705564acb171b2b12db16137685974baf5e48da431c9eaac18ff4efe1a5aae17",
+  "finding": "Prior raw337473 contains seven SUCCESS setup executions and seven smoke passes; restarted workers3/4 each use generation0 again. Thus unique(worker,generation) and exactly5 passes are not service invariants. Preserve duplicate-key count, require all setup executions successful and <=5s, all five worker identities initially represented, valid worker/generation metadata, and smoke pass count equal complete setup execution count. All100 completion/no-failure and all actual runtime caps remain unchanged.",
+  "candidate_raw_337506_audited": false
+}

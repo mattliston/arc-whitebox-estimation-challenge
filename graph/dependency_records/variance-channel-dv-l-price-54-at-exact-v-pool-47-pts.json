@@ -1,0 +1,27 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N1_VCHANNEL",
+    "label": "N1 variance channel dv_l - PRICE -54% at exact (v-pool 47 pts)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "dv_{l+1} = diag(W^T dC_post_l W): the pushed error of the closure's post-covariance. Exact v = 1.466e-8 vs deployed 3.197e-8 (10-net LOO). Form is proven optimal given inputs (N1.1), so the whole channel is INPUT error: third-order plane (N1.2, the big leaf), covariance (N1.3, small). HONEST FRAME (T-36, independent 4M truth, r35, F2J-on, deployed 2.704e-8, +-3 points): the 47.4-point 'truth v' ceiling was ~35 points of same-sample noise-matching (12.4 honest, itself depressed by the per-layer truth's own noise); truth planes through the consumer 24.4; the engine's v-arm 8.5 (β 0.4). The v channel is real but smaller than priced on 08-31; the whole v-pool lives in layers 8-15 (shallow 'truth' targets are 76-98% noise).",
+    "terminal_criterion": "Closed when the per-layer dv supply reaches the exact-v ladder rung on the panel.",
+    "evidence": [
+      {
+        "claim": "Capacity ladder (10-net LOO).",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/MECHANISM_TREE.md"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_MECH_N1_1_FORM",
+      "P2R0G19B_MECH_N1_2_PLANE",
+      "P2R0G19B_MECH_N1_3_COV",
+      "P2R0G19B_MECH_N1_5_HIGHER_ORDER"
+    ],
+    "goal_path_summary": "Getting each layer's variances right is worth just over half of the remaining error; the formula that consumes the inputs is already as good as the inputs allow, so the work is on the inputs."
+  }
+}

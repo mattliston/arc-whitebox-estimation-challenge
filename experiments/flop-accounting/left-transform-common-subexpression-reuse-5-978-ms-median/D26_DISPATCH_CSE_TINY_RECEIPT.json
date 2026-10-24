@@ -1,0 +1,350 @@
+{
+  "bindings": {
+    "audit_sha256": "0b68b50d6703e451ad413668bb55df874528322cc373d8cdbc9cfdb2c0de29f6",
+    "d25_result_sha256": "0513e30b06850b98d04af35df1812ca318fd13dfdfbb189a1a262333e6f521c8",
+    "d25_source_sha256": "91f4f3501227666993897de154984e8d364bd335ae1ebc7c4137cef4c38b5978",
+    "depth_ladder_sha256": "50e2a26f110b4354630bf84f74e6e78433604a4d859b1d162b8f10e8e2144426",
+    "packed_kernel_sha256": "f16a4953a365d789d170270758c5fdc08f8bb059e792a7f41b3d62ecd19e1891"
+  },
+  "changing_rank_pair_parity": [
+    {
+      "both_outputs_byte_identical": true,
+      "call_saving": 55,
+      "cse_meter": {
+        "backend_seconds": 0.0028948369435966015,
+        "calls": {
+          "add": 65,
+          "copyto": 105,
+          "matmul": 2,
+          "subtract": 65
+        },
+        "costs": {
+          "add": 273572,
+          "copyto": 441924,
+          "matmul": 403368,
+          "subtract": 273572
+        },
+        "flops": 1392436,
+        "overhead_seconds": 0.009297660551965237,
+        "residual_seconds": 0.0016938773915171623,
+        "wall_seconds": 0.013886374887079
+      },
+      "flop_saving": 231484,
+      "label": "rank64_first",
+      "operation_call_saving": {
+        "add": 5,
+        "copyto": 35,
+        "subtract": 15
+      },
+      "rank64_aba_repeat_byte_identical": true,
+      "reference_meter": {
+        "backend_seconds": 0.003179323859512806,
+        "calls": {
+          "add": 70,
+          "copyto": 140,
+          "matmul": 2,
+          "subtract": 80
+        },
+        "costs": {
+          "add": 294616,
+          "copyto": 589232,
+          "matmul": 403368,
+          "subtract": 336704
+        },
+        "flops": 1623920,
+        "overhead_seconds": 0.011918975040316582,
+        "residual_seconds": 0.002074534073472023,
+        "wall_seconds": 0.01717283297330141
+      },
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "both_outputs_byte_identical": true,
+      "call_saving": 55,
+      "cse_meter": {
+        "backend_seconds": 0.001992376521229744,
+        "calls": {
+          "add": 65,
+          "copyto": 105,
+          "matmul": 2,
+          "subtract": 65
+        },
+        "costs": {
+          "add": 526100,
+          "copyto": 736540,
+          "matmul": 806736,
+          "subtract": 484012
+        },
+        "flops": 2553388,
+        "overhead_seconds": 0.00913250632584095,
+        "residual_seconds": 0.0016803671605885029,
+        "wall_seconds": 0.012805250007659197
+      },
+      "flop_saving": 231484,
+      "label": "rank128",
+      "operation_call_saving": {
+        "add": 5,
+        "copyto": 35,
+        "subtract": 15
+      },
+      "rank64_aba_repeat_byte_identical": true,
+      "reference_meter": {
+        "backend_seconds": 0.002235792577266693,
+        "calls": {
+          "add": 70,
+          "copyto": 140,
+          "matmul": 2,
+          "subtract": 80
+        },
+        "costs": {
+          "add": 547144,
+          "copyto": 883848,
+          "matmul": 806736,
+          "subtract": 547144
+        },
+        "flops": 2784872,
+        "overhead_seconds": 0.02606532908976078,
+        "residual_seconds": 0.00206771120429039,
+        "wall_seconds": 0.030368832871317863
+      },
+      "shape": [
+        64,
+        64,
+        128
+      ]
+    },
+    {
+      "both_outputs_byte_identical": true,
+      "call_saving": 55,
+      "cse_meter": {
+        "backend_seconds": 0.002902795560657978,
+        "calls": {
+          "add": 65,
+          "copyto": 105,
+          "matmul": 2,
+          "subtract": 65
+        },
+        "costs": {
+          "add": 273572,
+          "copyto": 441924,
+          "matmul": 403368,
+          "subtract": 273572
+        },
+        "flops": 1392436,
+        "overhead_seconds": 0.009236834943294525,
+        "residual_seconds": 0.0016913274303078651,
+        "wall_seconds": 0.013830957934260368
+      },
+      "flop_saving": 231484,
+      "label": "rank64_repeat",
+      "operation_call_saving": {
+        "add": 5,
+        "copyto": 35,
+        "subtract": 15
+      },
+      "rank64_aba_repeat_byte_identical": true,
+      "reference_meter": {
+        "backend_seconds": 0.003145705908536911,
+        "calls": {
+          "add": 70,
+          "copyto": 140,
+          "matmul": 2,
+          "subtract": 80
+        },
+        "costs": {
+          "add": 294616,
+          "copyto": 589232,
+          "matmul": 403368,
+          "subtract": 336704
+        },
+        "flops": 1623920,
+        "overhead_seconds": 0.011073999106884003,
+        "residual_seconds": 0.002053877804428339,
+        "wall_seconds": 0.016273582819849253
+      },
+      "shape": [
+        64,
+        64,
+        64
+      ]
+    }
+  ],
+  "d25_residual_differential": {
+    "d4": [
+      0.3257444277405739,
+      0.33527638064697385,
+      0.35151344118639827
+    ],
+    "heterogeneous_d25": [
+      0.39205303182825446,
+      0.4121229983866215
+    ],
+    "homogeneous_d5": [
+      0.3305413322523236,
+      0.3339466121979058,
+      0.35718477703630924
+    ]
+  },
+  "full_estimator_successor_eligibility": "HOLD_NO_FULL_SUCCESSOR",
+  "left_transform_cse_timing": {
+    "median_current_minus_cse_residual_seconds": 0.005977519787847996,
+    "production_equivalent_pair_count": 15,
+    "records": [
+      {
+        "cse_residual_seconds": 0.026448221877217293,
+        "current_minus_cse_residual_seconds": 0.005496700759977102,
+        "current_residual_seconds": 0.031944922637194395,
+        "repetition": 0
+      },
+      {
+        "cse_residual_seconds": 0.02739183371886611,
+        "current_minus_cse_residual_seconds": 0.0058360351249575615,
+        "current_residual_seconds": 0.03322786884382367,
+        "repetition": 1
+      },
+      {
+        "cse_residual_seconds": 0.02660411922261119,
+        "current_minus_cse_residual_seconds": 0.0057341293431818485,
+        "current_residual_seconds": 0.03233824856579304,
+        "repetition": 2
+      },
+      {
+        "cse_residual_seconds": 0.02691124612465501,
+        "current_minus_cse_residual_seconds": 0.006672500167042017,
+        "current_residual_seconds": 0.033583746291697025,
+        "repetition": 3
+      },
+      {
+        "cse_residual_seconds": 0.02631089836359024,
+        "current_minus_cse_residual_seconds": 0.0061231376603245735,
+        "current_residual_seconds": 0.032434036023914814,
+        "repetition": 4
+      },
+      {
+        "cse_residual_seconds": 0.026236495934426785,
+        "current_minus_cse_residual_seconds": 0.007506344933062792,
+        "current_residual_seconds": 0.033742840867489576,
+        "repetition": 5
+      },
+      {
+        "cse_residual_seconds": 0.0263741509988904,
+        "current_minus_cse_residual_seconds": 0.005864544305950403,
+        "current_residual_seconds": 0.0322386953048408,
+        "repetition": 6
+      },
+      {
+        "cse_residual_seconds": 0.026373674627393484,
+        "current_minus_cse_residual_seconds": 0.006911922711879015,
+        "current_residual_seconds": 0.0332855973392725,
+        "repetition": 7
+      },
+      {
+        "cse_residual_seconds": 0.026780948974192142,
+        "current_minus_cse_residual_seconds": 0.005977519787847996,
+        "current_residual_seconds": 0.03275846876204014,
+        "repetition": 8
+      }
+    ]
+  },
+  "production_projection": {
+    "exact_flop_saving": 888898560,
+    "exact_wrapper_call_saving": 825,
+    "frozen_left_bytes": 68841472,
+    "frozen_left_elements": 17210368,
+    "hybrid_roster_after_flops": 562562860032,
+    "hybrid_roster_before_flops": 563451758592,
+    "measured_best_median_residual_saving_seconds": 0.005977519787847996,
+    "measured_residual_credibility_threshold_seconds": 0.015,
+    "operation_call_saving": {
+      "add": 75,
+      "copyto": 525,
+      "subtract": 225
+    },
+    "pair_count": 15,
+    "projected_margin_below_8_gib_bytes": 2437763072,
+    "projected_peak_bytes": 6152171520
+  },
+  "reduction_order_proof": [
+    "The left transform executes the same five levels, operand order, add/subtract order, and seven copy destinations as each original product.",
+    "The final left transform is written directly to disjoint frozen storage; no arithmetic or extra rounding is introduced.",
+    "Each right transform, leaf matmul, and five-level unwind remains an independent original-order execution for p and q.",
+    "The frozen left transform is read-only between the two leaf matmuls."
+  ],
+  "schema": "p2r0c1-d5push-left-transform-cse-dispatch-tiny-v1",
+  "scope": {
+    "fixtures_opened": [],
+    "full_estimator_calls": 0,
+    "network": false,
+    "package": false,
+    "scores_opened": [],
+    "submission": false,
+    "targets_opened": []
+  },
+  "status": "PASS_EXACT_CSE_BUT_NO_15MS_RESIDUAL_CREDIBILITY",
+  "unified_code_object_dispatch": {
+    "arithmetic_inventory_identical": true,
+    "median_separate_minus_unified_residual_seconds": 0.0004702429287135601,
+    "output_bytes_identical": true,
+    "production_call_order_length": 58,
+    "records": [
+      {
+        "repetition": 0,
+        "separate_minus_unified_residual_seconds": 0.0013508074916899204,
+        "separate_residual_seconds": 0.05658945068717003,
+        "unified_residual_seconds": 0.05523864319548011
+      },
+      {
+        "repetition": 1,
+        "separate_minus_unified_residual_seconds": 0.003031186293810606,
+        "separate_residual_seconds": 0.05788393272086978,
+        "unified_residual_seconds": 0.054852746427059174
+      },
+      {
+        "repetition": 2,
+        "separate_minus_unified_residual_seconds": -0.0008083879947662354,
+        "separate_residual_seconds": 0.05543183349072933,
+        "unified_residual_seconds": 0.05624022148549557
+      },
+      {
+        "repetition": 3,
+        "separate_minus_unified_residual_seconds": -0.0004179570823907852,
+        "separate_residual_seconds": 0.05522002326324582,
+        "unified_residual_seconds": 0.055637980345636606
+      },
+      {
+        "repetition": 4,
+        "separate_minus_unified_residual_seconds": 0.0016058566980063915,
+        "separate_residual_seconds": 0.05705679440870881,
+        "unified_residual_seconds": 0.05545093771070242
+      },
+      {
+        "repetition": 5,
+        "separate_minus_unified_residual_seconds": -0.0012757973745465279,
+        "separate_residual_seconds": 0.055910203605890274,
+        "unified_residual_seconds": 0.0571860009804368
+      },
+      {
+        "repetition": 6,
+        "separate_minus_unified_residual_seconds": -0.0011172839440405369,
+        "separate_residual_seconds": 0.05554599454626441,
+        "unified_residual_seconds": 0.05666327849030495
+      },
+      {
+        "repetition": 7,
+        "separate_minus_unified_residual_seconds": 0.0014351275749504566,
+        "separate_residual_seconds": 0.05713529884815216,
+        "unified_residual_seconds": 0.055700171273201704
+      },
+      {
+        "repetition": 8,
+        "separate_minus_unified_residual_seconds": 0.0004702429287135601,
+        "separate_residual_seconds": 0.056287778075784445,
+        "unified_residual_seconds": 0.055817535147070885
+      }
+    ]
+  }
+}

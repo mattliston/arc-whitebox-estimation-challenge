@@ -1,0 +1,197 @@
+{
+  "schema": "fb-ec4-32-a1-no-cp4-final-source-and-meter-manifest-v1",
+  "status": "FINAL_BYTE_FREEZE__PASS_PHASE2_SOURCE_AND_LITERAL_RESOURCE_GATES__BOARD_WALL_AND_ACCURACY_HOLD",
+  "frozen_at_utc": "2026-08-24T10:00:00Z",
+  "parent": {
+    "path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+    "bytes": 68698,
+    "sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "unchanged": true
+  },
+  "files": [
+    {
+      "path": "estimator.py",
+      "bytes": 63205,
+      "sha256": "5b222ef4f8120adb9443da5c2a1f89c79085a768ac2aef10c61c18413ef6a025"
+    },
+    {
+      "path": "PREREGISTER.md",
+      "bytes": 5823,
+      "sha256": "c21d1818b7d087d7d3dca399595dd465fdd49b272b3f264f1849650b33b059b1"
+    },
+    {
+      "path": "verify_a1.py",
+      "bytes": 23802,
+      "sha256": "91b52090eb5d6ec6d9c9b7c6c9408922abaf3b6c1bc8d35961a4aae2c7c68868"
+    },
+    {
+      "path": "AUTHOR_VERIFICATION.json",
+      "bytes": 5943,
+      "sha256": "3bb7098ef5acc546145732d89cc8f4b179af699fe7967ce8bfbcbe7bdd091cd1"
+    },
+    {
+      "path": "SOURCE_HOLD.json",
+      "bytes": 3054,
+      "sha256": "52039886d77c2e478f31271df23829a3c5db9cea75472a51e6266ecaf57d159c"
+    },
+    {
+      "path": "verify_exact_static_delta.py",
+      "bytes": 9774,
+      "sha256": "e5ee247a763251cdd5054c3c30d919283bb68daf1bcc108ab93531b002e7098b"
+    },
+    {
+      "path": "EXACT_STATIC_DELTA.json",
+      "bytes": 4270,
+      "sha256": "a75e2ef7309194436a4c3d132ddf2a39033884c14743c4ee64b749aa007d68f8"
+    },
+    {
+      "path": "METER_RESULT.json",
+      "bytes": 4061,
+      "sha256": "276c34a9ad3c8f5ccaec42f98b970543b21275d2cf31955333714483b00c8e27"
+    },
+    {
+      "path": "INDEPENDENT_SOURCE_AND_METER_AUDIT_A1.json",
+      "bytes": 8206,
+      "sha256": "02d16c3f2bc1a6476dfb2ee18aa8a1add8ec8b8d5e7608f011d4923b54bc00ed"
+    },
+    {
+      "path": "PACKAGE_MANIFEST.json",
+      "bytes": 1303,
+      "sha256": "e5bb5ea43b10d2018426997a70df3db6157f0bc880bc9df766d0036eddae863d"
+    }
+  ],
+  "science_boundary": {
+    "closure": "pure analytic Q38/Q32 connected Edgeworth closure with CP3 and residual cubic/quartic coordinate stars; no CP4 carrier/history, sampling estimator, fit, learned state, targets, or data",
+    "single_science_change_from_v4": "remove the complete CP4 carrier/history family and give H4+alpha direct ownership of the complete corrected K4/K31/K22 reset",
+    "preserved": [
+      "CP3",
+      "H3",
+      "H4+alpha",
+      "L4",
+      "one-half L3 squared",
+      "Q32",
+      "PSD repair",
+      "W16"
+    ],
+    "removed_functions_exact": [
+      "_assemble_quartic_provider",
+      "_cp4_push",
+      "_cp4_read_diagonal",
+      "_cp4_read_planes",
+      "_cp4_reset",
+      "_quartic_residual"
+    ],
+    "four_depth16_outputs_bitwise_intended_no_cp4_reference": true,
+    "cp3_rank_cap_poison_alias_parent_bitwise": true,
+    "coherent_h4_complete_reset": true,
+    "production_guard": {
+      "width": 1024,
+      "depth": 16,
+      "minimum_budget": 2199023255552,
+      "offshape_or_low_budget": "one metered fnp.zeros return before production initialization"
+    }
+  },
+  "exact_static_delta_from_v4": {
+    "deletion_law": "218*n^3 + 1772*n^2 + 156*n*log2(n) + 977*n + 1",
+    "production_width": 1024,
+    "deleted_flops": 235936392193,
+    "deleted_calls": 925,
+    "projected_candidate_flops": 1943806562276,
+    "projected_candidate_calls": 5953,
+    "literal_projection_flop_delta": 0,
+    "literal_projection_call_delta": 0
+  },
+  "literal_target_free_meter": {
+    "run_id": "fb_ec4_a1_no_cp4_v1_5b222ef4_n1_s8_seed20260824",
+    "receipt_path": "../meter_protocol/runs/fb_ec4_a1_no_cp4_v1_5b222ef4_n1_s8_seed20260824/receipt.json",
+    "receipt_bytes": 23220,
+    "receipt_sha256": "45b546c3dce8d22d918620e96da960fbdd1fab3f9874ec5cec80704a4808200f",
+    "receipt_replay": "PASS_METER_RECEIPT_VERIFICATION",
+    "budget_flops": 2199023255552,
+    "flops_used": 1943806562276,
+    "compute_utilization": 0.8839408848307357,
+    "operation_calls": 5953,
+    "wall_time_seconds": 35.795831667259336,
+    "backend_time_seconds": 35.07205727137625,
+    "overhead_time_seconds": 0.47214405285194516,
+    "residual_wall_time_seconds": 0.2516303430311382,
+    "residual_limit_seconds": 0.4,
+    "residual_margin_seconds": 0.1483696569688618,
+    "solution_descendant_rss_bytes": 4287905792,
+    "memory_limit_bytes": 8589934592,
+    "output_shape": [
+      16,
+      1024
+    ],
+    "output_dtype": "float32",
+    "output_all_finite": true,
+    "failed_mlps": 0,
+    "accuracy_scored": false
+  },
+  "matched_v4_comparison": {
+    "flop_delta": -235936392193,
+    "flop_reduction_fraction": 0.10824046556006678,
+    "call_delta": -925,
+    "call_reduction_fraction": 0.13448676940971216,
+    "rss_delta_bytes": -330661888,
+    "rss_reduction_fraction": 0.0715940332393267,
+    "residual_delta_seconds": -0.14100187132135034,
+    "residual_reduction_fraction": 0.3591194664296314,
+    "wall_delta_seconds": 0.4547270843759179,
+    "backend_delta_seconds": 0.7140168910846114,
+    "interpretation": "all Phase-2 local resource gates pass, but the one matched local run was slower overall and in backend time; robust board-wall improvement is not claimed"
+  },
+  "package": {
+    "archive_path": "submissions/fb-ec4-32-a1-no-cp4-v1-5b222ef4.tar.gz",
+    "archive_bytes": 15801,
+    "archive_sha256": "0b3a369064118ea48a8e1e10e831f7412b76b18b11e5bb0ee9ca0b20774e3211",
+    "members_exact": [
+      "estimator.py",
+      "manifest.json"
+    ],
+    "embedded_estimator_matches_frozen_source": true,
+    "whest_package": "PASS",
+    "whest_validate_package": "PASS",
+    "submitted": false
+  },
+  "pinned_environment": {
+    "python": "../data_gate/.venv/bin/python -B",
+    "whestbench_version": "0.16.0",
+    "flopscope_version": "0.12.0",
+    "numpy_backend_version": "2.4.6",
+    "requirements_lock": {
+      "path": "../data_gate/requirements.lock.txt",
+      "bytes": 1012,
+      "sha256": "dbd429c8eeb64c5809f7a045fc782173e476c943fbd6ce7d2616c94433481f98"
+    }
+  },
+  "authority": {
+    "granted": [
+      "FROZEN_PHASE2_SOURCE_AND_LITERAL_RESOURCE_BASELINE",
+      "TARGET_FREE_A1_BOUND_MOMENT_FEASIBILITY_REPLAY",
+      "ADDITIVE_SUCCESSOR_RESEARCH"
+    ],
+    "withheld": [
+      "ROBUST_BOARD_WALL_SAFE_CLAIM",
+      "RAW_MSE_OR_ACCURACY_CLAIM",
+      "TARGET_OR_DATASET_ACCESS",
+      "FIT_OR_SAMPLING",
+      "BOARD_OR_SUBMISSION_ACTION",
+      "PROBLEM_GRAPH_MUTATION",
+      "FROZEN_ESTIMATOR_MUTATION"
+    ]
+  },
+  "negative_controls": {
+    "meter_dataset_argument": null,
+    "public_target_values_accessed": 0,
+    "accuracy_scored": false,
+    "sampling_estimator": false,
+    "fits": 0,
+    "submissions": 0,
+    "graph_edits": 0,
+    "namespace_pycache_count": 0,
+    "namespace_pyc_count": 0,
+    "source_archive_matches_live": true,
+    "freeze_receipt_not_in_manifest": true
+  }
+}

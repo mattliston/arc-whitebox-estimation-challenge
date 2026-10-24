@@ -1,0 +1,117 @@
+{
+  "bar_mean_effect_to_continue": -0.005,
+  "cost_model": {
+    "assembles": 14,
+    "note": "3 GEMMs of 2*1024^3 per group per assemble; shared R-power elementwise maps negligible; whole-card margin 288e9",
+    "per_group_per_card_flops": 89600000000.0,
+    "per_group_per_layer_flops": 6400000000.0
+  },
+  "full_t34_mean_effect_for_reference": -0.0065589101050669285,
+  "schema": "k211-t34-chainstar-result-v1",
+  "stage1_chainstar_3rows": {
+    "100": {
+      "chainstar": 3.030322322850783e-08,
+      "effect_fraction": -0.008859865579486592,
+      "supply": 3.057410569518014e-08
+    },
+    "201": {
+      "chainstar": 3.071367368846249e-08,
+      "effect_fraction": -0.0017712696001859207,
+      "supply": 3.076817241691785e-08
+    },
+    "35": {
+      "chainstar": 2.8078544811531225e-08,
+      "effect_fraction": -0.009184699836810473,
+      "supply": 2.8338828444521016e-08
+    }
+  },
+  "stage1_mean_effect_fraction": -0.006605278338827662,
+  "stage2_per_term_rank35": {
+    "combined_chainstar_effect_rank35": -0.009184699836810473,
+    "ranking": [
+      "A110",
+      "B201",
+      "B101",
+      "B102",
+      "B103",
+      "A130",
+      "B301",
+      "A220",
+      "B202",
+      "A120"
+    ],
+    "row": 35,
+    "singles": {
+      "A110": {
+        "effect_fraction": -0.006350997601668129,
+        "mse": 2.815884861303578e-08
+      },
+      "A120": {
+        "effect_fraction": 0.0001875702193201434,
+        "mse": 2.834414396478763e-08
+      },
+      "A130": {
+        "effect_fraction": 9.186055251575453e-06,
+        "mse": 2.833908876656487e-08
+      },
+      "A220": {
+        "effect_fraction": 3.468484266355709e-05,
+        "mse": 2.833981137232688e-08
+      },
+      "B101": {
+        "effect_fraction": -0.0004461707327928499,
+        "mse": 2.8326184488667433e-08
+      },
+      "B102": {
+        "effect_fraction": -4.564922974503727e-05,
+        "mse": 2.8337534798830647e-08
+      },
+      "B103": {
+        "effect_fraction": 1.2455521962717597e-06,
+        "mse": 2.8338863742011025e-08
+      },
+      "B201": {
+        "effect_fraction": -0.002112334148272499,
+        "mse": 2.8278967369475617e-08
+      },
+      "B202": {
+        "effect_fraction": 8.619816851052065e-05,
+        "mse": 2.8341271199630666e-08
+      },
+      "B301": {
+        "effect_fraction": 3.139668658058703e-05,
+        "mse": 2.833971818983575e-08
+      }
+    },
+    "sum_of_single_effects": -0.00860487018795586
+  },
+  "stage3_top3_subset": {
+    "cost_per_card_flops": 268800000000.0,
+    "cost_per_layer_flops": 19200000000.0,
+    "groups": [
+      "A110",
+      "B201",
+      "B101"
+    ],
+    "mean_effect_fraction": -0.006533621581505833,
+    "rows": {
+      "100": {
+        "effect_fraction": -0.008442657241263696,
+        "supply": 3.057410569518014e-08,
+        "top3": 3.0315979000337564e-08
+      },
+      "201": {
+        "effect_fraction": -0.0016729937188176836,
+        "supply": 3.076817241691785e-08,
+        "top3": 3.071669745772485e-08
+      },
+      "35": {
+        "effect_fraction": -0.00948521378443612,
+        "supply": 2.8338828444521016e-08,
+        "top3": 2.8070028598324276e-08
+      }
+    }
+  },
+  "supply_baseline_source": "K211_T34_RESULT.json (deterministic forwards; the fresh supply arm matched banked card_raw200 exactly)",
+  "verdict": "TOP3_PRICED"
+}

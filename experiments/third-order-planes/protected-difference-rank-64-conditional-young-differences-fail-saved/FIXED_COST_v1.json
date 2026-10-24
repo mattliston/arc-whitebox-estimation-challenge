@@ -1,0 +1,209 @@
+{
+  "status": "CURRENT_FNP_FIXED_ALGORITHM_SHAPE_TARIFF",
+  "source_sha256": "1c913b92d6fd231593224d423dd0278be66390583bd68d6eb6c4b89eb1f79c9a",
+  "geometry": {
+    "active_rows": 864,
+    "joining_columns": 5632,
+    "old_columns": 6144,
+    "pairs": 5888
+  },
+  "parent_replaced_flops": 2396385685,
+  "temporary384_replacement_flops": 2831753458,
+  "additional_fixed_subspace_flops": 785638512,
+  "linear_element_allowance": 33366016,
+  "total_incremental_flops": 1254372301,
+  "wholebill_overhead_pct": 0.5263856395342987,
+  "records": [
+    {
+      "name": "parent_Y_join",
+      "shape": [
+        864,
+        5632,
+        320
+      ],
+      "flops": 1752015146
+    },
+    {
+      "name": "parent_Y_core1",
+      "shape": [
+        384,
+        384,
+        320
+      ],
+      "flops": 94248960
+    },
+    {
+      "name": "parent_Y_core2",
+      "shape": [
+        864,
+        384,
+        320
+      ],
+      "flops": 152536512
+    },
+    {
+      "name": "parent_QR",
+      "shape": [
+        864,
+        320
+      ],
+      "dtype": "<class 'numpy.float32'>",
+      "flops": 310203734
+    },
+    {
+      "name": "parent_core_solve",
+      "shape": [
+        320,
+        320
+      ],
+      "dtype": "<class 'numpy.float32'>",
+      "flops": 87381333
+    },
+    {
+      "name": "arm_Y_join",
+      "shape": [
+        864,
+        5632,
+        384
+      ],
+      "flops": 1975945684
+    },
+    {
+      "name": "arm_Y_core1",
+      "shape": [
+        384,
+        384,
+        384
+      ],
+      "flops": 113098752
+    },
+    {
+      "name": "arm_Y_core2",
+      "shape": [
+        864,
+        384,
+        384
+      ],
+      "flops": 157603614
+    },
+    {
+      "name": "arm_QR",
+      "shape": [
+        864,
+        384
+      ],
+      "dtype": "<class 'numpy.float32'>",
+      "flops": 434110464
+    },
+    {
+      "name": "arm_core_solve",
+      "shape": [
+        384,
+        384
+      ],
+      "dtype": "<class 'numpy.float32'>",
+      "flops": 150994944
+    },
+    {
+      "name": "extra_difference_join_projection",
+      "shape": [
+        64,
+        864,
+        2816
+      ],
+      "flops": 244223088
+    },
+    {
+      "name": "extra_old_overlap",
+      "shape": [
+        64,
+        864,
+        384
+      ],
+      "flops": 42442752
+    },
+    {
+      "name": "extra_old_difference_projection",
+      "shape": [
+        64,
+        384,
+        3072
+      ],
+      "flops": 150798336
+    },
+    {
+      "name": "difference_Gram128",
+      "shape": [
+        128,
+        5888,
+        128
+      ],
+      "flops": 192921600
+    },
+    {
+      "name": "difference_eigh128",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "<class 'numpy.float64'>",
+      "flops": 37748736
+    },
+    {
+      "name": "difference_coeff_rotation",
+      "shape": [
+        64,
+        128,
+        5888
+      ],
+      "flops": 96092160
+    },
+    {
+      "name": "basis_tail_rotation",
+      "shape": [
+        864,
+        128,
+        64
+      ],
+      "flops": 14100480
+    },
+    {
+      "name": "core_cross_rotation",
+      "shape": [
+        256,
+        128,
+        64
+      ],
+      "flops": 4177920
+    },
+    {
+      "name": "core_tail_rotation1",
+      "shape": [
+        64,
+        128,
+        128
+      ],
+      "flops": 2088960
+    },
+    {
+      "name": "core_tail_rotation2",
+      "shape": [
+        64,
+        128,
+        64
+      ],
+      "flops": 1044480
+    }
+  ],
+  "models": 0,
+  "captures": 0,
+  "numerical_payload_bytes": 288,
+  "rss_bytes": 164184064,
+  "limits": [
+    "Historical saved geometry through current tariffs, not current full-model bill.",
+    "Only extra difference coefficients are formed; no unnecessary extra common coefficients or dense full384 factor rotation.",
+    "Core is transformed in sparse256+64 block structure, not a dense320x384 map.",
+    "Unchanged320 later read/push/reconstruction credited as unchanged; actual route/rounding effects would require native test.",
+    "Linear element allowance is not a native request/cold-cache certificate."
+  ]
+}

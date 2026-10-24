@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_hz7_v1/project_vs_bank_v1.py", line 15, in <module>
+    s = load_session(Path(d)); c = project.summarize([s])
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/stage_c_boundary.py", line 62, in load_session
+    rows = [json.loads(line) for line in (out/'rows.jsonl').read_text().splitlines()]
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matt/anaconda3/lib/python3.11/pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matt/anaconda3/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_sketchgb_v1/bnd_osk/C0/rows.jsonl'

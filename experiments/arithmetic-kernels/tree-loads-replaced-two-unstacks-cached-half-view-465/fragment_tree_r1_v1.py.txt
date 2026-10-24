@@ -1,0 +1,66 @@
+
+# BEGIN OPUS-TREE FRAGMENT tree_r1_load_views_v1 (exact request diet of the single-tree loads; 2026-10-16)
+# _rs_load_a/_rs_load_b (the QL loads) asked 4 getitem views per call (a21, a22, top_in, top_out / b12, b22, left_in, left_out).
+# Here the input's two halves and quadrants come from TWO unstacks of the same reshaped view (unstack and getitem both bill 0), and
+# the tree-side half (quad[0] / quad[..., 0]) is a persistent view of the entry's cached quad, made once per quad (owner-checked).
+# Same reshape (same billing), same three data ops on the same operands in the same order: bit-identical, FLOPs identical.
+_OT_QL_PARENT_A = _rs_load_a
+_OT_QL_PARENT_B = _rs_load_b
+_OT_QV = {}
+_OT_QV_CAP = 4096
+_OT_STATS = dict(a=0, b=0, qv_hit=0, qv_miss=0)
+
+
+def _ot_quad_view(quad, side, L):
+    key = (id(quad), side, L)
+    got = _OT_QV.get(key)
+    if got is not None and got[0] is quad:
+        _OT_STATS['qv_hit'] += 1
+        return got[1]
+    view = quad[0] if side == 0 else quad[(slice(None),) * (L + 1) + (0,)]
+    if len(_OT_QV) >= _OT_QV_CAP:
+        _OT_QV.pop(next(iter(_OT_QV)))
+    _OT_QV[key] = (quad, view)
+    _OT_STATS['qv_miss'] += 1
+    return view
+
+
+def _rs_load_a(a, X, slot, L, m, k):
+    if (not _ASTRA_QL_ON or str(a.dtype) != 'float32'
+            or len(a.shape) != 2 or tuple(a.shape) != (m, k)):
+        return _OT_QL_PARENT_A(a, X, slot, L, m, k)
+    h = _BH_HOLD.append
+    u = 1 << L
+    Ar = fnp.reshape(a, (2,) * L + (m // u,) + (2,) * L + (k // u,))
+    quad = slot[1] if slot[1] is not None else _l3_quad(slot, 0, L)
+    top_in, A1 = fnp.unstack(Ar, axis=0)
+    a21, a22 = fnp.unstack(A1, axis=L)
+    top_out = _ot_quad_view(quad, 0, L)
+    h((Ar, top_in, A1, a21, a22))
+    h(fnp.copyto(top_out, top_in))
+    h(fnp.copyto(X[6], a22))
+    h(fnp.add(a21, a22, out=X[4]))
+    _ASTRA_QL_STATS['a'] += 1
+    _ASTRA_QL_STATS['saved_copy_elements'] += m * k // 4
+    _OT_STATS['a'] += 1
+
+
+def _rs_load_b(b, Y, slot, L, k, n):
+    if (not _ASTRA_QL_ON or str(b.dtype) != 'float32'
+            or len(b.shape) != 2 or tuple(b.shape) != (k, n)):
+        return _OT_QL_PARENT_B(b, Y, slot, L, k, n)
+    h = _BH_HOLD.append
+    u = 1 << L
+    Br = fnp.reshape(b, (2,) * L + (k // u,) + (2,) * L + (n // u,))
+    quad = slot[1] if slot[1] is not None else _l3_quad(slot, 1, L)
+    left_in, B1 = fnp.unstack(Br, axis=L + 1)
+    b12, b22 = fnp.unstack(B1, axis=0)
+    left_out = _ot_quad_view(quad, 1, L)
+    h((Br, left_in, B1, b12, b22))
+    h(fnp.copyto(left_out, left_in))
+    h(fnp.copyto(Y[3], b22))
+    h(fnp.subtract(b22, b12, out=Y[1]))
+    _ASTRA_QL_STATS['b'] += 1
+    _ASTRA_QL_STATS['saved_copy_elements'] += k * n // 4
+    _OT_STATS['b'] += 1
+# END OPUS-TREE FRAGMENT tree_r1_load_views_v1

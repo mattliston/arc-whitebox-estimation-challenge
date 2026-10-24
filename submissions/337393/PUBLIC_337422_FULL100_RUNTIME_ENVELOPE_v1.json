@@ -1,0 +1,100 @@
+{
+  "utc": "2026-10-21T00:37:55Z",
+  "submission": 337422,
+  "snapshot_utc": "2026-10-21T00:21:29Z",
+  "completed_at": "2026-10-21T00:18:27Z",
+  "raw_path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/public_monitor_20261021T002129Z/eval_337422_raw.json",
+  "raw_sha256": "5345808663a5b6794d55f2b16d7753106736101bebd13be2898f4a2e0da591d7",
+  "state": "completed",
+  "failed": 0,
+  "complete_networks": 100,
+  "setup_successful": 5,
+  "summary": {
+    "participant_predict_wall_s": {
+      "n": 100,
+      "mean": 101.34655196809997,
+      "max": 112.22914838299948,
+      "max_mlp_index": 42,
+      "max_mlp_name": "tim-richardson"
+    },
+    "flopscope_server_kernel_wall_s": {
+      "n": 100,
+      "mean": 91.94895488644,
+      "max": 102.658503587,
+      "max_mlp_index": 42,
+      "max_mlp_name": "tim-richardson"
+    },
+    "flopscope_server_overhead_wall_s": {
+      "n": 100,
+      "mean": 9.03800704051998,
+      "max": 9.904728672000019,
+      "max_mlp_index": 19,
+      "max_mlp_name": "april-rogers"
+    },
+    "residual_wall_time_s": {
+      "n": 100,
+      "mean": 0.35959004113999965,
+      "max": 0.3853682409999948,
+      "max_mlp_index": 15,
+      "max_mlp_name": "travis-ward"
+    },
+    "participant_roundtrip_wall_s": {
+      "n": 100,
+      "mean": 101.72019990970007,
+      "max": 112.59582184300052,
+      "max_mlp_index": 42,
+      "max_mlp_name": "tim-richardson"
+    },
+    "flopscope_server_comms_wall_s": {
+      "n": 100,
+      "mean": 0.91407263517,
+      "max": 1.014419201,
+      "max_mlp_index": 19,
+      "max_mlp_name": "april-rogers"
+    }
+  },
+  "setup": {
+    "mean_seconds": 4.2894118029997115,
+    "max_seconds": 4.301609479000035,
+    "remaining_seconds_at_max": 0.6983905209999648
+  },
+  "observed_worst_wall": {
+    "mlp_index": 42,
+    "mlp_name": "tim-richardson",
+    "telemetry": {
+      "participant_predict_wall_s": 112.22914838299948,
+      "flopscope_server_kernel_wall_s": 102.658503587,
+      "flopscope_server_overhead_wall_s": 9.216879917999492,
+      "residual_wall_time_s": 0.3537648779999927,
+      "participant_roundtrip_wall_s": 112.59582184300052,
+      "flopscope_server_comms_wall_s": 0.942614025
+    },
+    "remaining_predict_seconds": 7.770851617000517,
+    "remaining_residual_seconds": 0.046235122000007345,
+    "additional_predict_fraction_before_limit": 0.06924093899814032,
+    "additional_residual_fraction_before_limit": 0.13069449477686224
+  },
+  "observed_worst_residual": {
+    "mlp_index": 15,
+    "mlp_name": "travis-ward",
+    "telemetry": {
+      "participant_predict_wall_s": 101.23111151000012,
+      "flopscope_server_kernel_wall_s": 91.066474497,
+      "flopscope_server_overhead_wall_s": 9.779268772000123,
+      "residual_wall_time_s": 0.3853682409999948,
+      "participant_roundtrip_wall_s": 101.59273904099973,
+      "flopscope_server_comms_wall_s": 0.992377302
+    },
+    "remaining_predict_seconds": 18.76888848999988,
+    "remaining_residual_seconds": 0.01463175900000524,
+    "additional_predict_fraction_before_limit": 0.18540632627693499,
+    "additional_residual_fraction_before_limit": 0.03796825333098863
+  },
+  "caps": {
+    "predict_seconds": 120.0,
+    "residual_seconds": 0.4,
+    "setup_seconds": 5.0,
+    "local_authoritative_source": "lead/runs/astra_crunch_runtime_v1/failure336631_v1/whestbench_0.16.1/whestbench/runner.py:62-63; scoring.py:68-71"
+  },
+  "interpretation": "Observed full100 margins only. Different worst networks are kept separate; no permission to spend the margin, predicted kernel-runtime transfer, or guarantee for later hosted runs. Edge8 has original Mac32 and independent fresh4 evidence; no separate quiet production-boundary headroom result was found in the current artifacts."
+}

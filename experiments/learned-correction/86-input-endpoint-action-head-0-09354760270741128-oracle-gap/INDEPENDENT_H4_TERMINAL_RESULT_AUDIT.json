@@ -1,0 +1,67 @@
+{
+  "access": {
+    "derived_feature_cache_rows_opened": 0,
+    "estimator_calls": 0,
+    "model_payloads_deserialized": 0,
+    "model_training_or_scoring_runs": 0,
+    "observer_fit_target_values_opened_or_decoded": 0,
+    "observer_selection_or_board_values_opened": 0,
+    "terminal_result_json_opened": 1
+  },
+  "auditor_role": "h4_reverse_adjoint",
+  "bindings": {
+    "claim_sha256": "09d6d1b0bc0b4e0271eb06b682d904998a6aab6fcfc2757b930f10b384902901",
+    "cubic_runner_audit_sha256": "341785c61a6746d17760d3fb5e1969552420fe3c4db0f2d2beec313643f7e739",
+    "h4_runner_audit_sha256": "a5010c9595885ff8a944464c0acb16ea82b2c8f2af8aebfc0c6ad34cc138391a",
+    "models_sha256": "1d464e4fc445a65df20b889e0ce652c1eafce26288dd10d802dbc51a304862dc",
+    "release_sha256": "16715386a00d64347a20d1d4e85ecf5410d2c4d86abe79179c6dab78d3ec622b",
+    "result_sha256": "d84c5831d3392961d04fcf23323794ca75858190924672aa21c4e496731b98f5",
+    "runner_sha256": "a6c891cd19b62e1d48280308d4607fefd2a9f8d6d2eaf4a0277dc230c5af6cc5"
+  },
+  "checks": {
+    "all_172_endpoint_rows_finite": true,
+    "all_reported_endpoint_means_reproduce_from_per_network_rows": true,
+    "claim_model_and_result_hashes_reproduce": true,
+    "fold0_is_terminal_and_no_retry": true,
+    "no_postclaim_failure_artifact_present": true,
+    "no_pretarget_closure_artifact_present": true,
+    "paired_endpoint_sign_reproduces_from_per_network_rows": true,
+    "paired_local_q_sign_reproduces_from_reported_arm_losses": true,
+    "reported_gate_booleans_match_independent_arithmetic": true,
+    "source_on_and_source_zero_training_parity_receipts_match": true
+  },
+  "date": "2026-08-31",
+  "decision": "CLOSE_FOUR_FIELD_BUNDLE__DO_NOT_RUN_FOLDS_1_TO_3__NO_RETRY",
+  "gates_recomputed": {
+    "all_scored_metrics_finite": true,
+    "exact_q_oracle_endpoint_mse": 6.145529548860023e-09,
+    "exact_q_oracle_strictly_below_1e_8": true,
+    "frozen_eight_percent_endpoint_threshold": 2.811346283813388e-08,
+    "minimum_required_parent_gap_recovery": 0.08,
+    "parent82_endpoint_mse": 3.002371790676639e-08,
+    "parent82_to_exact_q_oracle_gap_recovery": 0.0009354760270743903,
+    "parent_gap_recovery_deficit": 0.07906452397292561,
+    "parent_gap_recovery_gate_passes": false,
+    "source_on_above_eight_percent_threshold": 1.887917595853721e-09,
+    "source_on_endpoint_at_most_threshold": false,
+    "source_on_endpoint_mse": 3.00013804339876e-08,
+    "source_on_local_q_mse": 5.273407806729197e-09,
+    "source_zero_endpoint_mse": 3.0031374128960025e-08,
+    "source_zero_local_q_mse": 5.2765354435969155e-09
+  },
+  "paired_sign_recomputed": {
+    "endpoint_gain_source_on_vs_source_zero": 2.99936949724209e-11,
+    "endpoint_gain_fraction_vs_source_zero": 0.0009987453402440082,
+    "endpoint_network_wins": 104,
+    "endpoint_networks": 172,
+    "endpoint_paired_z": 3.6170942617330617,
+    "endpoint_source_on_strictly_better": true,
+    "endpoint_win_fraction": 0.6046511627906976,
+    "local_q_gain_source_on_vs_source_zero": 3.1276368677188978e-12,
+    "local_q_gain_fraction_vs_source_zero": 0.000592744406088334,
+    "local_q_source_on_strictly_better": true,
+    "source_on_gain_fraction_vs_parent82": 0.0007439942264363618
+  },
+  "schema": "owned-l3-l3square-fold0-independent-h4-terminal-result-audit-v1",
+  "status": "PASS_INTEGRITY_AND_PAIRED_SIGN__FAIL_FROZEN_MATERIAL_GATE__TERMINAL_NO_RETRY"
+}

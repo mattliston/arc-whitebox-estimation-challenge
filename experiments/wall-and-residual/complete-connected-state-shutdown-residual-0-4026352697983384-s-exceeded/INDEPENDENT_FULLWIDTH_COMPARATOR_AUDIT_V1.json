@@ -1,0 +1,174 @@
+{
+  "schema": "q24-cs2-independent-fullwidth-comparator-audit-v1",
+  "status": "PASS_COMPARATOR_SOURCE_STABILITY__REJECT_BOARD_PROMOTION_CHANGE_SIZE_GATE__RESOURCE_METER_ONLY_HOLD",
+  "audited_at_utc": "2026-08-24T13:19:38Z",
+  "audit_scope": {
+    "mode": "independent read-only hash-chain, official-He weight-law, receipt-arithmetic, no-target-scope, and additive board-promotion-gate audit",
+    "estimator_source_edits": 0,
+    "comparator_reruns": 0,
+    "fullwidth_prediction_arms_executed_by_auditor": 0,
+    "weight_law_reconstructions": 3,
+    "dataset_rows_opened": 0,
+    "targets_or_truth_opened": 0,
+    "raw_mse_or_accuracy_computed": false,
+    "meter_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "graph_edits": 0
+  },
+  "bindings": {
+    "candidate_estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+    "source_hold_sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c",
+    "independent_strict_audit_sha256": "cba8bfbb437f32aa377ca72da74b9504894e6380429e2acf0e5a059d7ef8afcb",
+    "comparator_preregister_sha256": "e06a68a92a139c670b0fe2fcb38615e96fa8d96a0019b3eef58bc2e995d36dd0",
+    "comparator_runner_sha256": "c4251eabce9341c9f60da441a37d583fdea47c54102e54a8b89ece816d23b2f2",
+    "comparator_release_sha256": "c5dc4408c69ac6eac36b05f139a54407366d23ccfcc1330c73f5f3e4ba98b3ab",
+    "one_use_claim": {
+      "path": "runs/fullwidth_official_he_seeds20260824_20260826_v1/CLAIM.json",
+      "sha256": "9d74f6f1bd3b65d7b8fe8579208dfbea93e459b6fa3c57e13bc35d4b1a0c1bcd"
+    },
+    "terminal_comparator_receipt": {
+      "path": "runs/fullwidth_official_he_seeds20260824_20260826_v1/receipt.json",
+      "sha256": "151de92da658f15de016b256c74cb00255bd1d4aea8c4d8ef3934bab10665645",
+      "status_exact": "PASS_TARGET_FREE_FULLWIDTH_STABILITY__LITERAL_METER_AND_ACCURACY_HOLD"
+    },
+    "literal_meter_release_scaffold_sha256": "747bec4fa4d4c2b2dab216288eac0f1819ab7d2cbad5fb91ead2b366e227e1be",
+    "manual_rho_parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "manual_rho_parent_meter_receipt_sha256": "4ad5d4bb8e70a3f57ef7559f5dceffe0d92fc7b77626088cff87431bdbf18160",
+    "meter_driver_sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34",
+    "board_promotion_preregister": {
+      "path": "../fullbudget_k21_k4_closure_q24_connected_shutdown_v2_board_promotion_v1/PREREGISTER.md",
+      "sha256": "e837715025dfd314afa296681a619ffae5e3b2829956342e9a9ed8c28e0a6d88"
+    },
+    "independent_verifier": {
+      "path": "verify_independent_fullwidth_comparator.py",
+      "bytes": 14162,
+      "sha256": "49cb207d00931395d2155ffeb01331c3f4252eaa5f170bad355cf377b9830cee"
+    }
+  },
+  "claim_and_execution_chain": {
+    "status": "PASS_ONE_USE_CHAIN",
+    "release_status_exact": "ROOT_AUTHORIZED_ONE_TARGET_FREE_FULLWIDTH_COMPARATOR__NOT_YET_CONSUMED",
+    "claim_status_exact": "CLAIMED_ONE_USE_RELEASE__NO_RETRY_IF_PROCESS_CRASHES",
+    "claim_created_at_utc": "2026-08-24T13:12:36.895701+00:00",
+    "receipt_created_at_utc": "2026-08-24T13:15:06.554040+00:00",
+    "receipt_binds_claim_sha256": true,
+    "claim_binds_release_runner_source_hold_and_strict_audit": true,
+    "seeds_exact_in_order": [20260824, 20260825, 20260826],
+    "seed_sweep": false,
+    "parent_child_arm_count": 6,
+    "retry_authorized": false
+  },
+  "runner_no_target_audit": {
+    "status": "PASS_WEIGHTS_ONLY",
+    "fixture_signature": "_fixture(seed)",
+    "fixture_law": "SeedSequence(seed).spawn(3); default_rng(stream0); float32(standard_normal float64 * sqrt(2/1024)); estimator seed from stream2",
+    "dataset_scoring_simulation_or_network_imports": [],
+    "dataset_arguments": 0,
+    "dataset_rows_accessed": 0,
+    "public_target_values_accessed": 0,
+    "private_target_values_accessed": 0,
+    "truth_computations": 0,
+    "fits": 0,
+    "samples_used_by_estimator": 0,
+    "packages": 0,
+    "submissions": 0
+  },
+  "independent_weight_law_reconstruction": {
+    "status": "PASS_ALL_48_LAYER_HASHES_AND_THREE_AGGREGATES",
+    "rows": [
+      {
+        "seed": 20260824,
+        "estimator_seed": 3178843266,
+        "aggregate_weights_sha256": "4073521961bbac02491a2d1ba620c568fea73ed21bf052c73e42c807286a56ec",
+        "matches_parent_literal_meter_official_weight_hash": true
+      },
+      {
+        "seed": 20260825,
+        "estimator_seed": 169850253,
+        "aggregate_weights_sha256": "7d410e3c66cecbfeb6a2c86ba417377db5ce7404134d3ea1ee9f286fb73d5655"
+      },
+      {
+        "seed": 20260826,
+        "estimator_seed": 1620509414,
+        "aggregate_weights_sha256": "383fc8daedd841d0220a54e966544ad92ec0b1309a2723168b461b2a3d488ed8"
+      }
+    ]
+  },
+  "comparator_receipt_arithmetic": {
+    "status": "PASS_PREREGISTERED_SOURCE_STABILITY_GATE",
+    "parent_contracts_passed": 3,
+    "child_contracts_passed": 3,
+    "output_contract": "finite float32 [16,1024]",
+    "certificate_reset_count": 42,
+    "affected_reset_count": 18,
+    "invalid_unit_reset_activation_count": 51,
+    "activations_by_seed": [20, 14, 17],
+    "carrier_violation_totals": {
+      "pairing_alpha_violation_count": 0,
+      "connected_star_incident_nonzero_count": 0,
+      "cp_carrier_incident_nonzero_count": 0,
+      "combined_carrier_incident_nonzero_count": 0
+    },
+    "comparisons_available": 3,
+    "all_rows_within_parent_output_scale": true,
+    "zero_activation_parity_gate": true,
+    "zero_activation_parity_gate_note": "vacuous because all three fixed seeds activated",
+    "parent_flops_each": 2131280786389,
+    "child_flops_each": 2131652533303,
+    "child_minus_parent_flops_each": 371746914,
+    "parent_operation_calls_each": 7207,
+    "child_operation_calls_each": 9503,
+    "telemetry_boundary": "direct comparator wall and instrumented FLOPs are supporting evidence; residual, RSS, and sole resource authority remain with the literal meter"
+  },
+  "board_promotion_additive_gate": {
+    "status": "REJECT_ALL_THREE_FIXED_SEEDS_EXCEED_1E_MINUS_8",
+    "threshold": 1e-8,
+    "comparison": "finite final-layer parent-versus-CS2 disagreement MSE <= 1e-8 independently for each seed",
+    "rows": [
+      {
+        "seed": 20260824,
+        "final_layer_disagreement_mse": 4.0925566476689264e-8,
+        "multiple_of_threshold": 4.092556647668927,
+        "passes": false
+      },
+      {
+        "seed": 20260825,
+        "final_layer_disagreement_mse": 6.451118991829646e-8,
+        "multiple_of_threshold": 6.451118991829646,
+        "passes": false
+      },
+      {
+        "seed": 20260826,
+        "final_layer_disagreement_mse": 8.449135636469015e-8,
+        "multiple_of_threshold": 8.449135636469014,
+        "passes": false
+      }
+    ],
+    "pass_count": 0,
+    "fail_count": 3,
+    "terminal_effect": "the frozen CS2 board-promotion path is closed before package, submission, or target access; comparator PASS cannot rescue this independently frozen gate"
+  },
+  "meter_release_boundary": {
+    "comparator_source_gate": "PASS",
+    "meter_output_namespace_absent_at_audit": true,
+    "literal_meter_executed": false,
+    "resource_meter_may_be_separately_released": true,
+    "resource_meter_purpose": "source resource/runtime characterization only",
+    "board_promotion_authority": false,
+    "accuracy_authority": false,
+    "package_or_submission_authority": false,
+    "reconciliation": "a resource-only meter release does not act under, satisfy, reopen, or amend the failed sibling board-promotion change-size gate"
+  },
+  "verdict": {
+    "exact_hash_chain": "PASS",
+    "official_width_weight_law": "PASS",
+    "no_target_scope": "PASS",
+    "preregistered_comparator_source_stability": "PASS",
+    "board_specific_change_size_gate": "FAIL_3_OF_3",
+    "literal_meter": "NOT_RUN",
+    "raw_mse_accuracy": "UNOPENED_AND_UNSCORED",
+    "strongest_source_authority": "FULLWIDTH_TARGET_FREE_STABILITY_PASS_PENDING_LITERAL_RESOURCE_METER",
+    "strongest_promotion_authority": "REJECTED_BEFORE_PACKAGE_OR_SUBMISSION"
+  }
+}

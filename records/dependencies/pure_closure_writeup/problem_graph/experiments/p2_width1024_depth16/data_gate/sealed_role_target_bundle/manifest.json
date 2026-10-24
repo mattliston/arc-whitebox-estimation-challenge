@@ -1,0 +1,107 @@
+{
+  "artifact_codec_sha256": "f09855d8843492ead6b3117535d19487a45988d6cd9fbacd2e642798e4c79b17",
+  "artifacts": {
+    "observer_fit": {
+      "all_layer_means_c_order_sha256": "571504f27c86b6427c48166095f954f3d4a639f7e2588f65bf69ae14403c989c",
+      "all_layer_means_dtype": "float32",
+      "all_layer_means_layout": "C",
+      "all_layer_means_shape_per_row": [
+        16,
+        1024
+      ],
+      "bytes": 41672600,
+      "columns": [
+        "mlp_id",
+        "all_layer_means"
+      ],
+      "mlp_id_dtype": "int32",
+      "ordered_mlp_ids_sha256": "ba3d59f54ffacf4fe11d8ae6cd0f7ee1726486176217acc68002acb93be89de0",
+      "parquet_row_groups": 1,
+      "path": "observer_fit.parquet",
+      "physical_arrow_type": "fixed_size_list<element: fixed_size_list<element: float>[1024]>[16]",
+      "rows": 688,
+      "sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7"
+    },
+    "observer_selection": {
+      "all_layer_means_c_order_sha256": "8ff871c5a7c4312c6e150a34b9308de5b59d8e5f478a300700f88b7e04318472",
+      "all_layer_means_dtype": "float32",
+      "all_layer_means_layout": "C",
+      "all_layer_means_shape_per_row": [
+        16,
+        1024
+      ],
+      "bytes": 5331541,
+      "columns": [
+        "mlp_id",
+        "all_layer_means"
+      ],
+      "mlp_id_dtype": "int32",
+      "ordered_mlp_ids_sha256": "d1c719c608cadf5d4f7d852d23a9d935a23de0eae09d5dc1710257963aa1e755",
+      "parquet_row_groups": 1,
+      "path": "observer_selection.parquet",
+      "physical_arrow_type": "fixed_size_list<element: fixed_size_list<element: float>[1024]>[16]",
+      "rows": 88,
+      "sha256": "a250885d9d7f15efb243264c7244265fcb64e175b438007d58d595896b13fb4e"
+    }
+  },
+  "commit": "ce926b7d1ced65faa668c01b94a43f8c4f43783d",
+  "crash_retry_allowed": false,
+  "custodian_authorization_sha256": "2d877a12a09d27e808df027a7944b492159f922b7d5493fc794fe39b635d6f93",
+  "custodian_claim_sha256": "659d0f2e3c4eb10125c1c9363a1c9025cc6f9825fd5298b427e930aef629f1f6",
+  "custodian_decode_accounting": {
+    "persisted_roles": [
+      "observer_fit",
+      "observer_selection"
+    ],
+    "persisted_training_rows": 776,
+    "raw_role_counts": {
+      "observer_audit": 100,
+      "observer_fit": 688,
+      "observer_lockbox": 100,
+      "observer_selection": 88,
+      "retired_teacher_diagnostics": 24
+    },
+    "raw_rows_physically_decoded": 1000,
+    "transient_withheld_role_counts": {
+      "observer_audit": 100,
+      "observer_lockbox": 100,
+      "retired_teacher_diagnostics": 24
+    },
+    "transient_withheld_rows_decoded_due_to_raw_row_group_mixing": 224,
+    "withheld_rows_written": 0
+  },
+  "custodian_sealer_source_sha256": "96e0da1257c1da78cbd6cd9709b29b59d6afa4f5dd7ce0ec5d4d1ac336c711cb",
+  "execution_runtime": {
+    "batch_name_api": "batch.schema.names",
+    "executable": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+    "pyarrow": "25.0.1",
+    "python": "3.11.5",
+    "raw_target_module_imported": false,
+    "required_apis": [
+      "FixedSizeListArray.from_arrays",
+      "ParquetFile",
+      "ParquetFile.iter_batches",
+      "Table.from_arrays",
+      "write_table"
+    ],
+    "target_values_decoded": 0
+  },
+  "fit_or_score_performed": false,
+  "full_shard_manifest_sha256": "51357aceca60f0a0365b26d7b25e136d1e4e713d44451a5f7c079e3ba9ea2794",
+  "host_features_generated": false,
+  "parent_authority_sha256": "b33aea75ee83be5cc7c2778aefd4cc35d731dcd702d8b258269fc2c895ef4ec5",
+  "raw_full_dataset_included": false,
+  "raw_reader_sha256": "95ffd5ba0e55823a3176a35e42af052feebc4cb462dcfa9738b135d2110a7c83",
+  "repository": "aicrowd/arc-whestbench-public-2026",
+  "revision": "v2-phase2",
+  "role_addressability_audit_sha256": "b73e6ccf24434d27cc1bc34cc5ebcd87b9b38b504c3412bf9afad571ecb4b49c",
+  "schema": "whest-phase2-training-role-target-bundle-v1",
+  "split_manifest_sha256": "ba325d5c9ee4382ebf856b2e8d15330852fba5ac5627665fcd81dd9a5ef461d1",
+  "status": "SEALED_BY_TRUSTED_DATA_CUSTODIAN",
+  "target_columns": [
+    "mlp_id",
+    "all_layer_means"
+  ],
+  "training_reader_sha256": "43cdc72d6bcd7b534d6c661d670b5e718af75bf482aff954ca6507d8d640cdbe",
+  "withheld_roles_included": false
+}

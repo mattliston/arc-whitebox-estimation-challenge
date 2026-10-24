@@ -1,0 +1,80 @@
+{
+  "schema": "q24-cs3b-one-use-target-free-source-probe-release-v1",
+  "status": "AUTHORIZED_ONE_USE_TARGET_FREE_SMALLWIDTH_SOURCE_PROBE__NO_FULLWIDTH_OR_METER",
+  "created_at_utc": "2026-08-24T14:52:37Z",
+  "bindings": {
+    "candidate_estimator_sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+    "candidate_source_hold_sha256": "ac29611a20280de259c7ab2f970d865b09ca1c417d1ac09d64aeab5a89d23bb5",
+    "parent_estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+    "fixture_helper_sha256": "2c37c363155ac2b709de00a0d7a949a33a43106592e0df88daa7509bf2468b2d",
+    "source_probe_preregister_sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3",
+    "source_probe_static_binding_sha256": "9858e4720fe24911c7ae4e83701efb8d281e094e484598c623b62146a4a3658e",
+    "independent_static_source_audit_sha256": "27e5d66752520ebf287f7bc362330489849816b3d8cec0a1c7628aa931ca6c6c",
+    "runner_sha256": "5e0f24829ed77cd6492721e58a15b78bdea0545b739a9b72af07b121604152c0",
+    "output_path": "runs/source_probe_v1/results.json",
+    "claim_path": "runs/source_probe_v1/O_EXCL_CLAIM.json"
+  },
+  "independent_activation_gate": {
+    "path": "INDEPENDENT_SOURCE_PROBE_RELEASE_AUDIT_CS3B_V1.json",
+    "required_status_exact": "PASS_INDEPENDENT_SOURCE_PROBE_RUNNER_AND_RELEASE_AUDIT__ONE_USE_EXECUTION_PERMITTED",
+    "required_bindings": [
+      "candidate_estimator_sha256",
+      "candidate_source_hold_sha256",
+      "source_probe_preregister_sha256",
+      "source_probe_static_binding_sha256",
+      "independent_static_source_audit_sha256",
+      "runner_sha256",
+      "author_release_sha256",
+      "output_path",
+      "claim_path"
+    ],
+    "effective_now": false,
+    "reason": "The frozen runner itself refuses execution until this independent audit file exists with the exact status and bindings."
+  },
+  "one_use_protocol": {
+    "preflight_before_claim": "verify every source HOLD preregistration static-audit runner release and independent-release-audit binding",
+    "first_state_change": "mkdir the absent runs/source_probe_v1 namespace and durably seal O_EXCL_CLAIM.json with O_CREAT|O_EXCL before candidate import or fixture construction",
+    "result_write": "durably seal results.json with O_CREAT|O_EXCL; any required-control exception seals a terminal REJECT result",
+    "rerun": false,
+    "overwrite": false,
+    "retry_or_rescue": false
+  },
+  "frozen_dynamic_gates": {
+    "certificate": "helper/inlined named-intermediate and invalid-mask byte equality; exact 154-call ledgers",
+    "algebra": "all nonsymmetric width4/5/6/8 ranks under preregistered forward bound; no symmetry shortcut",
+    "resource": "exact corrected Lr_star/Dh FLOPs and 18/10 calls plus six integer crossover witnesses",
+    "fixtures": "exact ten frozen target-free fixtures, parent-finite safety, natural LOWRANK64, no-activation parity, two-run determinism, parent-scale disagreement",
+    "carriers": "current selected-state bytes, exact invalid-incident target/star/CP/aggregate zeros, one-push selected law, reconstruction and valid-valid residual gates",
+    "dense_control": "forced width5 rank1 DENSE32 on every reset, separated from natural activation/accuracy evidence",
+    "signed_permutation": "width6 exact mapped zeros for every LOWRANK64 invalid count",
+    "null_face": "positive-zero alpha, equal ordinary/null operation ledger and one tracked division, K4/K31 reconstruction and explicit K22 residual",
+    "namespace": "no pycache pyc or pyo"
+  },
+  "limits": {
+    "candidate_entrypoint": "private frozen _predict only; never Estimator.predict production guard",
+    "maximum_estimator_width": 128,
+    "width1024_estimator_runs": 0,
+    "literal_meter_runs": 0,
+    "dataset_rows_targets_teachers_scores_or_private_state": 0,
+    "network_or_credentials": 0,
+    "packages": 0,
+    "submissions": 0,
+    "canonical_graph_edits": 0
+  },
+  "pass_authority": "immutable author result and independent replay audit only",
+  "still_forbidden_after_pass": [
+    "full-width estimator comparison",
+    "literal source meter or residual timing",
+    "dataset target teacher public-row private-state or score access",
+    "package or submission",
+    "board or accuracy promotion",
+    "canonical graph mutation"
+  ],
+  "execution_counters_at_release": {
+    "candidate_imports": 0,
+    "candidate_estimator_executions": 0,
+    "source_probe_runs": 0,
+    "fullwidth_runs": 0,
+    "literal_meter_runs": 0
+  }
+}

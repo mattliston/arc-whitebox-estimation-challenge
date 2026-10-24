@@ -1,0 +1,118 @@
+{
+  "anchor": {
+    "autonomous_suffix_layers": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "layer_one_based": 7,
+    "layer_zero_based": 6,
+    "location": "post-ReLU h_7",
+    "resets": 1
+  },
+  "gates": {
+    "finite": true,
+    "single_exact_h7_reset_reaches_1e_8": false,
+    "single_exact_h7_reset_reaches_teacher_plus_10_percent_of_gap": false
+  },
+  "interpretation_boundary": "This is an oracle sufficiency ceiling. It does not show that a finite Kerdock projection can recover the exact h_7 residual, and it is not submission-eligible.",
+  "metrics": {
+    "autonomous_final_mse": 3.4709697955756664e-08,
+    "autonomous_to_teacher_mse_gap": 2.650173447811943e-08,
+    "fraction_of_autonomous_to_teacher_mse_gap_closed": 0.0306486637669077,
+    "single_exact_h7_reset": {
+      "final_mse": 3.3897455206496917e-08,
+      "finite_full_rollout": true,
+      "layer_mse": [
+        6.766513145801956e-10,
+        5.899027712478449e-10,
+        8.991997236672202e-10,
+        1.9656572419897955e-09,
+        3.720473087068844e-09,
+        5.884054506174255e-09,
+        0.0,
+        4.50210891782866e-09,
+        8.75913953612381e-09,
+        1.2848049523855152e-08,
+        1.6693772877213198e-08,
+        2.0065641080994022e-08,
+        2.303770617178294e-08,
+        2.669281127046151e-08,
+        3.044488864036618e-08,
+        3.3897455206496917e-08
+      ],
+      "maximum_absolute_correction": 0.0014399116626009345,
+      "per_network_final_mse": [
+        2.991505461015015e-08,
+        2.7791709434763064e-08,
+        4.2908874248966935e-08,
+        3.5492600222116944e-08,
+        3.488545622112433e-08,
+        3.0490793534783445e-08,
+        3.5843990508510046e-08,
+        3.4735989100201186e-08,
+        3.1550175753668914e-08,
+        2.847560494523134e-08,
+        3.54483780875125e-08,
+        3.5084045641712375e-08,
+        3.4920314937983916e-08,
+        3.743739011944485e-08,
+        3.491664489489227e-08,
+        3.568232868582679e-08,
+        3.136287092804412e-08,
+        3.728440908620301e-08,
+        3.326066498269467e-08,
+        3.885580205511152e-08,
+        3.7268196833082946e-08,
+        3.454036232063091e-08,
+        3.5419252756741077e-08,
+        3.2453967154103265e-08,
+        3.609425380955356e-08,
+        3.378511599915124e-08,
+        3.809967240638944e-08,
+        3.64076881893919e-08,
+        3.583405594041577e-08,
+        3.52187328072099e-08,
+        3.120810785550783e-08,
+        4.450635196215446e-08,
+        3.052743632423229e-08,
+        2.848126794646039e-08,
+        3.083850850618046e-08,
+        3.378504389514139e-08,
+        2.6820226835323793e-08,
+        2.6244483341155372e-08,
+        3.134124309245565e-08,
+        3.068114228565266e-08
+      ]
+    },
+    "single_reset_ratio_to_autonomous": 0.976598968095456,
+    "teacher_forced_final_mse": 8.207963477637236e-09
+  },
+  "provenance": {
+    "elapsed_seconds": 6.968231083825231,
+    "preregistration_sha256": "923a2bbaeb1d9cc0434abceaf7d52d7e57efc62df3161258681a80ff37e441d7",
+    "program_sha256": "bd8f646a3f2198eb096519ccd708c3224c06ba5c277d3c4d0176d3ab01c090f0",
+    "source_model_sha256": "c998c4410bf36d3b4f1152c45d86fd4c654c7e05abe85e297f07b15f16d58cc7",
+    "source_program_sha256": "5c16a68bb907b0e3c945bce883a877c99743fb40fffca3d8039054fd2eb566e1",
+    "source_result_sha256": "fe2f2f3c8cfa890d416b520f443fbbe475ea8fabafbd16956006a9154b100440"
+  },
+  "schema": "p2r0g1-kerdock-h7-anchor-ceiling-result-v1",
+  "split": {
+    "deployment_or_board_truth_opened": 0,
+    "development_validation": [
+      160,
+      200
+    ],
+    "network_names_opened": 0,
+    "observer_fit_targets_at_or_above_rank_200_opened": 0,
+    "observer_selection_targets_opened": 0,
+    "role": "observer_fit"
+  },
+  "status": "complete"
+}

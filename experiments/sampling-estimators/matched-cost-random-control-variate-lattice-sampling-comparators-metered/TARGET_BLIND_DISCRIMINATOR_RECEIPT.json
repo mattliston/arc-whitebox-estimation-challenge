@@ -1,0 +1,110 @@
+{
+  "access": {
+    "fits": 0,
+    "physical_weight_rows_decoded": 1,
+    "scores": 0,
+    "submissions": 0,
+    "target_metrics_computed": 0,
+    "target_values_decoded": 0
+  },
+  "authority": {
+    "allowed_value_columns": ["mlp_id", "mlp_name", "mlp_seed", "weights"],
+    "commit": "ce926b7d1ced65faa668c01b94a43f8c4f43783d",
+    "repository": "aicrowd/arc-whestbench-public-2026",
+    "revision": "v2-phase2",
+    "snapshot_rows": 100
+  },
+  "comparison_bill": {
+    "cp1792_flops": 214122341378,
+    "rule": "each comparator bill must be <= CP1792; no dummy work"
+  },
+  "cp1792_source_sha256": "035e3bd2fd08d3358f5424fc67f10281e5559e65fa9c6d6dce97791108b176dc",
+  "cross_prediction_disagreements": {
+    "affine_cv__vs__cp1792": {
+      "all_layer_rms": 0.0066301569951132296,
+      "layer16_rms": 0.004893214735729589
+    },
+    "iid__vs__affine_cv": {
+      "all_layer_rms": 0.008685226054838454,
+      "layer16_rms": 0.005272354457020495
+    },
+    "iid__vs__cp1792": {
+      "all_layer_rms": 0.006103134302677081,
+      "layer16_rms": 0.003552135692967976
+    },
+    "iid__vs__rqmc": {
+      "all_layer_rms": 0.007359241406026049,
+      "layer16_rms": 0.004095571018361062
+    },
+    "rqmc__vs__affine_cv": {
+      "all_layer_rms": 0.007789136246286613,
+      "layer16_rms": 0.004687672478357012
+    },
+    "rqmc__vs__cp1792": {
+      "all_layer_rms": 0.004612780961275369,
+      "layer16_rms": 0.0031106551048402237
+    },
+    "rqmc__vs__rqmc_independent_shift_diagnostic": {
+      "all_layer_rms": 0.0062656149277830345,
+      "layer16_rms": 0.004219968980759791
+    }
+  },
+  "disagreement_interpretation": "Cross-prediction disagreement only; no target was read and no accuracy ordering follows.",
+  "lanes": {
+    "affine_cv": {
+      "flops_used": 214114123776,
+      "integer_flop_margin_below_cp1792": 8217602,
+      "output_sha256": "436e7904b72d5225de3e067b7c01965d8d4e05a0e5d62ddfe22a6ff0c5dad120",
+      "residual_wall_time_s": 0.015789455734193325
+    },
+    "cp1792": {
+      "flops_used": 214122341378,
+      "integer_flop_margin_below_cp1792": 0,
+      "output_sha256": "40e19e2b70828774bc7fef617625c58efea07d7c0ba5e8f0220bb9750bffd3c7",
+      "residual_wall_time_s": 0.11479930719360709
+    },
+    "iid": {
+      "flops_used": 214122102784,
+      "integer_flop_margin_below_cp1792": 238594,
+      "output_sha256": "b3bef9d77be03a79998aad06472fdb301468b490c97e1c8ce7c72fb8a23ca117",
+      "residual_wall_time_s": 0.005924667697399855
+    },
+    "rqmc": {
+      "flops_used": 214111148686,
+      "integer_flop_margin_below_cp1792": 11192692,
+      "output_sha256": "9aaefbcc05a9a023685bade0045e45caf647c28dc78d4ae50e2ac7143e5b908c",
+      "residual_wall_time_s": 0.0250599579885602
+    },
+    "rqmc_independent_shift_diagnostic": {
+      "flops_used": 214111148686,
+      "integer_flop_margin_below_cp1792": 11192692,
+      "output_sha256": "026a28b5f90da090c28754be54b3ccb6369a49c25d1b6191cfea4a87968f9239",
+      "residual_wall_time_s": 0.03542095050215721
+    }
+  },
+  "output_contract": {
+    "all_lanes_finite": true,
+    "dtype": "float32",
+    "shape": [16, 1024]
+  },
+  "process_peak_rss": {
+    "ru_maxrss_bytes": 2755936256,
+    "scope": "fresh discriminator process high-water; official per-lane process-tree RSS remains authoritative"
+  },
+  "runner_sha256": "a3fbfdabc0f1813304b9c2aa70d4d579e2ed3acc67c50081f7aec7f5626d4d61",
+  "schema": "phase2-p2r0g-target-blind-mini-discriminator-v1",
+  "selected_source_row": {
+    "decoded_columns": ["mlp_id", "mlp_name", "mlp_seed", "weights"],
+    "input_seed_sha256": "d26803f59d2073a64370d9be825b41b73624f52d9fe144d462a451b847d44a95",
+    "mlp_id": 0,
+    "mlp_name_sha256": "fcf69f9077dc010b3d8bb6f49c2dfc3e0ff6c4b8bca2fc91ed135a04ccb4b1ca",
+    "ordinal": 0,
+    "row_in_shard": 0,
+    "selection_rule": "first physical mini row; fixed before prediction",
+    "shard_index": 0,
+    "source_read_wall_s": 0.40656512463465333
+  },
+  "source_sha256": "71a2d14139ed8aeee96968a5848fdd63b9e5646d771e5cf155d7109227787c14",
+  "status": "PASS_TARGET_BLIND_SOURCE_DISCRIMINATOR__ACCURACY_UNOPENED",
+  "target_blind_loader_sha256": "6778a3216377a4a7e588df71a08fb0e182dc7a14d42ab393c2ac80200cccf0e1"
+}

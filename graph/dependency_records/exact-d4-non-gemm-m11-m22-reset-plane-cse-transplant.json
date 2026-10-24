@@ -1,0 +1,20 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1D13",
+    "label": "Exact D4 non-GEMM M11/M22/reset-plane CSE transplant",
+    "kind": "phase2_exact_compute_primitive_design",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The exact static CSE candidate saved 7,643,930,112 FLOPs per call and passed tiny/reset parity, but its sole official D4 full call failed. TERMINAL_CLOSURE fb3bef24 records FAIL_TERMINAL / NO_RETRY.",
+    "terminal_criterion": "Closed for this exact CSE transplant after the one frozen full call. Do not retry or treat its static saving as a deployable result.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_r40_physical_kernel_audit_v1/RESULT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_r40_economic_falsification_v1/ECONOMIC_GAP.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d12_d4_non_gemm_cse_v1/TERMINAL_CLOSURE.json"
+    ],
+    "decomposition_children": []
+  }
+}

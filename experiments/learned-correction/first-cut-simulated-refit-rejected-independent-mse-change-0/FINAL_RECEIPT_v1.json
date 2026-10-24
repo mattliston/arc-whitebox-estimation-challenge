@@ -1,0 +1,282 @@
+{
+  "schema": "trainer_nc_opus_terminal_v1",
+  "utc": "2026-10-11T03:30:06Z",
+  "decision": "NOT_ACCEPTED",
+  "accepted": false,
+  "criterion": "change_pct < -se_pct",
+  "sizing": {
+    "first": "0mNc2_base",
+    "second": "0mNc1_base",
+    "ranks": [
+      7100136,
+      7100137,
+      7100138,
+      7100139,
+      7100140,
+      7100141,
+      7100142,
+      7100143,
+      7100144,
+      7100145,
+      7100146,
+      7100147,
+      7100148,
+      7100149,
+      7100150,
+      7100151
+    ],
+    "count": 16,
+    "mean": 1.494077909050665e-08,
+    "baseline_mean": 1.5078247830465906e-08,
+    "change_pct": -0.9117023509953137,
+    "se_pct": 0.3455137577220325,
+    "better": 10,
+    "all_layers_pct": -0.4139880502656679,
+    "summary": "16 ranks: 1.4941e-08 against 1.5078e-08: -0.912% (se 0.346, better on 10/16; all layers -0.414%)"
+  },
+  "independent_check_selection": {
+    "first": "0mNc2_chk",
+    "second": "0mNc1_chk",
+    "ranks": [
+      7100152,
+      7100153,
+      7100154,
+      7100155,
+      7100156,
+      7100157,
+      7100158,
+      7100159,
+      7100160,
+      7100161,
+      7100162,
+      7100163,
+      7100164,
+      7100165,
+      7100166,
+      7100167
+    ],
+    "count": 16,
+    "mean": 1.61241112309274e-08,
+    "baseline_mean": 1.6162165501516177e-08,
+    "change_pct": -0.2354527961318409,
+    "se_pct": 0.3403561212510006,
+    "better": 10,
+    "all_layers_pct": -0.31765381740289644,
+    "summary": "16 ranks: 1.6124e-08 against 1.6162e-08: -0.235% (se 0.340, better on 10/16; all layers -0.318%)"
+  },
+  "completed_requests": 352,
+  "gradient_requests": 96,
+  "eval_requests": 256,
+  "unique_request_ids": 352,
+  "standing_params": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmI_p2_noAS.pt",
+    "sha256": "f36e034c6196f7693b4e01c453f7e2044aca9b69010bd2f4ab5c2340022411e3"
+  },
+  "standing_head": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmI_p2_hu.json",
+    "sha256": "d5b16582cfec6f84ae3f50d75e3d854c91585da5284a83f3742a45af7e40fa7c"
+  },
+  "trial_params": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmNc_p1.pt",
+    "sha256": "42510c2780e507a7e353d9b121008508314a0dc13f6eead691286c10aaed215b"
+  },
+  "trial_head": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmNc_p1_hu.json",
+    "sha256": "12b046f948473bb8ca0e15604d06475d82803591f7ac3b8895fac3f693ca48d8"
+  },
+  "driver_terminal": {
+    "utc": "2026-10-11T03:27:57Z",
+    "role": "driver",
+    "pid": 26556,
+    "exit_code": 0
+  },
+  "worker_terminal": {
+    "utc": "2026-10-11T03:27:58Z",
+    "role": "worker",
+    "pid": 26404,
+    "exit_code": 0
+  },
+  "guard": {
+    "pid": 26407,
+    "command": [
+      "/usr/bin/env",
+      "TRAINER_CARD=M",
+      "TRAINER_PL=1",
+      "TRAINER_F4C=1",
+      "TRAINER_THREADS=8",
+      "TRAINER_GENERATED_ALLOW_FILE=cert/refit/gen_worker_allow_v5.txt",
+      "TRAINER_TRUTH_PLAN=/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/analyst/a27_fast_truth_20261011T0023Z/plan.json",
+      "TRAINER_TRUTH_PLAN_SHA256=71f455d1d7f5f7239503468cacd5710f4db9d595c7f1be389c8d937e4f64a979",
+      "TRAINER_RELIEF=1",
+      "TRAINER_STAR_ATTACH=0",
+      "TRAINER_BIRTH_ATTACH=0",
+      "TRAINER_RSS_LIMIT=7500000000",
+      "OMP_NUM_THREADS=8",
+      "OPENBLAS_NUM_THREADS=8",
+      "MKL_NUM_THREADS=8",
+      "VECLIB_MAXIMUM_THREADS=8",
+      "/Users/matt/anaconda3/bin/python",
+      "-B",
+      "worker_generated_v4.py",
+      "run_M",
+      "0"
+    ],
+    "initial_swap_bytes": 2488532992.0,
+    "footprint_trigger_bytes": 7500000000,
+    "rss_backstop_bytes": 10000000000,
+    "poll_sleep_s": 0.05,
+    "max_rss_bytes": 8838987776,
+    "max_footprint_bytes": 1864440504,
+    "max_swap_growth_bytes": 0,
+    "completed": true,
+    "error": null,
+    "samples": 104681,
+    "maximum_sample_interval_s": 0.5702571254223585,
+    "minimum_sample_interval_s": 0.06783504039049149,
+    "exit_code": 0,
+    "remaining_rows": [],
+    "elapsed_s": 10405.705878708512,
+    "whole_group_retired": true
+  },
+  "artifacts": {
+    "cert/refit/jmNc_first_point.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmNc_first_point.json",
+      "sha256": "9460962f9a797aa5a3c6dadc0301c1447bf16106520757db6c009b12d707e549"
+    },
+    "cert/refit/jmNc_d1/acceptance.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmNc_d1/acceptance.json",
+      "sha256": "c042d2691e369bdce86f1fa00d5aa838afc31e9c7dc34b855dcc7d59cdf2974f"
+    },
+    "cert/refit/jmNc_d1/solve.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmNc_d1/solve.json",
+      "sha256": "1d1d7399036dd84a7599b385e39ed942c468d52c95d9a89da527f37486edd932"
+    },
+    "cert/refit/jmNc_d1/arms.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmNc_d1/arms.json",
+      "sha256": "5ba9add451a7d2f30f3869c1efbfa1795c088822e0a2076e3d4d412b238e1ce2"
+    },
+    "cert/refit/jmNc_p1.pt": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmNc_p1.pt",
+      "sha256": "42510c2780e507a7e353d9b121008508314a0dc13f6eead691286c10aaed215b"
+    },
+    "cert/refit/jmNc_p1_hu.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmNc_p1_hu.json",
+      "sha256": "12b046f948473bb8ca0e15604d06475d82803591f7ac3b8895fac3f693ca48d8"
+    },
+    "cert/refit/jmI_p2_noAS.pt": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmI_p2_noAS.pt",
+      "sha256": "f36e034c6196f7693b4e01c453f7e2044aca9b69010bd2f4ab5c2340022411e3"
+    },
+    "cert/refit/jmI_p2_hu.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmI_p2_hu.json",
+      "sha256": "d5b16582cfec6f84ae3f50d75e3d854c91585da5284a83f3742a45af7e40fa7c"
+    },
+    "cert/refit/jmix24.sh": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmix24.sh",
+      "sha256": "0b37ecc94b6d55d7609e433e74222dfb3390815d9ffccb1b14731e6b61c3353f"
+    },
+    "worker_generated_v4.py": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/worker_generated_v4.py",
+      "sha256": "308cc7b08d2291e8e817ac722ae3e7184dc9e95bdc3f13990659a5b958e244a1"
+    },
+    "cert/refit/astra_cut_first96_v1.txt": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/astra_cut_first96_v1.txt",
+      "sha256": "666884abbc91276d50d9253b4311eeefbf2abbea862d67d81b4b12b2ed58bb02"
+    },
+    "cert/refit/astra_cut_first96_v1.selection.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/astra_cut_first96_v1.selection.json",
+      "sha256": "250753620c02cb6fad2fed02185e274eede0d0e71b587c5774cdc93e33076de4"
+    },
+    "cert/refit/jmN_request_common_v1.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/refit/jmN_request_common_v1.json",
+      "sha256": "33a8821897c021396517c211e3f9d078416489855d540da5cac896c7c0f54480"
+    },
+    "cert/export_firstpoint_v1.py": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/export_firstpoint_v1.py",
+      "sha256": "ac0242e23f7d1b7f61dd8b4f98c4bb9d9983bdde6ac07d07570e1d99a8e7681f"
+    },
+    "edband_six_driver_v6.py": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/edband_six_driver_v6.py",
+      "sha256": "8e3dc70a9ff66de70f59a3687fbd2da65b908ea20bf077f67d3967357c93caf9"
+    },
+    "edband_qualification_v6.py": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/edband_qualification_v6.py",
+      "sha256": "91b06e8cdc7701bfb0b587eb305f60fd16c2370b74144e30d2ae73e262829ba0"
+    },
+    "worker_edband_v2.py": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/worker_edband_v2.py",
+      "sha256": "f1dae5b23057a08871e9691fbb42e0cbe7b0565e1d970c6eea273ed66618366f"
+    },
+    "export_edband_s46_v2.py": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/export_edband_s46_v2.py",
+      "sha256": "6cb291bc3e690178386e68f9b3cd4fa22937e1b77a226fd965e8be0337ed8978"
+    },
+    "cert/edband_driver_source_freeze_v1/RECEIPT.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/edband_driver_source_freeze_v1/RECEIPT.json",
+      "sha256": "124e59663698a66f017da82c2575f1a8aa4d307be33cb14c946781296a71467f"
+    },
+    "cert/edband_driver_source_freeze_v1/README.txt": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/edband_driver_source_freeze_v1/README.txt",
+      "sha256": "7238bf7e8d05b6f9d3a5976272dda067539224ab45431d2e93dbd23c14a495d0"
+    },
+    "cert/cutsim_s46_20261010T232518Z/CERTIFICATE_V11_SCOPED_v1.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cutsim_s46_20261010T232518Z/CERTIFICATE_V11_SCOPED_v1.json",
+      "sha256": "6e0c398715fee6f6f5baa9d96ea8b5ccb53dd7a32e52261c5330a37fd5f406b5"
+    },
+    "cert/edband_used651_parked_v1.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/edband_used651_parked_v1.json",
+      "sha256": "9738c11e66bc1c4d3b14c2459d50f96088a20ae76edd652fe1d6656bc01ad45e"
+    },
+    "cert/cut_refit_Nc_launch_v1/worker_handle.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/worker_handle.json",
+      "sha256": "2b20df94c7111587ec65c7a39c10c747a5b56ff4a53a5b0b7233e9c717289cd6"
+    },
+    "cert/cut_refit_Nc_launch_v1/driver_handle.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/driver_handle.json",
+      "sha256": "dea596058535f4c64b9c6e78026ef86c7b44519805e4b3c2a364d0e4e1c3b58b"
+    },
+    "cert/cut_refit_Nc_launch_v1/prelaunch.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/prelaunch.json",
+      "sha256": "489608b42db28eec9764396bd000ad1033587dd4e3f56a531ecea84133e459dc"
+    },
+    "cert/cut_refit_Nc_launch_v1/worker_terminal.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/worker_terminal.json",
+      "sha256": "70b0adb6bc2a7d14b1c495bcf262174fe0955d3c4549f71e18e0e0c0cbeeab69"
+    },
+    "cert/cut_refit_Nc_launch_v1/driver_terminal.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/driver_terminal.json",
+      "sha256": "09886efa0d2afe9b78b44e13a3df138404c232a66d7ea9b233e80d42b49a8a97"
+    },
+    "cert/cut_refit_Nc_launch_v1/worker_guard.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/worker_guard.json",
+      "sha256": "d3d89874f8a4b8be9582ef681fbfaba6e44c8e5f4205b8d5b1217086992e305a"
+    },
+    "cert/cut_refit_Nc_launch_v1/worker.log": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/worker.log",
+      "sha256": "1998d32ec0f6ac9339f31051587409c05cd971c951881862c758c5f4e914ab30"
+    },
+    "cert/cut_refit_Nc_launch_v1/driver.log": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/driver.log",
+      "sha256": "4ecac79184d2aac4b88ba0510df8301104388eac749fda3e79d21ea0cebef4be"
+    },
+    "cert/cut_refit_Nc_launch_v1/gradient96_milestone_v1.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/gradient96_milestone_v1.json",
+      "sha256": "de20202cf3b70857225053c163957e7c389ba15c1b1278e3840fcd26eec8a023"
+    },
+    "cert/cut_refit_Nc_launch_v1/point_milestone_v1.json": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/cert/cut_refit_Nc_launch_v1/point_milestone_v1.json",
+      "sha256": "99b40958ba2a98fb45c4a1aa78cb76b9828544373a8610e79bb0814ff7106a8c"
+    },
+    "run_M/STOP": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/trainer/run_M/STOP",
+      "sha256": "962827dd110123f12081f6f42b0ccdc0ee66753efff208666ebbf6e0513087e3"
+    }
+  },
+  "export_performed": false,
+  "untouched_judging_performed": false,
+  "native_work_performed": false,
+  "next_experiment_launched": false,
+  "final168_199_sealed": true,
+  "next_trainer_branch": "After Opus takeover and lead authorization: qualify EDBAND zero-offset and fixed-nonzero routing/native parity from standing S46; use prepared one-point24-gradient driver on fresh A30 sizing/check, never promote or tune Nc from this failed check.",
+  "background_a30": "Root owns live producer; not stopped or altered by trainer."
+}

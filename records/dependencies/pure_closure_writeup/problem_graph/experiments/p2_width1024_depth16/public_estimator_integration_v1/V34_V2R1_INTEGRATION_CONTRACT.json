@@ -1,0 +1,210 @@
+{
+  "schema": "phase2-v34-v2r1-one-file-integration-contract-v1",
+  "status": "STATIC_SCAFFOLD_READY__MODEL_CAPTURE_AND_FULL_PANEL_RELEASE_ABSENT__FAIL_CLOSED",
+  "pinned_sources": {
+    "accepted_one_file_host": {
+      "path": "../p2r0c1d11_cp3_arena_depth4_full_estimator_v1/estimator.py",
+      "sha256": "6aedce54f2006efcb9d87eeb41aae6fd785d7344534634371c48a7979158342e"
+    },
+    "literal_provider_source": {
+      "path": "../public_d11_util_halving_v1/estimator_cap.py",
+      "sha256": "ace56bf60b267666e4f2a6d8ae772a089f234ebc725f34a4798b2f9e8284cbc2"
+    },
+    "provider_algebra": {
+      "path": "../public_v34_physical_state_response_sentinel_v2/provider_fields.py",
+      "sha256": "17545cc2741838674ba87a870905ccf55902841cd121c47e96fb1651d3dbd3c6"
+    },
+    "v2_design_freeze": {
+      "path": "../public_v34_physical_state_response_sentinel_v2/DESIGN_FREEZE.json",
+      "sha256": "5632879f9a741ac72d701af182c98aa607060d8ef58dd2fa3c80f7e089d033d5"
+    },
+    "v2r1_panel_binding": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/V2R1_PANEL_BINDING.json",
+      "sha256": "16c4eb19b095e52ea852319a2fb78e72f8431c5addd3b3025a29f342ddbbc193"
+    },
+    "v2r1_final_static_audit_binding": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/V2R1_AUDIT_BINDING_R1.json",
+      "sha256": "b4fe1dcefa89e43f756c5f4b77f435c4a47bef1f578fc925b184096faf03c3b7"
+    },
+    "v2r1_direct_final_static_audit": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/INDEPENDENT_DIRECT_DIAGRAM_FINAL_STATIC_AUDIT.json",
+      "sha256": "7ee0d55e5e115baee186e2ab381a2780aeee409dee33ce84a0fcdce9831d0a5f"
+    },
+    "block_statistics_reference": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/block_statistics.py",
+      "sha256": "fbf4fa55725aeaf9f3619884acb374891af3e3206094f8d3b028162a0604dc8a"
+    },
+    "block_statistics_verifier": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/verify_block_statistics.py",
+      "sha256": "e8dcb7206b7b670bec2171d90eb9415728a93f7e8cfe693dbdbe9c762d88d572"
+    },
+    "block_statistics_static_receipt": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/BLOCK_STATISTICS_STATIC_VERIFICATION.json",
+      "sha256": "55256bec00497cc0c7940c8db4a4d092d621db5b97c389b4962cf2e41142a2d7"
+    }
+  },
+  "superseded_inputs": {
+    "status": "CLOSED_SEED_DOMAIN_LAW__RAW_BLOCK_ALGEBRA_ONLY",
+    "reason": "The seed preimage omitted raw_weights_sha256 and the A/B stream tag; these bytes may not enter a model, capture, MC, integration, or release binding.",
+    "reusable_scope": "raw block summary algebra only",
+    "future_release_binding_allowed": false,
+    "mc_block_reference_sha256": "219bd7cd5b0b2670d2244a68e6e6a789879a7399a15278bf01715b304520d6e0",
+    "mc_block_reference_verifier_sha256": "918af340dadec7b5175001dc55493c7bdf6f8d253c651b2256a1480107575dad",
+    "live_old_source_bytes_preserved": false,
+    "mc_block_reference_static_receipt": {
+      "path": "../public_v34_physical_state_response_sentinel_v2r1/MC_BLOCK_REFERENCE_STATIC_VERIFICATION.json",
+      "sha256": "b10b8fb10335a17a89200eacf9489a06d99d2e29edf1a802bdb42c78e2d833c5"
+    }
+  },
+  "architecture": {
+    "input_field_order": [
+      "native20",
+      "total_k4_over_sigma4",
+      "uV",
+      "u3",
+      "u4"
+    ],
+    "input_width": 24,
+    "hidden_width": 32,
+    "output_order": [
+      "dV",
+      "d3",
+      "d4"
+    ],
+    "output_width": 3,
+    "activation": "ReLU",
+    "layers": "Linear(24,32)-ReLU-Linear(32,3)",
+    "trainable_float32_values": 899,
+    "normalizer_float32_values": 51,
+    "shipping_float32_values": 950,
+    "shipping_uncompressed_bytes": 3800
+  },
+  "payload": {
+    "tensor_order": [
+      "input_center",
+      "input_scale",
+      "label_rms",
+      "trunk_weight",
+      "trunk_bias",
+      "head_weight",
+      "head_bias"
+    ],
+    "tensor_shapes": {
+      "input_center": [24],
+      "input_scale": [24],
+      "label_rms": [3],
+      "trunk_weight": [32, 24],
+      "trunk_bias": [32],
+      "head_weight": [3, 32],
+      "head_bias": [3]
+    },
+    "wire": "ordered finite C-contiguous float32 -> little-endian bytes -> zlib-9 -> Base85",
+    "payload_and_tensor_hashes_required": true,
+    "model_export_receipt_required": true,
+    "compression_size_unknown_until_model_freeze": true
+  },
+  "capture_hooks": {
+    "total_k4": "assembled pre_k4 (or final_k4) already live, divided by sigma^4",
+    "variance_residual_e2": "raw2_univariate minus diag(M11_pair) after _four_pair_edgeworth and before the first _copy_with_diagonal overwrite",
+    "uV": "existing transpose(weight2) applied to the prior-layer e2, divided by target sigma^2; layer 1 is exact zero and elides the action",
+    "u3": "diag(cp_pre_k21) immediately after _cp_read, with _cp_k3 at the final diagonal-only layer, divided by sigma^3",
+    "u4": "cp4_pre_provider_planes[0] immediately after _cp4_read_planes, with _cp4_read_diagonal at the final layer, divided by sigma^4",
+    "forbidden": [
+      "recompute CP3",
+      "recompute CP4",
+      "form an additional squared-weight matrix",
+      "retain an all-layer capture tape in production",
+      "read targets, network identity, role rank, environment flags, sibling files, or caches"
+    ],
+    "identical_host_and_literal_ast_helpers": {
+      "_copy_with_diagonal": "2764cf6d4f52ad148aa7ea0531fd10da9b57f6ffd1bd80d9913d361ad312535f",
+      "_cp_read": "feb4fa13863234a0dde0c494de5ad41eefd00d42badb82bcd7ccf9630cc0bb92",
+      "_cp_k3": "db155d868e974ce5dbb6f8c04522b41f6dbd7b711bd726ad82bc61cf6bbdc24a",
+      "_cp4_read_planes": "05af86306e7ddd78daddc07f9ddebac6eaee3b808965c62b3dae2286a7f8739c",
+      "_cp4_read_diagonal": "c17371afd46b2f199b40c94ecd208fe182fc9ef86ad232dd26570b89243d8e83",
+      "_assemble_quartic_provider": "ab494a5a44ddd64a36058a30536714dbd21357824d23dffc529b8a9eab6b25ae",
+      "_full_relu_reset": "546fb46f16fb107a4076889c442c68daad7bbc7902063c61ed398804e8592136",
+      "predict_with_native_tape": "46a2fc6fa419589cf645ec0c68d0c4b0fb0117c73581fab05b9bc0c0e107d03b"
+    }
+  },
+  "source_zero_contract": {
+    "zero_point": "set dV,d3,d4 to exact float32 zero after frozen head inference and before all physical-source construction",
+    "response_initial_state": "exact float32 zero",
+    "required_identity": "source-zero output array bytes equal the accepted one-file host output array bytes on every parity fixture",
+    "receipt_required_before_build": true,
+    "source_on_and_source_zero_use_identical_parent_model_provider_and_response_bytes": true
+  },
+  "incremental_resource_shell_width1024_depth16": {
+    "variance_provider_w2_matvecs": 14,
+    "fused_response_w_matvecs": 14,
+    "exact_dense_action_flops": 58691584,
+    "head_affine_operations": 26542080,
+    "relu_comparisons": 491520,
+    "scalar_physical_response_reserve_operations": 4915200,
+    "total_arithmetic_upper": 90148864,
+    "total_arithmetic_gemm_equivalents_upper": 0.04199934355153884,
+    "total_operations_including_comparisons": 90640384,
+    "explicit_streaming_workspace_upper_bytes": 262144,
+    "decoded_payload_bytes": 3800,
+    "measurement_order_global_ranks": [35, 279, 35],
+    "flop_limit": 2199023255552,
+    "rss_limit_bytes_strictly_below": 8589934592,
+    "wall_limit_seconds_strictly_below": 120.0,
+    "residual_wall_limit_seconds_strictly_below": 0.4,
+    "measured_release_bytes_required": true
+  },
+  "deterministic_one_file_build": {
+    "assembler": "prepare_v34_v2r1_overlay.py",
+    "required_release_schema": "phase2-v34-v2r1-full-panel-integration-release-v1",
+    "required_release_status": "PASS_ALL_FOUR_AND_AGGREGATE__STATIC_ONE_FILE_BUILD_ALLOWED",
+    "required_runtime_overlay_schema": "phase2-v34-v2r1-capture-runtime-overlay-v1",
+    "payload_insertion_anchor": "COHERENCE_FLOOR = 1.0e-4\n",
+    "exact_anchor_count": 1,
+    "outputs": [
+      "estimator.py",
+      "V34_V2R1_SOURCE_OVERLAY.json",
+      "V34_V2R1_OVERLAY_BUILD_RECEIPT.json"
+    ],
+    "same_bytes_chain": [
+      "model export and NPZ tensor hashes",
+      "runtime overlay and source-zero receipt hashes",
+      "one-file estimator source SHA256",
+      "stage and whest validation SHA256",
+      "resource 35/279/35 SHA256",
+      "observer_fit 688 score SHA256",
+      "observer_selection 88 score SHA256",
+      "release receipt SHA256",
+      "package estimator member SHA256"
+    ]
+  },
+  "closed_gates": {
+    "model_payload_present": false,
+    "capture_runtime_present": false,
+    "source_zero_runtime_receipt_present": false,
+    "full_four_row_and_aggregate_release_present": false,
+    "candidate_staged": false,
+    "candidate_whest_validated": false,
+    "resource_gate_run": false,
+    "observer_fit_688_scored": false,
+    "observer_selection_88_scored": false,
+    "release_passed": false,
+    "package_created": false,
+    "board_submitted": false
+  },
+  "authority": {
+    "static_self_test": true,
+    "payload_or_runtime_build_without_full_panel_release": false,
+    "target": false,
+    "state_labels": false,
+    "capture": false,
+    "training": false,
+    "held_execution": false,
+    "staging": false,
+    "whest_candidate_validation": false,
+    "resource": false,
+    "public_score": false,
+    "package": false,
+    "network": false,
+    "submission": false
+  }
+}

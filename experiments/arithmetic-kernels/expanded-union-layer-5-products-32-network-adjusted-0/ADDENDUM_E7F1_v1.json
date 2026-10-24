@@ -1,0 +1,98 @@
+{
+  "status": "FROZEN_SOURCE_AND_EXISTING_SLOW_RUN_AUDIT_PASS_NORMAL_GATE_PENDING",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/release_margin_cpair_v2/candidate_union_margin_cpair_HELD_v2.py",
+  "sha256": "e7f1c3a0e2b06b9837850747f7b47a247bdf828bc447d18e2555859b122b66e4",
+  "parent_proof": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_bill_v1/release_proof77_v1/EXACT_LAYOUT_AND_BILL_PROOF_v1.json",
+  "source_chain": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/release_layout_reuse_v3/candidate_union_layout_reuse_HELD_v3.py",
+      "sha256": "77ff48f5c9f90ff53726c297ab7678335ddba8d493fa4cb78005ba17f8322a54"
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_bill_v1/exact_layout_margin_v1/candidate_union_margin_l5_42_HELD_v1.py",
+      "sha256": "00ad5793528baf25164aab4546757f651bf28b05dfb1ed0a89d6e6c334f189b5"
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/release_margin_cpair_v2/candidate_union_margin_cpair_HELD_v2.py",
+      "sha256": "e7f1c3a0e2b06b9837850747f7b47a247bdf828bc447d18e2555859b122b66e4"
+    }
+  ],
+  "changes_since77ff": [
+    {
+      "fragment": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_bill_v1/exact_layout_margin_v1/fragment_l5_42_v1.py",
+      "change": "Exact contiguous L5P20(9,9,42) storage for matching actual leaf shape only; same selected product/body/record/L/P/arithmetic/tariff/debit.",
+      "peer": "Accuracy lane PASS on combined fragment3629e84d, of which this is the L5-only subset.",
+      "geometry_evidence": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_bill_v1/exact_layout_margin_v1/PUBLIC32_GEOMETRY_v1.json",
+      "occurrences_public32": 6,
+      "extra_numeric_owners": 0,
+      "arena_growth_bytes": 0
+    },
+    {
+      "fragment": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_accuracy_v1/runtime_cpair_v1/fragment_v1.py",
+      "fragment_sha256": "047c0df88609bab550230daf09fc01c91f9617fff38ba50c98dafa50ece79c7c",
+      "change": "Prediction C-pair view construction transposes full G then slices; same offsets/strides/terminal operands and hold lifetime, one fewer request per construction. Setup delegates previous exact helper.",
+      "peer": "Bill lane source PASS; full slow35/200 endpoint parity PASS."
+    }
+  ],
+  "slow13_run": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/release_e7f1_slow13_v1",
+    "rows": [
+      {
+        "rank": 35,
+        "byte_equal_14ce": true,
+        "prediction_sha256": "f9b6a1a34009285bdc6297b803516507017d2b309534a06cc69b0fb31a8cf0eb",
+        "flops": 238191932023,
+        "flops_14ce": 238191932023,
+        "bill_delta_pct": 0.0,
+        "wall_s": 37.70289354212582,
+        "requests": 44314,
+        "residual_instructions": 2367600144,
+        "fast_rescue_control": {
+          "layer": null,
+          "residual": null,
+          "projected": null
+        }
+      },
+      {
+        "rank": 200,
+        "byte_equal_14ce": true,
+        "prediction_sha256": "4cf31095e7ccc6a07af7980c50330e105a2957984d4a2cedc588f8a83415186b",
+        "flops": 256104778135,
+        "flops_14ce": 256100707575,
+        "bill_delta_pct": 0.0015894372329405826,
+        "wall_s": 35.96530779078603,
+        "requests": 43365,
+        "residual_instructions": 2307328796,
+        "fast_rescue_control": {
+          "layer": null,
+          "residual": null,
+          "projected": null
+        }
+      }
+    ],
+    "guard": {
+      "completed": true,
+      "whole_group_retired": true,
+      "max_rss_bytes": 7044136960,
+      "min_free_pct": 57,
+      "swap_growth_bytes": 0
+    },
+    "root_reported_platform_projection": {
+      "wall_max_s": 116.751,
+      "residual_median_s": 0.341813,
+      "residual_max_s": 0.385547,
+      "status": "PASS"
+    }
+  },
+  "setup_slow13": {
+    "manifest": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct18_lead_v1/setup_margin_cpair_slow13_v2/manifest.json",
+    "requests": 17043,
+    "bound_s": 4.989,
+    "failed": false
+  },
+  "remaining_root_gates": [
+    "Final normal run",
+    "Stage A, prefire, five starts, sealed hashes/confirmation, quota and fire_once"
+  ],
+  "score_scope": "Native32 physics reference14ce projects1.4417177802437146e-9; this addendum adds no new accuracy or bill gain claim and is not submission authority."
+}

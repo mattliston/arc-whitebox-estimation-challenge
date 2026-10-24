@@ -1,0 +1,43 @@
+{
+  "activate": [],
+  "add_edges": [],
+  "add_nodes": [],
+  "base_graph_sha256": "015b063f7851d043bfdef2b56455dc082b92898d905a43d536b69ab5a4b576fa",
+  "deactivate": [
+    "P2R0C1D2"
+  ],
+  "parent_update": {
+    "id": "P2R0C1D",
+    "reason": "This exact recurrent-Hermite spelling failed, but materially different architecture replacement at the score floor remains open.",
+    "status": "open"
+  },
+  "root_rebase_required": true,
+  "run_id": "cp1536_h128_p4_recurrent_discriminator_epoch4_v1",
+  "schema": "problem-graph-delta-proposal-v1",
+  "update_nodes": [
+    {
+      "evidence": [
+        {
+          "claim": "The exact H128/P4/C256 recurrent-Hermite observer achieved protected final raw MSE 9.421320969930728e-7 versus host 3.7456453025317232e-6 after four fixed epochs at 209,904,700,250 metered FLOPs; the raw<1e-7 gate failed by 9.4213x.",
+          "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/RESULTS.json",
+          "run_id": "cp1536_h128_p4_recurrent_discriminator_epoch4_v1",
+          "scope": "observer_fit-only protected fold-0 discriminator",
+          "sha256": "ccc1335cb65c3c66ed08c217d0c522b0a3ec26b8a93f2d5850603b9ca1dd29ca"
+        },
+        {
+          "claim": "Independent artifact arithmetic and access-boundary verification passes.",
+          "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp1536_h128_p4_recurrent_discriminator_v1/verification.json",
+          "run_id": "cp1536_h128_p4_recurrent_discriminator_epoch4_v1",
+          "scope": "artifact verification"
+        }
+      ],
+      "id": "P2R0C1D2",
+      "status": "closed_measured",
+      "status_basis": {
+        "as_of": "2026-08-24",
+        "reason": "The registered protected raw gate failed; train-diagnostic and protected errors are close, so the miss is not primarily a held-generalization defect."
+      },
+      "summary": "The actual recurrent-Hermite model was trained, remained finite, and reduced CP1536 host raw MSE by 74.85%, but protected raw MSE was 9.421320969930728e-7 (9.4213x above gate). The 32-row train diagnostic was 8.932946971969713e-7, only 5.47% below held, localizing the shortfall to fit/optimization rather than generalization. This exact four-epoch spelling is closed; the broader architecture is optimization-inconclusive."
+    }
+  ]
+}

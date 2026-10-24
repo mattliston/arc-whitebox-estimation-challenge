@@ -1,0 +1,11 @@
+
+
+# BEGIN [opus-releaseidea] SWAP v1 DROP (append LAST, after fragment_smtable_cap_v2; dictionary-only): the 12 table167 young-read
+# Smirnov plans whose net FLOP saving vs the incumbent read is ~0 (real-compute bench, opus_smtable_v1/bench_existing_v1.jsonl:
+# saving per extra instruction < 3.1 FLOP/kinstr; sum over one call each +1.5 MFLOP for 149 G extra instructions)
+# fall back to the incumbent read, paying for the wall of the wall-capped grid table appended before this.
+for _sw_key in ((576, 5248, 736, 384), (576, 5312, 736, 384), (640, 7552, 736, 384), (640, 9088, 736, 384), (704, 6144, 768, 384), (704, 7552, 768, 384), (704, 8640, 768, 384), (704, 10240, 768, 384), (704, 10304, 768, 384), (704, 10496, 768, 384), (896, 8064, 896, 0), (928, 8128, 896, 0)):
+    assert _sw_key in _ASTRA_SM40_PLANS, _sw_key
+    del _ASTRA_SM40_PLANS[_sw_key]
+del _sw_key
+# END [opus-releaseidea] SWAP v1 DROP

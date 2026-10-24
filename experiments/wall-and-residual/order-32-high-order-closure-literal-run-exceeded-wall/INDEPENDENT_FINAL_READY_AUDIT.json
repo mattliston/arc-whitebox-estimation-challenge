@@ -1,0 +1,207 @@
+{
+  "schema": "fb-ec4-q24-board-promotion-independent-final-ready-audit-v1",
+  "status": "PASS_INDEPENDENT_Q24_BOARD_PROMOTION_READY__PREPARED_NOT_ATTEMPTED",
+  "audited_at_utc": "2026-08-24T10:34:20Z",
+  "auditor": {
+    "task": "/root/closure_q24_board_prep",
+    "relationship": "independent read-only replay after another agent populated the fail-closed scaffold",
+    "promotion_manifest_edits": 0,
+    "estimator_edits": 0,
+    "package_edits": 0,
+    "graph_edits": 0,
+    "submission_actions": 0
+  },
+  "ready_namespace_bindings": {
+    "promotion_manifest": {
+      "path": "PROMOTION_MANIFEST.json",
+      "bytes": 10223,
+      "sha256": "850be6d220acd8ea07ebda5a2713001f0ff4cc38c363a362bdd6bef9d7ff58c9"
+    },
+    "ready_verifier": {
+      "path": "verify_board_promotion_scaffold.py",
+      "sha256": "b601403dca46691fd9f1f80767a1c17dd16fb6516f74718924287d603ebf0f47"
+    },
+    "command_template": {
+      "path": "SUBMISSION_COMMAND_TEMPLATE.json",
+      "sha256": "43d37bffff3d0da046e3d8f818e3e55df70454f8fb637ca5099ae5416dbdb7ac"
+    },
+    "first_final_ready_audit": {
+      "path": "FINAL_READY_AUDIT.json",
+      "sha256": "c7cbef20d0e8e7a5849be0748e6fd464cc4a98a2382601437220b5c1c5336458"
+    },
+    "phase2_weight_law_audit": {
+      "path": "PHASE2_WEIGHT_GENERATION_LAW_AUDIT.json",
+      "sha256": "dac91b63d4f71500917335dfaea8f1fc0641e618dbc224e3ac26fed906e65e03"
+    }
+  },
+  "fixed_q24_chain": {
+    "estimator": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/estimator.py",
+      "bytes": 68115,
+      "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52"
+    },
+    "source_manifest": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/SOURCE_MANIFEST.json",
+      "sha256": "1627632a560e549a7df556dda07d8c9b8429815d43dbc47ff86735b856312e39"
+    },
+    "source_and_meter_audit": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/INDEPENDENT_SOURCE_AND_METER_AUDIT_Q24.json",
+      "sha256": "716bfc2afedff263f633f694009325233523e7d29ecf62521db91d0d844c52ef"
+    },
+    "literal_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_q24_full_v1_b38cd865_n1_s8_seed20260824/receipt.json",
+      "sha256": "d69fd338972386af2c45f120d2983d5036a9a52ae57845a01977658e4c21fd11"
+    },
+    "seed20260824_fullwidth_comparator": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/runs/fullshape_seed20260824_v4_vs_q24/receipt.json",
+      "sha256": "70c8bbc189c9dc2ed900d286264fc843e2782bf82243a9117cceb57433499ba7"
+    },
+    "seed20260825_20260826_fullwidth_panel": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/runs/additional_fullwidth_seeds20260825_20260826/receipt.json",
+      "sha256": "777dfdf5794339d1de9cdd3fe870201030c1bf5f70042ddd823d9d8c888dd62f"
+    },
+    "independent_fullwidth_comparator_audit": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/INDEPENDENT_FULLWIDTH_COMPARATOR_AUDIT_Q24.json",
+      "sha256": "46e157583819efd0216ae6a416367326f481686beeb1302ad26acf8d3a333e5e"
+    },
+    "freeze_receipt": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/FREEZE_RECEIPT_Q24.json",
+      "sha256": "565093c418a656510cc1ac15b6d93cd50b104a122bf2d71586c41e32f693026d"
+    },
+    "package_manifest": {
+      "path": "../fullbudget_k21_k4_closure_q24_v1/PACKAGE_MANIFEST.json",
+      "sha256": "674c0bcd09dffa76714d928ff96e95d253a353694a6e5feb5666bc370f2f85a6"
+    }
+  },
+  "archive": {
+    "path_from_repo_root": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_v1/submissions/fb-ec4-full-v4-q24-v1-b38cd865.tar.gz",
+    "bytes": 16850,
+    "sha256": "53962192f1d8eb07ba29e37c9d008a6ce1140b374e244fd3ae4c78c6f7b4a4b6",
+    "members_exact_in_order": [
+      {
+        "name": "estimator.py",
+        "type": "regular",
+        "bytes": 68115,
+        "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52",
+        "byte_equal_to_frozen_source": true
+      },
+      {
+        "name": "manifest.json",
+        "type": "regular",
+        "bytes": 528,
+        "sha256": "c1beabc8e496012fe373142d1a963638f76b3abc299fbaeb187b9098af1f9292"
+      }
+    ],
+    "embedded_manifest_replay": {
+      "schema_version": "1.0",
+      "api_version": "2.0",
+      "entrypoint": {
+        "module": "estimator",
+        "class": "Estimator"
+      },
+      "files_exact": [
+        {
+          "name": "estimator.py",
+          "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52"
+        }
+      ],
+      "whestbench_version": "0.16.0",
+      "flopscope_version": "0.12.0",
+      "numpy_version": "2.4.6",
+      "python_min_version": "3.11"
+    }
+  },
+  "independent_replays": {
+    "require_ready": {
+      "command": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python -B pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_v1_board_promotion_v1/verify_board_promotion_scaffold.py --require-ready",
+      "exit_code": 0,
+      "status": "PASS_Q24_BOARD_PROMOTION_READY",
+      "all_reported_checks_true": true,
+      "attempt_state": "PREPARED_NOT_ATTEMPTED"
+    },
+    "meter_receipt_verifier": {
+      "exit_code": 0,
+      "status": "PASS_METER_RECEIPT_VERIFICATION"
+    },
+    "pinned_whest_validate_package": {
+      "exit_code": 0,
+      "ok": true,
+      "issues": [],
+      "whestbench_version": "0.16.0"
+    },
+    "pinned_whest_source_smoke": {
+      "exit_code": 0,
+      "ok": true,
+      "output_shape": [2, 4],
+      "whestbench_version": "0.16.0"
+    },
+    "independently_opened_tar_member_parity": "PASS_INDEPENDENT_TAR_MEMBER_SOURCE_AND_EMBEDDED_MANIFEST_PARITY",
+    "all_fixed_chain_hashes_recomputed": true
+  },
+  "scientific_and_resource_gates": {
+    "literal_flops": 2131249329109,
+    "phase2_budget_flops": 2199023255552,
+    "budget_fraction": 0.9691799864908717,
+    "budget_percent": 96.91799864908717,
+    "literal_operation_calls": 6878,
+    "literal_backend_s": 28.354737606830895,
+    "literal_wall_s": 29.222194833680987,
+    "literal_residual_s": 0.29449143446981907,
+    "residual_margin_to_robust_0p30_s": 0.005508565530180917,
+    "literal_descendant_peak_rss_bytes": 4507058176,
+    "literal_failed_mlps": 0,
+    "literal_output_finite_float32_16_by_1024": true,
+    "official_law_fullwidth_seeds": [20260824, 20260825, 20260826],
+    "fullwidth_gate_pass_count": 3,
+    "fullwidth_panel_count": 3,
+    "maximum_final_q24_v4_disagreement_mse": 9.447567425721169e-17,
+    "registered_disagreement_mse_limit": 1e-10,
+    "raw_mse_or_accuracy": "UNSCORED",
+    "general_q24_q32_equivalence": "NOT_CLAIMED",
+    "board_wall_completion": "UNPROVED_UNTIL_ATTEMPT"
+  },
+  "primary_board_law": {
+    "configured_mlps": 100,
+    "required_completed_mlps": 100,
+    "required_failed_mlps": 0,
+    "metric": "observed_unrounded_board_aggregate_raw_final_layer_mse",
+    "operator": "<",
+    "threshold": 1e-8,
+    "partial_rows_or_secondary_scores_can_rescue": false,
+    "same_archive_retry": false
+  },
+  "exact_root_submission_argv": [
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/whest",
+    "submit",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_v1/submissions/fb-ec4-full-v4-q24-v1-b38cd865.tar.gz",
+    "--challenge",
+    "arc-white-box-estimation-challenge-2026",
+    "--description",
+    "fb-ec4-full-v4-q24-b38cd865 one-attempt wall-safe rich-closure validation v1",
+    "--watch",
+    "--watch-timeout",
+    "3600",
+    "--format",
+    "json"
+  ],
+  "authority": {
+    "prepared": true,
+    "submission_attempts_used_by_this_activation": 0,
+    "submitted": false,
+    "execution_owner": "root only",
+    "retry": false,
+    "fallback": false
+  },
+  "negative_controls": {
+    "dataset_rows_or_weight_values_opened": 0,
+    "target_values_opened": 0,
+    "scores_computed": 0,
+    "network_accesses": 0,
+    "credentials_accesses": 0,
+    "submission_attempts": 0,
+    "estimator_mutations": 0,
+    "package_mutations": 0,
+    "promotion_manifest_mutations_by_this_auditor": 0,
+    "problem_graph_mutations": 0
+  }
+}

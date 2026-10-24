@@ -1,0 +1,183 @@
+{
+  "schema": "phase2-residual-observer-v3-static-meter-estimate-v1",
+  "status": "PASS_STATIC_AND_REAL_LAUNCH_CAPACITY_ZEROHEAD_METERS__NONZERO_PARITY_HOLD",
+  "budget": {
+    "total_flops": 2199023255552,
+    "score_floor_condition": "10 * estimator_flops <= 2^41",
+    "largest_integer_at_0p1_floor": 219902325555,
+    "memory_limit_bytes": 8589934592,
+    "residual_limit_seconds": 0.4,
+    "required_output_shape": [16, 1024]
+  },
+  "bound_authority": {
+    "v1_design_sha256": "075007ca71b890f339ff6cdd280d26f67693ac9471538e58e73a9a960d56ecb5",
+    "v1_static_meter_sha256": "52c0a9d64fdfa8a85c0c379fbb2e6e1e8aa2fa7f784eec1f09511aeb5eaf5de8",
+    "v1_static_verifier_sha256": "094a929a7a7b077a2046a7b0cb355bea6b80be251f63a4ae53bc0d2bdc2c112e",
+    "v2_design_sha256": "cb3285ae93d8a669cef160eb8b861c4bffdfafb0d8536ede628cfc14fb299866",
+    "v2_static_meter_sha256": "c8073ed814ea31ce16d5c6b44f34ef947e442f8fa861d71ce5e620a336a90273",
+    "v2_static_verifier_sha256": "a71de3a49be74cf819bc554106f8576320934bd9a26ddf935e2030767d15c6b9",
+    "v2_manifest_sha256": "31c4e57f5c42ba3ce8bdfd5bba26ae9c961742f3b014e52a71b16bf7d66fe862",
+    "v2_independent_audit_sha256": "3af3d720da7255956db486b7b680825a9a1555ec20280d098e6b89e2b60f20e0",
+    "budget_reallocation_design_sha256": "55454d7564ec733f8784b4ec1f0aa908ff26d68a6cf6a6e623c16a252a872efb",
+    "budget_reallocation_audit_sha256": "d8457335fe07b9ead0efeaac749f61a6b117e88df73ed6f9b6b0d856dfd69dbd",
+    "budget_reallocation_verifier_sha256": "54c5a132190e338634a7084f9f835940c2fa22c0ef00962c1f8498301ae3759b",
+    "common_driver_meter_summary_sha256": "07b7ea981656bcba5d4529d7e07c565b3af8625420c502abe7ff9e733f6b2c62",
+    "launch_common_driver_meter_summary_sha256": "180225c8ea7d1568bd6a7cb3faec1dcf3243f86e008d132a3442fb55963602b8",
+    "launch_zerohead_parity_sha256": "c350fe514cfa1c4b433ad3f318e2f28a743e184d4a2c575c86c521e270cc0b72"
+  },
+  "formula": {
+    "constants": {"n": 1024, "d": 16, "transport_layers": 15, "local_features": 20, "powers": 4, "nonlinear_cost": 64},
+    "cell_input": "I = local_features + powers + hidden_channels",
+    "parameters": "C*I+C + C*C+C + 2*(H*C+H) + C+1 + 8",
+    "rows": {
+      "edge_construction": "d*9*n*n",
+      "message_transport": "transport_layers*n*H*(2*n-1)",
+      "message_rms": "transport_layers*P*(3*n*(H/P)+2)",
+      "message_log_reserve": "transport_layers*P*64",
+      "local_extraction": "d*16*n*n",
+      "local_standardization": "2*local_features*d*n",
+      "source_and_message_gates": "local_features*d*n+transport_layers*n*H",
+      "core1": "d*n*C*(2*I-1)",
+      "core2": "d*n*C*(2*C-1)",
+      "candidate_and_state_gate": "d*n*2*H*(2*C-1)",
+      "mean_head": "d*n*(2*C-1)",
+      "biases": "d*n*(2*C+2*H+1)",
+      "nonlinear_reserve": "d*n*(2*C+3*H+1)*64",
+      "hidden_blend": "d*n*H*6",
+      "decode": "d*n*67"
+    },
+    "conservative_pre_meter_ceiling": "max(static + 400000000, ceil(1.20 * static))",
+    "scope": "admission screen only; never substitutes for an actual common-driver receipt"
+  },
+  "primary": {
+    "label": "cp1536_h128_p4_c256",
+    "host_cap": 1536,
+    "host_meter_flops": 199018976258,
+    "hidden_channels": 128,
+    "channels_per_power": 32,
+    "powers": 4,
+    "cell_width": 256,
+    "cell_inputs": 152,
+    "parameters": 171017,
+    "recurrent_rows": {
+      "edge_construction": 150994944,
+      "message_transport": 4024565760,
+      "message_rms": 5898360,
+      "message_log_reserve": 3840,
+      "local_extraction": 268435456,
+      "local_standardization": 655360,
+      "source_and_message_gates": 2293760,
+      "core1": 1270874112,
+      "core2": 2143289344,
+      "candidate_and_state_gate": 2143289344,
+      "mean_head": 8372224,
+      "biases": 12599296,
+      "nonlinear_reserve": 940572672,
+      "hidden_blend": 12582912,
+      "decode": 1097728
+    },
+    "local_static_observer_flops": 6953094912,
+    "local_conservative_observer_flops": 8343713895,
+    "local_combined_static_flops": 205972071170,
+    "local_combined_conservative_flops": 207362690153,
+    "local_conservative_floor_margin": 12539635402,
+    "recurrent_static_observer_flops": 10985525112,
+    "recurrent_conservative_observer_flops": 13182630135,
+    "recurrent_combined_static_flops": 210004501370,
+    "recurrent_combined_conservative_flops": 212201606393,
+    "recurrent_conservative_floor_margin": 7700719162,
+    "actual_common_driver_meter": {
+      "status": "PASS_EXACT_CAPACITY_ZEROHEAD_LOCAL_AND_RECURRENT",
+      "local_flops": 205868336750,
+      "local_floor_margin": 14033988805,
+      "local_receipt_sha256": "bf8a24100d638c98bec4c16c11cffd48230a18c5e622061a70ca5014a6afcb0f",
+      "recurrent_flops": 209904700250,
+      "recurrent_floor_margin": 9997625305,
+      "recurrent_receipt_sha256": "715536eef557918e2e3fca7ed3e90050cb757c5649af1ddc07941fd59aa358ab"
+    },
+    "fallback_if_meter_fails": "frozen cp1536_h32_p4_c64 measured control; no post-target capacity search"
+  },
+  "host_fidelity_control": {
+    "label": "cp1792_h64_p4_c96",
+    "host_cap": 1792,
+    "host_meter_flops": 214122341378,
+    "hidden_channels": 64,
+    "channels_per_power": 16,
+    "powers": 4,
+    "cell_width": 96,
+    "cell_inputs": 88,
+    "parameters": 30377,
+    "recurrent_rows": {
+      "edge_construction": 150994944,
+      "message_transport": 2012282880,
+      "message_rms": 2949240,
+      "message_log_reserve": 3840,
+      "local_extraction": 268435456,
+      "local_standardization": 655360,
+      "source_and_message_gates": 1310720,
+      "core1": 275251200,
+      "core2": 300417024,
+      "candidate_and_state_gate": 400556032,
+      "mean_head": 3129344,
+      "biases": 5259264,
+      "nonlinear_reserve": 403701760,
+      "hidden_blend": 6291456,
+      "decode": 1097728
+    },
+    "local_static_observer_flops": 1816121088,
+    "local_conservative_observer_flops": 2216121088,
+    "local_combined_static_flops": 215938462466,
+    "local_combined_conservative_flops": 216338462466,
+    "local_conservative_floor_margin": 3563863089,
+    "recurrent_static_observer_flops": 3832336248,
+    "recurrent_conservative_observer_flops": 4598803498,
+    "recurrent_combined_static_flops": 217954677626,
+    "recurrent_combined_conservative_flops": 218721144876,
+    "recurrent_conservative_floor_margin": 1181180679,
+    "actual_common_driver_meter": {
+      "status": "PASS_EXACT_CAPACITY_ZEROHEAD_LOCAL_AND_RECURRENT",
+      "local_flops": 216168217070,
+      "local_floor_margin": 3734108485,
+      "local_receipt_sha256": "00af09b0a39bce7384beae7e546aba4207af47f0743b437684094fac6793d439",
+      "recurrent_flops": 218186399450,
+      "recurrent_floor_margin": 1715926105,
+      "recurrent_receipt_sha256": "ce9a4f7a91d255569de6b74949315db9c0a78b4028296d6ae5bdbd13c8871e31"
+    },
+    "fallback_if_meter_fails": "frozen cp1792_h32_p4_c64 measured control; no post-target capacity search"
+  },
+  "actual_h32_c64_zerohead_controls": {
+    "capacity": {"hidden_channels": 32, "channels_per_power": 8, "powers": 4, "cell_width": 64, "parameters": 12041},
+    "scope": "real converted latch/branch/RPC engineering evidence with an identically zero mean head; no accuracy score and no claim about larger capacities",
+    "cp512": {
+      "host_receipt_sha256": "ad6c428b03946f8bc110dbebe5a08c892d50c537ab54c947b659daa3800c804e",
+      "local": {"combined_flops": 137843401152, "floor_margin": 82058924403, "residual_seconds": 0.12055867165327072, "peak_rss_bytes": 2248048640, "receipt_sha256": "4272db65c388394e43b42f1fea19f7165a94e7f61d977e43c194af2b4159cfe2"},
+      "recurrent": {"combined_flops": 138852492972, "floor_margin": 81049832583, "residual_seconds": 0.18096033670008183, "peak_rss_bytes": 2250227712, "receipt_sha256": "77ffb87ca443bd6ecea081ff7d7ff9776b04bbf3de78b4efe9bec50e421f9e47"}
+    },
+    "cp1536": {
+      "host_receipt_sha256": "9085d8e595168b07a09bafa93d309948f5406a85c5788acc4c42671ce888af16",
+      "local": {"combined_flops": 200401761710, "floor_margin": 19500563845, "residual_seconds": 0.14499560743570328, "peak_rss_bytes": 2301100032, "receipt_sha256": "77616607b9310d370eb1a8006eb283fba343b425d797baea760da5b4d1137980"},
+      "recurrent": {"combined_flops": 201410853530, "floor_margin": 18491472025, "residual_seconds": 0.15038874559104443, "peak_rss_bytes": 2411364352, "receipt_sha256": "7c900074d9a339879ba7c70464a0079297bf56e5b48e5ba9545458aa1f25f6aa"}
+    },
+    "cp1792": {
+      "host_receipt_sha256": "71c4eedf2b04f3430bbca3ebf20882b0dc08daadf8895be14112f85fca240115",
+      "local": {"combined_flops": 215505498030, "floor_margin": 4396827525, "residual_seconds": 0.1759269111789763, "peak_rss_bytes": 2583937024, "receipt_sha256": "109103a67688ed11b4e719805118e6f1314760f4abe3f45f792dd60824d0f8f0"},
+      "recurrent": {"combined_flops": 216514589850, "floor_margin": 3387735705, "residual_seconds": 0.13845618208870292, "peak_rss_bytes": 2526658560, "receipt_sha256": "bc437d624f7fa91e24d19d3338d5af03336ec0b6115bf697b23dd733b5f838d2"}
+    }
+  },
+  "frozen_choice": {
+    "first_launch_primary": "cp1536_h128_p4_c256",
+    "paired_host_fidelity_control": "cp1792_h64_p4_c96",
+    "cp512_role": "measured low-capacity engineering/resource control; not a post-target capacity-sweep license",
+    "cp512_h256_status": "diagnostic only: host layer-2 MSE is 7.850484537840704e-8, latent-column loss differs from CP1536/1792, and no H256/C512 common-driver authority exists",
+    "choice_time": "before any observer target release",
+    "reason": "CP1536 loses only 0.3091 percent sealed final host MSE versus CP1792 while creating room for 171017 observer parameters; CP1792/H64 preserves the best host as a constrained control",
+    "failure_action": "untouched paired host; no capacity retry or target-conditioned host switch"
+  },
+  "access": {
+    "public_target_values_decoded": 0,
+    "role_target_artifacts_opened": 0,
+    "model_fits_performed": 0,
+    "accuracy_status": "UNSCORED_TARGET_FREE_STATIC_AND_SYNTHETIC_METER_ONLY",
+    "graph_or_html_modified": false
+  }
+}

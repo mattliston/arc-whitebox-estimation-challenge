@@ -1,0 +1,77 @@
+{
+  "schema": "q24-cs3b-independent-source-probe-runner-release-audit-v2",
+  "status": "HOLD_INDEPENDENT_SOURCE_PROBE_RUNNER_AND_RELEASE_AUDIT_CS3B_V2__EXECUTION_FORBIDDEN__DISTINCT_V3_REQUIRED",
+  "created_at_utc": "2026-08-24T15:02:23Z",
+  "bindings": {
+    "candidate_estimator_sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+    "candidate_source_hold_sha256": "ac29611a20280de259c7ab2f970d865b09ca1c417d1ac09d64aeab5a89d23bb5",
+    "source_probe_preregister_sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3",
+    "source_probe_static_binding_sha256": "9858e4720fe24911c7ae4e83701efb8d281e094e484598c623b62146a4a3658e",
+    "independent_static_source_audit_sha256": "27e5d66752520ebf287f7bc362330489849816b3d8cec0a1c7628aa931ca6c6c",
+    "runner_v1_erratum_sha256": "d61c9805b3185465c47b5b420e60737b168e7b95422520045e72346273e60559",
+    "runner_sha256": "bbc0ab938b0d052704959bd98e216582845700fddd6612f25ada3634597fc24c",
+    "author_release_sha256": "756e51471b3078bfd675c54633c0281ef21266f30869144096c634d942c228c5",
+    "output_path": "runs/source_probe_v2/results.json",
+    "claim_path": "runs/source_probe_v2/O_EXCL_CLAIM.json"
+  },
+  "terminal_blockers": [
+    {
+      "id": "NON_JSON_NATIVE_CERTIFICATE_RESULT",
+      "location": "capture_certificate/certificate_probe/final seal",
+      "finding": "capture_certificate returns the raw NumPy invalid array and certificate_probe removes only the named-array mapping.  The raw ndarray survives in both certificate.parent and certificate.candidate.",
+      "effect": "Plain json.dumps raises TypeError after the one-use claim.  The exception occurs outside the run_probe catch, so results.json cannot be sealed even if every scientific control passes."
+    },
+    {
+      "id": "REQUIRED_FIXTURE_EXCEPTIONS_CAN_PASS_VACUOUSLY",
+      "location": "fixture_probe",
+      "finding": "The frozen Decision requires every required-control exception to reject, but the runner only checks candidate regression when the parent outcome is FINITE.  Parent plus candidate exceptions can satisfy None-hash determinism and vacuous empty-record all() gates.",
+      "effect": "The exact runner is not fail closed under a required fixture exception."
+    },
+    {
+      "id": "SECOND_RUN_CARRIER_RECORDS_NOT_GATED",
+      "location": "fixture_probe",
+      "finding": "Carrier, reconstruction, selected-state, and push-law gates inspect candidate_run1 only.  candidate_run2 is compared only by output hash and mode/mask hash.",
+      "effect": "A second-run carrier or observer-record failure can pass the stated two-run probe."
+    },
+    {
+      "id": "O_EXCL_CLAIM_SHORT_WRITE_UNCHECKED",
+      "location": "seal_json_o_excl",
+      "finding": "The runner performs one os.write and does not verify or complete a legal short write.",
+      "effect": "Candidate import can begin after a truncated claim file, contrary to the durable pre-import claim invariant."
+    }
+  ],
+  "additional_v3_integrity_requirements": [
+    "Remove or serialize every NumPy array/scalar from the result tree and require strict finite JSON leaves; the certificate invalid arrays already have frozen hashes and need not be retained raw.",
+    "Require parent, candidate_run1, and candidate_run2 to be non-exceptional on every required fixture; no None-hash or empty-record path may contribute to PASS.",
+    "Gate complete reset and push records for both candidate runs, including exactly 14 reset and 15 push records, and compare deterministic hashes of the complete JSON-native semantic run records in addition to output and mode/mask hashes.",
+    "Implement full write_all semantics before fsync; durably fsync the file and each directory entry created for the claim namespace before importing the candidate.",
+    "Set sys.dont_write_bytecode before third-party or workspace imports, or defer those imports until after the claim, so the declared namespace claim is the first possible workspace write.",
+    "Implement every elementwise forward-bound gate as finite arrays plus all(abs(error) <= bound); NaN must be a violation rather than passing through count_nonzero(error > bound).",
+    "Keep the V1 and V2 runners, releases, and output namespaces terminally held and use distinct V3 runner, release, independent-audit, claim, and result paths."
+  ],
+  "verified_static_properties": {
+    "candidate_import_call_occurs_after_preflight_and_make_claim": true,
+    "preflight_binds_source_hold_preregister_static_binding_static_pass_runner_release_and_pending_independent_audit": true,
+    "pending_independent_audit_hash_has_no_self_cycle": true,
+    "target_dataset_teacher_score_or_private_state_reads": 0,
+    "width1024_estimator_executions": 0,
+    "literal_meter_executions": 0,
+    "packages": 0,
+    "submissions": 0,
+    "network_or_credentials": 0,
+    "canonical_graph_edits": 0,
+    "candidate_imports_or_executions_during_this_audit": 0
+  },
+  "namespace_at_audit": {
+    "runs_source_probe_v1_absent": true,
+    "runs_source_probe_v2_absent": true,
+    "candidate_pycache_pyc_pyo_absent": true
+  },
+  "authority": {
+    "v2_execution_permitted": false,
+    "source_mutation_permitted": false,
+    "fullwidth_or_meter_permitted": false,
+    "targets_package_submission_or_graph_permitted": false,
+    "required_next_step": "Seal and independently audit a distinct corrected V3 runner/release chain before any candidate import or execution."
+  }
+}

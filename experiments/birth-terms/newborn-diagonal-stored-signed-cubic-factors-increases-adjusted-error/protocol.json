@@ -1,0 +1,78 @@
+{
+  "schema": "stored-newborn-diagonal-single-trial-v1",
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_newborn_stored_diagonal_v1/candidate.py",
+    "sha256": "a8372b3846f0e194629f9c97dfba233d5c795e65d647cafbfcdc6b1ac568975d",
+    "bytes": 978616
+  },
+  "source_parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "parent_retained": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/retained_component.json",
+    "sha256": "6dcd1a0f2b930232f0ef1b43f6f8d039b8acbb0a83067d3aebcecbea857e3aa1",
+    "bytes": 8321
+  },
+  "parent_native8": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/native8_assessment.json",
+    "sha256": "14eac416c7f560a8d79217247a7117bc6c978ef8304b4c3bda817fe291c5528c",
+    "bytes": 40968
+  },
+  "official_bank": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/official_bank_S35_v1.json",
+    "sha256": "e5a4280338766f893b69ade7c8194d399cbd6c46722dd7b6589abfa00038ad0f",
+    "bytes": 8058
+  },
+  "formula": "D_i = births_i * lambda32_i * (t32_i^3 - s32_i^3), widened to float64 before products; lambda32 = a32 * learned newborn scale with the same float32 multiplication used for stored selected lambda; t32/s32 already include alive.",
+  "scope": "All existing birth assemblies L0-14, one fixed analytic replacement after BD; preserve offdiagonal born, factors, masks, learned scales, inherited diagonal and all consumers.",
+  "source_inverse": {
+    "parent": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+      "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+      "bytes": 978073
+    },
+    "edits": [
+      {
+        "before": "            _ps_born_diag = _ps_born_diag + fnp.diag(_bd_plane_delta)",
+        "after": "            # Newborn CP diagonal from precisely the rounded, masked stored legs.\n            _ns_a32, _ns_t32, _ns_s32 = fnp.unstack(_E2_LAYER['ats32'])\n            _ns_lam32 = _ns_a32 if _S19_LAM is None else _ns_a32 * _S19_LAM[1]\n            _ns_lam64 = _ns_lam32.astype(fnp.float64)\n            _ns_t64, _ns_s64 = _ns_t32.astype(fnp.float64), _ns_s32.astype(fnp.float64)\n            _ps_born_diag = (_ns_lam64 * ((_ns_t64 * _ns_t64) * _ns_t64\n                                         - (_ns_s64 * _ns_s64) * _ns_s64)) * births\n            del _ns_a32, _ns_t32, _ns_s32, _ns_lam32, _ns_lam64, _ns_t64, _ns_s64"
+      }
+    ],
+    "exact_inverse": true
+  },
+  "proof": {
+    "zero_base_diagonal": "bp is filled with zero; BD change is filled with zero before new32; paired offdiagonal base cubes cancel under opposite weights.",
+    "ats32_owner": "Original _bd_update populates current a/t/s/alive identity-owned ats32 unconditionally before returning.",
+    "mask": "births is the exact selected-set mask; t32/s32 already contain alive. Existing live factor remains.",
+    "scalar_fraction_cases": 12,
+    "scalar_fixture_not_native_exactness": true
+  },
+  "caveats": [
+    "Learned newborn scale intentionally changed the previous closure; this consistency hypothesis can hurt accuracy.",
+    "This is not an exact-parent arithmetic optimization and does not promise all16 parity; L0 output precedes this assembly.",
+    "Stored-parameter real tensor identity does not certify finite-precision future CP GEMM/reduction or compressed-star recovery.",
+    "Older low-rank star residual repairs are distinct negative evidence; no coefficient/window/scale rescue or grid."
+  ],
+  "native2_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "strict_adjusted": false,
+    "wins_min": 1,
+    "ci_upper_below": null,
+    "max_per_network_regression_pct": 1.0,
+    "additional6_gain_required": false
+  },
+  "native8_gates": {
+    "adjusted_pct_at_most": -0.1,
+    "strict_adjusted": false,
+    "wins_min": 6,
+    "ci_upper_below": 0,
+    "max_per_network_regression_pct": 1.0,
+    "additional6_gain_required": true
+  },
+  "parity_layers": [
+    0
+  ],
+  "authority": "N2 only; own boundary and fixed N8 continuation require actual N2 PASS. Final bank requires >=1% vs official S35 and full validation/serving.",
+  "model_executed": false
+}

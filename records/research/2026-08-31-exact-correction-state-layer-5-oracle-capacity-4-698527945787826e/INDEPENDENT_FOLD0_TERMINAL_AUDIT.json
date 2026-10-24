@@ -1,0 +1,96 @@
+{
+  "schema": "public-full688-d11-cubic-action-transpose-independent-fold0-terminal-audit-v1",
+  "status": "PASS_INTEGRITY__FAIL_SENTINEL_SOURCE_GATE__TERMINAL_CLOSE_NO_RETRY",
+  "date": "2026-08-31",
+  "bindings": {
+    "FOLD0_RESULT.json": "e1ed27d0882dddb09698da78d167f7e34096ce44742b210b64792a3d20babd7f",
+    "FOLD0_MODELS.pt": "868969ca197f19d1e2e70b7bbf51aa83ea7724b4571122eeab3826eb70437f20",
+    "FOLD0_RUN_CLAIM.json": "e64d73daa5cae27b311822fdaf60bd28af1197c31fd4cb6886c6538ea56c5f47",
+    "FOLD0_EXECUTION_RELEASE.json": "99122771701ee879b264d842559ad5b69927a579d700cfdbfa449c13c0eb54ce",
+    "SOURCE_FREEZE_RECEIPT.json": "d223e4c0a6aa4447e77793601dc69370ddd39c317253186a1a367be27cfc8e7c",
+    "run_fold0.py": "c47c36caf2877f1b31b76446d29817e844d1318f206d7b9040192d8dc0d18b37",
+    "feature_generator.py": "7564a5ea68196384e94168c66ccf8901a0136e91cb07b33a12a3e584abcf1323",
+    "PREREGISTRATION.json": "861e97a719cbedf6bf198400ae7063370f6d3313042deaecb82e399f862b8235",
+    "STATIC_VERIFICATION.json": "88bef13f1fb2b8ea6540603d0bced8e98dbaa2ff3df907f8713a2a0b63083308",
+    "interpret_result.py": "1b532ba4151f99f50cd7d039cfa2a9fc92da1cbe6f2417af7748674ac6822cc0",
+    "INDEPENDENT_STATIC_AUDIT_RECEIPT.json": "328991f2dfc0c3636a8600fe8e77e8b9b9acad232782cf201c015ce3e9cca022"
+  },
+  "hash_verification": {
+    "published_result_model_claim_hashes_match_direct_receipt": true,
+    "result_internal_model_claim_release_runner_feature_static_bindings_match_live_bytes": true,
+    "source_freeze_non_target_upstream_bindings_match_live_bytes": true,
+    "target_bundle_binding_consistent_across_release_claim_and_result": true,
+    "target_bundle_live_bytes_reopened_by_independent_auditor": false,
+    "model_deserialized_by_independent_auditor": false
+  },
+  "result_contract": {
+    "schema_matches": true,
+    "fold": 0,
+    "held_rows": 172,
+    "fit_rows": 516,
+    "per_network_rows": 172,
+    "held_role_order_matches_per_network": true,
+    "all_per_network_metrics_finite": true,
+    "paired_initial_state": true,
+    "paired_row_order": true,
+    "paired_node_samples": true,
+    "reported_status": "FAIL_FOLD0_SENTINEL__TERMINAL_NO_RETRY",
+    "reported_decision": "CLOSE_THIS_SPELLING__DO_NOT_RUN_FOLDS_1_TO_3",
+    "reported_passed_all_gates": false
+  },
+  "metrics": {
+    "base_foldJ_endpoint_mse": 3.0923227278552953e-08,
+    "start5_direct_transport_exact_q_oracle_endpoint_mse": 4.698527912579728e-10,
+    "exact_q_oracle_endpoint_mse": 4.698527945787826e-10,
+    "source_on_endpoint_mse": 3.033603794829636e-08,
+    "source_zero_endpoint_mse": 3.033159078239202e-08,
+    "source_on_minus_source_zero_endpoint_mse": 4.4471659043379585e-12,
+    "source_on_relative_degradation_vs_source_zero_endpoint": 0.00014661828771989072,
+    "source_on_local_q_mse": 4.652187726788149e-09,
+    "source_zero_local_q_mse": 4.648566510428816e-09,
+    "source_on_minus_source_zero_local_q_mse": 3.6212163593333718e-12,
+    "frozen_independent256_fold0_endpoint_mse": 3.0220317427127064e-08,
+    "network_win_fraction_vs_foldJ_base": 0.7441860465116279,
+    "paired_network_z_vs_foldJ_base": 7.57630483690023,
+    "maximum_process_rss_bytes": 1822867456
+  },
+  "independent_gate_replay": {
+    "start5_exact_q_oracle_strictly_below_1e_8": true,
+    "source_on_endpoint_at_most_2_79555972111794e_8": false,
+    "source_on_strictly_beats_source_zero_endpoint": false,
+    "source_on_strictly_beats_source_zero_local_q": false,
+    "source_on_strictly_beats_frozen_independent256": false,
+    "network_win_fraction_vs_foldJ_at_least_0_60": true,
+    "paired_network_z_vs_foldJ_at_least_3": true,
+    "all_scored_metrics_finite": true,
+    "gate_dictionary_matches_result_exactly": true,
+    "recomputed_passed_all_gates": false,
+    "reported_passed_all_gates_matches": true
+  },
+  "interpretation": {
+    "start5_q_oracle_capacity": "PASS_CAPACITY_ONLY__NOT_MODEL_PERFORMANCE",
+    "source_head": "FAIL__SOURCE_ON_IS_WORSE_THAN_PAIRED_SOURCE_ZERO_AT_ENDPOINT_AND_LOCAL_Q",
+    "board_composition": "UNMEASURED_AND_NOT_AUTHORIZED_AFTER_SOURCE_GATE_FAILURE",
+    "source_information": "OLD_TAPE_DERIVED_PREDICTOR__NO_INDEPENDENT_SOURCE_INFORMATION_CREDIT"
+  },
+  "terminal_authority": {
+    "remaining_folds_1_to_3": false,
+    "retry": false,
+    "refit": false,
+    "board_composition_test": false,
+    "package": false,
+    "integration": false,
+    "meter": false,
+    "submission": false,
+    "decision": "CLOSE_THIS_SPELLING"
+  },
+  "independent_auditor_access": {
+    "opened_result_claim_release_freeze_and_static_receipts": true,
+    "rehashed_non_target_artifacts": true,
+    "semantic_target_reads": 0,
+    "target_bundle_live_hash_reads": 0,
+    "training_or_scoring_runs": 0,
+    "model_loads": 0,
+    "new_target_experiments": 0
+  }
+}

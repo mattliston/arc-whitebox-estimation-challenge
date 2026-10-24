@@ -1,0 +1,25 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_MECH_N0_1C_FOURTH_PLANES",
+    "label": "N0.1c the card's FOURTH-ORDER PLANES (K22/K31) are 2-3x too small at depth = the physics behind the learned operator; truth planes -> host 2.1e-8 / 3.0e-8 F2J-off; in-span for the board",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 2,
+    "summary": "K22 pre-plane card/truth 0.92 (L2) -> 0.41 (L14), corr 0.96-0.99; K31 0.52 -> 0.30; universal r35/r100 (FOURTH_PLANE_RATIOS.json). Forcing the 8M truth planes at the card's consumption point (RETRO_FORCE_PLANES): host F2J-off 8.62e-8 -> 2.08e-8 (r35), 7.70e-8 -> 2.97e-8 (r100); the engine's GEMM-class self-pushed planes: 3.32e-8 / 3.79e-8 (its one 1024^4 term is worthless: NOBIGPAIR identical). Engine with the CARD's planes: k3 12.9% at L14 (worse than the card); with truth planes 6.0% at L12. The card's k3 with truth planes = the engine's (4.4-6.5%). Naive frozen scale tables explode the card (co-adapted quartic star); the frozen k4/k3 tables over-correct with right planes. BOARD: the effect is 84% inside the deployed operator's span (corr +0.91), perp ceiling 0.4% / 0.1%; corr(truth - deployed, truth - truth-plane host) = +0.90 -> the operator IS a learned plane fix; a plane chain + refit lands near the deployed card. Value: the derived (no-learning) replacement of the operator, and the host on which N0.1d/N0.1e become the whole error. T-75..T-77d: split into emission (fixed, certified) and push (the born-content wall). In-card plane ladder (r35 host): engine K22 alone 3.10e-8, + truth K31 2.47e-8, truth K22 + engine K31 2.86e-8, truth both 2.08e-8, + feeds 1.70e-8. T-78: sampled planes (N forwards + rank-8 projection) closed - at 65k forwards (the whole budget) the sampled K22 only equals the engine chain (23-25% error), K31 useless. T-79: the CP3 rank is not reducible even with truth planes (cap 8192 doubles the plane host's error); F32_COV free (-4.9% util). T-79d: option (a) bounded - the operator's own direction adds <= 2.4% on the engine-K22 plane host; a refit must find new tape directions worth > 20% just to tie -> adjusted ~0.",
+    "terminal_criterion": "Closed when the engine plane chain is ported into the card (replacing CP4, ~+11% net util) and graded on two nets, or when N0.1d/e are solved on the forced-plane host and the port is priced for the fire.",
+    "evidence": [
+      {
+        "claim": "T-71..T-73 tables; judge.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_g3_tracker.md T-71..T-73b + experiments/p2_width1024_depth16/public_g29_bond_kernel_v1/FOURTH_PLANE_RATIOS.json + experiments/p2_width1024_depth16/public_g29_bond_kernel_v1/PERP_JUDGE_G29.json + experiments/p2_width1024_depth16/public_g29_bond_kernel_v1/inject_planes_*_r*.log"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_MECH_N0_1C_I_EMISSION",
+      "P2R0G19B_MECH_N0_1C_II_PUSH"
+    ],
+    "goal_path_summary": "Found what the learned patch was really doing: the estimator carries its fourth-order 'plane' statistics two to three times too small in the deep layers, and the patch had learned to compensate. Supplying those planes correctly (a derived, GEMM-class chain) reproduces the patch's whole gain without learning, but does not go beyond it; what remains is the skew and variance error given correct planes."
+  }
+}

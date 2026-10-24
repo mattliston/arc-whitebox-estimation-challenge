@@ -1,0 +1,44 @@
+{
+ "tag": "public_oracle_kappa_probe_v1/k5_measured",
+ "generated_utc": "2026-08-26T01:37:17Z",
+ "question": "Does the true standardized fifth pre-activation cumulant match the kappa5 emission closure (5 g3 g4 - 40/9 g3^3)?",
+ "rank": 35,
+ "n_samples": 2000000,
+ "layers": [
+  8,
+  11,
+  14
+ ],
+ "convention": "mask = units with |closure_k5| above its per-layer median; ratio = per-unit measured/closure, masked median; closure from the SAME samples' g3/g4",
+ "stakes": "ratio ~1: closure floor holds and push-inexactness is the majority owner of the deep k4 decay; ratio >>1 (e.g. ~3x): intrinsic chaos-4 content, emission truncation owns the ladder",
+ "per_layer": {
+  "8": {
+   "k5_std_masked_median": -0.0016,
+   "closure_k5_masked_median": -0.00667,
+   "ratio_measured_over_closure_masked_median": 0.716,
+   "ratio_batch_spread_se": 0.0359,
+   "k5_per_unit_se_rms": 0.00864,
+   "g3_masked_median_abs": 0.05994,
+   "g4_masked_median": 0.03929
+  },
+  "11": {
+   "k5_std_masked_median": -0.00134,
+   "closure_k5_masked_median": -0.01058,
+   "ratio_measured_over_closure_masked_median": 0.768,
+   "ratio_batch_spread_se": 0.0273,
+   "k5_per_unit_se_rms": 0.00904,
+   "g3_masked_median_abs": 0.08218,
+   "g4_masked_median": 0.0514
+  },
+  "14": {
+   "k5_std_masked_median": -0.00057,
+   "closure_k5_masked_median": 0.01655,
+   "ratio_measured_over_closure_masked_median": 0.7638,
+   "ratio_batch_spread_se": 0.0241,
+   "k5_per_unit_se_rms": 0.00943,
+   "g3_masked_median_abs": 0.10998,
+   "g4_masked_median": 0.06404
+  }
+ },
+ "elapsed_s": 94.8
+}

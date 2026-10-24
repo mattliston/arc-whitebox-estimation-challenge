@@ -1,0 +1,75 @@
+{
+  "utc": "2026-09-28T03:41:22.484841+00:00",
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_star_projection32_v1/candidate.py",
+    "sha256": "f226a45750e6c3851e50967ba96f1742bb7bf563d43c1adfc2988fd674041aef",
+    "bytes": 930166
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_birth_plus32_v1/candidate.py",
+    "sha256": "bea36bc7d1cd4e9db3d68e56d215c06c43c4137b147f6410f894810873cac949",
+    "bytes": 931062
+  },
+  "change": {
+    "old": "selected, births = select(_e2_gate_min, gate_floor)   # E2: g is bitwise response_gate (same operations on the same inputs)",
+    "new": "selected, births = _birth_expand_select(_e2_gate_min, gate_floor, l)   # Fixed extra birth block at layers1..10 only.",
+    "fragment": "\n# One opposing selection step: preserve another32 birth directions in L1..10.\n# All score values, rank order, signed pair construction and other slots stay unchanged.\n_BIRTH_EXPAND_LAYERS = tuple(range(1, 11))\n_BIRTH_EXPAND_STATS = dict(calls=0, added=0)\n\ndef _birth_expand_select(score, floor, layer):\n    if layer not in _BIRTH_EXPAND_LAYERS:\n        return select(score, floor)\n    keep = []\n    ge = score >= floor\n    nz = fnp.nonzero(ge)\n    keep.append((ge, nz))\n    original = min(len(score), (int(nz[0].shape[0]) + 31) // 32 * 32)\n    count = min(len(score), original + 32)\n    neg = -score\n    order = fnp.argsort(neg, kind='stable')\n    keep.append((neg, order))\n    indices = order[:count]\n    mask = fnp.zeros(len(score), dtype=fnp.bool_)\n    fnp.put(mask, indices, True)\n    _BIRTH_EXPAND_STATS['calls'] += 1\n    _BIRTH_EXPAND_STATS['added'] += count - original\n    return indices, mask\n"
+  },
+  "hypothesis": "Historical S28 40-network minus32 births L1..10 worsens raw3.030077% for estimated bill-2.32%; test the opposing plus32 step once on current S32. Reverse marginal benefit is unknown; do not infer symmetry. This is an accuracy/compute tradeoff, not an exact optimization.",
+  "status": "SOURCE_PREPARED_PENDING_HISTORY_AND_FIT_REVIEW",
+  "controls": [
+    "hill_climb_star_projection32_train2_v1",
+    "hill_climb_star_projection32_train6_v1",
+    "hill_climb_star_projection32_extra8_candidate_v1"
+  ],
+  "train2_ranks": [
+    35,
+    100
+  ],
+  "train2_advance": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 2
+  },
+  "if_advance_fixed_blocks": [
+    [
+      36,
+      45,
+      52,
+      58,
+      64,
+      70
+    ],
+    [
+      3,
+      12,
+      40,
+      41,
+      43,
+      44,
+      57,
+      68
+    ]
+  ],
+  "train16_retention": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 10,
+    "ci95_upper_below": 0,
+    "additional14_gain_positive": true
+  },
+  "limits": {
+    "train2_seconds": 180,
+    "train6_seconds": 330,
+    "extra8_seconds": 400,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "serial": true
+  },
+  "one_fixed_source": true,
+  "no_automatic_extensions_or_layer_sweep": true,
+  "bank_policy": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/submission_policy_20260928_v1.json",
+    "sha256": "d069a04ed856331da19099e1ed86a3aa56bca81b56e8d2d09278fc7a6af793e7",
+    "bytes": 492
+  },
+  "notes": "Component retention is not release qualification; >=1% broad validation and serving/resource/contract required for submission. D3 prebind followup excluded to isolate births. No change to old-factor ranks, selection floors, other masks, star ranks, or learned literals."
+}

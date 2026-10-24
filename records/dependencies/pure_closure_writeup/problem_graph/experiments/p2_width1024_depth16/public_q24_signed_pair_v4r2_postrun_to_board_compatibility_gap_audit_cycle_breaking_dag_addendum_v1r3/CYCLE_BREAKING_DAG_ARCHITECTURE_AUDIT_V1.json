@@ -1,0 +1,145 @@
+{
+  "access_accounting": {
+    "live_oof_output_or_temp_entries_listed_or_opened": 0,
+    "model_bank_A15_row_weight_target_score_or_archive_payloads_opened": 0,
+    "network_or_submission_actions": 0,
+    "numerical_modules_imported": 0,
+    "unfrozen_control_source_snapshots_read": 1
+  },
+  "authority": {
+    "board_or_submission": false,
+    "execution": false,
+    "live_artifact_access": false,
+    "model_or_export": false,
+    "package_promotion": false,
+    "refit": false,
+    "target": false
+  },
+  "conclusion": {
+    "architecture_is_acyclic_if_and_only_if_all_mandatory_negative_edges_and_snapshot_laws_hold": true,
+    "current_unfrozen_contract_snapshot_is_freeze_ready": false,
+    "implementation_GO_granted": false,
+    "status": "CONDITIONAL_GO_ARCHITECTURE_ONLY__HOLD_IMPLEMENTATION_UNTIL_EXACT_TRUST_ROOT_SNAPSHOT_AND_SELF_IDENTITY_PROOFS_PASS"
+  },
+  "dependency_dag": {
+    "edges": [
+      "numerical_body_digest + strict_bindings_schema + trust_policy -> Builder_Contract_V2",
+      "Builder_V2_package + Builder_Contract_V2 -> independent_Builder_V2_GO",
+      "Builder_V2_GO + numerical_body_digest + strict_bindings_schema -> Runtime_V1R5_package",
+      "Runtime_V1R5_package + runner + launcher + helper + contract + numerical_body -> independent_Runtime_V1R5_GO",
+      "Runtime_V1R5_exact_tuple + Runtime_V1R5_GO + live_empirical_roots -> anchor",
+      "anchor -> externally_issued_independent_anchor_review",
+      "anchor + anchor_review -> one_use_capability",
+      "Runtime_V1R5_exact_tuple + Runtime_V1R5_GO + anchor + anchor_review + capability + live_empirical_roots -> canonical_bindings_core",
+      "canonical_bindings_core -> final_release",
+      "canonical_bindings_core + final_release -> terminal_live_bindings_envelope",
+      "terminal_live_bindings_envelope + authenticated_executed_self_identity -> Runtime_V1R5_precaller_gate"
+    ],
+    "status": "ACYCLIC_FORWARD_ONLY_GRAPH_IF_PROHIBITED_BACK_EDGES_ARE_ABSENT"
+  },
+  "exact_lineage": {
+    "builder_v1_hold_review_path": "public_q24_signed_pair_v4r2_all688_refit_execution_authority_builder_review_v1/INDEPENDENT_STATIC_REVIEW_V1.json",
+    "builder_v1_hold_review_sha256": "f2fe3e44e8a2158b2be49071c18b16fd0a942f5d168a78590dcb321026ef9ce6",
+    "builder_v1_hold_status": "HOLD_RUNTIME_V1R4_VALIDATOR_INTEROPERABILITY_FAILURE__NO_LIVE_AUTHORITY",
+    "oof_pause_resume_receipt_sha256": "14bdde839aaea483f5150e7dd0171854db9991c1287d53bfca89dc605ab3f2f6",
+    "runtime_v1r4_cycle_addendum_freeze_receipt_sha256": "1f7e6bebbff8359eff582607fc9b0788d705fdbac749228e399957f3bd70c4b6",
+    "runtime_v1r4_cycle_addendum_manifest_sha256": "1916f4dc01324c37f246a6cf0c9c2a5730e2a8807252ef7e54b4735fb4822640"
+  },
+  "mandatory_hash_ownership_laws": {
+    "builder_v2_contract_may_bind": [
+      "exact numerical-body digest",
+      "strict Runtime V1R5 bindings schema and validator law",
+      "exact Builder and Runtime review trust policy",
+      "static predecessor roots"
+    ],
+    "builder_v2_contract_must_not_bind": [
+      "future Runtime V1R5 runner SHA-256",
+      "future Runtime V1R5 package or review SHA-256",
+      "future live empirical roots",
+      "future anchor, anchor-review, capability, release, core, or envelope SHA-256"
+    ],
+    "canonical_core_may_bind": [
+      "exact Builder V2 package and GO tuple",
+      "exact Runtime V1R5 package, freeze, verification, review, runner, launcher, helper, contract, and numerical-body tuple",
+      "exact live empirical roots",
+      "exact anchor, external anchor-review, and capability roots"
+    ],
+    "final_release_may_bind": [
+      "canonical core SHA-256",
+      "exact Runtime V1R5 identity",
+      "CPU one-run no-retry law"
+    ],
+    "terminal_envelope_may_bind": [
+      "canonical core SHA-256",
+      "final release SHA-256"
+    ]
+  },
+  "mandatory_negative_edges": [
+    "Builder V2 source or contract must not contain any future Runtime V1R5 runner, review, release, core, envelope, or live root",
+    "Runtime V1R5 source must not contain its own future review root or any future live, anchor, capability, release, core, or envelope root",
+    "anchor must not bind anchor review, capability, release, core, or envelope",
+    "anchor review must not bind capability, release, core, or envelope",
+    "capability must not bind release, core, or envelope",
+    "final release must not bind terminal envelope",
+    "no authority document may contain terminal envelope SHA-256",
+    "terminal envelope must not contain its own SHA-256",
+    "runtime package manifest must not include any live bindings instance"
+  ],
+  "mandatory_review_trust_laws": {
+    "anchor_review": [
+      "must be authored outside Builder V2",
+      "must bind exact anchor bytes and the exact Runtime V1R5 tuple",
+      "must have an exact contract-pinned schema, status, review-request lineage, reviewer-identity law, and authority field set",
+      "reviewer identity must differ from anchor and Builder authors"
+    ],
+    "builder_v2_GO": [
+      "must be issued by a different agent after Builder V2 freeze",
+      "must bind exact Builder package, contract, numerical-body digest, strict bindings schema, and static verification roots",
+      "becomes the exact trust root embedded in Runtime V1R5"
+    ],
+    "runtime_v1r5_GO": [
+      "must be authored outside Builder V2 and Runtime V1R5",
+      "must bind exact Runtime package, freeze, static and freeze verification, runner, launcher, helper, contract, numerical-body, and embedded Builder V2 GO roots",
+      "must have an exact Builder-Contract-pinned schema, status, review-request lineage, reviewer-identity law, and authority field set"
+    ],
+    "threat_model_limitation": "Schema, hash, path, and identity-string checks authenticate immutable reviewed bytes under the repository's non-hostile-custodian model. If a hostile operator able to forge reviewer identity is in scope, an embedded verification key and signed review/bindings receipts are additionally required."
+  },
+  "mandatory_snapshot_and_TOCTOU_laws": [
+    "The sole caller path is --live-bindings and is opened before any nested path, live metadata path, numerical import, or caller-supplied release/capability path.",
+    "Validate the complete non-null canonical root inventory before constructing any nested path from the envelope.",
+    "Traverse each directory component with held dirfds and O_NOFOLLOW; lstat-then-open by absolute pathname is insufficient.",
+    "Open every envelope, release, Runtime GO, anchor, anchor review, capability, and other control document once as a regular one-link file; hash and strict-decode those exact held-FD bytes.",
+    "Keep the snapshot FDs open through graph validation and authority consumption; do not close and later reopen a pathname to revalidate it.",
+    "Require canonical strict JSON with duplicate-key and nonfinite-token rejection, exact field sets, exact native scalar types, and bounded control-document size.",
+    "Derive executed runner, launcher, helper, contract, numerical-body, and package identities from authenticated loaded or staged bytes; never accept actual self hashes from CLI or bindings.",
+    "Cross-check every root in core, release, and envelope against the same parsed byte snapshot before any caller-path access.",
+    "Use a fresh staged directory, exclusive creation, fsync, read-only one-link files, and atomic publication for each issuance phase; bind the immutable phase-one anchor into the external review and terminal phase.",
+    "Enforce five-minute chronology, distinct issuer/reviewer identities, one-use capability, CPU-only, one-run, no-retry, and authority-directory colocation before caller-path access."
+  ],
+  "prefreeze_observation": {
+    "author_acknowledged_all_findings_and_is_repairing_before_freeze": true,
+    "observed_path": "public_q24_signed_pair_v4r2_all688_refit_execution_authority_builder_v2/live_bindings_contract_v2.py",
+    "observed_sha256": "036fc0fad6b02ee4089534104f599ff36bf6830eff1b511aad8961e5f5768fa6",
+    "snapshot_is_frozen_or_authoritative": false,
+    "unresolved_in_observed_snapshot": [
+      "closed-FD pathname reopen and directory-component TOCTOU",
+      "incomplete Runtime and Builder exact root inventory",
+      "missing exact Runtime-GO and anchor-review trust-policy validation",
+      "unused recent-time gate and incomplete issuer/directory cross-binding",
+      "self-hash values accepted as caller parameters rather than derived from authenticated bytes"
+    ]
+  },
+  "required_prefreeze_evidence": [
+    "exact Builder V2 package/contract/body/schema roots and independent GO",
+    "AST or equivalent proof that Builder V2 contains no future Runtime/live/authority roots",
+    "direct cycle scan proving all mandatory negative edges",
+    "direct Builder-output-to-Runtime validator replay using only synthetic control documents",
+    "held-FD path-swap, symlink-component, hardlink, mutation, truncation, duplicate-key, malformed-root, arbitrary-review, wrong-self-hash, chronology, and back-edge adversaries",
+    "exact proof that the complete pre-caller gate precedes every live metadata path and numerical import",
+    "byte-identical static and freeze replay under the pinned interpreter without live/model/numerical access"
+  ],
+  "schema": "public-q24-signed-pair-v4r2-runtime-v1r5-cycle-breaking-dag-architecture-audit-v1",
+  "issued_by": "/root/v4r2_downstream_gap_audit",
+  "issued_utc": "2026-08-28T17:58:40Z",
+  "status": "CONDITIONAL_GO_CYCLE_BREAKING_DAG_ARCHITECTURE__CURRENT_UNFROZEN_CONTRACT_SNAPSHOT_REQUIRES_FIVE_REPAIRS__NO_LIVE_AUTHORITY"
+}

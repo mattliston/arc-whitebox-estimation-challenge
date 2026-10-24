@@ -1,0 +1,23 @@
+FAIL normal first requests 47,404 (limit 42,700, margin -4,704)
+FAIL normal warm  requests 45,517 (limit 41,200, margin -4,317)
+FAIL slow   first requests 47,844 (limit 42,700, margin -5,144)
+FAIL slow   warm  requests 45,584 (limit 41,200, margin -4,384)
+FAIL projected worst-network wall 109.8 s, mean 101.7 s (normal judge; limit 106.0 s)
+ok   projected platform setup (whole run) 4.446 s (limit 4.6 s)
+ok   projected setup under a 1.3x slow setup 4.585 s (limit 4.6 s)
+ok   official120 judge lines (no FAIL)
+residual projection vs #336412: median 0.364 mean 0.362 p95 0.377 max 0.432 (ref 0.356 / 0.355 / 0.369 / 0.422); ratios first x1.0070 warm x1.0223; warm x 7.77 us = 0.354 s; nets over 0.4 s: 1
+FAIL instruction-weighted projected median residual 0.3643 s (limit 0.32 s); Python instructions per request: first 45,571 (S2tr 45,320, x1.0056), warm 46,343 (S2tr 45,202, x1.0252)
+wall projection: #336412 median round trip 96.32 s x judge mean ratio 1.0020 = 96.51 s
+noise family (network effects removed): 5 runs, 500 nets; residual sd 0.028 q99.9 +0.169; wall sd 0.031 q99.9 +0.149
+noise post (network effects removed): 8 runs, 800 nets; residual sd 0.035 q99.9 +0.261; wall sd 0.038 q99.9 +0.212
+noise pre  (network effects removed): 17 runs, 1700 nets; residual sd 0.025 q99.9 +0.120; wall sd 0.026 q99.9 +0.106
+P(fail) [THIS BUILD] medians 0.3643 s / 96.51 s: family: any 84.6% public 64.3% (residual 84.6/64.3, wall 0.0/0.0; run bootstrap 100/60% of 5); post: any 96.7% public 86.2% (residual 96.4/85.2, wall 12.2/9.1; run bootstrap 100/75% of 8); pre: any 58.1% public 46.9% (residual 58.1/46.9, wall 0.0/0.0; run bootstrap 53/53% of 17)
+P(fail) [this build, residual = warm requests x 7.77 us] medians 0.3537 s / 96.51 s: family: any 66.7% public 46.2% (residual 66.7/46.2, wall 0.0/0.0; run bootstrap 100/20% of 5); post: any 87.3% public 69.2% (residual 85.9/66.8, wall 12.2/9.1; run bootstrap 100/50% of 8); pre: any 17.9% public 13.9% (residual 17.9/13.9, wall 0.0/0.0; run bootstrap 18/18% of 17)
+P(fail) [check: lead family .32 -> 1.3% (post .355 -> 89/70)] medians 0.3200 s / None s: family: any 0.8% public 0.8% (residual 0.8/0.8, wall 0.0/0.0; run bootstrap 0/0% of 5); post: any 20.0% public 12.8% (residual 20.0/12.8, wall 0.0/0.0; run bootstrap 38/25% of 8); pre: any 0.6% public 0.6% (residual 0.6/0.6, wall 0.0/0.0; run bootstrap 0/0% of 17)
+P(fail) [check: lead family .315 -> 0%] medians 0.3150 s / None s: family: any 0.2% public 0.2% (residual 0.2/0.2, wall 0.0/0.0; run bootstrap 0/0% of 5); post: any 14.0% public 8.5% (residual 14.0/8.5, wall 0.0/0.0; run bootstrap 25/25% of 8); pre: any 0.2% public 0.2% (residual 0.2/0.2, wall 0.0/0.0; run bootstrap 0/0% of 17)
+P(fail) [check: post .355 / lead 89/70] medians 0.3550 s / None s: family: any 69.7% public 48.0% (residual 69.7/48.0, wall 0.0/0.0; run bootstrap 100/20% of 5); post: any 87.8% public 69.0% (residual 87.8/69.0, wall 0.0/0.0; run bootstrap 100/50% of 8); pre: any 21.3% public 16.6% (residual 21.3/16.6, wall 0.0/0.0; run bootstrap 24/24% of 17)
+P(fail) [check: lead family wall 96.6 s -> ~0%] medians 0.3000 s / 96.6 s: family: any 0.0% public 0.0% (residual 0.0/0.0, wall 0.0/0.0; run bootstrap 0/0% of 5); post: any 13.1% public 9.9% (residual 1.1/1.1, wall 12.7/9.4; run bootstrap 12/12% of 8); pre: any 0.0% public 0.0% (residual 0.0/0.0, wall 0.0/0.0; run bootstrap 0/0% of 17)
+P(fail) [check: lead family wall 100 s -> 2.9%] medians 0.3000 s / 100.0 s: family: any 4.5% public 3.5% (residual 0.0/0.0, wall 4.5/3.5; run bootstrap 0/0% of 5); post: any 32.3% public 21.8% (residual 1.1/1.1, wall 32.1/21.6; run bootstrap 25/25% of 8); pre: any 0.1% public 0.0% (residual 0.0/0.0, wall 0.1/0.0; run bootstrap 0/0% of 17)
+COUNT GATES v4 FAIL
+wrote /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_passrel_v1/frontier_v1/bnd_VAB/COUNT_GATES_v4_bnd_VAB.json

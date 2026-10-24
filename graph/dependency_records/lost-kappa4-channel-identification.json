@@ -1,0 +1,18 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F3A6A",
+    "label": "Lost-kappa4-channel identification",
+    "kind": "phase2_state_fidelity_arm",
+    "status": "closed_measured",
+    "summary": "Closed at the exact variant-identification spelling. ORACLE_KAPPA_VARIANTS.json (SHA-256 48cab175c5f06ac3024c070e7cf116455666f86da9c18deafbdb28b9fe7b4d73) returns MIXED under the frozen rule: cap-8192 pooled layer-6 recovery is -0.0631690786024732 (worse than base), while the rank-4 k22-residual carrier recovers only 0.1785429390176465. Neither reaches the 0.5 classification gate, and the three scalar calibration families also fail. This closes CP4 drops versus this generic rank-4 carrier as an identifier; reopening requires a materially new carrier or observable, not another scalar gain.",
+    "terminal_criterion": "Closed by the frozen MIXED verdict and both measured layer-6 recovery fractions; reopen only for a materially different kappa4 carrier or state.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_oracle_kappa_probe_v1/CALIBRATION_FAMILY_CLOSURE.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_oracle_kappa_probe_v1/ORACLE_KAPPA_VARIANTS.json"
+    ],
+    "decomposition_children": []
+  }
+}

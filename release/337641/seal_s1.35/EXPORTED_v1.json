@@ -1,0 +1,81 @@
+{
+  "utc": "2026-10-21T21:15:53Z",
+  "successful": true,
+  "strength_scale": [
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35,
+    1.35
+  ],
+  "strength_spec": "1.35",
+  "design": [
+    "hg",
+    "fh"
+  ],
+  "seal_sha256": "77858e6389345c1a400e82395089d899ded56be898ff85dd2fb4d87655a2d8b7",
+  "files": {
+    "science": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/native_blocks_hgfh_r0p03_v1/s1.35/candidate_first128_onpolicy_blocks_science_v1.py",
+      "sha256": "4e0c98dad658d836854cb46559c55989ecdf26849be6b44d8c4f0f58a9d68278",
+      "bytes": 3159138,
+      "parent_sha256": "49bd2ba31f0bce983f44cc001746e63ffaa84e530d3b31efa6424f69a0298c80"
+    },
+    "release": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/native_blocks_hgfh_r0p03_v1/s1.35/candidate_first128_onpolicy_blocks_release_v1.py",
+      "sha256": "a277c387a40b0ed97c5a38baffc3d7ec53d6afde16985fedc4cdd9fdf3a4c4c6",
+      "bytes": 3159049,
+      "parent_sha256": "f9381d0982f5d24e76d38884188ba7c998548e4a3f306825e7e80fb9fa0fc3b6"
+    }
+  },
+  "tensor_proofs": {
+    "head": {
+      "max_abs_change": 6.46268817782402
+    },
+    "head_b": {
+      "max_abs_change": 2.0383198261260986
+    },
+    "hidden_head": {
+      "max_abs_change": 3.3143016546964645
+    },
+    "first_hidden_head": {
+      "max_abs_change": 3.9436727166175842
+    },
+    "sq_hidden_head": {
+      "new_tensor": true,
+      "row0_zero": true,
+      "rms": 0.3611723216220089
+    },
+    "sq_first_head": {
+      "new_tensor": true,
+      "row0_zero": true,
+      "rms": 0.136142273771683
+    },
+    "gate_first_head": {
+      "new_tensor": true,
+      "row0_zero": true,
+      "rms": 0.5453501968003159
+    },
+    "gate_hidden_head": {
+      "new_tensor": true,
+      "row0_zero": true,
+      "rms": 0.9104835074684198
+    },
+    "first_hidden_prod_head": {
+      "new_tensor": true,
+      "row0_zero": true,
+      "rms": 0.43516439644590305
+    }
+  },
+  "step_override": "def _gop2_gnn_step(l, x, sigma, W, state, P):\n    _e2_H = _E2Hold()\n    _e2_append_inline = _e2_H.append\n    _e2_value_inline = None\n    _e2_hold = []\n    if l < 1:\n        return (_e2_append_inline((_e2_value_inline := fnp.zeros_like(sigma))) or _e2_value_inline, _e2_append_inline((_e2_value_inline := (state * 0))) or _e2_value_inline)\n    k = _e2_gnn_consts(P, int(_e2_append_inline((_e2_value_inline := sigma.shape[0])) or _e2_value_inline))\n    c = _e2_gnn_layer(k, l)\n    Hx = k['Hx']\n    _e2_hold.append(fnp.clip(((x if x.dtype == 'float32' else x.astype(fnp.float32)) - c['centers']) / c['scales'], -8, 8, out=Hx))\n    if l == 15:\n        _e2_hold.append(fnp.multiply(Hx, k['mask'], out=Hx))\n    M = _e2_messages(k, W, state)\n    _e2_hold.append(fnp.power(k['SRC3'], 2, out=k['SQ']))\n    E = _gop2_contract(_e2_append_inline((_e2_value_inline := (_e2_append_inline((_e2_value_inline := _e2_wpow(W, need6=True))) or _e2_value_inline)['T135'])) or _e2_value_inline, k['SQ'])\n    _e2_hold.append(fnp.multiply(k['Hg'], M, out=k['HM03']))\n    _e2_hold.append(fnp.maximum(E, 0, out=E))\n    _e2_hold.append(fnp.log1p(E, out=k['HM36']))\n    _e2_hold.append(fnp.clip(k['Hm'], -8, 8, out=k['Hm']))\n    h = silu(_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := (k['H'] @ k['enc0_wT']))) or _e2_value_inline) + (_e2_append_inline((_e2_value_inline := _hc_bias(l, P['enc0_b']))) or _e2_value_inline)))) or _e2_value_inline)\n    gate90 = _e2_H(fnp.clip(_e2_H(_e2_H(Hx[:, 5:6] * c['scales'][5:6]) + c['centers'][5:6]), 0, 1))\n    first_scalar = _e2_H(h @ _fh90_first_head(k, l))\n    sq_first = _e2_H(_e2_H(h * h) @ _sq90_first_head(k, l))\n    gate_first = _e2_H(_e2_H(h * gate90) @ _g90_gate_first_head(k, l))\n    first90 = h\n    h = silu(_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := (h @ k['enc2_wT']))) or _e2_value_inline) + P['enc2_b']))) or _e2_value_inline)\n    sq_hidden = _e2_H(_e2_H(h * h) @ _sq90_hidden_head(k, l))\n    gate_hidden = _e2_H(_e2_H(h * gate90) @ _g90_gate_hidden_head(k, l))\n    fh_prod = _e2_H(_e2_H(first90 * h) @ _fh90_prod_head(k, l))\n    state = (_e2_append_inline((_e2_value_inline := (h @ k['enc4_wT']))) or _e2_value_inline) + P['enc4_b']\n    delta = (_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := sigma.astype(fnp.float32))) or _e2_value_inline) * c['rms']))) or _e2_value_inline) * (_e2_append_inline((_e2_value_inline := ((_e2_append_inline((_e2_value_inline := (((((((_e2_H(state @ c['head']) + _e2_H(h @ _hc90_hidden_head(k, l))) + first_scalar) + sq_hidden) + sq_first) + gate_first) + gate_hidden) + fh_prod))) or _e2_value_inline) + c['head_b']))) or _e2_value_inline)))) or _e2_value_inline) * c['gain']\n    return (delta, state)\n"
+}

@@ -1,0 +1,21 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F2U",
+    "label": "Edgeworth weight-order extension probe",
+    "kind": "phase2_host_edgeworth_order_probe_design",
+    "status": "closed_cost",
+    "priority": 1,
+    "summary": "Adjudicated at design stage by exact synthetic flopscope billing, with no source build and no data access. The L5 group is not implementable (the host carries no fifth-order cumulant state). Every implementable lambda-cubed Edgeworth channel group exceeds the exact 2^41 headroom at the current host total: L3*L4 needs 69,547,720,704 added FLOPs over fourteen layers against a 66,547,897,095 headroom including the J correction, L3^3 needs 86,934,650,880, and both together 156,482,371,584 - before counting weight-construction cost. Together with the T closure, the series-refinement family is measured out: within the budget the Q24 closure's expansion orders sit at their cost frontier and the sub-leading terms that fit do not matter.",
+    "terminal_criterion": "Closed on cost under exact billing; no scope variant. The sole licensed successor is the host compute-value attribution design P2R0F2V, which asks whether any existing component's budget could fund the L3*L4 shell.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_edgeworth_order_probe_v1/SYNTHETIC_CHANNEL_BILLING.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_edgeworth_order_probe_v1/U_DESIGN_CLOSURE.json"
+    ],
+    "decomposition_children": [
+      "P2R0F2V"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "v34-rank35-descriptive-implementation-freeze-v1",
+  "status": "STABLE_FINAL_STATIC_BYTES__AWAITING_INDEPENDENT_AUDITS",
+  "implementation_manifest_sha256": "4efc59b30c30ddfa46dbac2a21dfc6857247bfa40f358721d60d3ed2d93f5ce3",
+  "h4_checklist_sha256": "d7b0524c383fbf978cd605a92b15dfcf61dcfad28ab299b75ab30092a82dea58",
+  "h4_scope_amendment_sha256": "5674c5f21ddd523c4def4d94ef86de6807538081bea006f49e04bbeaae542f62",
+  "public_output_ruling_sha256": "3591a1e736c116bcb5b71d2711f9f4a0cd4fdbaad2ecfee497f13e49b5c1f424",
+  "preregistration_sha256": "bb5dede68f55e8cf33940b12506e272949e5b2ebd03bb034bd4d930f69b2c760",
+  "release_contract_sha256": "bc0dd638f4f6669ce3ce69f826ee17c646dfc8979b812e0c721b775292384af2",
+  "independent_audit_schema_sha256": "be26edf7084575bd2df58003509931dce91afa732258fe58939ac4eaf5c847ee",
+  "transaction_order": ["FIT_CAPTURE_9","FIT_TRAIN_MODEL_FREEZE","RANK35_CAPTURE_OUTPUT_FREEZE","RANK35_TARGET_SCORE"],
+  "fixed_head": {"architecture":"24->32->3","parameters":899,"seed":353076,"epochs":64,"batch_size":4096,"optimizer_steps":2176,"validation":false,"retuning":false},
+  "fixed_betas": [0.8273280548817595,0.32346157239952833,0.15489222117700333],
+  "fit_role_ranks": [100,150,200,250,300,400,500,600,650],
+  "descriptive_score_role_rank": 35,
+  "rank35_previously_exposed": true,
+  "rank35_first_runtime_access_after_model_freeze": true,
+  "target_first_runtime_access_after_output_freeze_and_score_claim": true,
+  "score_gate": "source_on_mse < 1e-8 and source_on_mse < source_zero_mse",
+  "descriptive_only": true,
+  "mc_or_fresh_panel": false,
+  "retry_or_replacement": false,
+  "package_board_submission_authority": false,
+  "static_verifier_runtimes": [
+    "/Users/matt/anaconda3/bin/python3.11",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python"
+  ],
+  "production_artifacts_present": 0,
+  "production_data_access": {"targets":0,"labels":0,"weights_arrays":0,"estimator_calls":0,"capture_runs":0,"meter_runs":0,"training_runs":0,"scoring_runs":0,"network":0},
+  "authority": {"release":false,"execution":false,"target":false,"retry":false,"package":false,"board":false,"submission":false,"network":false}
+}

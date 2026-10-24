@@ -1,0 +1,19 @@
+# Single post14 physical covariance fit
+
+2026-09-27; source decision before capture, fitting or new score access.
+
+One candidate only: current thin-star parent plus a fresh 6,177-parameter symmetric pair covariance supplier, applied only after post14 GNN/recentering and before same-layer trace/star construction. Freeze all original estimator parameters. Use zero diagonal and current-mean-annihilating projection as in checkpoint47. Inputs are the existing raw30+H64 node features and normalized local covariance/repeated-third face (three edge features); no new Gram or tensor sketch.
+
+Novelty is narrowly scoped: checkpoint40 optimized the actual final scalar/GNN output but froze the star/third face while changing terminal variance. Here a zero-diagonal D leaves CP roster, birth diagonal, t/s/a, b, radial, m and H unchanged; it changes C14 and the star residual before FP32 rounding. Recompute current star factorization and final row selection, third trace, scalar cumulant closure and final GNN. This is a bounded test of physical final feedback, not full eight-layer recurrent training and not evidence that a gain is expected.
+
+Training roster is fixed: 38,40,41,43,44,46,47,49,50,51,53,54. The last eight were CHECK in the old checkpoint40 experiment and now explicitly become TRAIN. None overlaps the existing actual TRAIN2/8 score panel (35,100,36,45,52,58,64,70) or VALID40. Research data have been reused historically; no pristine-holdout claim.
+
+Capture only public existing weights, current native inputs/states, and existing TRAIN truth. No target-dependent source inputs. Preserve the parent/source hashes, record any capture-only arithmetic separately, and verify passive original outputs. Capture enough CP contribution for final rowcut changes, exact pre-cast star residual ownership, b14/C14/m14, final native scalar/GNN constants and messages.
+
+Before fit: one small algebra test and a bounded full-width native zero/positive/negative covariance-direction comparison on TRAIN38. Baseline anchoring is permitted for the Torch training port but must be disclosed. Require finite outputs, exact zero diagonal and negligible mean-projection residual, native zero all16 output parity, and response relative L2 error at most1% with cosine at least.999 for meaningful nonzero responses. No extended derivative/response sweep. Failure closes or permits a versioned implementation-only fix to a demonstrated port bug, not scientific tuning.
+
+Fit once: fresh seed2026092766, 40 epochs/480 updates, fixed seeded network permutation, AdamW learning rate cosine .001 to .00001, weight decay1e-4, gradient clipping5. Final weights only; no checkpoint selection. Same normalized final served-mean MSE objective and .001 prediction-change penalty as checkpoint40. Normalizers use TRAIN only. No validation/CHECK loss during fit. All original host parameters frozen. The differentiated consumer includes native star feedback and current final scalar/GNN operations; native rounding can be anchored but not described as exact differentiation of floating-point operations.
+
+Immediately build one native candidate and use team_score_screen_v1.py. TRAIN2 gate: adjusted<=-1%,2/2 wins,maximum raw regression<=5%. Only a pass opens TRAIN6, with TRAIN8 adjusted<=-2%,at least6wins,95%bootstrap upper bound<0,maximum adjusted regression<=5%. Failed fit/native screen closes this fixed study; no amplitude/layer/regularization rescue. Passing TRAIN8 opens existing matched VALID40 and then actual20 worker/setup/boundary/package qualification. Submissions are already authorized for a meaningful qualified improvement.
+
+Numerical jobs are serial and root-owned, nice10,six thread variables1,process-group RSS<=7.5GB,and zero added swap for admission. Use the existing independent guard and retire all children. Source preservation is mandatory; no existing sealed files are rewritten.

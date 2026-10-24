@@ -1,0 +1,44 @@
+{
+  "schema": "q24-cs3b-source-probe-v2-runner-erratum-v1",
+  "status": "TERMINAL_HOLD_RUNNER_V2_AND_RELEASE_V2__DISTINCT_V3_REQUIRED",
+  "created_at_utc": "2026-08-24T15:10:19Z",
+  "bindings": {
+    "runner_v2": {
+      "path": "run_source_probe_v2.py",
+      "sha256": "bbc0ab938b0d052704959bd98e216582845700fddd6612f25ada3634597fc24c"
+    },
+    "release_v2": {
+      "path": "SOURCE_PROBE_RELEASE_V2.json",
+      "sha256": "756e51471b3078bfd675c54633c0281ef21266f30869144096c634d942c228c5"
+    },
+    "independent_v2_hold": {
+      "path": "INDEPENDENT_SOURCE_PROBE_RELEASE_AUDIT_CS3B_V2.json",
+      "sha256": "a4375efde9b86cace58bf59ba4af294fc3b645eed7c0b49cf487b2e482403753",
+      "status_exact": "HOLD_INDEPENDENT_SOURCE_PROBE_RUNNER_AND_RELEASE_AUDIT_CS3B_V2__EXECUTION_FORBIDDEN__DISTINCT_V3_REQUIRED"
+    },
+    "runner_v1_erratum_sha256": "d61c9805b3185465c47b5b420e60737b168e7b95422520045e72346273e60559",
+    "preregister_v1_sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3",
+    "independent_static_source_audit_sha256": "27e5d66752520ebf287f7bc362330489849816b3d8cec0a1c7628aa931ca6c6c"
+  },
+  "terminal_defects": [
+    "raw NumPy invalid arrays survive into the result tree and make strict JSON sealing impossible",
+    "required parent plus two candidate fixture exceptions/nonfinite outcomes are not all explicitly rejected",
+    "second-run carrier/reconstruction records are not gated or canonically compared",
+    "O_EXCL writer does not complete a legal short write",
+    "third-party imports precede the durable claim",
+    "new claim-namespace directory entries are not fsynced in their parents",
+    "NaN can evade elementwise forward bounds through count_nonzero(error > bound)",
+    "ordinary/null operation ledgers are compared only by totals rather than exact operation dictionaries"
+  ],
+  "execution": {
+    "runner_v2_imports_or_executions": 0,
+    "candidate_imports_or_executions": 0,
+    "output_namespace_v2_created": false,
+    "result_v2_exists": false
+  },
+  "supersession": {
+    "runner_v2_and_release_v2_must_never_execute": true,
+    "required": "distinct V3 runner release independent audit claim and result paths",
+    "scientific_gates_thresholds_roster_and_candidate_source": "UNCHANGED"
+  }
+}

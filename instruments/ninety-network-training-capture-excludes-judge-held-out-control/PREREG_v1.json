@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-21T02:50:02Z",
+  "kind": "TWO_FIXED_TRAIN90_LOCAL_INNOVATION_HEAD_FITS",
+  "script_sha256": "e0c431f98a071e240706f07560955ad64ada870c436d0b4da4d19efab6ad9f49",
+  "design_sha256": "3ade08b96c06461c7cc9d455957b87a8c858d6500ef1227a03e6eff3a769ed44",
+  "source_sha256": "777a73b6d13ef0e1e51d70d4c0dc61f21b4c7287813e336c82c37ec7188ba510",
+  "plan_sha256": "a6e841b1c5a09613e1d580f8eb49f68889eaddd1bed6f2ae73e8208f8d3e5375",
+  "cohort": "Exactly90 protected-disjoint training IDs from immutable3ade08b9; no original32/held25/fresh or previousvalidation labels",
+  "capture": "Existingtarget-free exact777a full1024 state64, gate,sigma,delta; no new capture",
+  "target": "[(truth_l-pred_l)-gate_l*(W_l.T@(truth_previous-pred_previous))]/(sigma*rms*gain)",
+  "models": [
+    "shared64 identical parameter update acrosslayers1..15",
+    "per_layer960 independent64 update at each of the15 existingheads"
+  ],
+  "ridge": 0.1,
+  "damping": 0.5,
+  "bias": false,
+  "fit": "Fixed standardized ridge; pooled rows with equal layer weights; each fold recomputes scaling without heldnetwork",
+  "selection": "Both architectures frozenbefore reading anyTRAIN90 labels; independently qualify; no tuning or outcome-basedmodelchanges",
+  "proxy_gate": {
+    "network_LOO_mean_relative_pct_lte": -0.15,
+    "lower_networks_gte": 54,
+    "negative_interleaved_blocks_gte": 4,
+    "descriptive_blocks": 5,
+    "overall_physical_correction_to_head_rms_lte": 0.25,
+    "max_layer_pooled_physical_correction_to_head_rms_lte": 1.0
+  },
+  "gate_interpretation": "Proxyerrors are local normalizedinnovation; not final MSE or adjustedgain. Whole native32/held/fresh and runtime qualification mandatory.",
+  "native_inference": "Only head[1:16] constants change; no arithmetic or shape changes",
+  "no_export_in_fitter": true,
+  "no_protected_truth_reads": true
+}

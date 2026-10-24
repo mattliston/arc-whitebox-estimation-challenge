@@ -1,0 +1,198 @@
+{
+  "schema": "fb-ec4-32-a1-no-cp4-independent-source-and-meter-audit-v1",
+  "status": "PASS_PHASE2_SOURCE_AND_LITERAL_METER__WALL_SAFE_CLAIM_HOLD__ACCURACY_UNSCORED",
+  "audited_at_utc": "2026-08-24T09:54:00Z",
+  "auditor_scope": {
+    "mode": "independent_read_only_exact_byte_source_audit_and_target_free_receipt_replay",
+    "estimator_edits": 0,
+    "canonical_graph_edits": 0,
+    "dataset_members_opened": 0,
+    "public_targets_opened": 0,
+    "scores_computed": 0,
+    "fits": 0,
+    "samples": 0,
+    "submissions": 0,
+    "full_shape_runs_by_auditor": 0
+  },
+  "candidate": {
+    "path": "estimator.py",
+    "bytes": 63205,
+    "sha256": "5b222ef4f8120adb9443da5c2a1f89c79085a768ac2aef10c61c18413ef6a025",
+    "parent_path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+    "parent_bytes": 68698,
+    "parent_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+  },
+  "bound_source_evidence": [
+    {
+      "path": "SOURCE_HOLD.json",
+      "bytes": 3054,
+      "sha256": "52039886d77c2e478f31271df23829a3c5db9cea75472a51e6266ecaf57d159c"
+    },
+    {
+      "path": "PREREGISTER.md",
+      "bytes": 5823,
+      "sha256": "c21d1818b7d087d7d3dca399595dd465fdd49b272b3f264f1849650b33b059b1"
+    },
+    {
+      "path": "AUTHOR_VERIFICATION.json",
+      "bytes": 5943,
+      "sha256": "3bb7098ef5acc546145732d89cc8f4b179af699fe7967ce8bfbcbe7bdd091cd1"
+    },
+    {
+      "path": "verify_a1.py",
+      "bytes": 23802,
+      "sha256": "91b52090eb5d6ec6d9c9b7c6c9408922abaf3b6c1bc8d35961a4aae2c7c68868"
+    },
+    {
+      "path": "EXACT_STATIC_DELTA.json",
+      "bytes": 4270,
+      "sha256": "a75e2ef7309194436a4c3d132ddf2a39033884c14743c4ee64b749aa007d68f8"
+    },
+    {
+      "path": "verify_exact_static_delta.py",
+      "bytes": 9774,
+      "sha256": "e5ee247a763251cdd5054c3c30d919283bb68daf1bcc108ab93531b002e7098b"
+    }
+  ],
+  "phase2_source_gate": {
+    "status": "PASS",
+    "imports_exact": [
+      "flopscope",
+      "flopscope.numpy",
+      "whestbench.BaseEstimator",
+      "whestbench.domain.MLP"
+    ],
+    "forbidden_import_or_foreign_compute_mechanisms": [],
+    "new_functions": [],
+    "removed_functions_exact": [
+      "_assemble_quartic_provider",
+      "_cp4_push",
+      "_cp4_read_diagonal",
+      "_cp4_read_planes",
+      "_cp4_reset",
+      "_quartic_residual"
+    ],
+    "changed_existing_functions_exact": [
+      "_initialize_h1",
+      "_predict",
+      "_reset_stars"
+    ],
+    "cp4_computational_or_state_identifiers_remaining": [],
+    "cp4_text_remaining_interpretation": "truthful module/class documentation only",
+    "common_v4_science_function_ast_unchanged_count": 19,
+    "production_guard": {
+      "width": 1024,
+      "depth": 16,
+      "minimum_budget": 2199023255552,
+      "offshape_and_low_budget_zero_flops": true
+    }
+  },
+  "science_equivalence_gate": {
+    "status": "PASS_INTENDED_COHERENT_NO_CP4_TRANSFORM",
+    "complete_cp4_family_removed_together": true,
+    "h4_plus_alpha_is_only_quartic_provider": true,
+    "full_corrected_k4_k31_k22_supplied_directly_to_each_reset": true,
+    "preconsumer_push_quartic_calls_in_predict_ast": 1,
+    "final_push_quartic_diagonal_calls_in_predict_ast": 1,
+    "provider_add_calls": 0,
+    "provider_subtract_calls": 0,
+    "cp3_gate_float32_cast_preserved_before_unchanged_cp_grow": true,
+    "independent_h4_reset_bitwise_parent_none_provider_cases": 12,
+    "independent_h4_reset_widths": [2, 3, 7, 13],
+    "independent_h4_reset_covariance_scales": [1e-5, 1.0, 1e5],
+    "four_depth16_intended_reference_outputs_bitwise": {
+      "identity_width8_float32": "51e880b193b662072af52b5c5de8474fce87b3e292a019aef335bd71dca0914b",
+      "near_identity_seed20260823_scale0p02_float32": "2137a209be3630334e4d112a36bbb2cfb028ecd1d575130fdf73ba2c0da1e1bf",
+      "identity_plus_qr_seed20260823_scale0p35_float64": "0cfa8eaf55a269ea55cff7385e9e5c8fa8a0146c42b1d658a7a71462e0543a68",
+      "contractive_seed17_scale0p12_float32": "4d7b701f09fdd8d1bc84bb688b1be946581c0147b97c6e5470b07de321db1514"
+    },
+    "cp3_parent_bitwise_rank_cases": [513, 16382, 16384],
+    "cp3_poison_and_persistent_alias": "PASS"
+  },
+  "exact_static_resource_gate": {
+    "status": "PASS_PROJECTED_EXACT_SOURCE_SCHEDULE__SUPERSEDED_OLDER_CP4_LEDGER",
+    "branch_match": "cap=2n reproduces production rank n at W2, rank 2n at W3-W16, and thirteen rank-3n truncations",
+    "independently_replayed_widths": [2, 4, 8, 16, 32, 64],
+    "independent_formula_exact_on_all_replayed_widths": true,
+    "deletion_formula": "218*n^3 + 1772*n^2 + 156*n*log2(n) + 977*n + 1",
+    "production_width": 1024,
+    "exact_projected_deletion_flops": 235936392193,
+    "projected_candidate_flops": 1943806562276,
+    "projected_candidate_calls": 5953,
+    "projected_parent_reduction_fraction": 0.10824046556006678,
+    "projected_headroom_flops": 255216693276
+  },
+  "literal_meter": {
+    "status": "PASS_PHASE2_SUBPROCESS_INTERFACE_AND_METER__ACCURACY_UNSCORED",
+    "receipt_path": "../meter_protocol/runs/fb_ec4_a1_no_cp4_v1_5b222ef4_n1_s8_seed20260824/receipt.json",
+    "receipt_bytes": 23220,
+    "receipt_sha256": "45b546c3dce8d22d918620e96da960fbdd1fab3f9874ec5cec80704a4808200f",
+    "independent_verify_meter_run": "PASS_METER_RECEIPT_VERIFICATION",
+    "flops": 1943806562276,
+    "calls": 5953,
+    "flopscope_backend_s": 35.07205727137625,
+    "flopscope_overhead_s": 0.47214405285194516,
+    "residual_s": 0.2516303430311382,
+    "wall_s": 35.795831667259336,
+    "sampled_descendant_peak_rss_bytes": 4287905792,
+    "output_shape": [16, 1024],
+    "output_dtype": "float32",
+    "all_values_finite": true,
+    "failed_mlps": 0,
+    "phase2_limits": {
+      "flops_max": 2199023255552,
+      "residual_s_max": 0.4,
+      "wall_s_max": 120.0,
+      "rss_bytes_max": 8589934592
+    },
+    "target_blind": true
+  },
+  "matched_v4_comparison": {
+    "v4_receipt_sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017",
+    "flops_delta": -235936392193,
+    "calls_delta": -925,
+    "backend_s_delta": 0.7140168910846114,
+    "backend_fraction_delta": 0.020781653528010313,
+    "overhead_s_delta": -0.11828793538734317,
+    "residual_s_delta": -0.14100187132135034,
+    "wall_s_delta": 0.4547270843759179,
+    "wall_fraction_delta": 0.01286680452529354,
+    "sampled_descendant_rss_bytes_delta": -330661888,
+    "interpretation": "A1 widens residual and memory margin but its one matched local meter has slower backend and total wall despite 10.824 percent fewer FLOPs; it is not evidence of robust board wall safety."
+  },
+  "namespace": {
+    "estimator_sha256_after_all_gates": "5b222ef4f8120adb9443da5c2a1f89c79085a768ac2aef10c61c18413ef6a025",
+    "pycache_or_pyc_count_at_seal": 0,
+    "audit_cache_incident": {
+      "scope": "two generated estimator bytecode files appeared during concurrent qualification and were removed exactly with their empty cache directories; estimator bytes never changed",
+      "removed": [
+        {"bytes": 65895, "sha256": "984c69f243b7a7ad85989d425d4eb0484e02ebfa39d76a7667ccaeaacc996fb0"},
+        {"bytes": 65932, "sha256": "fa89d617b57aa3d396822db8bca9584fd619d65c620628d88472207b11df2c2b"}
+      ],
+      "future_import_requirement": "python -B"
+    }
+  },
+  "verdict": {
+    "phase2_source_legality": "PASS",
+    "intended_no_cp4_science_transform": "PASS",
+    "literal_resource_admission": "PASS",
+    "robust_wall_safe_claim": "HOLD",
+    "accuracy_or_raw_mse": "UNSCORED",
+    "board_evidence_authority": "at most preregistered exploratory CP4-ablation telemetry; any partial completions remain partial-only and cannot be aggregated",
+    "recommended_priority": "defer A1 board promotion behind a wall-targeted full-V4 Q-channel reduction candidate"
+  },
+  "authorized_next_actions": [
+    "ADDITIVE_IMMUTABLE_FREEZE_AND_PACKAGE_BINDING_OF_THE_EXACT_SOURCE_AND_THIS_AUDIT",
+    "TARGET_FREE_A1_BOUND_MOMENT_DIAGNOSTIC",
+    "READ_ONLY_SOURCE_OR_RESOURCE_COMPARISON"
+  ],
+  "withheld": [
+    "ESTIMATOR_MUTATION",
+    "ROBUST_WALL_SAFE_PROMOTION",
+    "RAW_MSE_OR_ACCURACY_CLAIM",
+    "AGGREGATE_INTERPRETATION_OF_PARTIAL_BOARD_RESULTS",
+    "SAMPLING_OR_FIT",
+    "SUBMISSION_ACTION_FROM_THIS_AUDIT_ALONE",
+    "CANONICAL_GRAPH_MUTATION"
+  ]
+}

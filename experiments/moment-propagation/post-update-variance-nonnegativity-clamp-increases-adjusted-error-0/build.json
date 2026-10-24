@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_post_variance_nonnegative_v1/candidate.py",
+    "sha256": "96eb42dcee39ca578e82c00c75098fdefe36d5d44aab609dcd1e85557bff2704",
+    "bytes": 978129
+  },
+  "source_parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+    "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+    "bytes": 978073
+  },
+  "source_inverse": {
+    "parent": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+      "sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+      "bytes": 978073
+    },
+    "edits": [
+      {
+        "before": "                _ps_post_cov32 = C",
+        "after": "                _ps_Cdiag = fnp.maximum(_ps_Cdiag, 0.0)\n                _ps_post_cov32 = C"
+      }
+    ],
+    "exact_inverse": true
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_post_variance_nonnegative_v1/protocol.json",
+    "sha256": "25c85638e574e381f6b5af65327f796124fe4a0f0605e9cabc8b13540ecfc8fe",
+    "bytes": 4200
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_post_variance_nonnegative_v1/build.py",
+    "sha256": "e49a3414cbae667d9cf6a1a519e1293202ce51ac9f0bf1201ce9b2b6343fd95d",
+    "bytes": 8099
+  },
+  "source_diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_post_variance_nonnegative_v1/source.diff",
+    "sha256": "8d9617a63797e2e52244d1cd6db0eb78bf7265cac4ff47335a8dd10f0359d3be",
+    "bytes": 749
+  },
+  "only_changed_functions": [
+    "_predict_binary"
+  ],
+  "ast_compile": true,
+  "scalar_contract_cases": 5
+}

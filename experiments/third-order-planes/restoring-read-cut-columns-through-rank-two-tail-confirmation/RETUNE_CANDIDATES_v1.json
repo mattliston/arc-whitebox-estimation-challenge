@@ -1,0 +1,285 @@
+{
+ "lane": "[opus-retune]",
+ "written_utc": "2026-10-16T05:35:53Z",
+ "base": "S2tr 46e9315d",
+ "rule": "true net = dMSE_plain/0.75 + dbill; window adopted cut: plain net in (-dMSE/3, 0); rejected add: (0, |dMSE|/3)",
+ "adopted_cuts": [
+  {
+   "name": "RTT2 young-read z2->z1.5 + rank-2 completion (#336178)",
+   "dMSE_plain": 0.679,
+   "dbill": -1.343,
+   "plain_net": -0.664,
+   "corrected_net": -0.438,
+   "in_window": false,
+   "n": 24,
+   "source": "TEAM_LOG L3327",
+   "status": "keep: noise-free restore measured [opus-select] L3775: -0.047% MSE for +2.08% bill"
+  },
+  {
+   "name": "S48 young-read column cut a>=-2.0 (_RC_COLZ), sealed 32",
+   "dMSE_plain": 0.244,
+   "dbill": -0.822,
+   "plain_net": -0.578,
+   "corrected_net": -0.497,
+   "in_window": false,
+   "n": 32,
+   "source": "L1171",
+   "status": "out of window; RTT2 now offers a cheap completion restore -> SCREENED rcoff/rc22"
+  },
+  {
+   "name": "  same, fresh 16",
+   "dMSE_plain": 0.38,
+   "dbill": -0.88,
+   "plain_net": -0.5,
+   "corrected_net": -0.373,
+   "in_window": false,
+   "n": 16,
+   "source": "fragment_readcol_v1 header",
+   "status": "out of window"
+  },
+  {
+   "name": "  marginal step 2.0 -> 2.2 (rdc)",
+   "dMSE_plain": 0.46,
+   "dbill": -0.74,
+   "plain_net": -0.28,
+   "corrected_net": -0.127,
+   "in_window": false,
+   "n": null,
+   "source": "L1298 (restore direction read as cut)",
+   "status": "out of window (corr -0.13 for the cut)"
+  },
+  {
+   "name": "Old-tier dead tail neg 2.5 (un-cut 3.0)",
+   "dMSE_plain": 0.16,
+   "dbill": -0.55,
+   "plain_net": -0.39,
+   "corrected_net": -0.337,
+   "in_window": false,
+   "n": 16,
+   "source": "L1045 torch 16 (bill = whole-tail price share)",
+   "status": "keep"
+  },
+  {
+   "name": "Old-tier positive tail 2.5 (un-cut 3.0)",
+   "dMSE_plain": 0.1,
+   "dbill": -0.55,
+   "plain_net": -0.45,
+   "corrected_net": -0.417,
+   "in_window": false,
+   "n": 16,
+   "source": "L1045 torch 16",
+   "status": "keep"
+  },
+  {
+   "name": "Young dead tail 2.5 (YNT; 3.0 = fallback = off)",
+   "dMSE_plain": 0.5,
+   "dbill": -1.65,
+   "plain_net": -1.15,
+   "corrected_net": -0.983,
+   "in_window": false,
+   "n": 16,
+   "source": "L1045 torch 16; L704 native exact 2 nets -0.17%",
+   "status": "keep"
+  },
+  {
+   "name": "GOP2 output-projection rank 2 (#336101)",
+   "dMSE_plain": 0.06,
+   "dbill": -0.515,
+   "plain_net": -0.455,
+   "corrected_net": -0.435,
+   "in_window": false,
+   "n": 2,
+   "source": "L3011 fixed2; all24 net -0.573 se 0.08",
+   "status": "keep"
+  },
+  {
+   "name": "L15 row cut |a|>3.5 (exact restore)",
+   "dMSE_plain": -0.17,
+   "dbill": 0.98,
+   "plain_net": 0.81,
+   "corrected_net": 0.753,
+   "in_window": false,
+   "n": 2,
+   "source": "L704 (exact is WORSE on 2 nets)",
+   "status": "keep"
+  },
+  {
+   "name": "Ecut/EcutS edge cut",
+   "dMSE_plain": 0.02,
+   "dbill": -0.675,
+   "plain_net": -0.655,
+   "corrected_net": -0.648,
+   "in_window": false,
+   "n": 3,
+   "source": "L143",
+   "status": "keep"
+  },
+  {
+   "name": "Covariance dead cut floor 1e-3",
+   "dMSE_plain": 0.03,
+   "dbill": -0.25,
+   "plain_net": -0.22,
+   "corrected_net": -0.21,
+   "in_window": false,
+   "n": 10,
+   "source": "L535",
+   "status": "keep"
+  },
+  {
+   "name": "Push dead-side row cut z 3.09",
+   "dMSE_plain": 0.02,
+   "dbill": -0.091,
+   "plain_net": -0.071,
+   "corrected_net": -0.064,
+   "in_window": false,
+   "n": 2,
+   "source": "L672",
+   "status": "keep"
+  },
+  {
+   "name": "XSDM",
+   "dMSE_plain": 0.04,
+   "dbill": -0.14,
+   "plain_net": -0.1,
+   "corrected_net": -0.087,
+   "in_window": false,
+   "n": 2,
+   "source": "L672",
+   "status": "keep"
+  },
+  {
+   "name": "L15 r_u 256 (UVP; exact at L15)",
+   "dMSE_plain": -0.06,
+   "dbill": 0.24,
+   "plain_net": 0.18,
+   "corrected_net": 0.16,
+   "in_window": false,
+   "n": 2,
+   "source": "L710 (exact WORSE)",
+   "status": "keep"
+  },
+  {
+   "name": "Star one-direction k=-1 vs factored ss8 (cut = no ss8)",
+   "dMSE_plain": 0.114,
+   "dbill": -0.568,
+   "plain_net": -0.454,
+   "corrected_net": -0.416,
+   "in_window": false,
+   "n": 8,
+   "source": "L1243 native 8 vs k=-1",
+   "status": "keep (ss8 restore corr +0.42)"
+  }
+ ],
+ "rejected_accuracy_adds": [
+  {
+   "name": "r_u 320 at L10-14 (_LCR_RU)",
+   "dMSE_plain": -0.92,
+   "dbill": 1.26,
+   "plain_net": 0.34,
+   "corrected_net": 0.033,
+   "in_window": false,
+   "n": 8,
+   "source": "L1134 native 8 (per-net log +0.28)",
+   "status": "[opus-grow] lcr384 + JORD; K25 noise-free at C L2207: -0.041% se 0.236 null; current price +1.53% L3670"
+  },
+  {
+   "name": "UT8 rank-8 approx of omitted common-u 256:320, L10-14",
+   "dMSE_plain": -0.305,
+   "dbill": 0.337,
+   "plain_net": 0.032,
+   "corrected_net": -0.07,
+   "in_window": true,
+   "n": 8,
+   "source": "L3200 pilot8",
+   "status": "r_u family: port only if lcr384 shows gain (UC8 all24 plain net -0.055, parked)"
+  },
+  {
+   "name": "Exact centering d300cc36",
+   "dMSE_plain": -0.047,
+   "dbill": 0.058,
+   "plain_net": 0.011,
+   "corrected_net": -0.005,
+   "in_window": true,
+   "n": 8,
+   "source": "L3535",
+   "status": "negligible"
+  },
+  {
+   "name": "Factored star ss8 (torch, pre k=-1)",
+   "dMSE_plain": -0.43,
+   "dbill": 0.6,
+   "plain_net": 0.17,
+   "corrected_net": 0.027,
+   "in_window": false,
+   "n": 16,
+   "source": "L1114/L1117",
+   "status": "superseded by native re-test vs k=-1 (adopted cuts table)"
+  },
+  {
+   "name": "Early births floor 0.005 at L1-5",
+   "dMSE_plain": -0.43,
+   "dbill": 0.66,
+   "plain_net": 0.23,
+   "corrected_net": 0.087,
+   "in_window": false,
+   "n": 12,
+   "source": "L628 torch 12 (proxy bill; native ~2x)",
+   "status": "[opus-grow] bfe"
+  },
+  {
+   "name": "rdc 2.2 (column cut 2.0 -> 2.2)",
+   "dMSE_plain": -0.46,
+   "dbill": 0.74,
+   "plain_net": 0.28,
+   "corrected_net": 0.127,
+   "in_window": false,
+   "n": null,
+   "source": "L1298",
+   "status": "SCREENED as rc22 (under RTT2 completion)"
+  },
+  {
+   "name": "L13-only 448",
+   "dMSE_plain": -0.36,
+   "dbill": 0.62,
+   "plain_net": 0.26,
+   "corrected_net": 0.14,
+   "in_window": false,
+   "n": 12,
+   "source": "L623",
+   "status": "joins: settled noise-free, skip"
+  },
+  {
+   "name": "UC32 full24",
+   "dMSE_plain": -0.042,
+   "dbill": 0.214,
+   "plain_net": 0.172,
+   "corrected_net": 0.158,
+   "in_window": false,
+   "n": 24,
+   "source": "L3291",
+   "status": "out"
+  },
+  {
+   "name": "Weighted full24",
+   "dMSE_plain": -0.079,
+   "dbill": 0.216,
+   "plain_net": 0.137,
+   "corrected_net": 0.111,
+   "in_window": false,
+   "n": 24,
+   "source": "L3299",
+   "status": "out"
+  }
+ ],
+ "ranked_window_or_edge": [
+  "r_u 320 (0.92) -> [opus-grow] lcr384/JORD",
+  "rdc / column cut (0.24-0.46) -> rcoff, rc22 here",
+  "UT8 (0.31) -> after lcr384",
+  "ss8 (0.43 torch, 0.11 native) -> closed",
+  "exact centering (0.05) -> negligible"
+ ],
+ "screened": {
+  "rcoff": "e50a1679 _RC_COLZ None (complete whole live roster beyond z1.5 with RTT2 rank-2)",
+  "rc22": "bd1e3750 _RC_COLZ 2.2"
+ }
+}

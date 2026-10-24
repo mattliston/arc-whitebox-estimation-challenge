@@ -1,0 +1,59 @@
+{
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_ynt_zonal3_v1/candidate.py",
+    "sha256": "9800913f69c35b3d4825b87bb43eabc1dcaa5d296238f0a2796302e80aff933c",
+    "bytes": 963565
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_ynt_zonal3_v1/build.py",
+    "sha256": "843a03ad14a77798c84727a45f7ae264d1600c464a247bfb3787354ff1b3dc69",
+    "bytes": 6115
+  },
+  "fragment": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_ynt_zonal3_v1/fragment.py",
+    "sha256": "e63eb9a82ebac5e947647cf7f1ecf156026fce229481f08521d7b70439938d9a",
+    "bytes": 1458
+  },
+  "primitive": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_ynt_zonal3_v1/probe.py",
+    "sha256": "86f20ce9bf048d6e39ba27a4d2df86b0b2d3988b216612e40d7f45553c0cfbf7",
+    "bytes": 5617
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_ynt_zonal3_v1/protocol.json",
+    "sha256": "033c5927c352f57a5feca8a8dec3c960c7b914459561ac82e3d00cb505d2e8bd",
+    "bytes": 2931
+  },
+  "diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_ynt_zonal3_v1/source_diff.patch",
+    "sha256": "9ae0ce5fd170ff7a68d5ff4e18d7e1c64c4ee055e70314e7c9358e511c7e1bef",
+    "bytes": 2128
+  },
+  "source_inverse_exact": true,
+  "edits": [
+    {
+      "before": "def _ynt_trace(w, p, previous, newborn, coefficient, tail):\n    q, selected, base, t, s = newborn\n    q, births = int(q), int(selected.shape[0])\n    weights = coefficient.astype(fnp.float64)\n    B = base.astype(fnp.float64)\n    t64, s64 = t.astype(fnp.float64), s.astype(fnp.float64)\n    normB = fnp.sum(B * B, axis=0)\n    ct = weights[q:q + births] * (normB + t64 * t64)\n    cs = weights[q + births:] * (normB + s64 * s64)\n    tau = B @ (ct + cs)\n    if q:\n        P = p[:, :q].astype(fnp.float64)\n        carried = P @ (weights[:q] * fnp.sum(P * P, axis=0))\n        fnp.put(tau, previous, tau[previous] + carried)\n    fnp.put(tau, selected, tau[selected] + t64 * ct + s64 * cs)\n    # Ambient weight dimension is 1024, including rows outside previous.\n    wt = w[:, tail].astype(fnp.float64)\n    normw = fnp.sum(wt * wt, axis=0)\n    return (3 * normw / (int(w.shape[0]) + 2)) * (wt.T @ tau)\n",
+      "after": "def _ynt_trace(w, p, previous, newborn, coefficient, tail):\n    q, selected, base, t, s = newborn\n    q, births = int(q), int(selected.shape[0])\n    weights = coefficient.astype(fnp.float64)\n    B = base.astype(fnp.float64)\n    t64, s64 = t.astype(fnp.float64), s.astype(fnp.float64)\n    normB = fnp.sum(B * B, axis=0)\n    ct = weights[q:q + births] * (normB + t64 * t64)\n    cs = weights[q + births:] * (normB + s64 * s64)\n    tau = B @ (ct + cs)\n    if q:\n        P = p[:, :q].astype(fnp.float64)\n        carried = P @ (weights[:q] * fnp.sum(P * P, axis=0))\n        fnp.put(tau, previous, tau[previous] + carried)\n    fnp.put(tau, selected, tau[selected] + t64 * ct + s64 * cs)\n    wt = w[:, tail].astype(fnp.float64)\n    normw = fnp.sum(wt * wt, axis=0)\n    n = int(w.shape[0])\n    linear = (3 * normw / (n + 2)) * (wt.T @ tau)\n    # Conditional mean of the missing degree-three spherical harmonic.\n    mean = _E2_LAYER['ynt_previous_mean']\n    u = mean / fnp.sqrt(fnp.maximum(fnp.sum(mean * mean), 1e-30))\n    hb = u @ B\n    ht = hb + u[selected] * t64\n    hs = hb + u[selected] * s64\n    axial = fnp.sum(weights[q:q + births] * ht * ht * ht + weights[q + births:] * hs * hs * hs)\n    if q:\n        hp = u[previous] @ P\n        axial = axial + fnp.sum(weights[:q] * hp * hp * hp)\n    trace_axis = fnp.sum(u * tau)\n    z = wt.T @ u\n    zonal = ((n + 2) * axial - 3 * trace_axis) / (n - 1)\n    return linear + zonal * (z * z * z - 3 * normw * z / (n + 2))\n"
+    },
+    {
+      "before": "_E2_LAYER.update(mu=mu, Cpre=Cpre, vc=_e2_vc, s=_e2_s, a=_e2_a, g=response_gate)",
+      "after": "_E2_LAYER.update(mu=mu, Cpre=Cpre, vc=_e2_vc, s=_e2_s, a=_e2_a, g=response_gate, ynt_previous_mean=m)"
+    },
+    {
+      "before": "        _YNT_STATS['retired'] = True\n",
+      "after": "        _YNT_STATS['retired'] = True\n        _E2_LAYER.pop('ynt_previous_mean', None)\n"
+    }
+  ],
+  "wrapper_captures_unchanged": true,
+  "setup_counts": {
+    "bound": 682,
+    "lvfuse": 649,
+    "psdb_fused": 9
+  },
+  "numerical_execution": false
+}

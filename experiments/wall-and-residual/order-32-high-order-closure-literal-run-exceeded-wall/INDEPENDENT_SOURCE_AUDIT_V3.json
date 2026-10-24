@@ -1,0 +1,192 @@
+{
+  "schema": "fb-ec4-32-cp4r2048-v3-independent-premeter-source-audit-v1",
+  "status": "PASS_FOR_TARGET_FREE_LITERAL_FULL_SHAPE_METER_ONLY",
+  "audited_at_utc": "2026-08-24T05:49:42Z",
+  "authority": {
+    "granted": [
+      "TARGET_FREE_LITERAL_FULL_SHAPE_METER"
+    ],
+    "withheld": [
+      "OFFICIAL_METER_PASS_CLAIM",
+      "FULL_SHAPE_NUMERIC_PARITY_CLAIM",
+      "ACCURACY_OR_MSE_CLAIM",
+      "TARGET_OR_ROLE_ACCESS",
+      "FIT_OR_SAMPLING",
+      "SUBMISSION",
+      "PROBLEM_GRAPH_MUTATION"
+    ]
+  },
+  "exact_byte_bindings": {
+    "v3_estimator": {
+      "path": "estimator.py",
+      "bytes": 49805,
+      "sha256": "f6db80014b5c4d8479a262bd1e4d13192258b12f1a0ad1ce14a60074e5a613c3"
+    },
+    "v3_static_gate": {
+      "path": "verify_static.py",
+      "bytes": 6080,
+      "sha256": "cdfa19394f4c67f154dcabcfe8b851445659e24f013ed27d0ba22e3187824a6a"
+    },
+    "v3_parity_gate": {
+      "path": "verify_parity.py",
+      "bytes": 6226,
+      "sha256": "a2a35ceee19ac65e95078abb9072d4c98cdd796535c88ad10aad7f490e503a16"
+    },
+    "v2_parent_estimator": {
+      "path": "../fullbudget_k21_k4_closure_v2/estimator.py",
+      "bytes": 31410,
+      "sha256": "de8023d8d34be4f588d5af8c87f99a5e7babf9f42a9d351602c838b19783673e"
+    },
+    "v2_literal_meter_receipt": {
+      "path": "../meter_protocol/runs/fb_ec4_32_cp4r2048_v2_n1_s8_seed20260823/receipt.json",
+      "sha256": "05a8ac5b6379ca95d4d888673fcc59d9889b06bd38d741d4baf32d551cced497"
+    }
+  },
+  "pinned_environment": {
+    "flopscope_version": "0.12.0+np2.4.6",
+    "whestbench_version": "0.16.0",
+    "numpy_backend_version": "2.4.6",
+    "requirements_lock_sha256": "dbd429c8eeb64c5809f7a045fc782173e476c943fbd6ce7d2616c94433481f98",
+    "flopscope_numpy_init_sha256": "33edacfc6ca01866d4f558e3a43f8fadfd6a2c0efdbc4e4712acc1d839ad4e2f",
+    "flopscope_ndarray_sha256": "fa5bbecb48b123ab77f31ced3da877d2e333aa5b403a324c33da591b967d3e74",
+    "flopscope_budget_sha256": "ad9e78172bd0e8175533d4aae75b67df749d96ecc1ca868135eb3d781e542d01",
+    "flopscope_registry_sha256": "4e091020d5cb8167271fa6ed76ac43983664e3a3cdd9e67ae76968f3884f6623"
+  },
+  "source_and_phase2_audit": {
+    "status": "PASS",
+    "v2_science_boundary": "Every inherited constant and every function outside the declared Hermite/Q38/Q32/pair-pack/broadcast/context/guard execution rewrite is AST-identical to V2.",
+    "imports_exact": [
+      "flopscope",
+      "flopscope.numpy",
+      "whestbench",
+      "whestbench.domain"
+    ],
+    "new_runtime_arithmetic": "Root products, masks, cumulative powers, broadcasts, gathers, and materialization all use pinned flopscope.numpy operations; Python work is limited to literal data, dimensions, control flow, and bookkeeping.",
+    "forbidden_mechanisms_found": [],
+    "pycache_directories": 0,
+    "pyc_files": 0
+  },
+  "pinned_api_behavior": {
+    "status": "PASS",
+    "arange": "Returns a FlopscopeArray and charges 2*numel before the pinned dtype rate.",
+    "where_three_argument": "Uses NumPy broadcast and NEP-50 scalar promotion, returns a FlopscopeArray, and charges the broadcast result at the select tier.",
+    "prod_and_cumprod": "Use the counted-reduction wrapper and preserve the requested axis/order.",
+    "broadcast_arrays": "Returns pinned NumPy broadcast views through the flopscope API; its registered view cost is zero and the following stack meters materialization.",
+    "tuple_gather": "features[(family_tuple,)] is advanced integer indexing, returns the intended repeated-family copy, and charges getitem at 4 output elements before the float64 rate.",
+    "isolated_smoke": {
+      "arange_two_calls_flops": 36,
+      "where_shape_2x3_flops": 48,
+      "prod_2x3_float64_reduction_flops_excluding_asarray": 8,
+      "cumprod_3x2_float64_reduction_flops_excluding_asarray": 8,
+      "broadcast_arrays_then_stack_shape_2x2x3_flops": 24,
+      "family_gather_shape": [4, 7, 4, 5],
+      "family_gather_flops": 4480
+    }
+  },
+  "gates": {
+    "author_static": {
+      "status": "PASS_UNFROZEN_V3_ADDITIVE_STATIC_REPLAY",
+      "projected_v2_calls": 16480,
+      "projected_v3_calls": 9271,
+      "projected_call_reduction": 7209
+    },
+    "author_target_free_parity": {
+      "status": "PASS_V3_TARGET_FREE_COEFFICIENT_Q32_AND_GUARD_PARITY",
+      "adversarial_alpha_count": 811,
+      "maximum_q38_scaled_error": 8.729241066787197e-10,
+      "maximum_tiny_four_pair_absolute_error": 8.881784197001252e-16,
+      "tiny_v2_flops": 423722,
+      "tiny_v3_flops": 407126,
+      "tiny_v2_calls": 603,
+      "tiny_v3_calls": 148
+    },
+    "independent_execution_isolation": {
+      "status": "PASS",
+      "q32_features_bitwise_equal": true,
+      "rho_powers_bitwise_equal": true,
+      "inverse_factorial_bitwise_equal": true,
+      "family_pregathers_exact": true,
+      "edgeworth_weights_bitwise_equal": true
+    },
+    "early_guard_red_team": {
+      "status": "PASS",
+      "off_shape_short_circuits_budget_cast_and_weights": true,
+      "production_shape_low_budget_short_circuits_weights": true,
+      "off_shape_flops_and_calls": [0, 1],
+      "low_budget_flops_and_calls": [0, 1],
+      "budget_equal_to_2pow41_falls_through": true,
+      "budget_above_2pow41_falls_through": true
+    }
+  },
+  "root_product_red_team": {
+    "status": "PASS_WITH_DISCLOSED_FP64_ILL_CONDITIONING",
+    "stored_root_rows_shape": [37, 36],
+    "active_root_count": 666,
+    "independent_hermeroots_max_absolute_difference": 5.861977570020827e-14,
+    "independent_recurrence_root_residual_scaled": 3.953178488345277e-14,
+    "argument_count": 11249,
+    "arguments": "Every stored root, adjacent floats on both sides, eight-ulp perturbations, dense and fixed tails through absolute value 40, and a frozen random panel.",
+    "finiteness_masks_equal": true,
+    "raw_high_order_caveat": "Within a few ulps of high-order roots, both fp64 recurrence and root products are ill-conditioned; the root product can differ by O(1) in scaled raw He_n/Q38 coordinates. This is not hidden or claimed as raw coefficient parity.",
+    "factorial_weighted_consumer_check": {
+      "tested_correlations": [0.0, 0.5, 0.9, 0.99, 0.999999],
+      "maximum_four_pair_absolute_and_scaled_error": 1.1102230246251565e-16,
+      "maximum_gaussian_pair_absolute_and_scaled_error": 2.7755575615628914e-17,
+      "interpretation": "The localized raw high-order discrepancy is suppressed below binary64 roundoff by the actual inverse-factorial Q32 consumers exercised here. This remains a tiny/adversarial test, not a full-shape parity claim."
+    }
+  },
+  "operation_projection": {
+    "status": "PASS_CONSERVATIVE_UNDER_2POW41_BEFORE_LITERAL_METER",
+    "v2_measured_flops": 2179715874872,
+    "v2_meter_note": "The bound uses the V2 counter value only. That V2 meter receipt failed solely on residual time, so it is not cited as an admission PASS.",
+    "production_occurrences": {
+      "hermite_context": 1,
+      "q38": 16,
+      "q32": 15,
+      "edgeworth_weights": 14,
+      "four_pair": 14
+    },
+    "tiny_width_fit_domain": [2, 3, 4, 5, 6, 7],
+    "exact_pinned_delta_formulas": {
+      "hermite_context_flops": 5620,
+      "q38_flops_per_call": "15808*w",
+      "q32_flops_per_call": "-2*w^2 + 14550*w",
+      "edgeworth_weights_flops_per_call": 0,
+      "four_pair_flops_per_call": "-35904*w",
+      "total_calls_delta": -7209
+    },
+    "projected_v3_flops": 2179652189740,
+    "projected_v3_calls": 9271,
+    "projected_flop_delta_from_v2": -63685132,
+    "phase2_budget": 2199023255552,
+    "projected_headroom": 19371065812,
+    "projected_utilization": 0.9911910591381456,
+    "conservative_ceiling_ignoring_the_proven_net_saving": 2179715874872,
+    "conservative_headroom": 19307380680
+  },
+  "required_next_gate": {
+    "name": "V3_TARGET_FREE_LITERAL_FULL_SHAPE_FLOP_WALL_RESIDUAL_RSS_FINITE_METER",
+    "must_prove": {
+      "flops_at_most": 2199023255552,
+      "wall_time_seconds_below": 120.0,
+      "residual_wall_time_seconds_at_most": 0.4,
+      "solution_process_memory_bytes_below": 8589934592,
+      "output_shape": [16, 1024],
+      "output_dtype": "float32",
+      "estimator_finite_guard_returns": true,
+      "failed_mlps": 0
+    }
+  },
+  "negative_controls": {
+    "receipt_is_additive_only": true,
+    "estimator_unchanged_by_audit": true,
+    "gate_sources_unchanged_by_audit": true,
+    "no_full_shape_execution": true,
+    "no_literal_meter_execution": true,
+    "no_dataset_or_target_access": true,
+    "no_scoring": true,
+    "no_fit_or_sampling": true,
+    "no_problem_graph_mutation": true,
+    "no_submission": true
+  }
+}

@@ -1,0 +1,5656 @@
+{
+  "architecture": {
+    "base_features": 21,
+    "design_features": 150,
+    "evaluation": "teacher-forced and autonomous out-of-fold",
+    "host": "CP1536",
+    "normalized_correction_clip": 0.03125,
+    "random_features": 128,
+    "ridge": 0.001,
+    "training": "teacher-forced scalar physical transport"
+  },
+  "decision_gates": {
+    "autonomous_below_1e_7": false,
+    "finite": true,
+    "teacher_forced_below_1e_7": false
+  },
+  "metrics": {
+    "final_mse": {
+      "autonomous": 1.2744674766113143e-06,
+      "host": 3.7127081767379208e-06,
+      "teacher": 1.2587467593815147e-06
+    },
+    "finite_complete_rollout": true,
+    "folds": [
+      {
+        "autonomous_final_mse": 1.2745927429665298e-06,
+        "fold": 0,
+        "host_final_mse": 3.7456453025317232e-06,
+        "networks": 147,
+        "teacher_final_mse": 1.2587074821086237e-06
+      },
+      {
+        "autonomous_final_mse": 1.2764938003581329e-06,
+        "fold": 1,
+        "host_final_mse": 3.6542399415681067e-06,
+        "networks": 172,
+        "teacher_final_mse": 1.261001787914449e-06
+      },
+      {
+        "autonomous_final_mse": 1.2804150956184612e-06,
+        "fold": 2,
+        "host_final_mse": 3.7165468563073942e-06,
+        "networks": 171,
+        "teacher_final_mse": 1.2645678130379684e-06
+      },
+      {
+        "autonomous_final_mse": 1.26747765495025e-06,
+        "fold": 3,
+        "host_final_mse": 3.735730220935598e-06,
+        "networks": 198,
+        "teacher_final_mse": 1.251789732493623e-06
+      }
+    ],
+    "layer_mse": {
+      "autonomous": [
+        6.81930450375131e-10,
+        6.733458756297656e-10,
+        1.331493024741564e-07,
+        2.6849975839303596e-07,
+        3.9377959322774617e-07,
+        5.085854568350695e-07,
+        6.149532536697016e-07,
+        7.093487252552601e-07,
+        8.010818416726153e-07,
+        8.868297839449339e-07,
+        9.604191374653108e-07,
+        1.0351640422028528e-06,
+        1.1079791784293266e-06,
+        1.1709172437305812e-06,
+        1.2236099999773276e-06,
+        1.2744674766113143e-06
+      ],
+      "host": [
+        6.81930450375131e-10,
+        2.197589067270556e-08,
+        2.5380542166275525e-07,
+        5.649779651607459e-07,
+        9.204473370541745e-07,
+        1.2900647023807898e-06,
+        1.6398522306731016e-06,
+        1.960994869278833e-06,
+        2.2566017313626383e-06,
+        2.5378853321278203e-06,
+        2.785361717702416e-06,
+        3.0120907916003224e-06,
+        3.2196244350587395e-06,
+        3.4150116617799515e-06,
+        3.5700926077045026e-06,
+        3.7127081767379208e-06
+      ],
+      "teacher": [
+        6.81930450375131e-10,
+        6.733460030603195e-10,
+        1.3314929189237255e-07,
+        2.684820868581926e-07,
+        3.9364052698755166e-07,
+        5.082790712754523e-07,
+        6.141247896540318e-07,
+        7.080858922123627e-07,
+        7.985438368398018e-07,
+        8.835748176707457e-07,
+        9.558458939840773e-07,
+        1.0289651218788761e-06,
+        1.0994712058459761e-06,
+        1.1603998981385689e-06,
+        1.2108397715001555e-06,
+        1.2587467593815147e-06
+      ]
+    },
+    "maximum_absolute_correction": 0.011506216328573536,
+    "per_network": [
+      {
+        "autonomous_final_mse": 1.1897757969324578e-06,
+        "fold": 3,
+        "host_final_mse": 3.063738327684404e-06,
+        "mlp_id": 383,
+        "role_rank": 0,
+        "teacher_final_mse": 1.1754917025978625e-06
+      },
+      {
+        "autonomous_final_mse": 1.3241515026601254e-06,
+        "fold": 1,
+        "host_final_mse": 4.391323908103228e-06,
+        "mlp_id": 778,
+        "role_rank": 1,
+        "teacher_final_mse": 1.30799541792283e-06
+      },
+      {
+        "autonomous_final_mse": 1.2259661144247532e-06,
+        "fold": 3,
+        "host_final_mse": 2.9787290166319486e-06,
+        "mlp_id": 365,
+        "role_rank": 2,
+        "teacher_final_mse": 1.2108599132417634e-06
+      },
+      {
+        "autonomous_final_mse": 1.2260179791278923e-06,
+        "fold": 1,
+        "host_final_mse": 3.3469468135741655e-06,
+        "mlp_id": 419,
+        "role_rank": 3,
+        "teacher_final_mse": 1.2123749778907293e-06
+      },
+      {
+        "autonomous_final_mse": 1.4404161910815654e-06,
+        "fold": 1,
+        "host_final_mse": 2.9973715332213025e-06,
+        "mlp_id": 266,
+        "role_rank": 4,
+        "teacher_final_mse": 1.4223161727931165e-06
+      },
+      {
+        "autonomous_final_mse": 1.2282320307911481e-06,
+        "fold": 2,
+        "host_final_mse": 3.1455305170274153e-06,
+        "mlp_id": 126,
+        "role_rank": 5,
+        "teacher_final_mse": 1.2137267331668185e-06
+      },
+      {
+        "autonomous_final_mse": 1.3543366808647609e-06,
+        "fold": 0,
+        "host_final_mse": 3.909944382224216e-06,
+        "mlp_id": 542,
+        "role_rank": 6,
+        "teacher_final_mse": 1.3378804700120427e-06
+      },
+      {
+        "autonomous_final_mse": 1.249660421294787e-06,
+        "fold": 3,
+        "host_final_mse": 4.034765005748037e-06,
+        "mlp_id": 759,
+        "role_rank": 7,
+        "teacher_final_mse": 1.2340168594320959e-06
+      },
+      {
+        "autonomous_final_mse": 1.2385812144081984e-06,
+        "fold": 2,
+        "host_final_mse": 3.903017243161321e-06,
+        "mlp_id": 39,
+        "role_rank": 8,
+        "teacher_final_mse": 1.2226142079929021e-06
+      },
+      {
+        "autonomous_final_mse": 1.1529384561129762e-06,
+        "fold": 0,
+        "host_final_mse": 3.855938667003878e-06,
+        "mlp_id": 685,
+        "role_rank": 9,
+        "teacher_final_mse": 1.1397544269778116e-06
+      },
+      {
+        "autonomous_final_mse": 1.3294184148585988e-06,
+        "fold": 2,
+        "host_final_mse": 4.980170298738881e-06,
+        "mlp_id": 979,
+        "role_rank": 10,
+        "teacher_final_mse": 1.3125662851804398e-06
+      },
+      {
+        "autonomous_final_mse": 1.471982994590168e-06,
+        "fold": 3,
+        "host_final_mse": 3.741815683948007e-06,
+        "mlp_id": 900,
+        "role_rank": 11,
+        "teacher_final_mse": 1.4530770991696871e-06
+      },
+      {
+        "autonomous_final_mse": 1.3293946727021434e-06,
+        "fold": 0,
+        "host_final_mse": 3.912483382317812e-06,
+        "mlp_id": 747,
+        "role_rank": 12,
+        "teacher_final_mse": 1.3131458594392054e-06
+      },
+      {
+        "autonomous_final_mse": 1.3164765816633397e-06,
+        "fold": 1,
+        "host_final_mse": 4.027859947785448e-06,
+        "mlp_id": 79,
+        "role_rank": 13,
+        "teacher_final_mse": 1.300258535927669e-06
+      },
+      {
+        "autonomous_final_mse": 1.4373999746918462e-06,
+        "fold": 1,
+        "host_final_mse": 3.9688636240848325e-06,
+        "mlp_id": 965,
+        "role_rank": 14,
+        "teacher_final_mse": 1.418675979513293e-06
+      },
+      {
+        "autonomous_final_mse": 1.383407058354563e-06,
+        "fold": 3,
+        "host_final_mse": 3.567694452184969e-06,
+        "mlp_id": 74,
+        "role_rank": 15,
+        "teacher_final_mse": 1.3654783305962952e-06
+      },
+      {
+        "autonomous_final_mse": 1.1008002141121487e-06,
+        "fold": 3,
+        "host_final_mse": 3.853938709192868e-06,
+        "mlp_id": 253,
+        "role_rank": 16,
+        "teacher_final_mse": 1.08691023175533e-06
+      },
+      {
+        "autonomous_final_mse": 1.1641405220434607e-06,
+        "fold": 0,
+        "host_final_mse": 3.825957238669691e-06,
+        "mlp_id": 215,
+        "role_rank": 17,
+        "teacher_final_mse": 1.1491688632143726e-06
+      },
+      {
+        "autonomous_final_mse": 1.0085518574874773e-06,
+        "fold": 3,
+        "host_final_mse": 4.095842062665785e-06,
+        "mlp_id": 160,
+        "role_rank": 18,
+        "teacher_final_mse": 9.96528182021599e-07
+      },
+      {
+        "autonomous_final_mse": 1.1873097161981328e-06,
+        "fold": 3,
+        "host_final_mse": 2.768232733122209e-06,
+        "mlp_id": 993,
+        "role_rank": 19,
+        "teacher_final_mse": 1.1725518373943935e-06
+      },
+      {
+        "autonomous_final_mse": 1.432119443452132e-06,
+        "fold": 3,
+        "host_final_mse": 3.6798755386414014e-06,
+        "mlp_id": 775,
+        "role_rank": 20,
+        "teacher_final_mse": 1.4143614451513828e-06
+      },
+      {
+        "autonomous_final_mse": 1.156690786897447e-06,
+        "fold": 3,
+        "host_final_mse": 2.97486128197212e-06,
+        "mlp_id": 168,
+        "role_rank": 21,
+        "teacher_final_mse": 1.142849028589215e-06
+      },
+      {
+        "autonomous_final_mse": 1.2861069173804045e-06,
+        "fold": 1,
+        "host_final_mse": 3.7852817773777346e-06,
+        "mlp_id": 849,
+        "role_rank": 22,
+        "teacher_final_mse": 1.2711317849948888e-06
+      },
+      {
+        "autonomous_final_mse": 9.652299447978964e-07,
+        "fold": 3,
+        "host_final_mse": 3.0890578145881575e-06,
+        "mlp_id": 563,
+        "role_rank": 23,
+        "teacher_final_mse": 9.537219397722805e-07
+      },
+      {
+        "autonomous_final_mse": 1.165816140358945e-06,
+        "fold": 2,
+        "host_final_mse": 3.6045619763654904e-06,
+        "mlp_id": 830,
+        "role_rank": 24,
+        "teacher_final_mse": 1.1517529571121921e-06
+      },
+      {
+        "autonomous_final_mse": 1.2347031847415696e-06,
+        "fold": 1,
+        "host_final_mse": 3.3885249364697218e-06,
+        "mlp_id": 566,
+        "role_rank": 25,
+        "teacher_final_mse": 1.2197782897660668e-06
+      },
+      {
+        "autonomous_final_mse": 1.0255509987235617e-06,
+        "fold": 2,
+        "host_final_mse": 2.9525371189905164e-06,
+        "mlp_id": 719,
+        "role_rank": 26,
+        "teacher_final_mse": 1.0132723329457787e-06
+      },
+      {
+        "autonomous_final_mse": 1.1259902233390687e-06,
+        "fold": 3,
+        "host_final_mse": 3.24161065795754e-06,
+        "mlp_id": 668,
+        "role_rank": 27,
+        "teacher_final_mse": 1.1114390324268985e-06
+      },
+      {
+        "autonomous_final_mse": 1.2183652929533463e-06,
+        "fold": 3,
+        "host_final_mse": 3.648240221857583e-06,
+        "mlp_id": 223,
+        "role_rank": 28,
+        "teacher_final_mse": 1.203037820776789e-06
+      },
+      {
+        "autonomous_final_mse": 1.4392315650825836e-06,
+        "fold": 0,
+        "host_final_mse": 5.370528039524965e-06,
+        "mlp_id": 896,
+        "role_rank": 29,
+        "teacher_final_mse": 1.4201571896577253e-06
+      },
+      {
+        "autonomous_final_mse": 1.1022429862405786e-06,
+        "fold": 1,
+        "host_final_mse": 3.1931338538351447e-06,
+        "mlp_id": 134,
+        "role_rank": 30,
+        "teacher_final_mse": 1.0887920871566247e-06
+      },
+      {
+        "autonomous_final_mse": 1.1866501729499814e-06,
+        "fold": 1,
+        "host_final_mse": 2.9835725891702567e-06,
+        "mlp_id": 73,
+        "role_rank": 31,
+        "teacher_final_mse": 1.1724542053632755e-06
+      },
+      {
+        "autonomous_final_mse": 1.472060290689582e-06,
+        "fold": 0,
+        "host_final_mse": 5.121523492083333e-06,
+        "mlp_id": 420,
+        "role_rank": 32,
+        "teacher_final_mse": 1.4545740200969334e-06
+      },
+      {
+        "autonomous_final_mse": 1.278669704279254e-06,
+        "fold": 0,
+        "host_final_mse": 4.458090873446882e-06,
+        "mlp_id": 489,
+        "role_rank": 33,
+        "teacher_final_mse": 1.2626697143882992e-06
+      },
+      {
+        "autonomous_final_mse": 1.143691346422822e-06,
+        "fold": 2,
+        "host_final_mse": 3.1578588949201993e-06,
+        "mlp_id": 663,
+        "role_rank": 34,
+        "teacher_final_mse": 1.1303377496311239e-06
+      },
+      {
+        "autonomous_final_mse": 1.1698589342327946e-06,
+        "fold": 0,
+        "host_final_mse": 2.8206559076986537e-06,
+        "mlp_id": 89,
+        "role_rank": 35,
+        "teacher_final_mse": 1.1553720034877658e-06
+      },
+      {
+        "autonomous_final_mse": 1.2482852731805656e-06,
+        "fold": 0,
+        "host_final_mse": 3.440267350029033e-06,
+        "mlp_id": 415,
+        "role_rank": 36,
+        "teacher_final_mse": 1.2316626495631405e-06
+      },
+      {
+        "autonomous_final_mse": 1.3427696773541374e-06,
+        "fold": 2,
+        "host_final_mse": 4.8093850659574416e-06,
+        "mlp_id": 556,
+        "role_rank": 37,
+        "teacher_final_mse": 1.3263013463837778e-06
+      },
+      {
+        "autonomous_final_mse": 1.331901849236962e-06,
+        "fold": 0,
+        "host_final_mse": 3.845915014481593e-06,
+        "mlp_id": 873,
+        "role_rank": 38,
+        "teacher_final_mse": 1.3146943418778904e-06
+      },
+      {
+        "autonomous_final_mse": 1.2412289269173405e-06,
+        "fold": 0,
+        "host_final_mse": 3.2126651441896616e-06,
+        "mlp_id": 17,
+        "role_rank": 39,
+        "teacher_final_mse": 1.2257395093472528e-06
+      },
+      {
+        "autonomous_final_mse": 1.0395567332458516e-06,
+        "fold": 3,
+        "host_final_mse": 3.2032749347627737e-06,
+        "mlp_id": 690,
+        "role_rank": 40,
+        "teacher_final_mse": 1.0263001472403948e-06
+      },
+      {
+        "autonomous_final_mse": 1.4283861887167201e-06,
+        "fold": 0,
+        "host_final_mse": 3.7456983393256007e-06,
+        "mlp_id": 434,
+        "role_rank": 41,
+        "teacher_final_mse": 1.4115688314291616e-06
+      },
+      {
+        "autonomous_final_mse": 1.3211312900881373e-06,
+        "fold": 0,
+        "host_final_mse": 4.3763963254868985e-06,
+        "mlp_id": 53,
+        "role_rank": 42,
+        "teacher_final_mse": 1.3050713312890749e-06
+      },
+      {
+        "autonomous_final_mse": 1.1252927157789582e-06,
+        "fold": 0,
+        "host_final_mse": 3.4393669084735633e-06,
+        "mlp_id": 293,
+        "role_rank": 43,
+        "teacher_final_mse": 1.1117099857025672e-06
+      },
+      {
+        "autonomous_final_mse": 1.2533628544957915e-06,
+        "fold": 1,
+        "host_final_mse": 3.0188941021197874e-06,
+        "mlp_id": 138,
+        "role_rank": 44,
+        "teacher_final_mse": 1.238070081389831e-06
+      },
+      {
+        "autonomous_final_mse": 1.1427082372826932e-06,
+        "fold": 2,
+        "host_final_mse": 3.825774128268326e-06,
+        "mlp_id": 332,
+        "role_rank": 45,
+        "teacher_final_mse": 1.1281878019246129e-06
+      },
+      {
+        "autonomous_final_mse": 1.3471641513874605e-06,
+        "fold": 1,
+        "host_final_mse": 3.575166594075865e-06,
+        "mlp_id": 214,
+        "role_rank": 46,
+        "teacher_final_mse": 1.3306187795515244e-06
+      },
+      {
+        "autonomous_final_mse": 1.4547985024808181e-06,
+        "fold": 0,
+        "host_final_mse": 4.053192648256209e-06,
+        "mlp_id": 967,
+        "role_rank": 47,
+        "teacher_final_mse": 1.4370450619656231e-06
+      },
+      {
+        "autonomous_final_mse": 1.2243753780667173e-06,
+        "fold": 1,
+        "host_final_mse": 3.4295803212022383e-06,
+        "mlp_id": 927,
+        "role_rank": 48,
+        "teacher_final_mse": 1.2094633916666711e-06
+      },
+      {
+        "autonomous_final_mse": 8.919744377042334e-07,
+        "fold": 2,
+        "host_final_mse": 2.793562116305905e-06,
+        "mlp_id": 385,
+        "role_rank": 49,
+        "teacher_final_mse": 8.816163676359383e-07
+      },
+      {
+        "autonomous_final_mse": 1.2560852774289426e-06,
+        "fold": 2,
+        "host_final_mse": 3.7475532659318088e-06,
+        "mlp_id": 387,
+        "role_rank": 50,
+        "teacher_final_mse": 1.2408915836580825e-06
+      },
+      {
+        "autonomous_final_mse": 1.2613662869382175e-06,
+        "fold": 0,
+        "host_final_mse": 3.791561587625642e-06,
+        "mlp_id": 48,
+        "role_rank": 51,
+        "teacher_final_mse": 1.2461998521683613e-06
+      },
+      {
+        "autonomous_final_mse": 1.0425643097811664e-06,
+        "fold": 1,
+        "host_final_mse": 3.677995211072858e-06,
+        "mlp_id": 793,
+        "role_rank": 52,
+        "teacher_final_mse": 1.0300604006218535e-06
+      },
+      {
+        "autonomous_final_mse": 1.2021494038162542e-06,
+        "fold": 1,
+        "host_final_mse": 4.291394306639905e-06,
+        "mlp_id": 620,
+        "role_rank": 53,
+        "teacher_final_mse": 1.187689561287805e-06
+      },
+      {
+        "autonomous_final_mse": 1.2751896574922224e-06,
+        "fold": 0,
+        "host_final_mse": 4.3446514661264984e-06,
+        "mlp_id": 947,
+        "role_rank": 54,
+        "teacher_final_mse": 1.2595545535443967e-06
+      },
+      {
+        "autonomous_final_mse": 1.161390705614342e-06,
+        "fold": 2,
+        "host_final_mse": 3.813670468909285e-06,
+        "mlp_id": 247,
+        "role_rank": 55,
+        "teacher_final_mse": 1.14659273197935e-06
+      },
+      {
+        "autonomous_final_mse": 1.125443761219606e-06,
+        "fold": 0,
+        "host_final_mse": 3.263056207907852e-06,
+        "mlp_id": 368,
+        "role_rank": 56,
+        "teacher_final_mse": 1.111501384020607e-06
+      },
+      {
+        "autonomous_final_mse": 1.4900821916876428e-06,
+        "fold": 3,
+        "host_final_mse": 3.517400034664788e-06,
+        "mlp_id": 608,
+        "role_rank": 57,
+        "teacher_final_mse": 1.470896215493421e-06
+      },
+      {
+        "autonomous_final_mse": 1.0798692634561849e-06,
+        "fold": 1,
+        "host_final_mse": 4.265005390052922e-06,
+        "mlp_id": 411,
+        "role_rank": 58,
+        "teacher_final_mse": 1.066242226099911e-06
+      },
+      {
+        "autonomous_final_mse": 2.254675434709944e-06,
+        "fold": 2,
+        "host_final_mse": 6.217441970399145e-06,
+        "mlp_id": 467,
+        "role_rank": 59,
+        "teacher_final_mse": 2.2257831962414903e-06
+      },
+      {
+        "autonomous_final_mse": 1.197316250795519e-06,
+        "fold": 0,
+        "host_final_mse": 3.0079642439817423e-06,
+        "mlp_id": 687,
+        "role_rank": 60,
+        "teacher_final_mse": 1.182475968720194e-06
+      },
+      {
+        "autonomous_final_mse": 1.5453712776202712e-06,
+        "fold": 0,
+        "host_final_mse": 3.432738788116251e-06,
+        "mlp_id": 40,
+        "role_rank": 61,
+        "teacher_final_mse": 1.525824040680286e-06
+      },
+      {
+        "autonomous_final_mse": 1.4175718089196245e-06,
+        "fold": 0,
+        "host_final_mse": 3.4239011522474546e-06,
+        "mlp_id": 442,
+        "role_rank": 62,
+        "teacher_final_mse": 1.3996822160950593e-06
+      },
+      {
+        "autonomous_final_mse": 1.1561556716430423e-06,
+        "fold": 2,
+        "host_final_mse": 4.411710637340986e-06,
+        "mlp_id": 129,
+        "role_rank": 63,
+        "teacher_final_mse": 1.142164110757372e-06
+      },
+      {
+        "autonomous_final_mse": 1.4636652608563387e-06,
+        "fold": 1,
+        "host_final_mse": 4.083600342284075e-06,
+        "mlp_id": 860,
+        "role_rank": 64,
+        "teacher_final_mse": 1.445149796714041e-06
+      },
+      {
+        "autonomous_final_mse": 1.1369088369452726e-06,
+        "fold": 1,
+        "host_final_mse": 3.5178484277553993e-06,
+        "mlp_id": 976,
+        "role_rank": 65,
+        "teacher_final_mse": 1.1233706591047815e-06
+      },
+      {
+        "autonomous_final_mse": 1.4518725657157292e-06,
+        "fold": 3,
+        "host_final_mse": 4.001631260716719e-06,
+        "mlp_id": 796,
+        "role_rank": 66,
+        "teacher_final_mse": 1.4342894144998082e-06
+      },
+      {
+        "autonomous_final_mse": 1.4037846318405826e-06,
+        "fold": 2,
+        "host_final_mse": 3.872021080883058e-06,
+        "mlp_id": 360,
+        "role_rank": 67,
+        "teacher_final_mse": 1.3861575801677835e-06
+      },
+      {
+        "autonomous_final_mse": 1.1713951519398887e-06,
+        "fold": 2,
+        "host_final_mse": 3.0234978816377813e-06,
+        "mlp_id": 353,
+        "role_rank": 68,
+        "teacher_final_mse": 1.156801456520984e-06
+      },
+      {
+        "autonomous_final_mse": 1.1024399823852092e-06,
+        "fold": 0,
+        "host_final_mse": 3.961158852313128e-06,
+        "mlp_id": 816,
+        "role_rank": 69,
+        "teacher_final_mse": 1.08878526452794e-06
+      },
+      {
+        "autonomous_final_mse": 1.5019841902665784e-06,
+        "fold": 2,
+        "host_final_mse": 4.099452414048182e-06,
+        "mlp_id": 131,
+        "role_rank": 70,
+        "teacher_final_mse": 1.4832691186472997e-06
+      },
+      {
+        "autonomous_final_mse": 1.692091783861808e-06,
+        "fold": 2,
+        "host_final_mse": 3.824864597131331e-06,
+        "mlp_id": 87,
+        "role_rank": 71,
+        "teacher_final_mse": 1.6714298561760766e-06
+      },
+      {
+        "autonomous_final_mse": 1.0494686235699546e-06,
+        "fold": 3,
+        "host_final_mse": 3.013165873829139e-06,
+        "mlp_id": 333,
+        "role_rank": 72,
+        "teacher_final_mse": 1.0364568564127303e-06
+      },
+      {
+        "autonomous_final_mse": 1.1471899106676367e-06,
+        "fold": 1,
+        "host_final_mse": 2.681001092978192e-06,
+        "mlp_id": 341,
+        "role_rank": 73,
+        "teacher_final_mse": 1.1336050419019957e-06
+      },
+      {
+        "autonomous_final_mse": 1.4977356229928644e-06,
+        "fold": 1,
+        "host_final_mse": 3.693269549136091e-06,
+        "mlp_id": 784,
+        "role_rank": 74,
+        "teacher_final_mse": 1.4794248962318794e-06
+      },
+      {
+        "autonomous_final_mse": 8.554064583865852e-07,
+        "fold": 3,
+        "host_final_mse": 3.1795342368168446e-06,
+        "mlp_id": 462,
+        "role_rank": 75,
+        "teacher_final_mse": 8.448697799257124e-07
+      },
+      {
+        "autonomous_final_mse": 1.263696209891592e-06,
+        "fold": 3,
+        "host_final_mse": 2.4377934944136766e-06,
+        "mlp_id": 930,
+        "role_rank": 76,
+        "teacher_final_mse": 1.2483923205346922e-06
+      },
+      {
+        "autonomous_final_mse": 1.2032182631819618e-06,
+        "fold": 3,
+        "host_final_mse": 3.281195171490534e-06,
+        "mlp_id": 774,
+        "role_rank": 77,
+        "teacher_final_mse": 1.1876138314344285e-06
+      },
+      {
+        "autonomous_final_mse": 1.5236425372502095e-06,
+        "fold": 2,
+        "host_final_mse": 2.727114999247579e-06,
+        "mlp_id": 33,
+        "role_rank": 78,
+        "teacher_final_mse": 1.5056193095854828e-06
+      },
+      {
+        "autonomous_final_mse": 1.3869052070508175e-06,
+        "fold": 1,
+        "host_final_mse": 4.392980443566052e-06,
+        "mlp_id": 413,
+        "role_rank": 79,
+        "teacher_final_mse": 1.3690778993474802e-06
+      },
+      {
+        "autonomous_final_mse": 1.2374018021324698e-06,
+        "fold": 3,
+        "host_final_mse": 2.958768409643014e-06,
+        "mlp_id": 448,
+        "role_rank": 80,
+        "teacher_final_mse": 1.2226062385247982e-06
+      },
+      {
+        "autonomous_final_mse": 1.306295759752702e-06,
+        "fold": 3,
+        "host_final_mse": 3.858095697951182e-06,
+        "mlp_id": 653,
+        "role_rank": 81,
+        "teacher_final_mse": 1.2900579057247733e-06
+      },
+      {
+        "autonomous_final_mse": 1.1139245670765478e-06,
+        "fold": 0,
+        "host_final_mse": 4.7479315953793465e-06,
+        "mlp_id": 264,
+        "role_rank": 82,
+        "teacher_final_mse": 1.0995947823550147e-06
+      },
+      {
+        "autonomous_final_mse": 1.4950315262489204e-06,
+        "fold": 1,
+        "host_final_mse": 5.27928116889746e-06,
+        "mlp_id": 781,
+        "role_rank": 83,
+        "teacher_final_mse": 1.4775444454842053e-06
+      },
+      {
+        "autonomous_final_mse": 1.1394576356672515e-06,
+        "fold": 0,
+        "host_final_mse": 3.1755717337392183e-06,
+        "mlp_id": 799,
+        "role_rank": 84,
+        "teacher_final_mse": 1.1252220878594145e-06
+      },
+      {
+        "autonomous_final_mse": 1.5076983353655845e-06,
+        "fold": 0,
+        "host_final_mse": 4.69263412923227e-06,
+        "mlp_id": 818,
+        "role_rank": 85,
+        "teacher_final_mse": 1.4883673875899082e-06
+      },
+      {
+        "autonomous_final_mse": 1.358184349970306e-06,
+        "fold": 3,
+        "host_final_mse": 3.94487582266233e-06,
+        "mlp_id": 655,
+        "role_rank": 86,
+        "teacher_final_mse": 1.3409935342366053e-06
+      },
+      {
+        "autonomous_final_mse": 1.3910601690954735e-06,
+        "fold": 0,
+        "host_final_mse": 4.234442599271944e-06,
+        "mlp_id": 62,
+        "role_rank": 87,
+        "teacher_final_mse": 1.3726753055507869e-06
+      },
+      {
+        "autonomous_final_mse": 1.2783416415631565e-06,
+        "fold": 0,
+        "host_final_mse": 3.6909811363146593e-06,
+        "mlp_id": 472,
+        "role_rank": 88,
+        "teacher_final_mse": 1.2625362995216692e-06
+      },
+      {
+        "autonomous_final_mse": 1.1649072939968004e-06,
+        "fold": 3,
+        "host_final_mse": 3.5275138978262794e-06,
+        "mlp_id": 286,
+        "role_rank": 89,
+        "teacher_final_mse": 1.1501556416794101e-06
+      },
+      {
+        "autonomous_final_mse": 8.288684690292157e-07,
+        "fold": 0,
+        "host_final_mse": 2.120009560962297e-06,
+        "mlp_id": 516,
+        "role_rank": 90,
+        "teacher_final_mse": 8.188898614025811e-07
+      },
+      {
+        "autonomous_final_mse": 1.4426185462565029e-06,
+        "fold": 1,
+        "host_final_mse": 3.3199948628273002e-06,
+        "mlp_id": 645,
+        "role_rank": 91,
+        "teacher_final_mse": 1.4253668588097097e-06
+      },
+      {
+        "autonomous_final_mse": 1.48958971185647e-06,
+        "fold": 3,
+        "host_final_mse": 6.2337824234691426e-06,
+        "mlp_id": 846,
+        "role_rank": 92,
+        "teacher_final_mse": 1.4702061193107776e-06
+      },
+      {
+        "autonomous_final_mse": 1.24174131841739e-06,
+        "fold": 0,
+        "host_final_mse": 3.9482663451425685e-06,
+        "mlp_id": 616,
+        "role_rank": 93,
+        "teacher_final_mse": 1.225718827906556e-06
+      },
+      {
+        "autonomous_final_mse": 1.2090259833442288e-06,
+        "fold": 1,
+        "host_final_mse": 3.9197107711334985e-06,
+        "mlp_id": 361,
+        "role_rank": 94,
+        "teacher_final_mse": 1.1943439870803774e-06
+      },
+      {
+        "autonomous_final_mse": 1.183541065523203e-06,
+        "fold": 2,
+        "host_final_mse": 3.881656463635785e-06,
+        "mlp_id": 324,
+        "role_rank": 95,
+        "teacher_final_mse": 1.168988294505238e-06
+      },
+      {
+        "autonomous_final_mse": 1.7083686314912997e-06,
+        "fold": 3,
+        "host_final_mse": 3.7132432057336565e-06,
+        "mlp_id": 162,
+        "role_rank": 96,
+        "teacher_final_mse": 1.6871269580122037e-06
+      },
+      {
+        "autonomous_final_mse": 1.4670354314717452e-06,
+        "fold": 1,
+        "host_final_mse": 3.101142646878233e-06,
+        "mlp_id": 481,
+        "role_rank": 97,
+        "teacher_final_mse": 1.4495767506343987e-06
+      },
+      {
+        "autonomous_final_mse": 1.3208918785594495e-06,
+        "fold": 0,
+        "host_final_mse": 2.792991113400127e-06,
+        "mlp_id": 208,
+        "role_rank": 98,
+        "teacher_final_mse": 1.3044033710816152e-06
+      },
+      {
+        "autonomous_final_mse": 1.1736957824362724e-06,
+        "fold": 3,
+        "host_final_mse": 3.6822990220139264e-06,
+        "mlp_id": 588,
+        "role_rank": 99,
+        "teacher_final_mse": 1.1591440829332407e-06
+      },
+      {
+        "autonomous_final_mse": 1.3075915026604158e-06,
+        "fold": 2,
+        "host_final_mse": 4.509295525474745e-06,
+        "mlp_id": 621,
+        "role_rank": 100,
+        "teacher_final_mse": 1.2912599805338532e-06
+      },
+      {
+        "autonomous_final_mse": 1.4329592444931384e-06,
+        "fold": 3,
+        "host_final_mse": 4.369705554689036e-06,
+        "mlp_id": 837,
+        "role_rank": 101,
+        "teacher_final_mse": 1.4148658387207528e-06
+      },
+      {
+        "autonomous_final_mse": 1.0318976020601743e-06,
+        "fold": 0,
+        "host_final_mse": 2.7487353525103182e-06,
+        "mlp_id": 750,
+        "role_rank": 102,
+        "teacher_final_mse": 1.0185984570195564e-06
+      },
+      {
+        "autonomous_final_mse": 1.4597747016291015e-06,
+        "fold": 3,
+        "host_final_mse": 3.967685045444312e-06,
+        "mlp_id": 551,
+        "role_rank": 103,
+        "teacher_final_mse": 1.441132608627272e-06
+      },
+      {
+        "autonomous_final_mse": 1.3864458157676493e-06,
+        "fold": 3,
+        "host_final_mse": 3.5376552872303673e-06,
+        "mlp_id": 564,
+        "role_rank": 104,
+        "teacher_final_mse": 1.3687969896128418e-06
+      },
+      {
+        "autonomous_final_mse": 1.3898918854448762e-06,
+        "fold": 1,
+        "host_final_mse": 4.74699402846135e-06,
+        "mlp_id": 615,
+        "role_rank": 105,
+        "teacher_final_mse": 1.3727592454990691e-06
+      },
+      {
+        "autonomous_final_mse": 1.35502596295762e-06,
+        "fold": 3,
+        "host_final_mse": 3.3544831376986344e-06,
+        "mlp_id": 397,
+        "role_rank": 106,
+        "teacher_final_mse": 1.338367138470814e-06
+      },
+      {
+        "autonomous_final_mse": 1.3297829596677356e-06,
+        "fold": 1,
+        "host_final_mse": 3.2219501794709165e-06,
+        "mlp_id": 736,
+        "role_rank": 107,
+        "teacher_final_mse": 1.3138208028604558e-06
+      },
+      {
+        "autonomous_final_mse": 1.7256219794674405e-06,
+        "fold": 0,
+        "host_final_mse": 5.16828581705722e-06,
+        "mlp_id": 738,
+        "role_rank": 108,
+        "teacher_final_mse": 1.7027685786724723e-06
+      },
+      {
+        "autonomous_final_mse": 1.1641049869309401e-06,
+        "fold": 0,
+        "host_final_mse": 3.3412714099725645e-06,
+        "mlp_id": 164,
+        "role_rank": 109,
+        "teacher_final_mse": 1.1489184058788266e-06
+      },
+      {
+        "autonomous_final_mse": 1.5463540628359914e-06,
+        "fold": 1,
+        "host_final_mse": 4.162360700500338e-06,
+        "mlp_id": 848,
+        "role_rank": 110,
+        "teacher_final_mse": 1.5277514138963797e-06
+      },
+      {
+        "autonomous_final_mse": 1.4286561177708588e-06,
+        "fold": 2,
+        "host_final_mse": 4.14463699904232e-06,
+        "mlp_id": 427,
+        "role_rank": 111,
+        "teacher_final_mse": 1.4100969057025223e-06
+      },
+      {
+        "autonomous_final_mse": 1.2911465557477253e-06,
+        "fold": 0,
+        "host_final_mse": 3.826336678032236e-06,
+        "mlp_id": 639,
+        "role_rank": 112,
+        "teacher_final_mse": 1.2750386669446899e-06
+      },
+      {
+        "autonomous_final_mse": 1.241137245608511e-06,
+        "fold": 1,
+        "host_final_mse": 5.561130531427106e-06,
+        "mlp_id": 768,
+        "role_rank": 113,
+        "teacher_final_mse": 1.2262358930407343e-06
+      },
+      {
+        "autonomous_final_mse": 9.4698772824428e-07,
+        "fold": 2,
+        "host_final_mse": 3.1934268415803358e-06,
+        "mlp_id": 568,
+        "role_rank": 114,
+        "teacher_final_mse": 9.355897220369766e-07
+      },
+      {
+        "autonomous_final_mse": 1.162702094216561e-06,
+        "fold": 1,
+        "host_final_mse": 3.3863139206954515e-06,
+        "mlp_id": 443,
+        "role_rank": 115,
+        "teacher_final_mse": 1.1485733070561603e-06
+      },
+      {
+        "autonomous_final_mse": 1.3797916614503795e-06,
+        "fold": 3,
+        "host_final_mse": 3.303310493652523e-06,
+        "mlp_id": 474,
+        "role_rank": 116,
+        "teacher_final_mse": 1.362646823916942e-06
+      },
+      {
+        "autonomous_final_mse": 1.3628710054911947e-06,
+        "fold": 3,
+        "host_final_mse": 4.832075022042389e-06,
+        "mlp_id": 952,
+        "role_rank": 117,
+        "teacher_final_mse": 1.3461371717260008e-06
+      },
+      {
+        "autonomous_final_mse": 9.470516585259537e-07,
+        "fold": 0,
+        "host_final_mse": 2.613080613456989e-06,
+        "mlp_id": 32,
+        "role_rank": 118,
+        "teacher_final_mse": 9.352281502756796e-07
+      },
+      {
+        "autonomous_final_mse": 1.056126275782376e-06,
+        "fold": 1,
+        "host_final_mse": 2.8730619032960753e-06,
+        "mlp_id": 91,
+        "role_rank": 119,
+        "teacher_final_mse": 1.0429976170701322e-06
+      },
+      {
+        "autonomous_final_mse": 1.1183132023493653e-06,
+        "fold": 2,
+        "host_final_mse": 4.024003228351501e-06,
+        "mlp_id": 762,
+        "role_rank": 120,
+        "teacher_final_mse": 1.1042807402968088e-06
+      },
+      {
+        "autonomous_final_mse": 1.1519508272026981e-06,
+        "fold": 3,
+        "host_final_mse": 3.258793639361147e-06,
+        "mlp_id": 406,
+        "role_rank": 121,
+        "teacher_final_mse": 1.137858063196062e-06
+      },
+      {
+        "autonomous_final_mse": 1.3332224154801837e-06,
+        "fold": 3,
+        "host_final_mse": 2.9811497535963634e-06,
+        "mlp_id": 968,
+        "role_rank": 122,
+        "teacher_final_mse": 1.3162248628454733e-06
+      },
+      {
+        "autonomous_final_mse": 1.6242763347936332e-06,
+        "fold": 3,
+        "host_final_mse": 5.717136461237087e-06,
+        "mlp_id": 850,
+        "role_rank": 123,
+        "teacher_final_mse": 1.6039493443910847e-06
+      },
+      {
+        "autonomous_final_mse": 1.71638114306944e-06,
+        "fold": 3,
+        "host_final_mse": 4.942435573426162e-06,
+        "mlp_id": 21,
+        "role_rank": 124,
+        "teacher_final_mse": 1.6943000057412126e-06
+      },
+      {
+        "autonomous_final_mse": 1.1748959997482428e-06,
+        "fold": 1,
+        "host_final_mse": 3.5724738153529854e-06,
+        "mlp_id": 662,
+        "role_rank": 125,
+        "teacher_final_mse": 1.1605295416172173e-06
+      },
+      {
+        "autonomous_final_mse": 1.3263995517872234e-06,
+        "fold": 1,
+        "host_final_mse": 3.8516463835359e-06,
+        "mlp_id": 969,
+        "role_rank": 126,
+        "teacher_final_mse": 1.3100561539017869e-06
+      },
+      {
+        "autonomous_final_mse": 1.2173373807726908e-06,
+        "fold": 0,
+        "host_final_mse": 3.7316637380530994e-06,
+        "mlp_id": 831,
+        "role_rank": 127,
+        "teacher_final_mse": 1.2017008656644753e-06
+      },
+      {
+        "autonomous_final_mse": 1.191809313344131e-06,
+        "fold": 1,
+        "host_final_mse": 3.6166210288433033e-06,
+        "mlp_id": 8,
+        "role_rank": 128,
+        "teacher_final_mse": 1.1772108749896042e-06
+      },
+      {
+        "autonomous_final_mse": 1.2016163552710427e-06,
+        "fold": 2,
+        "host_final_mse": 3.972468790238303e-06,
+        "mlp_id": 562,
+        "role_rank": 129,
+        "teacher_final_mse": 1.1874732528724783e-06
+      },
+      {
+        "autonomous_final_mse": 1.147207125383098e-06,
+        "fold": 0,
+        "host_final_mse": 4.478484993563922e-06,
+        "mlp_id": 532,
+        "role_rank": 130,
+        "teacher_final_mse": 1.1325169846182258e-06
+      },
+      {
+        "autonomous_final_mse": 1.3258100983457297e-06,
+        "fold": 3,
+        "host_final_mse": 4.611457698611432e-06,
+        "mlp_id": 235,
+        "role_rank": 131,
+        "teacher_final_mse": 1.3090386278827317e-06
+      },
+      {
+        "autonomous_final_mse": 1.1748084921818606e-06,
+        "fold": 3,
+        "host_final_mse": 3.892340467571014e-06,
+        "mlp_id": 955,
+        "role_rank": 132,
+        "teacher_final_mse": 1.160617385240397e-06
+      },
+      {
+        "autonomous_final_mse": 1.002395360090843e-06,
+        "fold": 2,
+        "host_final_mse": 3.930883218932315e-06,
+        "mlp_id": 983,
+        "role_rank": 133,
+        "teacher_final_mse": 9.902555804909592e-07
+      },
+      {
+        "autonomous_final_mse": 1.6032595424659161e-06,
+        "fold": 3,
+        "host_final_mse": 4.456900949910711e-06,
+        "mlp_id": 833,
+        "role_rank": 134,
+        "teacher_final_mse": 1.5840806990270345e-06
+      },
+      {
+        "autonomous_final_mse": 1.0832516759275494e-06,
+        "fold": 2,
+        "host_final_mse": 3.240870908611069e-06,
+        "mlp_id": 469,
+        "role_rank": 135,
+        "teacher_final_mse": 1.06983984428193e-06
+      },
+      {
+        "autonomous_final_mse": 9.189601954771713e-07,
+        "fold": 3,
+        "host_final_mse": 2.7529223504109002e-06,
+        "mlp_id": 242,
+        "role_rank": 136,
+        "teacher_final_mse": 9.085281931771533e-07
+      },
+      {
+        "autonomous_final_mse": 1.185029759420347e-06,
+        "fold": 3,
+        "host_final_mse": 3.2041363700779524e-06,
+        "mlp_id": 245,
+        "role_rank": 137,
+        "teacher_final_mse": 1.170258731222244e-06
+      },
+      {
+        "autonomous_final_mse": 1.0418196976743288e-06,
+        "fold": 3,
+        "host_final_mse": 2.4970505039802436e-06,
+        "mlp_id": 458,
+        "role_rank": 138,
+        "teacher_final_mse": 1.028551153848718e-06
+      },
+      {
+        "autonomous_final_mse": 1.22062797514472e-06,
+        "fold": 1,
+        "host_final_mse": 2.7593438515834997e-06,
+        "mlp_id": 795,
+        "role_rank": 139,
+        "teacher_final_mse": 1.20556151158164e-06
+      },
+      {
+        "autonomous_final_mse": 9.923566544579256e-07,
+        "fold": 3,
+        "host_final_mse": 2.693196094603978e-06,
+        "mlp_id": 732,
+        "role_rank": 140,
+        "teacher_final_mse": 9.800483854646086e-07
+      },
+      {
+        "autonomous_final_mse": 1.0020733804229063e-06,
+        "fold": 3,
+        "host_final_mse": 3.5014395849042518e-06,
+        "mlp_id": 141,
+        "role_rank": 141,
+        "teacher_final_mse": 9.900495836912469e-07
+      },
+      {
+        "autonomous_final_mse": 1.2207593528084076e-06,
+        "fold": 0,
+        "host_final_mse": 3.5343355094612714e-06,
+        "mlp_id": 782,
+        "role_rank": 142,
+        "teacher_final_mse": 1.2056747326037557e-06
+      },
+      {
+        "autonomous_final_mse": 1.4381672150813889e-06,
+        "fold": 0,
+        "host_final_mse": 3.8881842588744545e-06,
+        "mlp_id": 407,
+        "role_rank": 143,
+        "teacher_final_mse": 1.4195075546356557e-06
+      },
+      {
+        "autonomous_final_mse": 1.4005229184871573e-06,
+        "fold": 0,
+        "host_final_mse": 3.5422638572179814e-06,
+        "mlp_id": 931,
+        "role_rank": 144,
+        "teacher_final_mse": 1.3841091121008967e-06
+      },
+      {
+        "autonomous_final_mse": 1.2210731315373798e-06,
+        "fold": 1,
+        "host_final_mse": 3.4471626491954903e-06,
+        "mlp_id": 457,
+        "role_rank": 145,
+        "teacher_final_mse": 1.2070525207595628e-06
+      },
+      {
+        "autonomous_final_mse": 1.1854431405398877e-06,
+        "fold": 1,
+        "host_final_mse": 3.473711197283661e-06,
+        "mlp_id": 121,
+        "role_rank": 146,
+        "teacher_final_mse": 1.1716278794374611e-06
+      },
+      {
+        "autonomous_final_mse": 1.270762495914653e-06,
+        "fold": 2,
+        "host_final_mse": 3.3537735667377746e-06,
+        "mlp_id": 506,
+        "role_rank": 147,
+        "teacher_final_mse": 1.2552968715922607e-06
+      },
+      {
+        "autonomous_final_mse": 1.4345475463022865e-06,
+        "fold": 3,
+        "host_final_mse": 5.0644039831568196e-06,
+        "mlp_id": 209,
+        "role_rank": 148,
+        "teacher_final_mse": 1.417238372431991e-06
+      },
+      {
+        "autonomous_final_mse": 1.5427781143024415e-06,
+        "fold": 2,
+        "host_final_mse": 3.3598125037024573e-06,
+        "mlp_id": 916,
+        "role_rank": 149,
+        "teacher_final_mse": 1.5225172487155947e-06
+      },
+      {
+        "autonomous_final_mse": 1.441725653111054e-06,
+        "fold": 2,
+        "host_final_mse": 4.1422642212747985e-06,
+        "mlp_id": 151,
+        "role_rank": 150,
+        "teacher_final_mse": 1.4243011861729492e-06
+      },
+      {
+        "autonomous_final_mse": 1.135123937368679e-06,
+        "fold": 3,
+        "host_final_mse": 4.471718665575169e-06,
+        "mlp_id": 193,
+        "role_rank": 151,
+        "teacher_final_mse": 1.1206029843964287e-06
+      },
+      {
+        "autonomous_final_mse": 1.1402706569669548e-06,
+        "fold": 1,
+        "host_final_mse": 3.393313152279474e-06,
+        "mlp_id": 530,
+        "role_rank": 152,
+        "teacher_final_mse": 1.1260161530845362e-06
+      },
+      {
+        "autonomous_final_mse": 1.3619456326437363e-06,
+        "fold": 3,
+        "host_final_mse": 3.7543620243977297e-06,
+        "mlp_id": 250,
+        "role_rank": 153,
+        "teacher_final_mse": 1.3447892831872773e-06
+      },
+      {
+        "autonomous_final_mse": 1.360676359543008e-06,
+        "fold": 0,
+        "host_final_mse": 4.4064676933259795e-06,
+        "mlp_id": 865,
+        "role_rank": 154,
+        "teacher_final_mse": 1.343337551487004e-06
+      },
+      {
+        "autonomous_final_mse": 1.490551522797492e-06,
+        "fold": 3,
+        "host_final_mse": 5.116552091124264e-06,
+        "mlp_id": 122,
+        "role_rank": 155,
+        "teacher_final_mse": 1.471547408220831e-06
+      },
+      {
+        "autonomous_final_mse": 1.081458333148977e-06,
+        "fold": 3,
+        "host_final_mse": 2.7125499980736844e-06,
+        "mlp_id": 785,
+        "role_rank": 156,
+        "teacher_final_mse": 1.0677888256984013e-06
+      },
+      {
+        "autonomous_final_mse": 1.133177510404781e-06,
+        "fold": 3,
+        "host_final_mse": 4.644723529875305e-06,
+        "mlp_id": 699,
+        "role_rank": 157,
+        "teacher_final_mse": 1.118667810658359e-06
+      },
+      {
+        "autonomous_final_mse": 1.387775449621328e-06,
+        "fold": 0,
+        "host_final_mse": 4.105344185619532e-06,
+        "mlp_id": 92,
+        "role_rank": 158,
+        "teacher_final_mse": 1.3704555904241768e-06
+      },
+      {
+        "autonomous_final_mse": 1.2285250102718714e-06,
+        "fold": 2,
+        "host_final_mse": 3.5239894997949694e-06,
+        "mlp_id": 577,
+        "role_rank": 159,
+        "teacher_final_mse": 1.2137799800376167e-06
+      },
+      {
+        "autonomous_final_mse": 1.077306836505442e-06,
+        "fold": 1,
+        "host_final_mse": 3.618436494050594e-06,
+        "mlp_id": 63,
+        "role_rank": 160,
+        "teacher_final_mse": 1.0643065784063578e-06
+      },
+      {
+        "autonomous_final_mse": 1.1166942734823106e-06,
+        "fold": 3,
+        "host_final_mse": 4.379218356930707e-06,
+        "mlp_id": 295,
+        "role_rank": 161,
+        "teacher_final_mse": 1.1028401896913858e-06
+      },
+      {
+        "autonomous_final_mse": 1.4082621868413131e-06,
+        "fold": 3,
+        "host_final_mse": 4.06123764695339e-06,
+        "mlp_id": 95,
+        "role_rank": 162,
+        "teacher_final_mse": 1.391869468224196e-06
+      },
+      {
+        "autonomous_final_mse": 1.564506923314592e-06,
+        "fold": 1,
+        "host_final_mse": 3.5704520340998586e-06,
+        "mlp_id": 169,
+        "role_rank": 163,
+        "teacher_final_mse": 1.545417717925083e-06
+      },
+      {
+        "autonomous_final_mse": 1.218147825527343e-06,
+        "fold": 1,
+        "host_final_mse": 2.715179044915977e-06,
+        "mlp_id": 408,
+        "role_rank": 164,
+        "teacher_final_mse": 1.2036575406848464e-06
+      },
+      {
+        "autonomous_final_mse": 1.4302998938897836e-06,
+        "fold": 3,
+        "host_final_mse": 3.391429771549388e-06,
+        "mlp_id": 7,
+        "role_rank": 165,
+        "teacher_final_mse": 1.4119295344003198e-06
+      },
+      {
+        "autonomous_final_mse": 1.3566722529729217e-06,
+        "fold": 2,
+        "host_final_mse": 4.043088237691125e-06,
+        "mlp_id": 917,
+        "role_rank": 166,
+        "teacher_final_mse": 1.339988963404781e-06
+      },
+      {
+        "autonomous_final_mse": 1.2746468729344334e-06,
+        "fold": 2,
+        "host_final_mse": 3.2885689492612475e-06,
+        "mlp_id": 340,
+        "role_rank": 167,
+        "teacher_final_mse": 1.2585846624857115e-06
+      },
+      {
+        "autonomous_final_mse": 1.2670579421874793e-06,
+        "fold": 2,
+        "host_final_mse": 2.9589650358075217e-06,
+        "mlp_id": 493,
+        "role_rank": 168,
+        "teacher_final_mse": 1.2524341897318156e-06
+      },
+      {
+        "autonomous_final_mse": 1.1520545413420424e-06,
+        "fold": 0,
+        "host_final_mse": 3.482631772166973e-06,
+        "mlp_id": 637,
+        "role_rank": 169,
+        "teacher_final_mse": 1.1382742123907562e-06
+      },
+      {
+        "autonomous_final_mse": 1.4194181118562883e-06,
+        "fold": 0,
+        "host_final_mse": 3.6965609748012195e-06,
+        "mlp_id": 700,
+        "role_rank": 170,
+        "teacher_final_mse": 1.4021978520624692e-06
+      },
+      {
+        "autonomous_final_mse": 1.2924927376622986e-06,
+        "fold": 2,
+        "host_final_mse": 3.1942265087143345e-06,
+        "mlp_id": 905,
+        "role_rank": 171,
+        "teacher_final_mse": 1.2760586011833348e-06
+      },
+      {
+        "autonomous_final_mse": 1.4032980502808087e-06,
+        "fold": 0,
+        "host_final_mse": 4.4835022212616085e-06,
+        "mlp_id": 392,
+        "role_rank": 172,
+        "teacher_final_mse": 1.3865115885323163e-06
+      },
+      {
+        "autonomous_final_mse": 1.2120485500991318e-06,
+        "fold": 0,
+        "host_final_mse": 3.3664539770780576e-06,
+        "mlp_id": 465,
+        "role_rank": 173,
+        "teacher_final_mse": 1.1975215669102687e-06
+      },
+      {
+        "autonomous_final_mse": 1.358497477353399e-06,
+        "fold": 2,
+        "host_final_mse": 3.7560830056471412e-06,
+        "mlp_id": 611,
+        "role_rank": 174,
+        "teacher_final_mse": 1.3409822670571026e-06
+      },
+      {
+        "autonomous_final_mse": 1.2036761583217096e-06,
+        "fold": 0,
+        "host_final_mse": 3.763263960840921e-06,
+        "mlp_id": 550,
+        "role_rank": 175,
+        "teacher_final_mse": 1.1890613234873147e-06
+      },
+      {
+        "autonomous_final_mse": 1.341695639387137e-06,
+        "fold": 2,
+        "host_final_mse": 3.5117627275956954e-06,
+        "mlp_id": 239,
+        "role_rank": 176,
+        "teacher_final_mse": 1.3252478415813476e-06
+      },
+      {
+        "autonomous_final_mse": 1.4137342154189474e-06,
+        "fold": 3,
+        "host_final_mse": 3.6650012555599113e-06,
+        "mlp_id": 22,
+        "role_rank": 177,
+        "teacher_final_mse": 1.3965065678867026e-06
+      },
+      {
+        "autonomous_final_mse": 1.1162057946559602e-06,
+        "fold": 1,
+        "host_final_mse": 3.8419276316119326e-06,
+        "mlp_id": 90,
+        "role_rank": 178,
+        "teacher_final_mse": 1.1021829464220282e-06
+      },
+      {
+        "autonomous_final_mse": 1.2692622033410786e-06,
+        "fold": 0,
+        "host_final_mse": 3.2428561809633807e-06,
+        "mlp_id": 400,
+        "role_rank": 179,
+        "teacher_final_mse": 1.2532947977997185e-06
+      },
+      {
+        "autonomous_final_mse": 1.4020034882674744e-06,
+        "fold": 3,
+        "host_final_mse": 3.850775966206922e-06,
+        "mlp_id": 803,
+        "role_rank": 180,
+        "teacher_final_mse": 1.3834607445620634e-06
+      },
+      {
+        "autonomous_final_mse": 1.4668909274287883e-06,
+        "fold": 0,
+        "host_final_mse": 4.230699610700048e-06,
+        "mlp_id": 13,
+        "role_rank": 181,
+        "teacher_final_mse": 1.4481544867257715e-06
+      },
+      {
+        "autonomous_final_mse": 1.3255843172186074e-06,
+        "fold": 2,
+        "host_final_mse": 4.997055037591156e-06,
+        "mlp_id": 47,
+        "role_rank": 182,
+        "teacher_final_mse": 1.3092494773299184e-06
+      },
+      {
+        "autonomous_final_mse": 1.3931438489167343e-06,
+        "fold": 1,
+        "host_final_mse": 4.892620527175314e-06,
+        "mlp_id": 981,
+        "role_rank": 183,
+        "teacher_final_mse": 1.3759813085834537e-06
+      },
+      {
+        "autonomous_final_mse": 1.3427591398088171e-06,
+        "fold": 1,
+        "host_final_mse": 2.8362478761873862e-06,
+        "mlp_id": 573,
+        "role_rank": 184,
+        "teacher_final_mse": 1.3262315994114434e-06
+      },
+      {
+        "autonomous_final_mse": 1.3997449194558082e-06,
+        "fold": 3,
+        "host_final_mse": 3.353450419826896e-06,
+        "mlp_id": 937,
+        "role_rank": 185,
+        "teacher_final_mse": 1.3822396934436233e-06
+      },
+      {
+        "autonomous_final_mse": 1.255471404896913e-06,
+        "fold": 1,
+        "host_final_mse": 2.6253267509468167e-06,
+        "mlp_id": 650,
+        "role_rank": 186,
+        "teacher_final_mse": 1.240019688125021e-06
+      },
+      {
+        "autonomous_final_mse": 9.724870996011824e-07,
+        "fold": 2,
+        "host_final_mse": 3.948317165342271e-06,
+        "mlp_id": 199,
+        "role_rank": 187,
+        "teacher_final_mse": 9.607021277820784e-07
+      },
+      {
+        "autonomous_final_mse": 1.0795975373003336e-06,
+        "fold": 1,
+        "host_final_mse": 3.1347228094232796e-06,
+        "mlp_id": 851,
+        "role_rank": 188,
+        "teacher_final_mse": 1.0667691999363863e-06
+      },
+      {
+        "autonomous_final_mse": 1.2414084660061347e-06,
+        "fold": 2,
+        "host_final_mse": 3.729996108996052e-06,
+        "mlp_id": 627,
+        "role_rank": 189,
+        "teacher_final_mse": 1.2258601292288735e-06
+      },
+      {
+        "autonomous_final_mse": 1.3210861101113985e-06,
+        "fold": 1,
+        "host_final_mse": 4.151675101548711e-06,
+        "mlp_id": 658,
+        "role_rank": 190,
+        "teacher_final_mse": 1.3049116917790712e-06
+      },
+      {
+        "autonomous_final_mse": 1.4277654467776242e-06,
+        "fold": 3,
+        "host_final_mse": 4.218615792990949e-06,
+        "mlp_id": 468,
+        "role_rank": 191,
+        "teacher_final_mse": 1.4101595581806924e-06
+      },
+      {
+        "autonomous_final_mse": 1.1237355244100203e-06,
+        "fold": 1,
+        "host_final_mse": 3.138196061152746e-06,
+        "mlp_id": 416,
+        "role_rank": 192,
+        "teacher_final_mse": 1.110243839444041e-06
+      },
+      {
+        "autonomous_final_mse": 1.0364556137249725e-06,
+        "fold": 1,
+        "host_final_mse": 2.9900204602132184e-06,
+        "mlp_id": 283,
+        "role_rank": 193,
+        "teacher_final_mse": 1.0237907558736983e-06
+      },
+      {
+        "autonomous_final_mse": 1.2858823668252744e-06,
+        "fold": 1,
+        "host_final_mse": 4.119394742972439e-06,
+        "mlp_id": 885,
+        "role_rank": 194,
+        "teacher_final_mse": 1.270208364194459e-06
+      },
+      {
+        "autonomous_final_mse": 1.2624588075584805e-06,
+        "fold": 2,
+        "host_final_mse": 3.3012245698378786e-06,
+        "mlp_id": 889,
+        "role_rank": 195,
+        "teacher_final_mse": 1.2477816437845737e-06
+      },
+      {
+        "autonomous_final_mse": 1.0601608265957587e-06,
+        "fold": 3,
+        "host_final_mse": 3.847158237338922e-06,
+        "mlp_id": 157,
+        "role_rank": 196,
+        "teacher_final_mse": 1.0474956032140062e-06
+      },
+      {
+        "autonomous_final_mse": 1.1853580093753406e-06,
+        "fold": 0,
+        "host_final_mse": 3.1475875991940804e-06,
+        "mlp_id": 274,
+        "role_rank": 197,
+        "teacher_final_mse": 1.1702574560855549e-06
+      },
+      {
+        "autonomous_final_mse": 1.195277859574408e-06,
+        "fold": 2,
+        "host_final_mse": 4.28201389599643e-06,
+        "mlp_id": 64,
+        "role_rank": 198,
+        "teacher_final_mse": 1.1801840387402408e-06
+      },
+      {
+        "autonomous_final_mse": 9.337253803879314e-07,
+        "fold": 1,
+        "host_final_mse": 3.94964470285598e-06,
+        "mlp_id": 500,
+        "role_rank": 199,
+        "teacher_final_mse": 9.222988485627612e-07
+      },
+      {
+        "autonomous_final_mse": 1.1886531870913884e-06,
+        "fold": 3,
+        "host_final_mse": 3.6998937279613897e-06,
+        "mlp_id": 835,
+        "role_rank": 200,
+        "teacher_final_mse": 1.174363662405007e-06
+      },
+      {
+        "autonomous_final_mse": 1.2774731718775001e-06,
+        "fold": 2,
+        "host_final_mse": 4.305827083075988e-06,
+        "mlp_id": 287,
+        "role_rank": 201,
+        "teacher_final_mse": 1.2614397965279015e-06
+      },
+      {
+        "autonomous_final_mse": 1.7284402599466295e-06,
+        "fold": 3,
+        "host_final_mse": 5.63519630089692e-06,
+        "mlp_id": 867,
+        "role_rank": 202,
+        "teacher_final_mse": 1.705429759415026e-06
+      },
+      {
+        "autonomous_final_mse": 1.1810531654311098e-06,
+        "fold": 0,
+        "host_final_mse": 3.84677830868539e-06,
+        "mlp_id": 825,
+        "role_rank": 203,
+        "teacher_final_mse": 1.167160053478461e-06
+      },
+      {
+        "autonomous_final_mse": 1.4179174262997592e-06,
+        "fold": 1,
+        "host_final_mse": 4.8198751315033755e-06,
+        "mlp_id": 234,
+        "role_rank": 204,
+        "teacher_final_mse": 1.4003044379399845e-06
+      },
+      {
+        "autonomous_final_mse": 1.2521493782152965e-06,
+        "fold": 0,
+        "host_final_mse": 3.5849239955798924e-06,
+        "mlp_id": 269,
+        "role_rank": 205,
+        "teacher_final_mse": 1.2361992827437776e-06
+      },
+      {
+        "autonomous_final_mse": 1.399564039832343e-06,
+        "fold": 0,
+        "host_final_mse": 3.598426841368906e-06,
+        "mlp_id": 678,
+        "role_rank": 206,
+        "teacher_final_mse": 1.3819411673591456e-06
+      },
+      {
+        "autonomous_final_mse": 1.0349737246503314e-06,
+        "fold": 3,
+        "host_final_mse": 3.905861371847996e-06,
+        "mlp_id": 949,
+        "role_rank": 207,
+        "teacher_final_mse": 1.0222262599189458e-06
+      },
+      {
+        "autonomous_final_mse": 1.1997297721781619e-06,
+        "fold": 3,
+        "host_final_mse": 3.409670634725607e-06,
+        "mlp_id": 344,
+        "role_rank": 208,
+        "teacher_final_mse": 1.1847682644717905e-06
+      },
+      {
+        "autonomous_final_mse": 1.5230621052627978e-06,
+        "fold": 2,
+        "host_final_mse": 5.006499248312444e-06,
+        "mlp_id": 251,
+        "role_rank": 209,
+        "teacher_final_mse": 1.5034947031647928e-06
+      },
+      {
+        "autonomous_final_mse": 1.0842791711520616e-06,
+        "fold": 0,
+        "host_final_mse": 3.805068197366228e-06,
+        "mlp_id": 52,
+        "role_rank": 210,
+        "teacher_final_mse": 1.071088396089385e-06
+      },
+      {
+        "autonomous_final_mse": 1.2967795504937767e-06,
+        "fold": 2,
+        "host_final_mse": 3.927897062933335e-06,
+        "mlp_id": 647,
+        "role_rank": 211,
+        "teacher_final_mse": 1.2815340914126662e-06
+      },
+      {
+        "autonomous_final_mse": 9.324989532399719e-07,
+        "fold": 2,
+        "host_final_mse": 3.08242940416504e-06,
+        "mlp_id": 184,
+        "role_rank": 212,
+        "teacher_final_mse": 9.210829155361462e-07
+      },
+      {
+        "autonomous_final_mse": 1.2218930143496666e-06,
+        "fold": 2,
+        "host_final_mse": 3.027578564027091e-06,
+        "mlp_id": 2,
+        "role_rank": 213,
+        "teacher_final_mse": 1.2067950231135557e-06
+      },
+      {
+        "autonomous_final_mse": 1.4931526470537754e-06,
+        "fold": 3,
+        "host_final_mse": 5.305008164017337e-06,
+        "mlp_id": 948,
+        "role_rank": 214,
+        "teacher_final_mse": 1.4737486932100137e-06
+      },
+      {
+        "autonomous_final_mse": 1.3861027645985762e-06,
+        "fold": 3,
+        "host_final_mse": 4.3056497560895614e-06,
+        "mlp_id": 320,
+        "role_rank": 215,
+        "teacher_final_mse": 1.3687285352123672e-06
+      },
+      {
+        "autonomous_final_mse": 1.215957037618963e-06,
+        "fold": 1,
+        "host_final_mse": 3.7644471708506812e-06,
+        "mlp_id": 842,
+        "role_rank": 216,
+        "teacher_final_mse": 1.201127004327124e-06
+      },
+      {
+        "autonomous_final_mse": 1.4598123213055706e-06,
+        "fold": 0,
+        "host_final_mse": 3.7365626693902907e-06,
+        "mlp_id": 86,
+        "role_rank": 217,
+        "teacher_final_mse": 1.4410275854657795e-06
+      },
+      {
+        "autonomous_final_mse": 1.0364024638455916e-06,
+        "fold": 2,
+        "host_final_mse": 2.8052215362372302e-06,
+        "mlp_id": 337,
+        "role_rank": 218,
+        "teacher_final_mse": 1.0242239986555432e-06
+      },
+      {
+        "autonomous_final_mse": 1.4511510146715516e-06,
+        "fold": 1,
+        "host_final_mse": 3.3745860390561203e-06,
+        "mlp_id": 51,
+        "role_rank": 219,
+        "teacher_final_mse": 1.433955446588671e-06
+      },
+      {
+        "autonomous_final_mse": 8.956606996460347e-07,
+        "fold": 2,
+        "host_final_mse": 2.5110365482741026e-06,
+        "mlp_id": 582,
+        "role_rank": 220,
+        "teacher_final_mse": 8.850944010959267e-07
+      },
+      {
+        "autonomous_final_mse": 1.4187737723970613e-06,
+        "fold": 1,
+        "host_final_mse": 3.469313784210509e-06,
+        "mlp_id": 767,
+        "role_rank": 221,
+        "teacher_final_mse": 1.4012462227394439e-06
+      },
+      {
+        "autonomous_final_mse": 1.5116183548308791e-06,
+        "fold": 1,
+        "host_final_mse": 3.1296048547966642e-06,
+        "mlp_id": 112,
+        "role_rank": 222,
+        "teacher_final_mse": 1.493348792084183e-06
+      },
+      {
+        "autonomous_final_mse": 1.4241598285579444e-06,
+        "fold": 3,
+        "host_final_mse": 2.589581803173312e-06,
+        "mlp_id": 504,
+        "role_rank": 223,
+        "teacher_final_mse": 1.4074017467300046e-06
+      },
+      {
+        "autonomous_final_mse": 8.739649378379481e-07,
+        "fold": 3,
+        "host_final_mse": 2.877390050143861e-06,
+        "mlp_id": 546,
+        "role_rank": 224,
+        "teacher_final_mse": 8.634063180209278e-07
+      },
+      {
+        "autonomous_final_mse": 1.1355757244696169e-06,
+        "fold": 1,
+        "host_final_mse": 4.104908318661212e-06,
+        "mlp_id": 744,
+        "role_rank": 225,
+        "teacher_final_mse": 1.1215004204855595e-06
+      },
+      {
+        "autonomous_final_mse": 1.462849380371442e-06,
+        "fold": 1,
+        "host_final_mse": 3.390888431773814e-06,
+        "mlp_id": 15,
+        "role_rank": 226,
+        "teacher_final_mse": 1.4448618087227638e-06
+      },
+      {
+        "autonomous_final_mse": 1.2263442874951355e-06,
+        "fold": 2,
+        "host_final_mse": 2.9436476449581947e-06,
+        "mlp_id": 753,
+        "role_rank": 227,
+        "teacher_final_mse": 1.2117629044028752e-06
+      },
+      {
+        "autonomous_final_mse": 1.333291792218439e-06,
+        "fold": 0,
+        "host_final_mse": 3.7721658809042983e-06,
+        "mlp_id": 347,
+        "role_rank": 228,
+        "teacher_final_mse": 1.3169392437100772e-06
+      },
+      {
+        "autonomous_final_mse": 2.3859167601661694e-06,
+        "fold": 1,
+        "host_final_mse": 4.009352899223836e-06,
+        "mlp_id": 834,
+        "role_rank": 229,
+        "teacher_final_mse": 2.355776409878917e-06
+      },
+      {
+        "autonomous_final_mse": 1.2037332407730377e-06,
+        "fold": 3,
+        "host_final_mse": 4.385975329545448e-06,
+        "mlp_id": 425,
+        "role_rank": 230,
+        "teacher_final_mse": 1.1883498003433585e-06
+      },
+      {
+        "autonomous_final_mse": 1.0666794723478298e-06,
+        "fold": 3,
+        "host_final_mse": 3.0031407068440185e-06,
+        "mlp_id": 154,
+        "role_rank": 231,
+        "teacher_final_mse": 1.0542154074492249e-06
+      },
+      {
+        "autonomous_final_mse": 1.3119307073755649e-06,
+        "fold": 2,
+        "host_final_mse": 3.139218469868676e-06,
+        "mlp_id": 322,
+        "role_rank": 232,
+        "teacher_final_mse": 1.2958100929845146e-06
+      },
+      {
+        "autonomous_final_mse": 1.1729520992337091e-06,
+        "fold": 1,
+        "host_final_mse": 3.4582738303128335e-06,
+        "mlp_id": 871,
+        "role_rank": 233,
+        "teacher_final_mse": 1.1585304035174095e-06
+      },
+      {
+        "autonomous_final_mse": 1.1293850720504971e-06,
+        "fold": 0,
+        "host_final_mse": 3.601783091710955e-06,
+        "mlp_id": 55,
+        "role_rank": 234,
+        "teacher_final_mse": 1.1155269122199825e-06
+      },
+      {
+        "autonomous_final_mse": 1.323681426131214e-06,
+        "fold": 2,
+        "host_final_mse": 2.7690277048449643e-06,
+        "mlp_id": 962,
+        "role_rank": 235,
+        "teacher_final_mse": 1.3076109435696063e-06
+      },
+      {
+        "autonomous_final_mse": 1.110299475600699e-06,
+        "fold": 1,
+        "host_final_mse": 3.98936474454318e-06,
+        "mlp_id": 125,
+        "role_rank": 236,
+        "teacher_final_mse": 1.096751035490077e-06
+      },
+      {
+        "autonomous_final_mse": 1.3426785901356637e-06,
+        "fold": 3,
+        "host_final_mse": 4.79869588214731e-06,
+        "mlp_id": 282,
+        "role_rank": 237,
+        "teacher_final_mse": 1.3250409106955462e-06
+      },
+      {
+        "autonomous_final_mse": 1.3588963909030348e-06,
+        "fold": 3,
+        "host_final_mse": 3.901366763206132e-06,
+        "mlp_id": 986,
+        "role_rank": 238,
+        "teacher_final_mse": 1.34183809743535e-06
+      },
+      {
+        "autonomous_final_mse": 1.418041295711234e-06,
+        "fold": 1,
+        "host_final_mse": 3.591254442609202e-06,
+        "mlp_id": 580,
+        "role_rank": 239,
+        "teacher_final_mse": 1.4014278304159273e-06
+      },
+      {
+        "autonomous_final_mse": 1.1000468442438919e-06,
+        "fold": 2,
+        "host_final_mse": 3.418654481059477e-06,
+        "mlp_id": 574,
+        "role_rank": 240,
+        "teacher_final_mse": 1.0869719476790438e-06
+      },
+      {
+        "autonomous_final_mse": 9.863315516385904e-07,
+        "fold": 1,
+        "host_final_mse": 3.1075474168469537e-06,
+        "mlp_id": 524,
+        "role_rank": 241,
+        "teacher_final_mse": 9.75151771785428e-07
+      },
+      {
+        "autonomous_final_mse": 1.006199604689253e-06,
+        "fold": 3,
+        "host_final_mse": 2.5831640413767124e-06,
+        "mlp_id": 455,
+        "role_rank": 242,
+        "teacher_final_mse": 9.939276616909915e-07
+      },
+      {
+        "autonomous_final_mse": 1.1593707076279394e-06,
+        "fold": 2,
+        "host_final_mse": 5.390790114537879e-06,
+        "mlp_id": 60,
+        "role_rank": 243,
+        "teacher_final_mse": 1.1452737414086712e-06
+      },
+      {
+        "autonomous_final_mse": 1.5609448015138885e-06,
+        "fold": 1,
+        "host_final_mse": 5.112255407879602e-06,
+        "mlp_id": 711,
+        "role_rank": 244,
+        "teacher_final_mse": 1.5416117998015607e-06
+      },
+      {
+        "autonomous_final_mse": 1.1280236490500344e-06,
+        "fold": 3,
+        "host_final_mse": 3.0875472645653077e-06,
+        "mlp_id": 494,
+        "role_rank": 245,
+        "teacher_final_mse": 1.115294275186383e-06
+      },
+      {
+        "autonomous_final_mse": 8.968909253026519e-07,
+        "fold": 1,
+        "host_final_mse": 3.575175710873573e-06,
+        "mlp_id": 507,
+        "role_rank": 246,
+        "teacher_final_mse": 8.858163714109025e-07
+      },
+      {
+        "autonomous_final_mse": 1.3189221425851247e-06,
+        "fold": 2,
+        "host_final_mse": 3.390679124372679e-06,
+        "mlp_id": 772,
+        "role_rank": 247,
+        "teacher_final_mse": 1.3024316541999246e-06
+      },
+      {
+        "autonomous_final_mse": 9.356352534348916e-07,
+        "fold": 3,
+        "host_final_mse": 3.896185036864319e-06,
+        "mlp_id": 424,
+        "role_rank": 248,
+        "teacher_final_mse": 9.246467685461495e-07
+      },
+      {
+        "autonomous_final_mse": 1.2317553451389286e-06,
+        "fold": 3,
+        "host_final_mse": 3.805114232811944e-06,
+        "mlp_id": 733,
+        "role_rank": 249,
+        "teacher_final_mse": 1.216809940166965e-06
+      },
+      {
+        "autonomous_final_mse": 1.342758021337564e-06,
+        "fold": 1,
+        "host_final_mse": 3.6284795423410466e-06,
+        "mlp_id": 321,
+        "role_rank": 250,
+        "teacher_final_mse": 1.3260087607090637e-06
+      },
+      {
+        "autonomous_final_mse": 9.005966040325968e-07,
+        "fold": 2,
+        "host_final_mse": 2.2915984770483737e-06,
+        "mlp_id": 701,
+        "role_rank": 251,
+        "teacher_final_mse": 8.899579522993895e-07
+      },
+      {
+        "autonomous_final_mse": 1.4310181519302605e-06,
+        "fold": 2,
+        "host_final_mse": 3.60860802270574e-06,
+        "mlp_id": 404,
+        "role_rank": 252,
+        "teacher_final_mse": 1.4124153177628648e-06
+      },
+      {
+        "autonomous_final_mse": 1.3042416932245741e-06,
+        "fold": 1,
+        "host_final_mse": 4.504085021584243e-06,
+        "mlp_id": 963,
+        "role_rank": 253,
+        "teacher_final_mse": 1.2875640049057404e-06
+      },
+      {
+        "autonomous_final_mse": 1.1651114433318766e-06,
+        "fold": 3,
+        "host_final_mse": 2.8532661301623627e-06,
+        "mlp_id": 792,
+        "role_rank": 254,
+        "teacher_final_mse": 1.151148875425755e-06
+      },
+      {
+        "autonomous_final_mse": 1.1270074790631354e-06,
+        "fold": 0,
+        "host_final_mse": 2.6249867204540956e-06,
+        "mlp_id": 335,
+        "role_rank": 255,
+        "teacher_final_mse": 1.1122070463555227e-06
+      },
+      {
+        "autonomous_final_mse": 1.1419863837785943e-06,
+        "fold": 0,
+        "host_final_mse": 3.582876643548342e-06,
+        "mlp_id": 132,
+        "role_rank": 256,
+        "teacher_final_mse": 1.1275313346513628e-06
+      },
+      {
+        "autonomous_final_mse": 1.434583960214675e-06,
+        "fold": 3,
+        "host_final_mse": 4.026520140501716e-06,
+        "mlp_id": 485,
+        "role_rank": 257,
+        "teacher_final_mse": 1.4168920789625888e-06
+      },
+      {
+        "autonomous_final_mse": 1.4790046906886336e-06,
+        "fold": 1,
+        "host_final_mse": 3.870806679874402e-06,
+        "mlp_id": 956,
+        "role_rank": 258,
+        "teacher_final_mse": 1.461486074771714e-06
+      },
+      {
+        "autonomous_final_mse": 1.3280701465714749e-06,
+        "fold": 2,
+        "host_final_mse": 4.376699628672523e-06,
+        "mlp_id": 246,
+        "role_rank": 259,
+        "teacher_final_mse": 1.311551836654722e-06
+      },
+      {
+        "autonomous_final_mse": 1.1962180879588834e-06,
+        "fold": 1,
+        "host_final_mse": 4.537964486335574e-06,
+        "mlp_id": 704,
+        "role_rank": 260,
+        "teacher_final_mse": 1.1815317626822328e-06
+      },
+      {
+        "autonomous_final_mse": 1.4365391147768977e-06,
+        "fold": 2,
+        "host_final_mse": 3.794445866838026e-06,
+        "mlp_id": 179,
+        "role_rank": 261,
+        "teacher_final_mse": 1.418368829780339e-06
+      },
+      {
+        "autonomous_final_mse": 1.2693601089144146e-06,
+        "fold": 2,
+        "host_final_mse": 4.12691603989309e-06,
+        "mlp_id": 114,
+        "role_rank": 262,
+        "teacher_final_mse": 1.2541828080086233e-06
+      },
+      {
+        "autonomous_final_mse": 1.0211614368543286e-06,
+        "fold": 2,
+        "host_final_mse": 2.9141822358685366e-06,
+        "mlp_id": 635,
+        "role_rank": 263,
+        "teacher_final_mse": 1.0086019763085558e-06
+      },
+      {
+        "autonomous_final_mse": 1.0803224788785966e-06,
+        "fold": 3,
+        "host_final_mse": 4.356944628243114e-06,
+        "mlp_id": 27,
+        "role_rank": 264,
+        "teacher_final_mse": 1.0666386365391389e-06
+      },
+      {
+        "autonomous_final_mse": 1.2252381877778556e-06,
+        "fold": 0,
+        "host_final_mse": 3.865387730377811e-06,
+        "mlp_id": 509,
+        "role_rank": 265,
+        "teacher_final_mse": 1.2101872864289848e-06
+      },
+      {
+        "autonomous_final_mse": 1.0723467921050492e-06,
+        "fold": 0,
+        "host_final_mse": 4.006408506873275e-06,
+        "mlp_id": 110,
+        "role_rank": 266,
+        "teacher_final_mse": 1.0603934078578368e-06
+      },
+      {
+        "autonomous_final_mse": 1.335930355049032e-06,
+        "fold": 1,
+        "host_final_mse": 4.078623084681546e-06,
+        "mlp_id": 441,
+        "role_rank": 267,
+        "teacher_final_mse": 1.3195359149588024e-06
+      },
+      {
+        "autonomous_final_mse": 1.4473548533370752e-06,
+        "fold": 1,
+        "host_final_mse": 5.008849199889646e-06,
+        "mlp_id": 306,
+        "role_rank": 268,
+        "teacher_final_mse": 1.429288382409913e-06
+      },
+      {
+        "autonomous_final_mse": 1.2022931303106906e-06,
+        "fold": 0,
+        "host_final_mse": 3.6619026225311096e-06,
+        "mlp_id": 517,
+        "role_rank": 269,
+        "teacher_final_mse": 1.1869293692672407e-06
+      },
+      {
+        "autonomous_final_mse": 1.5078866651119011e-06,
+        "fold": 1,
+        "host_final_mse": 3.6430571705070333e-06,
+        "mlp_id": 845,
+        "role_rank": 270,
+        "teacher_final_mse": 1.48978835133397e-06
+      },
+      {
+        "autonomous_final_mse": 1.0650656225177535e-06,
+        "fold": 2,
+        "host_final_mse": 2.8247248124204664e-06,
+        "mlp_id": 920,
+        "role_rank": 271,
+        "teacher_final_mse": 1.0523331212422127e-06
+      },
+      {
+        "autonomous_final_mse": 1.2740888751532662e-06,
+        "fold": 2,
+        "host_final_mse": 3.1996997381891727e-06,
+        "mlp_id": 61,
+        "role_rank": 272,
+        "teacher_final_mse": 1.2583737545730008e-06
+      },
+      {
+        "autonomous_final_mse": 1.1896717804546593e-06,
+        "fold": 2,
+        "host_final_mse": 3.8023573999460574e-06,
+        "mlp_id": 50,
+        "role_rank": 273,
+        "teacher_final_mse": 1.1747163703534525e-06
+      },
+      {
+        "autonomous_final_mse": 1.3365521261835686e-06,
+        "fold": 1,
+        "host_final_mse": 4.448271007782019e-06,
+        "mlp_id": 604,
+        "role_rank": 274,
+        "teacher_final_mse": 1.3200983985435872e-06
+      },
+      {
+        "autonomous_final_mse": 1.2170155373674127e-06,
+        "fold": 1,
+        "host_final_mse": 4.098827403858148e-06,
+        "mlp_id": 46,
+        "role_rank": 275,
+        "teacher_final_mse": 1.2023888945655926e-06
+      },
+      {
+        "autonomous_final_mse": 1.2496392175230182e-06,
+        "fold": 2,
+        "host_final_mse": 3.1755845351388597e-06,
+        "mlp_id": 999,
+        "role_rank": 276,
+        "teacher_final_mse": 1.2343363922381718e-06
+      },
+      {
+        "autonomous_final_mse": 9.251674416414445e-07,
+        "fold": 1,
+        "host_final_mse": 2.3340656260978254e-06,
+        "mlp_id": 204,
+        "role_rank": 277,
+        "teacher_final_mse": 9.142285745169486e-07
+      },
+      {
+        "autonomous_final_mse": 1.57442541764839e-06,
+        "fold": 2,
+        "host_final_mse": 3.824688431113704e-06,
+        "mlp_id": 463,
+        "role_rank": 278,
+        "teacher_final_mse": 1.554586788575325e-06
+      },
+      {
+        "autonomous_final_mse": 1.4990000892721752e-06,
+        "fold": 2,
+        "host_final_mse": 3.5275197998081156e-06,
+        "mlp_id": 534,
+        "role_rank": 279,
+        "teacher_final_mse": 1.4804455194461465e-06
+      },
+      {
+        "autonomous_final_mse": 1.691869387668558e-06,
+        "fold": 0,
+        "host_final_mse": 3.08884785217644e-06,
+        "mlp_id": 294,
+        "role_rank": 280,
+        "teacher_final_mse": 1.670142571137358e-06
+      },
+      {
+        "autonomous_final_mse": 9.967854206041638e-07,
+        "fold": 0,
+        "host_final_mse": 3.1320198383140214e-06,
+        "mlp_id": 918,
+        "role_rank": 281,
+        "teacher_final_mse": 9.84895386301266e-07
+      },
+      {
+        "autonomous_final_mse": 1.4137025001804954e-06,
+        "fold": 3,
+        "host_final_mse": 4.097139110848781e-06,
+        "mlp_id": 696,
+        "role_rank": 282,
+        "teacher_final_mse": 1.3960127853383701e-06
+      },
+      {
+        "autonomous_final_mse": 1.3585008586084311e-06,
+        "fold": 3,
+        "host_final_mse": 3.029412020221348e-06,
+        "mlp_id": 390,
+        "role_rank": 283,
+        "teacher_final_mse": 1.342312537278534e-06
+      },
+      {
+        "autonomous_final_mse": 1.4238305030567847e-06,
+        "fold": 2,
+        "host_final_mse": 3.965198521115256e-06,
+        "mlp_id": 731,
+        "role_rank": 284,
+        "teacher_final_mse": 1.406385185393164e-06
+      },
+      {
+        "autonomous_final_mse": 9.074276472103232e-07,
+        "fold": 2,
+        "host_final_mse": 2.455942302265322e-06,
+        "mlp_id": 376,
+        "role_rank": 285,
+        "teacher_final_mse": 8.966902919977054e-07
+      },
+      {
+        "autonomous_final_mse": 1.3415839826331488e-06,
+        "fold": 2,
+        "host_final_mse": 4.203489227038548e-06,
+        "mlp_id": 109,
+        "role_rank": 286,
+        "teacher_final_mse": 1.3240351678481012e-06
+      },
+      {
+        "autonomous_final_mse": 1.4307991164382617e-06,
+        "fold": 0,
+        "host_final_mse": 4.2260641677466445e-06,
+        "mlp_id": 882,
+        "role_rank": 287,
+        "teacher_final_mse": 1.4128418806011238e-06
+      },
+      {
+        "autonomous_final_mse": 1.007996626831693e-06,
+        "fold": 3,
+        "host_final_mse": 2.7850817398520776e-06,
+        "mlp_id": 626,
+        "role_rank": 288,
+        "teacher_final_mse": 9.95417322409292e-07
+      },
+      {
+        "autonomous_final_mse": 1.5074909086768437e-06,
+        "fold": 3,
+        "host_final_mse": 3.3056335921600376e-06,
+        "mlp_id": 362,
+        "role_rank": 289,
+        "teacher_final_mse": 1.4871629042927444e-06
+      },
+      {
+        "autonomous_final_mse": 1.2548788596550975e-06,
+        "fold": 3,
+        "host_final_mse": 3.843480477420504e-06,
+        "mlp_id": 178,
+        "role_rank": 290,
+        "teacher_final_mse": 1.2397594521706416e-06
+      },
+      {
+        "autonomous_final_mse": 1.1078876006196033e-06,
+        "fold": 2,
+        "host_final_mse": 4.549758413007409e-06,
+        "mlp_id": 614,
+        "role_rank": 291,
+        "teacher_final_mse": 1.0940437704963543e-06
+      },
+      {
+        "autonomous_final_mse": 1.3274596553668441e-06,
+        "fold": 1,
+        "host_final_mse": 5.047310664690488e-06,
+        "mlp_id": 312,
+        "role_rank": 292,
+        "teacher_final_mse": 1.3114465143719754e-06
+      },
+      {
+        "autonomous_final_mse": 1.1241673053991677e-06,
+        "fold": 2,
+        "host_final_mse": 3.668620288406895e-06,
+        "mlp_id": 811,
+        "role_rank": 293,
+        "teacher_final_mse": 1.1111704151780078e-06
+      },
+      {
+        "autonomous_final_mse": 1.1814466540458514e-06,
+        "fold": 0,
+        "host_final_mse": 3.921534759601037e-06,
+        "mlp_id": 238,
+        "role_rank": 294,
+        "teacher_final_mse": 1.1662215180828691e-06
+      },
+      {
+        "autonomous_final_mse": 1.114014331565059e-06,
+        "fold": 3,
+        "host_final_mse": 2.6608675128192516e-06,
+        "mlp_id": 705,
+        "role_rank": 295,
+        "teacher_final_mse": 1.1006105668644855e-06
+      },
+      {
+        "autonomous_final_mse": 1.478882147366092e-06,
+        "fold": 2,
+        "host_final_mse": 3.2419270906573764e-06,
+        "mlp_id": 113,
+        "role_rank": 296,
+        "teacher_final_mse": 1.4611456997655934e-06
+      },
+      {
+        "autonomous_final_mse": 1.7975413332413013e-06,
+        "fold": 2,
+        "host_final_mse": 4.364005073887384e-06,
+        "mlp_id": 606,
+        "role_rank": 297,
+        "teacher_final_mse": 1.77423872942554e-06
+      },
+      {
+        "autonomous_final_mse": 1.090335756310442e-06,
+        "fold": 3,
+        "host_final_mse": 2.459430702449287e-06,
+        "mlp_id": 695,
+        "role_rank": 298,
+        "teacher_final_mse": 1.0772353069813694e-06
+      },
+      {
+        "autonomous_final_mse": 1.048709511560904e-06,
+        "fold": 0,
+        "host_final_mse": 2.580984093882989e-06,
+        "mlp_id": 943,
+        "role_rank": 299,
+        "teacher_final_mse": 1.035869223789317e-06
+      },
+      {
+        "autonomous_final_mse": 8.903490689093762e-07,
+        "fold": 3,
+        "host_final_mse": 3.5681803053261234e-06,
+        "mlp_id": 290,
+        "role_rank": 300,
+        "teacher_final_mse": 8.791518988708388e-07
+      },
+      {
+        "autonomous_final_mse": 1.0223003616146891e-06,
+        "fold": 1,
+        "host_final_mse": 3.92801194513328e-06,
+        "mlp_id": 994,
+        "role_rank": 301,
+        "teacher_final_mse": 1.0101548257390257e-06
+      },
+      {
+        "autonomous_final_mse": 1.1865634256331495e-06,
+        "fold": 2,
+        "host_final_mse": 4.3239273241854e-06,
+        "mlp_id": 82,
+        "role_rank": 302,
+        "teacher_final_mse": 1.1724139351131503e-06
+      },
+      {
+        "autonomous_final_mse": 1.1516060578503922e-06,
+        "fold": 1,
+        "host_final_mse": 2.7017188364736194e-06,
+        "mlp_id": 431,
+        "role_rank": 303,
+        "teacher_final_mse": 1.1372919766104816e-06
+      },
+      {
+        "autonomous_final_mse": 1.1093244772511883e-06,
+        "fold": 0,
+        "host_final_mse": 2.919765344923158e-06,
+        "mlp_id": 945,
+        "role_rank": 304,
+        "teacher_final_mse": 1.0955146659075141e-06
+      },
+      {
+        "autonomous_final_mse": 1.3584276580611504e-06,
+        "fold": 0,
+        "host_final_mse": 4.191636126019623e-06,
+        "mlp_id": 594,
+        "role_rank": 305,
+        "teacher_final_mse": 1.3418335778276216e-06
+      },
+      {
+        "autonomous_final_mse": 1.3516059563235195e-06,
+        "fold": 1,
+        "host_final_mse": 3.986033354649327e-06,
+        "mlp_id": 765,
+        "role_rank": 306,
+        "teacher_final_mse": 1.3358603617586543e-06
+      },
+      {
+        "autonomous_final_mse": 1.389297187637743e-06,
+        "fold": 1,
+        "host_final_mse": 3.808151316648258e-06,
+        "mlp_id": 570,
+        "role_rank": 307,
+        "teacher_final_mse": 1.37159605358258e-06
+      },
+      {
+        "autonomous_final_mse": 1.1837388705764933e-06,
+        "fold": 2,
+        "host_final_mse": 3.7271682597223936e-06,
+        "mlp_id": 822,
+        "role_rank": 308,
+        "teacher_final_mse": 1.1691554430576745e-06
+      },
+      {
+        "autonomous_final_mse": 1.2643757377340988e-06,
+        "fold": 2,
+        "host_final_mse": 4.007792124682017e-06,
+        "mlp_id": 624,
+        "role_rank": 309,
+        "teacher_final_mse": 1.2488037674232643e-06
+      },
+      {
+        "autonomous_final_mse": 1.259982305807493e-06,
+        "fold": 3,
+        "host_final_mse": 3.860339238123951e-06,
+        "mlp_id": 760,
+        "role_rank": 310,
+        "teacher_final_mse": 1.2444615245423462e-06
+      },
+      {
+        "autonomous_final_mse": 1.2561061742692433e-06,
+        "fold": 3,
+        "host_final_mse": 3.884551886315687e-06,
+        "mlp_id": 536,
+        "role_rank": 311,
+        "teacher_final_mse": 1.2408641380496323e-06
+      },
+      {
+        "autonomous_final_mse": 1.0691777616019058e-06,
+        "fold": 3,
+        "host_final_mse": 4.318869555866028e-06,
+        "mlp_id": 987,
+        "role_rank": 312,
+        "teacher_final_mse": 1.0558569313735738e-06
+      },
+      {
+        "autonomous_final_mse": 1.2136458343272649e-06,
+        "fold": 1,
+        "host_final_mse": 3.022638093310373e-06,
+        "mlp_id": 367,
+        "role_rank": 313,
+        "teacher_final_mse": 1.1997041013271225e-06
+      },
+      {
+        "autonomous_final_mse": 9.961034584523263e-07,
+        "fold": 1,
+        "host_final_mse": 3.39619959513209e-06,
+        "mlp_id": 961,
+        "role_rank": 314,
+        "teacher_final_mse": 9.84377612447326e-07
+      },
+      {
+        "autonomous_final_mse": 1.5235323087719217e-06,
+        "fold": 0,
+        "host_final_mse": 4.37719038071244e-06,
+        "mlp_id": 725,
+        "role_rank": 315,
+        "teacher_final_mse": 1.5044301737114594e-06
+      },
+      {
+        "autonomous_final_mse": 1.509456201593834e-06,
+        "fold": 3,
+        "host_final_mse": 4.526521367255726e-06,
+        "mlp_id": 451,
+        "role_rank": 316,
+        "teacher_final_mse": 1.4909121239133504e-06
+      },
+      {
+        "autonomous_final_mse": 1.520227335398425e-06,
+        "fold": 0,
+        "host_final_mse": 4.426595860360619e-06,
+        "mlp_id": 244,
+        "role_rank": 317,
+        "teacher_final_mse": 1.5010836295773547e-06
+      },
+      {
+        "autonomous_final_mse": 1.3161692732098726e-06,
+        "fold": 0,
+        "host_final_mse": 4.133149720259206e-06,
+        "mlp_id": 42,
+        "role_rank": 318,
+        "teacher_final_mse": 1.2996842859583306e-06
+      },
+      {
+        "autonomous_final_mse": 1.2310029129022863e-06,
+        "fold": 1,
+        "host_final_mse": 2.7490154739995814e-06,
+        "mlp_id": 460,
+        "role_rank": 319,
+        "teacher_final_mse": 1.2164812034126467e-06
+      },
+      {
+        "autonomous_final_mse": 1.0607163369630517e-06,
+        "fold": 2,
+        "host_final_mse": 2.8448576534762253e-06,
+        "mlp_id": 439,
+        "role_rank": 320,
+        "teacher_final_mse": 1.047099580570765e-06
+      },
+      {
+        "autonomous_final_mse": 1.057384769950633e-06,
+        "fold": 1,
+        "host_final_mse": 2.9996464960850986e-06,
+        "mlp_id": 487,
+        "role_rank": 321,
+        "teacher_final_mse": 1.0447595346956064e-06
+      },
+      {
+        "autonomous_final_mse": 1.2659379698077025e-06,
+        "fold": 0,
+        "host_final_mse": 4.709160849408699e-06,
+        "mlp_id": 603,
+        "role_rank": 322,
+        "teacher_final_mse": 1.2502877239933528e-06
+      },
+      {
+        "autonomous_final_mse": 1.0363407863039485e-06,
+        "fold": 1,
+        "host_final_mse": 2.710801045217328e-06,
+        "mlp_id": 819,
+        "role_rank": 323,
+        "teacher_final_mse": 1.023934303426594e-06
+      },
+      {
+        "autonomous_final_mse": 1.9943612709559337e-06,
+        "fold": 2,
+        "host_final_mse": 3.580161823788155e-06,
+        "mlp_id": 490,
+        "role_rank": 324,
+        "teacher_final_mse": 1.9688167032073327e-06
+      },
+      {
+        "autonomous_final_mse": 1.234575176147094e-06,
+        "fold": 2,
+        "host_final_mse": 3.698335460817579e-06,
+        "mlp_id": 70,
+        "role_rank": 325,
+        "teacher_final_mse": 1.2188620340528439e-06
+      },
+      {
+        "autonomous_final_mse": 1.3056787470924377e-06,
+        "fold": 3,
+        "host_final_mse": 4.2301933742415285e-06,
+        "mlp_id": 756,
+        "role_rank": 326,
+        "teacher_final_mse": 1.289384284730455e-06
+      },
+      {
+        "autonomous_final_mse": 1.2191201438401597e-06,
+        "fold": 2,
+        "host_final_mse": 3.482474464327411e-06,
+        "mlp_id": 327,
+        "role_rank": 327,
+        "teacher_final_mse": 1.2039038160735105e-06
+      },
+      {
+        "autonomous_final_mse": 1.4782094920832708e-06,
+        "fold": 2,
+        "host_final_mse": 3.665461683218649e-06,
+        "mlp_id": 77,
+        "role_rank": 328,
+        "teacher_final_mse": 1.4596920584114286e-06
+      },
+      {
+        "autonomous_final_mse": 1.2789410765341115e-06,
+        "fold": 0,
+        "host_final_mse": 4.813841757682078e-06,
+        "mlp_id": 531,
+        "role_rank": 329,
+        "teacher_final_mse": 1.2621971231146813e-06
+      },
+      {
+        "autonomous_final_mse": 1.2385636781945406e-06,
+        "fold": 3,
+        "host_final_mse": 2.99986534992054e-06,
+        "mlp_id": 739,
+        "role_rank": 330,
+        "teacher_final_mse": 1.2237167133139324e-06
+      },
+      {
+        "autonomous_final_mse": 1.008067288482731e-06,
+        "fold": 1,
+        "host_final_mse": 3.1481842206421727e-06,
+        "mlp_id": 973,
+        "role_rank": 331,
+        "teacher_final_mse": 9.956619364767636e-07
+      },
+      {
+        "autonomous_final_mse": 1.6171965359189628e-06,
+        "fold": 1,
+        "host_final_mse": 2.429453376789465e-06,
+        "mlp_id": 488,
+        "role_rank": 332,
+        "teacher_final_mse": 1.5969235015881068e-06
+      },
+      {
+        "autonomous_final_mse": 1.4201035493993665e-06,
+        "fold": 1,
+        "host_final_mse": 3.96751168652396e-06,
+        "mlp_id": 971,
+        "role_rank": 333,
+        "teacher_final_mse": 1.4024505487065884e-06
+      },
+      {
+        "autonomous_final_mse": 1.303275691661054e-06,
+        "fold": 1,
+        "host_final_mse": 3.680124063693662e-06,
+        "mlp_id": 9,
+        "role_rank": 334,
+        "teacher_final_mse": 1.2869310940593968e-06
+      },
+      {
+        "autonomous_final_mse": 1.2165314835645187e-06,
+        "fold": 3,
+        "host_final_mse": 3.212064259372702e-06,
+        "mlp_id": 572,
+        "role_rank": 335,
+        "teacher_final_mse": 1.2016263381501896e-06
+      },
+      {
+        "autonomous_final_mse": 1.3249634996132735e-06,
+        "fold": 3,
+        "host_final_mse": 3.5039366915456025e-06,
+        "mlp_id": 576,
+        "role_rank": 336,
+        "teacher_final_mse": 1.3084332175470829e-06
+      },
+      {
+        "autonomous_final_mse": 1.1006606574688662e-06,
+        "fold": 3,
+        "host_final_mse": 3.411284941476711e-06,
+        "mlp_id": 496,
+        "role_rank": 337,
+        "teacher_final_mse": 1.0869882517015832e-06
+      },
+      {
+        "autonomous_final_mse": 1.0471160025163336e-06,
+        "fold": 1,
+        "host_final_mse": 3.296475519166469e-06,
+        "mlp_id": 585,
+        "role_rank": 338,
+        "teacher_final_mse": 1.0345401540510149e-06
+      },
+      {
+        "autonomous_final_mse": 1.0089787174024967e-06,
+        "fold": 2,
+        "host_final_mse": 3.131668726342604e-06,
+        "mlp_id": 45,
+        "role_rank": 339,
+        "teacher_final_mse": 9.968002814183479e-07
+      },
+      {
+        "autonomous_final_mse": 1.6306838371160228e-06,
+        "fold": 2,
+        "host_final_mse": 4.929757597548036e-06,
+        "mlp_id": 153,
+        "role_rank": 340,
+        "teacher_final_mse": 1.6094901344570825e-06
+      },
+      {
+        "autonomous_final_mse": 1.3185998471526495e-06,
+        "fold": 0,
+        "host_final_mse": 3.6579662904029788e-06,
+        "mlp_id": 960,
+        "role_rank": 341,
+        "teacher_final_mse": 1.3020680755487015e-06
+      },
+      {
+        "autonomous_final_mse": 1.0159742735620663e-06,
+        "fold": 0,
+        "host_final_mse": 3.1022274020503576e-06,
+        "mlp_id": 856,
+        "role_rank": 342,
+        "teacher_final_mse": 1.0041050791002745e-06
+      },
+      {
+        "autonomous_final_mse": 1.021727073285278e-06,
+        "fold": 0,
+        "host_final_mse": 3.040754986368547e-06,
+        "mlp_id": 771,
+        "role_rank": 343,
+        "teacher_final_mse": 1.0091028028238899e-06
+      },
+      {
+        "autonomous_final_mse": 1.418864538843405e-06,
+        "fold": 1,
+        "host_final_mse": 3.22119344278259e-06,
+        "mlp_id": 233,
+        "role_rank": 344,
+        "teacher_final_mse": 1.401064082586032e-06
+      },
+      {
+        "autonomous_final_mse": 1.2716668600113266e-06,
+        "fold": 2,
+        "host_final_mse": 3.16691924766367e-06,
+        "mlp_id": 724,
+        "role_rank": 345,
+        "teacher_final_mse": 1.2560023562407592e-06
+      },
+      {
+        "autonomous_final_mse": 1.2253657140958628e-06,
+        "fold": 3,
+        "host_final_mse": 3.546057973811183e-06,
+        "mlp_id": 263,
+        "role_rank": 346,
+        "teacher_final_mse": 1.2109114603891216e-06
+      },
+      {
+        "autonomous_final_mse": 1.2843628149689406e-06,
+        "fold": 3,
+        "host_final_mse": 3.485777651507656e-06,
+        "mlp_id": 41,
+        "role_rank": 347,
+        "teacher_final_mse": 1.2682055193821374e-06
+      },
+      {
+        "autonomous_final_mse": 1.2115815870910003e-06,
+        "fold": 2,
+        "host_final_mse": 2.9928693229206012e-06,
+        "mlp_id": 94,
+        "role_rank": 348,
+        "teacher_final_mse": 1.1965270044902004e-06
+      },
+      {
+        "autonomous_final_mse": 1.3695218773494411e-06,
+        "fold": 1,
+        "host_final_mse": 4.784870201988976e-06,
+        "mlp_id": 378,
+        "role_rank": 349,
+        "teacher_final_mse": 1.352929155569931e-06
+      },
+      {
+        "autonomous_final_mse": 1.3102634230682704e-06,
+        "fold": 3,
+        "host_final_mse": 3.9489553789866735e-06,
+        "mlp_id": 828,
+        "role_rank": 350,
+        "teacher_final_mse": 1.2945606566362863e-06
+      },
+      {
+        "autonomous_final_mse": 1.1661056093963196e-06,
+        "fold": 0,
+        "host_final_mse": 3.378462724587419e-06,
+        "mlp_id": 718,
+        "role_rank": 351,
+        "teacher_final_mse": 1.1507298497392332e-06
+      },
+      {
+        "autonomous_final_mse": 1.069666881042235e-06,
+        "fold": 2,
+        "host_final_mse": 2.92526691358906e-06,
+        "mlp_id": 31,
+        "role_rank": 352,
+        "teacher_final_mse": 1.0561630471381878e-06
+      },
+      {
+        "autonomous_final_mse": 1.6254312831319629e-06,
+        "fold": 2,
+        "host_final_mse": 3.713999099991157e-06,
+        "mlp_id": 56,
+        "role_rank": 353,
+        "teacher_final_mse": 1.6054785203510961e-06
+      },
+      {
+        "autonomous_final_mse": 1.280514848106366e-06,
+        "fold": 0,
+        "host_final_mse": 5.120893586836516e-06,
+        "mlp_id": 716,
+        "role_rank": 354,
+        "teacher_final_mse": 1.2638759475807325e-06
+      },
+      {
+        "autonomous_final_mse": 1.5035215362359678e-06,
+        "fold": 3,
+        "host_final_mse": 4.492840266886683e-06,
+        "mlp_id": 183,
+        "role_rank": 355,
+        "teacher_final_mse": 1.4848885431101077e-06
+      },
+      {
+        "autonomous_final_mse": 1.0916053780762945e-06,
+        "fold": 1,
+        "host_final_mse": 4.089095465963865e-06,
+        "mlp_id": 526,
+        "role_rank": 356,
+        "teacher_final_mse": 1.0783284516234665e-06
+      },
+      {
+        "autonomous_final_mse": 1.1753645245977476e-06,
+        "fold": 3,
+        "host_final_mse": 4.090246627811615e-06,
+        "mlp_id": 708,
+        "role_rank": 357,
+        "teacher_final_mse": 1.1612795830381404e-06
+      },
+      {
+        "autonomous_final_mse": 1.3246945068339996e-06,
+        "fold": 3,
+        "host_final_mse": 4.1930517737323066e-06,
+        "mlp_id": 787,
+        "role_rank": 358,
+        "teacher_final_mse": 1.307816565199923e-06
+      },
+      {
+        "autonomous_final_mse": 1.3086422934899644e-06,
+        "fold": 2,
+        "host_final_mse": 4.473253602796709e-06,
+        "mlp_id": 761,
+        "role_rank": 359,
+        "teacher_final_mse": 1.2919397578214638e-06
+      },
+      {
+        "autonomous_final_mse": 1.117755781832287e-06,
+        "fold": 3,
+        "host_final_mse": 2.7287360779381196e-06,
+        "mlp_id": 117,
+        "role_rank": 360,
+        "teacher_final_mse": 1.1039287658445568e-06
+      },
+      {
+        "autonomous_final_mse": 1.1401240151737509e-06,
+        "fold": 2,
+        "host_final_mse": 3.147505357506378e-06,
+        "mlp_id": 59,
+        "role_rank": 361,
+        "teacher_final_mse": 1.1264229323851434e-06
+      },
+      {
+        "autonomous_final_mse": 1.187104316326649e-06,
+        "fold": 2,
+        "host_final_mse": 4.766059803224344e-06,
+        "mlp_id": 228,
+        "role_rank": 362,
+        "teacher_final_mse": 1.1721261280849566e-06
+      },
+      {
+        "autonomous_final_mse": 1.0937484041907379e-06,
+        "fold": 1,
+        "host_final_mse": 3.867777965549553e-06,
+        "mlp_id": 741,
+        "role_rank": 363,
+        "teacher_final_mse": 1.0804954120757698e-06
+      },
+      {
+        "autonomous_final_mse": 1.222446535669089e-06,
+        "fold": 3,
+        "host_final_mse": 3.2686498721040355e-06,
+        "mlp_id": 328,
+        "role_rank": 364,
+        "teacher_final_mse": 1.2073629042958108e-06
+      },
+      {
+        "autonomous_final_mse": 1.0555480477526286e-06,
+        "fold": 2,
+        "host_final_mse": 2.633204966135962e-06,
+        "mlp_id": 422,
+        "role_rank": 365,
+        "teacher_final_mse": 1.0428346592689038e-06
+      },
+      {
+        "autonomous_final_mse": 1.2785625860815718e-06,
+        "fold": 0,
+        "host_final_mse": 3.4202722327968147e-06,
+        "mlp_id": 535,
+        "role_rank": 366,
+        "teacher_final_mse": 1.2632224505626539e-06
+      },
+      {
+        "autonomous_final_mse": 1.1378596549065456e-06,
+        "fold": 0,
+        "host_final_mse": 2.9477241372062868e-06,
+        "mlp_id": 311,
+        "role_rank": 367,
+        "teacher_final_mse": 1.1241720991288221e-06
+      },
+      {
+        "autonomous_final_mse": 1.1307532182889062e-06,
+        "fold": 1,
+        "host_final_mse": 3.784777593419489e-06,
+        "mlp_id": 710,
+        "role_rank": 368,
+        "teacher_final_mse": 1.1171189617951765e-06
+      },
+      {
+        "autonomous_final_mse": 1.3022195246805119e-06,
+        "fold": 0,
+        "host_final_mse": 2.7208649365218938e-06,
+        "mlp_id": 65,
+        "role_rank": 369,
+        "teacher_final_mse": 1.2855145911028077e-06
+      },
+      {
+        "autonomous_final_mse": 1.0674033438509508e-06,
+        "fold": 2,
+        "host_final_mse": 2.73574612761571e-06,
+        "mlp_id": 205,
+        "role_rank": 370,
+        "teacher_final_mse": 1.0542360945312905e-06
+      },
+      {
+        "autonomous_final_mse": 1.3922472641596953e-06,
+        "fold": 1,
+        "host_final_mse": 3.1131091971761775e-06,
+        "mlp_id": 923,
+        "role_rank": 371,
+        "teacher_final_mse": 1.3764334931197365e-06
+      },
+      {
+        "autonomous_final_mse": 1.2514085246347722e-06,
+        "fold": 3,
+        "host_final_mse": 3.420219246770952e-06,
+        "mlp_id": 877,
+        "role_rank": 372,
+        "teacher_final_mse": 1.2362073442117147e-06
+      },
+      {
+        "autonomous_final_mse": 1.7488347133157948e-06,
+        "fold": 3,
+        "host_final_mse": 4.38239411829088e-06,
+        "mlp_id": 484,
+        "role_rank": 373,
+        "teacher_final_mse": 1.7262437770301825e-06
+      },
+      {
+        "autonomous_final_mse": 1.7959964258234034e-06,
+        "fold": 0,
+        "host_final_mse": 5.423367090026387e-06,
+        "mlp_id": 648,
+        "role_rank": 374,
+        "teacher_final_mse": 1.773616015056193e-06
+      },
+      {
+        "autonomous_final_mse": 1.320761976704965e-06,
+        "fold": 3,
+        "host_final_mse": 3.5918705639859873e-06,
+        "mlp_id": 680,
+        "role_rank": 375,
+        "teacher_final_mse": 1.3034647606984117e-06
+      },
+      {
+        "autonomous_final_mse": 1.6021178137481279e-06,
+        "fold": 3,
+        "host_final_mse": 3.651750946231699e-06,
+        "mlp_id": 623,
+        "role_rank": 376,
+        "teacher_final_mse": 1.5813145162042958e-06
+      },
+      {
+        "autonomous_final_mse": 1.3166889862024677e-06,
+        "fold": 2,
+        "host_final_mse": 4.419307849996462e-06,
+        "mlp_id": 797,
+        "role_rank": 377,
+        "teacher_final_mse": 1.3006035100230326e-06
+      },
+      {
+        "autonomous_final_mse": 1.2378907255971948e-06,
+        "fold": 2,
+        "host_final_mse": 4.0021727570145645e-06,
+        "mlp_id": 58,
+        "role_rank": 378,
+        "teacher_final_mse": 1.2226900307825517e-06
+      },
+      {
+        "autonomous_final_mse": 8.890093500724625e-07,
+        "fold": 0,
+        "host_final_mse": 2.5566467629137523e-06,
+        "mlp_id": 974,
+        "role_rank": 379,
+        "teacher_final_mse": 8.783892515930294e-07
+      },
+      {
+        "autonomous_final_mse": 1.375195059398181e-06,
+        "fold": 1,
+        "host_final_mse": 4.757097315089481e-06,
+        "mlp_id": 513,
+        "role_rank": 380,
+        "teacher_final_mse": 1.358475272281502e-06
+      },
+      {
+        "autonomous_final_mse": 1.4148570700634264e-06,
+        "fold": 1,
+        "host_final_mse": 2.8922282818069713e-06,
+        "mlp_id": 964,
+        "role_rank": 381,
+        "teacher_final_mse": 1.398007453432164e-06
+      },
+      {
+        "autonomous_final_mse": 1.332561033420513e-06,
+        "fold": 2,
+        "host_final_mse": 4.947080562124028e-06,
+        "mlp_id": 632,
+        "role_rank": 382,
+        "teacher_final_mse": 1.3156672676847875e-06
+      },
+      {
+        "autonomous_final_mse": 1.4770632413800037e-06,
+        "fold": 1,
+        "host_final_mse": 3.156975812061483e-06,
+        "mlp_id": 520,
+        "role_rank": 383,
+        "teacher_final_mse": 1.4591198814076125e-06
+      },
+      {
+        "autonomous_final_mse": 1.4902847968559607e-06,
+        "fold": 1,
+        "host_final_mse": 4.862593321609839e-06,
+        "mlp_id": 384,
+        "role_rank": 384,
+        "teacher_final_mse": 1.4722693439400538e-06
+      },
+      {
+        "autonomous_final_mse": 1.6900745468775595e-06,
+        "fold": 3,
+        "host_final_mse": 4.433290828241084e-06,
+        "mlp_id": 359,
+        "role_rank": 385,
+        "teacher_final_mse": 1.6686565487252713e-06
+      },
+      {
+        "autonomous_final_mse": 1.0833502806933667e-06,
+        "fold": 3,
+        "host_final_mse": 3.766824192807944e-06,
+        "mlp_id": 323,
+        "role_rank": 386,
+        "teacher_final_mse": 1.0704725691487691e-06
+      },
+      {
+        "autonomous_final_mse": 1.088484974664198e-06,
+        "fold": 2,
+        "host_final_mse": 3.712681218309252e-06,
+        "mlp_id": 804,
+        "role_rank": 387,
+        "teacher_final_mse": 1.0747856384611888e-06
+      },
+      {
+        "autonomous_final_mse": 1.1850245252882373e-06,
+        "fold": 1,
+        "host_final_mse": 3.943336918331066e-06,
+        "mlp_id": 229,
+        "role_rank": 388,
+        "teacher_final_mse": 1.1706759295853556e-06
+      },
+      {
+        "autonomous_final_mse": 1.2578216317303333e-06,
+        "fold": 3,
+        "host_final_mse": 2.9459554962931926e-06,
+        "mlp_id": 591,
+        "role_rank": 389,
+        "teacher_final_mse": 1.2426796758973232e-06
+      },
+      {
+        "autonomous_final_mse": 1.6497466681508915e-06,
+        "fold": 3,
+        "host_final_mse": 5.074869413143691e-06,
+        "mlp_id": 261,
+        "role_rank": 390,
+        "teacher_final_mse": 1.6285726925759597e-06
+      },
+      {
+        "autonomous_final_mse": 1.3219136503306452e-06,
+        "fold": 2,
+        "host_final_mse": 3.5315622544523527e-06,
+        "mlp_id": 103,
+        "role_rank": 391,
+        "teacher_final_mse": 1.3064747099465658e-06
+      },
+      {
+        "autonomous_final_mse": 1.2123753181491132e-06,
+        "fold": 3,
+        "host_final_mse": 3.786054739690772e-06,
+        "mlp_id": 438,
+        "role_rank": 392,
+        "teacher_final_mse": 1.1970612786166784e-06
+      },
+      {
+        "autonomous_final_mse": 1.3402048216977865e-06,
+        "fold": 0,
+        "host_final_mse": 3.72060603392936e-06,
+        "mlp_id": 879,
+        "role_rank": 393,
+        "teacher_final_mse": 1.323889897570548e-06
+      },
+      {
+        "autonomous_final_mse": 1.2759592932784305e-06,
+        "fold": 2,
+        "host_final_mse": 4.0785787767434445e-06,
+        "mlp_id": 894,
+        "role_rank": 394,
+        "teacher_final_mse": 1.260655025794859e-06
+      },
+      {
+        "autonomous_final_mse": 1.2013530360412085e-06,
+        "fold": 0,
+        "host_final_mse": 3.118460597991701e-06,
+        "mlp_id": 405,
+        "role_rank": 395,
+        "teacher_final_mse": 1.1866178362832797e-06
+      },
+      {
+        "autonomous_final_mse": 1.0796906439405903e-06,
+        "fold": 0,
+        "host_final_mse": 3.015368296632398e-06,
+        "mlp_id": 339,
+        "role_rank": 396,
+        "teacher_final_mse": 1.0667102519609842e-06
+      },
+      {
+        "autonomous_final_mse": 1.223793213016736e-06,
+        "fold": 2,
+        "host_final_mse": 3.1980339512907743e-06,
+        "mlp_id": 478,
+        "role_rank": 397,
+        "teacher_final_mse": 1.208590502217844e-06
+      },
+      {
+        "autonomous_final_mse": 1.257632481719128e-06,
+        "fold": 0,
+        "host_final_mse": 4.061248162164947e-06,
+        "mlp_id": 946,
+        "role_rank": 398,
+        "teacher_final_mse": 1.2416775164602367e-06
+      },
+      {
+        "autonomous_final_mse": 1.182388990944543e-06,
+        "fold": 3,
+        "host_final_mse": 3.4056890865527414e-06,
+        "mlp_id": 137,
+        "role_rank": 399,
+        "teacher_final_mse": 1.1671274628354668e-06
+      },
+      {
+        "autonomous_final_mse": 1.5450550923791385e-06,
+        "fold": 3,
+        "host_final_mse": 4.780567479174841e-06,
+        "mlp_id": 515,
+        "role_rank": 400,
+        "teacher_final_mse": 1.525484281699047e-06
+      },
+      {
+        "autonomous_final_mse": 1.1630368810364078e-06,
+        "fold": 1,
+        "host_final_mse": 4.274007148455034e-06,
+        "mlp_id": 173,
+        "role_rank": 401,
+        "teacher_final_mse": 1.148970735278646e-06
+      },
+      {
+        "autonomous_final_mse": 1.0664005500542484e-06,
+        "fold": 0,
+        "host_final_mse": 2.9981651136959014e-06,
+        "mlp_id": 959,
+        "role_rank": 402,
+        "teacher_final_mse": 1.0535982171118504e-06
+      },
+      {
+        "autonomous_final_mse": 1.1744418827263145e-06,
+        "fold": 3,
+        "host_final_mse": 2.9909718321638214e-06,
+        "mlp_id": 697,
+        "role_rank": 403,
+        "teacher_final_mse": 1.160012591390611e-06
+      },
+      {
+        "autonomous_final_mse": 1.4229867300496837e-06,
+        "fold": 2,
+        "host_final_mse": 3.659841963762023e-06,
+        "mlp_id": 257,
+        "role_rank": 404,
+        "teacher_final_mse": 1.4048373795935806e-06
+      },
+      {
+        "autonomous_final_mse": 1.3682272706519531e-06,
+        "fold": 0,
+        "host_final_mse": 3.4745586139442286e-06,
+        "mlp_id": 38,
+        "role_rank": 405,
+        "teacher_final_mse": 1.3513061974549814e-06
+      },
+      {
+        "autonomous_final_mse": 1.2317812125336297e-06,
+        "fold": 1,
+        "host_final_mse": 2.7860042108536245e-06,
+        "mlp_id": 527,
+        "role_rank": 406,
+        "teacher_final_mse": 1.2168102667421759e-06
+      },
+      {
+        "autonomous_final_mse": 1.1660473430459209e-06,
+        "fold": 1,
+        "host_final_mse": 3.367681881011875e-06,
+        "mlp_id": 665,
+        "role_rank": 407,
+        "teacher_final_mse": 1.1515038631165744e-06
+      },
+      {
+        "autonomous_final_mse": 1.0837850713002565e-06,
+        "fold": 3,
+        "host_final_mse": 3.4939275637747114e-06,
+        "mlp_id": 43,
+        "role_rank": 408,
+        "teacher_final_mse": 1.0703996740290607e-06
+      },
+      {
+        "autonomous_final_mse": 1.1012378894632612e-06,
+        "fold": 2,
+        "host_final_mse": 2.7623081502741184e-06,
+        "mlp_id": 897,
+        "role_rank": 409,
+        "teacher_final_mse": 1.0872018534178606e-06
+      },
+      {
+        "autonomous_final_mse": 1.2833853475806544e-06,
+        "fold": 3,
+        "host_final_mse": 2.9055733619712173e-06,
+        "mlp_id": 727,
+        "role_rank": 410,
+        "teacher_final_mse": 1.2670523267953546e-06
+      },
+      {
+        "autonomous_final_mse": 1.191274641863399e-06,
+        "fold": 1,
+        "host_final_mse": 3.2611485796006863e-06,
+        "mlp_id": 197,
+        "role_rank": 411,
+        "teacher_final_mse": 1.1764193139706141e-06
+      },
+      {
+        "autonomous_final_mse": 1.1695166659719032e-06,
+        "fold": 1,
+        "host_final_mse": 3.274745761432222e-06,
+        "mlp_id": 88,
+        "role_rank": 412,
+        "teacher_final_mse": 1.1552986666912109e-06
+      },
+      {
+        "autonomous_final_mse": 1.1509239087267977e-06,
+        "fold": 1,
+        "host_final_mse": 3.3470074724616917e-06,
+        "mlp_id": 194,
+        "role_rank": 413,
+        "teacher_final_mse": 1.1371265177716197e-06
+      },
+      {
+        "autonomous_final_mse": 1.3136781455960376e-06,
+        "fold": 3,
+        "host_final_mse": 3.4828310819329605e-06,
+        "mlp_id": 470,
+        "role_rank": 414,
+        "teacher_final_mse": 1.2976199870015169e-06
+      },
+      {
+        "autonomous_final_mse": 1.4489233061907627e-06,
+        "fold": 2,
+        "host_final_mse": 4.331614080132586e-06,
+        "mlp_id": 791,
+        "role_rank": 415,
+        "teacher_final_mse": 1.4306247592140148e-06
+      },
+      {
+        "autonomous_final_mse": 1.269960733127773e-06,
+        "fold": 3,
+        "host_final_mse": 3.822639545479309e-06,
+        "mlp_id": 666,
+        "role_rank": 416,
+        "teacher_final_mse": 1.254098316996249e-06
+      },
+      {
+        "autonomous_final_mse": 1.4800398687726325e-06,
+        "fold": 3,
+        "host_final_mse": 4.109330490633144e-06,
+        "mlp_id": 308,
+        "role_rank": 417,
+        "teacher_final_mse": 1.461919694947068e-06
+      },
+      {
+        "autonomous_final_mse": 1.6524464717757672e-06,
+        "fold": 1,
+        "host_final_mse": 4.314841230264985e-06,
+        "mlp_id": 202,
+        "role_rank": 418,
+        "teacher_final_mse": 1.6319389043484055e-06
+      },
+      {
+        "autonomous_final_mse": 1.3941795730518906e-06,
+        "fold": 3,
+        "host_final_mse": 4.296779565167312e-06,
+        "mlp_id": 211,
+        "role_rank": 419,
+        "teacher_final_mse": 1.3765440055437618e-06
+      },
+      {
+        "autonomous_final_mse": 1.255180224492801e-06,
+        "fold": 3,
+        "host_final_mse": 4.624477801012382e-06,
+        "mlp_id": 605,
+        "role_rank": 420,
+        "teacher_final_mse": 1.238953264835857e-06
+      },
+      {
+        "autonomous_final_mse": 1.226578615617864e-06,
+        "fold": 1,
+        "host_final_mse": 2.6679793429820194e-06,
+        "mlp_id": 278,
+        "role_rank": 421,
+        "teacher_final_mse": 1.212898175469361e-06
+      },
+      {
+        "autonomous_final_mse": 1.2459981623833173e-06,
+        "fold": 1,
+        "host_final_mse": 3.2613717611233002e-06,
+        "mlp_id": 764,
+        "role_rank": 422,
+        "teacher_final_mse": 1.2306690096713647e-06
+      },
+      {
+        "autonomous_final_mse": 1.1077468702169006e-06,
+        "fold": 2,
+        "host_final_mse": 4.142602766798704e-06,
+        "mlp_id": 820,
+        "role_rank": 423,
+        "teacher_final_mse": 1.0935232208082098e-06
+      },
+      {
+        "autonomous_final_mse": 1.3730167903707359e-06,
+        "fold": 2,
+        "host_final_mse": 2.832242456710303e-06,
+        "mlp_id": 749,
+        "role_rank": 424,
+        "teacher_final_mse": 1.3551993558187874e-06
+      },
+      {
+        "autonomous_final_mse": 1.4860818775136588e-06,
+        "fold": 0,
+        "host_final_mse": 4.519631728174802e-06,
+        "mlp_id": 166,
+        "role_rank": 425,
+        "teacher_final_mse": 1.4673793780251887e-06
+      },
+      {
+        "autonomous_final_mse": 1.0571649270867863e-06,
+        "fold": 1,
+        "host_final_mse": 3.4124940455623073e-06,
+        "mlp_id": 430,
+        "role_rank": 426,
+        "teacher_final_mse": 1.0449694080047846e-06
+      },
+      {
+        "autonomous_final_mse": 1.8956641863413577e-06,
+        "fold": 2,
+        "host_final_mse": 3.8345961682420365e-06,
+        "mlp_id": 446,
+        "role_rank": 427,
+        "teacher_final_mse": 1.8704364026398377e-06
+      },
+      {
+        "autonomous_final_mse": 1.561238393095425e-06,
+        "fold": 2,
+        "host_final_mse": 4.83057436223447e-06,
+        "mlp_id": 421,
+        "role_rank": 428,
+        "teacher_final_mse": 1.5419979972554237e-06
+      },
+      {
+        "autonomous_final_mse": 1.4217226593758906e-06,
+        "fold": 2,
+        "host_final_mse": 3.890018794962063e-06,
+        "mlp_id": 78,
+        "role_rank": 429,
+        "teacher_final_mse": 1.4037642956266945e-06
+      },
+      {
+        "autonomous_final_mse": 1.2819708502556787e-06,
+        "fold": 3,
+        "host_final_mse": 2.9105187571537446e-06,
+        "mlp_id": 111,
+        "role_rank": 430,
+        "teacher_final_mse": 1.2668033285066027e-06
+      },
+      {
+        "autonomous_final_mse": 1.1262246080691423e-06,
+        "fold": 3,
+        "host_final_mse": 4.1403962405629645e-06,
+        "mlp_id": 598,
+        "role_rank": 431,
+        "teacher_final_mse": 1.112028854763208e-06
+      },
+      {
+        "autonomous_final_mse": 1.4985647819158014e-06,
+        "fold": 2,
+        "host_final_mse": 3.6546987583263354e-06,
+        "mlp_id": 34,
+        "role_rank": 432,
+        "teacher_final_mse": 1.4803596999205722e-06
+      },
+      {
+        "autonomous_final_mse": 1.8301491249166884e-06,
+        "fold": 2,
+        "host_final_mse": 3.5821289700218567e-06,
+        "mlp_id": 904,
+        "role_rank": 433,
+        "teacher_final_mse": 1.806303466660824e-06
+      },
+      {
+        "autonomous_final_mse": 8.509081152776234e-07,
+        "fold": 3,
+        "host_final_mse": 2.825045688774467e-06,
+        "mlp_id": 200,
+        "role_rank": 434,
+        "teacher_final_mse": 8.410409990987903e-07
+      },
+      {
+        "autonomous_final_mse": 1.2608425150261342e-06,
+        "fold": 0,
+        "host_final_mse": 4.053929403201238e-06,
+        "mlp_id": 501,
+        "role_rank": 435,
+        "teacher_final_mse": 1.2449194481929422e-06
+      },
+      {
+        "autonomous_final_mse": 1.8274546558505653e-06,
+        "fold": 3,
+        "host_final_mse": 4.633616597152724e-06,
+        "mlp_id": 24,
+        "role_rank": 436,
+        "teacher_final_mse": 1.8039209866595806e-06
+      },
+      {
+        "autonomous_final_mse": 1.2826347862220632e-06,
+        "fold": 2,
+        "host_final_mse": 2.8725479362229923e-06,
+        "mlp_id": 528,
+        "role_rank": 437,
+        "teacher_final_mse": 1.2671174202453314e-06
+      },
+      {
+        "autonomous_final_mse": 1.1900674622599436e-06,
+        "fold": 3,
+        "host_final_mse": 3.6784352284536252e-06,
+        "mlp_id": 67,
+        "role_rank": 438,
+        "teacher_final_mse": 1.1751219978536572e-06
+      },
+      {
+        "autonomous_final_mse": 9.488521326830156e-07,
+        "fold": 1,
+        "host_final_mse": 2.8992248897511836e-06,
+        "mlp_id": 521,
+        "role_rank": 439,
+        "teacher_final_mse": 9.377704957398527e-07
+      },
+      {
+        "autonomous_final_mse": 1.334702964208457e-06,
+        "fold": 3,
+        "host_final_mse": 3.728084324302775e-06,
+        "mlp_id": 808,
+        "role_rank": 440,
+        "teacher_final_mse": 1.3186749073807264e-06
+      },
+      {
+        "autonomous_final_mse": 1.1688254841681187e-06,
+        "fold": 3,
+        "host_final_mse": 5.015420629094637e-06,
+        "mlp_id": 270,
+        "role_rank": 441,
+        "teacher_final_mse": 1.1545928906476833e-06
+      },
+      {
+        "autonomous_final_mse": 1.0056204560619099e-06,
+        "fold": 3,
+        "host_final_mse": 3.203009368807943e-06,
+        "mlp_id": 789,
+        "role_rank": 442,
+        "teacher_final_mse": 9.93272474697915e-07
+      },
+      {
+        "autonomous_final_mse": 1.102507481266219e-06,
+        "fold": 3,
+        "host_final_mse": 3.3522634249116755e-06,
+        "mlp_id": 529,
+        "role_rank": 443,
+        "teacher_final_mse": 1.0888132672093616e-06
+      },
+      {
+        "autonomous_final_mse": 9.232644990958886e-07,
+        "fold": 3,
+        "host_final_mse": 3.217777699083327e-06,
+        "mlp_id": 826,
+        "role_rank": 444,
+        "teacher_final_mse": 9.125397874728472e-07
+      },
+      {
+        "autonomous_final_mse": 1.3540137838974134e-06,
+        "fold": 1,
+        "host_final_mse": 3.945088156047811e-06,
+        "mlp_id": 207,
+        "role_rank": 445,
+        "teacher_final_mse": 1.3377488460431558e-06
+      },
+      {
+        "autonomous_final_mse": 1.6406562590217267e-06,
+        "fold": 3,
+        "host_final_mse": 4.406349713842308e-06,
+        "mlp_id": 634,
+        "role_rank": 446,
+        "teacher_final_mse": 1.6204311325041822e-06
+      },
+      {
+        "autonomous_final_mse": 1.5630242223935053e-06,
+        "fold": 2,
+        "host_final_mse": 3.545652316957464e-06,
+        "mlp_id": 358,
+        "role_rank": 447,
+        "teacher_final_mse": 1.54377774195366e-06
+      },
+      {
+        "autonomous_final_mse": 1.4508197300056126e-06,
+        "fold": 3,
+        "host_final_mse": 3.2879298249890686e-06,
+        "mlp_id": 794,
+        "role_rank": 448,
+        "teacher_final_mse": 1.4336628461752992e-06
+      },
+      {
+        "autonomous_final_mse": 1.0891119405469177e-06,
+        "fold": 2,
+        "host_final_mse": 3.519993959067953e-06,
+        "mlp_id": 380,
+        "role_rank": 449,
+        "teacher_final_mse": 1.0755441262693053e-06
+      },
+      {
+        "autonomous_final_mse": 1.3189100224441563e-06,
+        "fold": 2,
+        "host_final_mse": 3.6372791695411507e-06,
+        "mlp_id": 510,
+        "role_rank": 450,
+        "teacher_final_mse": 1.3018863833320115e-06
+      },
+      {
+        "autonomous_final_mse": 1.2480493069534343e-06,
+        "fold": 1,
+        "host_final_mse": 4.206817404498951e-06,
+        "mlp_id": 957,
+        "role_rank": 451,
+        "teacher_final_mse": 1.23263004822954e-06
+      },
+      {
+        "autonomous_final_mse": 9.25678096655689e-07,
+        "fold": 3,
+        "host_final_mse": 3.0793738566811785e-06,
+        "mlp_id": 99,
+        "role_rank": 452,
+        "teacher_final_mse": 9.14547128446864e-07
+      },
+      {
+        "autonomous_final_mse": 1.215609905586285e-06,
+        "fold": 0,
+        "host_final_mse": 2.5213779513259996e-06,
+        "mlp_id": 740,
+        "role_rank": 453,
+        "teacher_final_mse": 1.2003883798509956e-06
+      },
+      {
+        "autonomous_final_mse": 1.440676863653381e-06,
+        "fold": 3,
+        "host_final_mse": 5.516622801970155e-06,
+        "mlp_id": 155,
+        "role_rank": 454,
+        "teacher_final_mse": 1.4223781433651734e-06
+      },
+      {
+        "autonomous_final_mse": 1.3633069809878298e-06,
+        "fold": 1,
+        "host_final_mse": 3.1283106923906054e-06,
+        "mlp_id": 221,
+        "role_rank": 455,
+        "teacher_final_mse": 1.3460947510998108e-06
+      },
+      {
+        "autonomous_final_mse": 9.017906090779929e-07,
+        "fold": 1,
+        "host_final_mse": 2.9155176285493706e-06,
+        "mlp_id": 809,
+        "role_rank": 456,
+        "teacher_final_mse": 8.9131909063184e-07
+      },
+      {
+        "autonomous_final_mse": 1.4277482571728374e-06,
+        "fold": 1,
+        "host_final_mse": 3.7246084646779195e-06,
+        "mlp_id": 944,
+        "role_rank": 457,
+        "teacher_final_mse": 1.4104767627482946e-06
+      },
+      {
+        "autonomous_final_mse": 1.0444938522063525e-06,
+        "fold": 3,
+        "host_final_mse": 3.6645431765075033e-06,
+        "mlp_id": 543,
+        "role_rank": 458,
+        "teacher_final_mse": 1.0318975178241364e-06
+      },
+      {
+        "autonomous_final_mse": 1.2501529451266223e-06,
+        "fold": 2,
+        "host_final_mse": 3.5768705329565766e-06,
+        "mlp_id": 868,
+        "role_rank": 459,
+        "teacher_final_mse": 1.2345554120109162e-06
+      },
+      {
+        "autonomous_final_mse": 1.0500644585266164e-06,
+        "fold": 2,
+        "host_final_mse": 3.0471488517477805e-06,
+        "mlp_id": 0,
+        "role_rank": 460,
+        "teacher_final_mse": 1.0374688263369059e-06
+      },
+      {
+        "autonomous_final_mse": 1.3422441137149302e-06,
+        "fold": 3,
+        "host_final_mse": 3.80372810770802e-06,
+        "mlp_id": 622,
+        "role_rank": 461,
+        "teacher_final_mse": 1.3257391022649466e-06
+      },
+      {
+        "autonomous_final_mse": 1.164351582129893e-06,
+        "fold": 2,
+        "host_final_mse": 3.822617803679829e-06,
+        "mlp_id": 609,
+        "role_rank": 462,
+        "teacher_final_mse": 1.1496660911368152e-06
+      },
+      {
+        "autonomous_final_mse": 1.3218535756724186e-06,
+        "fold": 3,
+        "host_final_mse": 3.321098184503591e-06,
+        "mlp_id": 81,
+        "role_rank": 463,
+        "teacher_final_mse": 1.3051633690976805e-06
+      },
+      {
+        "autonomous_final_mse": 1.1581335084036874e-06,
+        "fold": 2,
+        "host_final_mse": 4.054991127056722e-06,
+        "mlp_id": 538,
+        "role_rank": 464,
+        "teacher_final_mse": 1.1446224645938868e-06
+      },
+      {
+        "autonomous_final_mse": 1.3938071787288914e-06,
+        "fold": 1,
+        "host_final_mse": 4.052240103446239e-06,
+        "mlp_id": 583,
+        "role_rank": 465,
+        "teacher_final_mse": 1.3775009638092565e-06
+      },
+      {
+        "autonomous_final_mse": 1.2685442003298713e-06,
+        "fold": 1,
+        "host_final_mse": 3.694196335048696e-06,
+        "mlp_id": 276,
+        "role_rank": 466,
+        "teacher_final_mse": 1.2535174960533757e-06
+      },
+      {
+        "autonomous_final_mse": 1.1041139267321052e-06,
+        "fold": 3,
+        "host_final_mse": 4.004586844152248e-06,
+        "mlp_id": 298,
+        "role_rank": 467,
+        "teacher_final_mse": 1.090944974620607e-06
+      },
+      {
+        "autonomous_final_mse": 8.908478368479542e-07,
+        "fold": 0,
+        "host_final_mse": 3.897745498230568e-06,
+        "mlp_id": 992,
+        "role_rank": 468,
+        "teacher_final_mse": 8.802057218779462e-07
+      },
+      {
+        "autonomous_final_mse": 1.100678351745547e-06,
+        "fold": 3,
+        "host_final_mse": 4.2091663617236725e-06,
+        "mlp_id": 310,
+        "role_rank": 469,
+        "teacher_final_mse": 1.0868845361904479e-06
+      },
+      {
+        "autonomous_final_mse": 1.1906001352879508e-06,
+        "fold": 3,
+        "host_final_mse": 3.341390746075669e-06,
+        "mlp_id": 832,
+        "role_rank": 470,
+        "teacher_final_mse": 1.1763165989360387e-06
+      },
+      {
+        "autonomous_final_mse": 1.3062341410904948e-06,
+        "fold": 3,
+        "host_final_mse": 4.169077675851879e-06,
+        "mlp_id": 271,
+        "role_rank": 471,
+        "teacher_final_mse": 1.290832356397227e-06
+      },
+      {
+        "autonomous_final_mse": 1.4642884894628615e-06,
+        "fold": 2,
+        "host_final_mse": 5.589992871462474e-06,
+        "mlp_id": 717,
+        "role_rank": 472,
+        "teacher_final_mse": 1.4463159758920837e-06
+      },
+      {
+        "autonomous_final_mse": 1.0945013086338203e-06,
+        "fold": 1,
+        "host_final_mse": 2.8345064092713673e-06,
+        "mlp_id": 839,
+        "role_rank": 473,
+        "teacher_final_mse": 1.0809738361804081e-06
+      },
+      {
+        "autonomous_final_mse": 1.1892773239208845e-06,
+        "fold": 2,
+        "host_final_mse": 3.224539355560362e-06,
+        "mlp_id": 991,
+        "role_rank": 474,
+        "teacher_final_mse": 1.1742527347209426e-06
+      },
+      {
+        "autonomous_final_mse": 1.2520144762642417e-06,
+        "fold": 1,
+        "host_final_mse": 3.5957370802028635e-06,
+        "mlp_id": 307,
+        "role_rank": 475,
+        "teacher_final_mse": 1.2368970590563578e-06
+      },
+      {
+        "autonomous_final_mse": 1.422436381140205e-06,
+        "fold": 2,
+        "host_final_mse": 4.0834523840307736e-06,
+        "mlp_id": 213,
+        "role_rank": 476,
+        "teacher_final_mse": 1.4046765562330013e-06
+      },
+      {
+        "autonomous_final_mse": 1.4211361945768257e-06,
+        "fold": 2,
+        "host_final_mse": 5.17737932945223e-06,
+        "mlp_id": 855,
+        "role_rank": 477,
+        "teacher_final_mse": 1.4035049332774035e-06
+      },
+      {
+        "autonomous_final_mse": 1.8666849032219773e-06,
+        "fold": 1,
+        "host_final_mse": 3.9036049823949035e-06,
+        "mlp_id": 805,
+        "role_rank": 478,
+        "teacher_final_mse": 1.8423202782040384e-06
+      },
+      {
+        "autonomous_final_mse": 1.5144482948038109e-06,
+        "fold": 1,
+        "host_final_mse": 3.770301914097536e-06,
+        "mlp_id": 652,
+        "role_rank": 479,
+        "teacher_final_mse": 1.495963905739323e-06
+      },
+      {
+        "autonomous_final_mse": 1.2056360007309633e-06,
+        "fold": 2,
+        "host_final_mse": 3.7019825297749347e-06,
+        "mlp_id": 559,
+        "role_rank": 480,
+        "teacher_final_mse": 1.1914141389370952e-06
+      },
+      {
+        "autonomous_final_mse": 1.498327236962939e-06,
+        "fold": 3,
+        "host_final_mse": 4.027262715544606e-06,
+        "mlp_id": 366,
+        "role_rank": 481,
+        "teacher_final_mse": 1.480501958369199e-06
+      },
+      {
+        "autonomous_final_mse": 1.2231215357746092e-06,
+        "fold": 1,
+        "host_final_mse": 3.368791524792804e-06,
+        "mlp_id": 854,
+        "role_rank": 482,
+        "teacher_final_mse": 1.2084633389846861e-06
+      },
+      {
+        "autonomous_final_mse": 1.1912732087698138e-06,
+        "fold": 0,
+        "host_final_mse": 3.2893561241151608e-06,
+        "mlp_id": 98,
+        "role_rank": 483,
+        "teacher_final_mse": 1.1763682348053772e-06
+      },
+      {
+        "autonomous_final_mse": 1.208600328811161e-06,
+        "fold": 0,
+        "host_final_mse": 3.502816532609297e-06,
+        "mlp_id": 54,
+        "role_rank": 484,
+        "teacher_final_mse": 1.1935546282282991e-06
+      },
+      {
+        "autonomous_final_mse": 1.6645766386828507e-06,
+        "fold": 0,
+        "host_final_mse": 4.352256418591431e-06,
+        "mlp_id": 599,
+        "role_rank": 485,
+        "teacher_final_mse": 1.6445789619317938e-06
+      },
+      {
+        "autonomous_final_mse": 1.260134030444715e-06,
+        "fold": 1,
+        "host_final_mse": 2.644563002047558e-06,
+        "mlp_id": 641,
+        "role_rank": 486,
+        "teacher_final_mse": 1.2447401724160572e-06
+      },
+      {
+        "autonomous_final_mse": 1.2568446734359587e-06,
+        "fold": 1,
+        "host_final_mse": 3.8099071506567792e-06,
+        "mlp_id": 216,
+        "role_rank": 487,
+        "teacher_final_mse": 1.2417081332917578e-06
+      },
+      {
+        "autonomous_final_mse": 1.195269313638419e-06,
+        "fold": 3,
+        "host_final_mse": 4.1460660073069275e-06,
+        "mlp_id": 929,
+        "role_rank": 488,
+        "teacher_final_mse": 1.1809517752787936e-06
+      },
+      {
+        "autonomous_final_mse": 9.880548049450332e-07,
+        "fold": 1,
+        "host_final_mse": 3.3999682466941578e-06,
+        "mlp_id": 978,
+        "role_rank": 489,
+        "teacher_final_mse": 9.76007368548052e-07
+      },
+      {
+        "autonomous_final_mse": 1.2266313487373935e-06,
+        "fold": 1,
+        "host_final_mse": 4.539378919451163e-06,
+        "mlp_id": 30,
+        "role_rank": 490,
+        "teacher_final_mse": 1.2124538779656111e-06
+      },
+      {
+        "autonomous_final_mse": 1.054554050933604e-06,
+        "fold": 1,
+        "host_final_mse": 3.948652129498363e-06,
+        "mlp_id": 317,
+        "role_rank": 491,
+        "teacher_final_mse": 1.0414574897146353e-06
+      },
+      {
+        "autonomous_final_mse": 1.514779878141778e-06,
+        "fold": 2,
+        "host_final_mse": 4.131635148677544e-06,
+        "mlp_id": 643,
+        "role_rank": 492,
+        "teacher_final_mse": 1.4958380854834152e-06
+      },
+      {
+        "autonomous_final_mse": 1.4945801862656337e-06,
+        "fold": 3,
+        "host_final_mse": 4.773209924818475e-06,
+        "mlp_id": 951,
+        "role_rank": 493,
+        "teacher_final_mse": 1.47570325254406e-06
+      },
+      {
+        "autonomous_final_mse": 1.1859555796155889e-06,
+        "fold": 1,
+        "host_final_mse": 3.168132841131747e-06,
+        "mlp_id": 541,
+        "role_rank": 494,
+        "teacher_final_mse": 1.172150492466701e-06
+      },
+      {
+        "autonomous_final_mse": 9.403207202650353e-07,
+        "fold": 2,
+        "host_final_mse": 2.936788862668078e-06,
+        "mlp_id": 590,
+        "role_rank": 495,
+        "teacher_final_mse": 9.285549510271657e-07
+      },
+      {
+        "autonomous_final_mse": 1.4382535627459376e-06,
+        "fold": 3,
+        "host_final_mse": 4.287446480353427e-06,
+        "mlp_id": 267,
+        "role_rank": 496,
+        "teacher_final_mse": 1.42045260627059e-06
+      },
+      {
+        "autonomous_final_mse": 9.173193793434014e-07,
+        "fold": 3,
+        "host_final_mse": 2.835511250517549e-06,
+        "mlp_id": 686,
+        "role_rank": 497,
+        "teacher_final_mse": 9.063613561950769e-07
+      },
+      {
+        "autonomous_final_mse": 1.101667946043274e-06,
+        "fold": 1,
+        "host_final_mse": 2.7511003956933287e-06,
+        "mlp_id": 76,
+        "role_rank": 498,
+        "teacher_final_mse": 1.088444691805879e-06
+      },
+      {
+        "autonomous_final_mse": 1.2252309987662973e-06,
+        "fold": 3,
+        "host_final_mse": 3.665529062732419e-06,
+        "mlp_id": 670,
+        "role_rank": 499,
+        "teacher_final_mse": 1.2096110452316997e-06
+      },
+      {
+        "autonomous_final_mse": 1.363854591446263e-06,
+        "fold": 0,
+        "host_final_mse": 4.708686700215785e-06,
+        "mlp_id": 192,
+        "role_rank": 500,
+        "teacher_final_mse": 1.3475399794973958e-06
+      },
+      {
+        "autonomous_final_mse": 1.343763480619234e-06,
+        "fold": 1,
+        "host_final_mse": 4.293181314367088e-06,
+        "mlp_id": 625,
+        "role_rank": 501,
+        "teacher_final_mse": 1.3278397423289717e-06
+      },
+      {
+        "autonomous_final_mse": 1.5599361047137368e-06,
+        "fold": 0,
+        "host_final_mse": 3.572052775436877e-06,
+        "mlp_id": 182,
+        "role_rank": 502,
+        "teacher_final_mse": 1.5404874025420009e-06
+      },
+      {
+        "autonomous_final_mse": 1.2700099560359991e-06,
+        "fold": 0,
+        "host_final_mse": 3.642481828163824e-06,
+        "mlp_id": 915,
+        "role_rank": 503,
+        "teacher_final_mse": 1.2549612795727638e-06
+      },
+      {
+        "autonomous_final_mse": 1.0979025727454611e-06,
+        "fold": 0,
+        "host_final_mse": 3.393769563178556e-06,
+        "mlp_id": 440,
+        "role_rank": 504,
+        "teacher_final_mse": 1.0840415326956065e-06
+      },
+      {
+        "autonomous_final_mse": 1.4186988218279469e-06,
+        "fold": 3,
+        "host_final_mse": 3.7585046525073435e-06,
+        "mlp_id": 343,
+        "role_rank": 505,
+        "teacher_final_mse": 1.4012278218373836e-06
+      },
+      {
+        "autonomous_final_mse": 9.725054276437642e-07,
+        "fold": 3,
+        "host_final_mse": 3.182018989014871e-06,
+        "mlp_id": 958,
+        "role_rank": 506,
+        "teacher_final_mse": 9.606643423381065e-07
+      },
+      {
+        "autonomous_final_mse": 1.4462111757737521e-06,
+        "fold": 3,
+        "host_final_mse": 3.3682100337465635e-06,
+        "mlp_id": 371,
+        "role_rank": 507,
+        "teacher_final_mse": 1.428241045128072e-06
+      },
+      {
+        "autonomous_final_mse": 8.597840164919367e-07,
+        "fold": 3,
+        "host_final_mse": 3.415473582150799e-06,
+        "mlp_id": 899,
+        "role_rank": 508,
+        "teacher_final_mse": 8.492244255233332e-07
+      },
+      {
+        "autonomous_final_mse": 1.328947452582604e-06,
+        "fold": 1,
+        "host_final_mse": 3.745359095674973e-06,
+        "mlp_id": 755,
+        "role_rank": 509,
+        "teacher_final_mse": 1.312901273587754e-06
+      },
+      {
+        "autonomous_final_mse": 1.138628258845666e-06,
+        "fold": 1,
+        "host_final_mse": 4.396584394424268e-06,
+        "mlp_id": 284,
+        "role_rank": 510,
+        "teacher_final_mse": 1.126057394068702e-06
+      },
+      {
+        "autonomous_final_mse": 1.2654842780795706e-06,
+        "fold": 3,
+        "host_final_mse": 3.447944272985079e-06,
+        "mlp_id": 450,
+        "role_rank": 511,
+        "teacher_final_mse": 1.249674141634435e-06
+      },
+      {
+        "autonomous_final_mse": 1.3190457317094955e-06,
+        "fold": 1,
+        "host_final_mse": 3.0128654658998827e-06,
+        "mlp_id": 331,
+        "role_rank": 512,
+        "teacher_final_mse": 1.3031686311180223e-06
+      },
+      {
+        "autonomous_final_mse": 2.016993770946232e-06,
+        "fold": 3,
+        "host_final_mse": 4.009238059753976e-06,
+        "mlp_id": 742,
+        "role_rank": 513,
+        "teacher_final_mse": 1.9929625661322263e-06
+      },
+      {
+        "autonomous_final_mse": 1.1348295146532397e-06,
+        "fold": 3,
+        "host_final_mse": 2.875274157447038e-06,
+        "mlp_id": 553,
+        "role_rank": 514,
+        "teacher_final_mse": 1.1207109651049342e-06
+      },
+      {
+        "autonomous_final_mse": 1.3826109470969536e-06,
+        "fold": 1,
+        "host_final_mse": 3.5869988814295526e-06,
+        "mlp_id": 35,
+        "role_rank": 515,
+        "teacher_final_mse": 1.3658113885367365e-06
+      },
+      {
+        "autonomous_final_mse": 1.6863700855617695e-06,
+        "fold": 2,
+        "host_final_mse": 4.0010497770304965e-06,
+        "mlp_id": 840,
+        "role_rank": 516,
+        "teacher_final_mse": 1.6649197397516787e-06
+      },
+      {
+        "autonomous_final_mse": 8.610270751209539e-07,
+        "fold": 1,
+        "host_final_mse": 2.7777680409913043e-06,
+        "mlp_id": 346,
+        "role_rank": 517,
+        "teacher_final_mse": 8.512210098569285e-07
+      },
+      {
+        "autonomous_final_mse": 1.1541007348860018e-06,
+        "fold": 3,
+        "host_final_mse": 4.369264585146722e-06,
+        "mlp_id": 432,
+        "role_rank": 518,
+        "teacher_final_mse": 1.140276974156588e-06
+      },
+      {
+        "autonomous_final_mse": 1.0454326538965492e-06,
+        "fold": 2,
+        "host_final_mse": 2.052545668958225e-06,
+        "mlp_id": 412,
+        "role_rank": 519,
+        "teacher_final_mse": 1.032982390430106e-06
+      },
+      {
+        "autonomous_final_mse": 1.230836673988288e-06,
+        "fold": 2,
+        "host_final_mse": 3.891162650218905e-06,
+        "mlp_id": 561,
+        "role_rank": 520,
+        "teacher_final_mse": 1.215457886101943e-06
+      },
+      {
+        "autonomous_final_mse": 1.0221278938603724e-06,
+        "fold": 2,
+        "host_final_mse": 3.0681711393219743e-06,
+        "mlp_id": 299,
+        "role_rank": 521,
+        "teacher_final_mse": 1.0097655378474009e-06
+      },
+      {
+        "autonomous_final_mse": 1.7250283653769738e-06,
+        "fold": 3,
+        "host_final_mse": 4.575952529648882e-06,
+        "mlp_id": 642,
+        "role_rank": 522,
+        "teacher_final_mse": 1.7028682148472696e-06
+      },
+      {
+        "autonomous_final_mse": 1.2578322040004165e-06,
+        "fold": 2,
+        "host_final_mse": 4.1774305660915365e-06,
+        "mlp_id": 352,
+        "role_rank": 523,
+        "teacher_final_mse": 1.2415568748519033e-06
+      },
+      {
+        "autonomous_final_mse": 1.3110451520894745e-06,
+        "fold": 0,
+        "host_final_mse": 3.0493514984914722e-06,
+        "mlp_id": 273,
+        "role_rank": 524,
+        "teacher_final_mse": 1.2949437144940466e-06
+      },
+      {
+        "autonomous_final_mse": 1.9562243399740115e-06,
+        "fold": 1,
+        "host_final_mse": 3.915915866490125e-06,
+        "mlp_id": 913,
+        "role_rank": 525,
+        "teacher_final_mse": 1.932106466758423e-06
+      },
+      {
+        "autonomous_final_mse": 1.0384513378438143e-06,
+        "fold": 3,
+        "host_final_mse": 3.0173059101498125e-06,
+        "mlp_id": 124,
+        "role_rank": 526,
+        "teacher_final_mse": 1.0262444185905836e-06
+      },
+      {
+        "autonomous_final_mse": 1.276157224962688e-06,
+        "fold": 0,
+        "host_final_mse": 3.7242219282293822e-06,
+        "mlp_id": 349,
+        "role_rank": 527,
+        "teacher_final_mse": 1.2599059537611772e-06
+      },
+      {
+        "autonomous_final_mse": 1.369897216504934e-06,
+        "fold": 3,
+        "host_final_mse": 3.2207291454197638e-06,
+        "mlp_id": 370,
+        "role_rank": 528,
+        "teacher_final_mse": 1.3530451393853235e-06
+      },
+      {
+        "autonomous_final_mse": 1.2896410738789031e-06,
+        "fold": 1,
+        "host_final_mse": 3.0614742178203097e-06,
+        "mlp_id": 571,
+        "role_rank": 529,
+        "teacher_final_mse": 1.2741046174209025e-06
+      },
+      {
+        "autonomous_final_mse": 1.2732110159180365e-06,
+        "fold": 3,
+        "host_final_mse": 2.584455017983058e-06,
+        "mlp_id": 884,
+        "role_rank": 530,
+        "teacher_final_mse": 1.2580151456785363e-06
+      },
+      {
+        "autonomous_final_mse": 1.281417389217896e-06,
+        "fold": 2,
+        "host_final_mse": 3.239623967846178e-06,
+        "mlp_id": 101,
+        "role_rank": 531,
+        "teacher_final_mse": 1.2653391337110714e-06
+      },
+      {
+        "autonomous_final_mse": 9.531597971363088e-07,
+        "fold": 3,
+        "host_final_mse": 2.919915068090495e-06,
+        "mlp_id": 230,
+        "role_rank": 532,
+        "teacher_final_mse": 9.417090376720201e-07
+      },
+      {
+        "autonomous_final_mse": 1.172720367769245e-06,
+        "fold": 0,
+        "host_final_mse": 3.895595926742047e-06,
+        "mlp_id": 363,
+        "role_rank": 533,
+        "teacher_final_mse": 1.157788843713243e-06
+      },
+      {
+        "autonomous_final_mse": 1.4009823389914105e-06,
+        "fold": 0,
+        "host_final_mse": 4.439094711900472e-06,
+        "mlp_id": 262,
+        "role_rank": 534,
+        "teacher_final_mse": 1.383476218899141e-06
+      },
+      {
+        "autonomous_final_mse": 1.1602313934631826e-06,
+        "fold": 1,
+        "host_final_mse": 3.471224135621729e-06,
+        "mlp_id": 636,
+        "role_rank": 535,
+        "teacher_final_mse": 1.146545445897827e-06
+      },
+      {
+        "autonomous_final_mse": 1.2882263159350385e-06,
+        "fold": 0,
+        "host_final_mse": 3.6657456707245725e-06,
+        "mlp_id": 683,
+        "role_rank": 536,
+        "teacher_final_mse": 1.272221875025365e-06
+      },
+      {
+        "autonomous_final_mse": 8.172550392023669e-07,
+        "fold": 0,
+        "host_final_mse": 3.4482213451144842e-06,
+        "mlp_id": 292,
+        "role_rank": 537,
+        "teacher_final_mse": 8.070963049415758e-07
+      },
+      {
+        "autonomous_final_mse": 1.083516845591669e-06,
+        "fold": 1,
+        "host_final_mse": 2.7543663412912366e-06,
+        "mlp_id": 619,
+        "role_rank": 538,
+        "teacher_final_mse": 1.070521021233832e-06
+      },
+      {
+        "autonomous_final_mse": 1.2791048953656305e-06,
+        "fold": 3,
+        "host_final_mse": 4.115238589473655e-06,
+        "mlp_id": 133,
+        "role_rank": 539,
+        "teacher_final_mse": 1.2626471397402081e-06
+      },
+      {
+        "autonomous_final_mse": 1.194504169683657e-06,
+        "fold": 2,
+        "host_final_mse": 5.333865028492849e-06,
+        "mlp_id": 14,
+        "role_rank": 540,
+        "teacher_final_mse": 1.1801806007100307e-06
+      },
+      {
+        "autonomous_final_mse": 1.578343094528189e-06,
+        "fold": 3,
+        "host_final_mse": 4.605534955135763e-06,
+        "mlp_id": 227,
+        "role_rank": 541,
+        "teacher_final_mse": 1.55834299554653e-06
+      },
+      {
+        "autonomous_final_mse": 1.1443793823760483e-06,
+        "fold": 0,
+        "host_final_mse": 3.942878155265971e-06,
+        "mlp_id": 693,
+        "role_rank": 542,
+        "teacher_final_mse": 1.1298314573252795e-06
+      },
+      {
+        "autonomous_final_mse": 1.0051686694924957e-06,
+        "fold": 3,
+        "host_final_mse": 2.91119545791411e-06,
+        "mlp_id": 254,
+        "role_rank": 543,
+        "teacher_final_mse": 9.93295090610813e-07
+      },
+      {
+        "autonomous_final_mse": 1.5409919215462886e-06,
+        "fold": 2,
+        "host_final_mse": 3.593279068849251e-06,
+        "mlp_id": 644,
+        "role_rank": 544,
+        "teacher_final_mse": 1.5213866146635488e-06
+      },
+      {
+        "autonomous_final_mse": 1.010382824919667e-06,
+        "fold": 2,
+        "host_final_mse": 3.3887337649853885e-06,
+        "mlp_id": 452,
+        "role_rank": 545,
+        "teacher_final_mse": 9.984515291094503e-07
+      },
+      {
+        "autonomous_final_mse": 1.2540467552907242e-06,
+        "fold": 0,
+        "host_final_mse": 3.0787241587430017e-06,
+        "mlp_id": 177,
+        "role_rank": 546,
+        "teacher_final_mse": 1.2395293177519004e-06
+      },
+      {
+        "autonomous_final_mse": 1.0795413410527938e-06,
+        "fold": 3,
+        "host_final_mse": 2.4955829237425593e-06,
+        "mlp_id": 115,
+        "role_rank": 547,
+        "teacher_final_mse": 1.0668708493659169e-06
+      },
+      {
+        "autonomous_final_mse": 1.1155081126026626e-06,
+        "fold": 2,
+        "host_final_mse": 3.6742004343206727e-06,
+        "mlp_id": 537,
+        "role_rank": 548,
+        "teacher_final_mse": 1.1015888403813524e-06
+      },
+      {
+        "autonomous_final_mse": 1.198892188632702e-06,
+        "fold": 3,
+        "host_final_mse": 4.3848993243206585e-06,
+        "mlp_id": 49,
+        "role_rank": 549,
+        "teacher_final_mse": 1.1840923849674367e-06
+      },
+      {
+        "autonomous_final_mse": 1.3834871900354651e-06,
+        "fold": 2,
+        "host_final_mse": 4.139692497962811e-06,
+        "mlp_id": 921,
+        "role_rank": 550,
+        "teacher_final_mse": 1.3662291092661295e-06
+      },
+      {
+        "autonomous_final_mse": 1.3940104627932385e-06,
+        "fold": 2,
+        "host_final_mse": 4.13087208234514e-06,
+        "mlp_id": 171,
+        "role_rank": 551,
+        "teacher_final_mse": 1.3769657012162038e-06
+      },
+      {
+        "autonomous_final_mse": 1.2945675517740109e-06,
+        "fold": 3,
+        "host_final_mse": 4.62288302523843e-06,
+        "mlp_id": 285,
+        "role_rank": 552,
+        "teacher_final_mse": 1.2779729364093494e-06
+      },
+      {
+        "autonomous_final_mse": 1.2789485005577595e-06,
+        "fold": 3,
+        "host_final_mse": 3.6186382926612904e-06,
+        "mlp_id": 222,
+        "role_rank": 553,
+        "teacher_final_mse": 1.2636935108981436e-06
+      },
+      {
+        "autonomous_final_mse": 1.303041697725972e-06,
+        "fold": 1,
+        "host_final_mse": 3.749510230706603e-06,
+        "mlp_id": 119,
+        "role_rank": 554,
+        "teacher_final_mse": 1.2876030204879203e-06
+      },
+      {
+        "autonomous_final_mse": 2.0136284334759184e-06,
+        "fold": 0,
+        "host_final_mse": 3.6385819568015138e-06,
+        "mlp_id": 379,
+        "role_rank": 555,
+        "teacher_final_mse": 1.988203496469507e-06
+      },
+      {
+        "autonomous_final_mse": 1.3012708526905066e-06,
+        "fold": 2,
+        "host_final_mse": 3.587934457689927e-06,
+        "mlp_id": 433,
+        "role_rank": 556,
+        "teacher_final_mse": 1.285204738581589e-06
+      },
+      {
+        "autonomous_final_mse": 1.399273862190797e-06,
+        "fold": 1,
+        "host_final_mse": 4.170489353824673e-06,
+        "mlp_id": 313,
+        "role_rank": 557,
+        "teacher_final_mse": 1.3822207097029759e-06
+      },
+      {
+        "autonomous_final_mse": 1.1704224898844189e-06,
+        "fold": 0,
+        "host_final_mse": 3.9755811181471584e-06,
+        "mlp_id": 751,
+        "role_rank": 558,
+        "teacher_final_mse": 1.1564817129847177e-06
+      },
+      {
+        "autonomous_final_mse": 1.1017959839108307e-06,
+        "fold": 0,
+        "host_final_mse": 4.421414433558755e-06,
+        "mlp_id": 68,
+        "role_rank": 559,
+        "teacher_final_mse": 1.0886258522232008e-06
+      },
+      {
+        "autonomous_final_mse": 1.0555724186784965e-06,
+        "fold": 0,
+        "host_final_mse": 3.1307888433472306e-06,
+        "mlp_id": 919,
+        "role_rank": 560,
+        "teacher_final_mse": 1.0426558524628782e-06
+      },
+      {
+        "autonomous_final_mse": 1.5923201559913897e-06,
+        "fold": 2,
+        "host_final_mse": 2.9389352758921333e-06,
+        "mlp_id": 429,
+        "role_rank": 561,
+        "teacher_final_mse": 1.5725192911851622e-06
+      },
+      {
+        "autonomous_final_mse": 1.1220296510888393e-06,
+        "fold": 2,
+        "host_final_mse": 3.101678453882236e-06,
+        "mlp_id": 601,
+        "role_rank": 562,
+        "teacher_final_mse": 1.1087500602928426e-06
+      },
+      {
+        "autonomous_final_mse": 1.1852660760410676e-06,
+        "fold": 3,
+        "host_final_mse": 2.9888457883983847e-06,
+        "mlp_id": 934,
+        "role_rank": 563,
+        "teacher_final_mse": 1.1705899278867087e-06
+      },
+      {
+        "autonomous_final_mse": 1.3075608992609502e-06,
+        "fold": 2,
+        "host_final_mse": 4.157099763710099e-06,
+        "mlp_id": 116,
+        "role_rank": 564,
+        "teacher_final_mse": 1.2915794056335205e-06
+      },
+      {
+        "autonomous_final_mse": 1.3378719491170165e-06,
+        "fold": 0,
+        "host_final_mse": 5.177571136620632e-06,
+        "mlp_id": 314,
+        "role_rank": 565,
+        "teacher_final_mse": 1.3208973131406653e-06
+      },
+      {
+        "autonomous_final_mse": 1.1792386658384847e-06,
+        "fold": 0,
+        "host_final_mse": 3.7275212296924504e-06,
+        "mlp_id": 677,
+        "role_rank": 566,
+        "teacher_final_mse": 1.1645276526283402e-06
+      },
+      {
+        "autonomous_final_mse": 1.1102173854838615e-06,
+        "fold": 2,
+        "host_final_mse": 3.5640479764663607e-06,
+        "mlp_id": 277,
+        "role_rank": 567,
+        "teacher_final_mse": 1.0963395633205453e-06
+      },
+      {
+        "autonomous_final_mse": 1.0789618614139914e-06,
+        "fold": 1,
+        "host_final_mse": 3.037954867196492e-06,
+        "mlp_id": 824,
+        "role_rank": 568,
+        "teacher_final_mse": 1.0666315197999572e-06
+      },
+      {
+        "autonomous_final_mse": 1.4350947117082638e-06,
+        "fold": 2,
+        "host_final_mse": 3.6830710846144814e-06,
+        "mlp_id": 139,
+        "role_rank": 569,
+        "teacher_final_mse": 1.416793948961103e-06
+      },
+      {
+        "autonomous_final_mse": 1.3355803907789283e-06,
+        "fold": 3,
+        "host_final_mse": 4.069433738393007e-06,
+        "mlp_id": 936,
+        "role_rank": 570,
+        "teacher_final_mse": 1.3189478846960587e-06
+      },
+      {
+        "autonomous_final_mse": 1.0049917747181697e-06,
+        "fold": 2,
+        "host_final_mse": 4.000775327426635e-06,
+        "mlp_id": 508,
+        "role_rank": 571,
+        "teacher_final_mse": 9.931366619786743e-07
+      },
+      {
+        "autonomous_final_mse": 1.3193031959706238e-06,
+        "fold": 1,
+        "host_final_mse": 3.325290015294084e-06,
+        "mlp_id": 613,
+        "role_rank": 572,
+        "teacher_final_mse": 1.3031658662911304e-06
+      },
+      {
+        "autonomous_final_mse": 1.120934778023931e-06,
+        "fold": 2,
+        "host_final_mse": 3.6728863052737846e-06,
+        "mlp_id": 723,
+        "role_rank": 573,
+        "teacher_final_mse": 1.1076531315147516e-06
+      },
+      {
+        "autonomous_final_mse": 1.2136738257212695e-06,
+        "fold": 3,
+        "host_final_mse": 4.225976384695096e-06,
+        "mlp_id": 748,
+        "role_rank": 574,
+        "teacher_final_mse": 1.1998082791578196e-06
+      },
+      {
+        "autonomous_final_mse": 1.4133522985983323e-06,
+        "fold": 1,
+        "host_final_mse": 3.7001087648931323e-06,
+        "mlp_id": 922,
+        "role_rank": 575,
+        "teacher_final_mse": 1.3962018859460111e-06
+      },
+      {
+        "autonomous_final_mse": 1.5799055084250136e-06,
+        "fold": 3,
+        "host_final_mse": 3.961108109498018e-06,
+        "mlp_id": 866,
+        "role_rank": 576,
+        "teacher_final_mse": 1.5595948706981761e-06
+      },
+      {
+        "autonomous_final_mse": 1.0719780920793833e-06,
+        "fold": 3,
+        "host_final_mse": 3.966831534203584e-06,
+        "mlp_id": 144,
+        "role_rank": 577,
+        "teacher_final_mse": 1.058956404957204e-06
+      },
+      {
+        "autonomous_final_mse": 1.3225434079609668e-06,
+        "fold": 0,
+        "host_final_mse": 5.02747155321664e-06,
+        "mlp_id": 305,
+        "role_rank": 578,
+        "teacher_final_mse": 1.3058778566294744e-06
+      },
+      {
+        "autonomous_final_mse": 1.134899352592634e-06,
+        "fold": 2,
+        "host_final_mse": 3.902317010695758e-06,
+        "mlp_id": 558,
+        "role_rank": 579,
+        "teacher_final_mse": 1.1208731198746315e-06
+      },
+      {
+        "autonomous_final_mse": 1.4896499414425337e-06,
+        "fold": 3,
+        "host_final_mse": 3.8145680740347376e-06,
+        "mlp_id": 398,
+        "role_rank": 580,
+        "teacher_final_mse": 1.472133813231384e-06
+      },
+      {
+        "autonomous_final_mse": 1.3414043577140335e-06,
+        "fold": 2,
+        "host_final_mse": 3.1671222559637105e-06,
+        "mlp_id": 275,
+        "role_rank": 581,
+        "teacher_final_mse": 1.324919071446362e-06
+      },
+      {
+        "autonomous_final_mse": 1.4266669855511578e-06,
+        "fold": 2,
+        "host_final_mse": 3.4311784897635207e-06,
+        "mlp_id": 464,
+        "role_rank": 582,
+        "teacher_final_mse": 1.4099723769414972e-06
+      },
+      {
+        "autonomous_final_mse": 1.2168015910483362e-06,
+        "fold": 3,
+        "host_final_mse": 3.547399389071915e-06,
+        "mlp_id": 743,
+        "role_rank": 583,
+        "teacher_final_mse": 1.2022371141919602e-06
+      },
+      {
+        "autonomous_final_mse": 1.0418497887307316e-06,
+        "fold": 0,
+        "host_final_mse": 2.771706004754051e-06,
+        "mlp_id": 190,
+        "role_rank": 584,
+        "teacher_final_mse": 1.0289272991523302e-06
+      },
+      {
+        "autonomous_final_mse": 1.3419606226599851e-06,
+        "fold": 3,
+        "host_final_mse": 4.225445883693067e-06,
+        "mlp_id": 492,
+        "role_rank": 585,
+        "teacher_final_mse": 1.3256815957796416e-06
+      },
+      {
+        "autonomous_final_mse": 1.3890515781672832e-06,
+        "fold": 3,
+        "host_final_mse": 4.095991852232537e-06,
+        "mlp_id": 638,
+        "role_rank": 586,
+        "teacher_final_mse": 1.3719809482710942e-06
+      },
+      {
+        "autonomous_final_mse": 1.5388045785159024e-06,
+        "fold": 0,
+        "host_final_mse": 4.6082651855438636e-06,
+        "mlp_id": 309,
+        "role_rank": 587,
+        "teacher_final_mse": 1.5194381000776125e-06
+      },
+      {
+        "autonomous_final_mse": 1.3654108304613073e-06,
+        "fold": 1,
+        "host_final_mse": 3.9130828424885585e-06,
+        "mlp_id": 401,
+        "role_rank": 588,
+        "teacher_final_mse": 1.3487851377142655e-06
+      },
+      {
+        "autonomous_final_mse": 1.3444055423060815e-06,
+        "fold": 3,
+        "host_final_mse": 3.8594239087957084e-06,
+        "mlp_id": 256,
+        "role_rank": 589,
+        "teacher_final_mse": 1.3278733023003864e-06
+      },
+      {
+        "autonomous_final_mse": 1.2866105450569203e-06,
+        "fold": 0,
+        "host_final_mse": 3.947239719546522e-06,
+        "mlp_id": 514,
+        "role_rank": 590,
+        "teacher_final_mse": 1.2696923117745983e-06
+      },
+      {
+        "autonomous_final_mse": 1.5199611543072421e-06,
+        "fold": 1,
+        "host_final_mse": 4.446872785182516e-06,
+        "mlp_id": 345,
+        "role_rank": 591,
+        "teacher_final_mse": 1.5008744046484774e-06
+      },
+      {
+        "autonomous_final_mse": 1.2876962305290666e-06,
+        "fold": 0,
+        "host_final_mse": 3.2203521797276775e-06,
+        "mlp_id": 3,
+        "role_rank": 592,
+        "teacher_final_mse": 1.2707028298868886e-06
+      },
+      {
+        "autonomous_final_mse": 1.3688445131016259e-06,
+        "fold": 3,
+        "host_final_mse": 3.686656303969557e-06,
+        "mlp_id": 483,
+        "role_rank": 593,
+        "teacher_final_mse": 1.3521018321798302e-06
+      },
+      {
+        "autonomous_final_mse": 1.3500058426154616e-06,
+        "fold": 1,
+        "host_final_mse": 4.159807368088114e-06,
+        "mlp_id": 928,
+        "role_rank": 594,
+        "teacher_final_mse": 1.3346442080682166e-06
+      },
+      {
+        "autonomous_final_mse": 1.4135646726447092e-06,
+        "fold": 1,
+        "host_final_mse": 4.161788239892536e-06,
+        "mlp_id": 217,
+        "role_rank": 595,
+        "teacher_final_mse": 1.3966692008104729e-06
+      },
+      {
+        "autonomous_final_mse": 1.1389898130322794e-06,
+        "fold": 3,
+        "host_final_mse": 4.033695184939608e-06,
+        "mlp_id": 660,
+        "role_rank": 596,
+        "teacher_final_mse": 1.1251763013717998e-06
+      },
+      {
+        "autonomous_final_mse": 1.459543044256042e-06,
+        "fold": 2,
+        "host_final_mse": 4.458101681344827e-06,
+        "mlp_id": 163,
+        "role_rank": 597,
+        "teacher_final_mse": 1.440505826516045e-06
+      },
+      {
+        "autonomous_final_mse": 1.2658716415176019e-06,
+        "fold": 3,
+        "host_final_mse": 4.350604767940364e-06,
+        "mlp_id": 629,
+        "role_rank": 598,
+        "teacher_final_mse": 1.2505477992828506e-06
+      },
+      {
+        "autonomous_final_mse": 1.0541975800021238e-06,
+        "fold": 2,
+        "host_final_mse": 3.0460355852428807e-06,
+        "mlp_id": 97,
+        "role_rank": 599,
+        "teacher_final_mse": 1.0413705517363193e-06
+      },
+      {
+        "autonomous_final_mse": 1.2481256834735071e-06,
+        "fold": 0,
+        "host_final_mse": 4.071945521659007e-06,
+        "mlp_id": 123,
+        "role_rank": 600,
+        "teacher_final_mse": 1.232462299027115e-06
+      },
+      {
+        "autonomous_final_mse": 1.2826675046130963e-06,
+        "fold": 0,
+        "host_final_mse": 4.790448848029966e-06,
+        "mlp_id": 861,
+        "role_rank": 601,
+        "teacher_final_mse": 1.2672940579788201e-06
+      },
+      {
+        "autonomous_final_mse": 1.1892091207734495e-06,
+        "fold": 1,
+        "host_final_mse": 3.145112752787579e-06,
+        "mlp_id": 844,
+        "role_rank": 602,
+        "teacher_final_mse": 1.1745415269618483e-06
+      },
+      {
+        "autonomous_final_mse": 1.384397301607949e-06,
+        "fold": 2,
+        "host_final_mse": 4.067598380335514e-06,
+        "mlp_id": 788,
+        "role_rank": 603,
+        "teacher_final_mse": 1.3670797295781003e-06
+      },
+      {
+        "autonomous_final_mse": 1.1650555582819205e-06,
+        "fold": 3,
+        "host_final_mse": 3.5598649326246583e-06,
+        "mlp_id": 437,
+        "role_rank": 604,
+        "teacher_final_mse": 1.149824552178883e-06
+      },
+      {
+        "autonomous_final_mse": 1.4769988449217553e-06,
+        "fold": 1,
+        "host_final_mse": 4.489840266761861e-06,
+        "mlp_id": 567,
+        "role_rank": 605,
+        "teacher_final_mse": 1.4586220517448216e-06
+      },
+      {
+        "autonomous_final_mse": 1.1624843242978259e-06,
+        "fold": 1,
+        "host_final_mse": 3.173417508912686e-06,
+        "mlp_id": 806,
+        "role_rank": 606,
+        "teacher_final_mse": 1.148450980799742e-06
+      },
+      {
+        "autonomous_final_mse": 1.1744420526554369e-06,
+        "fold": 3,
+        "host_final_mse": 2.2151798088860896e-06,
+        "mlp_id": 721,
+        "role_rank": 607,
+        "teacher_final_mse": 1.1605542136435754e-06
+      },
+      {
+        "autonomous_final_mse": 9.069455621999733e-07,
+        "fold": 2,
+        "host_final_mse": 3.2575817462071415e-06,
+        "mlp_id": 874,
+        "role_rank": 608,
+        "teacher_final_mse": 8.959973652339071e-07
+      },
+      {
+        "autonomous_final_mse": 1.7305355395731455e-06,
+        "fold": 0,
+        "host_final_mse": 4.899736250142106e-06,
+        "mlp_id": 876,
+        "role_rank": 609,
+        "teacher_final_mse": 1.7081716393864246e-06
+      },
+      {
+        "autonomous_final_mse": 1.4277202203029288e-06,
+        "fold": 0,
+        "host_final_mse": 3.925180260130893e-06,
+        "mlp_id": 909,
+        "role_rank": 610,
+        "teacher_final_mse": 1.4106337301889886e-06
+      },
+      {
+        "autonomous_final_mse": 1.2351649960685537e-06,
+        "fold": 2,
+        "host_final_mse": 4.252913108737889e-06,
+        "mlp_id": 669,
+        "role_rank": 611,
+        "teacher_final_mse": 1.2197189467512935e-06
+      },
+      {
+        "autonomous_final_mse": 1.5551995377652067e-06,
+        "fold": 0,
+        "host_final_mse": 3.4367067927760767e-06,
+        "mlp_id": 174,
+        "role_rank": 612,
+        "teacher_final_mse": 1.5356618130559235e-06
+      },
+      {
+        "autonomous_final_mse": 1.0713534678866913e-06,
+        "fold": 2,
+        "host_final_mse": 4.4265339304170315e-06,
+        "mlp_id": 671,
+        "role_rank": 613,
+        "teacher_final_mse": 1.057788622901393e-06
+      },
+      {
+        "autonomous_final_mse": 1.1705605908926688e-06,
+        "fold": 1,
+        "host_final_mse": 3.693975301468745e-06,
+        "mlp_id": 142,
+        "role_rank": 614,
+        "teacher_final_mse": 1.1569915659812685e-06
+      },
+      {
+        "autonomous_final_mse": 1.3199347561619524e-06,
+        "fold": 2,
+        "host_final_mse": 4.897860660840364e-06,
+        "mlp_id": 869,
+        "role_rank": 615,
+        "teacher_final_mse": 1.3033320771649869e-06
+      },
+      {
+        "autonomous_final_mse": 1.5258145702365282e-06,
+        "fold": 1,
+        "host_final_mse": 3.2466058490025978e-06,
+        "mlp_id": 268,
+        "role_rank": 616,
+        "teacher_final_mse": 1.507057971181388e-06
+      },
+      {
+        "autonomous_final_mse": 1.0584096895913632e-06,
+        "fold": 0,
+        "host_final_mse": 3.3227830620062176e-06,
+        "mlp_id": 319,
+        "role_rank": 617,
+        "teacher_final_mse": 1.0457392174965977e-06
+      },
+      {
+        "autonomous_final_mse": 1.7402047845906882e-06,
+        "fold": 2,
+        "host_final_mse": 5.25003186634299e-06,
+        "mlp_id": 145,
+        "role_rank": 618,
+        "teacher_final_mse": 1.7188343032772356e-06
+      },
+      {
+        "autonomous_final_mse": 1.3139816281805621e-06,
+        "fold": 2,
+        "host_final_mse": 4.085198852762515e-06,
+        "mlp_id": 240,
+        "role_rank": 619,
+        "teacher_final_mse": 1.2973580887795622e-06
+      },
+      {
+        "autonomous_final_mse": 1.6930105516722799e-06,
+        "fold": 0,
+        "host_final_mse": 4.039941891746912e-06,
+        "mlp_id": 745,
+        "role_rank": 620,
+        "teacher_final_mse": 1.6721114073471264e-06
+      },
+      {
+        "autonomous_final_mse": 1.2969918664540452e-06,
+        "fold": 0,
+        "host_final_mse": 3.1829899719692827e-06,
+        "mlp_id": 640,
+        "role_rank": 621,
+        "teacher_final_mse": 1.2806194746582505e-06
+      },
+      {
+        "autonomous_final_mse": 1.0558397646323069e-06,
+        "fold": 0,
+        "host_final_mse": 3.017367500456131e-06,
+        "mlp_id": 180,
+        "role_rank": 622,
+        "teacher_final_mse": 1.042478612388286e-06
+      },
+      {
+        "autonomous_final_mse": 1.3116876017380303e-06,
+        "fold": 1,
+        "host_final_mse": 4.268491499978206e-06,
+        "mlp_id": 374,
+        "role_rank": 623,
+        "teacher_final_mse": 1.2958188300905824e-06
+      },
+      {
+        "autonomous_final_mse": 1.1687018561197032e-06,
+        "fold": 0,
+        "host_final_mse": 2.7503414533087377e-06,
+        "mlp_id": 694,
+        "role_rank": 624,
+        "teacher_final_mse": 1.1542270375178696e-06
+      },
+      {
+        "autonomous_final_mse": 1.4481445307420548e-06,
+        "fold": 1,
+        "host_final_mse": 3.564558672277436e-06,
+        "mlp_id": 473,
+        "role_rank": 625,
+        "teacher_final_mse": 1.4302499563986216e-06
+      },
+      {
+        "autonomous_final_mse": 1.158057078364092e-06,
+        "fold": 0,
+        "host_final_mse": 3.2119913239443815e-06,
+        "mlp_id": 497,
+        "role_rank": 626,
+        "teacher_final_mse": 1.1435392837529568e-06
+      },
+      {
+        "autonomous_final_mse": 1.3562288273400103e-06,
+        "fold": 2,
+        "host_final_mse": 4.8353591062693124e-06,
+        "mlp_id": 940,
+        "role_rank": 627,
+        "teacher_final_mse": 1.3390728964824744e-06
+      },
+      {
+        "autonomous_final_mse": 1.3439560730351184e-06,
+        "fold": 0,
+        "host_final_mse": 3.81043025375466e-06,
+        "mlp_id": 584,
+        "role_rank": 628,
+        "teacher_final_mse": 1.3267547776187594e-06
+      },
+      {
+        "autonomous_final_mse": 1.4048901173923253e-06,
+        "fold": 0,
+        "host_final_mse": 3.976873537531788e-06,
+        "mlp_id": 587,
+        "role_rank": 629,
+        "teacher_final_mse": 1.387259842462439e-06
+      },
+      {
+        "autonomous_final_mse": 1.4411533318484514e-06,
+        "fold": 2,
+        "host_final_mse": 3.438419599399929e-06,
+        "mlp_id": 280,
+        "role_rank": 630,
+        "teacher_final_mse": 1.4223686994012613e-06
+      },
+      {
+        "autonomous_final_mse": 1.133063748152029e-06,
+        "fold": 2,
+        "host_final_mse": 4.6466203345082324e-06,
+        "mlp_id": 505,
+        "role_rank": 631,
+        "teacher_final_mse": 1.1198426870046966e-06
+      },
+      {
+        "autonomous_final_mse": 1.5487072261978303e-06,
+        "fold": 3,
+        "host_final_mse": 3.6548903058434994e-06,
+        "mlp_id": 300,
+        "role_rank": 632,
+        "teacher_final_mse": 1.5288501093679444e-06
+      },
+      {
+        "autonomous_final_mse": 1.4634800913867132e-06,
+        "fold": 1,
+        "host_final_mse": 3.971901055679189e-06,
+        "mlp_id": 72,
+        "role_rank": 633,
+        "teacher_final_mse": 1.445401049040154e-06
+      },
+      {
+        "autonomous_final_mse": 1.4911964477093392e-06,
+        "fold": 2,
+        "host_final_mse": 2.7013148239146223e-06,
+        "mlp_id": 935,
+        "role_rank": 634,
+        "teacher_final_mse": 1.4722757820172154e-06
+      },
+      {
+        "autonomous_final_mse": 1.2874934185430421e-06,
+        "fold": 1,
+        "host_final_mse": 4.543024741286741e-06,
+        "mlp_id": 674,
+        "role_rank": 635,
+        "teacher_final_mse": 1.2716072696088007e-06
+      },
+      {
+        "autonomous_final_mse": 1.3457347832564483e-06,
+        "fold": 0,
+        "host_final_mse": 4.292104075552403e-06,
+        "mlp_id": 862,
+        "role_rank": 636,
+        "teacher_final_mse": 1.3286634242610352e-06
+      },
+      {
+        "autonomous_final_mse": 1.023448605827888e-06,
+        "fold": 3,
+        "host_final_mse": 3.81752418615632e-06,
+        "mlp_id": 628,
+        "role_rank": 637,
+        "teacher_final_mse": 1.0108288767940005e-06
+      },
+      {
+        "autonomous_final_mse": 1.1212515169609024e-06,
+        "fold": 0,
+        "host_final_mse": 3.037663499564406e-06,
+        "mlp_id": 147,
+        "role_rank": 638,
+        "teacher_final_mse": 1.1075120215743147e-06
+      },
+      {
+        "autonomous_final_mse": 1.0092614464575887e-06,
+        "fold": 0,
+        "host_final_mse": 2.8555757689944616e-06,
+        "mlp_id": 219,
+        "role_rank": 639,
+        "teacher_final_mse": 9.967038083699425e-07
+      },
+      {
+        "autonomous_final_mse": 1.0883611292107843e-06,
+        "fold": 2,
+        "host_final_mse": 3.5291899806386303e-06,
+        "mlp_id": 377,
+        "role_rank": 640,
+        "teacher_final_mse": 1.074860749234367e-06
+      },
+      {
+        "autonomous_final_mse": 1.5693325979203067e-06,
+        "fold": 0,
+        "host_final_mse": 5.1223221085334285e-06,
+        "mlp_id": 212,
+        "role_rank": 641,
+        "teacher_final_mse": 1.5493284391906322e-06
+      },
+      {
+        "autonomous_final_mse": 1.172126369180584e-06,
+        "fold": 2,
+        "host_final_mse": 2.3833452884928098e-06,
+        "mlp_id": 924,
+        "role_rank": 642,
+        "teacher_final_mse": 1.1579796673427745e-06
+      },
+      {
+        "autonomous_final_mse": 1.5264516441260271e-06,
+        "fold": 1,
+        "host_final_mse": 3.6966372412021937e-06,
+        "mlp_id": 364,
+        "role_rank": 643,
+        "teacher_final_mse": 1.5075691604100814e-06
+      },
+      {
+        "autonomous_final_mse": 1.2612765675292731e-06,
+        "fold": 1,
+        "host_final_mse": 3.1788957427637037e-06,
+        "mlp_id": 330,
+        "role_rank": 644,
+        "teacher_final_mse": 1.2461993291146944e-06
+      },
+      {
+        "autonomous_final_mse": 1.165856337668839e-06,
+        "fold": 3,
+        "host_final_mse": 4.298631921766432e-06,
+        "mlp_id": 892,
+        "role_rank": 645,
+        "teacher_final_mse": 1.152314380526756e-06
+      },
+      {
+        "autonomous_final_mse": 1.3962208977911935e-06,
+        "fold": 2,
+        "host_final_mse": 3.187180256541852e-06,
+        "mlp_id": 203,
+        "role_rank": 646,
+        "teacher_final_mse": 1.3790991686434789e-06
+      },
+      {
+        "autonomous_final_mse": 1.0781021162139327e-06,
+        "fold": 1,
+        "host_final_mse": 3.680126427366784e-06,
+        "mlp_id": 23,
+        "role_rank": 647,
+        "teacher_final_mse": 1.0653008643004226e-06
+      },
+      {
+        "autonomous_final_mse": 1.4003124424741949e-06,
+        "fold": 0,
+        "host_final_mse": 4.260123790770718e-06,
+        "mlp_id": 659,
+        "role_rank": 648,
+        "teacher_final_mse": 1.3822046144423203e-06
+      },
+      {
+        "autonomous_final_mse": 1.12088539089794e-06,
+        "fold": 1,
+        "host_final_mse": 3.6132420447292073e-06,
+        "mlp_id": 375,
+        "role_rank": 649,
+        "teacher_final_mse": 1.1066447434351747e-06
+      },
+      {
+        "autonomous_final_mse": 1.329893490324413e-06,
+        "fold": 1,
+        "host_final_mse": 5.284894308676825e-06,
+        "mlp_id": 191,
+        "role_rank": 650,
+        "teacher_final_mse": 1.314113456172807e-06
+      },
+      {
+        "autonomous_final_mse": 1.0328272271235485e-06,
+        "fold": 2,
+        "host_final_mse": 2.700467693385452e-06,
+        "mlp_id": 369,
+        "role_rank": 651,
+        "teacher_final_mse": 1.0209809244056973e-06
+      },
+      {
+        "autonomous_final_mse": 1.2121477539654728e-06,
+        "fold": 1,
+        "host_final_mse": 3.236451297505588e-06,
+        "mlp_id": 12,
+        "role_rank": 652,
+        "teacher_final_mse": 1.1975208363958708e-06
+      },
+      {
+        "autonomous_final_mse": 1.0865471645728339e-06,
+        "fold": 0,
+        "host_final_mse": 4.044368609057559e-06,
+        "mlp_id": 763,
+        "role_rank": 653,
+        "teacher_final_mse": 1.0733164231141933e-06
+      },
+      {
+        "autonomous_final_mse": 1.0323489367393345e-06,
+        "fold": 0,
+        "host_final_mse": 4.074392034994085e-06,
+        "mlp_id": 557,
+        "role_rank": 654,
+        "teacher_final_mse": 1.0195461730199811e-06
+      },
+      {
+        "autonomous_final_mse": 1.2246109327534563e-06,
+        "fold": 3,
+        "host_final_mse": 3.5159332975637848e-06,
+        "mlp_id": 301,
+        "role_rank": 655,
+        "teacher_final_mse": 1.2092963661589637e-06
+      },
+      {
+        "autonomous_final_mse": 1.5907065360198734e-06,
+        "fold": 2,
+        "host_final_mse": 4.987662397816333e-06,
+        "mlp_id": 654,
+        "role_rank": 656,
+        "teacher_final_mse": 1.5700947821172867e-06
+      },
+      {
+        "autonomous_final_mse": 1.0658503400603124e-06,
+        "fold": 1,
+        "host_final_mse": 3.133170033750945e-06,
+        "mlp_id": 518,
+        "role_rank": 657,
+        "teacher_final_mse": 1.0527271890003434e-06
+      },
+      {
+        "autonomous_final_mse": 1.3036341614742853e-06,
+        "fold": 2,
+        "host_final_mse": 3.590710489944927e-06,
+        "mlp_id": 941,
+        "role_rank": 658,
+        "teacher_final_mse": 1.2883141249238207e-06
+      },
+      {
+        "autonomous_final_mse": 1.1523826594659624e-06,
+        "fold": 0,
+        "host_final_mse": 3.4906204899608456e-06,
+        "mlp_id": 972,
+        "role_rank": 659,
+        "teacher_final_mse": 1.137897214780219e-06
+      },
+      {
+        "autonomous_final_mse": 1.3106050600640178e-06,
+        "fold": 2,
+        "host_final_mse": 4.262454554187341e-06,
+        "mlp_id": 579,
+        "role_rank": 660,
+        "teacher_final_mse": 1.2946669410278542e-06
+      },
+      {
+        "autonomous_final_mse": 1.3961368889704622e-06,
+        "fold": 1,
+        "host_final_mse": 4.63327585748499e-06,
+        "mlp_id": 823,
+        "role_rank": 661,
+        "teacher_final_mse": 1.3790425549970347e-06
+      },
+      {
+        "autonomous_final_mse": 1.4706939482412869e-06,
+        "fold": 3,
+        "host_final_mse": 4.6691132912645605e-06,
+        "mlp_id": 482,
+        "role_rank": 662,
+        "teacher_final_mse": 1.4528285375041531e-06
+      },
+      {
+        "autonomous_final_mse": 1.2023015064175464e-06,
+        "fold": 1,
+        "host_final_mse": 3.2196395620261994e-06,
+        "mlp_id": 181,
+        "role_rank": 663,
+        "teacher_final_mse": 1.187428734362121e-06
+      },
+      {
+        "autonomous_final_mse": 1.2042205204079456e-06,
+        "fold": 0,
+        "host_final_mse": 3.775978346350546e-06,
+        "mlp_id": 555,
+        "role_rank": 664,
+        "teacher_final_mse": 1.189603242862139e-06
+      },
+      {
+        "autonomous_final_mse": 1.3977939371839412e-06,
+        "fold": 3,
+        "host_final_mse": 3.8258600640430564e-06,
+        "mlp_id": 997,
+        "role_rank": 665,
+        "teacher_final_mse": 1.3803718586181318e-06
+      },
+      {
+        "autonomous_final_mse": 1.2924292049074255e-06,
+        "fold": 1,
+        "host_final_mse": 4.1992458696850885e-06,
+        "mlp_id": 93,
+        "role_rank": 666,
+        "teacher_final_mse": 1.2770349266256046e-06
+      },
+      {
+        "autonomous_final_mse": 1.3954662830226437e-06,
+        "fold": 0,
+        "host_final_mse": 3.1530147393775987e-06,
+        "mlp_id": 841,
+        "role_rank": 667,
+        "teacher_final_mse": 1.3789714435448697e-06
+      },
+      {
+        "autonomous_final_mse": 1.2903987238704018e-06,
+        "fold": 2,
+        "host_final_mse": 3.521390706479819e-06,
+        "mlp_id": 712,
+        "role_rank": 668,
+        "teacher_final_mse": 1.2743632881737767e-06
+      },
+      {
+        "autonomous_final_mse": 1.2997280536200347e-06,
+        "fold": 2,
+        "host_final_mse": 3.4651897336149855e-06,
+        "mlp_id": 630,
+        "role_rank": 669,
+        "teacher_final_mse": 1.2834196546225038e-06
+      },
+      {
+        "autonomous_final_mse": 1.070882131026986e-06,
+        "fold": 3,
+        "host_final_mse": 3.6581762323742566e-06,
+        "mlp_id": 414,
+        "role_rank": 670,
+        "teacher_final_mse": 1.0585919906059156e-06
+      },
+      {
+        "autonomous_final_mse": 1.219098460006946e-06,
+        "fold": 3,
+        "host_final_mse": 3.2093187735060845e-06,
+        "mlp_id": 152,
+        "role_rank": 671,
+        "teacher_final_mse": 1.2040821759164599e-06
+      },
+      {
+        "autonomous_final_mse": 1.3986609783155487e-06,
+        "fold": 3,
+        "host_final_mse": 4.137324261468448e-06,
+        "mlp_id": 185,
+        "role_rank": 672,
+        "teacher_final_mse": 1.3806873062997523e-06
+      },
+      {
+        "autonomous_final_mse": 1.3377848681707192e-06,
+        "fold": 0,
+        "host_final_mse": 3.2933583669780643e-06,
+        "mlp_id": 752,
+        "role_rank": 673,
+        "teacher_final_mse": 1.3210231873841786e-06
+      },
+      {
+        "autonomous_final_mse": 1.1879559515503953e-06,
+        "fold": 3,
+        "host_final_mse": 3.4890270794289286e-06,
+        "mlp_id": 296,
+        "role_rank": 674,
+        "teacher_final_mse": 1.173189841094057e-06
+      },
+      {
+        "autonomous_final_mse": 1.497398422747924e-06,
+        "fold": 0,
+        "host_final_mse": 3.2878513444106505e-06,
+        "mlp_id": 146,
+        "role_rank": 675,
+        "teacher_final_mse": 1.4783772894993198e-06
+      },
+      {
+        "autonomous_final_mse": 1.4111184038993447e-06,
+        "fold": 3,
+        "host_final_mse": 3.996554570264298e-06,
+        "mlp_id": 770,
+        "role_rank": 676,
+        "teacher_final_mse": 1.3928243820554448e-06
+      },
+      {
+        "autonomous_final_mse": 1.1062631241501895e-06,
+        "fold": 2,
+        "host_final_mse": 2.6948715225902562e-06,
+        "mlp_id": 391,
+        "role_rank": 677,
+        "teacher_final_mse": 1.092963463812617e-06
+      },
+      {
+        "autonomous_final_mse": 1.0938908697491757e-06,
+        "fold": 3,
+        "host_final_mse": 3.875905030128628e-06,
+        "mlp_id": 186,
+        "role_rank": 678,
+        "teacher_final_mse": 1.0801907477020495e-06
+      },
+      {
+        "autonomous_final_mse": 1.2162436241945098e-06,
+        "fold": 1,
+        "host_final_mse": 3.3754952154187877e-06,
+        "mlp_id": 279,
+        "role_rank": 679,
+        "teacher_final_mse": 1.2012089913617717e-06
+      },
+      {
+        "autonomous_final_mse": 1.07403961556866e-06,
+        "fold": 3,
+        "host_final_mse": 3.7292653826768937e-06,
+        "mlp_id": 512,
+        "role_rank": 680,
+        "teacher_final_mse": 1.0608639128369124e-06
+      },
+      {
+        "autonomous_final_mse": 1.5497060131366686e-06,
+        "fold": 0,
+        "host_final_mse": 4.240750458467393e-06,
+        "mlp_id": 357,
+        "role_rank": 681,
+        "teacher_final_mse": 1.5294749189588707e-06
+      },
+      {
+        "autonomous_final_mse": 1.1874154000304439e-06,
+        "fold": 3,
+        "host_final_mse": 3.914910634644518e-06,
+        "mlp_id": 348,
+        "role_rank": 682,
+        "teacher_final_mse": 1.1728284925397207e-06
+      },
+      {
+        "autonomous_final_mse": 1.5368181248538244e-06,
+        "fold": 1,
+        "host_final_mse": 3.011906325328622e-06,
+        "mlp_id": 802,
+        "role_rank": 683,
+        "teacher_final_mse": 1.5177423551570207e-06
+      },
+      {
+        "autonomous_final_mse": 1.3827646108129624e-06,
+        "fold": 2,
+        "host_final_mse": 4.833880925132998e-06,
+        "mlp_id": 479,
+        "role_rank": 684,
+        "teacher_final_mse": 1.3656187328035303e-06
+      },
+      {
+        "autonomous_final_mse": 1.1262631836778393e-06,
+        "fold": 1,
+        "host_final_mse": 2.9298701964020387e-06,
+        "mlp_id": 827,
+        "role_rank": 685,
+        "teacher_final_mse": 1.1125553373128754e-06
+      },
+      {
+        "autonomous_final_mse": 1.2109281936753879e-06,
+        "fold": 1,
+        "host_final_mse": 4.917039850200635e-06,
+        "mlp_id": 939,
+        "role_rank": 686,
+        "teacher_final_mse": 1.1962056811068115e-06
+      },
+      {
+        "autonomous_final_mse": 1.2756286244711267e-06,
+        "fold": 0,
+        "host_final_mse": 4.120424335211934e-06,
+        "mlp_id": 105,
+        "role_rank": 687,
+        "teacher_final_mse": 1.2596732450229273e-06
+      }
+    ]
+  },
+  "projected_deployment": {
+    "adjusted_multiplier": 0.1,
+    "fraction_of_budget": 0.09074398782195203,
+    "host_flops": 199018976258,
+    "literal_meter_status": "required only after accuracy pass",
+    "phase2_budget": 2199023255552,
+    "score_floor_margin": 20354186033,
+    "total_flops": 199548139522
+  },
+  "provenance": {
+    "elapsed_seconds": 178.4937090827152,
+    "fixed_random_map_sha256": "87f7d23ae600e13a84387eb0cbdc1355cd21678181ec337769bc5304443ffe42",
+    "maximum_rss_bytes": 525058048,
+    "preregistration_sha256": "03278bbb334055c92fe57f2ff649829b17a180232728eb6b729995344ca8881a",
+    "program_sha256": "955b24cfebaf59fae21b4b87fb9e17883b9f1b4ec9719a2a1d49922960111f57",
+    "seal_sha256": "1c92039cddb5029e807c666e13ba6fbbb63b60678759b0596180e49ebe50c777",
+    "storage_bytes": 155068965,
+    "target_sha256": "dcc759bd0eb7df3544bec8ea8a7b788a6915eefa8d79fb7e3858b88bfd4ad9c7"
+  },
+  "schema": "public-cp1536-scalar-transport-rff-cv-results-v1",
+  "scope_boundary": "No observer_selection/private target, Q24 trajectory, or public-board name was accessed. Failure closes only this exact scalar fixed-random-feature spelling, not the broader H128/P4 recurrent observer.",
+  "split": {
+    "board_name_joins": 0,
+    "fit_neurons_per_network_per_layer": 32,
+    "fold_counts": [
+      147,
+      172,
+      171,
+      198
+    ],
+    "held_neurons_per_network_per_layer": 1024,
+    "networks": 688,
+    "observer_selection_targets_opened": 0,
+    "q24_trajectories_opened": 0,
+    "role": "observer_fit"
+  },
+  "status": "complete",
+  "verdict": "CLOSE_EXACT_SCALAR_RFF_FORM"
+}

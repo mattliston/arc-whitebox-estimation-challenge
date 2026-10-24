@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.1",
+  "mode": "agent",
+  "results": {
+    "adjusted_final_layer_score": 0.8378954529762268,
+    "final_layer_mse": 0.8378954529762268,
+    "all_layers_mse": 0.7147293090820312,
+    "per_layer_mse": [
+      0.404166042804718,
+      0.5940600633621216,
+      0.694156289100647,
+      0.7506030797958374,
+      0.7517307996749878,
+      0.7462508678436279,
+      0.7210465669631958,
+      0.6348145008087158,
+      0.6475648880004883,
+      0.6727465391159058,
+      0.7416039705276489,
+      0.7479724884033203,
+      0.8241010904312134,
+      0.8164354562759399,
+      0.8505202531814575,
+      0.8378954529762268
+    ],
+    "best_mlp_adjusted_final_layer_score": 0.8378954529762268,
+    "worst_mlp_adjusted_final_layer_score": 0.8378954529762268,
+    "mean_score_multiplier": 1.0,
+    "mean_compute_utilization": 0.0,
+    "n_failed_mlps": 1,
+    "mean_effective_compute": 0.0,
+    "failure_breakdown": {
+      "budget_exhausted": 0,
+      "time_exhausted": 0,
+      "residual_wall_time_exhausted": 0,
+      "combined_budget_exhausted": 0,
+      "error": 1
+    },
+    "per_mlp": [
+      {
+        "mlp_index": 0,
+        "mlp_name": "william-galloway",
+        "error": "predict timed out.",
+        "error_code": "PREDICT_TIMEOUT",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/runner.py\", line 428, in _predict_once\n    response = self._read_response(timeout_s=_predict_response_timeout_s(self._limits))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/runner.py\", line 533, in _read_response\n    raise TimeoutError(\"worker response timed out\")\nTimeoutError: worker response timed out\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/scoring.py\", line 716, in evaluate_estimator\n    raw_predictions = estimator.predict(mlp, spec.flop_budget)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/cli.py\", line 2339, in predict\n    return self._runner.predict(mlp, budget)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/runner.py\", line 380, in predict\n    return self._predict_once(mlp, budget)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/lib/python3.11/site-packages/whestbench/runner.py\", line 432, in _predict_once\n    raise RunnerError(\nwhestbench.runner.RunnerError: predict timed out.\n",
+        "final_layer_mse": 0.8378954529762268,
+        "all_layers_mse": 0.7147293090820312,
+        "per_layer_mse": [
+          0.404166042804718,
+          0.5940600633621216,
+          0.694156289100647,
+          0.7506030797958374,
+          0.7517307996749878,
+          0.7462508678436279,
+          0.7210465669631958,
+          0.6348145008087158,
+          0.6475648880004883,
+          0.6727465391159058,
+          0.7416039705276489,
+          0.7479724884033203,
+          0.8241010904312134,
+          0.8164354562759399,
+          0.8505202531814575,
+          0.8378954529762268
+        ],
+        "adjusted_final_layer_score": 0.8378954529762268,
+        "flops_used": 0,
+        "effective_compute": 0.0,
+        "budget_exhausted": false,
+        "time_exhausted": false,
+        "residual_wall_time_exhausted": false,
+        "combined_budget_exhausted": false,
+        "wall_time_s": 0.0,
+        "flopscope_backend_time_s": 0.0,
+        "flopscope_overhead_time_s": 0.0,
+        "residual_wall_time_s": 0.0,
+        "breakdowns": {
+          "estimator": null
+        }
+      }
+    ],
+    "breakdowns": {
+      "sampling": {
+        "flop_budget": 1000000000000000,
+        "flops_used": 269534208,
+        "flops_remaining": 999999730465792,
+        "wall_time_s": 0.009907042142003775,
+        "flopscope_backend_time_s": 0.0020372532308101654,
+        "flopscope_overhead_time_s": 0.007016368210315704,
+        "residual_wall_time_s": 0.0008534207008779049,
+        "by_namespace": {
+          "sampling.sample_layer_statistics": {
+            "flops_used": 269534208,
+            "calls": 112,
+            "flopscope_backend_time_s": 0.0020372532308101654,
+            "flopscope_overhead_time_s": 0.00694232527166605,
+            "operations": {
+              "zeros": {
+                "flop_cost": 0,
+                "calls": 17,
+                "flopscope_backend_time_s": 3.666849806904793e-05,
+                "flopscope_overhead_time_s": 0.0003322041593492031
+              },
+              "random.Generator.standard_normal": {
+                "flop_cost": 131072,
+                "calls": 1,
+                "flopscope_backend_time_s": 0.0,
+                "flopscope_overhead_time_s": 7.674982771277428e-05
+              },
+              "array": {
+                "flop_cost": 8192,
+                "calls": 1,
+                "flopscope_backend_time_s": 3.62517312169075e-06,
+                "flopscope_overhead_time_s": 3.1416770070791245e-05
+              },
+              "matmul": {
+                "flop_cost": 268304384,
+                "calls": 16,
+                "flopscope_backend_time_s": 0.0017164158634841442,
+                "flopscope_overhead_time_s": 0.0015462073497474194
+              },
+              "maximum": {
+                "flop_cost": 131072,
+                "calls": 16,
+                "flopscope_backend_time_s": 6.50426372885704e-05,
+                "flopscope_overhead_time_s": 0.0010825409553945065
+              },
+              "asarray": {
+                "flop_cost": 313344,
+                "calls": 19,
+                "flopscope_backend_time_s": 4.1915569454431534e-05,
+                "flopscope_overhead_time_s": 0.00044124992564320564
+              },
+              "sum": {
+                "flop_cost": 243712,
+                "calls": 17,
+                "flopscope_backend_time_s": 9.095994755625725e-05,
+                "flopscope_overhead_time_s": 0.0018002917058765888
+              },
+              "add": {
+                "flop_cost": 34816,
+                "calls": 17,
+                "flopscope_backend_time_s": 1.9792933017015457e-05,
+                "flopscope_overhead_time_s": 0.0010300418362021446
+              },
+              "power": {
+                "flop_cost": 294912,
+                "calls": 2,
+                "flopscope_backend_time_s": 1.6415957361459732e-05,
+                "flopscope_overhead_time_s": 0.0001582498662173748
+              },
+              "stack": {
+                "flop_cost": 32768,
+                "calls": 1,
+                "flopscope_backend_time_s": 2.3374799638986588e-05,
+                "flopscope_overhead_time_s": 6.654113531112671e-05
+              },
+              "true_divide": {
+                "flop_cost": 34816,
+                "calls": 2,
+                "flopscope_backend_time_s": 5.667097866535187e-06,
+                "flopscope_overhead_time_s": 0.0001526656560599804
+              },
+              "copy": {
+                "flop_cost": 1024,
+                "calls": 1,
+                "flopscope_backend_time_s": 1.62515789270401e-06,
+                "flopscope_overhead_time_s": 3.77497635781765e-05
+              },
+              "subtract": {
+                "flop_cost": 2048,
+                "calls": 1,
+                "flopscope_backend_time_s": 1.2498348951339722e-06,
+                "flopscope_overhead_time_s": 7.820827886462212e-05
+              },
+              "mean": {
+                "flop_cost": 2048,
+                "calls": 1,
+                "flopscope_backend_time_s": 1.4499761164188385e-05,
+                "flopscope_overhead_time_s": 0.00010820804163813591
+              }
+            }
+          }
+        }
+      },
+      "estimator": null
+    }
+  },
+  "run_meta": {
+    "run_started_at_utc": "2026-08-24T04:48:29.300695+00:00",
+    "run_finished_at_utc": "2026-08-24T04:48:29.300715+00:00",
+    "run_duration_s": 130.91991090774536,
+    "host": {
+      "hostname": "Matthews-MacBook-Pro.local",
+      "os": "Darwin",
+      "os_release": "25.5.0",
+      "platform": "macOS-26.5-arm64-arm-64bit",
+      "machine": "arm64",
+      "python_version": "3.11.5",
+      "cpu_brand": "arm",
+      "cpu_count_logical": 16,
+      "cpu_count_physical": 16,
+      "ram_total_bytes": 51539607552,
+      "ram_available_bytes": null,
+      "numpy_version": "2.4.6",
+      "flopscope_version": "0.12.0"
+    }
+  },
+  "run_config": {
+    "n_mlps": 1,
+    "width": 1024,
+    "depth": 16,
+    "seed": 20260823,
+    "flop_budget": 2199023255552,
+    "setup_timeout_s": 5.0,
+    "wall_time_limit_s": 120.0,
+    "residual_wall_time_limit_s": 0.4,
+    "lambda_flops_per_second": 0.0
+  },
+  "whestbench_version": "0.16.0"
+}

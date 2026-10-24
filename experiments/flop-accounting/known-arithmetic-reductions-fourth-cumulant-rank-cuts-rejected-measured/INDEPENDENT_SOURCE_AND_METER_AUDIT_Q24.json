@@ -1,0 +1,227 @@
+{
+  "schema": "fb-ec4-q24-independent-source-and-meter-audit-v1",
+  "status": "PASS_FOR_SOURCE_RESOURCE_FREEZE__SCIENTIFIC_AND_BOARD_HOLD",
+  "audited_at_utc": "2026-08-24T10:13:19Z",
+  "audit_scope": {
+    "mode": "independent exact-byte source review, target-free tiny replay, and literal meter receipt verification",
+    "estimator_edits": 0,
+    "canonical_graph_edits": 0,
+    "dataset_members_opened": 0,
+    "public_targets_opened": 0,
+    "scores_computed": 0,
+    "fits": 0,
+    "samples": 0,
+    "submissions": 0,
+    "full_shape_runs_by_auditor": 0
+  },
+  "candidate": {
+    "path": "estimator.py",
+    "bytes": 68115,
+    "sha256": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52",
+    "immutable_hold_declared": true,
+    "parent_path": "../fullbudget_k21_k4_closure_v4/estimator.py",
+    "parent_bytes": 68698,
+    "parent_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c"
+  },
+  "bound_source_evidence": [
+    {
+      "path": "PREREGISTER.md",
+      "bytes": 6321,
+      "sha256": "a7b540865641d6168c50bcf2f50aff19a6c8be8f50458a97472deaeb658a314e"
+    },
+    {
+      "path": "build_q24_from_v4.py",
+      "bytes": 3600,
+      "sha256": "77605b3a629372afff0e302b73c5f6b8493eef34b81bfc74be949fe1b4bef8b9"
+    },
+    {
+      "path": "verify_static.py",
+      "bytes": 5742,
+      "sha256": "25160b4fa5be2edece1fa5d16f0ca89dabb85cd5bcc845a0bfa413a0317d4aeb"
+    },
+    {
+      "path": "verify_parity.py",
+      "bytes": 10459,
+      "sha256": "14f9860a0770ce755461d8870f561adb08db82b0f150e18ba579e320cc66b06e"
+    },
+    {
+      "path": "verify_resources.py",
+      "bytes": 3740,
+      "sha256": "f69d2d66de47b6cce069c70582bcba6aae22de54afb03c972bb70abc322afe16"
+    }
+  ],
+  "phase2_source_gate": {
+    "status": "PASS_EXACT_PARENT_AST_AND_PHASE2_STATIC",
+    "imports_exact": [
+      "flopscope",
+      "flopscope.numpy",
+      "whestbench.BaseEstimator",
+      "whestbench.domain.MLP"
+    ],
+    "forbidden_import_or_foreign_compute_mechanisms": [],
+    "normalized_whole_module_ast_delta": [
+      "inclusive pair-series term count 33 to 25",
+      "inverse-factorial payload exact prefix q=0..24",
+      "seven derivative gather rows truncated to 25 terms",
+      "persistent rho-power arena 33 to 25 planes",
+      "truthful Q32-to-Q24 symbol and documentation renames"
+    ],
+    "q38_coefficient_generator_unchanged": true,
+    "derivative_channels_retained": 17,
+    "unchanged_science": [
+      "CP3 cap16384 carrier",
+      "H3 residual",
+      "CP4 cap2048 carrier",
+      "H4 plus alpha residual",
+      "L4",
+      "one-half L3 squared",
+      "spectral diagonal-preserving PSD repair",
+      "W16 specialization",
+      "production admission guard"
+    ],
+    "pinned_cumprod_out_and_all17_einsum_exercised": true,
+    "guard_exact": true
+  },
+  "q24_reference_gate": {
+    "status": "PASS_CHILD_BITWISE_INDEPENDENT_SLICED_PARENT_Q24_REFERENCE",
+    "fixtures": [
+      "identity_width8_float32",
+      "near_identity_seed20260823_scale0p02_float32",
+      "qr_seed20260823_scale0p35_float64",
+      "canonical_pure_normal_seed17_scale0p12_float32",
+      "alternate_identity_plus_qr_seed20260823_scale0p35_float64",
+      "alternate_0p88_identity_plus_normal_seed17_scale0p12_over_sqrt8_float32"
+    ],
+    "all_six_child_outputs_finite": true,
+    "reference_spelling": "frozen V4 with its 33-plane arena sliced to the first 25 planes, exact q=0..24 grids, and inverse-factorial prefix",
+    "claim_boundary": "This proves the exact Q24 spelling only; it does not establish closeness to Q32."
+  },
+  "target_free_q24_vs_q32_action_envelope": {
+    "status": "MATERIAL_AND_FIXTURE_DEPENDENT__SCIENTIFIC_HOLD",
+    "registered_final_prediction_disagreement_mse_gate": 1e-10,
+    "identity_final_mse": 0.0,
+    "near_identity_final_mse": 0.0,
+    "canonical_qr35": {
+      "first_changed_layer": 5,
+      "final_mse": 6.468361113147653e-15,
+      "maximum_layer_output_abs_delta": 0.45511138439178467,
+      "interpretation": "final difference is small only after a material transient decays"
+    },
+    "canonical_pure_normal_0p12": {
+      "first_changed_layer": 3,
+      "final_mse": 4.33005670743272e-8,
+      "all_layer_mse": 1593.5770831938426,
+      "maximum_layer_output_abs_delta": 434.440673828125,
+      "maximum_output_delta_layer": 6,
+      "interpretation": "final disagreement exceeds the registered materiality threshold by 433 times after a very large transient"
+    },
+    "alternate_identity_plus_qr35": {
+      "first_changed_layer": 7,
+      "final_mse": 3567.65236309372,
+      "all_layer_mse": 434.4435089248457,
+      "maximum_layer_output_abs_delta": 164.52218627929688,
+      "interpretation": "catastrophic non-equivalence despite finite output"
+    },
+    "alternate_0p88_identity_contractive_final_mse": 0.0,
+    "conclusion": "Q24 is a distinct accuracy arm and cannot be promoted as a science-equivalent execution optimization."
+  },
+  "pre_meter_projection": {
+    "status": "NONAUTHORITATIVE_AND_SUPERSEDED_BY_LITERAL_METER",
+    "tiny_widths": [4, 5, 6, 8, 12, 16],
+    "tiny_delta_polynomial": "46304*n^2 + 155904*n + 16",
+    "projected_deletion_flops": 48712908816,
+    "projected_child_flops": 2131030045653,
+    "literal_deletion_flops": 48493625360,
+    "literal_child_flops": 2131249329109,
+    "projection_child_minus_literal_child_flops": -219283456,
+    "projection_error_interpretation": "The tiny-width whole-source polynomial overprojected the deletion by 219,283,456 FLOPs; FlopScope einsum pricing is not authorized to extrapolate across execution regimes from this fit."
+  },
+  "literal_meter": {
+    "status": "PASS_PHASE2_SUBPROCESS_INTERFACE_AND_METER__ACCURACY_UNSCORED",
+    "receipt_path": "../meter_protocol/runs/fb_ec4_q24_full_v1_b38cd865_n1_s8_seed20260824/receipt.json",
+    "receipt_bytes": 23308,
+    "receipt_sha256": "d69fd338972386af2c45f120d2983d5036a9a52ae57845a01977658e4c21fd11",
+    "independent_verify_meter_run": "PASS_METER_RECEIPT_VERIFICATION",
+    "flops": 2131249329109,
+    "calls": 6878,
+    "flopscope_backend_s": 28.354737606830895,
+    "flopscope_overhead_s": 0.5729657923802733,
+    "residual_s": 0.29449143446981907,
+    "wall_s": 29.222194833680987,
+    "sampled_descendant_peak_rss_bytes": 4507058176,
+    "output_shape": [16, 1024],
+    "output_dtype": "float32",
+    "all_values_finite": true,
+    "failed_mlps": 0,
+    "headroom_flops": 67773926443,
+    "target_blind": true,
+    "phase2_limits_pass": {
+      "flops_at_most_2pow41": true,
+      "residual_at_most_0p4_s": true,
+      "wall_below_120_s": true,
+      "descendant_rss_below_8_gib": true
+    },
+    "registered_local_robust_wall_gates": {
+      "backend_at_most_30_s": true,
+      "residual_at_most_0p30_s": true,
+      "residual_margin_to_0p30_s": 0.005508565530180917
+    }
+  },
+  "literal_v4_minus_q24_operation_delta": {
+    "total_flops": 48493625360,
+    "calls": 0,
+    "asarray": 16,
+    "cumprod": 251658240,
+    "einsum": 48082370560,
+    "getitem": 154337280,
+    "multiply": 5160960,
+    "stack": 98304
+  },
+  "matched_v4_meter_comparison": {
+    "v4_receipt_sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017",
+    "flops_delta": -48493625360,
+    "flops_fraction_delta": -0.022247405484475236,
+    "backend_s_delta": -6.003302773460746,
+    "backend_fraction_delta": -0.17472774078536635,
+    "overhead_s_delta": -0.017466195859014988,
+    "residual_s_delta": -0.09814077988266945,
+    "wall_s_delta": -6.11890974920243,
+    "wall_fraction_delta": -0.17313861073165127,
+    "sampled_descendant_rss_bytes_delta": -111509504,
+    "interpretation": "Q24 removes only 2.225 percent of metered FLOPs but reduces the matched local backend and wall by about 17 percent because it directly shortens the dominant pair contractions."
+  },
+  "namespace": {
+    "estimator_sha256_after_all_gates": "b38cd865297c344626da3c4f414e1d4923a9efdc62147e3103f155b2034f7b52",
+    "pycache_or_pyc_count_at_seal": 0,
+    "meter_cache_incident": {
+      "path": "__pycache__/estimator.cpython-311.pyc",
+      "bytes": 71770,
+      "sha256": "2115cadb75a2f0d3d717444c95665db7a8930fedbe7fd3d861b344b348b121ab",
+      "disposition": "removed exactly with its now-empty cache directory; source bytes unchanged",
+      "future_import_requirement": "python -B"
+    }
+  },
+  "verdict": {
+    "phase2_source_legality": "PASS",
+    "exact_q24_implementation": "PASS",
+    "literal_resource_admission": "PASS",
+    "local_wall_engineering_gate": "PASS_WITH_FRAGILE_RESIDUAL_MARGIN",
+    "q24_q32_science_equivalence": "FAIL_MATERIAL_ACTION_DIFFERENCE",
+    "accuracy_or_raw_mse": "UNSCORED",
+    "board_promotion": "HOLD_PENDING_SAME_SEED_FULL_SHAPE_Q24_VS_V4_PREDICTION_DISAGREEMENT"
+  },
+  "authorized_next_actions": [
+    "ADDITIVE_IMMUTABLE_SOURCE_FREEZE_AND_ARCHIVE_BINDING_THE_EXACT_BYTES_AND_THIS_AUDIT",
+    "ONE_TARGET_FREE_SAME_SEED_FULL_SHAPE_Q24_VS_V4_PREDICTION_DISAGREEMENT_REPLAY",
+    "READ_ONLY_PACKAGE_PARITY_VALIDATION"
+  ],
+  "withheld": [
+    "ESTIMATOR_MUTATION",
+    "Q24_SCIENCE_EQUIVALENCE_CLAIM",
+    "RAW_MSE_OR_ACCURACY_CLAIM",
+    "BOARD_SUBMISSION_BEFORE_FULL_SHAPE_DISAGREEMENT_AND_FINAL_PACKAGE_GATES",
+    "TARGET_OR_DATASET_ACCESS",
+    "SAMPLING_OR_FIT",
+    "CANONICAL_GRAPH_MUTATION_FROM_THIS_AUDIT_ALONE"
+  ]
+}

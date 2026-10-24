@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-18T13:16:39.294297+00:00",
+  "decision": "CLOSE_FIXED_L2_RESTORE_NO_EXTENSION",
+  "candidate_sha": "e7834b16ea77b11bfda9f4be87ab145af8d285ce3ad09cf9f28b37daf6bcb729",
+  "final_adjusted_pct": 0.8057371294853066,
+  "projected_score": 1.4585144174662124e-09,
+  "finding": "RTT rank2 tail causes most newlyobserved L3gap to training surrogate; exact sameprefix+directtail restores L3accuracy onboth. The restored signal is not beneficial at final layer onthese2; bothsame-targettruth688andcrosshalf worsen, so noextension.",
+  "ranks": [
+    {
+      "rank": 35,
+      "l3_rms_before": 4.208383676647548e-06,
+      "l3_rms_after": 1.132355379157293e-06,
+      "l3_true_mse_pct": -1.1607853725134398,
+      "final_crosshalf_raw_pct": 0.5224915530702035
+    },
+    {
+      "rank": 200,
+      "l3_rms_before": 4.412779680147245e-06,
+      "l3_rms_after": 1.3160610572307208e-06,
+      "l3_true_mse_pct": -1.1257532226236822,
+      "final_crosshalf_raw_pct": 0.5393532388371147
+    }
+  ],
+  "limitations": "Twofixedranks are causaldiagnostics, not populationaccuracyproof. Rank200 measuredcoldbillingagainstwarmcontrol includes extra coldtax. Finalrawlosssign is independent ofthatbillingissue.",
+  "runtime": "Bothownedgroupsretiredclean, noSDKprocessremains; noactivecarry/sourcechanged.",
+  "next": "No furtherRTTparameterarm authorized; root decides nextscience."
+}

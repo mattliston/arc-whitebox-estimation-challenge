@@ -1,0 +1,42 @@
+{
+  "status": "CLOSED_CDPUSH_NATIVE_ACCURACY_FAILURE",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_apa_pairmode_v1/candidate_bini_cdpush_e8_readpair_v6.py",
+  "candidate_sha256": "5ee630f12ea883487fa2912eef7ff8d2d3178cd32b1675c8a969e4912a9183ce",
+  "rank": 150,
+  "comparison": {
+    "U": 1.5647778240581713e-08,
+    "control_U": 1.500190708957137e-08,
+    "raw_change_pct": 4.305260305600234,
+    "flops": 244311347294,
+    "control_flops": 243122673446,
+    "bill_change_pct": 0.48891937191699597,
+    "adjusted_change_pct": 4.8152289291627515
+  },
+  "dispatch": {
+    "cd_pushes": 3,
+    "exact_parity_fallbacks": 1,
+    "v5_paired_reads": 5,
+    "cohort_fallbacks": 0
+  },
+  "guard": {
+    "completed": true,
+    "error": null,
+    "elapsed_s": 33.47792933322489,
+    "max_rss_bytes": 6819659776,
+    "max_footprint_bytes": 3013662144,
+    "min_pressure_free_pct": 75,
+    "whole_group_retired": true
+  },
+  "tiny_checks": "All3 orientations fused CD vs explicit preprocessing/postprocessing byteexact, owned outputs, unmodified inputs, unchanged v5 read parity. Odd/invalid routes return exact parent.",
+  "weighted_linear_surcharge": "kn per CD push, +2q charged operations for q cohorts. Same numeric allocation size; add/sub replace charged copies.",
+  "decision": "One authorized decisive pilot failed. Push branch closed without more native models, epsilon changes, or layout tweaks.",
+  "limitations": "This native pilot includes unchanged v5 paired reads as instructed; no claim it isolates CD push alone.",
+  "evidence_sha256": {
+    "PILOT_PREREG_v1.json": "abf0e5e52a2fc1a3c52e4fa104abc5b2ad919f5f02fed7aabf261f9e98a81479",
+    "res_cdpush150_v1.json": "5cea79fa32ba55c72d8750df0a529d0b3abdca85819b990fbb0bd5c807aa2246",
+    "guard_cdpush150_v1.json": "90b24cb011bb4551abbf7adaf2167b74dfad601ba29e41df77abda01004ad7e4",
+    "COMPARE_CDPUSH150_v1.json": "ca2cb3889aa53748ca1c5991a2dd1fd19a1537997fb0d761a52d34c63a179d72",
+    "TINY_CDPUSH_v1.json": "50486d31c7edf41a3953a6dbd274266c47de3082f98435578c971420e9116eb4",
+    "TARIFF_CDPUSH_v1.json": "3ef27a74fb81f98fe99e72d160bcba105d827f4e886cde4d10aafa8ecac2b835"
+  }
+}

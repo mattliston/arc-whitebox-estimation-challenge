@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-21T02:34:14Z",
+  "kind": "CURRENT_MSG8_BIRTH_CONSUMER_TEACHER_READAPTATION",
+  "reference_submission": 337422,
+  "train": [
+    35,
+    150,
+    200,
+    250
+  ],
+  "teacher_source_sha256": "09fb70c86fa245d083f1db5d9c06dcde90cd71cbc8aaeaabb1bcb134aef59ded",
+  "input_source_sha256": "777a73b6d13ef0e1e51d70d4c0dc61f21b4c7287813e336c82c37ec7188ba510",
+  "fit": "One anchored Gauss-Newton step on existing shared64x4 birth-head A; current all1024-row normalization; original16-message native birth coefficients as targets",
+  "ridge": 0.1,
+  "damping": 0.5,
+  "folds": "Four leave-one-network-out fits, equal weight per network and layer; no validation/fresh/held truth",
+  "gate": "LOO teacher coefficient squared error improves >=1% average and >=3/4 networks; actual coefficient RMS step <=10% of baseline coefficient RMS; all finite; no automatic override",
+  "deployment": "Only _BDNH_A_LITERAL changes; same shapes/functions/cstar/normalization/tanh/cache; native full32 and fresh required after official arithmetic qualification",
+  "source_arithmetic_unchanged": true,
+  "truth_access": false,
+  "scope": "Source preparation only. Native diagnostic launch requires root qualified-plan approval; no fire."
+}

@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-20T20:34:08Z",
+  "builder": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/make_stack_v1.sh",
+  "old_sha256": "fbfa3fe74bdaa9e59b417e6ab0d8ef6bfbcdd12416628c220673f1c4d3b16dd2",
+  "new_sha256": "1d5b352ce995507044a1bd096450978df2bf1878563c6eeabcbfe1e713295429",
+  "backup": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/make_stack_v1.pre_nogov_20261020.sh.txt",
+  "diff": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/MAKE_STACK_NOGOV_CHANGE_v1.diff",
+  "new_outputs_only": true,
+  "tail": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/tail_disable_fast_rescue_astra_v1.py",
+  "tail_sha256": "be4293e44004415fb9faba1b42a26c8428a447ae226475a77a707054aac54607",
+  "changes": [
+    "Append pinned permanent no-governor tail LAST to science and release",
+    "Refuse existing science OR release output",
+    "Compile both payloads before any writes; exclusive creation prevents overwrite; remove only files newly created by failed build",
+    "Keep current v4a bases and supplied tail order"
+  ],
+  "checks": [
+    {
+      "case": "new pair generated; final disable overrides incoming tail map",
+      "pass": true
+    },
+    {
+      "case": "existing science+release refuse unchanged",
+      "pass": true
+    },
+    {
+      "case": "release-only collision refuses without creating science",
+      "pass": true
+    },
+    {
+      "case": "syntax failure leaves no outputs",
+      "pass": true
+    },
+    {
+      "case": "missing tail leaves no outputs",
+      "pass": true
+    }
+  ],
+  "shell_syntax_pass": true,
+  "estimator_imports": 0,
+  "heavy_runs": 0,
+  "new_gain_report_reference": 337393
+}

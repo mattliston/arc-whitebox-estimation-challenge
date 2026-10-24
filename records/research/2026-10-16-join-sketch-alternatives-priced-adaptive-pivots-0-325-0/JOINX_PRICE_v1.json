@@ -1,0 +1,277 @@
+{
+  "status": "JOIN_SKETCH_DESIGNS_PRICED_NO_ACCURACY",
+  "lane": "opus-joinx",
+  "base": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_release_v1/s2t/candidate_S2t_cblazy_v1.py",
+    "sha256": "e0553d2e153694b5504c70da73cafb33b8c0649675f5d92648d2547372c79d46"
+  },
+  "network": 7103248,
+  "network_bill": 242358522607,
+  "joins": "L7 (n928 W6144 r384 old0), L10 (n864 W5568 r384 old384), L13 (n832 W4544 r384 old384); layer labels 6/9/12 in the log",
+  "method": "one native: predict 7103248 on S2t (shapes from the live QR/product log), then each design executed with the estimator own routing (_shared_old384_mm, fnp.linalg) on same-shaped random float32 data in a BudgetContext; FLOPs exact for the shapes, requests ~ 1.15 x charged ops (views not counted), CPU local thread time",
+  "per_join": {
+    "L6": {
+      "shape": {
+        "layer": 6,
+        "n": 928,
+        "W": 6144,
+        "r": 384,
+        "o": 0,
+        "qr_flops": 471859200,
+        "qr_ops": 1
+      },
+      "baseline": {
+        "flops": 2879018610,
+        "ops": 157,
+        "cpu_s": 0.2385
+      },
+      "extra": {
+        "baseline_nystrom": {
+          "flops": 0,
+          "ops": 0,
+          "cpu_s": 0.0
+        },
+        "oversample_p32": {
+          "flops": 1882822616,
+          "ops": 161,
+          "cpu_s": 0.0647
+        },
+        "oversample_p64": {
+          "flops": 2401783868,
+          "ops": 153,
+          "cpu_s": 0.0823
+        },
+        "block_chol_b64": {
+          "flops": 820339328,
+          "ops": 433,
+          "cpu_s": 0.003
+        },
+        "block_chol_b128": {
+          "flops": 593211531,
+          "ops": 142,
+          "cpu_s": -0.0967
+        },
+        "hybrid_static256_adaptive128": {
+          "flops": 420936257,
+          "ops": 138,
+          "cpu_s": -0.0034
+        },
+        "hybrid_static320_adaptive64": {
+          "flops": 408177636,
+          "ops": 116,
+          "cpu_s": 0.0319
+        },
+        "hybrid_leverage320_64": {
+          "flops": 260091659,
+          "ops": 190,
+          "cpu_s": 0.0478
+        },
+        "rrf_power1": {
+          "flops": 7036429458,
+          "ops": 440,
+          "cpu_s": 0.5854
+        }
+      }
+    },
+    "L9": {
+      "shape": {
+        "layer": 9,
+        "n": 864,
+        "W": 5568,
+        "r": 384,
+        "o": 384,
+        "qr_flops": 434110464,
+        "qr_ops": 1
+      },
+      "baseline": {
+        "flops": 2752456881,
+        "ops": 265,
+        "cpu_s": 0.2291
+      },
+      "extra": {
+        "baseline_nystrom": {
+          "flops": 0,
+          "ops": 0,
+          "cpu_s": 0.0
+        },
+        "oversample_p32": {
+          "flops": 1899644394,
+          "ops": 140,
+          "cpu_s": 0.0548
+        },
+        "oversample_p64": {
+          "flops": 2363787602,
+          "ops": 137,
+          "cpu_s": 0.0755
+        },
+        "block_chol_b64": {
+          "flops": 790827897,
+          "ops": 349,
+          "cpu_s": -0.0082
+        },
+        "block_chol_b128": {
+          "flops": 602232324,
+          "ops": 46,
+          "cpu_s": -0.0961
+        },
+        "hybrid_static256_adaptive128": {
+          "flops": 455690223,
+          "ops": 122,
+          "cpu_s": -0.0269
+        },
+        "hybrid_static320_adaptive64": {
+          "flops": 388403682,
+          "ops": 47,
+          "cpu_s": 0.0227
+        },
+        "hybrid_leverage320_64": {
+          "flops": 277795109,
+          "ops": 126,
+          "cpu_s": 0.0359
+        },
+        "rrf_power1": {
+          "flops": 6504532611,
+          "ops": 740,
+          "cpu_s": 0.5821
+        }
+      }
+    },
+    "L12": {
+      "shape": {
+        "layer": 12,
+        "n": 832,
+        "W": 4544,
+        "r": 384,
+        "o": 384,
+        "qr_flops": 415236096,
+        "qr_ops": 1
+      },
+      "baseline": {
+        "flops": 2325675335,
+        "ops": 203,
+        "cpu_s": 0.1589
+      },
+      "extra": {
+        "baseline_nystrom": {
+          "flops": 0,
+          "ops": 0,
+          "cpu_s": 0.0
+        },
+        "oversample_p32": {
+          "flops": 1821614193,
+          "ops": 172,
+          "cpu_s": 0.0586
+        },
+        "oversample_p64": {
+          "flops": 2304345984,
+          "ops": 141,
+          "cpu_s": 0.0529
+        },
+        "block_chol_b64": {
+          "flops": 631398723,
+          "ops": 411,
+          "cpu_s": 0.025
+        },
+        "block_chol_b128": {
+          "flops": 371731509,
+          "ops": 358,
+          "cpu_s": 0.123
+        },
+        "hybrid_static256_adaptive128": {
+          "flops": 350220658,
+          "ops": 140,
+          "cpu_s": 0.0565
+        },
+        "hybrid_static320_adaptive64": {
+          "flops": 390370633,
+          "ops": 125,
+          "cpu_s": 0.0217
+        },
+        "hybrid_leverage320_64": {
+          "flops": 248715976,
+          "ops": 170,
+          "cpu_s": 0.0208
+        },
+        "rrf_power1": {
+          "flops": 5277452757,
+          "ops": 614,
+          "cpu_s": 0.4229
+        }
+      }
+    }
+  },
+  "three_join_totals": {
+    "baseline_nystrom": {
+      "extra_flops": 0,
+      "bill_pct": 0.0,
+      "charged_ops": 0,
+      "requests_est": 0,
+      "local_cpu_s": 0.0
+    },
+    "oversample_p32": {
+      "extra_flops": 5604081203,
+      "bill_pct": 2.312,
+      "charged_ops": 473,
+      "requests_est": 543,
+      "local_cpu_s": 0.178
+    },
+    "oversample_p64": {
+      "extra_flops": 7069917454,
+      "bill_pct": 2.917,
+      "charged_ops": 431,
+      "requests_est": 495,
+      "local_cpu_s": 0.211
+    },
+    "block_chol_b64": {
+      "extra_flops": 2242565948,
+      "bill_pct": 0.925,
+      "charged_ops": 1193,
+      "requests_est": 1371,
+      "local_cpu_s": 0.02
+    },
+    "block_chol_b128": {
+      "extra_flops": 1567175364,
+      "bill_pct": 0.647,
+      "charged_ops": 546,
+      "requests_est": 627,
+      "local_cpu_s": -0.07
+    },
+    "hybrid_static256_adaptive128": {
+      "extra_flops": 1226847138,
+      "bill_pct": 0.506,
+      "charged_ops": 400,
+      "requests_est": 459,
+      "local_cpu_s": 0.026
+    },
+    "hybrid_static320_adaptive64": {
+      "extra_flops": 1186951951,
+      "bill_pct": 0.49,
+      "charged_ops": 288,
+      "requests_est": 331,
+      "local_cpu_s": 0.076
+    },
+    "hybrid_leverage320_64": {
+      "extra_flops": 786602744,
+      "bill_pct": 0.325,
+      "charged_ops": 486,
+      "requests_est": 558,
+      "local_cpu_s": 0.104
+    },
+    "rrf_power1": {
+      "extra_flops": 18818414826,
+      "bill_pct": 7.765,
+      "charged_ops": 1794,
+      "requests_est": 2063,
+      "local_cpu_s": 1.59
+    }
+  },
+  "designs": {
+    "oversample_pX": "Nystrom with r+p static pivots, QR, core solve, eigh of (r+p)^2 core, rotate to r (416/448-wide products fall off the Winograd tree path)",
+    "block_chol_bX": "greedy residual-diagonal pivots in blocks of X: block columns, orthogonalize vs earlier L, block Cholesky + solve, residual diag update; final QR",
+    "hybrid_static320_adaptive64": "static top-320 pivots, exact residual diag via Cholesky solve, 64 adaptive pivots (P0 excluded), QR of [C0 C1], core solve",
+    "hybrid_static256_adaptive128": "same with 256 + 128",
+    "hybrid_leverage320_64": "static top-320, QR(C0), 64 pivots by d*(1-row leverage of Q0) with P0 excluded, block Gram-Schmidt C1 - Q0 Q0^T C1, QR(C1), core solve (approximate greedy rule)",
+    "rrf_power1": "randomized range finder (Omega n x r) + one power iteration with intermediate QR"
+  },
+  "recommendation": "If the oracle shows adaptive pivots help: hybrid_leverage320_64 is cheapest in bill (+0.325%, ~+558 req); hybrid_static320_adaptive64 is the exact-greedy alternative (+0.490%, ~+331 req). Oversampling (+2.3-2.9%) and RRF (+7.8%) are out."
+}

@@ -1,0 +1,18 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0F3A7",
+    "label": "Deployment composition and corrector export",
+    "kind": "phase2_deployment_prep",
+    "status": "solved",
+    "summary": "The composed deployment card (no-eigh base + lambda3 shell + rank-4 carrier) builds byte-deterministically: billed 1954.3e9, margin 244.7e9 under 2^41, finite. The corrector retraining pipeline was FOUND live (trainer, exporter, and the frozen payload's source model - identity re-export reproduces the card byte-exactly) plus a new splice tool for integrated cards, self-checked by round-trip. Fire path: generate rows from this host, frozen J retrain, export, splice, smoke, meter, fire.",
+    "terminal_criterion": "Build deterministic + export playbook self-checked.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_deploy_composition_prep_v1/BUILD_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_deploy_composition_prep_v1/COMPOSITION_STATUS.json"
+    ],
+    "decomposition_children": []
+  }
+}

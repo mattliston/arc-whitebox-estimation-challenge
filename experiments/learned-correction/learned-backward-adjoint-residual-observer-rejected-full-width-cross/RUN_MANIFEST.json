@@ -1,0 +1,96 @@
+{
+  "schema": "public-full688-backward-adjoint-state-cv-run-manifest-v1",
+  "node": "P2R0F2M",
+  "status": "authorized-smoke-only-native-transfer-hold",
+  "scope": "One fixed four-fold observer_fit capacity CV, held after sealed smoke until a terminal native-Q24 transfer result and explicit root release receipt",
+  "approved_actions_now": [
+    "static_compile_and_source_checks",
+    "sealed_one-network_smoke",
+    "verify_training_release_absent_and_fold_launch_rejected"
+  ],
+  "approved_actions_after_valid_training_release": [
+    "train_fixed_fold_0",
+    "train_fixed_fold_1",
+    "train_fixed_fold_2",
+    "train_fixed_fold_3",
+    "aggregate_out_of_fold_capacity_metrics"
+  ],
+  "forbidden_actions": [
+    "launch_fold_before_terminal_native_transfer_and_root_release",
+    "read_observer_selection_targets",
+    "read_public_board_identity_join",
+    "treat_cp1792_capacity_metrics_as_native_deployment_evidence",
+    "retune_from_cv_metrics",
+    "fit_a_second_architecture",
+    "select_a_checkpoint_after_metrics",
+    "submit_or_meter_for_deployment_before_accuracy_and_native_q24_gates"
+  ],
+  "data": {
+    "role": "observer_fit",
+    "role_ranks": [0, 688],
+    "networks": 688,
+    "fold_sizes": [147, 172, 171, 198],
+    "group_key": "mlp_id",
+    "tail_threshold": 5.0e-7,
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "base_rows_complete": 688,
+    "repaired_tail_rows_complete": 11
+  },
+  "architecture": {
+    "forward_channels": 4,
+    "backward_channels": 4,
+    "forward_input_features": 44,
+    "forward_hidden": 96,
+    "backward_input_features": 28,
+    "backward_hidden": 64,
+    "parameters": 39944,
+    "forward_transport": "Phi*(state@W)",
+    "backward_exact_adjoint": "W@(Phi*backward_state)",
+    "dynamic_gain_range": [0.75, 1.25],
+    "mix_delta_scale": 0.12,
+    "deployment_truth_inputs": 0
+  },
+  "training": {
+    "seed": 1753358438,
+    "threads_per_fold": 2,
+    "parallel_folds_maximum": 4,
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 0.00002,
+    "gradient_clip_norm": 5.0,
+    "own_primary_forward_state_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "backward_state_exposure": 1.0,
+    "auxiliary_state_penalty": 0.00002,
+    "identity_penalty": 0.0005,
+    "checkpoint": "fixed epoch 6"
+  },
+  "decision_gate": {
+    "finite_all_rollouts": true,
+    "oof_final_mse_strictly_below": 2.9672528546945005e-8,
+    "maximum_per_network_final_mse_strictly_below": 1.0e-7,
+    "mode": "all"
+  },
+  "capacity_and_deployment": {
+    "cp1792_oof_role": "capacity-only",
+    "native_q24_transfer_terminal_required_before_training": true,
+    "root_release_receipt_required_before_training": true,
+    "m_specific_native_fit_required_after_capacity_pass": true
+  },
+  "resources": {
+    "parallel_folds_maximum": 4,
+    "threads_per_fold": 2,
+    "maximum_rss_bytes_per_fold": 8589934592,
+    "maximum_experiment_storage_bytes": 2147483648
+  },
+  "deployment_admission_estimate": {
+    "m_correction_upper": 1520603136,
+    "old_q24_host_plus_m_upper": 2128498062269,
+    "native_q24_host_tape_plus_m_upper": 2133212740857,
+    "exact_phase2_budget": 2199023255552,
+    "native_q24_headroom": 65810514695,
+    "literal_meter_required_after_accuracy_and_native_fit_pass": true
+  }
+}

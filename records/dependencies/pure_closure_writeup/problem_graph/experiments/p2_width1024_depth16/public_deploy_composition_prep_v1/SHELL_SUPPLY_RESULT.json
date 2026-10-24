@@ -1,0 +1,116 @@
+{
+  "build": {
+    "collisions": [],
+    "inputs": {
+      "base_supply_card": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_supply_card_v1/estimator.py",
+        "sha256": "63e2b95bfc1b2c5b2b109f3cb824c3c3c79a1ff5e39043e8232ad4e5077a8ea0"
+      },
+      "lambda3_shell_base": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_condrepair_deployment_card_v1/estimator.py",
+        "sha256": "24ed2325e4db0c0287a222189a986c2d6462f80832c717827c27b783a6655ee2"
+      },
+      "lambda3_shell_source": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_lambda3_shell_probe_v1/estimator_x.py",
+        "sha256": "f055bf1321500f74d8bdfd5e4bc209b5a44b5839d004ab8fa8c39bba4d0d24e5"
+      }
+    },
+    "no_carrier_note": "rank-4 K22 carrier intentionally absent: the full-rank supply supersedes it (double-count hazard)",
+    "output_bytes": 677455,
+    "output_sha256": "bf3078035629f3c61c4d5761eb12b9fe4f03d50327c4a892f5ad15700d3b8d2d",
+    "patches": [
+      "S1-derivative-channels",
+      "S2-derivative-grids",
+      "S3-order-grid-ADAPTED",
+      "S4-weights-workspace",
+      "S5-inverse-sigma",
+      "S6-lambda3-weight-blocks",
+      "S7-g-four-all-loop",
+      "S8-four-pair-loop",
+      "D1-docstring-provenance"
+    ],
+    "schema": "shell-supply-builder-receipt-v1",
+    "status": "BUILT"
+  },
+  "fire_bar_context": {
+    "bar_raw_all200_at_supply_util": 2.769e-08,
+    "projected_gap_to_bar_fraction": 0.28381205722986236,
+    "projected_shell_supply_all200_from_3row_effect": 3.554875586469489e-08,
+    "supply_only_raw_all200_banked": 3.335e-08
+  },
+  "schema": "shell-supply-result-v1",
+  "shell_effect": {
+    "historical_x_pilot_reference": -0.1,
+    "mean_fraction": 0.06592971108530403,
+    "note": "three rows only; single-grade rel-sd ~8 percent applies - this localizes direction/magnitude, the all-200 pass is the verdict instrument",
+    "per_row_fraction": [
+      0.05101755547787401,
+      0.10672876325569924,
+      0.04004281452233882
+    ]
+  },
+  "shell_supply_sha256": "bf3078035629f3c61c4d5761eb12b9fe4f03d50327c4a892f5ad15700d3b8d2d",
+  "smoke": {
+    "billed_flops": 1865231908215,
+    "budget_context": 2199023255552,
+    "finite": true,
+    "margin_to_2pow41": 333791347337,
+    "nonnegative": true,
+    "store_row_rank": 35,
+    "wall_seconds": 17.404055333230644
+  },
+  "supply_sha256": "63e2b95bfc1b2c5b2b109f3cb824c3c3c79a1ff5e39043e8232ad4e5077a8ea0",
+  "truth_rows": {
+    "100": {
+      "shell_effect_fraction": 0.10672876325569924,
+      "shell_supply": {
+        "billed_flops": 1902789050406,
+        "final_mse": 3.391814422189527e-08,
+        "finite": true
+      },
+      "supply": {
+        "billed_flops": 1853022246950,
+        "final_mse": 3.064720584483337e-08,
+        "finite": true
+      },
+      "supply_banked_cross_check": {
+        "banked_mse": 3.064720584483337e-08,
+        "delta_vs_fresh": 0.0
+      }
+    },
+    "201": {
+      "shell_effect_fraction": 0.04004281452233882,
+      "shell_supply": {
+        "billed_flops": 1864142721054,
+        "final_mse": 3.1650060391315035e-08,
+        "finite": true
+      },
+      "supply": {
+        "billed_flops": 1814375917598,
+        "final_mse": 3.0431497578155936e-08,
+        "finite": true
+      },
+      "supply_banked_cross_check": {
+        "banked_mse": 3.0431497578155936e-08,
+        "delta_vs_fresh": 0.0
+      }
+    },
+    "35": {
+      "shell_effect_fraction": 0.05101755547787401,
+      "shell_supply": {
+        "billed_flops": 1864142721054,
+        "final_mse": 2.9457529786240983e-08,
+        "finite": true
+      },
+      "supply": {
+        "billed_flops": 1814379070357,
+        "final_mse": 2.8027628684896043e-08,
+        "finite": true
+      },
+      "supply_banked_cross_check": {
+        "banked_mse": 2.8027628684896043e-08,
+        "delta_vs_fresh": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schema": "public-full688-transport-energy-coherence-cv-preregistration-v1",
+  "node": "P2R0F2J",
+  "status": "frozen-before-cv-metrics",
+  "question": "Can exact per-channel squared-contribution energy and cancellation coherence eliminate P2R0F2D's late-depth and four-network failures without replacing its best four-channel recurrent state?",
+  "parent_evidence": {
+    "p2r0f2d_oof_final_mse": 3.2969476163272226e-8,
+    "p2r0f2d_cv_results_sha256": "ddaf1ede02733eb4429dcaf003ff65f8d9fba2460352e8deba4fb54a3c111dbf",
+    "p2r0f2d_verification_sha256": "3099aa2f609c361ffb5114250edbbc8dfc439851a5d09e03943bd0f7b34a173e",
+    "p2r0f2i_oof_final_mse": 3.5165106535091496e-8,
+    "p2r0f2i_cv_results_sha256": "ab810134e83924b698eca0647f97a44ba3ef884653bb3fb3e6516862f00b445f",
+    "p2r0f2i_verification_sha256": "c642bc67bf84709be8c9ee8dca7a5b4371bae756de99841f3374188d9521bce1",
+    "p2r0f2i_decomposition_sha256": "676d4f566803ba1a68df0ba157c95867cbd52f069cbee742558e52e4b820df38",
+    "p2r0f2i_better_than_d_networks": 25,
+    "p2r0f2i_worse_than_d_networks": 663,
+    "fraction_i_vs_d_regression_added_l7_to_l15": 0.800135121775164,
+    "final_networkwise_variance_mse_pearson": 0.10765351547976038,
+    "hard_to_other_predicted_variance_ratio": 0.9515102574422474,
+    "same_four_maximum_gate_breach_ranks": [201, 310, 599, 643],
+    "interpretation": "P2R0F2D's generic signed state remains the best recurrent carrier. Learned diagonal variance is weak at network-level discrimination, motivating deterministic contribution geometry on top of that incumbent."
+  },
+  "data": {
+    "role": "observer_fit",
+    "role_ranks": [0, 688],
+    "networks": 688,
+    "group_key": "mlp_id",
+    "folds": 4,
+    "fold_assignment": "Identical to P2R0F2D/P2R0F2H/P2R0F2I: blake2s32(1753358438:mlp_id) modulo 4",
+    "fold_sizes": [147, 172, 171, 198],
+    "host_rule": "Use the old deterministic host unless max(final_layer_mse,max_layer_mse)>5e-7; all 11 such ranks must use the near-floor-min repair.",
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "observer_selection": "forbidden",
+    "public_board_identity_join": "forbidden",
+    "retuning_from_cv_metrics": "forbidden"
+  },
+  "architecture": {
+    "name": "four-channel transport-energy coherence observer",
+    "base": "P2R0F2D four-channel dynamic physical observer",
+    "signed_states": 4,
+    "signed_message": "m_lc = Phi_l * (s_{l-1,c} @ W_l)",
+    "contribution_energy": "e_lc = Phi_l^2 * ((s_{l-1,c} elementwise-squared) @ (W_l elementwise-squared))",
+    "coherence": "k_lc = clamp(m_lc/sqrt(e_lc+1e-4*R_l^2),-8,8)",
+    "meaning": "e_lc is the exact sum of squared signed input contributions before cross terms; k_lc exposes alignment versus cancellation in the actual autonomous state and current network weights.",
+    "cell_inputs": "standardized raw20 plus, for each channel, m/R, m/(sigma*R), log1p(e/R^2), and k",
+    "raw_features": 20,
+    "message_features": 8,
+    "energy_and_coherence_features": 8,
+    "input_features": 36,
+    "hidden": 96,
+    "parameters": 25600,
+    "cell": "Shared two-layer H96 SiLU trunk emits four physical-scale sources and four bounded gains; retain P2R0F2D's bounded near-identity 4x4 channel mix.",
+    "dynamic_gain_range": [0.75, 1.25],
+    "mix_delta_scale": 0.12,
+    "reported_correction": "channel zero",
+    "deployment_truth_inputs": 0,
+    "network_identity_inputs": 0,
+    "material_difference": "Unlike learned diagonal variance, energy/coherence is an exact deterministic observable of each signed recurrent channel and current weights; unlike P2R0F2D, the cell can distinguish aligned from cancellation-dominated transport."
+  },
+  "training": {
+    "seed": 1753358438,
+    "threads_per_fold": 2,
+    "parallel_folds": 4,
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "schedule": "CosineAnnealingLR over all six epochs",
+    "weight_decay": 2e-5,
+    "gradient_clip_norm": 5.0,
+    "own_primary_state_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "loss": "Exactly P2R0F2D's fit-fold-normalized corrected-layer rollout plus equal final focus, 2e-5 normalized auxiliary-state penalty, and 5e-4 near-identity transport/mixing penalty; no variance-calibration term.",
+    "checkpoint": "Fixed final epoch 6 in every fold; no checkpoint selection."
+  },
+  "primary_metric": "Network-weighted 688-network out-of-fold autonomous final-layer MSE",
+  "decision_gate": {
+    "mode": "all",
+    "pass": "Every rollout is finite AND OOF final-layer MSE <2.9672528546945005e-8 AND maximum per-network final-layer MSE <1e-7.",
+    "fail": "Any conjunct fails; close this exact transport-energy form measured and do not meter or deploy it.",
+    "oof_final_mse_strictly_below": 2.9672528546945005e-8,
+    "maximum_per_network_final_mse_strictly_below": 1e-7
+  },
+  "cost_contract": {
+    "parameter_count": 25600,
+    "measured_host_flops": 2126977459133,
+    "mean_plus_energy_transport_upper_estimate": 217997312,
+    "conservative_correction_upper_estimate": 1051656192,
+    "host_plus_correction_upper_estimate": 2128029115325,
+    "phase2_budget": 2200000000000,
+    "headroom_under_upper_estimate": 71970884675,
+    "requirement": "Preserve this frozen structural estimate; run a literal flopscope meter only after the accuracy gate passes."
+  },
+  "resource_bound": {
+    "maximum_process_rss_bytes_per_fold": 8589934592,
+    "maximum_experiment_storage_bytes": 2147483648
+  },
+  "launch_gate": {
+    "status": "hold_after_sealed_smoke",
+    "condition": "Do not start fold training until D3 is terminal or root explicitly releases the heavy lane."
+  },
+  "outcome": {
+    "pass": "Promote exact contribution-energy coherence for literal deployment construction and a separately frozen sub-1e-8 successor.",
+    "fail": "Close P2R0F2J measured; retain the broader autonomous residual problem open."
+  }
+}

@@ -1,0 +1,19 @@
+{
+ "utc": "2026-10-21T21:15:56Z",
+ "name": "hgfh_s135_c4s8e9_clean",
+ "tail": "\n# fable 2026-10-21 variant sm40_cap4_size8e9: drop the Smirnov plans with m*k*n >= 8.0e9, then cap reads per predict at 4\n_ASTRA_SM40_PLANS = {k: v for k, v in _ASTRA_SM40_PLANS.items() if not (len(k) >= 3 and k[0] * k[1] * k[2] >= 8.0e9)}\nclass _Sm40CapPlans(dict):\n    def get(self, key, default=None):\n        if _ASTRA_SM40_STATS.get('calls', 0) >= _SM40_CAP:\n            return None\n        return dict.get(self, key, default)\n\n\n_SM40_CAP = 4\n_ASTRA_SM40_PLANS = _Sm40CapPlans(_ASTRA_SM40_PLANS)\n\n# fable 2026-10-21 variant xsg_off: plain fancy-index gathers at every site (no scatter-for-gather); predictions byte-identical per the 10-12 certification, bill +0.077%\n_XSG_ON = set()\n",
+ "files": {
+  "science": {
+   "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct21_final_v1/stacks/hgfh_s135_c4s8e9_clean/candidate_hgfh_s135_c4s8e9_clean_science_v1.py",
+   "sha256": "faee94b35fe82c4f17432b73e80ca46945f8d109b7b78f9b27f4092ee0fdf07c",
+   "bytes": 3159876,
+   "base_sha256": "4e0c98dad658d836854cb46559c55989ecdf26849be6b44d8c4f0f58a9d68278"
+  },
+  "release": {
+   "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct21_final_v1/stacks/hgfh_s135_c4s8e9_clean/candidate_hgfh_s135_c4s8e9_clean_release_v1.py",
+   "sha256": "1a29eba718f433cb10dbad0d2ea34999c596627d41bab58541a0b374960283fe",
+   "bytes": 3159787,
+   "base_sha256": "a277c387a40b0ed97c5a38baffc3d7ec53d6afde16985fedc4cdd9fdf3a4c4c6"
+  }
+ }
+}

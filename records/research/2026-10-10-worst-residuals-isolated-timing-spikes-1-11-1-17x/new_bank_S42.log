@@ -1,0 +1,21 @@
+/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/board_evals/eval_333607.json: 100 networks with telemetry, lost: none
+quantity                      projected   platform    error
+kernel, mean s                    72.73      68.53    +6.1%
+overhead, mean s                  9.054      8.646    +4.7%
+residual, mean s                 0.3202     0.3068    +4.4%
+predict wall, mean s               82.1      77.49    +6.0%
+predict wall, worst network s      88.57      83.59    +6.0%
+residual, worst network s        0.3557     0.3561    -0.1%
+bill per network (local 35,100)   2.55e+11  2.559e+11    -0.3%
+kernel band projected 72.1-73.3 s; worst-network wall band 87.9-89.2 s
+platform constants with the local counts (43022 requests, 47634 round trips per network): residual 7.13 microseconds per request, overhead 0.1815 ms per round trip, wire time 17.9 microseconds per round trip
+a network may take x1.55 the mean wall and x1.30 the mean residual; the worst network took x1.079 and x1.161
+setups (worker, flops booked, wall s, kernel ms, wire ms):
+  w-1 gen 0: 29,580,671,798 flops, 4.306 s, 913 ms, 292 ms, SUCCESS
+  w-2 gen 0: 29,575,679,118 flops, 4.311 s, 923 ms, 290 ms, SUCCESS
+  w-3 gen 0: 29,679,690,942 flops, 4.293 s, 911 ms, 289 ms, SUCCESS
+  w-0 gen 0: 29,545,734,728 flops, 4.319 s, 917 ms, 286 ms, SUCCESS
+  w-4 gen 0: 29,648,885,706 flops, 4.296 s, 914 ms, 283 ms, SUCCESS
+the bank is now S42 (#333607, sha 471a9841f15a): wall 77.49 s mean / 83.59 worst, kernel 68.53, overhead 8.646, residual 0.3068 / 0.3561 s; memory-bound share (0.517, 0.618, 0.724) of S41 carried through the local ratios of c_s42b (memory-bound x0.9483, CPU-bound x1.0288): (0.497, 0.599, 0.707); written bank_S42_471a9841f15a_333607.json and calibration/bank.json
+bank in force: S42 #333607 /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/variants/s42_0fccf396_l3b128/candidate.py
+stage D reference: /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/calibration/bank_stage_d_635426c810b2_d_s42b_v4.json -> calibration/bank_stage_d_paced.json; stored parent legs: /Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/c_S42_bank_legs (1 sessions)

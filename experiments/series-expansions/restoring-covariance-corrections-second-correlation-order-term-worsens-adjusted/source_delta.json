@@ -1,0 +1,50 @@
+{
+  "parent": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py",
+  "parent_sha256": "a3efb3a1066506e5bc2bc5a5da668056277ba65ea6cdd88c1de3be636fd419f3",
+  "candidate_sha256": "802fb36745d189cb0adfa101c1ae6c192f183098bcbbc2375059fac49747982f",
+  "candidate_bytes": 978329,
+  "inverse_whole_source_exact": true,
+  "compiled": true,
+  "replacements": [
+    {
+      "before": "    # E1: the GN plane read uses the same retained r=0,1 terms.",
+      "after": "    # GN-R2: restore only this correction's r=2 read; the main pair map stays E1.",
+      "count": 1
+    },
+    {
+      "before": "             left1=FT[3:5, 0, :, None], right1=FT[2, 0, None, :],\n             rhoT=PB[0].T,",
+      "after": "             left1=FT[3:5, 0, :, None], right1=FT[2, 0, None, :],\n             left2=FT[4:6, 0, :, None], right2=FT[3, 0, None, :],\n             rho2=PB[1], rhoT=PB[0].T,",
+      "count": 1
+    },
+    {
+      "before": "    hold(fnp.add(g['B'], g['H'], out=g['B']))\n    hold(fnp.multiply(g['D'], g['B'], out=g['D']))",
+      "after": "    hold(fnp.add(g['B'], g['H'], out=g['B']))\n    hold(fnp.multiply(g['left2'], g['right2'], out=g['H']))\n    hold(fnp.multiply(g['rho2'], g['H'], out=g['H']))\n    hold(fnp.add(g['B'], g['H'], out=g['B']))\n    hold(fnp.multiply(g['D'], g['B'], out=g['D']))",
+      "count": 1
+    }
+  ],
+  "current_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "no_fit_or_sweep": true,
+  "scope": "Restore existing historic GN r2 term only; main pair map stays E1; fallback already has r2.",
+  "formula": "B[0]+=rho^2/2*A4_i*A3_j; B[1]+=rho^2/2*A5_i*A3_j; existing D and divisors 2/6 unchanged.",
+  "source_cost": {
+    "extra_flops_per_layer": 6291456,
+    "layers": 13,
+    "extra_flops_per_network": 81788928
+  },
+  "history": "Original GN3923-3944 had r2; precision_g3_plane_e1_v1 removed main-plane and GN r2 together. No isolated current GN-only restoration found in bounded review.",
+  "numerical_execution": false
+}

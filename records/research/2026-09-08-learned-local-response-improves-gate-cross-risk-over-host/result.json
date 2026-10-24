@@ -1,0 +1,318 @@
+{
+  "blas_attestation": "Environment1; detected pools checked if present. Empty list is not observed pool evidence.",
+  "completed_utc": "2026-09-08T14:37:16.776734+00:00",
+  "final_score_evidence": false,
+  "no_fit": true,
+  "passed": true,
+  "qualification": "Gate information only, not covariance quality, final raw MSE or adjusted score. Cross-stream products remove sampling-MSE in expectation; common MPS float32 bias remains. Jackknife deletes whole independent input batches.",
+  "qualification_sha256": "52938606d3f116f5f41021fd19f5f3b03f8b9d7c2713741d0d19cbada4221494",
+  "records": [
+    {
+      "archives": [
+        {
+          "cpu64_sign_disagreements": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            2,
+            0
+          ],
+          "numerical_qualification": "Independent plain-Gaussian PCG64DXSM streams, MPS f32 forward, exact integral per-batch counts, CPU f64 sign sensitivity on first1024 rounded inputs. No current mean target or carrier write. Sampling independence does not remove shared arithmetic bias.",
+          "samples": 1048576,
+          "sha256": "1ba2375bc716e012e47f8bc814a39a7ce34006114286eedc51db8d36f92a2566",
+          "stream": "A"
+        },
+        {
+          "cpu64_sign_disagreements": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            2,
+            2
+          ],
+          "numerical_qualification": "Independent plain-Gaussian PCG64DXSM streams, MPS f32 forward, exact integral per-batch counts, CPU f64 sign sensitivity on first1024 rounded inputs. No current mean target or carrier write. Sampling independence does not remove shared arithmetic bias.",
+          "samples": 1048576,
+          "sha256": "7e7f8cfa5dd9aa311f0d802ced75ced8fe1a57a83970864a26e0c051dd045bd3",
+          "stream": "B"
+        }
+      ],
+      "cross_mse": {
+        "gaussian_gate": 1.4161087696177623e-06,
+        "host_response": 2.985702000407831e-08,
+        "learned_response": 2.58738208729921e-08
+      },
+      "cross_mse_jackknife_se": {
+        "gaussian_gate": 1.778261019281381e-08,
+        "host_response": 5.8137722742440824e-09,
+        "learned_response": 5.695441601009471e-09
+      },
+      "denominators_positive": true,
+      "independent_stream_noisy_mse": [
+        {
+          "gaussian_gate": 1.5175339768699156e-06,
+          "host_response": 1.0462267977883931e-07,
+          "learned_over_gaussian": 0.06695780079870695,
+          "learned_over_host": 0.9712113849819097,
+          "learned_response": 1.0161073772852537e-07,
+          "stream": "A"
+        },
+        {
+          "gaussian_gate": 1.4603113513045048e-06,
+          "host_response": 1.0071914916821303e-07,
+          "learned_over_gaussian": 0.06557827060017538,
+          "learned_over_host": 0.9508091931596451,
+          "learned_response": 9.576469295635457e-08,
+          "stream": "B"
+        }
+      ],
+      "learned_over_gaussian": 0.01827106888122442,
+      "learned_over_host": 0.8665908677241692,
+      "paired_gates": {
+        "learned_minus_point8_gaussian": -1.1070131948212179e-06,
+        "learned_minus_point8_gaussian_jackknife_se": 1.1789822144119593e-08,
+        "learned_minus_point9_host": -9.974971306783788e-10,
+        "learned_minus_point9_host_jackknife_se": 9.633009624814156e-10
+      },
+      "passed": true,
+      "per_layer": [
+        {
+          "gaussian_gate": 1.0025567225596947e-06,
+          "host_response": 7.718660876513226e-09,
+          "layer": 8,
+          "learned_response": 5.483871698508665e-09
+        },
+        {
+          "gaussian_gate": 1.108985319889291e-06,
+          "host_response": 1.2624256479003987e-08,
+          "layer": 9,
+          "learned_response": 1.2429239966092707e-08
+        },
+        {
+          "gaussian_gate": 1.2844015843370981e-06,
+          "host_response": 2.129205621368191e-08,
+          "layer": 10,
+          "learned_response": 1.8607341389673327e-08
+        },
+        {
+          "gaussian_gate": 1.4679270104624615e-06,
+          "host_response": 3.8759376693893074e-08,
+          "layer": 11,
+          "learned_response": 3.405931600878957e-08
+        },
+        {
+          "gaussian_gate": 1.5639803343291835e-06,
+          "host_response": 3.239887325245246e-08,
+          "layer": 12,
+          "learned_response": 2.6856727794748908e-08
+        },
+        {
+          "gaussian_gate": 1.8147101581448943e-06,
+          "host_response": 5.064693846298514e-08,
+          "layer": 13,
+          "learned_response": 4.1753486692186424e-08
+        },
+        {
+          "gaussian_gate": 1.6702002576017135e-06,
+          "host_response": 4.5558978050018405e-08,
+          "layer": 14,
+          "learned_response": 4.1926762560945146e-08
+        }
+      ],
+      "rank": 35
+    },
+    {
+      "archives": [
+        {
+          "cpu64_sign_disagreements": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "numerical_qualification": "Independent plain-Gaussian PCG64DXSM streams, MPS f32 forward, exact integral per-batch counts, CPU f64 sign sensitivity on first1024 rounded inputs. No current mean target or carrier write. Sampling independence does not remove shared arithmetic bias.",
+          "samples": 1048576,
+          "sha256": "fdf28308d985c9d8be85b2827d389c23d8357709a6e0d36ac65d3a6f2f8c2011",
+          "stream": "A"
+        },
+        {
+          "cpu64_sign_disagreements": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "numerical_qualification": "Independent plain-Gaussian PCG64DXSM streams, MPS f32 forward, exact integral per-batch counts, CPU f64 sign sensitivity on first1024 rounded inputs. No current mean target or carrier write. Sampling independence does not remove shared arithmetic bias.",
+          "samples": 1048576,
+          "sha256": "2fc05cd35c81e2ede4dbca91cbbe0c97f16b5e264242cc68d6ce2739b45bcc13",
+          "stream": "B"
+        }
+      ],
+      "cross_mse": {
+        "gaussian_gate": 1.361891627429373e-06,
+        "host_response": 2.6550840051559765e-08,
+        "learned_response": 2.3348715084302143e-08
+      },
+      "cross_mse_jackknife_se": {
+        "gaussian_gate": 1.6002944753330675e-08,
+        "host_response": 5.2239320897258155e-09,
+        "learned_response": 5.380443035162074e-09
+      },
+      "denominators_positive": true,
+      "independent_stream_noisy_mse": [
+        {
+          "gaussian_gate": 1.436588816066424e-06,
+          "host_response": 9.545915653869799e-08,
+          "learned_over_gaussian": 0.06405661495610028,
+          "learned_over_host": 0.9640040827691776,
+          "learned_response": 9.20230166410069e-08,
+          "stream": "A"
+        },
+        {
+          "gaussian_gate": 1.435386264460185e-06,
+          "host_response": 1.0583434923228488e-07,
+          "learned_over_gaussian": 0.07166450017141993,
+          "learned_over_host": 0.9719551349977148,
+          "learned_response": 1.0286623919546074e-07,
+          "stream": "B"
+        }
+      ],
+      "learned_over_gaussian": 0.01714432676877074,
+      "learned_over_host": 0.8793964725395004,
+      "paired_gates": {
+        "learned_minus_point8_gaussian": -1.0661645868591963e-06,
+        "learned_minus_point8_gaussian_jackknife_se": 1.1256971615475509e-08,
+        "learned_minus_point9_host": -5.470409621016463e-10,
+        "learned_minus_point9_host_jackknife_se": 1.060435420615712e-09
+      },
+      "passed": true,
+      "per_layer": [
+        {
+          "gaussian_gate": 1.0038716029140558e-06,
+          "host_response": 1.0042998779919412e-08,
+          "layer": 8,
+          "learned_response": 8.010064396276543e-09
+        },
+        {
+          "gaussian_gate": 1.1738176219712605e-06,
+          "host_response": 1.540295193138486e-08,
+          "layer": 9,
+          "learned_response": 1.517674016171182e-08
+        },
+        {
+          "gaussian_gate": 1.2597021131642769e-06,
+          "host_response": 1.8339252834569583e-08,
+          "layer": 10,
+          "learned_response": 1.8128656928175695e-08
+        },
+        {
+          "gaussian_gate": 1.5358190372616816e-06,
+          "host_response": 2.273668746148494e-08,
+          "layer": 11,
+          "learned_response": 1.949695559338985e-08
+        },
+        {
+          "gaussian_gate": 1.446930124636179e-06,
+          "host_response": 3.97340149241686e-08,
+          "layer": 12,
+          "learned_response": 3.271020093180447e-08
+        },
+        {
+          "gaussian_gate": 1.547290707377012e-06,
+          "host_response": 3.174437979251063e-08,
+          "layer": 13,
+          "learned_response": 2.992422647068116e-08
+        },
+        {
+          "gaussian_gate": 1.5658101846811445e-06,
+          "host_response": 4.785559463688034e-08,
+          "layer": 14,
+          "learned_response": 3.9994161108075464e-08
+        }
+      ],
+      "rank": 100
+    }
+  ],
+  "rss_bytes": 69074944,
+  "source_bindings": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/GATE_ADMISSION.json": {
+      "bytes": 6083,
+      "mtime_ns": 1788878206415277855,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/GATE_ADMISSION.json",
+      "sha256": "565afe2b2da4dfb43f70adfecc6127f41cc83545c4cb0932b945fb6f10fda6b4"
+    },
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/PROTOCOL.md": {
+      "bytes": 5987,
+      "mtime_ns": 1788877701753635800,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/PROTOCOL.md",
+      "sha256": "565f0a87e3027e472f9117f7b0c74e6f9aa9449761d37c8ba258c48487d2d5fd"
+    },
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/check.py": {
+      "bytes": 25865,
+      "mtime_ns": 1788877783110059800,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/check.py",
+      "sha256": "146c70ace19b03a3025047f3df044e9f044ee96b6e00fe673eb02f07ebc8b1f2"
+    },
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/qualification/completion.json": {
+      "bytes": 108,
+      "mtime_ns": 1788878107522325200,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/qualification/completion.json",
+      "sha256": "aa780072c7d44a2572565ecbf87a2bfa10a9324ec6969f6bdb1efa499e33bc0f"
+    },
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/qualification/result.json": {
+      "bytes": 3860363,
+      "mtime_ns": 1788878107518745402,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/qualification/result.json",
+      "sha256": "52938606d3f116f5f41021fd19f5f3b03f8b9d7c2713741d0d19cbada4221494"
+    },
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/score_gate_information.py": {
+      "bytes": 10715,
+      "mtime_ns": 1788877699210810235,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_certified_native_v1/score_gate_information.py",
+      "sha256": "1b107cc76aac2880f002491634e1a9a51478fc0bafbda8ee338c2e01e41c4ebc"
+    },
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_rounding_v1/PROTOCOL.md": {
+      "bytes": 8403,
+      "mtime_ns": 1788874020896589000,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_response_rounding_v1/PROTOCOL.md",
+      "sha256": "1c7a69ad6e9f1f9e6186be5a48ef45a495daca76a668f24dfc68fd83a546b2cc"
+    }
+  },
+  "target_bindings": {
+    "100_A": {
+      "bytes": 977282,
+      "mtime_ns": 1788682328225214709,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/mean_response_gate_truth_r100_A_v1.npz",
+      "sha256": "fdf28308d985c9d8be85b2827d389c23d8357709a6e0d36ac65d3a6f2f8c2011"
+    },
+    "100_B": {
+      "bytes": 977282,
+      "mtime_ns": 1788682336638668908,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/mean_response_gate_truth_r100_B_v1.npz",
+      "sha256": "2fc05cd35c81e2ede4dbca91cbbe0c97f16b5e264242cc68d6ce2739b45bcc13"
+    },
+    "35_A": {
+      "bytes": 977282,
+      "mtime_ns": 1788682311309828451,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/mean_response_gate_truth_r35_A_v1.npz",
+      "sha256": "1ba2375bc716e012e47f8bc814a39a7ce34006114286eedc51db8d36f92a2566"
+    },
+    "35_B": {
+      "bytes": 977282,
+      "mtime_ns": 1788682319733962598,
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/mean_response_gate_truth_r35_B_v1.npz",
+      "sha256": "7e7f8cfa5dd9aa311f0d802ced75ced8fe1a57a83970864a26e0c051dd045bd3"
+    }
+  },
+  "threadpools": [],
+  "wall_s": 0.055042000487446785
+}

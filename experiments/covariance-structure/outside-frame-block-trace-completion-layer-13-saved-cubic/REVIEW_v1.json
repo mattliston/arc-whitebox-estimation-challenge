@@ -1,0 +1,65 @@
+{
+  "verdict": "CONFIRMED_BANK_OWNERSHIP_BUG_IN_PBT_V1",
+  "candidate_sha256": "1a203e4cf4abe84a903ed1a4d026f821b80a83789f834905829fe0ffbb52795e",
+  "equation": "I=G^2 B G; DeltaI=G^2 Delta G, both live-masked. V1 owns I+DeltaI but encodes I. With any encoded newborn N and trace R, represented post plane is I+N+R+(T-(I+DeltaI)-N-R)=T-DeltaI.",
+  "diagonal": "Diagonal deficit is gq^3 * Delta_diag on alive units. Newborn selection cannot cancel it: N is added and subtracted identically.",
+  "source_evidence_lines": {
+    "PBT modifies model CP read": [
+      20094
+    ],
+    "PBT modifies model CP diagonal": [
+      20103
+    ],
+    "Inherited diagonal consumes augmented model diagonal": [
+      3431,
+      17198,
+      17550
+    ],
+    "Inherited plane consumes augmented model CP plane": [
+      3432,
+      17199,
+      17551
+    ],
+    "Star subtracts the ownership plane": [
+      3502,
+      17269,
+      17621
+    ],
+    "Innovation also consumes wrong inherited diagonal": [
+      3445,
+      17212,
+      17564
+    ],
+    "Radial source gets augmented diagonal": [
+      1873,
+      3376,
+      17143,
+      17493
+    ]
+  },
+  "tiny": {
+    "n": 9,
+    "incorrect_identity_max_error": 3.3306690738754696e-16,
+    "fixed_target_identity_max_error": 2.220446049250313e-16,
+    "uncorrected_max_deficit": 0.44475638130626804,
+    "star_encoding_included": true,
+    "innovation_dependent_births_included": true
+  },
+  "minimal_fix": [
+    "Retain augmented K21 and k3 for nonlinear response, model hooks, and target.",
+    "Retain a bank-owned CP plane and exact parent diagonal; use both for inherited plane/diagonal before innovation, birth, and star assembly.",
+    "Use bank-owned diagonal with unchanged pp in omitted_radial_source; its column-energy contraction otherwise mismatches augmented diagonal.",
+    "Preserve NP forms: parent read cache precedes _np_forms, so capture the owner plane after _np_forms or explicitly apply the same forms.",
+    "Do not merely add a star repair afterward: innovation and resulting newborn t/s also use the wrong inherited diagonal."
+  ],
+  "other_review": {
+    "tensor_math": "AAR and RRR trace denominators r and n-r+2 are correct for Sym(v,M); Q-outside vectors are orthogonal to the retained Q tensor in exact arithmetic.",
+    "layer": "Join layer13 uses W[13] and the next layer consumes W[14]; source hook location is consistent.",
+    "ARR_OTT": "PBT omits the ARR component. OTT reconstructs omitted output rows of the retained-Q bank, while PBT corrects new joining J outside Q; no direct same-tensor double count found.",
+    "covariance": "The corrected K21 legitimately changes nonlinear mean/covariance and hooks. Restore ownership only in bank representation bookkeeping; do not erase the response correction."
+  },
+  "limits": [
+    "The algebra proves an internal representation mismatch, not that fixing it improves terminal error.",
+    "Saved proxy uses historical source/state; no new native/model run was performed."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "phase2-residual-observer-v3-exact-launch-capacity-common-driver-meters-v1",
+  "status": "PASS_ALL_FOUR_EXACT_LAUNCH_CAPACITY_ZEROHEAD_COMMON_DRIVER_METERS__ACCURACY_UNSCORED",
+  "authority": {
+    "meter_driver_sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34",
+    "meter_verifier_sha256": "91471a7d543020460359acf7db8548969182734e9469ec02194002e3008d37d8",
+    "generalized_body_sha256": "0b18dba56b6790f21640314f5904c7cd91d165558d90bc5c265898bb632a9310",
+    "primary_source_sha256": "800b3833c41a6809e83250e347f4234e54db943f2482ee96290c6b6173d1c019",
+    "control_source_sha256": "c1ff172be0acde9ad020718f068fe613b8d04f8ca765c8b33f284cabd4f63418",
+    "flopscope": "0.12.0",
+    "whestbench": "0.16.0",
+    "numpy": "2.4.6"
+  },
+  "limits": {
+    "largest_integer_at_0p1_floor": 219902325555,
+    "residual_seconds_strictly_below": 0.4,
+    "descendant_peak_rss_bytes_strictly_below": 8589934592,
+    "shape": [16, 1024],
+    "dtype": "float32",
+    "all_values_finite": true
+  },
+  "runs": {
+    "cp1536_h128_c256_local": {
+      "receipt_sha256": "bf8a24100d638c98bec4c16c11cffd48230a18c5e622061a70ca5014a6afcb0f",
+      "flops": 205868336750,
+      "floor_margin": 14033988805,
+      "residual_seconds": 0.14480945700779557,
+      "wall_seconds": 1.4871050408110023,
+      "descendant_peak_rss_bytes": 2477686784,
+      "receipt_replay": "PASS_METER_RECEIPT_VERIFICATION"
+    },
+    "cp1536_h128_c256_recurrent": {
+      "receipt_sha256": "715536eef557918e2e3fca7ed3e90050cb757c5649af1ddc07941fd59aa358ab",
+      "flops": 209904700250,
+      "floor_margin": 9997625305,
+      "residual_seconds": 0.1468555759638548,
+      "wall_seconds": 1.5128262909129262,
+      "descendant_peak_rss_bytes": 2358329344,
+      "receipt_replay": "PASS_METER_RECEIPT_VERIFICATION"
+    },
+    "cp1792_h64_c96_local": {
+      "receipt_sha256": "00af09b0a39bce7384beae7e546aba4207af47f0743b437684094fac6793d439",
+      "flops": 216168217070,
+      "floor_margin": 3734108485,
+      "residual_seconds": 0.1620437316596508,
+      "wall_seconds": 1.495936166960746,
+      "descendant_peak_rss_bytes": 2368356352,
+      "receipt_replay": "PASS_METER_RECEIPT_VERIFICATION"
+    },
+    "cp1792_h64_c96_recurrent": {
+      "receipt_sha256": "ce9a4f7a91d255569de6b74949315db9c0a78b4028296d6ae5bdbd13c8871e31",
+      "flops": 218186399450,
+      "floor_margin": 1715926105,
+      "residual_seconds": 0.14445420959964395,
+      "wall_seconds": 1.4984894171357155,
+      "descendant_peak_rss_bytes": 2331656192,
+      "receipt_replay": "PASS_METER_RECEIPT_VERIFICATION"
+    }
+  },
+  "behavior": {
+    "zero_mean_head": true,
+    "one_client_visible_latch_scalar_per_active_layer": true,
+    "finite_checks_clips_selects_and_client_sync_included": true,
+    "exact_host_bytes_verified_separately": "LAUNCH_ZEROHEAD_PARITY_V3.json",
+    "nonzero_checkpoint_status": "HOLD_CPU_TORCH_TO_FLOPSCOPE_INTERNAL_STATE_REPLAY"
+  },
+  "access": {
+    "dataset_argument": null,
+    "public_target_values_accessed": 0,
+    "model_fits": 0,
+    "accuracy_status": "UNSCORED_SYNTHETIC_METER_ONLY"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "p2r0c1d3-protected160-40-run-manifest-v1",
+  "status": "frozen-before-host-generation-and-target-metrics",
+  "invocation": [
+    "/Users/matt/anaconda3/bin/python3",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_cp16384_dynamic_multistate_pilot_v1/run_protected_pilot.py"
+  ],
+  "program_sha256": "f673a3420a87f09eb21e7a5ef1f939335f100a377e2f7689c01bd4717843c520",
+  "host_helper_sha256": "f9e39975c3892adefceb2d749536d65b9e9d5216cf4e7148195d41f9225044a8",
+  "host_python": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+  "frozen_roster": {
+    "role": "observer_fit",
+    "ordered_role_ranks_inclusive": [0, 199],
+    "count": 200
+  },
+  "frozen_split": {
+    "train_role_ranks_inclusive": [0, 159],
+    "eval_role_ranks_inclusive": [160, 199]
+  },
+  "outputs": {
+    "hosts_complete": "runs/protected160_40_v1/HOSTS_COMPLETE.json",
+    "target_claim": "runs/protected160_40_v1/TARGET_OPEN_CLAIM.json",
+    "model": "runs/protected160_40_v1/MODEL.pt",
+    "result": "runs/protected160_40_v1/RESULT.json"
+  },
+  "single_use": {
+    "fits": 1,
+    "autonomous_evaluations": 1,
+    "retries": 0,
+    "target_claim_is_irreversible": true
+  },
+  "role_firewall": {
+    "target_role": "observer_fit",
+    "target_projection": ["mlp_id", "all_layer_means"],
+    "target_rows": 200,
+    "observer_selection": "forbidden",
+    "name_join": "forbidden",
+    "board_join": "forbidden"
+  }
+}

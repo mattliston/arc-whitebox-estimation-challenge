@@ -1,0 +1,119 @@
+{
+  "bindings": {
+    "DESIGN.md": "ed784f1572b70ae831a91c449f5f4f9b3300b2edd48cbf99b2aa6a1d2966980f",
+    "PREREGISTRATION.json": "8c765580a9c67991acd632876dcf04cc570a31f0730bfc735ce998ec802e15e9",
+    "verify_static.py": "be8d0ed93f40b60b3e48020ba0dcf8dc4246f38cc8bb4ff7d8c63190362404c8"
+  },
+  "checks": {
+    "all_seven_sector_partition_tables_exact": true,
+    "conservative_integer_cost_and_memory_ledgers_exact": true,
+    "difference_replica_unbiasedness_exact": true,
+    "fixed_rademacher_all_sector_oracle_nonzero": true,
+    "p_plus_minus_lower_marginal_nonidentifiability_exact": true,
+    "p_plus_minus_relu_witness_exact": true,
+    "row_target_weight_estimator_or_gate_access": false,
+    "six_gemm_row_pack_exact": true,
+    "support3_block_formula_exact": true,
+    "two_rational_relu_resets_exact": true
+  },
+  "finite_law_oracle": {
+    "rademacher_sector_actions": {
+      "111111": "8294400",
+      "21111": "188490240",
+      "2211": "410411520",
+      "222": "64041120",
+      "3111": "220915200",
+      "321": "306591360",
+      "411": "100356000"
+    },
+    "relu_means": {
+      "minus": "9/8",
+      "plus": "3/4"
+    },
+    "two_reset_support3_actions": {
+      "-1": [
+        "13361768745/8192",
+        "323817022545/131072"
+      ],
+      "1": [
+        "-7839816255/8192",
+        "-14395982445/8192"
+      ]
+    }
+  },
+  "next_action": "Independent static review; only then authorize the fixed target-blind 315-cell split action-energy gate.",
+  "resource": {
+    "combined_max_flops": 1985367333384,
+    "combined_projected_peak_bytes": 5679808512,
+    "costs": {
+      "d4_association_upper": 189050880,
+      "difference64_casts": 25559040,
+      "difference_subtractions": 12779520,
+      "factor_power_and_mixed_products": 271319040,
+      "iid_normal_generation": 27262976,
+      "path_float32_matmuls": 52319354880,
+      "path_relu": 25559040,
+      "six_degree_batched_float64_matmuls": 571488337920,
+      "total_q3plus_polynomial_assembly": 1411645440,
+      "type_reductions_and_scales": 25620480,
+      "weight64_cast_and_powers": 188743680
+    },
+    "enumerated_incremental_core_flops": 625985232896,
+    "explicit_incremental_simultaneous_bytes": 220053504,
+    "fixed_padding_flops": 2786811904,
+    "incremental_admission_cap_flops": 628772044800,
+    "incremental_arena_cap_bytes": 268435456,
+    "map_row_units": 9088,
+    "margin_to_2pow41": 213655922168,
+    "memory_components": {
+      "all_factor_powers_fp64": 40894464,
+      "difference_fp32": 3407872,
+      "factor_input_fp64": 16252928,
+      "index_coefficient_reserve": 16777216,
+      "path_pingpong_fp32": 13631488,
+      "power_sum_outputs_fp64": 74448896,
+      "sector_tuple_scratch_fp64": 4194304,
+      "split_sector_outputs_fp64": 114688,
+      "weight_powers_fp64": 50331648
+    },
+    "packed_rows_by_degree": {
+      "1": 1280,
+      "2": 1856,
+      "3": 1984,
+      "4": 1856,
+      "5": 1280,
+      "6": 832
+    }
+  },
+  "schema": "q24-ng-k6-difference-replica-block-static-verification-v1",
+  "sector_term_counts": {
+    "222": [
+      16,
+      29,
+      12,
+      42,
+      52,
+      65,
+      66
+    ],
+    "42": [
+      9,
+      13,
+      6,
+      19,
+      22,
+      28,
+      29
+    ],
+    "6": [
+      4,
+      5,
+      3,
+      7,
+      8,
+      10,
+      11
+    ]
+  },
+  "status": "PASS_STATIC_DESIGN_ONLY__SOURCE_GATE_NOT_RUN"
+}

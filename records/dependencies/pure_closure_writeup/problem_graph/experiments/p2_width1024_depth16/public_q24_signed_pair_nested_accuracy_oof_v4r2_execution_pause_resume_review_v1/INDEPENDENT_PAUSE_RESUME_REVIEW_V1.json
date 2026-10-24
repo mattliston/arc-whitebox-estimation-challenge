@@ -1,0 +1,95 @@
+{
+  "access_accounting": {
+    "live_oof_output_bytes_opened": 0,
+    "live_oof_temporary_directory_inspected": false,
+    "model_bytes_opened": 0,
+    "numerical_or_empirical_payloads_opened": 0,
+    "process_metadata_snapshot_count": 1,
+    "target_values_decoded": 0
+  },
+  "authorization": {
+    "accuracy_result_authority": false,
+    "board_or_submission_authority": false,
+    "execution_retry_authority": false,
+    "model_or_target_access_authority": false,
+    "pause_or_resume_signal_authority": false,
+    "postrun_seal_or_review_authority": false
+  },
+  "continuity_review": {
+    "claim_owner_pid_equals_receipt_pid": true,
+    "current_process_exact_argv_equals_stored_command": true,
+    "current_process_pid": 50035,
+    "current_process_state_observed_after_resume": "Ss+",
+    "current_process_was_not_signaled_by_reviewer": true,
+    "same_consumed_capability_bound_by_claim_preflight_and_command": true,
+    "same_one_shot_process_continuity_supported": true
+  },
+  "decision": "KEEP_RESUMED_ONE_SHOT_PROCESS_RUNNING__HOLD_ONLY_DOWNSTREAM_POSTRUN_SEALING_UNTIL_TRACE_SCHEMA_SUCCESSOR_IS_FROZEN_AND_REVIEWED",
+  "issued_by": "pause_resume_independent_reviewer",
+  "issued_utc": "2026-08-28T18:15:57Z",
+  "material_hold_blockers": [
+    {
+      "actual_science_fields": [
+        "elapsed_seconds_observational_only",
+        "maximum_process_rss_bytes_observational_only"
+      ],
+      "effect": "the exact V1R1 postrun validator rejects the actual immutable science trace before replay even though pause-inflated elapsed values are scientifically observational",
+      "label": "POSTRUN_TRACE_FIELD_SCHEMA_INCOMPATIBILITY",
+      "postrun_v1r1_required_fields": [
+        "wall_seconds",
+        "peak_rss_bytes"
+      ],
+      "repair": "freeze and independently review a new postrun successor that exact-requires the actual science field names, validates finite nonnegative elapsed values and exact non-bool RSS integers, and leaves those observations outside H selection and accuracy gates"
+    }
+  ],
+  "named_control_root_review": {
+    "claim_sha256": "1af6353dc46b35b69fa9691a1882de554604577b9b1d9cac566ad3b8042feca6",
+    "command_sha256": "0184b77cfbef43523982fc7af3efc75c870b1f33a1b687bb3a5ee65cc35a1d60",
+    "consumed_capability_sha256": "6758a3c0f639c241ae730850bcffb2f95d76a17d664010373736ee4df5cf726a",
+    "execution_anchor_sha256": "29631d44b9503340a71d508eee1a255b6e42ac6ba262b4544b87cda011259b64",
+    "final_release_sha256": "b81f489579114813ecea112f697f37009717ea00c63b8cde37d8fccd3a688a46",
+    "full_preflight_sha256": "a423ddc5a8ad7dbb1772e63b890887e2bcdec95f0b6cc5af8a24701f0dd2e7c3",
+    "owner_pid": 50035,
+    "status": "PASS_EXACT_HASH_ARGV_PID_AND_ONE_USE_BINDINGS"
+  },
+  "pause_receipt_review": {
+    "byte_count": 3309,
+    "canonical_sorted_indented_ascii_json": true,
+    "duplicate_keys_rejected": true,
+    "exact_key_sets_and_scalar_types": true,
+    "nonfinite_json_constants_absent": true,
+    "sha256": "14bdde839aaea483f5150e7dd0171854db9991c1287d53bfca89dc605ab3f2f6",
+    "status": "PASS_EXACT_BYTES_SCHEMA_TYPES_AND_DECLARATIONS"
+  },
+  "pause_science_review": {
+    "code_has_no_signal_handler_timeout_deadline_or_elapsed_step_gate": true,
+    "elapsed_time_is_emitted_only_as_observational_trace_data": true,
+    "fixed_epoch_and_step_loops_preserve_training_count": true,
+    "fixed_seed_rng_and_optimizer_state_remain_in_process_memory": true,
+    "local_signal_manual_confirms_SIGCONT_continues_after_stop": true,
+    "local_signal_manual_confirms_SIGSTOP_cannot_be_caught_or_ignored": true,
+    "model_H_or_accuracy_decisions_read_elapsed_or_RSS": false,
+    "numerical_state_reinitialization_caused_by_stop_continue": false,
+    "status": "PASS_SIGSTOP_SIGCONT_NUMERICAL_CONTINUITY_AND_OBSERVATIONAL_TIMING"
+  },
+  "postrun_static_probe": {
+    "actual_science_trace_field_schema_accepted_by_v1r1": false,
+    "finite_nonnegative_inflated_wall_seconds_accepted_by_v1r1": true,
+    "inflated_probe_seconds": 1000008156.0,
+    "postrun_H_or_accuracy_decisions_read_wall_seconds_or_RSS": false,
+    "status": "HOLD_END_TO_END_COMPATIBILITY__VOCABULARY_MISMATCH_ONLY"
+  },
+  "review_id": "q24-oof-v4r2-pause-resume-review-14bdde839aaea483-v1",
+  "review_scope": "independent control-plane and source-level review of the exact pause/resume receipt and its downstream observational-timing compatibility",
+  "review_scope_boundary": "no live OOF output, temporary output directory, target, model, selection, metric, or numerical payload was opened; historical progress markers and signal delivery instants were not independently reconstructed",
+  "reviewer_different_from_receipt_issuer": true,
+  "schema": "public-q24-signed-pair-oof-v4r2-execution-pause-resume-independent-review-v1",
+  "signal_time_claim_review": {
+    "duration_is_explicitly_approximate": true,
+    "exact_signal_delivery_timestamp_claimed": false,
+    "issued_utc_is_receipt_issuance_time_not_signal_time": true,
+    "pause_resume_times_are_labeled_system_snapshots": true,
+    "snapshot_delta_seconds": 8156
+  },
+  "status": "HOLD_DOWNSTREAM_POSTRUN_ONLY__PAUSE_RESUME_CONTINUITY_AND_SCIENCE_VALIDITY_VERIFIED"
+}

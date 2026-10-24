@@ -1,0 +1,55 @@
+{
+  "schema": "phase2-fb-ec4-v4-all17-target-free-cprofile-finding-v1",
+  "status": "FAIL_RESIDUAL_ONLY__ALL17_CAUSAL_BUT_INSUFFICIENT",
+  "created_date": "2026-08-24",
+  "candidate_sha256": "8883b2ccd8fce6f7993b32af615041ff9ec915c179f735a782ac5e7c86199734",
+  "preregister_sha256": "6a19088af2b6934c513d7ba4526634daca70b3f9b6adbd401fe0413f54222517",
+  "meter_receipt": {
+    "repository_relative_path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/meter_protocol/runs/fb_ec4_v4_all17_weighted_n1_s8_seed20260824/receipt.json",
+    "sha256": "ac4393662dcc838b6870c41fe13328f5f84cf1632ec64472af035352573e338c",
+    "flops_used": 2187178578919,
+    "residual_wall_time_s": 0.7322775865904987,
+    "wall_time_s": 37.64490074990317,
+    "flopscope_backend_time_s": 36.33282587304711,
+    "flopscope_overhead_time_s": 0.5797972902655602,
+    "peak_solution_descendant_rss_bytes": 5854887936,
+    "estimator_output_finite_before_residual_fallback": true
+  },
+  "comparison_to_c9": {
+    "c9_receipt_sha256": "ddb29af870631829da8f92983a63f93f9c602b7672ca0f8a8fb2e52047ee7f2c",
+    "residual_reduction_s": 0.08156309043988585,
+    "remaining_reduction_required_s": 0.3322775865904987,
+    "flop_delta": 0,
+    "sampled_solution_descendant_rss_delta_bytes": 413220864
+  },
+  "profile": {
+    "driver_sha256": "7f0d2f212b8c357d2d2955cab24c77e789f1567910e80fce3ea55d70cbb538e4",
+    "ephemeral_profile_sha256": "2a519b27bb48f1c50bb1f855422351f282e273da90b4084bb1b3490b412b7191",
+    "total_function_calls": 5236302,
+    "primitive_function_calls": 5186757,
+    "profiled_wall_time_s": 40.247,
+    "estimator_python_self_time_s": {
+      "_predict": 0.215,
+      "_four_pair_edgeworth": 0.126,
+      "_full_relu_reset": 0.109,
+      "_q32_context": 0.027,
+      "_connected_planes": 0.029,
+      "_edgeworth_weights": 0.021,
+      "_push_quartic": 0.016,
+      "_cp_read": 0.019
+    }
+  },
+  "inference": "Collapsing the six Q32 kernel contractions into one exact all-channel contraction removed 0.081563 seconds of measured residual without changing the FLOP bill or any fixed-fixture output. The remaining 0.332278-second gap is dominated by whole-reset and layer-state allocation/refcount lifetime; further wrapper-call-only reduction is insufficient.",
+  "next_fixed_experiments": [
+    "instrument BudgetContext timing deltas around immutable layer sections to localize residual lifetime",
+    "reuse native pointwise and reduction destinations only where FlopScope forwards out directly",
+    "retain the all17 contraction and eliminate repeated full-reset or layer-state allocation without changing the six frozen reduction orders"
+  ],
+  "authorized_access": {
+    "dataset_rows": 0,
+    "target_values": 0,
+    "fits": 0,
+    "scores": 0,
+    "submissions": 0
+  }
+}

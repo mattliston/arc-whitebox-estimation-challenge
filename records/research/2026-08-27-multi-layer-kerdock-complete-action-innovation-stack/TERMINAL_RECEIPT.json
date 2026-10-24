@@ -1,0 +1,175 @@
+{
+  "schema": "p2r0g1b2-kerdock-complete-action-terminal-receipt-v1",
+  "status": "CLOSED_MEASURED_FAILED_ACTION_PREREQUISITE_AND_COST_BOUND",
+  "objective": {
+    "raw_mse_strictly_below": 1e-8,
+    "adjusted_score_strictly_below": 7.7e-9,
+    "current_bank_submission": 328586,
+    "current_bank_raw_mse": 2.9409214512554626e-8,
+    "current_bank_adjusted_score": 2.1258043062525995e-8,
+    "required_adjusted_reduction_fraction": 0.6378
+  },
+  "decision": {
+    "verdict": "HOLD_NO_KERDOCK_POINT_LAUNCH_NO_CANDIDATE",
+    "closed_scope": "N=65536 Kerdock hidden-state re-anchoring at h2:h7 or h2:h9 through the complete covariance, q3-q5 collision-sector, and q6/q7/q9 mixed-shell directional-action interface, including the most optimistic layer-specific higher-rank extension certified from the frozen action spectrum.",
+    "reason": "The optimal unconstrained endpoint U13 is already strictly more favorable than a common hidden-state basis or equal-rank factor rays, yet it retains at most 20.0582 percent of any measured joint sector and at most 19.1846 percent of any measured mixed sector. Every one of the 360 measured blocks needs rank greater than 64 for 70 percent action energy. Eigenvalue monotonicity then certifies layerwise rank lower bounds whose optimistic one-ray-per-U-component query cost exceeds both the h7 and h9 worst-fixture headroom before endpoint-action construction, coefficient assembly, or q4/q5 bias control.",
+    "actions_not_taken": [
+      "No Kerdock points were constructed or propagated.",
+      "No q3-q5 sampled source discriminator was run.",
+      "No estimator, fixture, meter, deployment target, board feedback, or submission was opened or invoked."
+    ]
+  },
+  "old_suffix_ceiling": {
+    "single_exact_full_width_h7_mean_residual_reset_raw_mse": 3.3897455206496917e-8,
+    "perfect_h2_through_h7_mean_residual_resets_raw_mse": 3.3897455206496917e-8,
+    "perfect_h2_through_h9_mean_residual_resets_raw_mse": 3.16038750480864e-8,
+    "interpretation": "Mean-only re-anchoring into the frozen scalar Markov suffix is forgotten except at the last reset and remains far above 1e-8; a persistent complete-action suffix was necessary."
+  },
+  "endpoint_action_gate": {
+    "records": 360,
+    "panel_role_ranks": [0, 343, 687],
+    "source_layers_post_relu_one_based": [2, 3, 4, 5, 6, 7],
+    "rank13_joint_retained_energy_min_median_max": [
+      0.02420687052711266,
+      0.06087711144209052,
+      0.20058163698688763
+    ],
+    "rank13_mixed_retained_energy_min_median_max": [
+      0.04740493239464868,
+      0.0881627375816453,
+      0.19184533159045228
+    ],
+    "all_360_rank_for_70pct": ">64",
+    "all_360_rank_for_99pct": ">64",
+    "rank13_objective_relevance_gate_pass": false,
+    "rank13_completeness_gate_pass": false,
+    "carrier_consequence": "No deterministic common-V or factor-ray carrier is licensed. The saved U13 is an oracle tensor-query upper bound, not a legal set of factor rays."
+  },
+  "higher_rank_postprocess": {
+    "new_network_or_sampling_run": false,
+    "proof": "For r>=13, eigenvalue monotonicity gives E_r <= r*E13/13. Together with the frozen r70>64 result, r70 is at least max(65,ceil(9.1/E13)).",
+    "joint_r70_lower_bound_min_median_max": [65, 150, 376],
+    "mixed_r70_lower_bound_min_median_max": [65, 104, 192],
+    "per_layer_worst_joint_or_mixed_r70_h2_through_h7": [376, 334, 275, 258, 226, 206],
+    "sum_of_most_favorably_shared_layerwise_ranks": 1675,
+    "common_rank_across_all_layers_and_blocks": 376,
+    "sum_if_each_layer_sector_uses_a_disjoint_bank": 15264,
+    "optimistic_relaxation": "One arbitrary U component is priced as one shared symmetric G2 factor ray even though such a one-ray decomposition generally does not exist; any legal decomposition can only increase the projection count."
+  },
+  "exact_resource_closure": {
+    "phase2_flop_budget": 2199023255552,
+    "worst_d1_bill": 1612602817032,
+    "N": 65536,
+    "width": 1024,
+    "g2_query_plus_reference_flops_per_layer_per_ray": 152631311,
+    "h7": {
+      "kerdock_prefix_core_flops": 369775235072,
+      "remaining_after_worst_d1_and_core": 216645203448,
+      "optimistic_layer_specific_query_lower_bound": 255657445925,
+      "minimum_over_budget_before_action_construction": 39012242477,
+      "hard_budget_pass": false
+    },
+    "h9": {
+      "kerdock_prefix_core_flops": 503139084288,
+      "remaining_after_worst_d1_and_core": 83281354232,
+      "optimistic_h2_through_h7_query_lower_bound_only": 255657445925,
+      "minimum_over_budget_before_h8_h9_queries_or_action_construction": 172376091693,
+      "hard_budget_pass": false
+    },
+    "common_rank376_query_plus_reference_flops_h2_through_h7": 344336237616,
+    "sector_disjoint_query_plus_reference_flops_h2_through_h7": 2329764331104,
+    "excluded_costs_make_bound_stronger": [
+      "endpoint action-basis construction",
+      "coefficient tables and final assembly",
+      "legal factor decomposition of arbitrary U components",
+      "q4/q5 Kerdock bias control"
+    ]
+  },
+  "independent_side_routes": {
+    "all_column_marginal_sidecar": "Not closed by the action-rank theorem, but its oracle-input principal-repair ceiling is only 2.2367330586834924e-10 MSE (1.49557e-5 RMS), about 2.73 percent of the teacher anchor MSE, so it cannot supply the required reduction alone.",
+    "closure_anchor_control_variate": "The only exact-mean pathwise lift in the current host is affine. Antipodal/Kerdock quadrature integrates it exactly, so E[g]+Q[f-g]=Q[f] identically and gives zero incremental variance reduction. No richer nonlinear exact-mean lift exists in the current host.",
+    "kerdock_high_order_bias": "The proper Kerdock subsets are exact only through degree 3; the frozen action-weighted <=2e-5 q4/q5 bias/error gate remains unmet independently of the capacity and cost failures."
+  },
+  "bound_artifacts": {
+    "single_h7_reset_result": {
+      "path": "../p2r0g1_kerdock_h7_anchor_ceiling_v1/RESULT.json",
+      "sha256": "4f4e2798021796ab735f3ae631b61cd67494e2bb279fc8630ef9e7de905f661e"
+    },
+    "multilayer_reset_result": {
+      "path": "../p2r0g1_kerdock_multilayer_anchor_ceiling_v1/RESULT.json",
+      "sha256": "a96828887522e8e412cfb53a9d39d2dd39d3ca561a43c1e66d52f27f73f78ca5"
+    },
+    "kerdock_prefix_cost_ledger": {
+      "path": "../p2r0g1_kerdock_prefix_cost_v1/COST_LEDGER.json",
+      "sha256": "4090f58ef734d4148e77ab79dd9fe8e43f3a1b1c03fa4098410de7830c3bbf78"
+    },
+    "complete_directional_action_interface": {
+      "path": "../p2r0f3b2b6_fused_directional_innovation_action_v1/RECEIPT.json",
+      "sha256": "04c2c18ddf6281cfdaa14d0cfaea0730415b8f9410f3341400e20bbc788bb6d6"
+    },
+    "endpoint_action_spectrum": {
+      "path": "../p2r0f3b3_multilayer_joint_action_spectrum_v2/RESULT.json",
+      "sha256": "2b6e50e550f3da786269c8facf1c6bf3cdfa59a97232b82b52e711cd55940a71"
+    },
+    "optimal_unconstrained_rank13_basis": {
+      "path": "../p2r0f3b3_multilayer_joint_action_spectrum_v2/OPTIMAL_ENDPOINT_BASIS_R13.npy",
+      "sha256": "f7a9250edbbc6e9b5e91f58bf92dc2ea3b3137d3c86b76e1302c225d3a49f831",
+      "array_sha256": "264c86a7fe8dcd5d0e538ed05d15c6cef9161064223cf9962ba5ce989c641adf",
+      "shape": [3, 6, 20, 13, 1024]
+    },
+    "higher_rank_cost_bound": {
+      "path": "../p2r0f3b3_multilayer_joint_action_spectrum_v2/HIGH_RANK_COST_BOUND.json",
+      "sha256": "c0a3ff37967a44e1dd7cdef1e841990bdf0532794d580cfabc4a454679ff6e7b"
+    },
+    "pathwise_quadrature_verdict": {
+      "path": "../public_quadrature_derivation_v1/QUADRATURE_VERDICT.json",
+      "sha256": "fd99ba5597293a2e10c98602acc884c498bf761faf8c8100ad44ad2743dbd41f"
+    }
+  },
+  "cross_lane_contract": {
+    "consumed": [
+      "Lead 2 partition-complete covariance-resummed q2:q5 directional cumulants and composite-shell interface",
+      "Lead 3 target-free actual-weight endpoint-action spectrum and certified higher-rank cost bound",
+      "Lead 1 exact Winograd Kerdock prefix ledger, scalar reset ceiling, and pathwise-CV assessment"
+    ],
+    "produced": [
+      "A no-launch decision for the N65536 complete-action Kerdock discriminator",
+      "A resource closure of the layer-specific higher-rank escape at both h7 and h9",
+      "Exact structured-prefix feasibility evidence preserved for any materially new source/action representation"
+    ]
+  },
+  "graph_reconciliation_recommendation": {
+    "parent": "P2R0G1B",
+    "terminal_node": "P2R0G1B2",
+    "terminal_status": "closed_measured",
+    "dependency_edges": [
+      {
+        "from": "P2R0G1B2",
+        "to": "P2R0G2",
+        "type": "uses_complete_directional_interface"
+      },
+      {
+        "from": "P2R0G1B2",
+        "to": "P2R0G3",
+        "type": "closed_by_failed_endpoint_action_prerequisite"
+      },
+      {
+        "from": "P2R0G1B2",
+        "to": "P2R0G1A",
+        "type": "supersedes_mean_only_reset_after_measured_ceiling"
+      }
+    ],
+    "canonical_graph_edit_owner": "root"
+  },
+  "access_and_execution": {
+    "new_network_data_opened_by_higher_rank_postprocess": 0,
+    "target_values_decoded": 0,
+    "observer_fit_target_or_error_arrays_opened_at_or_above_rank_200": 0,
+    "observer_selection_files_opened": 0,
+    "deployment_or_board_truth_opened": 0,
+    "estimator_or_fixture_calls": 0,
+    "new_kernels_or_sample_paths_run": 0,
+    "submissions": 0,
+    "canonical_graph_edits": 0
+  }
+}

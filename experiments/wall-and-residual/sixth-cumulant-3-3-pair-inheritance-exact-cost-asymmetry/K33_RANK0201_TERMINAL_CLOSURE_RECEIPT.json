@@ -1,0 +1,207 @@
+{
+  "schema": "q24-raw-k33-rank0201-terminal-closure-receipt-v1",
+  "status": "IMMUTABLE_TERMINAL_CLOSE_NO_RETRY",
+  "created_utc": "2026-08-27T12:11:11Z",
+  "role": "observer_fit",
+  "role_rank": 201,
+  "mlp_id": 287,
+  "terminal": {
+    "result_status": "COMPLETE_TARGET_BLIND_K33_SOURCE_ACTION",
+    "decision": "CLOSE_THIS_RAW_D4_Q7_K33_33_SOURCE_ACTION_SPELLING",
+    "all_gates_pass": false,
+    "retry_allowed": false,
+    "rank643_allowed": false,
+    "rank643_reason": "rank201 did not produce the preregistered PASS_SOURCE_ACTION_RANK201 decision; the immutable no-retry protocol forbids continuation",
+    "targets_or_autonomy_licensed": false
+  },
+  "immutable_bindings": {
+    "result": {
+      "path": "K33_RANK0201_BUNDLE/K33_RANK0201_RESULT.json",
+      "sha256": "c5a1079e8650e82073fcd28097fdf8f1e31d3c6774a0f32d522ac91c78e827c6"
+    },
+    "commit_manifest": {
+      "path": "K33_RANK0201_BUNDLE/COMMIT_MANIFEST.json",
+      "sha256": "dd9fdab0eae3d1e333e13260df0a4c7731331e2dbefdadb4b4f514af80dfff70"
+    },
+    "raw_k6_bank": {
+      "path": "K33_RANK0201_BUNDLE/K33_RANK0201_RAW_K6.npy",
+      "shape": [15, 1024],
+      "dtype": "<f8",
+      "file_sha256": "b2f720aafb553d71928ebe09695667d6c38dbb7337c7ac686be78a35f7553422",
+      "content_sha256": "a9cc380bae4f8b63406d98207923feee48004b5794b8870cd6f6752816b8fe2f"
+    },
+    "l6_mean_birth_bank": {
+      "path": "K33_RANK0201_BUNDLE/K33_RANK0201_L6_MEAN_BIRTH.npy",
+      "shape": [15, 1024],
+      "dtype": "<f8",
+      "file_sha256": "0d3df180ce60a4dca040b64e027d5e5f4e0041e365915592fbd6164a7eaafa9c",
+      "content_sha256": "92c80601dfeb6fb99f380ab4ea8b8cfcbd60307e754cd5e738e7cde5381ee2a3"
+    },
+    "release": {
+      "path": "K33_RELEASE.json",
+      "sha256": "f5df2466789291124b29f49d22f4ee2d898b63b9973ed810c8bc376927719344"
+    },
+    "no_retry_lock": {
+      "path": "K33_RANK0201_RUN.lock",
+      "sha256": "24000f8b7e1ef3cb79291cb522d543cfc8ce5ec5e0d606309beb2fc5e1c2f763"
+    },
+    "base_consumption_receipt": {
+      "path": "K33_RANK0201_BASE_WORKER_CONSUMED.json",
+      "sha256": "c33af839e7683f1e0a33d578dd6d9bc08ccba05cd368855d82a7d47cfa196f27"
+    },
+    "source_consumption_receipt": {
+      "path": "K33_RANK0201_SOURCE_WORKER_CONSUMED.json",
+      "sha256": "3c5ae06c11e3cbd2cc91035c87d70a9ce500de508e9ec40a5a5a97fb823171b2"
+    },
+    "source_sha256": "09961351c544036c46cf8028dba9941f422d4e53043304efa402b024984bc777",
+    "runner_sha256": "4c889b4b0e251f6becd40c31bbfb5fc919f133396e238475879c392abad784a5",
+    "derivation_sha256": "3a7dde8fd7ae18af5a0b4613a634eb3dda2041aa61e03b43a06e30670d23fa6d",
+    "preregistration_sha256": "ba5db51419e11e7fbe6ced229929472fed0e089cf6612cec132248f903fd72a1",
+    "static_verification_v5_sha256": "a1daa778b6081ffed9ce8d296f3a81e66f4d475cac201b11852648dd582c4857",
+    "dtype_accounting_precedence_sha256": "a950b1af3a8a211e9682def2a53596258022709f99e6bd6fbd6e4fbb33bf4778"
+  },
+  "failed_gates_exactly": {
+    "count": 2,
+    "literal_incremental_flops_exactly_76382558208": {
+      "passed": false,
+      "expected_flops": 76382558208,
+      "measured_flops": 76180449280,
+      "measured_minus_expected_flops": -202108928,
+      "cap_flops": 76500000000,
+      "cap_passed": true
+    },
+    "pre_symmetrization_relative_asymmetry_at_most_1e_10": {
+      "passed": false,
+      "threshold": 1e-10,
+      "fixed_layer_values": [
+        {"source_layer_one_based": 4, "value": 1.153649433536659e-9},
+        {"source_layer_one_based": 9, "value": 3.6938088157214016e-10},
+        {"source_layer_one_based": 14, "value": 2.957819725107435e-10}
+      ]
+    }
+  },
+  "passing_gates": [
+    "all_public_source_action_and_tangent_values_finite",
+    "base_and_source_residual_seconds_strictly_below_0_4",
+    "coordinate_banks_shape_dtype_hash_exact",
+    "fixed_full_plane_capture_layers_exactly_4_9_14",
+    "fixed_k33_frobenius_norm_strictly_positive",
+    "fresh_process_peak_rss_strictly_below_8gib",
+    "full_public_host_native_raw_sigma_j_final_byte_identical",
+    "literal_incremental_flops_at_most_76500000000",
+    "no_hard_source_materiality_threshold_applied",
+    "post_diagonal_exactly_zero",
+    "post_symmetry_exact",
+    "raw_k6_l2_norm_strictly_positive_all_15_actions",
+    "role_and_rank_match_singleton_release",
+    "slot_mapping_exact_all_15",
+    "source_call_counts_exact",
+    "source_total_flops_strictly_below_phase2_budget",
+    "static_incremental_scratch_at_most_153665536",
+    "static_largest_new_array_at_most_142606336",
+    "static_largest_new_array_below_4gib",
+    "targets_scores_truth_joins_training_selection_exactly_zero"
+  ],
+  "physical_metrics": {
+    "phase2_budget_flops": 2199023255552,
+    "base_flops": 1358518039935,
+    "source_flops": 1434698489215,
+    "source_minus_base_flops": 76180449280,
+    "base_residual_wall_time_s": 0.3855462083593011,
+    "source_residual_wall_time_s": 0.36354536516591907,
+    "residual_cap_s": 0.4,
+    "base_fresh_process_peak_rss_bytes": 5942984704,
+    "source_fresh_process_peak_rss_bytes": 6108446720,
+    "rss_cap_bytes": 8589934592,
+    "static_incremental_scratch_bytes": 153665536,
+    "static_largest_new_array_bytes": 142606336
+  },
+  "public_byte_parity": {
+    "all_five_components_equal": true,
+    "host_sha256": "b652f1b382b927b4e877f66cf1cecd41f666d27844ce7a24e6f9909358c93c24",
+    "native_raw20_sha256": "7b3dab2cdf5e3da28525132f511f307edd4ccf22f79327e05b73f9a0f4534a61",
+    "native_sigma_sha256": "c499febd71ac43d50ddc5c8f01a65929c03959bb9409e1e9af0615fd0b4a7539",
+    "native_j_correction_sha256": "acc2b85f03129ade1211c57e294bef4605400487cfc238b2b2801dfc7f883e36",
+    "final_public_prediction_sha256": "be06eee68d044b6d6847b000750a5995f692217ac3db89308c3bc7e371b1698f"
+  },
+  "source_structure": {
+    "fixed_source_layers": [4, 9, 14],
+    "post_k33_frobenius_norms": [1.3270672783959145, 0.131103115713112, 0.028827504792948412],
+    "signed_spectral_effective_ranks": [593.1402596140199, 439.8460327981423, 396.4014509388118],
+    "post_symmetry_max_abs": [0.0, 0.0, 0.0],
+    "post_diagonal_max_abs": [0.0, 0.0, 0.0]
+  },
+  "coordinate_amplitudes_by_slot": {
+    "slot_mapping": "s=0..14: source h(s+1), outgoing mlp.weights[s+1], consumer/birth h(s+2)",
+    "raw_k6_rms": [
+      3.0217248329226518e-5,
+      8.268182993698878e-6,
+      3.981259479007634e-6,
+      2.1049653911137846e-6,
+      1.2093777577001478e-6,
+      6.555001338766533e-7,
+      4.259442887812865e-7,
+      2.9729669903677e-7,
+      2.0417801959100324e-7,
+      1.331342065009659e-7,
+      1.0211526218329364e-7,
+      7.025752167221648e-8,
+      5.772001877611368e-8,
+      4.568770766885682e-8,
+      3.8680085700140464e-8
+    ],
+    "l6_mean_birth_rms": [
+      1.5564653469091296e-8,
+      8.482179461954427e-9,
+      7.512556424290197e-9,
+      5.9749831074583825e-9,
+      5.76583171999013e-9,
+      3.968756206179812e-9,
+      3.5251292533787325e-9,
+      3.4453154256721e-9,
+      3.4704212647800546e-9,
+      3.553807056292325e-9,
+      3.1879114116211477e-9,
+      2.951315775632174e-9,
+      2.831658867227291e-9,
+      2.349709381660478e-9,
+      2.6127439243734502e-9
+    ],
+    "l6_mean_birth_max_abs": [
+      9.857983610428974e-8,
+      5.152970619942775e-8,
+      4.744663197784526e-8,
+      3.455332139279271e-8,
+      4.234035837318732e-8,
+      2.283682658069787e-8,
+      2.4821186410198327e-8,
+      2.955228795694797e-8,
+      2.9681661766382025e-8,
+      3.2253083661198386e-8,
+      2.3899715360548545e-8,
+      2.3919527653731495e-8,
+      2.5904568266265916e-8,
+      2.1323545886782513e-8,
+      3.2484593962279564e-8
+    ],
+    "birth_interpretation": "all fifteen births are finite and nonzero, but their RMS values are only 2.35e-9 to 1.56e-8 on this target-blind rank201 row"
+  },
+  "firewall": {
+    "targets_read": 0,
+    "scores_read": 0,
+    "truth_joins": 0,
+    "training_steps": 0,
+    "observer_selection_rows_opened": 0,
+    "autonomous_feedback_runs": 0,
+    "full_estimator_candidate_runs": 0,
+    "rank35_k33_calls": 0,
+    "packages": 0,
+    "submissions": 0
+  },
+  "graph_reconciliation": {
+    "recommended_node_id": "P2R0C1D28-K33-S0-R201",
+    "recommended_label": "RAW K33 local-reset source/action — rank201 terminal close",
+    "criterion": "the preregistered singleton rank201 source/action screen required every mechanical gate; exact bill identity and pre-symmetry tolerance failed",
+    "successor_policy": "CLOSED_NO_RETRY_NO_RANK643; do not reinterpret the measured under-cap bill or post-symmetrized plane as a pass"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "p2r0f3b1a.reverse_hermite.independent_audit.receipt.v1",
+  "node": "P2R0F3B1A",
+  "status": "AUDIT_COMPLETE_SCIENCE_TERMINAL_INSPECTED",
+  "target_accesses": 0,
+  "audited_experiment_modified": false,
+  "audited_preregistration": {
+    "path": "../p2r0f3b1a_reverse_hermite_v1/PREREGISTRATION.json",
+    "sha256": "dde466214752ab4959bb5af9e5ee5677a071c2c466b7cb7f1e3a4cb4b2b6b016"
+  },
+  "audited_terminal_artifacts": {
+    "preregistration_seal_sha256": "6a62d26ff1fd3d0538c8d440d6d80aa42ac2ab8658a0724d592d50355cd20054",
+    "runner_sha256": "ac38af712704b443c3a20c74e3dbe404c6600a5909e59de23c11ff7073086c9e",
+    "result_sha256": "785d789a9ce588989f6ab070d84c6dfdf8ec4faaacc3eabf1bbe791fb49b70e6",
+    "terminal_receipt_sha256": "cc5c5b094c2594297ff311aac5f366362c9d10a25833d53f54baf4f51910aa68",
+    "terminal": "CLOSE_RANK_COST_DICHOTOMY",
+    "development_targets_opened": 0,
+    "audited_experiment_modified": false
+  },
+  "independent_check": {
+    "path": "verify_audit.py",
+    "sha256": "553cd62c93bda80c6f10203abf0f9fd4601ce2d836f350816fb7095b178fc28e",
+    "dependency_free": true,
+    "exact_arithmetic": true,
+    "pass": true,
+    "checks": {
+      "relu_infinite_tail": "nonzero every even degree through 20, backed by all-degree formula",
+      "forward_reverse_duhamel": "exact Fraction equality, n=3 depth=5, all three endpoints",
+      "k22_collision_tensor": "exact Fraction equality; k4 and k31 fully carried, k22 missing exactly 2F",
+      "coefficient_counts": "integer-exact for n in {8,16,1024}, K in {2,3,4,5,12}"
+    }
+  },
+  "findings": {
+    "exact_finite_reverse_hermite": "CLOSE_RANK_COST_DICHOTOMY",
+    "reverse_direction_for_fixed_sources": "ALGEBRAICALLY_IDENTICAL_TO_FORWARD_DUHAMEL",
+    "frozen_cheap_operator": "REDUCED_MEAN_ONLY_TANGENT_NOT_FULL_LEVEL_C_ADJOINT",
+    "current_k22_supply": "DOMINANT_DIRECT_CHANNEL_PRESENT_BUT_NOT_DIAGRAM_COMPLETE",
+    "distinct_missing_k22_diagram": "2F_CROSSED_ROUTE_ALREADY_PROVEN_AND_EFFECT_CAPPED",
+    "target_promotion": "DO_NOT_PROMOTE"
+  },
+  "terminal_metrics": {
+    "reverse_forward_max_relative_disagreement": 1.9244557334329387e-16,
+    "K12_geometric_mean_MSE_improvement": 0.000131045125647072,
+    "K12_maximum_MSE_improvement": 0.9784864905751234,
+    "K12_minimum_MSE_improvement": 2.985392585929201e-13,
+    "accuracy_gate_required_every_endpoint": 3.0,
+    "accuracy_gate_pass": false,
+    "alignment_gate_pass": false,
+    "stability_gate_pass": false,
+    "degree_ladder_gate_pass": false,
+    "one_over_n_source_supported": false,
+    "one_over_n_squared_residual_supported": false
+  },
+  "existing_effect_receipts": {
+    "ledger_step1": {
+      "sha256": "22d6c18b7ee450bdc669f77fb9ba83ad6b60e48fa42365072623cf4e17647382",
+      "result": "K5/K7/K9 marginal source 25-50x too small and abs correlation <=0.114"
+    },
+    "missing_routes": {
+      "verification_sha256": "d668db62657ea7977b4faf9df9d0547b27490142bb08feb67b70dda0b46a89ab",
+      "result_sha256": "ca559f11483c8a54e4bc5a43739eb56eef05d263ea4328271f043306c94a8d33",
+      "fform_effect_fraction": 0.0007628140721930299,
+      "fform_plus_k211_planes_effect_fraction": -0.0051562069617997475,
+      "terminal": "SUB_MATERIAL_LANE_CLOSES"
+    }
+  },
+  "width1024_counts": {
+    "degree4_through_coefficients": 46261908225,
+    "degree4_float32_bytes": 185047632900,
+    "degree5_homogeneous_coefficients": 9474438804480,
+    "degree5_through_coefficients": 9520700712705,
+    "board_flop_budget": 2199023255552
+  },
+  "scope_boundary": "Closes this marginal K5-K12 n-vector source family, reverse-vs-forward novelty for fixed sources, and an explicit generic degree-5 tensor. Does not prove every adaptive CP/TT/ridge factorization or full retained-state adjoint infeasible; none is supplied or implied by this source family.",
+  "single_missing_diagram": "The exact K22 crossed 2F contraction is algebraically omitted but already measured effect-capped. The first untested non-equivalent backward state would be the full K22-block retained-state adjoint with connected downstream-gate response; it needs a source-only rank/residual screen and a newly named joint innovation before any accuracy run.",
+  "recommendation": "Accept CLOSE_RANK_COST_DICHOTOMY. Do not access targets, do not select a lower rung post hoc, and do not rerun 2F under an adjoint label."
+}

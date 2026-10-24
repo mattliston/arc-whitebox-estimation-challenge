@@ -1,0 +1,85 @@
+{
+  "schema": "public-full688-dynamic-multistate-residual-cv-preregistration-v1",
+  "status": "frozen-before-cv-metrics",
+  "question": "Can a higher-capacity autonomous state observer close the measured teacher-forced/autonomous residual gap when trained and scored out-of-fold on every lawful observer_fit network?",
+  "parent_evidence": {
+    "scalar_exposure_autonomous_final_mse": 3.4709697955756664e-08,
+    "scalar_exposure_teacher_forced_final_mse": 8.207963477637236e-09,
+    "scalar_result_sha256": "fe2f2f3c8cfa890d416b520f443fbbe475ea8fabafbd16956006a9154b100440",
+    "two_auxiliary_exposure_autonomous_final_mse": 3.451830389554841e-08,
+    "two_auxiliary_exposure_teacher_forced_final_mse": 1.1469792562224471e-08,
+    "two_auxiliary_result_sha256": "f9e4058b6ac156f0b9eb87ac806f7b258384fb7038a8de08940d422f18e4486e",
+    "interpretation": "Local teacher-forced capacity reaches the target scale, while autonomous rollout remains about three to four times worse. The frozen intervention therefore changes recurrent state observability and damping rather than merely widening the local output head."
+  },
+  "data": {
+    "role": "observer_fit",
+    "networks": 688,
+    "group_key": "mlp_id",
+    "folds": 4,
+    "fold_assignment": "blake2s32(seed:mlp_id) modulo 4",
+    "host_rule": "For every rank, use the old deterministic host unless max(final_layer_mse,max_layer_mse)>5e-7; every such rank must use the near-floor-min repair. The loader derives the roster from receipts and aborts on a missing repair.",
+    "observer_selection": "forbidden",
+    "observer_fit_ranks_outside_0_687": "forbidden",
+    "public_board_names_or_identities": "not joined and not used",
+    "selection_policy": "No architecture, epoch, threshold, or checkpoint is selected from CV metrics; each fold uses its fixed final epoch."
+  },
+  "architecture": {
+    "name": "dynamic-four-state-physical-observer",
+    "channels": 4,
+    "hidden": 96,
+    "first_corrected_layer": 2,
+    "input": "raw20 plus, for each of four transported channels, message/RMS and message/(sigma*RMS)",
+    "transport": "At layers 3:15, every state channel is independently transported as Phi_l*(state_c@W_l).",
+    "cell": "A shared two-layer SiLU H96 trunk emits four local physical-scale sources and four bounded data-dependent transport gates. A bounded near-identity layerwise 4x4 matrix mixes transported channels. Channel zero is the reported residual correction; three auxiliary channels are latent memory.",
+    "dynamic_gain_range": [0.75, 1.25],
+    "mix_delta_scale": 0.12,
+    "initialization": "Deterministic from-scratch initialization inside each fold; no checkpoint trained on another fold is imported.",
+    "rationale": "Unlike the prior auxiliary model, the innovation trunk observes every transported state and can damp the primary message per unit. This directly attacks recursive drift while preserving exact physical transport."
+  },
+  "training": {
+    "seed": 1753358438,
+    "threads_per_fold": 2,
+    "parallel_folds_allowed": 4,
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "weight_decay": 2e-05,
+    "gradient_clip_norm": 5.0,
+    "loss": "Fit-fold normalized corrected-layer rollout MSE with layer weights 0.5..1.5, plus equal final-layer focus, 2e-5 normalized auxiliary-state penalty, and 5e-4 near-identity transport/mixing penalty.",
+    "checkpoint": "fixed epoch 6 for every fold"
+  },
+  "metrics": {
+    "primary": "network-weighted out-of-fold autonomous final-layer MSE",
+    "diagnostics": [
+      "network-weighted out-of-fold same-checkpoint teacher-forced final-layer MSE",
+      "autonomous/teacher-forced ratio",
+      "per-layer out-of-fold MSE",
+      "per-fold host, autonomous, teacher-forced MSE",
+      "finite full-horizon rollout and maximum absolute correction"
+    ]
+  },
+  "decision_gates": {
+    "fatal_finite": "Every fold's complete autonomous rollout is finite.",
+    "primary": "Out-of-fold autonomous final-layer MSE <3.123872816e-8.",
+    "stretch": "Out-of-fold autonomous final-layer MSE <1e-8."
+  },
+  "cost_contract": {
+    "phase2_budget": 2200000000000,
+    "measured_host_flops": 2126977459133,
+    "requirement": "Before metrics, record the exact parameter count and a conservative source-structure deployment estimate including four Phi-W transports, raw20 materialization reserve, local dense arithmetic, special-function reserve, state mixing, and host addition. This estimate is an admission bound, not a substitute for a literal flopscope meter after an accuracy pass."
+  },
+  "resource_bound": {
+    "maximum_process_rss_bytes_per_fold": 8589934592,
+    "maximum_local_storage_bytes": 2147483648,
+    "expected_wall_time_note": "Four folds may run concurrently with two threads each after one shared cache preparation."
+  },
+  "outcome_split": {
+    "stretch_pass": "Freeze fold ensemble evidence and begin a literal deployment/meter construction; observer_selection remains sealed until that construction and its cost pass.",
+    "primary_only_pass": "Treat as a material autonomous-state improvement and decompose the remaining gap using the recorded teacher/autonomous ratio.",
+    "primary_fail_teacher_pass": "Close this dynamic four-state spelling; the autonomous state bottleneck remains open.",
+    "teacher_fail": "Close this spelling as local-capacity/optimization insufficient on full-network CV.",
+    "nonfinite": "Close this spelling as recursively unstable."
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "schema": "s33-joint-proposal-response-v1",
+  "root_admitted": true,
+  "fitting_admitted": false,
+  "ranks": [
+    35,
+    100
+  ],
+  "scope": "One deterministic response direction spanning original active learned arrays and physical dials. No fit, loss, targets, upload or full native-Jacobian claim.",
+  "parameter_source": "Canonical FP32 arrays decoded from the exact S33 five literal blocks; R8s epoch1 dials. All28 arrays preserved,23 direction-active; 5 normalization/gain arrays frozen.",
+  "scientific_choices": {
+    "seed": "s33_joint_direction_v1",
+    "epsilon": [
+      0.01,
+      0.005
+    ],
+    "active_array_blocks": 23,
+    "active_dial_blocks": 11,
+    "block_relative_rms_norm": 1,
+    "RMS_floor": 0.001,
+    "terminal_direct_head_direction": false
+  },
+  "execution_order": [
+    "native35",
+    "torch35",
+    "assess35",
+    "if and only if35passes:native100",
+    "torch100",
+    "assess100"
+  ],
+  "cases": [
+    "zero",
+    "plus_h",
+    "minus_h",
+    "plus_half",
+    "minus_half"
+  ],
+  "resource_caps": {
+    "native_seconds_per_rank": 180,
+    "torch_seconds_per_rank": 120,
+    "total_model_guard_seconds_max": 600,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0,
+    "serial_only": true,
+    "threads": 1,
+    "artifact_bytes_max": 20000000
+  },
+  "cost_forecast": "10native forwards about230s plus10Torch primal/JVP forwards about100s: approximately330s total; hard stage limits sum600s. Stage35 failure skips100. Prior6Torchpasses used63s/5.208GB, not a resource guarantee for this joint direction.",
+  "patches": [
+    "Torch make_bd for j in range(4) becomes range(3), matching removed j3.",
+    "Torch star uses norm-selected32columns,oneQRpowerstep,noSVD; the derivative follows QR at the selected branch.",
+    "Torch star diagonal shares P andT as current native _flms_cov_star; terminal star scalar formula unchanged.",
+    "Terminal k4 hook identity, matching native early final branch."
+  ],
+  "remaining_structural_gaps": [
+    "Torch old-tier core uses exact projected weighted Gram; S30 onward native uses Nystrom approximate future core.",
+    "Torch reconstructs full old factors; native both-tail cropping, spherical trace and omitted-radial repair are absent.",
+    "Torch does not include native late common-factor256 approximation atL10-15.",
+    "Torch bank push lacks native negative dead-side rowcut atL1-14.",
+    "Torch pair/GNN/third-moment precision and Gaussian-series order differ from S33 precision/order edits.",
+    "Torch uses ordinary products; native Winograd/depth/batching association and lazy representations differ."
+  ],
+  "exact_checks": [
+    "S33source/literalimmutability",
+    "nativezeroall16bytesmatchsavedS33TRAIN2",
+    "samecanonicaldirectionmetadataandweights",
+    "finiteall16outputsandJVP",
+    "zeroaddedSwap,RSS<7.5GB,completeprocessretirement"
+  ],
+  "alignment_gate": {
+    "scopes": [
+      "finalL15",
+      "feedbackL1-14"
+    ],
+    "cosine_min": 0.8,
+    "relative_rms_error_max": 0.5,
+    "comparisons": [
+      "TorchFDhversusnativeFDh",
+      "TorchFDhalfversusnativeFDhalf",
+      "TorchJVPversusnativeFDhalf",
+      "nativeFDhversusnativeFDhalf",
+      "TorchFDhversusTorchFDhalf"
+    ],
+    "halfstep_output_change_rms_min": 1e-08,
+    "early_signal_layers": [
+      4,
+      8,
+      12
+    ],
+    "early_signal_min_passes": 2
+  },
+  "interpretation": "Record baseline forward gap and branch fingerprints; branch equality is not required. Passing35then100 supports a separately admitted bounded proposal fit, not exact full-Jacobian or score certification. Current scientific choices are not changed after outputs.",
+  "failure": "Stop at first scientific failure; preserve receipts. No step/direction/threshold rescue, model rewrite or fitting follows automatically. Technical runtime repairs must be separately reviewed and preserve these choices.",
+  "saved_native_predictions": {
+    "35": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_symdiag128_train2_v1/pred_35.npy",
+      "sha256": "fb13db10cb6d8317436b9b5ab0989d20913627ebd3fde3873956202f39f3c477",
+      "bytes": 131200
+    },
+    "100": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_symdiag128_train2_v1/pred_100.npy",
+      "sha256": "56489f09787936955d126381af006ae37aa9c40bcc580bf1ed328eefcc8075ab",
+      "bytes": 131200
+    }
+  },
+  "pins": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/s33_joint_forward_qualification_v1/assess.py",
+      "sha256": "83a74793cf58998b6b998c8cc051517e08b1eea5e8832747bd97e93ed5c4def8",
+      "bytes": 4508
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/s33_joint_forward_qualification_v1/direction_common.py",
+      "sha256": "b877ec5a67c3f4e3ee0b71c8da42c3af05fddc95d26684c7e862bc05629aa258",
+      "bytes": 2498
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/s33_joint_forward_qualification_v1/native_parameters.py",
+      "sha256": "85ec6ffebde46fa1cb8947eea23ba735e7ae02425bc4574fa2b10678c94053f3",
+      "bytes": 6324
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/s33_joint_forward_qualification_v1/native_probe.py",
+      "sha256": "7610db97119e399befa86f5ff4523fdf2bf8454166b1a4cd82a3c0b67c3f863c",
+      "bytes": 6021
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/s33_joint_forward_qualification_v1/torch_probe.py",
+      "sha256": "c257c57e36ea8e52704b400f1cb6201e87b9802b61db24b3f236a2cc4b989362",
+      "bytes": 7464
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_symdiag128_v1/candidate.py",
+      "sha256": "88683ee1ae144556393ba83e013ba975c63a2b91469fce5c6aee9f8f0c4db5d6",
+      "bytes": 955150
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/refit6b/s6bcard_loop5js.py",
+      "sha256": "81f9cfcd2e6f5998bfb12083ffec06ed6e5efe0f6aec4d25e41e3d161463ca8d",
+      "bytes": 4791
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/s6bcard_joint2t.py",
+      "sha256": "ffc1b3e094ee41121d3115d2f06deb3291aeabf117cfed30b3ecfcbca367a20a",
+      "bytes": 6010
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/s6bcard_joint2.py",
+      "sha256": "fb02fdf0928607322c9c5f46edc10e4a83817308bfc0b8590070454c1eeb6fbc",
+      "bytes": 5942
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/covstep.py",
+      "sha256": "6b12867a9a014d6df2d859ad926aa5516d8b5fb87b6045f85a1815e09bb8c558",
+      "bytes": 12745
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_covhunter_v1/gn3_knobs.py",
+      "sha256": "69b82a752c7595581d6f1c97c377898f8f0fd6a84446681ddcbf001e9a7f6340",
+      "bytes": 5069
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_analyst_v1/s6bcard.py",
+      "sha256": "d805ab38bdfdd6233aa04b3d840d077e6b9dadaa46db2d9bb2f7a732765b2630",
+      "bytes": 4606
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_analyst_v1/s2card.py",
+      "sha256": "f46ebfd97c10ef77f9010648da809fcc30973cfefa5abdbc78c5eab9dc9b650c",
+      "bytes": 3746
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/gn_linear_hook.py",
+      "sha256": "737966a21285d2e48ba6748f7c4538720f6c1ab11ff2246ff8a219e4e63ecb5e",
+      "bytes": 2743
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/pair_series_torch.py",
+      "sha256": "b9c464ef35ec83df34b6f038958b9ac6cbf25d555f251838ebb8729c2f2d149d",
+      "bytes": 2447
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_engineer_v1/join_nystrom_torch.py",
+      "sha256": "1ffca5aff153143d3902bbd4e83b8c6d5cabbc9efc8c798da217afdc512484f1",
+      "bytes": 2752
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/model_bank_research.py",
+      "sha256": "725c79ad99a0ede8cd861c6ae9be492c2a5f60ea9a921c71ed78b14ba531da01",
+      "bytes": 15607
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/model_bank_bfix.py",
+      "sha256": "fb71c0cb387e109e5fcbfb7d8f2cf0388d38c4488fbbb5044b6ee781c6623fe9",
+      "bytes": 17364
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_refit_v1/common.py",
+      "sha256": "6b32f8d12526f6e16cdda3fed9aeb79260f482d145834a4588c4ef21d90f9a78",
+      "bytes": 3437
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_porter_v1/star_nys_test.py",
+      "sha256": "9c9d5773b91e0079995e76fd217e84c5384bfa47c21dc147aac4c2a595f13ac0",
+      "bytes": 5649
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fable_physicist_v1/refit6b/s6b_loopR8s_joint_3ep/dials_epoch1.json",
+      "sha256": "e881c6da752d60845d583ef98e916fd21f809d98d6d416959ec8e450b0621992",
+      "bytes": 344
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_symdiag128_train2_v1/pred_35.npy",
+      "sha256": "fb13db10cb6d8317436b9b5ab0989d20913627ebd3fde3873956202f39f3c477",
+      "bytes": 131200
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_precision_g3_symdiag128_train2_v1/pred_100.npy",
+      "sha256": "56489f09787936955d126381af006ae37aa9c40bcc580bf1ed328eefcc8075ab",
+      "bytes": 131200
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260919_v1/learnable_joint_basis_implementation_v1/zero.py",
+      "sha256": "63bb5d15786995b74d761a6f6690170710ab397497351b67f0cf794401362f94",
+      "bytes": 646643
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/astra_phase2_reexamination_v1/current_shared384_causal_p_v1/shared_operator.py",
+      "sha256": "09136ff645869df9d8fae3e2e8c16ff65c777971c308d1ba8c124d35649d2ad2",
+      "bytes": 8458
+    }
+  ]
+}

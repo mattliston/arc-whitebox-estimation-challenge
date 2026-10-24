@@ -1,0 +1,251 @@
+{
+  "schema": "phase2-cp3-ladder-meter-admission-v1",
+  "status": "SEALED_TARGET_BLIND_METER_ADMISSION__ACCURACY_UNSCORED",
+  "shape": {
+    "width": 1024,
+    "depth": 16,
+    "budget_flops": 2199023255552,
+    "score_floor_predicate": "flops_used * 10 <= 2^41",
+    "max_integer_flops_on_floor": 219902325555,
+    "residual_wall_time_limit_s": 0.4,
+    "wall_time_limit_s": 120.0,
+    "memory_limit_bytes": 8589934592
+  },
+  "frozen_sources": {
+    "cp3_cap512": {
+      "path": "../cp3_cap512_k3_readout/estimator.py",
+      "sha256": "74d71023bfd35ac09d99e8572046d6467126084fe02a83efdc4f5804af76840a"
+    },
+    "cp3_cap1024": {
+      "path": "../cp3_cap1024_k3_readout/estimator.py",
+      "sha256": "321bd2183b63ba79e84e733b86d220b08d7a9ec0dd7d07da6d463f1b60bd7edc"
+    },
+    "cp3_cap1536": {
+      "path": "../cp3_cap1536_k3_readout/estimator.py",
+      "sha256": "b9297c28e97f32dd5b4e33e4df1dd297817fd163f6bcb118517c20a2940fdd40"
+    },
+    "cp3_cap1792": {
+      "path": "../cp3_cap1792_k3_readout/estimator.py",
+      "sha256": "035e3bd2fd08d3358f5424fc67f10281e5559e65fa9c6d6dce97791108b176dc"
+    }
+  },
+  "preregistration_and_static_bindings": {
+    "ladder_preregistration": {
+      "path": "PREREGISTRATION.md",
+      "sha256": "bf7480f2a2a3aefb05588aeecf1b45e10f3676ee95afe07156c18f207a472656"
+    },
+    "ladder_static_screen": {
+      "path": "STATIC_LADDER.json",
+      "sha256": "80b85679f80fe026ed4868e5dede97b20b5f17d8435d6bcfffd05e99bfe396df"
+    },
+    "ladder_static_derivation": {
+      "path": "derive_static_ladder.py",
+      "sha256": "db75a8ec3b7d3d3ae1181317bdd497a7e0a4efd9cdfc4394b02bd5a4e16de24b"
+    },
+    "cap512_preregistration": {
+      "path": "../cp3_cap512_k3_readout/PREREGISTRATION.md",
+      "sha256": "45b58754947433ee5928c256b67c1ae53531dd5e95e912401aec574fb128eb2c"
+    },
+    "cap512_static_operation_structure": {
+      "path": "../cp3_cap512_k3_readout/STATIC_OPERATION_STRUCTURE.json",
+      "sha256": "68d184f06ccd610f128823657c9218f5c4499754d9310f773e56021db7718179"
+    },
+    "cap512_source_verifier": {
+      "path": "../cp3_cap512_k3_readout/verify_source.py",
+      "sha256": "ccb0e8d358ad55ef9470d25e6de1bbb4e1351c80bca9f616c40e8ef4be9f8b07"
+    },
+    "cap512_source_verification": {
+      "path": "../cp3_cap512_k3_readout/SOURCE_VERIFICATION.json",
+      "sha256": "2993e43a9becd55dda8621efdf692bb68c71e85b190570c1698dcfefa626e146"
+    }
+  },
+  "meter_protocol": {
+    "driver_path": "../meter_protocol/run_synthetic_meter.py",
+    "driver_sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34",
+    "verifier_path": "../meter_protocol/verify_meter_run.py",
+    "verifier_sha256": "91471a7d543020460359acf7db8548969182734e9469ec02194002e3008d37d8",
+    "requirements_lock_path": "../data_gate/requirements.lock.txt",
+    "requirements_lock_sha256": "dbd429c8eeb64c5809f7a045fc782173e476c943fbd6ce7d2616c94433481f98",
+    "rss_sampling": {
+      "backend": "macos-libproc-proc_pidinfo",
+      "requested_interval_s": 0.01,
+      "admission_memory_field": "peak_descendants_aggregate_rss_bytes",
+      "scope": "isolated whestbench solution process tree; evaluator root excluded",
+      "qualification": "sampled RSS measures resident physical pages, not virtual address space, and can miss a spike shorter than the sampling interval"
+    }
+  },
+  "candidate_receipts": {
+    "cp3_cap512": {
+      "receipt": {
+        "path": "../meter_protocol/runs/cp3_cap512_n1_s1000_seed20260823/receipt.json",
+        "sha256": "ad6c428b03946f8bc110dbebe5a08c892d50c537ab54c947b659daa3800c804e"
+      },
+      "invocation": {
+        "path": "../meter_protocol/runs/cp3_cap512_n1_s1000_seed20260823/invocation.json",
+        "sha256": "f7451804bd7a1e8717828e4a6bdbdc90d52d928f02563f6edbc2ba81068b301c"
+      },
+      "raw_whest_stdout": {
+        "path": "../meter_protocol/runs/cp3_cap512_n1_s1000_seed20260823/raw_whest_stdout.json",
+        "sha256": "cb0e0c1e8c447c9d1840417409daa1929a2b87d3f06c833c6d19661a78dc8a31"
+      },
+      "raw_whest_stderr": {
+        "path": "../meter_protocol/runs/cp3_cap512_n1_s1000_seed20260823/raw_whest_stderr.txt",
+        "sha256": "b79fbe5b7bb5bfec0f368e96f31b2e138ef374d8fe0878ec5a56f8b1117e8912"
+      },
+      "raw_process_tree_rss": {
+        "path": "../meter_protocol/runs/cp3_cap512_n1_s1000_seed20260823/raw_process_tree_rss.jsonl",
+        "sha256": "cbba8ab36fca9e959372a68fc286f6dad3fd3b811220eff4f4671b41cbeda960"
+      },
+      "measured": {
+        "flops_used": 136462170114,
+        "integer_flop_margin_to_floor_max": 83440155441,
+        "residual_wall_time_s": 0.1166894193738699,
+        "wall_time_s": 1.157494958024472,
+        "peak_solution_tree_rss_bytes": 2178531328,
+        "rss_sample_count": 1050,
+        "output_shape": [16, 1024],
+        "materialized_output_dtype": "float32",
+        "all_output_values_finite": true,
+        "failed_mlps": 0
+      }
+    },
+    "cp3_cap1024": {
+      "receipt": {
+        "path": "../meter_protocol/runs/cp3_cap1024_n1_s1000_seed20260823/receipt.json",
+        "sha256": "37dc342f801231bffbca93804a337dea328b5708afd3500c2824d722529cc690"
+      },
+      "invocation": {
+        "path": "../meter_protocol/runs/cp3_cap1024_n1_s1000_seed20260823/invocation.json",
+        "sha256": "981a33359fa7519428ca8f9dedc1d39066cc65519f2a66474b1984b7cb656eeb"
+      },
+      "raw_whest_stdout": {
+        "path": "../meter_protocol/runs/cp3_cap1024_n1_s1000_seed20260823/raw_whest_stdout.json",
+        "sha256": "c2ba2bc00cae3c709802fb5a152491d4ec667eb95318a84ab51a93c59f315db6"
+      },
+      "raw_whest_stderr": {
+        "path": "../meter_protocol/runs/cp3_cap1024_n1_s1000_seed20260823/raw_whest_stderr.txt",
+        "sha256": "b79fbe5b7bb5bfec0f368e96f31b2e138ef374d8fe0878ec5a56f8b1117e8912"
+      },
+      "raw_process_tree_rss": {
+        "path": "../meter_protocol/runs/cp3_cap1024_n1_s1000_seed20260823/raw_process_tree_rss.jsonl",
+        "sha256": "142a249ce2d28bd1a8fed2abd79a46b66de6a45e887be537c44d3e377db55797"
+      },
+      "measured": {
+        "flops_used": 168812139522,
+        "integer_flop_margin_to_floor_max": 51090186033,
+        "residual_wall_time_s": 0.0900033968500793,
+        "wall_time_s": 1.099069083109498,
+        "peak_solution_tree_rss_bytes": 2166554624,
+        "rss_sample_count": 1071,
+        "output_shape": [16, 1024],
+        "materialized_output_dtype": "float32",
+        "all_output_values_finite": true,
+        "failed_mlps": 0
+      }
+    },
+    "cp3_cap1536": {
+      "receipt": {
+        "path": "../meter_protocol/runs/cp3_cap1536_n1_s1000_seed20260823/receipt.json",
+        "sha256": "9085d8e595168b07a09bafa93d309948f5406a85c5788acc4c42671ce888af16"
+      },
+      "invocation": {
+        "path": "../meter_protocol/runs/cp3_cap1536_n1_s1000_seed20260823/invocation.json",
+        "sha256": "913878402a57e59ecbfe4930fad0a2c6114afe181d538add7cd14aa0bf48d09c"
+      },
+      "raw_whest_stdout": {
+        "path": "../meter_protocol/runs/cp3_cap1536_n1_s1000_seed20260823/raw_whest_stdout.json",
+        "sha256": "30f136198ec2972c9c098339d2dd261d29a8db7d55649f9c4ef2fe4871699fce"
+      },
+      "raw_whest_stderr": {
+        "path": "../meter_protocol/runs/cp3_cap1536_n1_s1000_seed20260823/raw_whest_stderr.txt",
+        "sha256": "b79fbe5b7bb5bfec0f368e96f31b2e138ef374d8fe0878ec5a56f8b1117e8912"
+      },
+      "raw_process_tree_rss": {
+        "path": "../meter_protocol/runs/cp3_cap1536_n1_s1000_seed20260823/raw_process_tree_rss.jsonl",
+        "sha256": "6beab38eda331ba549883314bff48f392b04634ca6dc9f843e53997317da0abb"
+      },
+      "measured": {
+        "flops_used": 199018976258,
+        "integer_flop_margin_to_floor_max": 20883349297,
+        "residual_wall_time_s": 0.10242087999358773,
+        "wall_time_s": 1.187451290898025,
+        "peak_solution_tree_rss_bytes": 2209497088,
+        "rss_sample_count": 1078,
+        "output_shape": [16, 1024],
+        "materialized_output_dtype": "float32",
+        "all_output_values_finite": true,
+        "failed_mlps": 0
+      }
+    },
+    "cp3_cap1792": {
+      "receipt": {
+        "path": "../meter_protocol/runs/cp3_cap1792_n1_s1000_seed20260823/receipt.json",
+        "sha256": "71c4eedf2b04f3430bbca3ebf20882b0dc08daadf8895be14112f85fca240115"
+      },
+      "invocation": {
+        "path": "../meter_protocol/runs/cp3_cap1792_n1_s1000_seed20260823/invocation.json",
+        "sha256": "893ab4572f33bbdea4e7a6d206ab87d2844494ac4bd6fc5ee49c11b2a27b5a9c"
+      },
+      "raw_whest_stdout": {
+        "path": "../meter_protocol/runs/cp3_cap1792_n1_s1000_seed20260823/raw_whest_stdout.json",
+        "sha256": "a8140172e4d234ad3169e242b58fad8a16c8b7b0b121742bbacba6abe553b2aa"
+      },
+      "raw_whest_stderr": {
+        "path": "../meter_protocol/runs/cp3_cap1792_n1_s1000_seed20260823/raw_whest_stderr.txt",
+        "sha256": "b79fbe5b7bb5bfec0f368e96f31b2e138ef374d8fe0878ec5a56f8b1117e8912"
+      },
+      "raw_process_tree_rss": {
+        "path": "../meter_protocol/runs/cp3_cap1792_n1_s1000_seed20260823/raw_process_tree_rss.jsonl",
+        "sha256": "94165c57c066dd57f1e29d8e60fddc22a6360854898621d0c5e97d239cdf9d39"
+      },
+      "measured": {
+        "flops_used": 214122341378,
+        "integer_flop_margin_to_floor_max": 5779984177,
+        "residual_wall_time_s": 0.13626903528347611,
+        "wall_time_s": 1.350868500303477,
+        "peak_solution_tree_rss_bytes": 2371272704,
+        "rss_sample_count": 1108,
+        "output_shape": [16, 1024],
+        "materialized_output_dtype": "float32",
+        "all_output_values_finite": true,
+        "failed_mlps": 0
+      }
+    }
+  },
+  "admission_predicate": {
+    "required_for_every_candidate": [
+      "receipt and current verifier pass",
+      "no dataset argument and zero public target values accessed",
+      "finite materialized float32 output of shape [16,1024]",
+      "flops_used * 10 <= 2^41",
+      "residual wall time < 0.4 seconds",
+      "wall time < 120 seconds",
+      "sampled solution-tree peak RSS < 8589934592 bytes",
+      "zero failed MLPs and an error-free RSS sampler"
+    ],
+    "cp3_cap1792_checks": {
+      "receipt_verifier_pass": true,
+      "target_blind": true,
+      "output_contract_pass": true,
+      "score_floor_pass": true,
+      "residual_time_pass": true,
+      "wall_time_pass": true,
+      "sampled_rss_pass": true,
+      "zero_failures": true,
+      "rss_sampler_error_free": true
+    },
+    "cp3_cap1792_result": "ADMITTED_BEFORE_TARGET_OPENING"
+  },
+  "final_target_blind_accuracy_ladder": [
+    "cp3_cap512",
+    "cp3_cap1024",
+    "cp3_cap1536",
+    "cp3_cap1792"
+  ],
+  "access": {
+    "public_phase2_target_or_truth_values": 0,
+    "teacher_states": 0,
+    "prior_scores": 0,
+    "accuracy_metrics_computed": 0
+  }
+}

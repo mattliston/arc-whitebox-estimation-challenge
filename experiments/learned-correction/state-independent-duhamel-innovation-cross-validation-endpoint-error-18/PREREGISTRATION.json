@@ -1,0 +1,82 @@
+{
+  "schema": "public-full688-state-independent-duhamel-cv-preregistration-v1",
+  "node": "P2R0F2H",
+  "status": "frozen-before-cv-metrics",
+  "question": "Does removing recurrent-state feedback from the innovation provider arrest the universal L7-to-L15 error accumulation measured in P2R0F2D?",
+  "parent_evidence": {
+    "p2r0f2d_oof_autonomous_final_mse": 3.2969476163272226e-8,
+    "p2r0f2d_cv_results_sha256": "ddaf1ede02733eb4429dcaf003ff65f8d9fba2460352e8deba4fb54a3c111dbf",
+    "p2r0f2d_verification_sha256": "3099aa2f609c361ffb5114250edbbc8dfc439851a5d09e03943bd0f7b34a173e",
+    "first_layer_above_1e_8_in_every_fold": 7,
+    "l7_to_l15_added_mse": 2.2362889950894467e-8,
+    "l7_to_l15_fraction_of_target_gap": 0.9735916392665637,
+    "repaired_tail_population_share": 0.015988372093023256,
+    "repaired_tail_autonomous_sse_share": 0.015670623828929357,
+    "interpretation": "The corrected trigger tails are neutral and fold dispersion is small; late self-fed depth accumulation, plus four non-tail hard rows, dominates the remaining error."
+  },
+  "data": {
+    "role": "observer_fit",
+    "role_ranks": [0, 688],
+    "networks": 688,
+    "group_key": "mlp_id",
+    "folds": 4,
+    "fold_assignment": "Identical to P2R0F2D: blake2s32(1753358438:mlp_id) modulo 4",
+    "fold_sizes": [147, 172, 171, 198],
+    "host_rule": "Use the old deterministic host unless max(final_layer_mse,max_layer_mse)>5e-7; all 11 such ranks must use the near-floor-min repair.",
+    "data_derived_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+    "observer_selection": "forbidden",
+    "public_board_identity_join": "forbidden",
+    "retuning_from_cv_metrics": "forbidden"
+  },
+  "architecture": {
+    "name": "state-independent Duhamel innovation transport",
+    "hidden": 96,
+    "input_features": 20,
+    "first_corrected_layer": 2,
+    "local_provider": "A shared two-layer H96 SiLU trunk consumes only raw20 at the current layer. A layer-specific scalar head emits u_l at sigma_l times fit-fold layer-RMS scale.",
+    "forbidden_provider_inputs": [
+      "predicted residual state",
+      "transported residual message",
+      "truth at deployment",
+      "network identity"
+    ],
+    "transport": "s_0=s_1=0; s_2=u_2; for l=3:15, s_l=Phi_l*(s_{l-1}@W_l)+u_l. Channel s_l is the reported additive residual correction.",
+    "material_difference": "Unlike P2R0F2D and the scalar exposure model, the local source cannot co-adapt to or receive a self-fed state. Only the exact physical Duhamel accumulator is recurrent.",
+    "initialization": "Deterministic from scratch independently inside every fold; no learned checkpoint is imported."
+  },
+  "training": {
+    "seed": 1753358438,
+    "threads_per_fold": 2,
+    "parallel_folds": 4,
+    "batch_size_networks": 3,
+    "epochs": 6,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0012,
+    "minimum_learning_rate": 0.0001,
+    "schedule": "CosineAnnealingLR over all six epochs",
+    "weight_decay": 2e-5,
+    "gradient_clip_norm": 5.0,
+    "loss": "Fit-fold normalized corrected-layer autonomous rollout MSE with fixed layer weights linearly increasing 0.5 to 1.5, plus equal final-layer focus.",
+    "checkpoint": "Fixed final epoch 6 in every fold; no checkpoint selection."
+  },
+  "primary_metric": "Network-weighted 688-network out-of-fold autonomous final-layer MSE",
+  "decision_gate": {
+    "pass": "Every rollout is finite AND OOF final-layer MSE <2.9672528546945005e-8 AND maximum per-network final-layer MSE <1e-7.",
+    "fail": "Any conjunct fails; close this exact state-independent source-only form measured.",
+    "mean_threshold_rationale": "Exactly 10% below P2R0F2D's 3.2969476163272226e-8.",
+    "maximum_threshold_rationale": "Reject a mean gain that retains P2R0F2D's four 2.20e-7 to 3.41e-7 non-tail hard-row failures."
+  },
+  "cost_contract": {
+    "measured_host_flops": 2126977459133,
+    "phase2_budget": 2200000000000,
+    "requirement": "Record parameter count and the same conservative source-structure estimate used for P2R0F2D; literal flopscope meter only after the accuracy gate passes."
+  },
+  "resource_bound": {
+    "maximum_process_rss_bytes_per_fold": 8589934592,
+    "maximum_experiment_storage_bytes": 2147483648
+  },
+  "outcome": {
+    "pass": "Promote the source-independent Duhamel mechanism for literal deployment construction and a separately frozen sub-1e-8 successor.",
+    "fail": "Close P2R0F2H measured; retain the broader autonomous residual problem open."
+  }
+}

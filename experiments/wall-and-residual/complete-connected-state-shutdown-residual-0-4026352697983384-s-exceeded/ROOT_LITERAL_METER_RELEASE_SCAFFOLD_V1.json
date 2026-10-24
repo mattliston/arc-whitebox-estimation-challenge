@@ -1,0 +1,137 @@
+{
+  "schema": "q24-cs2-root-one-use-target-free-literal-meter-release-scaffold-v1",
+  "status": "HOLD__FULLWIDTH_COMPARATOR_RECEIPT_NULL__NO_LITERAL_METER_AUTHORITY",
+  "created_at_utc": "2026-08-24T12:58:17Z",
+  "authorization": {
+    "authorized": false,
+    "authorized_at_utc": null,
+    "authorizer": null,
+    "one_use": true,
+    "scope_id": "fb-ec4-q24-cs2-v2-4efb2c40-literal-meter-20260824",
+    "blocked_only_by": "the fixed one-use three-seed comparator receipt is not yet present or bound",
+    "authority_if_later_promoted": "user ongoing pure-closure research directive plus root verification of the preregistered comparator PASS"
+  },
+  "bindings": {
+    "candidate_estimator": {
+      "path": "estimator.py",
+      "bytes": 72277,
+      "sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779"
+    },
+    "source_hold": {
+      "path": "SOURCE_HOLD_V2.json",
+      "sha256": "c35332c6df5bfb2c7ad7105f200117078d55901956164d7717abdb8f85c2417c"
+    },
+    "preregister_sha256": "e06a68a92a139c670b0fe2fcb38615e96fa8d96a0019b3eef58bc2e995d36dd0",
+    "independent_strict_audit": {
+      "path": "INDEPENDENT_STRICT_AUDIT_CS2.json",
+      "sha256": "cba8bfbb437f32aa377ca72da74b9504894e6380429e2acf0e5a059d7ef8afcb",
+      "status_exact": "PASS_INDEPENDENT_EXACT_BYTE_SOURCE_AND_TARGET_FREE_CARRIER_AUDIT__IMMUTABLE_HOLD__FULLWIDTH_UNMEASURED",
+      "verifier_path": "verify_independent_strict_audit.py",
+      "verifier_sha256": "5673d297a3c5fd7dd7bd1fd2ec1a57c6ad9f51259d94870fbfa6bc3513a4a342"
+    },
+    "fullwidth_comparator_runner_sha256": "c4251eabce9341c9f60da441a37d583fdea47c54102e54a8b89ece816d23b2f2",
+    "fullwidth_comparator_release_sha256": "c5dc4408c69ac6eac36b05f139a54407366d23ccfcc1330c73f5f3e4ba98b3ab",
+    "fullwidth_comparator_claim": {
+      "path": "runs/fullwidth_official_he_seeds20260824_20260826_v1/CLAIM.json",
+      "sha256": null
+    },
+    "fullwidth_comparator_receipt": {
+      "path": "runs/fullwidth_official_he_seeds20260824_20260826_v1/receipt.json",
+      "sha256": null,
+      "status_exact": "PASS_TARGET_FREE_FULLWIDTH_STABILITY__LITERAL_METER_AND_ACCURACY_HOLD"
+    },
+    "meter_driver": {
+      "path": "../meter_protocol/run_synthetic_meter.py",
+      "sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34"
+    },
+    "parent_manual_rho_literal_meter_receipt_sha256": "4ad5d4bb8e70a3f57ef7559f5dceffe0d92fc7b77626088cff87431bdbf18160"
+  },
+  "resource_envelope": {
+    "width": 1024,
+    "depth": 16,
+    "n_mlps": 1,
+    "n_samples": 8,
+    "seed": 20260824,
+    "max_threads": 4,
+    "phase2_flop_budget": 2199023255552,
+    "wall_time_limit_s": 120.0,
+    "residual_wall_time_limit_s": 0.4,
+    "memory_limit_bytes": 8589934592,
+    "external_process_timeout_s": 300.0,
+    "projected_flops": 2131652533303,
+    "projected_headroom_flops": 67370722249,
+    "projected_utilization_percent": 96.93633425299595,
+    "projected_calls": 9504
+  },
+  "execution": {
+    "currently_authorized": false,
+    "cwd": "/Users/matt/arc-white-box-estimation",
+    "label": "fb_ec4_q24_cs2_v2_4efb2c40_n1_s8_seed20260824",
+    "output_namespace_must_be_absent_before_launch": "../meter_protocol/runs/fb_ec4_q24_cs2_v2_4efb2c40_n1_s8_seed20260824",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "argv": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python",
+      "-B",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/meter_protocol/run_synthetic_meter.py",
+      "--estimator",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/fullbudget_k21_k4_closure_q24_connected_shutdown_v2/estimator.py",
+      "--class",
+      "Estimator",
+      "--label",
+      "fb_ec4_q24_cs2_v2_4efb2c40_n1_s8_seed20260824",
+      "--n-mlps",
+      "1",
+      "--n-samples",
+      "8",
+      "--seed",
+      "20260824",
+      "--max-threads",
+      "4"
+    ]
+  },
+  "outcome_law": {
+    "pass_requires": [
+      "literal FLOPs <= 2199023255552",
+      "wall <= 120 seconds",
+      "residual <= 0.4 seconds",
+      "descendant RSS < 8589934592 bytes",
+      "one finite float32 output of shape [16,1024]",
+      "zero failed MLPs",
+      "source hash and deterministic official seed-20260824 weight hashes match"
+    ],
+    "comparator_receipt_is_prerequisite": true,
+    "accuracy_authority": "none; this run cannot justify a board attempt"
+  },
+  "access_boundary": {
+    "dataset_argument": null,
+    "public_or_private_targets_authorized": false,
+    "target_guided_selection_authorized": false,
+    "synthetic_truth_generated_internally_by_standard_meter_harness": true,
+    "synthetic_truth_passed_to_estimator": false,
+    "synthetic_truth_or_score_authorized_for_scientific_decision": false,
+    "package_authorized": false,
+    "submission_authorized": false,
+    "graph_mutation_authorized_by_this_scaffold": false
+  },
+  "promotion_boundary": {
+    "this_scaffold_is_immutable_and_never_executable": true,
+    "authorized_release_must_be_a_new_file": "ROOT_LITERAL_METER_RELEASE_CS2_V1.json",
+    "required_new_release_bindings": [
+      "this scaffold SHA-256",
+      "the existing exact independent-audit SHA-256",
+      "the durable comparator CLAIM.json SHA-256",
+      "the exact comparator receipt SHA-256",
+      "the comparator PASS status",
+      "the still-exact estimator, source-HOLD, preregister, comparator-runner, comparator-release, meter-driver, and parent-meter hashes"
+    ],
+    "required_new_release_authorization": [
+      "status ROOT_AUTHORIZED_ONE_TARGET_FREE_LITERAL_METER__NOT_YET_CONSUMED",
+      "authorized true",
+      "non-null authorized_at_utc and authorizer",
+      "currently_authorized true"
+    ],
+    "permitted_mutations_to_this_scaffold": []
+  }
+}

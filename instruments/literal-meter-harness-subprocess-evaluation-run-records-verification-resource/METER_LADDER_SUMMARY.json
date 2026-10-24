@@ -1,0 +1,109 @@
+{
+  "schema": "phase2-target-blind-meter-ladder-summary-v1",
+  "status": "PASS_UNIFORM_CURRENT_HASH_RESEAL",
+  "protocol": {
+    "meter_driver_sha256": "279e2491ad7bf48b150ad670948c03fdcd2006ae3dae25e733930f4800e5cb34",
+    "receipt_verifier_sha256": "91471a7d543020460359acf7db8548969182734e9469ec02194002e3008d37d8",
+    "current_verifier_passed_all_runs": true,
+    "runner": "whestbench 0.16.0 subprocess with flopscope 0.12.0",
+    "geometry": [16, 1024, 1024],
+    "synthetic_truth_samples": 1000,
+    "seed": 20260823,
+    "max_threads": 4,
+    "raw_process_tree_rss_sample_interval_s": 0.01
+  },
+  "score_floor": {
+    "budget_flops": 2199023255552,
+    "condition": "10 * flops_used <= 2^41",
+    "max_integer_flops_inclusive": 219902325555
+  },
+  "resource_limits": {
+    "memory_limit_bytes": 8589934592,
+    "residual_wall_time_limit_s": 0.4,
+    "wall_time_limit_s": 120.0
+  },
+  "shared_synthetic_fixture": {
+    "aggregate_weights_sha256": "86c25816f08c62f389ce885d31e4fa5576411aab2a61c6dc29e858f02ec07ce8",
+    "aggregate_sampled_inputs_sha256": "b59d106df929b5be5f1300046099d1207a49252883db597dedfb89fac5041778",
+    "aggregate_truth_sha256": "108cb2b914748913a0793131fa204fe70cb410044fc7f2ab006d4b97ea92e087"
+  },
+  "candidates": [
+    {
+      "label": "hermite_order10",
+      "estimator_sha256": "8bfdf89e2642764d337f264939add073366bad61a1c432b823de06dfd38420f2",
+      "receipt_sha256": "2a1b29c639243c689fac350b10d66a95067f531949e16f3ae1a61415ca9bdeb0",
+      "flops_used": 103923320832,
+      "integer_flop_margin_to_floor_max": 115979004723,
+      "wall_time_s": 1.1416656249202788,
+      "residual_wall_time_s": 0.10807238332927227,
+      "sampled_solution_process_tree_peak_rss_bytes": 2195210240,
+      "output_contract_pass": true,
+      "failed_mlps": 0,
+      "all_resource_gates_pass": true
+    },
+    {
+      "label": "cp3_cap512",
+      "estimator_sha256": "74d71023bfd35ac09d99e8572046d6467126084fe02a83efdc4f5804af76840a",
+      "receipt_sha256": "ad6c428b03946f8bc110dbebe5a08c892d50c537ab54c947b659daa3800c804e",
+      "flops_used": 136462170114,
+      "integer_flop_margin_to_floor_max": 83440155441,
+      "wall_time_s": 1.157494958024472,
+      "residual_wall_time_s": 0.1166894193738699,
+      "sampled_solution_process_tree_peak_rss_bytes": 2178531328,
+      "output_contract_pass": true,
+      "failed_mlps": 0,
+      "all_resource_gates_pass": true,
+      "eligible_for_sealed_accuracy_ladder": true
+    },
+    {
+      "label": "cp3_cap1024",
+      "estimator_sha256": "321bd2183b63ba79e84e733b86d220b08d7a9ec0dd7d07da6d463f1b60bd7edc",
+      "receipt_sha256": "37dc342f801231bffbca93804a337dea328b5708afd3500c2824d722529cc690",
+      "flops_used": 168812139522,
+      "integer_flop_margin_to_floor_max": 51090186033,
+      "wall_time_s": 1.099069083109498,
+      "residual_wall_time_s": 0.0900033968500793,
+      "sampled_solution_process_tree_peak_rss_bytes": 2166554624,
+      "output_contract_pass": true,
+      "failed_mlps": 0,
+      "all_resource_gates_pass": true,
+      "eligible_for_sealed_accuracy_ladder": true
+    },
+    {
+      "label": "cp3_cap1536",
+      "estimator_sha256": "b9297c28e97f32dd5b4e33e4df1dd297817fd163f6bcb118517c20a2940fdd40",
+      "receipt_sha256": "9085d8e595168b07a09bafa93d309948f5406a85c5788acc4c42671ce888af16",
+      "flops_used": 199018976258,
+      "integer_flop_margin_to_floor_max": 20883349297,
+      "wall_time_s": 1.187451290898025,
+      "residual_wall_time_s": 0.10242087999358773,
+      "sampled_solution_process_tree_peak_rss_bytes": 2209497088,
+      "output_contract_pass": true,
+      "failed_mlps": 0,
+      "all_resource_gates_pass": true,
+      "eligible_for_sealed_accuracy_ladder": true
+    },
+    {
+      "label": "cp3_cap1792",
+      "estimator_sha256": "035e3bd2fd08d3358f5424fc67f10281e5559e65fa9c6d6dce97791108b176dc",
+      "receipt_sha256": "71c4eedf2b04f3430bbca3ebf20882b0dc08daadf8895be14112f85fca240115",
+      "flops_used": 214122341378,
+      "integer_flop_margin_to_floor_max": 5779984177,
+      "wall_time_s": 1.350868500303477,
+      "residual_wall_time_s": 0.13626903528347611,
+      "sampled_solution_process_tree_peak_rss_bytes": 2371272704,
+      "output_contract_pass": true,
+      "failed_mlps": 0,
+      "all_resource_gates_pass": true,
+      "conditional_meter_gate_pass": true,
+      "eligible_for_sealed_accuracy_ladder": true
+    }
+  ],
+  "accuracy_scope": "All numbers above are target-blind interface/resource measurements. Synthetic 1000-sample MSE is intentionally excluded and carries no Phase 2 accuracy authority.",
+  "access": {
+    "public_phase2_target_or_truth_values": 0,
+    "teacher_states": 0,
+    "prior_scores": 0,
+    "phase1_checkpoints": 0
+  }
+}

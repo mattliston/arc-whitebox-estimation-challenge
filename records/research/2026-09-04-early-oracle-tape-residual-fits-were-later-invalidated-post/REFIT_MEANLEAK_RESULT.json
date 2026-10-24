@@ -1,0 +1,101 @@
+{
+  "deployed_frame_sealed_targets": {
+    "all200_deployed_layer_mse": [
+      6.809785359739029e-10,
+      5.987800855724117e-10,
+      5.142466747840599e-10,
+      1.3284817286670805e-09,
+      2.3162410968565708e-09,
+      3.1756065677684605e-09,
+      3.8502751168051136e-09,
+      4.516425736235789e-09,
+      5.047079958902608e-09,
+      5.6212130522495446e-09,
+      6.170813414624461e-09,
+      6.747681758899375e-09,
+      7.239764690994335e-09,
+      7.71873963557146e-09,
+      8.27724573908174e-09,
+      8.988540313979598e-09
+    ],
+    "all200_final_mse_IN_SAMPLE": 8.988540313979598e-09,
+    "all200_host_final_mse": 2.2687286172474614e-08,
+    "clamp_engaged_elements_of_3276800": 99326,
+    "finite": true,
+    "train160_final_mse_in_sample": 9.002954689779848e-09,
+    "valid40_final_mse": 8.930882810778587e-09
+  },
+  "independent_truth_scoring": {
+    "100": {
+      "cut_vs_deployed_full_indep4M_pct": 65.1,
+      "deployed_full_card_indep4M_ref": 2.7787e-08,
+      "deployed_host_indep4M_ref": 7.696e-08,
+      "in_training_split": "train160",
+      "indep32M": {
+        "host_f2j_off": 2.197002163782415e-08,
+        "refit_f2j_on": 9.667139272852203e-09
+      },
+      "indep4M": {
+        "host_f2j_off": 2.1256742106790804e-08,
+        "refit_f2j_on": 9.693268911013788e-09
+      }
+    },
+    "35": {
+      "cut_vs_deployed_full_indep4M_pct": 75.4,
+      "deployed_full_card_indep4M_ref": 2.7038e-08,
+      "deployed_host_indep4M_ref": 8.622e-08,
+      "in_training_split": "train160",
+      "indep32M": {
+        "host_f2j_off": 2.254589045218143e-08,
+        "refit_f2j_on": 8.649139128499826e-09
+      },
+      "indep4M": {
+        "host_f2j_off": 2.1619720160391685e-08,
+        "refit_f2j_on": 6.63902565160247e-09
+      }
+    }
+  },
+  "protocol": {
+    "device_used": "cpu",
+    "epochs": 6,
+    "epochs_override": null,
+    "host_source_sha256": "bdab29ed4adaf66fe954bad80daac4327f45fca8937b0f5e32ead75e214e30bc",
+    "j_source": "jext/run_experiment_ext.py (extended-width copy of the pinned J)",
+    "j_source_sha256": "2bbf97112062f7919e934d069bfc17ffc1c390de70460a0d85a68ab814ee4490",
+    "k4_table_sha256": "cbc87def2958f6740aa6a752f3322117c27de8ebd9499bae5ec440451435db8b",
+    "law": "frozen 160/40 J-native transfer protocol",
+    "local_features": 20,
+    "memory_gate_log": [],
+    "model_seed": 1753362478,
+    "mps_failure_note": null,
+    "n_params": 25600,
+    "parameters": 25600,
+    "rows": "rows_meanleak ranks 35..234",
+    "shuffle_stream_id": 40
+  },
+  "reference_prior_refit_floor": {
+    "base_refit_valid40": 3.133419038664782e-08,
+    "deployed_baseline_all200_in_sample": 2.958e-08,
+    "joint_refit_valid40": 3.133856737168449e-08
+  },
+  "schema": "k4panel-refit-deployed-v1",
+  "training": {
+    "finite_full_rollout": true,
+    "j_removal_fraction_valid40": 0.6001050908470043,
+    "model_sha256": "fcecabbea4334d3089b75425cdb7950bbf7359eed51e09a19208ca3c382be1c9",
+    "training_seconds": 48.127545041032135,
+    "training_trace_final": {
+      "elapsed_seconds": 47.455441458150744,
+      "epoch": 6,
+      "fit_objective": 0.8345953673124313,
+      "fold": 40,
+      "learning_rate": 0.0001,
+      "max_rss_bytes": 1707196416,
+      "mix_delta_max_abs": 0.15460936725139618,
+      "own_primary_state_exposure": 1.0,
+      "transport_delta_max_abs": 0.049728408455848694
+    },
+    "valid40_corrected_final_mse_protocol_unclamped": 8.936440920046267e-09,
+    "valid40_host_final_mse": 2.2346973456036857e-08
+  }
+}

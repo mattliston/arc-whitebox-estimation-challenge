@@ -1,0 +1,771 @@
+# Transport-consistency re-screens rejected: birth, radial, kurtosis and late-layer gate variants are null
+
+2026-10-13T08:38Z · experiment · rejected · measured
+
+Every consistency site of the moment-closure estimator re-screened on top of skew- and kurtosis-corrected transport gate (gk) at the candidate generation 50 (S50) point reads null or worse on 8 fresh networks: the omitted-radial source, the birth update, the local kurtosis, the b radial source, third-cumulant plane with index multiplicities (2,1) (K21) recentering, the b-fix gamma (null at n = 24), and the late-layer gate / skew-corrected birth (bsk) profiles.
+
+Recorded measurement:
+
+    gomit +0.150% (2.0 se, 1/8); gbu1 -0.002%; bk4l1 +0.029%; gbd1 +0.043%; kb25 -0.021%; bfx15 n = 24 -0.098% (se 0.201); gks -0.011%, bsklate -0.002%, bsksplit +0.059%; gkprof_late +0.055%
+
+Program source is in [`code/`](code/), preserving the relative layout below `pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16`. Original machine paths and data requirements remain in the archived programs. [Run the designated estimators](../../../estimator/REPRODUCE.md); [research data availability](../../../data/DATA_INDEX.md).
+
+## Programs
+
+- [code/opus_reexam_20261001_v1/scout_card/k_table_v4.py](code/opus_reexam_20261001_v1/scout_card/k_table_v4.py)
+- [code/astra_phase2_reexamination_v1/current_shared384_causal_p_v1/shared_operator.py](code/astra_phase2_reexamination_v1/current_shared384_causal_p_v1/shared_operator.py)
+- [code/codex_resume_20260919_v1/current_full_lower_p_allocator_v1/allocator.py](code/codex_resume_20260919_v1/current_full_lower_p_allocator_v1/allocator.py)
+- [code/codex_resume_20260919_v1/current_p_message_covariance_release_v1/candidate.py](code/codex_resume_20260919_v1/current_p_message_covariance_release_v1/candidate.py)
+- [code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/common.py](code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/common.py)
+- [code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/guard.py](code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/guard.py)
+- [code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/native.py](code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/native.py)
+- [code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/qualify.py](code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/qualify.py)
+- [code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/records.py](code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/records.py)
+- [code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/retirement.py](code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/retirement.py)
+- [code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/run.py](code/codex_resume_20260919_v1/learnable_joint_basis_bank_native_v1/run.py)
+- [code/codex_resume_20260919_v1/learnable_joint_basis_implementation_v1/zero.py](code/codex_resume_20260919_v1/learnable_joint_basis_implementation_v1/zero.py)
+
+<details>
+<summary>Additional programs and dependencies (79)</summary>
+
+- [code/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py](code/codex_resume_20260926_v2/hill_climb_pair_rr_inverse_v1/candidate.py)
+- [code/fable_analyst_v1/s2card.py](code/fable_analyst_v1/s2card.py)
+- [code/fable_analyst_v1/s6bcard.py](code/fable_analyst_v1/s6bcard.py)
+- [code/fable_covhunter_v1/covstep.py](code/fable_covhunter_v1/covstep.py)
+- [code/fable_covhunter_v1/covstep_s2.py](code/fable_covhunter_v1/covstep_s2.py)
+- [code/fable_covhunter_v1/gn3_knobs.py](code/fable_covhunter_v1/gn3_knobs.py)
+- [code/fable_covhunter_v1/s6bcard_joint2.py](code/fable_covhunter_v1/s6bcard_joint2.py)
+- [code/fable_covhunter_v1/s6bcard_joint2t.py](code/fable_covhunter_v1/s6bcard_joint2t.py)
+- [code/fable_engineer_v1/gn_linear_hook.py](code/fable_engineer_v1/gn_linear_hook.py)
+- [code/fable_engineer_v1/join_nystrom_torch.py](code/fable_engineer_v1/join_nystrom_torch.py)
+- [code/fable_engineer_v1/pair_series_torch.py](code/fable_engineer_v1/pair_series_torch.py)
+- [code/fable_physicist_v1/refit6b/lrstar_s1zero_hook.py](code/fable_physicist_v1/refit6b/lrstar_s1zero_hook.py)
+- [code/fable_physicist_v1/refit6b/s6bcard_loop5js.py](code/fable_physicist_v1/refit6b/s6bcard_loop5js.py)
+- [code/fable_porter_v1/star_nys_test.py](code/fable_porter_v1/star_nys_test.py)
+- [code/fable_refit_v1/common.py](code/fable_refit_v1/common.py)
+- [code/fable_refit_v1/model_bank_bfix.py](code/fable_refit_v1/model_bank_bfix.py)
+- [code/fable_refit_v1/model_bank_research.py](code/fable_refit_v1/model_bank_research.py)
+- [code/opus_reexam_20261001_v1/analyst/fresh/loader.py](code/opus_reexam_20261001_v1/analyst/fresh/loader.py)
+- [code/opus_reexam_20261001_v1/engineer/a22_cutsim/n6y_cutsim_v2.py](code/opus_reexam_20261001_v1/engineer/a22_cutsim/n6y_cutsim_v2.py)
+- [code/opus_reexam_20261001_v1/engineer/a22_cutsim/pbase_cutsim_v1.py](code/opus_reexam_20261001_v1/engineer/a22_cutsim/pbase_cutsim_v1.py)
+- [code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_cutsim_s46_v11.py](code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_cutsim_s46_v11.py)
+- [code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_push_native_v2.py](code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_push_native_v2.py)
+- [code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_rowcuts_v15.py](code/opus_reexam_20261001_v1/engineer/a22_cutsim/torch_rowcuts_v15.py)
+- [code/opus_reexam_20261001_v1/engineer/a33_starsum/star_ss_torch.py](code/opus_reexam_20261001_v1/engineer/a33_starsum/star_ss_torch.py)
+- [code/opus_reexam_20261001_v1/engineer/a33_starsum/star_ss_torch_v2.py](code/opus_reexam_20261001_v1/engineer/a33_starsum/star_ss_torch_v2.py)
+- [code/opus_reexam_20261001_v1/physicist/b6cols.py](code/opus_reexam_20261001_v1/physicist/b6cols.py)
+- [code/opus_reexam_20261001_v1/physicist/b7cols.py](code/opus_reexam_20261001_v1/physicist/b7cols.py)
+- [code/opus_reexam_20261001_v1/physicist/f4b.py](code/opus_reexam_20261001_v1/physicist/f4b.py)
+- [code/opus_reexam_20261001_v1/physicist/ncar_bank_frozen_s2s.py](code/opus_reexam_20261001_v1/physicist/ncar_bank_frozen_s2s.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/n6y_cutsim_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/n6y_cutsim_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/pbase_cutsim_v1.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/pbase_cutsim_v1.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/torch_cutsim_s46_v11.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/torch_cutsim_s46_v11.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/torch_push_native_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/torch_push_native_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/torch_rowcuts_v15.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc2/torch_rowcuts_v15.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/n6y_cutsim_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/n6y_cutsim_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/pbase_cutsim_v1.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/pbase_cutsim_v1.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/torch_cutsim_s46_v11.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/torch_cutsim_s46_v11.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/torch_push_native_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/torch_push_native_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/torch_rowcuts_v15.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc3/torch_rowcuts_v15.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/n6y_cutsim_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/n6y_cutsim_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/pbase_cutsim_v1.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/pbase_cutsim_v1.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/torch_cutsim_s46_v11.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/torch_cutsim_s46_v11.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/torch_push_native_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/torch_push_native_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/torch_rowcuts_v15.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc4/torch_rowcuts_v15.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/n6y_cutsim_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/n6y_cutsim_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/pbase_cutsim_v1.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/pbase_cutsim_v1.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/torch_cutsim_s46_v11.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/torch_cutsim_s46_v11.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/torch_push_native_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/torch_push_native_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/torch_rowcuts_v15.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc5/torch_rowcuts_v15.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/n6y_cutsim_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/n6y_cutsim_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/pbase_cutsim_v1.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/pbase_cutsim_v1.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/torch_cutsim_s46_v11.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/torch_cutsim_s46_v11.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/torch_push_native_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/torch_push_native_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/torch_rowcuts_v15.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc6/torch_rowcuts_v15.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/n6y_cutsim_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/n6y_cutsim_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/pbase_cutsim_v1.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/pbase_cutsim_v1.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/torch_cutsim_s46_v11.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/torch_cutsim_s46_v11.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/torch_push_native_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/torch_push_native_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/torch_rowcuts_v15.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc7/torch_rowcuts_v15.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/n6y_cutsim_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/n6y_cutsim_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/pbase_cutsim_v1.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/pbase_cutsim_v1.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/torch_cutsim_s46_v11.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/torch_cutsim_s46_v11.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/torch_push_native_v2.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/torch_push_native_v2.py)
+- [code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/torch_rowcuts_v15.py](code/opus_reexam_20261001_v1/scout_card/cutsim_sc8/torch_rowcuts_v15.py)
+- [code/opus_reexam_20261001_v1/scout_card/otr_cut_runtime_sc2.py](code/opus_reexam_20261001_v1/scout_card/otr_cut_runtime_sc2.py)
+- [code/opus_reexam_20261001_v1/scout_card/otr_cut_runtime_sc3.py](code/opus_reexam_20261001_v1/scout_card/otr_cut_runtime_sc3.py)
+- [code/opus_reexam_20261001_v1/scout_card/otr_cut_runtime_sc4.py](code/opus_reexam_20261001_v1/scout_card/otr_cut_runtime_sc4.py)
+- [code/opus_reexam_20261001_v1/scout_card/otr_m_sc4.py](code/opus_reexam_20261001_v1/scout_card/otr_m_sc4.py)
+- [code/opus_reexam_20261001_v1/scout_card/worker_sc6.py](code/opus_reexam_20261001_v1/scout_card/worker_sc6.py)
+- [code/opus_reexam_20261001_v1/scout_card/worker_sc7.py](code/opus_reexam_20261001_v1/scout_card/worker_sc7.py)
+- [code/opus_reexam_20261001_v1/scout_card/worker_sc8.py](code/opus_reexam_20261001_v1/scout_card/worker_sc8.py)
+- [code/opus_reexam_20261001_v1/trainer/otr_common.py](code/opus_reexam_20261001_v1/trainer/otr_common.py)
+- [code/opus_reexam_20261001_v1/trainer/otr_engine.py](code/opus_reexam_20261001_v1/trainer/otr_engine.py)
+- [code/opus_reexam_20261001_v1/trainer/otr_generated_manifest_v1.py](code/opus_reexam_20261001_v1/trainer/otr_generated_manifest_v1.py)
+- [code/opus_reexam_20261001_v1/trainer/otr_generated_v1.py](code/opus_reexam_20261001_v1/trainer/otr_generated_v1.py)
+- [code/opus_reexam_20261001_v1/trainer/otr_generated_v2.py](code/opus_reexam_20261001_v1/trainer/otr_generated_v2.py)
+- [code/opus_reexam_20261001_v1/trainer/otr_generated_v3.py](code/opus_reexam_20261001_v1/trainer/otr_generated_v3.py)
+- [code/opus_reexam_20261001_v1/trainer/otr_m.py](code/opus_reexam_20261001_v1/trainer/otr_m.py)
+- [code/opus_reexam_20261001_v1/trainer/otr_pl.py](code/opus_reexam_20261001_v1/trainer/otr_pl.py)
+
+</details>
+
+## Evidence
+
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1839](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1839)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1841](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1841)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1842](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1842)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1847](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1847)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1951](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1951)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1952](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1952)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1955](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1955)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1957](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1957)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1965](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1965)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1967](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1967)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1970](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1970)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1972](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1972)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1980](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1980)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L2023](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L2023)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1927](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1927)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1764](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1764)
+- [TEAM_LOG_2026-10-01_to_10-22.md#L1773](../../../records/TEAM_LOG_2026-10-01_to_10-22.md#L1773)
+
+<details>
+<summary>All result files and records (627)</summary>
+
+- [sc_k79x_r7100592_gk+bfx20.json](sc_k79x_r7100592_gk+bfx20.json) · result
+- [sc_k79x_r7100593_gk+bfx20.json](sc_k79x_r7100593_gk+bfx20.json) · result
+- [sc_k79x_r7100594_gk+bfx20.json](sc_k79x_r7100594_gk+bfx20.json) · result
+- [sc_k79x_r7100595_gk+bfx20.json](sc_k79x_r7100595_gk+bfx20.json) · result
+- [sc_k79x_r7100596_gk+bfx20.json](sc_k79x_r7100596_gk+bfx20.json) · result
+- [sc_k79x_r7100597_gk+bfx20.json](sc_k79x_r7100597_gk+bfx20.json) · result
+- [sc_k79x_r7100598_gk+bfx20.json](sc_k79x_r7100598_gk+bfx20.json) · result
+- [sc_k79x_r7100599_gk+bfx20.json](sc_k79x_r7100599_gk+bfx20.json) · result
+- [sc_k79x_r7100600_gk+bfx20.json](sc_k79x_r7100600_gk+bfx20.json) · result
+- [sc_k79x_r7100601_gk+bfx20.json](sc_k79x_r7100601_gk+bfx20.json) · result
+- [sc_k79x_r7100602_gk+bfx20.json](sc_k79x_r7100602_gk+bfx20.json) · result
+- [sc_k79x_r7100603_gk+bfx20.json](sc_k79x_r7100603_gk+bfx20.json) · result
+- [sc_k79x_r7100604_gk+bfx20.json](sc_k79x_r7100604_gk+bfx20.json) · result
+- [sc_k79x_r7100605_gk+bfx20.json](sc_k79x_r7100605_gk+bfx20.json) · result
+- [sc_k79x_r7100606_gk+bfx20.json](sc_k79x_r7100606_gk+bfx20.json) · result
+- [sc_k79x_r7100607_gk+bfx20.json](sc_k79x_r7100607_gk+bfx20.json) · result
+- [sc_k72cb_r7100464_off.json](sc_k72cb_r7100464_off.json) · result
+- [sc_k72cb_r7100464_on.json](sc_k72cb_r7100464_on.json) · result
+- [sc_k72cb_r7100472_off.json](sc_k72cb_r7100472_off.json) · result
+- [sc_k72cb_r7100472_on.json](sc_k72cb_r7100472_on.json) · result
+- [sc_k72cb_r7100478_off.json](sc_k72cb_r7100478_off.json) · result
+- [sc_k72cb_r7100478_on.json](sc_k72cb_r7100478_on.json) · result
+- [sc_k72cb_r7100479_off.json](sc_k72cb_r7100479_off.json) · result
+- [sc_k72cb_r7100479_on.json](sc_k72cb_r7100479_on.json) · result
+- [sc_k72cb_r7100481_off.json](sc_k72cb_r7100481_off.json) · result
+- [sc_k72cb_r7100481_on.json](sc_k72cb_r7100481_on.json) · result
+- [sc_k72cb_r7100482_off.json](sc_k72cb_r7100482_off.json) · result
+- [sc_k72cb_r7100482_on.json](sc_k72cb_r7100482_on.json) · result
+- [sc_k72cb_r7100486_off.json](sc_k72cb_r7100486_off.json) · result
+- [sc_k72cb_r7100486_on.json](sc_k72cb_r7100486_on.json) · result
+- [sc_k72cb_r7100492_off.json](sc_k72cb_r7100492_off.json) · result
+- [sc_k72cb_r7100492_on.json](sc_k72cb_r7100492_on.json) · result
+- [sc_k72cb_r7100496_off.json](sc_k72cb_r7100496_off.json) · result
+- [sc_k72cb_r7100496_on.json](sc_k72cb_r7100496_on.json) · result
+- [sc_k72cb_r7100506_off.json](sc_k72cb_r7100506_off.json) · result
+- [sc_k72cb_r7100506_on.json](sc_k72cb_r7100506_on.json) · result
+- [sc_k72cb_r7100584_off.json](sc_k72cb_r7100584_off.json) · result
+- [sc_k72cb_r7100584_on.json](sc_k72cb_r7100584_on.json) · result
+- [sc_k72cb_r7100585_off.json](sc_k72cb_r7100585_off.json) · result
+- [sc_k72cb_r7100585_on.json](sc_k72cb_r7100585_on.json) · result
+- [sc_k72cb_r7100607_off.json](sc_k72cb_r7100607_off.json) · result
+- [sc_k72cb_r7100607_on.json](sc_k72cb_r7100607_on.json) · result
+- [sc_k72cb_r7100611_off.json](sc_k72cb_r7100611_off.json) · result
+- [sc_k72cb_r7100611_on.json](sc_k72cb_r7100611_on.json) · result
+- [sc_k72cb_r7100632_off.json](sc_k72cb_r7100632_off.json) · result
+- [sc_k72cb_r7100632_on.json](sc_k72cb_r7100632_on.json) · result
+- [sc_k72cb_r7100642_off.json](sc_k72cb_r7100642_off.json) · result
+- [sc_k72cb_r7100642_on.json](sc_k72cb_r7100642_on.json) · result
+- [sc_k6z_r7100584_gk.w0.json](sc_k6z_r7100584_gk.w0.json) · result
+- [sc_k6zz_r7100584_gk.w0.json](sc_k6zz_r7100584_gk.w0.json) · result
+- [sc_k70_r7100584_gk+lq1.w0.json](sc_k70_r7100584_gk+lq1.w0.json) · result
+- [sc_k70_r7100585_gk+lq1.w0.json](sc_k70_r7100585_gk+lq1.w0.json) · result
+- [sc_k70_r7100586_gk+lq1.w0.json](sc_k70_r7100586_gk+lq1.w0.json) · result
+- [sc_k70_r7100587_gk+lq1.w0.json](sc_k70_r7100587_gk+lq1.w0.json) · result
+- [sc_k70_r7100588_gk+lq1.w0.json](sc_k70_r7100588_gk+lq1.w0.json) · result
+- [sc_k70_r7100589_gk+lq1.w0.json](sc_k70_r7100589_gk+lq1.w0.json) · result
+- [sc_k70_r7100590_gk+lq1.w0.json](sc_k70_r7100590_gk+lq1.w0.json) · result
+- [sc_k70_r7100591_gk+lq1.w0.json](sc_k70_r7100591_gk+lq1.w0.json) · result
+- [sc_k71_r7100586_gk+gbd2.w0.json](sc_k71_r7100586_gk+gbd2.w0.json) · result
+- [sc_k71_r7100587_gk+gbd2.w0.json](sc_k71_r7100587_gk+gbd2.w0.json) · result
+- [sc_k71_r7100588_gk+gbd2.w0.json](sc_k71_r7100588_gk+gbd2.w0.json) · result
+- [sc_k71_r7100589_gk+gbd2.w0.json](sc_k71_r7100589_gk+gbd2.w0.json) · result
+- [sc_k71_r7100590_gk+gbd2.w0.json](sc_k71_r7100590_gk+gbd2.w0.json) · result
+- [sc_k71_r7100591_gk+gbd2.w0.json](sc_k71_r7100591_gk+gbd2.w0.json) · result
+- [sc_k72_r7100584_gk+gbeta1.w0.json](sc_k72_r7100584_gk+gbeta1.w0.json) · result
+- [sc_k72_r7100585_gk+gbeta1.w0.json](sc_k72_r7100585_gk+gbeta1.w0.json) · result
+- [sc_k72_r7100586_gk+gbeta1.w0.json](sc_k72_r7100586_gk+gbeta1.w0.json) · result
+- [sc_k72_r7100587_gk+gbeta1.w0.json](sc_k72_r7100587_gk+gbeta1.w0.json) · result
+- [sc_k72_r7100588_gk+gbeta1.w0.json](sc_k72_r7100588_gk+gbeta1.w0.json) · result
+- [sc_k72_r7100589_gk+gbeta1.w0.json](sc_k72_r7100589_gk+gbeta1.w0.json) · result
+- [sc_k72_r7100590_gk+gbeta1.w0.json](sc_k72_r7100590_gk+gbeta1.w0.json) · result
+- [sc_k72_r7100591_gk+gbeta1.w0.json](sc_k72_r7100591_gk+gbeta1.w0.json) · result
+- [sc_k72b_r7100584_gk+gbeta2.w0.json](sc_k72b_r7100584_gk+gbeta2.w0.json) · result
+- [sc_k72b_r7100585_gk+gbeta2.w0.json](sc_k72b_r7100585_gk+gbeta2.w0.json) · result
+- [sc_k72b_r7100586_gk+gbeta2.w0.json](sc_k72b_r7100586_gk+gbeta2.w0.json) · result
+- [sc_k72b_r7100587_gk+gbeta2.w0.json](sc_k72b_r7100587_gk+gbeta2.w0.json) · result
+- [sc_k72b_r7100588_gk+gbeta2.w0.json](sc_k72b_r7100588_gk+gbeta2.w0.json) · result
+- [sc_k72b_r7100589_gk+gbeta2.w0.json](sc_k72b_r7100589_gk+gbeta2.w0.json) · result
+- [sc_k72b_r7100590_gk+gbeta2.w0.json](sc_k72b_r7100590_gk+gbeta2.w0.json) · result
+- [sc_k72b_r7100591_gk+gbeta2.w0.json](sc_k72b_r7100591_gk+gbeta2.w0.json) · result
+- [sc_k72bz_r7100584_gk.w0.json](sc_k72bz_r7100584_gk.w0.json) · result
+- [sc_k72c_r7100584_gk+gbsm05.w0.json](sc_k72c_r7100584_gk+gbsm05.w0.json) · result
+- [sc_k72c_r7100585_gk+gbsm05.w0.json](sc_k72c_r7100585_gk+gbsm05.w0.json) · result
+- [sc_k72c_r7100586_gk+gbsm05.w0.json](sc_k72c_r7100586_gk+gbsm05.w0.json) · result
+- [sc_k72c_r7100587_gk+gbsm05.w0.json](sc_k72c_r7100587_gk+gbsm05.w0.json) · result
+- [sc_k72c_r7100588_gk+gbsm05.w0.json](sc_k72c_r7100588_gk+gbsm05.w0.json) · result
+- [sc_k72c_r7100589_gk+gbsm05.w0.json](sc_k72c_r7100589_gk+gbsm05.w0.json) · result
+- [sc_k72c_r7100590_gk+gbsm05.w0.json](sc_k72c_r7100590_gk+gbsm05.w0.json) · result
+- [sc_k72c_r7100591_gk+gbsm05.w0.json](sc_k72c_r7100591_gk+gbsm05.w0.json) · result
+- [sc_k72ca_r7100592_gk+gbeta2.w0.json](sc_k72ca_r7100592_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100593_gk+gbeta2.w0.json](sc_k72ca_r7100593_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100594_gk+gbeta2.w0.json](sc_k72ca_r7100594_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100595_gk+gbeta2.w0.json](sc_k72ca_r7100595_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100596_gk+gbeta2.w0.json](sc_k72ca_r7100596_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100597_gk+gbeta2.w0.json](sc_k72ca_r7100597_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100598_gk+gbeta2.w0.json](sc_k72ca_r7100598_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100599_gk+gbeta2.w0.json](sc_k72ca_r7100599_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100600_gk+gbeta2.w0.json](sc_k72ca_r7100600_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100601_gk+gbeta2.w0.json](sc_k72ca_r7100601_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100602_gk+gbeta2.w0.json](sc_k72ca_r7100602_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100603_gk+gbeta2.w0.json](sc_k72ca_r7100603_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100604_gk+gbeta2.w0.json](sc_k72ca_r7100604_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100605_gk+gbeta2.w0.json](sc_k72ca_r7100605_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100606_gk+gbeta2.w0.json](sc_k72ca_r7100606_gk+gbeta2.w0.json) · result
+- [sc_k72ca_r7100607_gk+gbeta2.w0.json](sc_k72ca_r7100607_gk+gbeta2.w0.json) · result
+- [sc_k72d_r7100584_gk.w0.json](sc_k72d_r7100584_gk.w0.json) · result
+- [sc_k72e_r7100584_gk+gbsm05L12_14.w0.json](sc_k72e_r7100584_gk+gbsm05L12_14.w0.json) · result
+- [sc_k72e_r7100584_gk+gbsm05L5_9.w0.json](sc_k72e_r7100584_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72e_r7100584_gk+gbsp1L10_11.w0.json](sc_k72e_r7100584_gk+gbsp1L10_11.w0.json) · result
+- [sc_k72e_r7100585_gk+gbsm05L12_14.w0.json](sc_k72e_r7100585_gk+gbsm05L12_14.w0.json) · result
+- [sc_k72e_r7100585_gk+gbsm05L5_9.w0.json](sc_k72e_r7100585_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72e_r7100585_gk+gbsp1L10_11.w0.json](sc_k72e_r7100585_gk+gbsp1L10_11.w0.json) · result
+- [sc_k72e_r7100586_gk+gbsm05L12_14.w0.json](sc_k72e_r7100586_gk+gbsm05L12_14.w0.json) · result
+- [sc_k72e_r7100586_gk+gbsm05L5_9.w0.json](sc_k72e_r7100586_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72e_r7100586_gk+gbsp1L10_11.w0.json](sc_k72e_r7100586_gk+gbsp1L10_11.w0.json) · result
+- [sc_k72e_r7100587_gk+gbsm05L12_14.w0.json](sc_k72e_r7100587_gk+gbsm05L12_14.w0.json) · result
+- [sc_k72e_r7100587_gk+gbsm05L5_9.w0.json](sc_k72e_r7100587_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72e_r7100587_gk+gbsp1L10_11.w0.json](sc_k72e_r7100587_gk+gbsp1L10_11.w0.json) · result
+- [sc_k72e_r7100588_gk+gbsm05L12_14.w0.json](sc_k72e_r7100588_gk+gbsm05L12_14.w0.json) · result
+- [sc_k72e_r7100588_gk+gbsm05L5_9.w0.json](sc_k72e_r7100588_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72e_r7100588_gk+gbsp1L10_11.w0.json](sc_k72e_r7100588_gk+gbsp1L10_11.w0.json) · result
+- [sc_k72e_r7100589_gk+gbsm05L12_14.w0.json](sc_k72e_r7100589_gk+gbsm05L12_14.w0.json) · result
+- [sc_k72e_r7100589_gk+gbsm05L5_9.w0.json](sc_k72e_r7100589_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72e_r7100589_gk+gbsp1L10_11.w0.json](sc_k72e_r7100589_gk+gbsp1L10_11.w0.json) · result
+- [sc_k72e_r7100590_gk+gbsm05L12_14.w0.json](sc_k72e_r7100590_gk+gbsm05L12_14.w0.json) · result
+- [sc_k72e_r7100590_gk+gbsm05L5_9.w0.json](sc_k72e_r7100590_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72e_r7100590_gk+gbsp1L10_11.w0.json](sc_k72e_r7100590_gk+gbsp1L10_11.w0.json) · result
+- [sc_k72e_r7100591_gk+gbsm05L12_14.w0.json](sc_k72e_r7100591_gk+gbsm05L12_14.w0.json) · result
+- [sc_k72e_r7100591_gk+gbsm05L5_9.w0.json](sc_k72e_r7100591_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72e_r7100591_gk+gbsp1L10_11.w0.json](sc_k72e_r7100591_gk+gbsp1L10_11.w0.json) · result
+- [sc_k72f_r7100600_gk+gbsm05L5_9.w0.json](sc_k72f_r7100600_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72f_r7100601_gk+gbsm05L5_9.w0.json](sc_k72f_r7100601_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72f_r7100602_gk+gbsm05L5_9.w0.json](sc_k72f_r7100602_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72f_r7100603_gk+gbsm05L5_9.w0.json](sc_k72f_r7100603_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72f_r7100604_gk+gbsm05L5_9.w0.json](sc_k72f_r7100604_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72f_r7100605_gk+gbsm05L5_9.w0.json](sc_k72f_r7100605_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72f_r7100606_gk+gbsm05L5_9.w0.json](sc_k72f_r7100606_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72f_r7100607_gk+gbsm05L5_9.w0.json](sc_k72f_r7100607_gk+gbsm05L5_9.w0.json) · result
+- [sc_k72g_r7100584_gk+gbsm10L5_9.w0.json](sc_k72g_r7100584_gk+gbsm10L5_9.w0.json) · result
+- [sc_k72g_r7100585_gk+gbsm10L5_9.w0.json](sc_k72g_r7100585_gk+gbsm10L5_9.w0.json) · result
+- [sc_k72g_r7100586_gk+gbsm10L5_9.w0.json](sc_k72g_r7100586_gk+gbsm10L5_9.w0.json) · result
+- [sc_k72g_r7100587_gk+gbsm10L5_9.w0.json](sc_k72g_r7100587_gk+gbsm10L5_9.w0.json) · result
+- [sc_k72g_r7100588_gk+gbsm10L5_9.w0.json](sc_k72g_r7100588_gk+gbsm10L5_9.w0.json) · result
+- [sc_k72g_r7100589_gk+gbsm10L5_9.w0.json](sc_k72g_r7100589_gk+gbsm10L5_9.w0.json) · result
+- [sc_k72g_r7100590_gk+gbsm10L5_9.w0.json](sc_k72g_r7100590_gk+gbsm10L5_9.w0.json) · result
+- [sc_k72g_r7100591_gk+gbsm10L5_9.w0.json](sc_k72g_r7100591_gk+gbsm10L5_9.w0.json) · result
+- [sc_k72ha_r7100584_gk+gbgnone.w0.json](sc_k72ha_r7100584_gk+gbgnone.w0.json) · result
+- [sc_k72hb_r7100584_gk+gbgnet2.w0.json](sc_k72hb_r7100584_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100585_gk+gbgnet2.w0.json](sc_k72hb_r7100585_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100586_gk+gbgnet2.w0.json](sc_k72hb_r7100586_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100587_gk+gbgnet2.w0.json](sc_k72hb_r7100587_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100588_gk+gbgnet2.w0.json](sc_k72hb_r7100588_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100589_gk+gbgnet2.w0.json](sc_k72hb_r7100589_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100590_gk+gbgnet2.w0.json](sc_k72hb_r7100590_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100591_gk+gbgnet2.w0.json](sc_k72hb_r7100591_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100592_gk+gbgnet2.w0.json](sc_k72hb_r7100592_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100593_gk+gbgnet2.w0.json](sc_k72hb_r7100593_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100594_gk+gbgnet2.w0.json](sc_k72hb_r7100594_gk+gbgnet2.w0.json) · result
+- [sc_k72hb_r7100595_gk+gbgnet2.w0.json](sc_k72hb_r7100595_gk+gbgnet2.w0.json) · result
+- [sc_k72hc_r7100584_gk+gbgcore.w0.json](sc_k72hc_r7100584_gk+gbgcore.w0.json) · result
+- [sc_k72hc_r7100584_gk+gbgshoulder.w0.json](sc_k72hc_r7100584_gk+gbgshoulder.w0.json) · result
+- [sc_k72hc_r7100585_gk+gbgcore.w0.json](sc_k72hc_r7100585_gk+gbgcore.w0.json) · result
+- [sc_k72hc_r7100585_gk+gbgshoulder.w0.json](sc_k72hc_r7100585_gk+gbgshoulder.w0.json) · result
+- [sc_k72hc_r7100586_gk+gbgcore.w0.json](sc_k72hc_r7100586_gk+gbgcore.w0.json) · result
+- [sc_k72hc_r7100586_gk+gbgshoulder.w0.json](sc_k72hc_r7100586_gk+gbgshoulder.w0.json) · result
+- [sc_k72hc_r7100587_gk+gbgcore.w0.json](sc_k72hc_r7100587_gk+gbgcore.w0.json) · result
+- [sc_k72hc_r7100587_gk+gbgshoulder.w0.json](sc_k72hc_r7100587_gk+gbgshoulder.w0.json) · result
+- [sc_k72hc_r7100588_gk+gbgcore.w0.json](sc_k72hc_r7100588_gk+gbgcore.w0.json) · result
+- [sc_k72hc_r7100588_gk+gbgshoulder.w0.json](sc_k72hc_r7100588_gk+gbgshoulder.w0.json) · result
+- [sc_k72hc_r7100589_gk+gbgcore.w0.json](sc_k72hc_r7100589_gk+gbgcore.w0.json) · result
+- [sc_k72hc_r7100589_gk+gbgshoulder.w0.json](sc_k72hc_r7100589_gk+gbgshoulder.w0.json) · result
+- [sc_k72hc_r7100590_gk+gbgcore.w0.json](sc_k72hc_r7100590_gk+gbgcore.w0.json) · result
+- [sc_k72hc_r7100590_gk+gbgshoulder.w0.json](sc_k72hc_r7100590_gk+gbgshoulder.w0.json) · result
+- [sc_k72hc_r7100591_gk+gbgcore.w0.json](sc_k72hc_r7100591_gk+gbgcore.w0.json) · result
+- [sc_k72hc_r7100591_gk+gbgshoulder.w0.json](sc_k72hc_r7100591_gk+gbgshoulder.w0.json) · result
+- [sc_k72hd_r7100584_s51ctl.w0.json](sc_k72hd_r7100584_s51ctl.w0.json) · result
+- [sc_k72hd_r7100584_s51k4lf34h.w0.json](sc_k72hd_r7100584_s51k4lf34h.w0.json) · result
+- [sc_k72hd_r7100585_s51ctl.w0.json](sc_k72hd_r7100585_s51ctl.w0.json) · result
+- [sc_k72hd_r7100585_s51k4lf34h.w0.json](sc_k72hd_r7100585_s51k4lf34h.w0.json) · result
+- [sc_k73_r7100584_gk+gomit.w0.json](sc_k73_r7100584_gk+gomit.w0.json) · result
+- [sc_k73_r7100585_gk+gomit.w0.json](sc_k73_r7100585_gk+gomit.w0.json) · result
+- [sc_k73_r7100586_gk+gomit.w0.json](sc_k73_r7100586_gk+gomit.w0.json) · result
+- [sc_k73_r7100587_gk+gomit.w0.json](sc_k73_r7100587_gk+gomit.w0.json) · result
+- [sc_k73_r7100588_gk+gomit.w1.json](sc_k73_r7100588_gk+gomit.w1.json) · result
+- [sc_k73_r7100589_gk+gomit.w0.json](sc_k73_r7100589_gk+gomit.w0.json) · result
+- [sc_k73_r7100590_gk+gomit.w1.json](sc_k73_r7100590_gk+gomit.w1.json) · result
+- [sc_k73_r7100591_gk+gomit.w0.json](sc_k73_r7100591_gk+gomit.w0.json) · result
+- [sc_k74_r7100584_gk+gbu1.w1.json](sc_k74_r7100584_gk+gbu1.w1.json) · result
+- [sc_k74_r7100585_gk+gbu1.w0.json](sc_k74_r7100585_gk+gbu1.w0.json) · result
+- [sc_k74_r7100586_gk+gbu1.w1.json](sc_k74_r7100586_gk+gbu1.w1.json) · result
+- [sc_k74_r7100587_gk+gbu1.w0.json](sc_k74_r7100587_gk+gbu1.w0.json) · result
+- [sc_k74_r7100588_gk+gbu1.w1.json](sc_k74_r7100588_gk+gbu1.w1.json) · result
+- [sc_k74_r7100589_gk+gbu1.w0.json](sc_k74_r7100589_gk+gbu1.w0.json) · result
+- [sc_k74_r7100590_gk+gbu1.w1.json](sc_k74_r7100590_gk+gbu1.w1.json) · result
+- [sc_k74_r7100591_gk+gbu1.w0.json](sc_k74_r7100591_gk+gbu1.w0.json) · result
+- [sc_k75_r7100584_gk+bk4l1.w1.json](sc_k75_r7100584_gk+bk4l1.w1.json) · result
+- [sc_k75_r7100585_gk+bk4l1.w0.json](sc_k75_r7100585_gk+bk4l1.w0.json) · result
+- [sc_k75_r7100586_gk+bk4l1.w1.json](sc_k75_r7100586_gk+bk4l1.w1.json) · result
+- [sc_k75_r7100587_gk+bk4l1.w0.json](sc_k75_r7100587_gk+bk4l1.w0.json) · result
+- [sc_k75_r7100588_gk+bk4l1.w1.json](sc_k75_r7100588_gk+bk4l1.w1.json) · result
+- [sc_k75_r7100589_gk+bk4l1.w0.json](sc_k75_r7100589_gk+bk4l1.w0.json) · result
+- [sc_k75_r7100590_gk+bk4l1.w1.json](sc_k75_r7100590_gk+bk4l1.w1.json) · result
+- [sc_k75_r7100591_gk+bk4l1.w0.json](sc_k75_r7100591_gk+bk4l1.w0.json) · result
+- [sc_k76_r7100586_gk+gbd1.w1.json](sc_k76_r7100586_gk+gbd1.w1.json) · result
+- [sc_k76_r7100587_gk+gbd1.w0.json](sc_k76_r7100587_gk+gbd1.w0.json) · result
+- [sc_k76_r7100588_gk+gbd1.w1.json](sc_k76_r7100588_gk+gbd1.w1.json) · result
+- [sc_k76_r7100589_gk+gbd1.w0.json](sc_k76_r7100589_gk+gbd1.w0.json) · result
+- [sc_k76_r7100590_gk+gbd1.w1.json](sc_k76_r7100590_gk+gbd1.w1.json) · result
+- [sc_k76_r7100591_gk+gbd1.w0.json](sc_k76_r7100591_gk+gbd1.w0.json) · result
+- [sc_k78_r7100584_gk+kb10.w1.json](sc_k78_r7100584_gk+kb10.w1.json) · result
+- [sc_k78_r7100584_gk+kb25.w0.json](sc_k78_r7100584_gk+kb25.w0.json) · result
+- [sc_k78_r7100585_gk+kb10.w1.json](sc_k78_r7100585_gk+kb10.w1.json) · result
+- [sc_k78_r7100585_gk+kb25.w0.json](sc_k78_r7100585_gk+kb25.w0.json) · result
+- [sc_k78_r7100586_gk+kb10.w1.json](sc_k78_r7100586_gk+kb10.w1.json) · result
+- [sc_k78_r7100586_gk+kb25.w0.json](sc_k78_r7100586_gk+kb25.w0.json) · result
+- [sc_k78_r7100587_gk+kb10.w1.json](sc_k78_r7100587_gk+kb10.w1.json) · result
+- [sc_k78_r7100587_gk+kb25.w0.json](sc_k78_r7100587_gk+kb25.w0.json) · result
+- [sc_k78_r7100588_gk+kb10.w1.json](sc_k78_r7100588_gk+kb10.w1.json) · result
+- [sc_k78_r7100588_gk+kb25.w0.json](sc_k78_r7100588_gk+kb25.w0.json) · result
+- [sc_k78_r7100589_gk+kb10.w1.json](sc_k78_r7100589_gk+kb10.w1.json) · result
+- [sc_k78_r7100589_gk+kb25.w0.json](sc_k78_r7100589_gk+kb25.w0.json) · result
+- [sc_k78_r7100590_gk+kb10.w1.json](sc_k78_r7100590_gk+kb10.w1.json) · result
+- [sc_k78_r7100590_gk+kb25.w0.json](sc_k78_r7100590_gk+kb25.w0.json) · result
+- [sc_k78_r7100591_gk+kb10.w1.json](sc_k78_r7100591_gk+kb10.w1.json) · result
+- [sc_k78_r7100591_gk+kb25.w0.json](sc_k78_r7100591_gk+kb25.w0.json) · result
+- [sc_k79_r7100584_gk+bfx15.w1.json](sc_k79_r7100584_gk+bfx15.w1.json) · result
+- [sc_k79_r7100584_gk+bfx20.w0.json](sc_k79_r7100584_gk+bfx20.w0.json) · result
+- [sc_k79_r7100585_gk+bfx15.w1.json](sc_k79_r7100585_gk+bfx15.w1.json) · result
+- [sc_k79_r7100585_gk+bfx20.w0.json](sc_k79_r7100585_gk+bfx20.w0.json) · result
+- [sc_k79_r7100586_gk+bfx15.w1.json](sc_k79_r7100586_gk+bfx15.w1.json) · result
+- [sc_k79_r7100586_gk+bfx20.w0.json](sc_k79_r7100586_gk+bfx20.w0.json) · result
+- [sc_k79_r7100587_gk+bfx15.w1.json](sc_k79_r7100587_gk+bfx15.w1.json) · result
+- [sc_k79_r7100587_gk+bfx20.w0.json](sc_k79_r7100587_gk+bfx20.w0.json) · result
+- [sc_k79_r7100588_gk+bfx15.w1.json](sc_k79_r7100588_gk+bfx15.w1.json) · result
+- [sc_k79_r7100588_gk+bfx20.w0.json](sc_k79_r7100588_gk+bfx20.w0.json) · result
+- [sc_k79_r7100589_gk+bfx15.w1.json](sc_k79_r7100589_gk+bfx15.w1.json) · result
+- [sc_k79_r7100589_gk+bfx20.w0.json](sc_k79_r7100589_gk+bfx20.w0.json) · result
+- [sc_k79_r7100590_gk+bfx15.w1.json](sc_k79_r7100590_gk+bfx15.w1.json) · result
+- [sc_k79_r7100590_gk+bfx20.w0.json](sc_k79_r7100590_gk+bfx20.w0.json) · result
+- [sc_k79_r7100591_gk+bfx15.w1.json](sc_k79_r7100591_gk+bfx15.w1.json) · result
+- [sc_k79_r7100591_gk+bfx20.w0.json](sc_k79_r7100591_gk+bfx20.w0.json) · result
+- [sc_k79x_r7100592_gk+bfx15.w0.json](sc_k79x_r7100592_gk+bfx15.w0.json) · result
+- [sc_k79x_r7100593_gk+bfx15.w1.json](sc_k79x_r7100593_gk+bfx15.w1.json) · result
+- [sc_k79x_r7100594_gk+bfx15.w0.json](sc_k79x_r7100594_gk+bfx15.w0.json) · result
+- [sc_k79x_r7100595_gk+bfx15.w1.json](sc_k79x_r7100595_gk+bfx15.w1.json) · result
+- [sc_k79x_r7100596_gk+bfx15.w0.json](sc_k79x_r7100596_gk+bfx15.w0.json) · result
+- [sc_k79x_r7100597_gk+bfx15.w1.json](sc_k79x_r7100597_gk+bfx15.w1.json) · result
+- [sc_k79x_r7100598_gk+bfx15.w0.json](sc_k79x_r7100598_gk+bfx15.w0.json) · result
+- [sc_k79x_r7100599_gk+bfx15.w1.json](sc_k79x_r7100599_gk+bfx15.w1.json) · result
+- [sc_k79x_r7100600_gk+bfx15.w0.json](sc_k79x_r7100600_gk+bfx15.w0.json) · result
+- [sc_k79x_r7100601_gk+bfx15.w1.json](sc_k79x_r7100601_gk+bfx15.w1.json) · result
+- [sc_k79x_r7100602_gk+bfx15.w0.json](sc_k79x_r7100602_gk+bfx15.w0.json) · result
+- [sc_k79x_r7100603_gk+bfx15.w1.json](sc_k79x_r7100603_gk+bfx15.w1.json) · result
+- [sc_k79x_r7100604_gk+bfx15.w0.json](sc_k79x_r7100604_gk+bfx15.w0.json) · result
+- [sc_k79x_r7100605_gk+bfx15.w1.json](sc_k79x_r7100605_gk+bfx15.w1.json) · result
+- [sc_k79x_r7100606_gk+bfx15.w0.json](sc_k79x_r7100606_gk+bfx15.w0.json) · result
+- [sc_k79x_r7100607_gk+bfx15.w1.json](sc_k79x_r7100607_gk+bfx15.w1.json) · result
+- [sc_k7a_r7100584_gk.w0.json](sc_k7a_r7100584_gk.w0.json) · result
+- [sc_k7b_r7100584_gk+gbd1.w0.json](sc_k7b_r7100584_gk+gbd1.w0.json) · result
+- [sc_k7b_r7100584_gk+gbd2.w0.json](sc_k7b_r7100584_gk+gbd2.w0.json) · result
+- [sc_k7b_r7100585_gk+gbd1.w0.json](sc_k7b_r7100585_gk+gbd1.w0.json) · result
+- [sc_k7b_r7100585_gk+gbd2.w0.json](sc_k7b_r7100585_gk+gbd2.w0.json) · result
+- [sc_k80_r7100586_s51k4lf34h.w1.json](sc_k80_r7100586_s51k4lf34h.w1.json) · result
+- [sc_k80_r7100587_s51k4lf34h.w0.json](sc_k80_r7100587_s51k4lf34h.w0.json) · result
+- [sc_k80_r7100588_s51k4lf34h.w1.json](sc_k80_r7100588_s51k4lf34h.w1.json) · result
+- [sc_k80_r7100589_s51k4lf34h.w0.json](sc_k80_r7100589_s51k4lf34h.w0.json) · result
+- [sc_k80_r7100590_s51k4lf34h.w1.json](sc_k80_r7100590_s51k4lf34h.w1.json) · result
+- [sc_k80_r7100591_s51k4lf34h.w0.json](sc_k80_r7100591_s51k4lf34h.w0.json) · result
+- [sc_k81_r7100584_s51k4lf34h4.w1.json](sc_k81_r7100584_s51k4lf34h4.w1.json) · result
+- [sc_k81_r7100584_s51k4lf34h6.w0.json](sc_k81_r7100584_s51k4lf34h6.w0.json) · result
+- [sc_k81_r7100585_s51k4lf34h4.w1.json](sc_k81_r7100585_s51k4lf34h4.w1.json) · result
+- [sc_k81_r7100585_s51k4lf34h6.w0.json](sc_k81_r7100585_s51k4lf34h6.w0.json) · result
+- [sc_k81_r7100586_s51k4lf34h4.w1.json](sc_k81_r7100586_s51k4lf34h4.w1.json) · result
+- [sc_k81_r7100586_s51k4lf34h6.w0.json](sc_k81_r7100586_s51k4lf34h6.w0.json) · result
+- [sc_k81_r7100587_s51k4lf34h4.w1.json](sc_k81_r7100587_s51k4lf34h4.w1.json) · result
+- [sc_k81_r7100587_s51k4lf34h6.w0.json](sc_k81_r7100587_s51k4lf34h6.w0.json) · result
+- [sc_k81_r7100588_s51k4lf34h4.w1.json](sc_k81_r7100588_s51k4lf34h4.w1.json) · result
+- [sc_k81_r7100588_s51k4lf34h6.w0.json](sc_k81_r7100588_s51k4lf34h6.w0.json) · result
+- [sc_k81_r7100589_s51k4lf34h4.w1.json](sc_k81_r7100589_s51k4lf34h4.w1.json) · result
+- [sc_k81_r7100589_s51k4lf34h6.w0.json](sc_k81_r7100589_s51k4lf34h6.w0.json) · result
+- [sc_k81_r7100590_s51k4lf34h4.w1.json](sc_k81_r7100590_s51k4lf34h4.w1.json) · result
+- [sc_k81_r7100590_s51k4lf34h6.w0.json](sc_k81_r7100590_s51k4lf34h6.w0.json) · result
+- [sc_k81_r7100591_s51k4lf34h4.w1.json](sc_k81_r7100591_s51k4lf34h4.w1.json) · result
+- [sc_k81_r7100591_s51k4lf34h6.w0.json](sc_k81_r7100591_s51k4lf34h6.w0.json) · result
+- [guard_v3_w0_20261013T003346Z.json](guard_v3_w0_20261013T003346Z.json) · result
+- [guard_v3_w0_20261013T042215Z.json](guard_v3_w0_20261013T042215Z.json) · result
+- [guard_v3_w1_20261013T053815Z.json](guard_v3_w1_20261013T053815Z.json) · result
+- [guard_w0_20261012T215914Z.json](guard_w0_20261012T215914Z.json) · result
+- [guard_w0_20261012T221553Z.json](guard_w0_20261012T221553Z.json) · result
+- [guard_w0_20261012T234220Z.json](guard_w0_20261012T234220Z.json) · result
+- [sc_k72f_r7100592_gk+gbsm05L5_9.json](sc_k72f_r7100592_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100593_gk+gbsm05L5_9.json](sc_k72f_r7100593_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100594_gk+gbsm05L5_9.json](sc_k72f_r7100594_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100595_gk+gbsm05L5_9.json](sc_k72f_r7100595_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100596_gk+gbsm05L5_9.json](sc_k72f_r7100596_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100597_gk+gbsm05L5_9.json](sc_k72f_r7100597_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100598_gk+gbsm05L5_9.json](sc_k72f_r7100598_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100599_gk+gbsm05L5_9.json](sc_k72f_r7100599_gk+gbsm05L5_9.json) · result
+- [sc_k72hb_r7100596_gk+gbgnet.json](sc_k72hb_r7100596_gk+gbgnet.json) · result
+- [sc_k72hb_r7100597_gk+gbgnet.json](sc_k72hb_r7100597_gk+gbgnet.json) · result
+- [sc_k72hb_r7100598_gk+gbgnet.json](sc_k72hb_r7100598_gk+gbgnet.json) · result
+- [sc_k72hb_r7100599_gk+gbgnet.json](sc_k72hb_r7100599_gk+gbgnet.json) · result
+- [sc_k72hb_r7100600_gk+gbgnet.json](sc_k72hb_r7100600_gk+gbgnet.json) · result
+- [sc_k72hb_r7100601_gk+gbgnet.json](sc_k72hb_r7100601_gk+gbgnet.json) · result
+- [sc_k72hb_r7100602_gk+gbgnet.json](sc_k72hb_r7100602_gk+gbgnet.json) · result
+- [sc_k72hb_r7100603_gk+gbgnet.json](sc_k72hb_r7100603_gk+gbgnet.json) · result
+- [sc_k72hb_r7100604_gk+gbgnet.json](sc_k72hb_r7100604_gk+gbgnet.json) · result
+- [sc_k72hb_r7100605_gk+gbgnet.json](sc_k72hb_r7100605_gk+gbgnet.json) · result
+- [sc_k72hb_r7100606_gk+gbgnet.json](sc_k72hb_r7100606_gk+gbgnet.json) · result
+- [sc_k72hb_r7100607_gk+gbgnet.json](sc_k72hb_r7100607_gk+gbgnet.json) · result
+- [sc_k7e_r7100584_gk+bk4a.json](sc_k7e_r7100584_gk+bk4a.json) · result
+- [sc_k7e_r7100584_gk+bk4b.json](sc_k7e_r7100584_gk+bk4b.json) · result
+- [sc_k7e_r7100585_gk+bk4a.json](sc_k7e_r7100585_gk+bk4a.json) · result
+- [sc_k7e_r7100585_gk+bk4b.json](sc_k7e_r7100585_gk+bk4b.json) · result
+- [sc_k7e_r7100586_gk+bk4a.json](sc_k7e_r7100586_gk+bk4a.json) · result
+- [sc_k7e_r7100586_gk+bk4b.json](sc_k7e_r7100586_gk+bk4b.json) · result
+- [sc_k7e_r7100587_gk+bk4a.json](sc_k7e_r7100587_gk+bk4a.json) · result
+- [sc_k7e_r7100587_gk+bk4b.json](sc_k7e_r7100587_gk+bk4b.json) · result
+- [sc_k7e_r7100588_gk+bk4a.json](sc_k7e_r7100588_gk+bk4a.json) · result
+- [sc_k7e_r7100588_gk+bk4b.json](sc_k7e_r7100588_gk+bk4b.json) · result
+- [sc_k7e_r7100589_gk+bk4a.json](sc_k7e_r7100589_gk+bk4a.json) · result
+- [sc_k7e_r7100589_gk+bk4b.json](sc_k7e_r7100589_gk+bk4b.json) · result
+- [sc_k7e_r7100590_gk+bk4a.json](sc_k7e_r7100590_gk+bk4a.json) · result
+- [sc_k7e_r7100590_gk+bk4b.json](sc_k7e_r7100590_gk+bk4b.json) · result
+- [sc_k7e_r7100591_gk+bk4a.json](sc_k7e_r7100591_gk+bk4a.json) · result
+- [sc_k7e_r7100591_gk+bk4b.json](sc_k7e_r7100591_gk+bk4b.json) · result
+- [sc_k70_r7100584_gk+lq1.json](sc_k70_r7100584_gk+lq1.json) · result
+- [sc_k70_r7100585_gk+lq1.json](sc_k70_r7100585_gk+lq1.json) · result
+- [sc_k70_r7100586_gk+lq1.json](sc_k70_r7100586_gk+lq1.json) · result
+- [sc_k70_r7100587_gk+lq1.json](sc_k70_r7100587_gk+lq1.json) · result
+- [sc_k70_r7100588_gk+lq1.json](sc_k70_r7100588_gk+lq1.json) · result
+- [sc_k70_r7100589_gk+lq1.json](sc_k70_r7100589_gk+lq1.json) · result
+- [sc_k70_r7100590_gk+lq1.json](sc_k70_r7100590_gk+lq1.json) · result
+- [sc_k70_r7100591_gk+lq1.json](sc_k70_r7100591_gk+lq1.json) · result
+- [sc_k6z_r7100584_gk.json](sc_k6z_r7100584_gk.json) · result
+- [sc_k6zz_r7100584_gk.json](sc_k6zz_r7100584_gk.json) · result
+- [sc_k70_r7100584_gk+lq1-3069deb1.json](sc_k70_r7100584_gk+lq1-3069deb1.json) · result
+- [sc_k70_r7100585_gk+lq1-dc1b8265.json](sc_k70_r7100585_gk+lq1-dc1b8265.json) · result
+- [sc_k70_r7100586_gk+lq1-acd86c3f.json](sc_k70_r7100586_gk+lq1-acd86c3f.json) · result
+- [sc_k70_r7100587_gk+lq1-8306598f.json](sc_k70_r7100587_gk+lq1-8306598f.json) · result
+- [sc_k70_r7100588_gk+lq1-0cc6c096.json](sc_k70_r7100588_gk+lq1-0cc6c096.json) · result
+- [sc_k70_r7100589_gk+lq1-25150cd8.json](sc_k70_r7100589_gk+lq1-25150cd8.json) · result
+- [sc_k70_r7100590_gk+lq1-c654715d.json](sc_k70_r7100590_gk+lq1-c654715d.json) · result
+- [sc_k70_r7100591_gk+lq1-09fdcf1a.json](sc_k70_r7100591_gk+lq1-09fdcf1a.json) · result
+- [sc_k71_r7100586_gk+gbd2.json](sc_k71_r7100586_gk+gbd2.json) · result
+- [sc_k71_r7100587_gk+gbd2.json](sc_k71_r7100587_gk+gbd2.json) · result
+- [sc_k71_r7100588_gk+gbd2.json](sc_k71_r7100588_gk+gbd2.json) · result
+- [sc_k71_r7100589_gk+gbd2.json](sc_k71_r7100589_gk+gbd2.json) · result
+- [sc_k71_r7100590_gk+gbd2.json](sc_k71_r7100590_gk+gbd2.json) · result
+- [sc_k71_r7100591_gk+gbd2.json](sc_k71_r7100591_gk+gbd2.json) · result
+- [sc_k72_r7100584_gk+gbeta1.json](sc_k72_r7100584_gk+gbeta1.json) · result
+- [sc_k72_r7100585_gk+gbeta1.json](sc_k72_r7100585_gk+gbeta1.json) · result
+- [sc_k72_r7100586_gk+gbeta1.json](sc_k72_r7100586_gk+gbeta1.json) · result
+- [sc_k72_r7100587_gk+gbeta1.json](sc_k72_r7100587_gk+gbeta1.json) · result
+- [sc_k72_r7100588_gk+gbeta1.json](sc_k72_r7100588_gk+gbeta1.json) · result
+- [sc_k72_r7100589_gk+gbeta1.json](sc_k72_r7100589_gk+gbeta1.json) · result
+- [sc_k72_r7100590_gk+gbeta1.json](sc_k72_r7100590_gk+gbeta1.json) · result
+- [sc_k72_r7100591_gk+gbeta1.json](sc_k72_r7100591_gk+gbeta1.json) · result
+- [sc_k72b_r7100584_gk+gbeta2.json](sc_k72b_r7100584_gk+gbeta2.json) · result
+- [sc_k72b_r7100585_gk+gbeta2.json](sc_k72b_r7100585_gk+gbeta2.json) · result
+- [sc_k72b_r7100586_gk+gbeta2.json](sc_k72b_r7100586_gk+gbeta2.json) · result
+- [sc_k72b_r7100587_gk+gbeta2.json](sc_k72b_r7100587_gk+gbeta2.json) · result
+- [sc_k72b_r7100588_gk+gbeta2.json](sc_k72b_r7100588_gk+gbeta2.json) · result
+- [sc_k72b_r7100589_gk+gbeta2.json](sc_k72b_r7100589_gk+gbeta2.json) · result
+- [sc_k72b_r7100590_gk+gbeta2.json](sc_k72b_r7100590_gk+gbeta2.json) · result
+- [sc_k72b_r7100591_gk+gbeta2.json](sc_k72b_r7100591_gk+gbeta2.json) · result
+- [sc_k72bz_r7100584_gk.json](sc_k72bz_r7100584_gk.json) · result
+- [sc_k72c_r7100584_gk+gbsm05.json](sc_k72c_r7100584_gk+gbsm05.json) · result
+- [sc_k72c_r7100585_gk+gbsm05.json](sc_k72c_r7100585_gk+gbsm05.json) · result
+- [sc_k72c_r7100586_gk+gbsm05.json](sc_k72c_r7100586_gk+gbsm05.json) · result
+- [sc_k72c_r7100587_gk+gbsm05.json](sc_k72c_r7100587_gk+gbsm05.json) · result
+- [sc_k72c_r7100588_gk+gbsm05.json](sc_k72c_r7100588_gk+gbsm05.json) · result
+- [sc_k72c_r7100589_gk+gbsm05.json](sc_k72c_r7100589_gk+gbsm05.json) · result
+- [sc_k72c_r7100590_gk+gbsm05.json](sc_k72c_r7100590_gk+gbsm05.json) · result
+- [sc_k72c_r7100591_gk+gbsm05.json](sc_k72c_r7100591_gk+gbsm05.json) · result
+- [sc_k72ca_r7100592_gk+gbeta2.json](sc_k72ca_r7100592_gk+gbeta2.json) · result
+- [sc_k72ca_r7100593_gk+gbeta2.json](sc_k72ca_r7100593_gk+gbeta2.json) · result
+- [sc_k72ca_r7100594_gk+gbeta2.json](sc_k72ca_r7100594_gk+gbeta2.json) · result
+- [sc_k72ca_r7100595_gk+gbeta2.json](sc_k72ca_r7100595_gk+gbeta2.json) · result
+- [sc_k72ca_r7100596_gk+gbeta2.json](sc_k72ca_r7100596_gk+gbeta2.json) · result
+- [sc_k72ca_r7100597_gk+gbeta2.json](sc_k72ca_r7100597_gk+gbeta2.json) · result
+- [sc_k72ca_r7100598_gk+gbeta2.json](sc_k72ca_r7100598_gk+gbeta2.json) · result
+- [sc_k72ca_r7100599_gk+gbeta2.json](sc_k72ca_r7100599_gk+gbeta2.json) · result
+- [sc_k72ca_r7100600_gk+gbeta2.json](sc_k72ca_r7100600_gk+gbeta2.json) · result
+- [sc_k72ca_r7100601_gk+gbeta2.json](sc_k72ca_r7100601_gk+gbeta2.json) · result
+- [sc_k72ca_r7100602_gk+gbeta2.json](sc_k72ca_r7100602_gk+gbeta2.json) · result
+- [sc_k72ca_r7100603_gk+gbeta2.json](sc_k72ca_r7100603_gk+gbeta2.json) · result
+- [sc_k72ca_r7100604_gk+gbeta2.json](sc_k72ca_r7100604_gk+gbeta2.json) · result
+- [sc_k72ca_r7100605_gk+gbeta2.json](sc_k72ca_r7100605_gk+gbeta2.json) · result
+- [sc_k72ca_r7100606_gk+gbeta2.json](sc_k72ca_r7100606_gk+gbeta2.json) · result
+- [sc_k72ca_r7100607_gk+gbeta2.json](sc_k72ca_r7100607_gk+gbeta2.json) · result
+- [sc_k72d_r7100584_gk.json](sc_k72d_r7100584_gk.json) · result
+- [sc_k72e_r7100584_gk+gbsm05L12_14.json](sc_k72e_r7100584_gk+gbsm05L12_14.json) · result
+- [sc_k72e_r7100584_gk+gbsm05L5_9.json](sc_k72e_r7100584_gk+gbsm05L5_9.json) · result
+- [sc_k72e_r7100584_gk+gbsp1L10_11.json](sc_k72e_r7100584_gk+gbsp1L10_11.json) · result
+- [sc_k72e_r7100585_gk+gbsm05L12_14.json](sc_k72e_r7100585_gk+gbsm05L12_14.json) · result
+- [sc_k72e_r7100585_gk+gbsm05L5_9.json](sc_k72e_r7100585_gk+gbsm05L5_9.json) · result
+- [sc_k72e_r7100585_gk+gbsp1L10_11.json](sc_k72e_r7100585_gk+gbsp1L10_11.json) · result
+- [sc_k72e_r7100586_gk+gbsm05L12_14.json](sc_k72e_r7100586_gk+gbsm05L12_14.json) · result
+- [sc_k72e_r7100586_gk+gbsm05L5_9.json](sc_k72e_r7100586_gk+gbsm05L5_9.json) · result
+- [sc_k72e_r7100586_gk+gbsp1L10_11.json](sc_k72e_r7100586_gk+gbsp1L10_11.json) · result
+- [sc_k72e_r7100587_gk+gbsm05L12_14.json](sc_k72e_r7100587_gk+gbsm05L12_14.json) · result
+- [sc_k72e_r7100587_gk+gbsm05L5_9.json](sc_k72e_r7100587_gk+gbsm05L5_9.json) · result
+- [sc_k72e_r7100587_gk+gbsp1L10_11.json](sc_k72e_r7100587_gk+gbsp1L10_11.json) · result
+- [sc_k72e_r7100588_gk+gbsm05L12_14.json](sc_k72e_r7100588_gk+gbsm05L12_14.json) · result
+- [sc_k72e_r7100588_gk+gbsm05L5_9.json](sc_k72e_r7100588_gk+gbsm05L5_9.json) · result
+- [sc_k72e_r7100588_gk+gbsp1L10_11.json](sc_k72e_r7100588_gk+gbsp1L10_11.json) · result
+- [sc_k72e_r7100589_gk+gbsm05L12_14.json](sc_k72e_r7100589_gk+gbsm05L12_14.json) · result
+- [sc_k72e_r7100589_gk+gbsm05L5_9.json](sc_k72e_r7100589_gk+gbsm05L5_9.json) · result
+- [sc_k72e_r7100589_gk+gbsp1L10_11.json](sc_k72e_r7100589_gk+gbsp1L10_11.json) · result
+- [sc_k72e_r7100590_gk+gbsm05L12_14.json](sc_k72e_r7100590_gk+gbsm05L12_14.json) · result
+- [sc_k72e_r7100590_gk+gbsm05L5_9.json](sc_k72e_r7100590_gk+gbsm05L5_9.json) · result
+- [sc_k72e_r7100590_gk+gbsp1L10_11.json](sc_k72e_r7100590_gk+gbsp1L10_11.json) · result
+- [sc_k72e_r7100591_gk+gbsm05L12_14.json](sc_k72e_r7100591_gk+gbsm05L12_14.json) · result
+- [sc_k72e_r7100591_gk+gbsm05L5_9.json](sc_k72e_r7100591_gk+gbsm05L5_9.json) · result
+- [sc_k72e_r7100591_gk+gbsp1L10_11.json](sc_k72e_r7100591_gk+gbsp1L10_11.json) · result
+- [sc_k72f_r7100600_gk+gbsm05L5_9.json](sc_k72f_r7100600_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100601_gk+gbsm05L5_9.json](sc_k72f_r7100601_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100602_gk+gbsm05L5_9.json](sc_k72f_r7100602_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100603_gk+gbsm05L5_9.json](sc_k72f_r7100603_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100604_gk+gbsm05L5_9.json](sc_k72f_r7100604_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100605_gk+gbsm05L5_9.json](sc_k72f_r7100605_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100606_gk+gbsm05L5_9.json](sc_k72f_r7100606_gk+gbsm05L5_9.json) · result
+- [sc_k72f_r7100607_gk+gbsm05L5_9.json](sc_k72f_r7100607_gk+gbsm05L5_9.json) · result
+- [sc_k72g_r7100584_gk+gbsm10L5_9.json](sc_k72g_r7100584_gk+gbsm10L5_9.json) · result
+- [sc_k72g_r7100585_gk+gbsm10L5_9.json](sc_k72g_r7100585_gk+gbsm10L5_9.json) · result
+- [sc_k72g_r7100586_gk+gbsm10L5_9.json](sc_k72g_r7100586_gk+gbsm10L5_9.json) · result
+- [sc_k72g_r7100587_gk+gbsm10L5_9.json](sc_k72g_r7100587_gk+gbsm10L5_9.json) · result
+- [sc_k72g_r7100588_gk+gbsm10L5_9.json](sc_k72g_r7100588_gk+gbsm10L5_9.json) · result
+- [sc_k72g_r7100589_gk+gbsm10L5_9.json](sc_k72g_r7100589_gk+gbsm10L5_9.json) · result
+- [sc_k72g_r7100590_gk+gbsm10L5_9.json](sc_k72g_r7100590_gk+gbsm10L5_9.json) · result
+- [sc_k72g_r7100591_gk+gbsm10L5_9.json](sc_k72g_r7100591_gk+gbsm10L5_9.json) · result
+- [sc_k72ha_r7100584_gk+gbgnone.json](sc_k72ha_r7100584_gk+gbgnone.json) · result
+- [sc_k72hb_r7100584_gk+gbgnet2.json](sc_k72hb_r7100584_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100585_gk+gbgnet2.json](sc_k72hb_r7100585_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100586_gk+gbgnet2.json](sc_k72hb_r7100586_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100587_gk+gbgnet2.json](sc_k72hb_r7100587_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100588_gk+gbgnet2.json](sc_k72hb_r7100588_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100589_gk+gbgnet2.json](sc_k72hb_r7100589_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100590_gk+gbgnet2.json](sc_k72hb_r7100590_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100591_gk+gbgnet2.json](sc_k72hb_r7100591_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100592_gk+gbgnet2.json](sc_k72hb_r7100592_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100593_gk+gbgnet2.json](sc_k72hb_r7100593_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100594_gk+gbgnet2.json](sc_k72hb_r7100594_gk+gbgnet2.json) · result
+- [sc_k72hb_r7100595_gk+gbgnet2.json](sc_k72hb_r7100595_gk+gbgnet2.json) · result
+- [sc_k72hc_r7100584_gk+gbgcore.json](sc_k72hc_r7100584_gk+gbgcore.json) · result
+- [sc_k72hc_r7100584_gk+gbgshoulder.json](sc_k72hc_r7100584_gk+gbgshoulder.json) · result
+- [sc_k72hc_r7100585_gk+gbgcore.json](sc_k72hc_r7100585_gk+gbgcore.json) · result
+- [sc_k72hc_r7100585_gk+gbgshoulder.json](sc_k72hc_r7100585_gk+gbgshoulder.json) · result
+- [sc_k72hc_r7100586_gk+gbgcore.json](sc_k72hc_r7100586_gk+gbgcore.json) · result
+- [sc_k72hc_r7100586_gk+gbgshoulder.json](sc_k72hc_r7100586_gk+gbgshoulder.json) · result
+- [sc_k72hc_r7100587_gk+gbgcore.json](sc_k72hc_r7100587_gk+gbgcore.json) · result
+- [sc_k72hc_r7100587_gk+gbgshoulder.json](sc_k72hc_r7100587_gk+gbgshoulder.json) · result
+- [sc_k72hc_r7100588_gk+gbgcore.json](sc_k72hc_r7100588_gk+gbgcore.json) · result
+- [sc_k72hc_r7100588_gk+gbgshoulder.json](sc_k72hc_r7100588_gk+gbgshoulder.json) · result
+- [sc_k72hc_r7100589_gk+gbgcore.json](sc_k72hc_r7100589_gk+gbgcore.json) · result
+- [sc_k72hc_r7100589_gk+gbgshoulder.json](sc_k72hc_r7100589_gk+gbgshoulder.json) · result
+- [sc_k72hc_r7100590_gk+gbgcore.json](sc_k72hc_r7100590_gk+gbgcore.json) · result
+- [sc_k72hc_r7100590_gk+gbgshoulder.json](sc_k72hc_r7100590_gk+gbgshoulder.json) · result
+- [sc_k72hc_r7100591_gk+gbgcore.json](sc_k72hc_r7100591_gk+gbgcore.json) · result
+- [sc_k72hc_r7100591_gk+gbgshoulder.json](sc_k72hc_r7100591_gk+gbgshoulder.json) · result
+- [sc_k72hd_r7100584_s51ctl.json](sc_k72hd_r7100584_s51ctl.json) · result
+- [sc_k72hd_r7100584_s51k4lf34h.json](sc_k72hd_r7100584_s51k4lf34h.json) · result
+- [sc_k72hd_r7100585_s51ctl.json](sc_k72hd_r7100585_s51ctl.json) · result
+- [sc_k72hd_r7100585_s51k4lf34h.json](sc_k72hd_r7100585_s51k4lf34h.json) · result
+- [sc_k73_r7100584_gk+gomit.json](sc_k73_r7100584_gk+gomit.json) · result
+- [sc_k73_r7100585_gk+gomit.json](sc_k73_r7100585_gk+gomit.json) · result
+- [sc_k73_r7100586_gk+gomit.json](sc_k73_r7100586_gk+gomit.json) · result
+- [sc_k73_r7100587_gk+gomit.json](sc_k73_r7100587_gk+gomit.json) · result
+- [sc_k73_r7100588_gk+gomit.json](sc_k73_r7100588_gk+gomit.json) · result
+- [sc_k73_r7100589_gk+gomit.json](sc_k73_r7100589_gk+gomit.json) · result
+- [sc_k73_r7100590_gk+gomit.json](sc_k73_r7100590_gk+gomit.json) · result
+- [sc_k73_r7100591_gk+gomit.json](sc_k73_r7100591_gk+gomit.json) · result
+- [sc_k74_r7100584_gk+gbu1.json](sc_k74_r7100584_gk+gbu1.json) · result
+- [sc_k74_r7100585_gk+gbu1.json](sc_k74_r7100585_gk+gbu1.json) · result
+- [sc_k74_r7100586_gk+gbu1.json](sc_k74_r7100586_gk+gbu1.json) · result
+- [sc_k74_r7100587_gk+gbu1.json](sc_k74_r7100587_gk+gbu1.json) · result
+- [sc_k74_r7100588_gk+gbu1.json](sc_k74_r7100588_gk+gbu1.json) · result
+- [sc_k74_r7100589_gk+gbu1.json](sc_k74_r7100589_gk+gbu1.json) · result
+- [sc_k74_r7100590_gk+gbu1.json](sc_k74_r7100590_gk+gbu1.json) · result
+- [sc_k74_r7100591_gk+gbu1.json](sc_k74_r7100591_gk+gbu1.json) · result
+- [sc_k75_r7100584_gk+bk4l1.json](sc_k75_r7100584_gk+bk4l1.json) · result
+- [sc_k75_r7100585_gk+bk4l1.json](sc_k75_r7100585_gk+bk4l1.json) · result
+- [sc_k75_r7100586_gk+bk4l1.json](sc_k75_r7100586_gk+bk4l1.json) · result
+- [sc_k75_r7100587_gk+bk4l1.json](sc_k75_r7100587_gk+bk4l1.json) · result
+- [sc_k75_r7100588_gk+bk4l1.json](sc_k75_r7100588_gk+bk4l1.json) · result
+- [sc_k75_r7100589_gk+bk4l1.json](sc_k75_r7100589_gk+bk4l1.json) · result
+- [sc_k75_r7100590_gk+bk4l1.json](sc_k75_r7100590_gk+bk4l1.json) · result
+- [sc_k75_r7100591_gk+bk4l1.json](sc_k75_r7100591_gk+bk4l1.json) · result
+- [sc_k76_r7100586_gk+gbd1.json](sc_k76_r7100586_gk+gbd1.json) · result
+- [sc_k76_r7100587_gk+gbd1.json](sc_k76_r7100587_gk+gbd1.json) · result
+- [sc_k76_r7100588_gk+gbd1.json](sc_k76_r7100588_gk+gbd1.json) · result
+- [sc_k76_r7100589_gk+gbd1.json](sc_k76_r7100589_gk+gbd1.json) · result
+- [sc_k76_r7100590_gk+gbd1.json](sc_k76_r7100590_gk+gbd1.json) · result
+- [sc_k76_r7100591_gk+gbd1.json](sc_k76_r7100591_gk+gbd1.json) · result
+- [sc_k78_r7100584_gk+kb10.json](sc_k78_r7100584_gk+kb10.json) · result
+- [sc_k78_r7100584_gk+kb25.json](sc_k78_r7100584_gk+kb25.json) · result
+- [sc_k78_r7100585_gk+kb10.json](sc_k78_r7100585_gk+kb10.json) · result
+- [sc_k78_r7100585_gk+kb25.json](sc_k78_r7100585_gk+kb25.json) · result
+- [sc_k78_r7100586_gk+kb10.json](sc_k78_r7100586_gk+kb10.json) · result
+- [sc_k78_r7100586_gk+kb25.json](sc_k78_r7100586_gk+kb25.json) · result
+- [sc_k78_r7100587_gk+kb10.json](sc_k78_r7100587_gk+kb10.json) · result
+- [sc_k78_r7100587_gk+kb25.json](sc_k78_r7100587_gk+kb25.json) · result
+- [sc_k78_r7100588_gk+kb10.json](sc_k78_r7100588_gk+kb10.json) · result
+- [sc_k78_r7100588_gk+kb25.json](sc_k78_r7100588_gk+kb25.json) · result
+- [sc_k78_r7100589_gk+kb10.json](sc_k78_r7100589_gk+kb10.json) · result
+- [sc_k78_r7100589_gk+kb25.json](sc_k78_r7100589_gk+kb25.json) · result
+- [sc_k78_r7100590_gk+kb10.json](sc_k78_r7100590_gk+kb10.json) · result
+- [sc_k78_r7100590_gk+kb25.json](sc_k78_r7100590_gk+kb25.json) · result
+- [sc_k78_r7100591_gk+kb10.json](sc_k78_r7100591_gk+kb10.json) · result
+- [sc_k78_r7100591_gk+kb25.json](sc_k78_r7100591_gk+kb25.json) · result
+- [sc_k79_r7100584_gk+bfx15.json](sc_k79_r7100584_gk+bfx15.json) · result
+- [sc_k79_r7100584_gk+bfx20.json](sc_k79_r7100584_gk+bfx20.json) · result
+- [sc_k79_r7100585_gk+bfx15.json](sc_k79_r7100585_gk+bfx15.json) · result
+- [sc_k79_r7100585_gk+bfx20.json](sc_k79_r7100585_gk+bfx20.json) · result
+- [sc_k79_r7100586_gk+bfx15.json](sc_k79_r7100586_gk+bfx15.json) · result
+- [sc_k79_r7100586_gk+bfx20.json](sc_k79_r7100586_gk+bfx20.json) · result
+- [sc_k79_r7100587_gk+bfx15.json](sc_k79_r7100587_gk+bfx15.json) · result
+- [sc_k79_r7100587_gk+bfx20.json](sc_k79_r7100587_gk+bfx20.json) · result
+- [sc_k79_r7100588_gk+bfx15.json](sc_k79_r7100588_gk+bfx15.json) · result
+- [sc_k79_r7100588_gk+bfx20.json](sc_k79_r7100588_gk+bfx20.json) · result
+- [sc_k79_r7100589_gk+bfx15.json](sc_k79_r7100589_gk+bfx15.json) · result
+- [sc_k79_r7100589_gk+bfx20.json](sc_k79_r7100589_gk+bfx20.json) · result
+- [sc_k79_r7100590_gk+bfx15.json](sc_k79_r7100590_gk+bfx15.json) · result
+- [sc_k79_r7100590_gk+bfx20.json](sc_k79_r7100590_gk+bfx20.json) · result
+- [sc_k79_r7100591_gk+bfx15.json](sc_k79_r7100591_gk+bfx15.json) · result
+- [sc_k79_r7100591_gk+bfx20.json](sc_k79_r7100591_gk+bfx20.json) · result
+- [sc_k79x_r7100592_gk+bfx15.json](sc_k79x_r7100592_gk+bfx15.json) · result
+- [sc_k79x_r7100593_gk+bfx15.json](sc_k79x_r7100593_gk+bfx15.json) · result
+- [sc_k79x_r7100594_gk+bfx15.json](sc_k79x_r7100594_gk+bfx15.json) · result
+- [sc_k79x_r7100595_gk+bfx15.json](sc_k79x_r7100595_gk+bfx15.json) · result
+- [sc_k79x_r7100596_gk+bfx15.json](sc_k79x_r7100596_gk+bfx15.json) · result
+- [sc_k79x_r7100597_gk+bfx15.json](sc_k79x_r7100597_gk+bfx15.json) · result
+- [sc_k79x_r7100598_gk+bfx15.json](sc_k79x_r7100598_gk+bfx15.json) · result
+- [sc_k79x_r7100599_gk+bfx15.json](sc_k79x_r7100599_gk+bfx15.json) · result
+- [sc_k79x_r7100600_gk+bfx15.json](sc_k79x_r7100600_gk+bfx15.json) · result
+- [sc_k79x_r7100601_gk+bfx15.json](sc_k79x_r7100601_gk+bfx15.json) · result
+- [sc_k79x_r7100602_gk+bfx15.json](sc_k79x_r7100602_gk+bfx15.json) · result
+- [sc_k79x_r7100603_gk+bfx15.json](sc_k79x_r7100603_gk+bfx15.json) · result
+- [sc_k79x_r7100604_gk+bfx15.json](sc_k79x_r7100604_gk+bfx15.json) · result
+- [sc_k79x_r7100605_gk+bfx15.json](sc_k79x_r7100605_gk+bfx15.json) · result
+- [sc_k79x_r7100606_gk+bfx15.json](sc_k79x_r7100606_gk+bfx15.json) · result
+- [sc_k79x_r7100607_gk+bfx15.json](sc_k79x_r7100607_gk+bfx15.json) · result
+- [sc_k7a_r7100584_gk.json](sc_k7a_r7100584_gk.json) · result
+- [sc_k7b_r7100584_gk+gbd1.json](sc_k7b_r7100584_gk+gbd1.json) · result
+- [sc_k7b_r7100584_gk+gbd2.json](sc_k7b_r7100584_gk+gbd2.json) · result
+- [sc_k7b_r7100585_gk+gbd1.json](sc_k7b_r7100585_gk+gbd1.json) · result
+- [sc_k7b_r7100585_gk+gbd2.json](sc_k7b_r7100585_gk+gbd2.json) · result
+- [sc_k80_r7100586_s51k4lf34h.json](sc_k80_r7100586_s51k4lf34h.json) · result
+- [sc_k80_r7100587_s51k4lf34h.json](sc_k80_r7100587_s51k4lf34h.json) · result
+- [sc_k80_r7100588_s51k4lf34h.json](sc_k80_r7100588_s51k4lf34h.json) · result
+- [sc_k80_r7100589_s51k4lf34h.json](sc_k80_r7100589_s51k4lf34h.json) · result
+- [sc_k80_r7100590_s51k4lf34h.json](sc_k80_r7100590_s51k4lf34h.json) · result
+- [sc_k80_r7100591_s51k4lf34h.json](sc_k80_r7100591_s51k4lf34h.json) · result
+- [sc_k81_r7100584_s51k4lf34h4.json](sc_k81_r7100584_s51k4lf34h4.json) · result
+- [sc_k81_r7100584_s51k4lf34h6.json](sc_k81_r7100584_s51k4lf34h6.json) · result
+- [sc_k81_r7100585_s51k4lf34h4.json](sc_k81_r7100585_s51k4lf34h4.json) · result
+- [sc_k81_r7100585_s51k4lf34h6.json](sc_k81_r7100585_s51k4lf34h6.json) · result
+- [sc_k81_r7100586_s51k4lf34h4.json](sc_k81_r7100586_s51k4lf34h4.json) · result
+- [sc_k81_r7100586_s51k4lf34h6.json](sc_k81_r7100586_s51k4lf34h6.json) · result
+- [sc_k81_r7100587_s51k4lf34h4.json](sc_k81_r7100587_s51k4lf34h4.json) · result
+- [sc_k81_r7100587_s51k4lf34h6.json](sc_k81_r7100587_s51k4lf34h6.json) · result
+- [sc_k81_r7100588_s51k4lf34h4.json](sc_k81_r7100588_s51k4lf34h4.json) · result
+- [sc_k81_r7100588_s51k4lf34h6.json](sc_k81_r7100588_s51k4lf34h6.json) · result
+- [sc_k81_r7100589_s51k4lf34h4.json](sc_k81_r7100589_s51k4lf34h4.json) · result
+- [sc_k81_r7100589_s51k4lf34h6.json](sc_k81_r7100589_s51k4lf34h6.json) · result
+- [sc_k81_r7100590_s51k4lf34h4.json](sc_k81_r7100590_s51k4lf34h4.json) · result
+- [sc_k81_r7100590_s51k4lf34h6.json](sc_k81_r7100590_s51k4lf34h6.json) · result
+- [sc_k81_r7100591_s51k4lf34h4.json](sc_k81_r7100591_s51k4lf34h4.json) · result
+- [sc_k81_r7100591_s51k4lf34h6.json](sc_k81_r7100591_s51k4lf34h6.json) · result
+- [worker_w0.log](worker_w0.log) · log
+- [worker_w1.log](worker_w1.log) · log
+- [sc_k8a_r7100584_gk.w0.json](sc_k8a_r7100584_gk.w0.json) · result
+- [sc_k8b_r7100584_gk+bsklate.w0.json](sc_k8b_r7100584_gk+bsklate.w0.json) · result
+- [sc_k8b_r7100584_gk+bsksplit.w0.json](sc_k8b_r7100584_gk+bsksplit.w0.json) · result
+- [sc_k8b_r7100584_gks.w0.json](sc_k8b_r7100584_gks.w0.json) · result
+- [sc_k8b_r7100585_gk+bsklate.w0.json](sc_k8b_r7100585_gk+bsklate.w0.json) · result
+- [sc_k8b_r7100585_gk+bsksplit.w0.json](sc_k8b_r7100585_gk+bsksplit.w0.json) · result
+- [sc_k8b_r7100585_gks.w0.json](sc_k8b_r7100585_gks.w0.json) · result
+- [sc_k8b_r7100586_gk+bsklate.w0.json](sc_k8b_r7100586_gk+bsklate.w0.json) · result
+- [sc_k8b_r7100586_gk+bsksplit.w0.json](sc_k8b_r7100586_gk+bsksplit.w0.json) · result
+- [sc_k8b_r7100586_gks.w0.json](sc_k8b_r7100586_gks.w0.json) · result
+- [sc_k8b_r7100587_gk+bsklate.w0.json](sc_k8b_r7100587_gk+bsklate.w0.json) · result
+- [sc_k8b_r7100587_gk+bsksplit.w0.json](sc_k8b_r7100587_gk+bsksplit.w0.json) · result
+- [sc_k8b_r7100587_gks.w0.json](sc_k8b_r7100587_gks.w0.json) · result
+- [sc_k8b_r7100588_gk+bsklate.w0.json](sc_k8b_r7100588_gk+bsklate.w0.json) · result
+- [sc_k8b_r7100588_gk+bsksplit.w0.json](sc_k8b_r7100588_gk+bsksplit.w0.json) · result
+- [sc_k8b_r7100588_gks.w0.json](sc_k8b_r7100588_gks.w0.json) · result
+- [sc_k8b_r7100589_gk+bsklate.w0.json](sc_k8b_r7100589_gk+bsklate.w0.json) · result
+- [sc_k8b_r7100589_gk+bsksplit.w0.json](sc_k8b_r7100589_gk+bsksplit.w0.json) · result
+- [sc_k8b_r7100589_gks.w0.json](sc_k8b_r7100589_gks.w0.json) · result
+- [sc_k8b_r7100590_gk+bsklate.w0.json](sc_k8b_r7100590_gk+bsklate.w0.json) · result
+- [sc_k8b_r7100590_gk+bsksplit.w0.json](sc_k8b_r7100590_gk+bsksplit.w0.json) · result
+- [sc_k8b_r7100590_gks.w0.json](sc_k8b_r7100590_gks.w0.json) · result
+- [sc_k8b_r7100591_gk+bsklate.w0.json](sc_k8b_r7100591_gk+bsklate.w0.json) · result
+- [sc_k8b_r7100591_gk+bsksplit.w0.json](sc_k8b_r7100591_gk+bsksplit.w0.json) · result
+- [sc_k8b_r7100591_gks.w0.json](sc_k8b_r7100591_gks.w0.json) · result
+- [guard_v3_w0_20261013T003325Z.json](guard_v3_w0_20261013T003325Z.json) · result
+- [guard_w0_20261012T224751Z.json](guard_w0_20261012T224751Z.json) · result
+- [guard_w0_20261012T234159Z.json](guard_w0_20261012T234159Z.json) · result
+- [sc_k8a_r7100584_gk.json](sc_k8a_r7100584_gk.json) · result
+- [sc_k8b_r7100584_gk+bsklate.json](sc_k8b_r7100584_gk+bsklate.json) · result
+- [sc_k8b_r7100584_gk+bsksplit.json](sc_k8b_r7100584_gk+bsksplit.json) · result
+- [sc_k8b_r7100584_gks.json](sc_k8b_r7100584_gks.json) · result
+- [sc_k8b_r7100585_gk+bsklate.json](sc_k8b_r7100585_gk+bsklate.json) · result
+- [sc_k8b_r7100585_gk+bsksplit.json](sc_k8b_r7100585_gk+bsksplit.json) · result
+- [sc_k8b_r7100585_gks.json](sc_k8b_r7100585_gks.json) · result
+- [sc_k8b_r7100586_gk+bsklate.json](sc_k8b_r7100586_gk+bsklate.json) · result
+- [sc_k8b_r7100586_gk+bsksplit.json](sc_k8b_r7100586_gk+bsksplit.json) · result
+- [sc_k8b_r7100586_gks.json](sc_k8b_r7100586_gks.json) · result
+- [sc_k8b_r7100587_gk+bsklate.json](sc_k8b_r7100587_gk+bsklate.json) · result
+- [sc_k8b_r7100587_gk+bsksplit.json](sc_k8b_r7100587_gk+bsksplit.json) · result
+- [sc_k8b_r7100587_gks.json](sc_k8b_r7100587_gks.json) · result
+- [sc_k8b_r7100588_gk+bsklate.json](sc_k8b_r7100588_gk+bsklate.json) · result
+- [sc_k8b_r7100588_gk+bsksplit.json](sc_k8b_r7100588_gk+bsksplit.json) · result
+- [sc_k8b_r7100588_gks.json](sc_k8b_r7100588_gks.json) · result
+- [sc_k8b_r7100589_gk+bsklate.json](sc_k8b_r7100589_gk+bsklate.json) · result
+- [sc_k8b_r7100589_gk+bsksplit.json](sc_k8b_r7100589_gk+bsksplit.json) · result
+- [sc_k8b_r7100589_gks.json](sc_k8b_r7100589_gks.json) · result
+- [sc_k8b_r7100590_gk+bsklate.json](sc_k8b_r7100590_gk+bsklate.json) · result
+- [sc_k8b_r7100590_gk+bsksplit.json](sc_k8b_r7100590_gk+bsksplit.json) · result
+- [sc_k8b_r7100590_gks.json](sc_k8b_r7100590_gks.json) · result
+- [sc_k8b_r7100591_gk+bsklate.json](sc_k8b_r7100591_gk+bsklate.json) · result
+- [sc_k8b_r7100591_gk+bsksplit.json](sc_k8b_r7100591_gk+bsksplit.json) · result
+- [sc_k8b_r7100591_gks.json](sc_k8b_r7100591_gks.json) · result
+- [worker_w0-ca9cd920.log](worker_w0-ca9cd920.log) · log
+- [TEAM_LOG_2026-10-01_to_10-22.md](../../../records/TEAM_LOG_2026-10-01_to_10-22.md) · record
+
+</details>
+
+## Related work
+
+- ← enables: [Skew- and kurtosis-corrected transport gate adopted: -0.348% pooled MSE on 24 fresh networks](../../../records/research/2026-10-12-skew-kurtosis-corrected-transport-gate-adopted-0-348-pooled/README.md)
+
+[Research graph](../../../graph/index.html#node=2026-10-13-transport-consistency-re-screens-rejected-birth-radial-kurtosis-late) · [Copy provenance](../../../PROVENANCE.json)
+

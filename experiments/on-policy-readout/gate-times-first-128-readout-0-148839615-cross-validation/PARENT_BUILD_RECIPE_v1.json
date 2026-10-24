@@ -1,0 +1,78 @@
+{
+  "utc": "2026-10-21T09:56:37Z",
+  "status": "ONE_FIXED_PARENT_BUILD_REVIEW_READY_NO_LAUNCH",
+  "files": {
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/PREREG_v1.json": "42c4f80e65348f149e4b64d8e91da29f0fb1995abb5a78f8004fe0623a4a5bd9",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/build_parent_sources_v1.py": "3ca07f38b1799ec03bf45705aec3344dbf108ac51a502ab917839752d2d3db4e",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/enc2_affine_local90_v1/fit_enc2_affine_v1.py": "4c1c540117d808d42e53be9a45c29189b23fe81e41a06983130c00fd89820341",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/breakthrough_v1/first_hidden_readout_v1/fit_first128_local90_v1.py": "8e252f559879be4d6c2bceb033bf9d84408ada1c418942bcf4d4d939d009c526",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/hidden_complement90_v1/fit_hidden_complement_v1.py": "e6f33d68de379965c887cac3e43fbc31766625e66dead02d8bf0308cea2e5021",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/fit_frontier_v1.py": "b9bc4ed11d70170db6d3909bd670e97616c38e8ab455bdc99ca80513c9faf363",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py": "884199a8077fb576f49e99339da2211d59f53af630bb5e12750f665ff95a8646",
+    "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/common_linux_v7.py": "d92d10c85003981259aff4d4191903e740933f953cf3a503085b2bcc0cd4cd1f"
+  },
+  "command": [
+    "/home/arcworker/arc-envs/judge/bin/python",
+    "-B",
+    "/home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_capacity_v7/guard_linux_v7.py",
+    "--receipt",
+    "/home/arcworker/arc-runs/onpolicy_first128_parent_build_v1_GUARD_v1.json",
+    "--state-dir",
+    "/home/arcworker/arc-runs/admission",
+    "--max-active",
+    "36",
+    "--cgroup-root",
+    "/sys/fs/cgroup/arc-estimator-v5",
+    "--",
+    "/home/arcworker/arc-envs/judge/bin/python",
+    "-B",
+    "/home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/build_parent_sources_v1.py"
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "ARC_BLAS_THREADS": "1"
+  },
+  "guard_receipt": "/home/arcworker/arc-runs/onpolicy_first128_parent_build_v1_GUARD_v1.json",
+  "log": "/home/arcworker/arc-runs/onpolicy_first128_parent_build_v1.log",
+  "launch_receipt": "/home/arcworker/arc-workspace/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_first128_head90_v1/BUILD_LAUNCH_v1.json",
+  "outputs": [
+    "parents_v1/",
+    "PARENT_SOURCES_v1.json"
+  ],
+  "selftest_final_sha256": "e83732da75096499b7a422cf56c2c5d0792ea0c55a8bb9d967f2b9a4a255bcdf",
+  "selftest_guard_sha256": "19d9c7505193888d5f9272a5e63ce94ae5243ef2499b3b0728d5ce48cd3dda76",
+  "selftest_stdout_sha256": "cf03bcd8f8c49b22635995e65017f882de47816d1e379415bceba4073aa5af53",
+  "original_guard": {
+    "cap_bytes": 6500000000,
+    "reserve_bytes": 19000000000,
+    "max_active": 36,
+    "blas_threads": 1
+  },
+  "same_frozen_synthetic_invariants_execute_at_build_entry": true,
+  "train_scope": "Authentic frozen TRAIN90 only; five explicit selected TRAIN72 moment sums and one full90 sum; same addition order; no held25/fresh truths.",
+  "fold_provenance": "All four TRAIN90 adaptation head slots reconstructed independently; historical777a pretrained prior is explicitly conditional, not nested.",
+  "full90_checks": [
+    "Exact original321 coefficient array",
+    "All decoded4da/49bd parameter tensors exact",
+    "Full90 source bytes directly use49bd SCI/REL"
+  ],
+  "parent_sources_only": true,
+  "no_native_capture_or_second_fit_authority": true,
+  "no_launch": true,
+  "preflight_requirements": [
+    "root exact selftest source review receipt",
+    "ops sole-small clearance after weight-only audit retirement",
+    "all listed dependency hashes exact",
+    "output/log/receipt absent and no same builder or other small process live",
+    "parent aggregate8033/local128, OOM/swap0, all live child events0",
+    "physical available >25.5GB and capture priority preserved",
+    "oldOP optional fixed fit cannot overlap sole-small build; finish before original recovery fit boundary",
+    "original first128 FITTED_v1.json sha d1bca8878d62fe96ebd18780a5c560f8e1a04d557a41eb928546449906376125 verified by builder",
+    "root ROOT_BUILD_REVIEW_v1.json exact builder/prereg and one_parent_build_authorized"
+  ]
+}

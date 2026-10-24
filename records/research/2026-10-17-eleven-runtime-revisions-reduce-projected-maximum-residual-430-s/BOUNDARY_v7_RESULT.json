@@ -1,0 +1,199 @@
+{
+  "source_sha": "4db7d20097ab511b37a348a6cd0d4ab91964d3e27c599e8976c724a4fa3d6ff1",
+  "science_sha": "48c126c61f8d4f571768529d9d6610d8e732de24107fce75d9422e3d417a9700",
+  "setup": {
+    "setup_s": 3.0860452502965927,
+    "requests": 19607,
+    "residual_instructions": 899427472,
+    "server_instructions": 16479308278,
+    "actual_coverage": {
+      "bound": 403,
+      "fused": 128,
+      "finished": 128
+    },
+    "pb_log": [
+      [
+        "constants",
+        0.104
+      ],
+      [
+        "ksplit",
+        26,
+        0.368
+      ],
+      [
+        "wall guard",
+        403,
+        3.055
+      ],
+      [
+        "first_load_views",
+        128,
+        3.055
+      ],
+      [
+        "lvfuse",
+        0,
+        3.055
+      ],
+      [
+        "psdb_fused",
+        9,
+        3.141
+      ],
+      [
+        "pair_block_indices",
+        1,
+        3.141
+      ],
+      [
+        "read7_lazy",
+        0,
+        3.141
+      ],
+      [
+        "yr7_lazy",
+        0,
+        3.141
+      ],
+      [
+        "sm40_fixed_views",
+        5,
+        3.227
+      ],
+      [
+        "sm40_hot_views",
+        9,
+        3.285
+      ],
+      [
+        "r7_firstread_views",
+        3,
+        3.319
+      ],
+      [
+        "peel_fixed_views",
+        9,
+        3.57
+      ],
+      [
+        "peel_full_topology",
+        106,
+        4.377
+      ],
+      [
+        "bound",
+        443,
+        4.377
+      ]
+    ]
+  },
+  "guard": {
+    "completed": true,
+    "error": null,
+    "max_rss_bytes": 8461877248,
+    "max_footprint_bytes": 3678003144,
+    "whole_group_retired": true,
+    "min_pressure_free_pct": 75
+  },
+  "rows": [
+    {
+      "rank": 35,
+      "candidate": {
+        "requests": 48784,
+        "residual_instructions": 2196325015,
+        "flops": 244186793035,
+        "wall_s": 44.48291845805943,
+        "residual_s": 0.2514121180000046,
+        "free_trips": 4918,
+        "peak_handles": 50901
+      },
+      "relative_delta": {
+        "requests": 0.030589825925299907,
+        "residual_instructions": 0.02380641937111161,
+        "flops": -0.0016758069751930948,
+        "free_trips": 0.03558643925036842
+      },
+      "server_instructions_delta": 0.15169657038655604,
+      "cache_additions": {
+        "read._sm40_cache": 6,
+        "peel._sm40_padding_grid": 2,
+        "read._sm40_io_cache": 8,
+        "peel._sm40_padding_cache": 3,
+        "_IPT_B": 14,
+        "_IPT_A": 10,
+        "read._sm40_padding_cache": 4,
+        "_IPT_C": 16,
+        "_IPT_C.finished": 34,
+        "_IPT_B.finished": 36,
+        "read._sm40_padding_grid": 4,
+        "read._sm40_outer_cache": 4,
+        "read._sm40_group_cache": 11,
+        "_IPT_A.finished": 32
+      },
+      "smx_stats": {
+        "binds": 1,
+        "calls": 6
+      },
+      "cap_stats": {
+        "left": 76,
+        "spent": 674,
+        "accepted": 6,
+        "rejected": 0
+      },
+      "science_last_layer_byte_equal": true,
+      "science_max_abs": 0.0
+    },
+    {
+      "rank": 100,
+      "candidate": {
+        "requests": 46742,
+        "residual_instructions": 2092392848,
+        "flops": 243859671764,
+        "wall_s": 42.6007567923516,
+        "residual_s": 0.23202400200000284,
+        "free_trips": 4689,
+        "peak_handles": 54909
+      },
+      "relative_delta": {
+        "requests": 0.024010866231433114,
+        "residual_instructions": 0.014106162675247669,
+        "flops": -0.004777673417128869,
+        "free_trips": 0.03009666080843587
+      },
+      "server_instructions_delta": 0.07371456009955701,
+      "cache_additions": {
+        "read._sm40_cache": 11,
+        "peel._sm40_padding_grid": 4,
+        "read._sm40_io_cache": 10,
+        "peel._sm40_padding_cache": 7,
+        "_IPT_B": 3,
+        "_IPT_A": 3,
+        "read._sm40_padding_cache": 5,
+        "_IPT_C": 4,
+        "_IPT_C.finished": 16,
+        "_IPT_B.finished": 17,
+        "read._sm40_padding_grid": 5,
+        "read._sm40_outer_cache": 5,
+        "read._sm40_group_cache": 12,
+        "_IPT_A.finished": 9
+      },
+      "smx_stats": {
+        "binds": 1,
+        "calls": 11
+      },
+      "cap_stats": {
+        "left": 367,
+        "spent": 383,
+        "accepted": 5,
+        "rejected": 1
+      }
+    }
+  ],
+  "mean_instruction_ratio": 1.0189562910231795,
+  "limitations": [
+    "Peel full topology zero cache growth; original main-read and base IPT retain lazy binding.",
+    "v7 includes a redundant batch operand cache reset that costs174 setup requests, to fix only in a new version.",
+    "Prediction parity checked final1024 outputs against saved native35; full tiny e0/e1 P10/P20 byte parity supports arithmetic inheritance."
+  ]
+}

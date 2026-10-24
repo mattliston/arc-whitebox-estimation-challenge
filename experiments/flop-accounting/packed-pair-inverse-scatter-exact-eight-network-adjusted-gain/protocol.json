@@ -1,0 +1,56 @@
+{
+  "schema": "packed-pair-inverse-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_scatter_forward_gather_v1/candidate.py",
+    "sha256": "1056a1b79acedd1ab75bd711c4880b0507318db15448db48638e618baa7dcf4d",
+    "bytes": 975914
+  },
+  "source_inverse": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_packed_pair_inverse_v1/source_inverse.json",
+    "sha256": "c66747a6dc44ccb13f48eddf0e27bef771d159ca0e280c17cc81721b7b814599",
+    "bytes": 3729
+  },
+  "proposal": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/packed_pair_flat_inverse_source_proposal_v1.json",
+    "sha256": "cbdaeeffff95b8872929e0845f4c49825a0a298193f63040eb029a7fb6dfa086",
+    "bytes": 4263
+  },
+  "scope": "native2_only",
+  "change": "Only six packed pair gathers: threeP16 planes plus fiveT planes use shared paid inverse scatter; F/G gathers and ordered scalar arithmetic unchanged.",
+  "ownership": "One fixed1024/128 strong idx/st-owned shape map per prediction; paid first-use construction, finallyclear on success/exception; no response value cache.",
+  "exactness": "Upper locations are unique; transposed inverse handles arbitrary nonsymmetric matrices; duplicate destinations confined to discarded q. P16scratch copied before reuse. Existing output shapes/dtypes/layout and scalar reduction order preserved.",
+  "resources": "7.5GB/zeroSwap and all original runtime gates unchanged. Owned extra6,946,816B; backend intp/flatten temporaries may add~8MiB. No absoluteRSS claim.",
+  "price": {
+    "cold_F": 2818048,
+    "P16_copy_F": 24772608,
+    "net_saved_F": 119209984,
+    "forecast_pct": 0.045264734705579415,
+    "additional_paid_calls": 73,
+    "additional_empty_calls": 84
+  },
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "gates": "Exact N2>=.02%,2wins,maxreg0,ALL16; N8>=.02%,8wins,maxreg0,CI<0/additional6negative,ALL16.",
+  "future": "No broad/submission until officialS35baseline is verified and a new combined candidate meets>=1% gain against it; accepted333099 is gradingpending at selection. CurrentFGrelease untouched.",
+  "model_executed": false,
+  "broad_qualified": false,
+  "serving_qualified": false,
+  "submitted": false
+}

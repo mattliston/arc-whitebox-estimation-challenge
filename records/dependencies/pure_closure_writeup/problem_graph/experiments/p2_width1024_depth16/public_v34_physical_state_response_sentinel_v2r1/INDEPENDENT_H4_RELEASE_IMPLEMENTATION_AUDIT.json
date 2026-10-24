@@ -1,0 +1,234 @@
+{
+  "schema": "v34-v2r1-independent-h4-release-implementation-audit-v1",
+  "date": "2026-08-31",
+  "role": "h4_reverse_adjoint",
+  "status": "HOLD_FROZEN_SET__ELEVEN_STATIC_RELEASE_DEFECTS__ZERO_DATA_OR_EXECUTION",
+  "scope": "Exact-byte static release/firewall audit of the single declared stable efb093d/5a0d/c395 set. No repair-draft bytes, target values, production arrays, estimator calls, MC generation, fitting, or scoring were used.",
+  "frozen_bindings": {
+    "implementation_manifest_sha256": "efb093d59000f76be614c9268754fc589c09e243ac891b1902c43a633f332a22",
+    "implementation_freeze_sha256": "5a0d937711794ad7d53e1449faf54f67b49d21c110a57b2533fece39ae82f6eb",
+    "implementation_static_verification_sha256": "c395adc76b149defc04b6569ea494b0f2ddf9b83757e5a986d9e1fdba3d0c870",
+    "mc_block_reference_static_verification_r1_sha256": "8db856df076d897f2373234ca137627aedc920c8cd8dbb0dcaa105bf08348038",
+    "panel_fixed_contractual_interpretation_sha256": "b9c0e0f49ae63e98652d48a7146943c70b2e9ed1f2a5f02be79e28d51067526d",
+    "panel_binding_sha256": "16c4eb19b095e52ea852319a2fb78e72f8431c5addd3b3025a29f342ddbbc193",
+    "release_firewall_requirements_r1_sha256": "ffac2c13e35bd950da40a1f34097ef012c58eb7dedac08a3a0bd9327b924152b",
+    "orchestrator_sha256": "06ed5f89b390f729d4f9329cfba07c304d396b9aa1855a0e4a1185b6ea2d2220",
+    "release_fsm_sha256": "6bd8cac0eee45ff568049dee287ac628d3c697626194b515feb1088a5b68ed59",
+    "official_target_last_sha256": "35dd97d652a9bd29156e589b1f0a5c42a71ddeb85b3594173215d1b554c1cfb7",
+    "trainer_sha256": "001879b55f6a9033a8cc31f72aee8f971189e78465db4f7ea842a28aa04acd01",
+    "deploy_runtime_sha256": "349280d22ce69325b785ac49334858591d1b2c15ed6d3beb55ae74e741aa2f75",
+    "resource_meter_sha256": "39510380b7bb5f519a111f377af8a413ad3d4319080d3c053eb93088a885d4e4",
+    "mc_block_generator_sha256": "d1704d6bdc6f3a91746373629b68266062cca0a103c4434d8eeb291f0f773a00"
+  },
+  "static_passes": {
+    "frozen_hash_closure": {
+      "pass": true,
+      "finding": "Every source and reference digest named by IMPLEMENTATION_MANIFEST_V2R1.json and IMPLEMENTATION_FREEZE_V2R1.json matched the exact bytes inspected."
+    },
+    "artifact_durability_primitives": {
+      "pass": true,
+      "finding": "artifact_io.py creates JSON/NPZ artifacts with O_CREAT|O_EXCL, file fsync, read-only chmod, and parent-directory fsync; it rejects symlinked parent components and paths outside the artifact root."
+    },
+    "claim_before_semantic_open_design": {
+      "pass": true,
+      "finding": "The orchestrator validates a stage release and writes a durable claim before stage-specific semantic work. Postrelease preclaim errors and postclaim errors have distinct append-only terminal paths."
+    },
+    "official_target_last_authentication_design": {
+      "pass_subject_to_holds_below": true,
+      "finding": "After the durable official claim, official_target_last.py independently rehashes/parses the release, claim, response freeze, response payload, target manifest, and target bundle; it verifies the named endpoint arrays before decoding the single frozen row. It does not rely on caller-supplied in-memory predictions."
+    },
+    "target_purity_and_fixed_panel": {
+      "pass": true,
+      "ordered_global_hash_ranks": [757, 746, 780, 759],
+      "finding": "Fit uses only the nine frozen observer_fit physical-state rows. Held MC and response stages are target-free. Official all_layer_means is last and row-filtered. All four fixed contractual rows must pass individually; the aggregate MC standard error is explicitly conditional for the fixed panel and makes no population claim."
+    },
+    "provider_and_statistical_spelling": {
+      "pass": true,
+      "finding": "The native20/e2/uV/u3/u4/total4 capture seam inventory, corrected source-zero parent, two 16x500000 MC streams, raw block retention, independent A/B cross-residual oracle-capacity gate, delete-one-block jackknife, conventional per-stream guards, and diagnostic-only nonlinear EDG2 statistic match the frozen protocol."
+    },
+    "static_arithmetic_census": {
+      "pass_for_declared_endpoint_circuit": true,
+      "new_weight_squared_actions": 14,
+      "new_signed_weight_actions": 14,
+      "total_arithmetic_upper": 90148864,
+      "dense_gemm_equivalents_upper": 0.04199934355153884,
+      "trainable_parameters": 899,
+      "finding": "The arithmetic census is consistent for the declared endpoint correction circuit. The separate 256 KiB streaming claim remains explicitly unproved."
+    }
+  },
+  "hard_holds": [
+    {
+      "id": "OFFICIAL_RESOURCE_BINDING_KEYSET_CONTRADICTION",
+      "severity": "OFFICIAL_TARGET_STAGE_IS_UNSATISFIABLE",
+      "evidence": [
+        "release_fsm.py:143-153 omits deploy_resource_receipt_sha256 from the exact official_target_last binding keyset",
+        "release_fsm.py:353-373 omits it from actual_source_bindings",
+        "official_target_last.py:300-318 requires it in the exact official release dictionary"
+      ],
+      "finding": "No official release can satisfy both exact dictionaries.",
+      "required_repair": "Add the authenticated deploy resource receipt digest consistently to BASE_BINDING_KEYS, actual_source_bindings, release generation, and the valid-path synthetic transaction."
+    },
+    {
+      "id": "OFFICIAL_TRANSACTION_RESOURCE_DIGEST_NOT_RETURNED",
+      "severity": "GUARANTEED_POSTCLAIM_TERMINAL_FAILURE",
+      "evidence": [
+        "official_target_last.py:375-385 returns the authenticated transaction without deploy_resource_receipt_sha256",
+        "official_target_last.py:435-437 unconditionally indexes transaction[deploy_resource_receipt_sha256]"
+      ],
+      "finding": "Even after repairing the release keyset, result construction raises KeyError after target access.",
+      "required_repair": "Return the authenticated digest and cover complete successful result construction in the official valid-path fixture."
+    },
+    {
+      "id": "HELD_SEMANTIC_METER_PERMISSION_CONTRADICTION",
+      "severity": "LEAST_AUTHORITY_VIOLATION_AND_PRECLAIM_FAILURE",
+      "evidence": [
+        "release_fsm.py:405-422 grants held_semantic and capture but requires meter=false",
+        "orchestrator.py:479-501 invokes _run_capture_with_fresh_parity with the deploy model",
+        "orchestrator.py:588-605 emits the deploy resource receipt after resource_meter and FlopScope execution"
+      ],
+      "finding": "The frozen held-semantic implementation performs an action its exact release permission map forbids.",
+      "required_repair": "Grant meter=true in the exact held-semantic permission set, or introduce a separately released/claimed meter stage; keep the permission dictionary exact."
+    },
+    {
+      "id": "DEPLOY_HEAD_DTYPE_AND_OPERATION_ORDER_MISMATCH",
+      "severity": "FROZEN_MODEL_SPELLING_AND_NUMERIC_EQUIVALENCE_NOT_PROVED",
+      "evidence": [
+        "trainer.py:243-248 casts normalized head24 to contiguous float32 before both float32 affine layers",
+        "deploy_runtime.py:45-50 subtracts/divides by float64 normalizers without a float32 cast, promoting the affine evaluation to float64",
+        "the synthetic suite never directly compares trainer.infer_numpy and deploy_runtime._model_gaps on identical head/model/normalizer bytes"
+      ],
+      "finding": "Training/held inference and deployed inference are different numerical programs.",
+      "required_repair": "Use one frozen common head implementation or cast deploy normalized inputs to float32 with the same operation order, then add direct parity coverage."
+    },
+    {
+      "id": "FIT_AUDIT_DISPOSITIONS_ARE_HASH_ONLY",
+      "severity": "HOLD_OR_FAIL_AUDITS_CAN_AUTHORIZE_FIT",
+      "evidence": [
+        "release_fsm.py:259-270 hashes the static, Cubic, Direct, and H4 audit files",
+        "release_fsm.py:621-628 returns immediately for the fit stage without parsing them"
+      ],
+      "finding": "A syntactically present HOLD audit, including this receipt, can satisfy fit release bindings because schemas, PASS statuses, frozen bindings, and zero-access counters are never enforced.",
+      "required_repair": "Before fit claim, parse each canonical audit and static receipt; require exact schema/role, PASS disposition, exact manifest/freeze/source hashes, and zero-data/zero-run counters. Add a negative HOLD-audit fixture."
+    },
+    {
+      "id": "RELEASE_PERMISSION_DICTIONARY_IS_NOT_EXACT",
+      "severity": "UNDECLARED_BROADER_AUTHORITY_CAN_BE_SMUGGLED",
+      "evidence": [
+        "release_fsm.py:401-422 checks only a fixed list of permission names and never compares the actual keyset with that list"
+      ],
+      "finding": "An arbitrary unknown permission key can be present and true while validate_release succeeds.",
+      "required_repair": "Require the permission keyset to equal the canonical set exactly, then enforce the stage-specific true/false map."
+    },
+    {
+      "id": "FIT_RELEASE_CLAIM_TOCTOU_SPLICE",
+      "severity": "MODEL_FREEZE_CAN_BIND_A_DIFFERENT_RELEASE_THAN_THE_CLAIM_CONSUMED",
+      "evidence": [
+        "release_fsm.py:750-780 records the claimed release SHA in FIT_RUN_CLAIM",
+        "orchestrator.py:330-359 ignores the returned claim and recomputes the then-current FIT_RELEASE SHA for MODEL_HASH_FREEZE",
+        "release_fsm.py:631-643 compares MODEL_HASH_FREEZE with the current release and claim-file hashes but never parses the fit claim or checks claim.release_sha256"
+      ],
+      "finding": "Replacing or mutating the external fit release after claim but before model freeze creates a syntactically accepted splice.",
+      "required_repair": "Carry the claimed release digest into the fit result, validate the complete fit release/claim transaction downstream, and require the immutable current release bytes to equal claim.release_sha256."
+    },
+    {
+      "id": "CONTRADICTORY_FROZEN_MC_SEED_AUTHORITIES",
+      "severity": "SEED_PROVENANCE_IS_AMBIGUOUS",
+      "evidence": [
+        "the frozen manifest still binds CONFIRMATORY_DATA_PROTOCOL_V2R1.md lines 99-117 and DATA_PROTOCOL_FREEZE_V2R1.json lines 186-194, which specify the revoked split/global/MLP/replicate seed law and eight old seeds",
+        "mc_block_generator.py and MC_BLOCK_REFERENCE_STATIC_VERIFICATION_R1.json instead use v34-v2r1-held-mc-v1|mlp_seed|raw_weights_sha256|A-or-B",
+        "the R1 receipt supersedes only the old verification receipt, not the still-bound protocol clauses"
+      ],
+      "finding": "Two incompatible immutable seed authorities remain simultaneously bound.",
+      "required_repair": "Bind an append-only protocol supersession naming the exact old documents/sections and replacing only their seed provenance with the corrected preimage and eight corrected receipts."
+    },
+    {
+      "id": "STATIC_FIXTURES_NOT_RUN_UNDER_FROZEN_NUMPY",
+      "severity": "PINNED_RUNTIME_VERIFICATION_PROVENANCE_MISSING",
+      "evidence": [
+        "IMPLEMENTATION_STATIC_VERIFICATION_V2R1.json records all 39 fixtures under data_gate/.venv/bin/python",
+        "that venv is Python 3.11.5 but contains numpy-2.4.6.dist-info",
+        "release_fsm.py requires NumPy 1.26.4; the exact Anaconda environment contains numpy-1.26.4 and torch-2.7.0 but was not the receipt's recorded test interpreter"
+      ],
+      "finding": "The synthetic PASS receipt does not evidence the exact frozen execution stack.",
+      "required_repair": "Rerun and re-freeze every synthetic/static verifier under the exact Python 3.11.5, NumPy 1.26.4, Torch 2.7.0 environment and record its executable/environment hashes."
+    },
+    {
+      "id": "MODEL_HASH_FREEZE_OMITS_REQUIRED_FULL_MODIFIED_RESOURCE_RECEIPT",
+      "severity": "FROZEN_FIREWALL_OUTPUT_CONTRACT_NOT_MET",
+      "evidence": [
+        "INDEPENDENT_RELEASE_FIREWALL_REQUIREMENTS_V2R1.json requires full modified-estimator FlopScope and RSS receipts from fit and binds them in MODEL_HASH_FREEZE",
+        "orchestrator.py:265-267 meters each fit capture without deploy_model/deploy_normalizer, so fused_deploy_response_used is false",
+        "orchestrator.py:330-359 writes only these parent-capture meter rows into MODEL_HASH_FREEZE; the first modified-head meter occurs later in held_semantic"
+      ],
+      "finding": "The model freeze does not contain the preregistered resource evidence for the frozen modified estimator.",
+      "required_repair": "After model/normalizer creation and before MODEL_HASH_FREEZE, meter the complete frozen modified endpoint circuit and bind its FlopScope/RSS/wall receipt, or explicitly supersede the earlier requirement before any release."
+    },
+    {
+      "id": "OFFICIAL_LATER_ROW_ABSENCE_OMITS_CONTINUATION_RELEASES",
+      "severity": "ORDERED_PANEL_ANTI_REPLAY_IS_INCOMPLETE",
+      "evidence": [
+        "INDEPENDENT_RELEASE_FIREWALL_REQUIREMENTS_V2R1_R1.json requires no later-row artifact before target read",
+        "official_target_last.py:201-206 checks future row stage paths and stage releases only",
+        "release_fsm.py:218-221 defines separate PANEL_CONTINUATION_RELEASE_V2R1_ROW1..3 paths that are not checked"
+      ],
+      "finding": "A later-row continuation authority can already exist when the current row opens its target without tripping the frozen order guard.",
+      "required_repair": "Include every future continuation release, and any other successor-row authority artifact, in the pre-target absence check. Add an early-continuation negative fixture."
+    }
+  ],
+  "qualifications_not_credited_as_passes": {
+    "streaming_256k": "The implementation explicitly records streaming_256k_claim_proven=false; the all-layer capture path is not a streaming deployment receipt.",
+    "resource_scope": "The metered callable computes the corrected parent and fused endpoint response but returns only the 1024-coordinate final endpoint. This is sufficient for the current final-output family; it is not evidence of a byte-identical full (16,1024) public-return assembly if such an API claim is later made.",
+    "rss_scope": "resource.getrusage(RUSAGE_SELF) gives an absolute current-process peak. It is not a descendant-process RSS proof; no descendant process is presently part of the declared CPU path.",
+    "population_inference": "The four rows are fixed contractual cases. The reported square-root-sum variance divided by four is conditional MC uncertainty only and cannot support an unseen-network or population claim."
+  },
+  "release_disposition": {
+    "fit": "HOLD",
+    "held_generation": "HOLD",
+    "held_semantic": "HOLD",
+    "official_target_last": "HOLD",
+    "panel_aggregate": "HOLD",
+    "integration_package_board_submission": "HOLD",
+    "reason": "The source graph and intended data firewall are largely coherent, but the exact frozen byte set cannot lawfully and numerically complete its one-shot chain until all eleven defects are repaired and rebound in one immutable replacement set."
+  },
+  "required_r1_acceptance_tests": [
+    "One new immutable manifest/freeze/static-verification set; do not patch the declared stable set in place.",
+    "A successful synthetic official transaction authenticates the deploy resource digest and reaches result construction.",
+    "The held-semantic exact permission map both authorizes its meter and rejects unknown permission keys.",
+    "Direct trainer-versus-deploy head parity passes under the exact frozen dtype/order.",
+    "A syntactically valid HOLD audit is rejected before fit claim.",
+    "A postclaim fit-release mutation/splice is rejected downstream.",
+    "The old seed clauses are explicitly superseded by the corrected eight-receipt authority.",
+    "All static fixtures pass under the exact pinned runtime and the receipt binds that runtime.",
+    "MODEL_HASH_FREEZE binds the contract-required complete modified-estimator resource receipt.",
+    "An early future PANEL_CONTINUATION_RELEASE blocks current-row official target access.",
+    "Independent Cubic, Direct, and H4 audits parse as PASS before a fit claim can exist."
+  ],
+  "access": {
+    "frozen_source_and_reference_bytes_inspected": true,
+    "repair_draft_bytes_inspected": 0,
+    "repository_data_or_cache_arrays_opened": 0,
+    "production_weight_or_feature_arrays_opened": 0,
+    "fit_truth_arrays_opened": 0,
+    "mc_payload_arrays_generated_or_opened": 0,
+    "official_target_values_opened_or_decoded": 0,
+    "target_bundle_or_parquet_opened": 0,
+    "estimator_calls": 0,
+    "capture_runs": 0,
+    "training_or_scoring_runs": 0,
+    "network_calls": 0,
+    "release_claim_or_authority_created": 0
+  },
+  "authority": {
+    "fit": false,
+    "held_generation": false,
+    "held_semantic": false,
+    "official_target_last": false,
+    "panel_continuation": false,
+    "panel_aggregate": false,
+    "integration": false,
+    "package": false,
+    "board": false,
+    "submission": false,
+    "network": false
+  }
+}

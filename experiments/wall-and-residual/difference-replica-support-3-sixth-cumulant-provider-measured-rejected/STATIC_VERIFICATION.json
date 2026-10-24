@@ -1,0 +1,42 @@
+{
+  "bindings": {
+    "ADDENDUM.md": "979d3fb82349b3a346803b54bf01318250197c05a724e9883e56f2dc37556e53",
+    "PREREGISTRATION_ADDENDUM.json": "b91300bdfd51707ee58bdfa6a9d8903d35b5013f7d86f1f79da73cf69f1d6189",
+    "parent_FREEZE_RECEIPT.json": "daa98fd7ed3b71cb19df4c63e1f1994179ebdc3285d0d368507f4b82e1b4899d",
+    "verify_addendum.py": "1c9f534ea2d91663e9b9eb91f653d8d2b37e20673862e118c0130dfac5eb4006"
+  },
+  "checks": {
+    "all_seven_sector_components_exact": true,
+    "diagnostic_core_and_cap_exact": true,
+    "half_ranks_and_unbiased_coefficients_exact": true,
+    "one_role_call_below_2pow41": true,
+    "parent_freeze_bound": true,
+    "projected_peak_below_8gib": true,
+    "sn_explicitly_empirical_not_confidence_bound": true,
+    "source_or_target_access": false,
+    "split_reduction_and_statistic_reserve_exact": true
+  },
+  "next_action": "Independent review of this addendum; source gate remains HOLD.",
+  "schema": "q24-ng-k6-difference-replica-block-gate-addendum-verification-v1",
+  "sector_rows": {
+    "111111": {"flops": 4225105920, "term_counts_6_42_222": [11, 29, 66], "weighted_units": 19648},
+    "21111": {"flops": 4046192640, "term_counts_6_42_222": [10, 28, 65], "weighted_units": 18816},
+    "2211": {"flops": 3220439040, "term_counts_6_42_222": [8, 22, 52], "weighted_units": 14976},
+    "222": {"flops": 908328960, "term_counts_6_42_222": [3, 6, 12], "weighted_units": 4224},
+    "3111": {"flops": 2711224320, "term_counts_6_42_222": [7, 19, 42], "weighted_units": 12608},
+    "321": {"flops": 1885470720, "term_counts_6_42_222": [5, 13, 29], "weighted_units": 8768},
+    "411": {"flops": 1252392960, "term_counts_6_42_222": [4, 9, 16], "weighted_units": 5824}
+  },
+  "status": "PASS_STATIC_ADDENDUM_ONLY__SOURCE_GATE_NOT_RUN",
+  "totals": {
+    "combined_one_role_call_cap_flops": 2002360715784,
+    "combined_projected_peak_bytes": 5679808512,
+    "diagnostic_admission_cap_flops": 645765427200,
+    "diagnostic_enumerated_core_flops": 642978615296,
+    "margin_to_2pow41_flops": 196662539768,
+    "margin_to_8gib_bytes": 2910126080,
+    "sector_assembly_flops": 18249154560,
+    "sector_weighted_units": 84864,
+    "split_reduction_and_statistic_flops": 181493760
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "public-joint-redesign-study-v1",
+  "node": "P2R0F3",
+  "status": "COMPLETE_DESIGN_ONLY",
+  "question": "Which structurally different system direction has a measured mechanism to break the ~3.1e-8 joint information floor and reach raw final-layer MSE below 1e-8?",
+  "evidence_base": {
+    "x_closure_sha256": "4050132ac99f04d4bcbf8c86725d55afffaa27de963b6be8d1eebfe3f58d6347",
+    "x_pilot_result_sha256": "46bc18744842a0c90df9695f2098b36e7a18542dba7c902bbb23db6b10667e39",
+    "r_pilot_closure_sha256": "4011c08d0a6f55137ea370d5e79f7005fc945ea967e6fccaf8f21c74121ed5ee",
+    "q_decomposition_sha256": "0c9321b0ef26e2c04466f45047348ada5d4fe9dacb13cedeedc01396e4db9822",
+    "s_localization_sha256": "6e3d8f1d10ea9b771c8ac18564ef61324e32521203c954d42aa5b7740be9ea43"
+  },
+  "central_measurement": {
+    "additive_invariant": "Between the base host (raw 8.919980524938374e-8) and the lambda-cubed host (raw 8.030968799749751e-8), the refit-J corrected residual moved only from 3.107235383605394e-8 to 3.136551362360925e-8 while the correction's absolute removal shrank from 5.813e-8 to 4.894e-8 - the host's 0.889e-8 improvement was offset by a 0.919e-8 reduction in reconstructed error. Host accuracy gains transfer approximately zero to the corrected endpoint in this regime.",
+    "interpretation": "The ~3.1e-8 invariant is the state-interaction component of the Q24-family approximation error: unpredictable from lawful inputs (five observer arms), not removable by in-family host refinement (three host arms), and conserved under the exchange of systematic error between host and observer."
+  },
+  "direction_adjudication": {
+    "d1_jointly_fitted_shell_scales": {
+      "verdict": "REJECTED",
+      "reason": "Scaling the lambda-cubed shell redistributes the systematic fourth-order component between host and observer; the invariant arithmetic shows that trade nets zero. The observer is information-capped, not capacity-capped (five-arm closure), so capacity freed by the shell cannot be re-aimed at the state-interaction component."
+    },
+    "d2_observer_redesigned_for_x_residual": {
+      "verdict": "REJECTED",
+      "reason": "The X residual is strictly harder (J reconstructs 60.94% versus 65.17%); every observer-family conclusion transfers with weaker priors. Same information cap."
+    },
+    "d3_fundamentally_better_host": {
+      "verdict": "SELECTED",
+      "mechanism": "The invariant breaks trivially when a host's raw error reaches the invariant scale: corrected error is bounded above by host error, so a host at raw <= 3e-8 guarantees endpoint progress regardless of what the correction can still reconstruct, and a host below 1e-8 meets the governing goal with no correction at all.",
+      "bar": "The selected direction must target host raw final-layer MSE at or below roughly 3e-8 (a 2.9x improvement over the lambda-cubed host's 8.03e-8) as its first milestone; intermediate hosts in the 5e-8 class risk full absorption per the invariant.",
+      "candidate_foundation": "The deep kink-carrier closure family recorded as the pure-closure lane's surviving direction (20-order by Q-factor deep kink carrier), evaluated under the measure-first protocol with lambda-shell corrections and the conditional-repair budget discipline carried over.",
+      "budget_note": "The conditional repair frees about 275e9 and the lambda-cubed shell is worth a real 10% of host MSE; both transfer to any Q24-family successor host and should be part of its baseline."
+    }
+  },
+  "next_node_license": "One design node for the kink-carrier Phase-2 host study: reproduce the lane's frozen state in the current frame (reproduce-first law), derive its Phase-2 cost envelope under 2^41, and adjudicate a minimal-width pilot by the measure-first protocol before any full-width commitment.",
+  "firewalls": {
+    "targets_read": 0,
+    "observer_selection_targets_opened": 0,
+    "public_name_joins": 0,
+    "implementations": 0
+  }
+}

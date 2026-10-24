@@ -1,0 +1,23 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_AQ_OWNED_EXPONENTIAL_STREAMING_COST_GATE",
+    "label": "Biased degree-7/9 channel streaming gate",
+    "kind": "phase2_g19b_math_claim",
+    "status": "open",
+    "priority": 1,
+    "summary": "The exact biased pair path adds 18 channels to the current 17-channel block. Naive temporaries require about 576 MiB plus 144 MiB of weights and roughly 18/17 of the current kernel arithmetic despite using no GEMM.",
+    "terminal_criterion": "Demonstrate a streamed same-seam implementation, scratch lifetime, and measured-equivalent census inside the selected suffix slack; carrier-free does not mean cost-free.",
+    "evidence": [
+      {
+        "claim": "Biased degree-7/9 channel streaming gate",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_matrix_polynomial_closure.md"
+      }
+    ],
+    "decomposition_children": [],
+    "display_parent": "P2R0G19B_AQ_OWNED_EXPONENTIAL_PAIR_CONVOLUTION_COST",
+    "goal_path_summary": "Atomic theorem or gate; no sibling inherits this status or evidence."
+  }
+}

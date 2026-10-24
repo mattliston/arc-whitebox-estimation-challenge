@@ -1,0 +1,164 @@
+{
+  "status": "ONE_FIXED_NATIVE_PILOT_COMPLETE",
+  "source_sha256": "763c2b8c5337d3d9d98a5ef680c8ebbd7c4e08cbd3e89c34f2479f402635736c",
+  "rank": 35,
+  "baseline_U": 1.1452566922913822e-08,
+  "candidate_U": 1.1577339180378979e-08,
+  "raw_pct": 1.089469795767073,
+  "bill_pct": -0.4046133195158008,
+  "adjusted_pct": 0.6804483363455072,
+  "baseline_flops": 243746134502,
+  "candidate_flops": 242759905176,
+  "request_delta": 451,
+  "residual_instruction_pct": 1.4207518495790605,
+  "residual_wall_pct": 3.963365287159082,
+  "baseline_residual_s": 0.24064902699999635,
+  "candidate_residual_s": 0.2501868270000003,
+  "events": [
+    [
+      10,
+      672,
+      11712,
+      384,
+      320
+    ],
+    [
+      11,
+      640,
+      11712,
+      384,
+      320
+    ],
+    [
+      12,
+      608,
+      11712,
+      384,
+      320
+    ],
+    [
+      13,
+      608,
+      11712,
+      384,
+      320
+    ],
+    [
+      13,
+      608,
+      4672,
+      384,
+      320
+    ],
+    [
+      14,
+      544,
+      11712,
+      384,
+      320
+    ],
+    [
+      14,
+      544,
+      4672,
+      384,
+      320
+    ]
+  ],
+  "retired": true,
+  "first10_bytes_identical": true,
+  "max_abs_prediction_delta": 2.580881118774414e-05,
+  "all_finite": true,
+  "per_layer_U_baseline": [
+    -6.919432346718206e-10,
+    -1.2729105148987022e-09,
+    -1.2276911735212865e-09,
+    -7.979541100275303e-11,
+    3.242629029588915e-10,
+    1.4319781860922183e-09,
+    3.0003910124272994e-09,
+    3.558061148054302e-09,
+    4.333286297587692e-09,
+    5.0592064276420406e-09,
+    6.139979261402632e-09,
+    8.050913151689598e-09,
+    9.473639021803535e-09,
+    1.038989381869428e-08,
+    1.14114115587168e-08,
+    1.1452566922913822e-08
+  ],
+  "per_layer_U_candidate": [
+    -6.919432346718206e-10,
+    -1.2729105148987022e-09,
+    -1.2276911735212865e-09,
+    -7.979541100275303e-11,
+    3.242629029588915e-10,
+    1.4319781860922183e-09,
+    3.0003910124272994e-09,
+    3.558061148054302e-09,
+    4.333286297587692e-09,
+    5.0592064276420406e-09,
+    6.140066056455454e-09,
+    8.044222691386733e-09,
+    9.467795948162176e-09,
+    1.0409714427049706e-08,
+    1.1480168804945159e-08,
+    1.1577339180378979e-08
+  ],
+  "fast_rescue_control": {
+    "layer": null,
+    "residual": null,
+    "projected": null
+  },
+  "fast_rescue_stats": {
+    "calls": 0,
+    "elements": 0
+  },
+  "guard": {
+    "guard_version": 3,
+    "pid": 33330,
+    "command": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/failure336631_v1/env310_v1/bin/python",
+      "-B",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/uniform64_diag_v1/run_v1.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/uniform64_diag_v1/candidate_v25_uniform64_md_v1.py",
+      "35",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_physics_v1/uniform64_diag_v1/pilot35_v1",
+      "--setup-slowdown",
+      "1.3"
+    ],
+    "initial_swap_bytes": 4425252864.0,
+    "footprint_trigger_bytes": 7500000000,
+    "rss_backstop_bytes": 7500000000,
+    "poll_sleep_s": 1.0,
+    "max_rss_bytes": 5950341120,
+    "swap_rule": "retire if swap growth > 256 MiB and memory_pressure free < 35%, or swap growth > 1 GiB",
+    "pressure_samples": 8,
+    "min_pressure_free_pct": 75,
+    "max_footprint_bytes": 5771171600,
+    "max_swap_growth_bytes": 0,
+    "completed": true,
+    "error": null,
+    "samples": 40,
+    "maximum_sample_interval_s": 1.031671917065978,
+    "minimum_sample_interval_s": 1.0189093742519617,
+    "monitor_failure_rule": "5 consecutive failed readings spanning >= 30 s",
+    "failed_readings": 0,
+    "tolerated_failures": [],
+    "exit_code": 0,
+    "remaining_rows": [],
+    "elapsed_s": 40.37912466749549,
+    "whole_group_retired": true
+  },
+  "prediction_sha256": "7efb0452a44fedb261775a9c6d25326b0d1f741cc99106b36d9d958c79a0903e",
+  "truth_hashes": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g19_attribution_v1/mps_truth_rank0035_P32M.npz": "0876a4a5484259896bdff5d273962dd274c5442e197ccf37bbc274df07c1d193",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_g19_attribution_v1/mps_truth_rank0035_indep32M.npz": "fc0f039cb4f54542c640bb51f72f74a7090cdff2272cd8bcc9552e6fcce807cd"
+  },
+  "limits": [
+    "One fixed generated network; not a validated gain or selection cohort.",
+    "Matched current SDK IPC arithmetic vs v23c control; v25 meter reads add no array arithmetic when no rescue.",
+    "Native full estimator cost includes all compensation operations and dynamic tree geometry; cold first-prediction tariff only.",
+    "Instruction delta is diagnostic, not a robust residual wall guarantee."
+  ]
+}

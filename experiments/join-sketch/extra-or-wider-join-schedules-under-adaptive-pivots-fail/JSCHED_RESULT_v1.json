@@ -1,0 +1,48 @@
+{
+  "lane": "opus-jsched",
+  "base": "2b108+H128 cand_2b108_frag_h128_v1.py (83fabfc8)",
+  "bar": "net <= -0.3%% vs base with requests not above it",
+  "schedule_encoding": "_JOIN_SCHEDULE {layer: (first cohort, last cohort)}; base {7:(0,2),10:(3,5),13:(6,8)} keeps four recent cohorts exact; ranks _R320_RULE; lazy L13 group (_SLR_LAZY_LAYERS) with consolidate path _SLR_CONSOLIDATE_LAYERS/_SLR_PREVIOUS_JOIN",
+  "variants": {
+    "V14_extra_join_L14_cohort9": {
+      "sha": "ac495b8f",
+      "native_7103248": {
+        "bill_pct": 1.74,
+        "ops": 930,
+        "mse_plain_pct": 0.42
+      },
+      "verdict": "FAIL (join fixed cost + lazy consolidation exceed the 2-layer push saving)"
+    },
+    "w13_L13_absorbs_cohort9": {
+      "sha": "bba76097",
+      "screen_7103248_55": {
+        "xMSE_pct": 1.899,
+        "se": 0.436,
+        "lower": "0/8",
+        "bill_pct": -0.276,
+        "xnet_pct": 1.623,
+        "native_ops_delta": [
+          362,
+          343,
+          366,
+          -86,
+          58,
+          236,
+          119,
+          218
+        ]
+      },
+      "verdict": "FAIL"
+    },
+    "w1013_L10_cohort6_L13_cohort9": {
+      "sha": "4b2ca01e",
+      "native_7103248": {
+        "bill_pct": -1.212,
+        "ops": 1449,
+        "mse_plain_pct": 2.662
+      },
+      "verdict": "FAIL"
+    }
+  },
+  "verdict": "CLOSED: even with H128 the join schedule does not pay; the four-recent-cohorts-exact window carries far more accuracy (~1.9%% per cohort) than its push bill (~0.28%%), and an extra join costs more bill than it saves"
+}

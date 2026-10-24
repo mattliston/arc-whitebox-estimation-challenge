@@ -1,0 +1,92 @@
+{
+  "status": "SAFE_COST_PRICED",
+  "lane": "opus-safecost",
+  "gates": "first-priced P(loss)<=10% (ploss_v1 formula) and warm(rank100)<=42,700; warm is binding",
+  "measured": {
+    "S2t (primary, e0553d2e)": {
+      "first": 48313,
+      "warm": 45997,
+      "ploss": 17.44,
+      "worst": 108.99,
+      "f35": 245486435209,
+      "f100": 245214899940,
+      "measured": "fg_s2tstack_20261016_opus_v2_official120_n_src",
+      "d_first": 0,
+      "d_warm": 0,
+      "bill_warm_pct": 0.0,
+      "bill_first_pct": 0.0,
+      "gate_warm_42700": false,
+      "gate_ploss_10": false,
+      "warm_margin": -3297
+    },
+    "two-strip (TS)": {
+      "first": 45110,
+      "warm": 43069,
+      "ploss": 4.4,
+      "worst": 105.61,
+      "f35": 247050767585,
+      "f100": 246861992196,
+      "measured": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_safecost_v1/bnd_TS/C0",
+      "source_sha256": "b714bc13c0291a6a88a9dc493b8c57728fc3da3272198f8bbbfe09492ac8117a",
+      "d_first": -3203,
+      "d_warm": -2928,
+      "bill_warm_pct": 0.669,
+      "bill_first_pct": 0.635,
+      "gate_warm_42700": false,
+      "gate_ploss_10": true,
+      "warm_margin": -369
+    },
+    "TS + first-five (canonical SAFE 43060f2d)": {
+      "first": 44660,
+      "warm": 42619,
+      "ploss": 3.73,
+      "worst": 105.35,
+      "f35": 248209899425,
+      "f100": 248021124036,
+      "measured": "fg_safes2t_20261016_opus_v1_official120_n_src",
+      "d_first": -3653,
+      "d_warm": -3378,
+      "bill_warm_pct": 1.138,
+      "bill_first_pct": 1.103,
+      "gate_warm_42700": true,
+      "gate_ploss_10": true,
+      "warm_margin": 81
+    },
+    "TS + thin-plain (b<=384,c<=960)": {
+      "first": 44255,
+      "warm": 42202,
+      "ploss": 3.23,
+      "worst": 105.23,
+      "f35": 247905409505,
+      "f100": 247794500088,
+      "measured": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_safecost_v1/bnd_TSthin/C0",
+      "source_sha256": "dad65029bfed3c571a75535ff06ba565a1658e1b4bb5ec8bceb3c0d88197a4ed",
+      "fragment": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_safecost_v1/fragment_thin_plain_v1.py.txt",
+      "fragment_sha256": "963859baa1fa2f9ce98fdc9303c465c1cf495f98e79b0cca70ad3243db73dbd4",
+      "d_first": -4058,
+      "d_warm": -3795,
+      "bill_warm_pct": 1.046,
+      "bill_first_pct": 0.981,
+      "gate_warm_42700": true,
+      "gate_ploss_10": true,
+      "warm_margin": 498
+    }
+  },
+  "estimates": {
+    "TS + lazy fusion (u64 claims -816 warm/+1.3K first, exact, bill 0; NOT measured warm: both S2 sessions guard-retired at ~7.1 GB RSS)": {
+      "first": 46410,
+      "warm": 42253,
+      "ploss": 4.04,
+      "bill_warm_pct": 0.67
+    }
+  },
+  "piece_prices": {
+    "two-strip": "-2928 warm for +0.670% (0.023%/100 req)",
+    "first-five on TS": "-450 warm for +0.468% (0.104%/100 req)",
+    "thin-plain on TS": "-867 warm for +0.377% (0.043%/100 req)",
+    "lazy fusion": "-816 warm for 0 (claimed; unmeasured warm)",
+    "table167+R7 revert": "-106 warm for ~+0.08%",
+    "Smirnov off": "-68 warm for +0.42%"
+  },
+  "recommendation": "Cheapest MEASURED passing mix: S2t + two-strip + thin-plain (warm 42,202, margin 498, +1.046% warm bill) beats the canonical two-strip + first-five (42,619, margin 81, +1.138%). If lazy fusion becomes memory-safe and measures >= -400 warm on top of two-strip, S2t + two-strip + LF would pass at about +0.67% (cheapest)."
+}

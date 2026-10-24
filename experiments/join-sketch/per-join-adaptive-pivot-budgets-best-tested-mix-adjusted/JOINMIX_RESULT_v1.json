@@ -1,0 +1,89 @@
+{
+  "lane": "opus-joinmix",
+  "base": "2b108+R256 cand_2b108_frag_r256_v1.py (controls opus_gbfix_v1/screen_R256)",
+  "bar": "net <= -0.25%% vs R256 at P(loss) not above",
+  "attribution_eigen_oracle_vs_static_nystrom": {
+    "L7_only": {
+      "xMSE_pct": -0.312,
+      "se": 0.211,
+      "lower": "3/5",
+      "seeds": 5
+    },
+    "L10_only_6seeds": -0.59,
+    "L13_only": {
+      "xMSE_pct": -0.431,
+      "se": 0.134,
+      "lower": "5/5",
+      "seeds": 5
+    },
+    "all_joins_6seeds": -1.399,
+    "note": "per-join gains roughly additive (sum -1.33 vs all -1.40 on the 6-seed subset); one output missing per single-join oracle (5 seeds)"
+  },
+  "mixes": {
+    "mixC": {
+      "modes": {
+        "7": "static",
+        "10": "r256",
+        "13": "gb128"
+      },
+      "sha": "58bd2776",
+      "screen": {
+        "xMSE_pct": -0.061,
+        "se": 0.404,
+        "lower": "4/8",
+        "bill_pct": -0.078,
+        "xnet_pct": -0.139,
+        "native_ops_delta": [
+          7,
+          -61,
+          9,
+          -182,
+          -2,
+          -166,
+          9,
+          -232
+        ]
+      }
+    },
+    "mixD": {
+      "modes": {
+        "7": "r256",
+        "10": "r256",
+        "13": "gb128"
+      },
+      "sha": "a10027cd",
+      "price_7103248": {
+        "bill_pct": 0.067,
+        "ops": 169,
+        "mse_plain_pct": 0.231
+      },
+      "note": "not screened: requests up"
+    },
+    "mixE": {
+      "modes": {
+        "7": "static",
+        "10": "gb128",
+        "13": "gb128"
+      },
+      "sha": "37eae62c",
+      "screen": {
+        "xMSE_pct": -0.015,
+        "se": 0.662,
+        "lower": "4/8",
+        "bill_pct": 0.051,
+        "xnet_pct": 0.035,
+        "native_ops_delta": [
+          -80,
+          43,
+          113,
+          -278,
+          -89,
+          -240,
+          113,
+          -306
+        ]
+      }
+    }
+  },
+  "verdict": "CLOSED: per-join reallocation of greedy blocks does not beat R256 (MixC -0.14%% net, MixE +0.04%%; both within noise, requests not up); remaining oracle gap is not reachable by pivot-block budgeting"
+}

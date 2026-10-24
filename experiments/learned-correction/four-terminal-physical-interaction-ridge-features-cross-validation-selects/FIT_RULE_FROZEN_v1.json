@@ -1,0 +1,87 @@
+{
+  "target": "(organizer_final_mean - parent_raw_final)/sigma",
+  "features": "raw30 + returned64 + exactly four fixed physical interactions",
+  "ridge_grid": [
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "baseline_zero_option": true,
+  "folds": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      12,
+      13,
+      14,
+      15
+    ],
+    [
+      16,
+      17,
+      18,
+      19
+    ],
+    [
+      20,
+      21,
+      22,
+      23
+    ],
+    [
+      24,
+      25,
+      26,
+      27
+    ],
+    [
+      28,
+      29,
+      30,
+      31
+    ]
+  ],
+  "feature_scaling": "fold-training mean/population std, floor1e-6",
+  "fit_objective": "equal-network final squared mean residual; sigma squared weights normalized by training mean",
+  "intercept": "unpenalized",
+  "score": "equal-network mean log final-MSE ratio vs unchanged parent; float64 correction then original max0 and float32 output",
+  "selection": "minimum CV mean log ratio among grid and baselinezero; stable ties prefer zero then larger ridge; negative required",
+  "final_fit": "selected ridge once on all32; no model selection after independent fresh",
+  "promotion": "CV is training evidence only; independent fresh24 required",
+  "no_clipping_of_linear_delta": true,
+  "interactions": [
+    "g*w0",
+    "g*w0*(mean(sigma)/sigma)",
+    "phi*w1",
+    "phi*w1*(mean(sigma)/sigma)^2"
+  ],
+  "indices": {
+    "g": 5,
+    "phi": 6,
+    "w0": 16,
+    "w1": 17
+  },
+  "network_sigma_mean": "Computed separately inside each network from its supplied sigma; no targets or other networks.",
+  "w1": "Existing centered/scaled W^2 moment; not raw W2sum.",
+  "baseline": "Unchanged QR4d, no MLP composition",
+  "no_native_calls": true
+}

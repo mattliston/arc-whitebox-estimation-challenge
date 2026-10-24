@@ -1,0 +1,183 @@
+{
+  "schema": "p2r0f2j-oof-decomposition-and-one-successor-v1",
+  "status": "complete_read_only_diagnosis_one_unlaunched_successor_frozen",
+  "scope": {
+    "observer_fit_networks": 688,
+    "observer_selection_targets_opened": 0,
+    "new_training_performed": false,
+    "saved_oof_models_replayed_read_only": true,
+    "canonical_graph_edited": false
+  },
+  "bindings": {
+    "p2r0f2d_cv_results_sha256": "ddaf1ede02733eb4429dcaf003ff65f8d9fba2460352e8deba4fb54a3c111dbf",
+    "p2r0f2i_cv_results_sha256": "ab810134e83924b698eca0647f97a44ba3ef884653bb3fb3e6516862f00b445f",
+    "p2r0f2j_cv_results_sha256": "70a0917258a2d656ab9593a67b3a04483af153d8ef59162be9570a6a62b9b5b4",
+    "p2r0f2j_verification_sha256": "c50a8a6a59b28ab11c1e2db8ce14ce24181e8a7c9d6ecfc1ff31019825f27dcb",
+    "analysis_program_sha256": "e7e4c970092c9c38c24ccdafd7d826f6781caf32a14e0a791180534ddaf913b0"
+  },
+  "headline": {
+    "p2r0f2d_oof_final_mse": 3.2969476163272226e-8,
+    "p2r0f2i_oof_final_mse": 3.5165106535091496e-8,
+    "p2r0f2j_oof_final_mse": 3.2334958229470984e-8,
+    "p2r0f2j_improvement_fraction_vs_d": 0.01924561769374095,
+    "p2r0f2j_improvement_fraction_vs_i": 0.0804817213562623,
+    "p2r0f2j_better_than_d_networks": 545,
+    "p2r0f2j_worse_than_d_networks": 143,
+    "p2r0f2j_better_than_i_networks": 681,
+    "p2r0f2j_worse_than_i_networks": 7
+  },
+  "layerwise_mse": {
+    "layers": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "p2r0f2d": [6.81930450375131e-10, 6.019929004370853e-10, 8.882545006409138e-10, 1.909301808078803e-9, 3.639331606095099e-9, 5.778918445730454e-9, 8.109347339858765e-9, 1.0606586212377758e-8, 1.310501592402097e-8, 1.567312588685432e-8, 1.8281332245336555e-8, 2.0939919307132537e-8, 2.3586526475540234e-8, 2.6355865493386247e-8, 2.9012699872373446e-8, 3.2969476163272226e-8],
+    "p2r0f2i": [6.81930450375131e-10, 6.019929004370853e-10, 8.956693362069312e-10, 1.9255076960791403e-9, 3.692549740254318e-9, 5.9046310735140495e-9, 8.370274635824416e-9, 1.1045415609268167e-8, 1.3762843708875638e-8, 1.6597922584362408e-8, 1.9425027806824256e-8, 2.2269488265479623e-8, 2.5090850257854863e-8, 2.805741751553751e-8, 3.0945951244568997e-8, 3.5165106535091496e-8],
+    "p2r0f2j": [6.81930450375131e-10, 6.019929004370853e-10, 8.883419093086308e-10, 1.908480591693749e-9, 3.629219343094493e-9, 5.75211946104011e-9, 8.066664604630143e-9, 1.0513709205929575e-8, 1.2964870612431506e-8, 1.5482327539989027e-8, 1.803821167370535e-8, 2.0606181553610134e-8, 2.317987791283527e-8, 2.5875092774629856e-8, 2.8418387771452083e-8, 3.2334958229470984e-8],
+    "p2r0f2j_gain_fraction_vs_d": [0.0, 0.0, -0.00009840498151596725, 0.00043011344858068316, 0.0027786044513421907, 0.004637370286847265, 0.00526339956100158, 0.00875654094432344, 0.010694020701843098, 0.012173598824043307, 0.01329884323355174, 0.01593787199594057, 0.017240714232622027, 0.018241583410608796, 0.020484549991408463, 0.01924561769374095],
+    "fraction_final_d_to_j_gain_added_l7_through_l15": 0.9327320270162892,
+    "fraction_final_i_to_j_gain_added_l7_through_l15": 0.8927229252999495
+  },
+  "paired_and_fold_dispersion": {
+    "j_minus_d_median": -6.29200534399121e-10,
+    "j_minus_d_p10": -1.6257838576127567e-9,
+    "j_minus_d_p90": 3.0277181459514255e-10,
+    "fold_j_minus_d": [-5.491446127172876e-10, -8.01233865123609e-10, -2.643633996254093e-10, -8.727561325687083e-10],
+    "fold_j_minus_d_population_stddev": 2.3885937223243467e-10,
+    "all_four_folds_improve_d": true,
+    "interpretation": "The gain is cross-fold and broadly paired, although fold 2 is weaker and 143 individual networks regress."
+  },
+  "hard_rows": {
+    "threshold": 1e-7,
+    "identical_breach_ranks_in_d_i_j": [201, 310, 599, 643],
+    "j_final_mse_share_from_four_rows": 0.04914141873993972,
+    "four_rows_population_share": 0.005813953488372093,
+    "hard_rows_share_of_d_to_j_total_gain": -0.00867455177532147,
+    "hard_mean_d": 2.723588289432875e-7,
+    "hard_mean_i": 2.7399164702186983e-7,
+    "hard_mean_j": 2.7330554423437766e-7,
+    "other_684_mean_d": 3.156953842771658e-8,
+    "other_684_mean_j": 3.0925773515992e-8,
+    "rows": [
+      {"role_rank": 201, "mlp_id": 287, "d_mse": 2.3943589983418905e-7, "i_mse": 2.4090303715056926e-7, "j_mse": 2.3934459414018984e-7, "j_minus_d": -9.130569399920547e-11, "late_absolute_coherence": 0.6149616613163408, "late_absolute_unobserved_pair_correlation": 0.44501312737671284},
+      {"role_rank": 310, "mlp_id": 760, "d_mse": 2.8892581869179405e-7, "i_mse": 2.9134624117974134e-7, "j_mse": 2.938111144806516e-7, "j_minus_d": 4.885295788857578e-9, "late_absolute_coherence": 0.6143720360272681, "late_absolute_unobserved_pair_correlation": 0.23783482135444223},
+      {"role_rank": 599, "mlp_id": 97, "d_mse": 2.2015737557107762e-7, "i_mse": 2.213491794068098e-7, "j_mse": 2.1921313305201327e-7, "j_minus_d": -9.442425190643472e-10, "late_absolute_coherence": 0.6316441781973061, "late_absolute_unobserved_pair_correlation": 0.5115918293897087},
+      {"role_rank": 643, "mlp_id": 364, "d_mse": 3.4091622167608927e-7, "i_mse": 3.42368130350359e-7, "j_mse": 3.408533352646559e-7, "j_minus_d": -6.288641143339183e-11, "late_absolute_coherence": 0.616191028892551, "late_absolute_unobserved_pair_correlation": 0.2613556026293397}
+    ]
+  },
+  "coherence_discrimination": {
+    "late_absolute_coherence_all_mean": 0.6194123769364653,
+    "late_absolute_coherence_hard_mean": 0.6192922261083664,
+    "late_absolute_coherence_hard_to_other_ratio": 0.9998048903574915,
+    "late_absolute_coherence_network_pearson_with_final_mse": 0.02504923287290335,
+    "late_low_coherence_hard_to_other_ratio": 1.0057429930291049,
+    "late_log_energy_hard_to_other_ratio": 0.8948022020280135,
+    "late_log_energy_network_pearson_with_final_mse": -0.003268381936630181,
+    "late_unobserved_offdiagonal_pair_correlation_hard_to_other_ratio": 1.1610826973119783,
+    "late_unobserved_offdiagonal_pair_correlation_network_pearson_with_final_mse": 0.046915486597640325,
+    "layer_trend": "Mean absolute per-channel coherence falls from 0.6663124817940366 at L7 to 0.5810428986015999 at L15 while the fraction below 0.25 rises from 0.292276426803234 to 0.3878876442132994; no coherence value saturates.",
+    "interpretation": "J's diagonal energy/coherence is numerically active and explains a real late-layer mean gain, but its network aggregates are effectively blind to the persistent hard rows. The six off-diagonal transported state-pair correlations are lawful, omitted by J, and show a modest hard-group shift, but are not by themselves claimed as a sufficient selector."
+  },
+  "constant_cost_boundary": {
+    "raw_mse_decimal": "3.2334958229470984e-8",
+    "adjusted_target_decimal": "1e-8",
+    "scoring_budget_flops": 2199023255552,
+    "score_factor_regime": "F/2^41 because the boundary is above the 0.1 score floor",
+    "strict_constant_cost_ceiling_flops_inclusive": 680076108324,
+    "first_nonpassing_flops": 680076108325,
+    "adjusted_at_ceiling_exact_fraction": "687194767359928880124964713/68719476736000000000000000000000000",
+    "adjusted_at_ceiling_decimal": "9.999999999998965069607434459612704813480e-9",
+    "adjusted_at_next_exact_fraction": "109951162777750295611141709/10995116277760000000000000000000000",
+    "adjusted_at_next_decimal": "1.000000000001366930620331086174701340497e-8",
+    "j_conservative_total_flops": 2128029115325,
+    "current_cost_excess_over_ceiling": 1447953007001,
+    "required_total_cost_reduction_fraction": 0.6804197351312383,
+    "conclusion": "This is a total-estimator ceiling. The 2126977459133-FLOP host alone exceeds it, so an accuracy child on this host cannot satisfy the constant-cost route.",
+    "cheap_host_arithmetic_not_a_second_successor": {
+      "cp16384_literal_tape_host_flops": 620447502338,
+      "meter_result_sha256": "6d7afc4af1e8a9a77d7e3611f56830e19955ed917775b9c93a225a419917826c",
+      "plus_frozen_k_correction_upper": 621789052290,
+      "headroom_below_constant_cost_ceiling": 58287056034,
+      "adjusted_score_if_j_raw_transferred": 9.142933337597925e-9,
+      "status": "arithmetic_only_not_authorized; D3 evidence shows J-level raw transfer to this host is unproved and currently adverse"
+    }
+  },
+  "diagnosis": [
+    "J's 1.92456% gain over D is genuine across all four held-out folds and is 93.27% late-layer accumulation, so exact transported energy helps autonomous recurrence rather than merely fitting one split.",
+    "The same four networks breach 1e-7 in D, I, and J. They contribute 4.914% of J's total error despite being 0.581% of networks, and collectively negate 0.867% of J's improvement over D.",
+    "The strictly local cell cannot discriminate those networks from J's per-channel coherence: hard/other late coherence is 0.999805 and its network-level MSE correlation is 0.0250.",
+    "A next accuracy child should expose cross-channel transported geometry and a permutation-invariant network-level context, while retaining the physical signed recurrence that produced J's distributed late-layer gain."
+  ],
+  "one_frozen_successor": {
+    "node": "P2R0F2K",
+    "name": "full-Gram pooled-context residual observer",
+    "status": "frozen_design_unlaunched_pending_root_review",
+    "material_difference": "J is a strictly local diagonal-energy cell. K adds the six exact off-diagonal W-squared transports and an autonomous width-pooled network context; it is not another diagonal variance, tangent-state, or local-width variant.",
+    "physics_and_features": {
+      "signed_states": 4,
+      "signed_message": "m_c = Phi * (s_c @ W)",
+      "full_symmetric_transport_gram": "G_cd = Phi^2 * ((s_c*s_d) @ W^2), 0<=c<=d<4",
+      "diagonal_energy": "e_c = G_cc",
+      "offdiagonal_features": "six rho_cd = clamp(G_cd / sqrt(G_cc*G_dd + 1e-8 R_l^4), -1, 1)",
+      "local_input": "J's 36 features concatenated with six rho_cd values = 42",
+      "network_pool": "per layer, concatenate mean_width(x) and sqrt(mean_width(x^2)+1e-8) for all 42 local features, yielding 84 values",
+      "network_context": "shared Linear(84,32)-SiLU-Linear(32,32)-SiLU, recomputed target-free at each layer and broadcast across width",
+      "local_cell": "shared Linear(42,96)-SiLU-Linear(96,96)-SiLU",
+      "heads": "concatenate local H96 and broadcast context H32; layer-specific four-channel signed source and bounded 0.75..1.25 dynamic-gain heads consume H128; retain identity plus 0.12*tanh mix",
+      "first_corrected_layer": 2,
+      "deployment_truth_inputs": 0,
+      "parameters": 34048
+    },
+    "frozen_cv_and_training": {
+      "role": "observer_fit only",
+      "networks": 688,
+      "folds": 4,
+      "fold_seed": 1753358438,
+      "fold_sizes": [147, 172, 171, 198],
+      "repaired_tail_ranks": [55, 71, 106, 317, 339, 458, 485, 507, 540, 575, 602],
+      "batch_size_networks": 3,
+      "epochs": 6,
+      "optimizer": "AdamW",
+      "learning_rate": 0.0012,
+      "minimum_learning_rate": 0.0001,
+      "cosine_schedule": true,
+      "weight_decay": 0.00002,
+      "gradient_clip": 5.0,
+      "own_primary_state_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+      "loss": "unchanged J normalized all-layer weighted rollout plus final focus, auxiliary-state penalty 2e-5, identity penalty 5e-4",
+      "checkpoint": "fixed epoch 6; no early stopping or checkpoint selection",
+      "post_metric_retuning": false
+    },
+    "conservative_phase2_cost_admission": {
+      "measured_host_flops": 2126977459133,
+      "mean_energy_and_full_gram_transport": 381495296,
+      "mean_energy_and_full_gram_transport_formula": "13 transitions * 14 dense transports * (2*1024^2-1024)",
+      "reused_w_squared_materialization_reserve": 13631488,
+      "reused_w_squared_materialization_formula": "13*1024^2",
+      "raw20_materialization_reserve": 268435456,
+      "raw20_standardization": 655360,
+      "local_fused_heads_and_special_reserve": 674250752,
+      "local_fused_heads_and_special_formula": "14*1024*47032 conservative operations per corrected-layer unit",
+      "width_pool_context_and_broadcast_reserve": 3065216,
+      "width_pool_context_and_broadcast_formula": "14*218944 conservative operations per corrected layer",
+      "output_addition": 16384,
+      "correction_source_structure_upper_estimate": 1341549952,
+      "host_plus_correction_upper_estimate": 2128319009085,
+      "phase2_cap": 2200000000000,
+      "headroom": 71680990915,
+      "literal_meter_only_after_accuracy_pass": true,
+      "separate_from_constant_cost_route": true
+    },
+    "difficulty_caveat": {
+      "mean_if_the_four_hard_rows_were_reduced_to_zero_and_all_others_unchanged": 3.074597250717809e-8,
+      "remaining_ordinary_row_improvement_fraction_needed_to_pass_mean_gate": 0.03491331945940153,
+      "unobserved_pair_correlation_network_mse_pearson": 0.046915486597640325,
+      "interpretation": "K cannot pass by detecting only four outliers; its full-Gram context must also improve the ordinary 684 networks by about 3.49%."
+    },
+    "frozen_conjunctive_pass_gate": {
+      "all_688_autonomous_rollouts_finite": true,
+      "weighted_oof_final_mse_strictly_below": 2.9672528546945005e-8,
+      "every_network_final_mse_strictly_below": 1e-7,
+      "observer_selection_targets_opened": 0,
+      "all_conditions_required": true
+    },
+    "launch_authorization": false
+  }
+}

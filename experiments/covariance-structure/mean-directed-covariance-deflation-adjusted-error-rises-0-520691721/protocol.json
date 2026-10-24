@@ -1,0 +1,52 @@
+{
+  "schema": "combo-covmode-deflation-v1",
+  "root_selected": true,
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_pair_read7_scan_v1/candidate.py",
+    "sha256": "2212448b123d4be2dadf9c4c8642b49ad1cb3e073a1cc49684e4fc083a19c14f",
+    "bytes": 972032
+  },
+  "scope": "native2_only",
+  "intervention": "Fixed coefficient1 at existing full covariance/star calls L1\u201314; pass the actual previous mean explicitly. L0 and terminal diagonal path unchanged.",
+  "formula": "z=C@m; d=m@z; for d>0, v=z/sqrt(d), C_res=C-outer(v,v); Cpre=deep_FP32_push(C_res)+outer(float64(w32.T)@v,float64(w32.T)@v).",
+  "fallback": "d<=0 or no in-scope previous mean keeps the original covariance cast and push. No square root or division is evaluated on d<=0.",
+  "claim": "Real-arithmetic subtract/add-back identity for arbitrary C, including indefinite/asymmetric C. No PSD, dominant-mode, byte-parity, or accuracy-improvement claim.",
+  "arithmetic": "z and d use the existing FP64 covariance and explicit FP64 mean. Residual subtraction is FP64 before the existing FP32 cast. Add-back uses FP64 promotion of the same FP32 weights used by the parent covariance push.",
+  "unchanged": "Every star factorization, star product, star reduction, routing, cache, setup, rank, learned parameter, gate, and all other original source bytes.",
+  "coefficient": 1,
+  "layers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "parity_layers": [
+    0
+  ],
+  "no_window_coefficient_direction_rescue": true,
+  "cost": {
+    "dominant_extra_flops_per_layer": 16777216,
+    "dominant_extra_flops_per_network": 234881024,
+    "approximate_bill_pct": 0.08789525542023294,
+    "details": "Two FP64 dense matrix-vector products about8n\u00b2; two FP64 outers plus residual subtraction and Cpre addition about8n\u00b2. Scalar/vector and weight-promotion charges are additional O(n\u00b2) copy work; no cost-saving claim. Existing FP32 covariance cast remains.",
+    "no_new_large_gemm": true,
+    "no_new_persistent_storage": true,
+    "transient_extra_upper_bound_bytes": 33554432,
+    "caveat": "Scalar first-order forecast only; conditional fallback/downstream numerical paths and serving resources require actual qualification."
+  },
+  "prior": "Bounded named-file and RESULTS review found no exact mean-directed covariance deflation/add-back trial. Existing covariance-tail approximation and star/rank experiments are distinct. No favorable result is presumed.",
+  "score_policy": "Incremental vs retained combo: N2 gain>=.1%,>=1win,maxreg<=1%,L0 parity. N8 gain>=.1%,>=6wins,CIupper<0,additional6negative. Own boundary before N8; total S34 gain>=.8% before broad; final VALID40 bank>=1% and full serving.",
+  "model_executed": false,
+  "serving_qualified": false,
+  "submitted": false
+}

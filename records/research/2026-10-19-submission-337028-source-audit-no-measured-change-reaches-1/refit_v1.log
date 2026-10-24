@@ -1,0 +1,20 @@
+in-place block lines 22384-22499 (116 lines), 649 keys
+pinned into the first 128: [(1, 6, 960, 640), (1, 6, 960, 2048), (2, 6, 1024, 640)]
+binding cost per key from the trace: 128 keys, median 42, mean 42.7 requests; first-128 total 5464; budgets {'normal': 5464, 'slow': 5464}
+pinned (1, 6, 960, 640) moved 364 -> 127 (displaced (2, 4, 64, 2688), used by 4 fit nets)
+pinned (1, 6, 960, 2048) moved 365 -> 126 (displaced (0, 4, 864, 1536), used by 4 fit nets)
+pinned (2, 6, 1024, 640) moved 363 -> 125 (displaced (2, 4, 864, 384), used by 4 fit nets)
+old list 649 keys; dead (no fit network asks): 300 (4 inside the first 128); used keys unlisted: 111 (>=2 nets: 17); swaps: 17; fit networks 8; dead inside the first 128 after: 3
+OLD                    normal fit  keys bound 128 | lazy-bind requests: first network mean   3620 (3620) | later networks mean 1508.9
+OLD                    normal hold keys bound 128 | lazy-bind requests: first network mean   3958 (3958) | later networks mean 1934.0
+OLD                    slow   fit  keys bound 128 | lazy-bind requests: first network mean   3620 (3620) | later networks mean 1508.9
+OLD                    slow   hold keys bound 128 | lazy-bind requests: first network mean   3958 (3958) | later networks mean 1934.0
+SWAPS ONLY             normal fit  keys bound 127 | lazy-bind requests: first network mean   3670 (3670) | later networks mean 1500.6
+SWAPS ONLY             normal hold keys bound 127 | lazy-bind requests: first network mean   3900 (3900) | later networks mean 1946.5
+SWAPS ONLY             slow   fit  keys bound 127 | lazy-bind requests: first network mean   3670 (3670) | later networks mean 1500.6
+SWAPS ONLY             slow   hold keys bound 127 | lazy-bind requests: first network mean   3900 (3900) | later networks mean 1946.5
+NEW (swaps + reorder)  normal fit  keys bound 128 | lazy-bind requests: first network mean   3110 (3110) | later networks mean 1581.7
+NEW (swaps + reorder)  normal hold keys bound 128 | lazy-bind requests: first network mean   3850 (3850) | later networks mean 1939.5
+NEW (swaps + reorder)  slow   fit  keys bound 128 | lazy-bind requests: first network mean   3110 (3110) | later networks mean 1581.7
+NEW (swaps + reorder)  slow   hold keys bound 128 | lazy-bind requests: first network mean   3850 (3850) | later networks mean 1939.5
+written candidate95c_jsym_pb_v1.py lines unchanged 24152

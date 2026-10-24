@@ -1,0 +1,1062 @@
+{
+  "utc": "2026-10-21T10:18:44Z",
+  "status": "COMPLETE_FINAL_SOURCE_RUNTIME_EVIDENCE_INDEX_ALL_PREREGISTERED_LOCAL_CRITERIA_PASS_ROOT_DECISION_AND_ORIGINAL_RELEASE_GATES_REQUIRED",
+  "candidate": {
+    "science_sha256": "49bd2ba31f0bce983f44cc001746e63ffaa84e530d3b31efa6424f69a0298c80",
+    "release_sha256": "f9381d0982f5d24e76d38884188ba7c998548e4a3f306825e7e80fb9fa0fc3b6",
+    "lineage": "First128 4da/e491 physics, fixed paid SMoff+NPoff fe8/d90, one unused diagnostic census expression omitted 49bd/f938."
+  },
+  "public_context": {
+    "best_verified_submission": 337466,
+    "best_verified_score": 1.4167660830412778e-09,
+    "last_verified_J2W_score": 1.416013781559781e-09,
+    "failed_submission": 337473,
+    "failed_residual_s": 0.401729281,
+    "cap_s": 0.4,
+    "unchanged_failed_retry_forbidden": true,
+    "public_refresh_and_quota_owner": "root; this read-only evidence index does not refresh or spend quota"
+  },
+  "materialization_audit": {
+    "exact_failed_trace": "exact_failed_sync_audit",
+    "local_rank35_observed_bool_fetches": 9,
+    "observed_DCR_bool_calls": 8,
+    "observed_SLR_bool_calls": 1,
+    "observed_other_explicit_or_implicit_array_coercions": [],
+    "observed_metadata_len_calls": 224,
+    "local_bool_outside_counted_dispatch_ms": 0.109944,
+    "required_final_fetch_was_separate_harness_phase": true,
+    "static_final_delta": "Final f938 retains both required array-check sites and their exact definitions. It is not a zero-materialization source. No extra array scalar materialization was introduced by the three changed/added effective definitions.",
+    "critical_definitions": [
+      {
+        "function": "_dcr_right",
+        "failed_line": 16431,
+        "final_line": 16431,
+        "AST_exact_to_failed_source": true,
+        "AST_sha256": "4be08c227dde3093b14f787b54341fe3968974f86534b5ed512343a96768125d"
+      },
+      {
+        "function": "_slr_virtual_rotation_envelope",
+        "failed_line": 3616,
+        "final_line": 3616,
+        "AST_exact_to_failed_source": true,
+        "AST_sha256": "5939dcca235a1703cee1e593a4222896670415c4d3f13dd77e0443534f103759"
+      },
+      {
+        "function": "_E2Hold",
+        "failed_line": 803,
+        "final_line": 803,
+        "AST_exact_to_failed_source": true,
+        "AST_sha256": "4a52231b5711368c456ad83d913c7452252767524a82fd65b8f8027e3230540a"
+      }
+    ],
+    "effective_definitions_changed_vs_failed": [
+      {
+        "function": "_gop2_gnn_step",
+        "line": 25606,
+        "control_tests": [
+          {
+            "line": 25611,
+            "expression": "l < 1"
+          },
+          {
+            "line": 25617,
+            "expression": "l == 15"
+          },
+          {
+            "line": 25616,
+            "expression": "x.dtype == 'float32'"
+          }
+        ],
+        "explicit_scalar_or_container_conversions": [
+          {
+            "line": 25613,
+            "expression": "int(_e2_append_inline((_e2_value_inline := sigma.shape[0])) or _e2_value_inline)"
+          }
+        ]
+      },
+      {
+        "function": "_gcz_predict_v1",
+        "line": 22255,
+        "control_tests": [],
+        "explicit_scalar_or_container_conversions": []
+      },
+      {
+        "function": "_fh90_first_head",
+        "line": 25594,
+        "control_tests": [
+          {
+            "line": 25596,
+            "expression": "rows is None"
+          }
+        ],
+        "explicit_scalar_or_container_conversions": []
+      }
+    ],
+    "changed_function_control_provenance": "New/changed GNN branches use layer integers, cached dtype/shape and Python None; its only explicit scalar conversion is int(sigma.shape[0]) via Python list.append(None) or metadata. The head cache uses rows is None. No bool/float/int(array), array iteration, implicit if(array), or array formatting was added.",
+    "implicit_or_provenance": "_E2Hold inherits list.append unchanged. append(value) or value tests Python None, not the backend array. That invariant remains exact to failed4685.",
+    "guard_preservation": "DCR ownership identity, tie-safe scatter fallback, SLR overflow predicate and exception remain unchanged. Zero-sync DCR/SLR descendants were separately measured and are not part of f938.",
+    "limitations": [
+      "Single exact4685 rank35 diagnostic is not an all-case count or a finalf938 dynamic audit.",
+      "Local observer timing is not a public failure attribution or a promised runtime saving.",
+      "Hosted and local flopscope versions are 0.12.3; no historical 0.12.0 mismatch rationale.",
+      "Final actual timing qualification comes from fresh paired exactf938 runs, not source request counts."
+    ],
+    "forum_url": "https://discourse.aicrowd.com/t/shipped-covariance-propagation-example-trips-the-phase-2-residual-cap-locally-0-16-0-but-grades-fine-what-happens-when-the-evaluator-upgrades/18202"
+  },
+  "minimal_census_change": {
+    "checks": [
+      {
+        "role": "science",
+        "exact_one_text_expression_replacement": true,
+        "reconstituted_parent_AST_exact": true
+      },
+      {
+        "role": "release",
+        "exact_one_text_expression_replacement": true,
+        "reconstituted_parent_AST_exact": true
+      }
+    ],
+    "old_expression": "_GCZ_STATS.update(predicts=_GCZ_STATS['predicts'] + 1, frozen_objects=_setup_gc.get_freeze_count())",
+    "new_expression": "_GCZ_STATS.update(predicts=_GCZ_STATS['predicts'] + 1, frozen_objects=None)",
+    "meaning_of_None": "Diagnostic count was not measured; no prediction-control consumer reads it.",
+    "preserved": [
+      "GC freeze/collect/thresholds/order",
+      "prediction counter and statistics update",
+      "all FNP arithmetic and request/free order",
+      "all physical ownership and overflow guards",
+      "all official/resource guards",
+      "rescue disabled with no governors"
+    ],
+    "full_imports": 8,
+    "metadata_return_exception_finally_fixtures": 8,
+    "numeric_models_in_import_check": 0,
+    "parent_import_cache_key": "(parent_sha256, role)",
+    "profile_mechanism_evidence_only": "Exact qualified d399 profile found 8.581425ms C self-time in get_freeze_count; instrumentation inflates timing, and the source differs from f938. No additive elapsed-time credit is taken."
+  },
+  "paid_score_evidence": {
+    "all32_Mac_same_host_vs_latest_verified_best": {
+      "n": 32,
+      "adjusted_pct": -0.18786308155556083,
+      "adjusted_se": 0.15071704759198556,
+      "lower": 22,
+      "raw_pct": -0.3704336395790042,
+      "bill_pct": 0.18327193433945108,
+      "legacy_adjusted_delta_pp": -0.1855758781916302
+    },
+    "held25_Mac_same_host_vs_latest_verified_best": {
+      "n": 25,
+      "adjusted_pct": -0.16492109270808486,
+      "adjusted_se": 0.18460390064511686,
+      "lower": 16,
+      "raw_pct": -0.35051588188544924,
+      "bill_pct": 0.18625402679942482,
+      "legacy_adjusted_delta_pp": -0.16216200373347794
+    },
+    "all32_VM_same_host_vs_latest_verified_best": {
+      "n": 32,
+      "lower": 20,
+      "raw_pct": -0.406704015959326,
+      "raw_pct_se": 0.13787172631751338,
+      "bill_pct": 0.185258176860658,
+      "bill_pct_se": 0.0043106934320323856,
+      "adjusted_pct": -0.22217888347452683,
+      "adjusted_pct_se": 0.13865976960915224
+    },
+    "held25_VM_same_host_vs_latest_verified_best": {
+      "n": 25,
+      "lower": 17,
+      "raw_pct": -0.5118813652578011,
+      "raw_pct_se": 0.16197738151885882,
+      "bill_pct": 0.1887964172265697,
+      "bill_pct_se": 0.0044234072126832745,
+      "adjusted_pct": -0.32399802941687783,
+      "adjusted_pct_se": 0.16369225751819766
+    },
+    "all32_Mac_own_first128_paid_debit": {
+      "n": 32,
+      "adjusted_pct": 0.1800249704978954,
+      "adjusted_se": 0.003925093839705294,
+      "lower": 0,
+      "raw_pct": 0.0,
+      "bill_pct": 0.18002497049789679,
+      "legacy_adjusted_delta_pp": 0.17463348078591526
+    },
+    "all32_paid_added_FLOPs_min": 258187264,
+    "all32_paid_added_FLOPs_max": 551884800,
+    "all32_paid_added_FLOPs_sum": 13629046784,
+    "census_incremental_FLOPs_all32": 0,
+    "byte_and_invoice_proof": "Both final Mac32 and VM32 equal their own fe8 predictions and complete invoices; fe8 equals own first128 predictions with every paid stack/copy debit included.",
+    "NP_decomposition_limit": "Original native rows lack an independent NP counter. Total actual invoice debit is authoritative; no separate unproved NP counter tariff is claimed.",
+    "fresh12_confirmation": {
+      "n": 12,
+      "lower": 11,
+      "raw_pct": -0.7522130551478259,
+      "raw_pct_se": 0.16977020239351895,
+      "bill_pct": 0.16232547929596608,
+      "bill_pct_se": 0.008878810026245604,
+      "adjusted_pct": -0.5911042029560757,
+      "adjusted_pct_se": 0.17050542750257508,
+      "paired_mc_se_of_mean_pct": 0.12336161446018433,
+      "mc_se_is_separate_from_across_network_se": true
+    },
+    "fresh12_confirmation_only_not_new_unseen_holdout": true,
+    "not_a_hosted_score_or_banked_gain": true
+  },
+  "runtime_evidence": {
+    "cold13": {
+      "root_review": "cold13_root_result_review",
+      "fixed_pairs": 13,
+      "original_guards": 26,
+      "mean_changes_pct": {
+        "wall_s_pct": 0.002614625598191128,
+        "backend_s_pct": 0.48699370736952585,
+        "residual_s_pct": -3.863232078445142,
+        "thread_residual_cycles_pct": -3.3330666113473617,
+        "thread_residual_instructions_pct": -2.8753755629060618,
+        "requests_pct": -2.4782498128878507,
+        "flops_pct": 0.17637896121831018
+      },
+      "actual_residual_pct_range": [
+        -6.737026781013733,
+        -1.883641314841289
+      ],
+      "max_rss_bytes": 7407108096,
+      "max_swap_growth_bytes": 0,
+      "min_pressure_free_pct": 77,
+      "all_actual_invoices_retained": true,
+      "old_bill_equality_context": "Only original five group-first cold ranks; no old warm invoice transfer.",
+      "limitation": "All singleton cold; does not by itself qualify warm retained-cache runtime."
+    },
+    "warm8": {
+      "status": "COMPLETE_FIXED_PANEL_INDEPENDENTLY_AUDITED",
+      "root_exec_session": 65595,
+      "launched_utc": "2026-10-21T09:17:34Z",
+      "fixed_pairs": [
+        [
+          35,
+          150
+        ],
+        [
+          35,
+          200
+        ],
+        [
+          250,
+          259
+        ],
+        [
+          277,
+          287
+        ],
+        [
+          16,
+          293
+        ],
+        [
+          16,
+          300
+        ],
+        [
+          310,
+          312
+        ],
+        [
+          310,
+          316
+        ]
+      ],
+      "fresh466_then_f938_each_pair": true,
+      "unchanged_guards": "125s, 7.5GB RSS backstop, free50; all original isolation checks",
+      "all32_prediction_observations_anchored": true,
+      "actual_new_invoices_required_for_every_observation": true,
+      "exact_old_invoice_contexts": "Eight prefixes and five original-second targets 150,259,287,293,312.",
+      "reduced_retained_depth_ranks": [
+        200,
+        300,
+        316
+      ],
+      "limitation": "Those three former third positions are now second. This probes one retained prediction, not original three-prediction memory depth.",
+      "completed_utc": "2026-10-21T09:38:36Z",
+      "primary_warm8": {
+        "n": 8,
+        "mean_changes_pct": {
+          "wall_s_pct": -0.8959711480353683,
+          "backend_s_pct": -0.40104686534643275,
+          "residual_s_pct": -5.550158096791389,
+          "thread_residual_cycles_pct": -4.444713200780321,
+          "thread_residual_instructions_pct": -2.6704229284419982,
+          "requests_pct": -2.177552203089514,
+          "flops_pct": 0.16850858981033445
+        },
+        "residual_pct_range": [
+          -12.415088948838516,
+          -2.9191154772231664
+        ],
+        "residual_time_delta_ms_range": [
+          -32.58470899999821,
+          -6.702634000006924
+        ],
+        "actual_residual_improvements": 8
+      },
+      "conditioning_cold_prefix8": {
+        "n": 8,
+        "mean_changes_pct": {
+          "wall_s_pct": 0.6940753864451685,
+          "backend_s_pct": 0.9488247609534012,
+          "residual_s_pct": -2.6237285587976875,
+          "thread_residual_cycles_pct": -2.538121615934881,
+          "thread_residual_instructions_pct": -3.3314656592645124,
+          "requests_pct": -2.7361768141424507,
+          "flops_pct": 0.19169948573639628
+        },
+        "residual_pct_range": [
+          -8.665863033779242,
+          9.396063700946788
+        ],
+        "residual_time_delta_ms_range": [
+          -21.392892999998026,
+          22.23892199999966
+        ],
+        "actual_residual_improvements": 7
+      },
+      "all_conditioning_outliers_retained": [
+        {
+          "protocol": "warm8",
+          "group": 7,
+          "rank": 310,
+          "cold": true,
+          "warm_target": false,
+          "wall_s_pct": 6.033149062626975,
+          "backend_s_pct": 4.725962433082742,
+          "residual_s_pct": 9.396063700946788,
+          "thread_residual_cycles_pct": 5.180123835748618,
+          "thread_residual_instructions_pct": -2.2573967894202185,
+          "requests_pct": -2.4509474156295563,
+          "flops_pct": 0.18904130457346735,
+          "residual_time_delta_ms": 22.23892199999966,
+          "control": {
+            "wall_s": 37.18713370710611,
+            "backend_s": 30.602288983,
+            "residual_s": 0.23668338899999952,
+            "thread_residual_cycles": 1103764636,
+            "thread_residual_instructions": 2408189214,
+            "requests": 44595,
+            "flops": 230748335653
+          },
+          "candidate": {
+            "wall_s": 39.430688915774226,
+            "backend_s": 32.048541664,
+            "residual_s": 0.2589223109999992,
+            "thread_residual_cycles": 1160941011,
+            "thread_residual_instructions": 2353826828,
+            "requests": 43502,
+            "flops": 231184545317
+          },
+          "old_bill_comparable": true
+        }
+      ],
+      "no_partial_selection": true
+    },
+    "original_group_memory_limit": {
+      "receipt": "preserved_original_group_control_memory_failure",
+      "candidate_predictions": 0,
+      "failed_reference_third_rank": 200,
+      "rss_bytes": 7510163456,
+      "original_limit_bytes": 7500000000,
+      "failed_partials_reused": false,
+      "thresholds_raised": false,
+      "separate_latent_metadata_defect": "Old isolation metadata omitted analyzer command key; not reached and not causal to RSS failure. New cold13/warm8 packets explicitly verify every command key."
+    },
+    "canonical_Mac32": {
+      "accuracy_and_invoice_qualified": true,
+      "all_original_groups_retained": true,
+      "maximum_system_swap_growth_bytes": 539492352.0,
+      "original_conditional_swap_guards_passed": true,
+      "quiet_or_hosted_margin_proof": false
+    },
+    "descriptive_noncontemporaneous_all32": {
+      "receipt": "descriptive_all32_runtime",
+      "ownfe8_all32": {
+        "n": 32,
+        "mean_pct": {
+          "residual_s": -4.967097370741171,
+          "residual_cycles": -2.396340712783494,
+          "residual_instructions": -0.504571712738747,
+          "wall_s": -1.4073039934180644,
+          "backend_s": -1.4501169512219056,
+          "requests": 0.0,
+          "flops": 0.0
+        },
+        "median_residual_pct": -4.877840756647689,
+        "residual_pct_range": [
+          -22.28555631345428,
+          20.427579308521636
+        ],
+        "residual_improved": 24,
+        "residual_delta_ms_range": [
+          -135.9507609999966,
+          94.04211899999382
+        ],
+        "all_regressing_ranks": [
+          200,
+          250,
+          277,
+          16,
+          316,
+          400,
+          550,
+          651
+        ]
+      },
+      "ownfe8_warm20": {
+        "n": 20,
+        "mean_pct": {
+          "residual_s": -7.217380957341068,
+          "residual_cycles": -2.8089999977942437,
+          "residual_instructions": -0.6204277462883939,
+          "wall_s": -1.4653579892626527,
+          "backend_s": -1.3636600868794801,
+          "requests": 0.0,
+          "flops": 0.0
+        },
+        "median_residual_pct": -7.394755207912768,
+        "residual_pct_range": [
+          -22.28555631345428,
+          16.474384219856365
+        ],
+        "residual_improved": 15,
+        "residual_delta_ms_range": [
+          -135.9507609999966,
+          88.73533799999933
+        ],
+        "all_regressing_ranks": [
+          200,
+          316,
+          400,
+          550,
+          651
+        ]
+      },
+      "qualifier": "Parallel5 science runs at different times with product-census instrumentation. Process counters, not thread counters. Every outlier retained; no causal/hosted timing claim."
+    },
+    "hosted_dispersion_receipt": "hosted_runtime_pairs",
+    "final_runtime_verdict": "Runtime-lane independent complete audit supports materially improved local margin and advancing exactf938 to unchanged release gates. Root verdict and release authority are not inferred by this index.",
+    "independent_complete_audit": {
+      "guard_count": 58,
+      "prediction_observations": 90,
+      "actual_invoices_verified": 90,
+      "same_context_exact_own_paid_invoices": 31,
+      "pins_rehashed": 470,
+      "receipt": "independent_complete_counterbalanced_audit",
+      "all_criteria_recomputed": true
+    },
+    "counterbalanced_panel": {
+      "status": "COMPLETE_ALL_PREREGISTERED_CRITERIA_PASS_INDEPENDENTLY_RECOMPUTED",
+      "ready_reference": "counterbalanced_ready",
+      "source_changes": false,
+      "pair_order": "combined_then_control",
+      "pairs": [
+        [
+          35,
+          150
+        ],
+        [
+          35,
+          200
+        ],
+        [
+          250,
+          259
+        ],
+        [
+          277,
+          287
+        ],
+        [
+          16,
+          293
+        ],
+        [
+          16,
+          300
+        ],
+        [
+          310,
+          312
+        ],
+        [
+          310,
+          316
+        ]
+      ],
+      "all_prior_observations_preserved": true,
+      "preregistered_operational_criteria": {
+        "authority": "Root explicit message2026-10-21; frozen before this panel, no later threshold changes.",
+        "interpretation": "Operational local material-margin criteria, not a significance test, hosted failure-probability bound, release authorization or automatic submission.",
+        "new_warm8_mean_residual_pct_max": -2.0,
+        "both_panels_warm8_mean_residual_pct_max": -3.0,
+        "each_pooled_target_mean_residual_pct_max": -1.0,
+        "rank310_five_cold_context_mean_residual_pct_max": 0.0,
+        "all16_new_observation_residual_pct_upper_exclusive": 5.0,
+        "all_original_guards_bytes_actual_invoices_required": true,
+        "metric": "For every original/new paired observation100*(candidate_residual_s/control_residual_s-1). Negative means faster. All means are equal-weight arithmetic means of these percentages.",
+        "pooled_targets": "Each of8targets has exactly2observations, one from each panel; average those equally. The overall both-panel mean averages the8case means. Keep every raw/percentage/ms value and range.",
+        "rank310_contexts": "Exactly5cold observations: its one originalcold13 observation plus group7and8prefix observations from each warm panel. Equal weights; these are repeated contexts, not5independent networks.",
+        "regression_gate": "Every one of16new paired observations, including8warm targets and8prefixes, must be strictly below+5%. Any value>=+5%fails this gate.",
+        "redundancy": "With the first-panel mean fixed at-5.550158%, the pooled-3%gate is redundant if the new-2%gate passes; retained for clarity, not additional evidence.",
+        "no_automatic_further_retry": true
+      },
+      "no_hosted_guarantee_or_root_verdict_inferred": true,
+      "root_exec_session": 61279,
+      "launched_utc": "2026-10-21T09:55:32Z",
+      "completed_utc": "2026-10-21T10:16:11Z",
+      "primary_warm8": {
+        "n": 8,
+        "mean_changes_pct": {
+          "wall_s_pct": 0.1640892517201467,
+          "backend_s_pct": 0.5458504758954541,
+          "residual_s_pct": -2.9711891245106954,
+          "thread_residual_cycles_pct": -2.693265243462685,
+          "thread_residual_instructions_pct": -2.497608522809179,
+          "requests_pct": -2.177552203089514,
+          "flops_pct": 0.16850858981033445
+        },
+        "residual_pct_range": [
+          -5.729491134582442,
+          -2.0515960422697543
+        ],
+        "residual_time_delta_ms_range": [
+          -13.374917000000153,
+          -4.710529999996993
+        ],
+        "actual_residual_improvements": 8
+      },
+      "conditioning_cold_prefix8": {
+        "n": 8,
+        "mean_changes_pct": {
+          "wall_s_pct": -0.300970377221807,
+          "backend_s_pct": 0.1652582164705249,
+          "residual_s_pct": -4.254688335146393,
+          "thread_residual_cycles_pct": -3.545144174335761,
+          "thread_residual_instructions_pct": -3.3164538267955472,
+          "requests_pct": -2.7361768141424507,
+          "flops_pct": 0.19169948573639628
+        },
+        "residual_pct_range": [
+          -7.305145905492793,
+          -2.0079765213624534
+        ],
+        "residual_time_delta_ms_range": [
+          -17.555311999998935,
+          -4.621795000005591
+        ],
+        "actual_residual_improvements": 8
+      },
+      "joint_warm8_mean_changes_pct": {
+        "wall_s_pct": -0.36594094815761075,
+        "backend_s_pct": 0.07240180527451068,
+        "residual_s_pct": -4.260673610651041,
+        "thread_residual_cycles_pct": -3.568989222121503,
+        "thread_residual_instructions_pct": -2.584015725625589,
+        "requests_pct": -2.177552203089514,
+        "flops_pct": 0.16850858981033445
+      },
+      "joint_conditioning_mean_changes_pct": {
+        "wall_s_pct": 0.19655250461168075,
+        "backend_s_pct": 0.557041488711963,
+        "residual_s_pct": -3.4392084469720405,
+        "thread_residual_cycles_pct": -3.041632895135321,
+        "thread_residual_instructions_pct": -3.32395974303003,
+        "requests_pct": -2.7361768141424507,
+        "flops_pct": 0.19169948573639628
+      },
+      "rank310_five_cold_context_mean_residual_pct": -1.0002184244160173,
+      "criteria_results": {
+        "all_original_guards_bytes_and_invoices_clean": true,
+        "new_warm8_mean": true,
+        "both_panel_warm8_mean": true,
+        "all_eight_pooled_target_means": true,
+        "rank310_all_five_cold_context_mean": true,
+        "no_new_large_regression_in_any_observation": true
+      },
+      "all_local_operational_criteria_met": true,
+      "all16new_observations_improve": true,
+      "all_nonimproving_observations_preserved": [
+        {
+          "panel": "original_control_first",
+          "group": 7,
+          "rank": 310,
+          "protocol_position": 1,
+          "cold_prefix": true,
+          "warm_target": false,
+          "prefix_rank": 310,
+          "original_group": 5,
+          "original_position": 1,
+          "reduced_retained_depth": false,
+          "old_reference_bill_comparable": true,
+          "wall_s_pct": 6.033149062626975,
+          "backend_s_pct": 4.725962433082742,
+          "residual_s_pct": 9.396063700946788,
+          "thread_residual_cycles_pct": 5.180123835748618,
+          "thread_residual_instructions_pct": -2.2573967894202185,
+          "requests_pct": -2.4509474156295563,
+          "flops_pct": 0.18904130457346735,
+          "residual_time_delta_ms": 22.23892199999966,
+          "total_flop_delta_vs337466": 436209664,
+          "control": {
+            "wall_s": 37.18713370710611,
+            "backend_s": 30.602288983,
+            "residual_s": 0.23668338899999952,
+            "thread_residual_cycles": 1103764636,
+            "thread_residual_instructions": 2408189214,
+            "requests": 44595,
+            "flops": 230748335653
+          },
+          "candidate": {
+            "wall_s": 39.430688915774226,
+            "backend_s": 32.048541664,
+            "residual_s": 0.2589223109999992,
+            "thread_residual_cycles": 1160941011,
+            "thread_residual_instructions": 2353826828,
+            "requests": 43502,
+            "flops": 231184545317
+          },
+          "paid_final_flop_delta_same_context_physics": 428345344,
+          "paid_final_bill_pct_same_context_physics": 0.18562679748155286
+        }
+      ],
+      "result_reference": "counterbalanced_complete_result",
+      "independent_audit_reference": "independent_complete_counterbalanced_audit",
+      "no_further_panel_requested": true
+    },
+    "lane_judgment": {
+      "measured_progress": "Exactf938 has all13 singleton-cold improvements, all8 first-panel warm target improvements, and all16 counterbalanced observations improved. Actual residual time, cycles, instructions, exact own-source predictions and all invoices independently audited.",
+      "robustness": "The one fixed reversed-order replication passes every operational criterion. New warm mean\u22122.971189%, joint\u22124.260674%, weakest pooled target\u22122.498556%; rank310all5cold mean\u22121.000218% retains the original+9.396064%/+22.238922ms spike. This is materially improved measured local margin, sufficient for the lane to support advancing to unchanged release gates.",
+      "remaining_limits": "Original former-third200/300/316 positions were tested at reduced retained depth; originalreference3-prediction RSS retirement and noncontemporaneousMac32 timing remain explicit. Local improvements do not guarantee hosted timing.",
+      "next": "Root final runtime/adjusted-score decision and unchanged once-only release_min; no further panel, source adjustment, trimming or automatic retry."
+    }
+  },
+  "closed_frontier_audit": [
+    {
+      "family": "Generic hotloop/unroll/hold inline and shape fit-check rewrites",
+      "state": "CLOSED_NO_REOPEN",
+      "evidence": [
+        "closed_generic_hotloop_hold",
+        "remaining_profile_closed_frontier"
+      ],
+      "reason": "Existing warm instruction savings about .019%; ideal hold ceiling about .47%. Profile fit checks only 1.374572ms instrumented; no distinct material mechanism."
+    },
+    {
+      "family": "Generic SDK call forms/cache/wrapper/prefix/compact",
+      "state": "CLOSED_NO_REOPEN",
+      "evidence": [
+        "closed_generic_callcost",
+        "closed_generic_callform",
+        "remaining_profile_closed_frontier"
+      ],
+      "reason": "No supported material new source mechanism; no repeat based on plausibility."
+    },
+    {
+      "family": "Qualified exact DAG schedule",
+      "state": "CLOSED_NO_REOPEN",
+      "evidence": [
+        "closed_dag_actual_quiet"
+      ],
+      "reason": "Measured about .092% mean instruction reduction insufficient; request savings are not time headroom."
+    },
+    {
+      "family": "Fixed inner896 paid fallback on current stack",
+      "state": "CLOSED_WITHOUT_NATIVE",
+      "evidence": [
+        "closed_current896_incidence",
+        "closed_current896_budget"
+      ],
+      "reason": "Exact current32 incidence 88 calls and old tariff forecast leave about .0092 percentage point all32 J2W cushion and inadequate held25 cushion; no cheaper shape/layer grid."
+    },
+    {
+      "family": "Covariance output-copy batching and fixed polynomial cohort batching",
+      "state": "NOT_QUALIFIED_NOT_OPEN_NATIVE_WORK",
+      "reason": "Read-only rank35 profile ceilings about135 and189 calls before overhead, together under1%; source ownership/rounding and paid debit unproved. Root rejected native work absent material mechanism."
+    },
+    {
+      "family": "Removing required GC or original array guards",
+      "state": "FORBIDDEN_UNSUPPORTED",
+      "reason": "Required GC policy, DCR ownership/tie handling and SLR overflow failure behavior are retained."
+    }
+  ],
+  "release_state": {
+    "release_script_run": false,
+    "fire_run": false,
+    "BEST_changed": false,
+    "source_changed_by_index": false,
+    "runtime_qualified_by_index": false,
+    "release_qualified_by_index": false,
+    "remaining": [
+      "Root decision on complete measured local runtime margin and adjusted J2W cushion.",
+      "Unchanged release_min_v1.sh once under reviewed wrapper; independent resulting setup5/guard/archive/prefire review; fire_once only under existing root authorization."
+    ],
+    "root_verdict_inferred": false,
+    "release_wrapper_v2_metadata_fixtures_pass": true,
+    "final_release_manifest_created_by_runtime_lane": false,
+    "source_no_further_changes": true
+  },
+  "references": {
+    "failure_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/ROOT_337473_FAILURE_REVIEW_v1.json",
+      "sha256": "0b84b590613f63cd8354c997503912e62acb2fe6874a632ef8204c6e85a905a7"
+    },
+    "failure_case": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/PUBLIC337473_FAILURE_INDEX27_v1.json",
+      "sha256": "a9d9f1f442d74cfebb0a3b528cde2d8e3ee64391dc6f8ff2aadd6099a53b0167"
+    },
+    "hosted_runtime_pairs": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/PUBLIC337473_FINAL_RUNTIME_PAIRS_VS466_v1.json",
+      "sha256": "f81ad8aa0950b168b15e22172d82c83c3eca1cef209e6cb2174cc146b85e9bc4"
+    },
+    "sdk_version_parity": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/lead_audit_2323_v1/HOSTED_SDK_VERSION_PARITY_SEAL_v1.json",
+      "sha256": "005e60508665ef1f611cbf3e49861aa1619d8d24c35f3d864b47bcc73645dc29"
+    },
+    "exact_failed_sync_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/sync_exact4685_v1/EXACT4685_SYNC_AUDIT_v1.json",
+      "sha256": "89e9c30f6a2c2fe8d5d22e29e1e9cafc4a3d882940f9717c4e9ffd76a778fa2c"
+    },
+    "exact_failed_sync_recipe": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/sync_exact4685_v1/RECIPE_v1.json",
+      "sha256": "e5f3593692eb1a6e58388f34c4c0efaa3093c8b0a7ac5c4b61701ba915683d68"
+    },
+    "exact_failed_sync_root_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/sync_exact4685_v1/ROOT_REVIEW_v1.json",
+      "sha256": "b224c18ecf73f22305c73e16ccbed5209e18db351b45b87234346a30310ca89c"
+    },
+    "paid_build": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/BUILD_v1.json",
+      "sha256": "bb8bd9e6567e963bfd019961768c308136292e2a42882e3524db33ae3d1304e8"
+    },
+    "paid_source_ready": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/READY_SOURCE_v1.json",
+      "sha256": "ca70cb6018ce47055845bc9c3b3e59ad4aeab23a28d309625ec54f4673f2c70d"
+    },
+    "paid_root_source_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/ROOT_SOURCE_REVIEW_v1.json",
+      "sha256": "9af3c0ac0aa94813e556e3135f888d1b6435a2a9b2caa9dfd880431ba79fc650"
+    },
+    "paid_imports": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/cloud_checks_v1/IMPORT_CHECK_v1.json",
+      "sha256": "b1a8df5fd31af3284ff3e16aec78ca88747d1aec355819480eb4e8d084efbae7"
+    },
+    "paid_vm32_invoice_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/native32_vm_custody_v1/INDEPENDENT_CUSTODY_AUDIT_v1.json",
+      "sha256": "6160af81701a37ac8b9c68d98472bf18c8881eab707c07a42bcf7111baf3a805"
+    },
+    "census_build": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/BUILD_v1.json",
+      "sha256": "3cfafdcc99fdd3f77af9ab8e21bb4debde80916af6368a1988aad4f62e34e2b0"
+    },
+    "census_static_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/SOURCE_REVIEW_v1.json",
+      "sha256": "eb668b655faae72afb969f239d9ea922ed27647c9d2c5e553d817cd805b0c09d"
+    },
+    "census_root_source_import_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/ROOT_SOURCE_IMPORT_REVIEW_v1.json",
+      "sha256": "bf11496c3c2ef03a7840f84a72279a4dc3e86581c68e8665ab35ac3172d21587"
+    },
+    "census_ready_source": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/READY_SOURCE_v1.json",
+      "sha256": "c4cc409db2e0224f6c3c0cc13113db8dcc04d5d0054c0c89c78cf2be1e3afe17"
+    },
+    "census_full_imports": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/IMPORT_CHECK_v1.json",
+      "sha256": "4bcedd9fc7e32f14e908a0f063cffd72e994e924dbe658c04877f0b5052037ec"
+    },
+    "census_descriptive_typo_correction": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/EVIDENCE_CORRECTION_v1.json",
+      "sha256": "e5964669120881fd9849fe1580c5e9bb16515995db389c8ad40ba3a5b388d7b7"
+    },
+    "profile_strict_equality_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/profile_first128_d399_v2/INDEPENDENT_AUDIT_v1.json",
+      "sha256": "18f7e42e7ff84afe0821645553a263b29ac463946346572d5f065b35935a20d7"
+    },
+    "final_mac32_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/mac32_packet_v1/INDEPENDENT_FINAL_MAC32_AUDIT_v1.json",
+      "sha256": "cc4607504fbb6a5d60ad4aa6aa6fca53a6d420e2e345f9e1cc4a267d83875038"
+    },
+    "final_vm32_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/native32_vm_custody_v1/INDEPENDENT_CUSTODY_AUDIT_v1.json",
+      "sha256": "231a945137baa49121335d367d4f24dae6725a6d829a1a69608509192ce776cf"
+    },
+    "root_vm32_knowncold4_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/ROOT_VM32_AND_KNOWNCOLD4_CUSTODY_v1.json",
+      "sha256": "a592e0ff29b45b04a23b77b7e571fdb915911fb1bf58231a1a57a4e0f1b87a31"
+    },
+    "knowncold4_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/fresh4_92_95_prepared_v1/INDEPENDENT_NATIVE_CUSTODY_AUDIT_v1.json",
+      "sha256": "2d38f0c8af16d32556483e69bb9ab3ddfe3358eecbc46691bcb5af542b19ab83"
+    },
+    "knowncold4_exact_parent_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/fresh4_92_95_prepared_v1/OWN_PARENT_EQUALITY_AUDIT_v1.json",
+      "sha256": "2a903aefe9afe3716a3ee3e9a5a67ed22e15df6278be3a72501b11e7f0ff25ba"
+    },
+    "whole12_confirmation_score": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/fresh12_confirmation_v1/SCORE_WHOLE12_ACTUAL337466_v1.json",
+      "sha256": "e4461144484dbaa13f32f506023dbdaba3e8f3e697c3b3e470a3b1c5f3f66fcb"
+    },
+    "whole12_confirmation_root_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/fresh12_confirmation_v1/ROOT_RESULT_REVIEW_v1.json",
+      "sha256": "0487271da5bccb7ddfc469128d4cbe8c4023aa7acbe1c0ef518efa446483ab21"
+    },
+    "cold13_plan": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_cold13_v1/COVERAGE_PLAN_v1.json",
+      "sha256": "c6c5f16b9a17cb08a57f3c37d6e63745431e1a65e62ee97473958a3783750e79"
+    },
+    "cold13_result": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_cold13_v1/COVERAGE_RESULT_v1.json",
+      "sha256": "d7952561a0b696765c80a9447ca27ac1361c96dfe2b41d41f261a65a071eca3f"
+    },
+    "cold13_root_result_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_cold13_v1/ROOT_RESULT_REVIEW_v1.json",
+      "sha256": "2bdb7dd0d3f4080a1ec23f249095f0abe045319fe9fc9af9707ba743b0d2d941"
+    },
+    "cold13_isolation": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_cold13_v1/ISOLATION_v1.json",
+      "sha256": "5dc7b04083f088e1b3052aeae370f3534c9500d9bef9ca4e78a6a534301b862f"
+    },
+    "warm8_ready": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/READY_ROOT_REVIEW_v1.json",
+      "sha256": "350e55390108555a71c248fb59b9b28c03f481ab352633d385155aa76c75561f"
+    },
+    "warm8_plan": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/COVERAGE_PLAN_v1.json",
+      "sha256": "fde6e774852bf258e90db99a99d6b4e2d0708638418965077e5a1bd65f47670c"
+    },
+    "warm8_root_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/ROOT_REVIEW_v1.json",
+      "sha256": "785f017532f0ac1e15fd15ea491875fe7a4c24b20ceb8062f480902ead1d7b89"
+    },
+    "warm8_live_preflight": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/ROOT_LIVE_PREFLIGHT_v1.json",
+      "sha256": "66f5ff196bd1e5bf218dc3011fa5d5ab9b3a42a636269b2e191d9971189bb582"
+    },
+    "warm8_analyzer": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/analyze_coverage_v1.py",
+      "sha256": "40abc12a09b8d56432434e9ee82601bb678c6477e7f4c4d06b2cac4ccc438309"
+    },
+    "warm8_runner": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/run_isolated_root_v1.py",
+      "sha256": "cb1bfad2bda977517e17339b25a4ca690266ce2b9b8271e7c81a79b9ef4eaabc"
+    },
+    "preserved_original_group_control_memory_failure": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_coverage13_v1/CONTROL_MEMORY_FAILURE_REVIEW_v1.json",
+      "sha256": "80ae2669e6aeee74fc449b1944d7b529245bb48c69500635f8cfccd988173e1a"
+    },
+    "preserved_paid_parent_rank316_outlier": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/PARENT_RANK316_REVIEW_v1.json",
+      "sha256": "ab3a3bd4016447db7d05f74806b83b5ce8b6d0e11031c17e39bd90f181628ca8"
+    },
+    "descriptive_all32_runtime": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/MAC32_DESCRIPTIVE_RUNTIME_VS_FE8_466_v1.json",
+      "sha256": "f877769700e2564ec555cac1da68278352ec882cd697312b9b411b87236da34e"
+    },
+    "warm_census_mechanism_and_limits": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/WARM_CENSUS_MECHANISM_AND_LIMITATION_v1.json",
+      "sha256": "4e4add22ff9787330bec940173f88978ded6d17d4670e3616d0a1db5bff6c6e6"
+    },
+    "remaining_profile_closed_frontier": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/REMAINING_PROFILE_FRONTIER_v1.json",
+      "sha256": "30199ccf34a7b56f704dc30bb3bc2f0a61daa8a69a2de42f7ec57dca7ff3b57e"
+    },
+    "closed_generic_hotloop_hold": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/postsubmit_margin_v1/CURRENT_HOST_CAP_CLOSURE_v1.json",
+      "sha256": "09a7744f748d0d74f81261fdba208b3a2bdeb7cb474ce945bd81ce2328aab82b"
+    },
+    "closed_generic_callcost": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_callcost_v1/CALLCOST_RESULT_v1.json",
+      "sha256": "63549dc52f59146ab997868dd81ae2602a6d16a916d40f1e51b5674f5c268869"
+    },
+    "closed_generic_callform": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/opus_callform_v1/mb_v1.json",
+      "sha256": "f7b0ed0717e959dbbe5697e84e9ce2d7de2de212d35ecf1c84a1dd7a4b111d65"
+    },
+    "closed_dag_actual_quiet": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/runtime_smdag_schedule_v1/root_quiet_v1/QUIET_RESULT_smdag_v1.json",
+      "sha256": "36ca51d46ea108238b2b2638f49ffbba1df58ccae78eb730904ac60b4852c7ff"
+    },
+    "closed_current896_incidence": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_inner896_v1/CURRENT32_INCIDENCE_BUDGET_v1.json",
+      "sha256": "f323c8ff778bc8c10ba34a872293d3ec1e424ba80356b27e70fd46244977bb43"
+    },
+    "closed_current896_budget": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_inner896_v1/CLOSURE_v1.json",
+      "sha256": "ccc009e7b2b24f5e2f5990c43ab8e739cdeb0d3a032981993b3bd343a1d53be4"
+    },
+    "unchanged_release_script": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_l13rank_v1/release_min_v1.sh",
+      "sha256": "ec26493b98f4cae46e2f20d2745a2af96be0def430500770678e315c0f566258"
+    },
+    "unchanged_fire_once": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/fire/fire_once.py",
+      "sha256": "70f0e5f4f2718fb49c2fa17604264d9432754c89049b763cb397202283454229"
+    },
+    "final_science": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/candidate_first128_paid_nocensus_science_v1.py",
+      "sha256": "49bd2ba31f0bce983f44cc001746e63ffaa84e530d3b31efa6424f69a0298c80"
+    },
+    "paid_parent_science": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/candidate_first128_smoff_npxoff_science_v1.py",
+      "sha256": "fe8cadf30daf0921a86acab95ec91348a565ce64f52e3dd4522a1936ac60620b"
+    },
+    "first128_physics_science": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/breakthrough_v1/first_hidden_readout_v1/native_v1/edge8_complement_first128_local90/candidate_edge8_complement_first128_local90_science_v1.py",
+      "sha256": "4da68821a5db9212035531a25dc8ab0c197a44d84a1e5482168d4223d349032c"
+    },
+    "final_release": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/candidate_first128_paid_nocensus_release_v1.py",
+      "sha256": "f9381d0982f5d24e76d38884188ba7c998548e4a3f306825e7e80fb9fa0fc3b6"
+    },
+    "paid_parent_release": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_smoff_npxoff_first128_v1/candidate_first128_smoff_npxoff_release_v1.py",
+      "sha256": "d90e5299291fa36b53df6d508e998f2bb7819b662ad436524d56bf7b8cc0999f"
+    },
+    "first128_physics_release": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/breakthrough_v1/first_hidden_readout_v1/native_v1/edge8_complement_first128_local90/candidate_edge8_complement_first128_local90_release_v1.py",
+      "sha256": "e491c4aed9fb0bca8d04f6dad3832144ae996ddf0086277b58eba75c77308bbc"
+    },
+    "exact_failed_release": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/candidate_rel_astra_o21_edge8_hidden_complement90_v1.py",
+      "sha256": "4685e1454ebd2d9607fcd88b64cc1d8435050761212efd1902b04d3f83151a46"
+    },
+    "tiny_reuse": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/runtime_current337466_v1/cloud_checks_v1/SM_CHECK_v1.json",
+      "sha256": "2aa46f121dee9458dea5d10260249b262e8054160e2e1052a2ef325da82a385c"
+    },
+    "tiny_reuse_guard": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/runtime_current337466_v1/cloud_checks_v1/runtime_current337466_checks_v1_GUARD.json",
+      "sha256": "aafca8b436391aa030a78920a5718fd1d60c44ae55b5970f607b3b9424f7880b"
+    },
+    "np_tiny_reuse": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/runtime_npxoff_current337466_v1/cloud_checks_v1/NP_CHECK_v1.json",
+      "sha256": "1a83f3e325216369f678e643a5df85694b1e918dfea46f81b24342dd8df101d0"
+    },
+    "paid_tail": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/runtime_current337466_v1/tail_smoff_v1.py",
+      "sha256": "520d8f4b90463b0ca218930f471f9869a1ea131b7e618816efc146c42a2eabc7"
+    },
+    "paid_np_tail": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_vm_frontier_v1/runtime_npxoff_current337466_v1/tail_npxoff_v1.py",
+      "sha256": "28a225c520f4674b4f532397edf56f541cf10c2ba437124ee0f446f23ef8278c"
+    },
+    "paid_nogov": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/tail_disable_fast_rescue_astra_v1.py",
+      "sha256": "be4293e44004415fb9faba1b42a26c8428a447ae226475a77a707054aac54607"
+    },
+    "census_import_original_guard": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/IMPORT_GUARD_v1.json",
+      "sha256": "38e7b8db5441103edf036fa1900e1a60dd565c661b1302618ee31aa49dcf6a85"
+    },
+    "mac32_paired_best337466": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/mac32_packet_v1/FIRST128_PAID_NOCENSUS_MAC32_VS_best337466_v1.json",
+      "sha256": "deeaef2d283ea748b8ebcd746f885a72dcd7c0bcdc5e801a7e45284ee8d931c3"
+    },
+    "mac32_paired_own_first128": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/mac32_packet_v1/FIRST128_PAID_NOCENSUS_MAC32_VS_own_first128_v1.json",
+      "sha256": "3800b2bea105f93f9cedbaf13226a08d29d121e948b927256df7ac2ad3e8aa51"
+    },
+    "mac32_paired_original_v4a": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/mac32_packet_v1/FIRST128_PAID_NOCENSUS_MAC32_VS_original_v4a_v1.json",
+      "sha256": "883e5f94f3038c51439377c85afc38f41013ffb0edb04654e54e4cd2a0aa4d89"
+    },
+    "mac32_paired_own_first128_smoff_npxoff": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/mac32_packet_v1/FIRST128_PAID_NOCENSUS_MAC32_VS_own_first128_smoff_npxoff_v1.json",
+      "sha256": "b4a6e8e0cf54a53ed10a422e96eba2e486d4078d6b495695e4a9a5880cc10f5a"
+    },
+    "vm32_paired_best337466": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/cloud_linux_markline_v1/local337466_auto_v2/reports/scores_first128_paid_nocensus_native32_v1__first128_paid_nocensus_FULL32_VS337466_v1.json",
+      "sha256": "0e9bb19b9b9542a0e93241c55c4e0b36654a61ba3bef22f855df248fb4c7a663"
+    },
+    "independent_complete_cold13_warm8_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/INDEPENDENT_COLD13_WARM8_AUDIT_v1.json",
+      "sha256": "bdb6db60bb91248a3abc9b7c96351a211f7ae4935ca8ae52e9cec68851b6ae32"
+    },
+    "independent_complete_audit_script": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/audit_cold13_warm8_v1.py",
+      "sha256": "acc23befc1203db9a2b1301626f0844030f3ccdda238b0e88fb1f3f11f01b312"
+    },
+    "warm8_result": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/COVERAGE_RESULT_v1.json",
+      "sha256": "f48dcd76d15264df384af4d21ec8453f5d6bef7cdbec301bd1ec8dcc0f48ca78"
+    },
+    "warm8_isolation_complete": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/ISOLATION_v1.json",
+      "sha256": "355c7f5e00fb90b26ba51ceaac28894ca390432285bcff31a01aab08020a5230"
+    },
+    "warm8_root_result_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_v1/ROOT_RESULT_REVIEW_v1.json",
+      "sha256": "978448bd7885d31761e865b73bea492b77f5032668f16850dce9adf12153b7fc"
+    },
+    "counterbalanced_ready": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/READY_ROOT_REVIEW_v1.json",
+      "sha256": "1e3bd8fdadd1296d368dc2e1d2c7357033f2db0accadfa888aaa89ab6a7db8a6"
+    },
+    "counterbalanced_plan": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/COVERAGE_PLAN_v1.json",
+      "sha256": "9fbe07f1b6790fd199ec6b9ba0d3a2024d534118e5944c1aede8430b4fa421f1"
+    },
+    "counterbalanced_isolation_plan": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/ISOLATED_PLAN_v1.json",
+      "sha256": "d1473e5098fb7e8253d7b45c182b7e9d956ef73c26918a1cef5f6a47214f76f7"
+    },
+    "counterbalanced_analyzer": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/analyze_coverage_v1.py",
+      "sha256": "98dac49d22366868564b211301431feb6528ef853249f29e51960ee1ab2d355a"
+    },
+    "counterbalanced_runner": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/run_isolated_root_v1.py",
+      "sha256": "143a694b835cdfd5d4d9968863de048565d1ce55caa6d32c44ad48103457a7db"
+    },
+    "counterbalanced_criteria_metadata_fixtures": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/CRITERIA_METADATA_FIXTURES_v1.json",
+      "sha256": "7024b3635cfe3af13b00d892b1c50a90155032f39b80484f75cd076251c832f0"
+    },
+    "counterbalanced_complete_result": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/COVERAGE_RESULT_v1.json",
+      "sha256": "022258ec41ebd3619e22177c178a65987efc2d184dce306525a4769089cd3f15"
+    },
+    "counterbalanced_complete_isolation": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/ISOLATION_v1.json",
+      "sha256": "7f0c3a4b64d03cdf8236d74ac775dbcb72b7c009440529337cfd7af4afb62ea9"
+    },
+    "counterbalanced_root_prerun_review": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_warm8_counterbalanced_v1/ROOT_REVIEW_v1.json",
+      "sha256": "e638156ce5799b96af3ef0f781e37ae5723d366e2c596c13c6d4103901c600da"
+    },
+    "independent_complete_counterbalanced_audit": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/INDEPENDENT_COUNTERBALANCED_RUNTIME_AUDIT_v2.json",
+      "sha256": "15edbb69f27a921a123590b0d895a510ca7f238cfced483ff9da9b246f2f55ba"
+    },
+    "independent_counterbalanced_auditor": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/audit_cold13_warm8_counterbalanced_v2.py",
+      "sha256": "52da1386b25048a1b1a2365ecfed79a0896405ff5d7b6b4c7f4bdc4fdfcdcad7"
+    },
+    "release_wrapper_v2": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_release_v1/run_release_isolated_root_v2.py",
+      "sha256": "75f0c976d29da6ea94c72281376fbdeccb2a7cc6bd2e9a6b8de0cb45c5ddcd45"
+    },
+    "release_wrapper_preparation_v2": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_release_v1/PREPARATION_REVIEW_PACKET_v2.json",
+      "sha256": "17880bed071e329409428e8ebba3f4a563d76fe9b3f047b83dec2779f1cf3713"
+    },
+    "release_wrapper_metadata_fixtures_v2": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_release_v1/SYNTHETIC_FIXTURE_RESULTS_v2.json",
+      "sha256": "0973006323161884d77eceaf9d93f71affd19e66d42d2c0ea5f3966af7288f52"
+    },
+    "release_wrapper_metadata_fixture_source_v2": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/root_release_v1/test_release_wrapper_metadata_v2.py",
+      "sha256": "a0c042ed924fa74c30a4553c2356970b2d647635245adc91237f49bead3a7201"
+    }
+  },
+  "supersedes_index": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/runtime_first128_frozen_census_v1/RELEASE_EVIDENCE_INDEX_v2.json",
+    "sha256": "5cfa089303e74f98536c1108fd976be59ca1b21fd85fc10ef0e82dfd8332f6b5",
+    "prior_preserved": true
+  }
+}

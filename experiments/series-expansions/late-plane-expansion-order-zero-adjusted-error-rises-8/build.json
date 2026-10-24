@@ -1,0 +1,49 @@
+{
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_late_plane_e0_v1/candidate.py",
+    "sha256": "de01719b8c09b5dfb7e56b0e071ba79432e6c043a4bf6d3219f98944a44cb2f5",
+    "bytes": 963292
+  },
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_late_plane_e0_v1/build.py",
+    "sha256": "a5e91d05dc85c284616c21aed2638fa961f40595a8516bf6e25c40a78c135466",
+    "bytes": 6753
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_late_plane_e0_v1/protocol.json",
+    "sha256": "194d6bd62416d72a875684b40e6744840b917b8bb21c3d6bd4cec5a91aa70207",
+    "bytes": 1975
+  },
+  "primitive": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_late_plane_e0_v1/probe.py",
+    "sha256": "7225fafa9f1b59a50f0cf858f2e9452a019814d55e58cfa6f92a37c5b63b76ed",
+    "bytes": 9597
+  },
+  "edits": [
+    {
+      "label": "late_pair_r0",
+      "before": "    X = _e2_A['X2']\n    _e2_hold.append(fnp.multiply(st['Fr'][[[2, 3], [1, 2], [2, 3], [3, 4], [1, 2]]], st['Gr'][[[1, 2], [2, 3], [2, 3], [1, 2], [3, 4]]], out=X))\n    _e2_hold.append(fnp.multiply(X, st['RR'], out=X))\n",
+      "after": "    _late_plane_e0 = 10 <= _PHYS_LAYER[0] <= 14\n    X = _e2_A['X2'][:, :1] if _late_plane_e0 else _e2_A['X2']\n    if _late_plane_e0:\n        _e2_hold.append(fnp.multiply(st['Fr'][[[2], [1], [2], [3], [1]]], st['Gr'][[[1], [2], [2], [1], [3]]], out=X))\n        _e2_hold.append(fnp.multiply(X, st['RR'][:1], out=X))\n    else:\n        _e2_hold.append(fnp.multiply(st['Fr'][[[2, 3], [1, 2], [2, 3], [3, 4], [1, 2]]], st['Gr'][[[1, 2], [2, 3], [2, 3], [1, 2], [3, 4]]], out=X))\n        _e2_hold.append(fnp.multiply(X, st['RR'], out=X))\n"
+    },
+    {
+      "label": "matched_late_gn_r0",
+      "before": "    hold(fnp.multiply(g['left1'], g['right1'], out=g['H']))\n    hold(fnp.multiply(rho, g['H'], out=g['H']))\n    hold(fnp.add(g['B'], g['H'], out=g['B']))\n",
+      "after": "    if not 10 <= _PHYS_LAYER[0] <= 14:\n        hold(fnp.multiply(g['left1'], g['right1'], out=g['H']))\n        hold(fnp.multiply(rho, g['H'], out=g['H']))\n        hold(fnp.add(g['B'], g['H'], out=g['B']))\n"
+    }
+  ],
+  "source_inverse_exact": true,
+  "changed_function_asts": [
+    "_nonlinear_pair_batch",
+    "_e1gn_contract"
+  ],
+  "unchanged_top_level_statements_exact": true,
+  "existing_layer_capture_only": true,
+  "numpy_torch_or_model_executed": false,
+  "serving_qualified": false,
+  "submitted": false
+}

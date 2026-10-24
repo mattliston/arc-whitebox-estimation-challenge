@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "rank": 38,
+  "exact_zero": true,
+  "native_variance_forward_bytes_exact": {
+    "0": true,
+    "1": true,
+    "-1": true
+  },
+  "native_row_membership_stable": true,
+  "torch_native_row_membership_equal": true,
+  "torch_star_selected_columns_stable": true,
+  "comparisons": [
+    {
+      "sign": 1,
+      "native_response_rms": 1.598323313808328e-05,
+      "relative_l2": 0.001438451371093293,
+      "cosine": 0.9999989654310554,
+      "absolute_error_rms": 2.299110362197965e-08,
+      "passed": true
+    },
+    {
+      "sign": -1,
+      "native_response_rms": 1.593349377491359e-05,
+      "relative_l2": 0.0016212591197854829,
+      "cosine": 0.9999986857590055,
+      "absolute_error_rms": 2.583232209262388e-08,
+      "passed": true
+    }
+  ],
+  "full_width_backward": true,
+  "finite_all_parameter_gradients": true,
+  "backward_gradient_norm": 1.3455430162697257,
+  "derivative": "Physical real-arithmetic variance VJP; straight-through rounding derivative.",
+  "bridge": {
+    "initializations": 1,
+    "calls": 4,
+    "flops": 4076483840,
+    "setup_wall_s": 0.26528908405452967,
+    "forward_wall_s": 0.6259766248986125,
+    "parent_sha256": "25c22c219420c13db8eae758c16b96a322f24b4de5d40efb43890605b4d3b3ee",
+    "numpy_version": "2.4.6",
+    "forward": "actual paid FNP covariance diagonal",
+    "backward": "algebraic FP64 straight-through W diag(grad) W.T"
+  },
+  "direction_unchanged": true,
+  "direction": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/terminal_physical_covariance_v1/qualification_direction.npz",
+    "sha256": "4c1582dda9efc6946991363b3dc645997309a4809270b0ec151626a90fad8d0f",
+    "bytes": 8390076
+  },
+  "saved_native_predictions": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/terminal_physical_covariance_v1/qualification_predictions.npz",
+    "sha256": "232ff8bd1ce179ce26f0571605e4cf1d4aadb5bcdf8764abd882959d04bade31",
+    "bytes": 92856
+  },
+  "original_failed_qualification": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/terminal_physical_covariance_v1/qualification.json",
+    "sha256": "a574f8ff366a7b55d449aa931d0e25c0327384e952d24b737be2f834153bb0a3",
+    "bytes": 2162
+  },
+  "predictions": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/terminal_physical_covariance_v1/qualification_v2_predictions.npz",
+    "sha256": "73984a6009cb43f9feaab72b866bedbaabea2bf3b985da5cd8f005529858f568",
+    "bytes": 50678
+  },
+  "targets_read": false,
+  "fit": false,
+  "native_final_block_rerun": false,
+  "sources": [
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/terminal_physical_covariance_v1/native_bridge.py",
+      "sha256": "207350311b5f58d3bb2cc394343ee91dc31a954910ca32811a41c613ddc6b4bb",
+      "bytes": 3515
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/terminal_physical_covariance_v1/consumer_v2.py",
+      "sha256": "fd26bc85aee46c2e3a682b366b6e378d504a25c12ecc3c73d9e488bbd90e4fab",
+      "bytes": 5058
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/terminal_physical_covariance_v1/qualify_v2.py",
+      "sha256": "700b4e4319e6dcc14711d033fa41a906fac17a09843414b8d852ce7de7503033",
+      "bytes": 5137
+    },
+    {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/terminal_physical_covariance_v1/model.py",
+      "sha256": "d4fba279e08e3f79b5da4479fc49788324d17c8b09d965a131687cfda9c6ffbf",
+      "bytes": 1772
+    }
+  ]
+}

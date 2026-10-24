@@ -1,0 +1,15 @@
+{
+  "fixed_scope": "L1..15, E1/E2/E3 only, no fitted coefficient or rank changes; original GOP energy forward and M2 shared result preserved.",
+  "definitions": "X=centered source-square features; Z=XV with V the original leading two right singular vectors; H=X-ZV^T; Y=TZ; Q=original QR(Y). Original estimate Ehat=mass(T)*mean(Xraw)+QQ^T TX. Residual is (I-QQ^T)TH in exact algebra.",
+  "conditional_mean": "Normalize columns z_k=Z_k/sqrt(lambda_k), u_ik=Y_ik/sqrt(kappa2(T)*lambda_k). Independent-input identity E[(T H_j)u_k u_l]=kappa3(T)/kappa2(T)*sum_a H_aj z_ak z_al. Orthogonal Gaussian-score Hermite projection gives m_ij=kappa3/(2*kappa2)*sum_kl(sum_a H_aj z_ak z_al)*(u_ik u_il-delta_kl). Actual output residual correction is (I-QQ^T)m.",
+  "variance": "Set nu_i=max(sum_a T_ia^2-mass_i^2/n,0)/(n-1), d_j=sum_a H_aj^2. Under conditionally independent Gaussian row-score surrogate, var_ij=d_j*diag((I-QQ^T)diag(nu)(I-QQ^T))_i. Full heteroskedastic diagonal used, not simplified (1-leverage)*nu.",
+  "log_rule": "Using exactly original E=max(Ehat,0) and original float32 log1p(E): corrected=max(original_log+mean/(1+E)-(var+mean^2)/(2*(1+E)^2),0), castfloat32. One fixed rule.",
+  "approximation_limits": [
+    "Hermite coefficient uses exact independent-weight third cumulants, but normal-score conditional expansion is approximate.",
+    "Q depends on T; higher mixed cumulants, conditioning across all three energy blocks, and realized variance dependence are omitted.",
+    "Small-eigenvalue float32 roundoff and the fixed1e-30 denominator floor are numerical guards, not selected dials.",
+    "The log Taylor approximation may fail at large relative noise. Fixed2 gross rejection gate, not a claimed Jensen guarantee."
+  ],
+  "upside_basis": "A systematic input bias recurs at all15 learned-state updates and learned births/edge consumers. No measured gain prior exists; only ~0.066% expected bill must be overcome, and >=0.5% adjusted remains research target.",
+  "closed_ideas_distinction": "Not ReLU mean-floor Jensen, final-output calibration, tensor-trace or covariance-feasibility projection. No truth or prior partial scientific values used."
+}

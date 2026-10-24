@@ -1,0 +1,66 @@
+{
+  "root_selected": true,
+  "proposal": "Young-only spherical zonal degree3 correction, analytic coefficient1; no fit or threshold changes.",
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_e1_ynt_psdb_d5_v1/candidate.py",
+    "sha256": "42e50cdc80f49a562428f018afb3c20ae4bf42f4b48b1f63025bb384decd08eb",
+    "bytes": 962929
+  },
+  "current_bank": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/official_bank_S34_v1.json",
+    "sha256": "8b2cba1ddc5381b4ce70948107511bb888fe86fb3f8766d80abac4417f37d0e2",
+    "bytes": 7296
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_s34_ynt_zonal3_v1/candidate.py",
+    "sha256": "9800913f69c35b3d4825b87bb43eabc1dcaa5d296238f0a2796302e80aff933c",
+    "bytes": 963565
+  },
+  "formula": "u=m_previous/||m_previous||; z=w.u; A=sum(lambda*(p.u)^3); B=u.tau; add (((n+2)*A-3*B)/(n-1))*(z^3-3*||w||^2*z/(n+2)) to existing 3*||w||^2*(w.tau)/(n+2).",
+  "interpretation": "Conditional mean of the missing cubic spherical harmonic under rotations around the previous-mean axis; not exact prediction of an individual cubic or of a trained network.",
+  "fixed_coefficient": 1,
+  "fixed_threshold": 2.5,
+  "layers": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "parity_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "prior_failures": "Total-CP Gaussian conditional-mean repair8697a46e failed; inherited-young-only and YNT2.75 are closed. This changes only young spherical diagonal reconstruction; no prior failure is relabeled.",
+  "radial_exclusion": "YNT tail is outside actual alive; both omitted=alive&~response and beta*=alive vanish there, so a direct omitted-radial repair is identically zero.",
+  "capture": "Exact previous-layer mean captured in the unique E2 update before nonlinear m update; removed in YNT prediction finally. Projection uses wt64.T@u, not differently rounded preactivation mu.",
+  "primitive": "Root-only small signed-atom/full-ambient, spherical quadrature, pure-mean, pure-trace and cleanup fixture; no estimator import.",
+  "fixed_train2": [
+    35,
+    100
+  ],
+  "gates": {
+    "adjusted_pct_at_most": -0.1,
+    "wins_min": 1,
+    "max_per_network_regression_pct": 1
+  },
+  "native_limits": {
+    "seconds": 150,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0
+  },
+  "added_work": "About2*(n*births+len(previous)*q+n*tail)+vector work; existing B/P/wt/tau reused. Added RPCs must be measured; no gain forecast.",
+  "prospective_scope": "native2_only",
+  "no_neighbor_sweep": true,
+  "no_result_based_retuning": true,
+  "later_authority": false,
+  "bank_authority": false
+}

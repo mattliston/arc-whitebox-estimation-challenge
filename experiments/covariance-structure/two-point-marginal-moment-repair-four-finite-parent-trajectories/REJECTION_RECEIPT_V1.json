@@ -1,0 +1,50 @@
+{
+  "schema": "q24-two-point-moment-repair-rejection-receipt-v1",
+  "status": "REJECTED_THIS_FORM__BROADER_MOMENT_REPAIR_OPEN",
+  "created_at_utc": "2026-08-24T11:56:10Z",
+  "bindings": {
+    "parent_estimator_sha256": "7d0c9e304c59dc21e59888313d19cf71bb2df0a895996ef6c7456bf82ea33e00",
+    "preregister": {
+      "path": "PREREGISTER.md",
+      "sha256": "85038b2b53d8ebdbb1e2915adef257d5e7e8d3d9587d61f6382e76132b1534d5"
+    },
+    "runner": {
+      "path": "run_probe.py",
+      "sha256": "2c37c363155ac2b709de00a0d7a949a33a43106592e0df88daa7509bf2468b2d"
+    },
+    "results": {
+      "path": "runs/probe_v1/results.json",
+      "sha256": "f6e3ed75d206d8b6a1810d07bd4830d7fd8c7690b572e3adfbc65a3acec3aece"
+    }
+  },
+  "decisive_failures": {
+    "total_repair_activations": 4741,
+    "parent_finite_to_repair_nonfinite_regressions": [
+      "qr_seed20260823_scale0p35_float64",
+      "official_he_width32_seed20260825",
+      "official_he_width128_seed20260825",
+      "official_he_width128_seed20260826"
+    ],
+    "post_repair_negative_A_count_total": 191,
+    "post_repair_negative_B_count_total": 337,
+    "parent_failure_recovered_count": 0,
+    "pure_normal_final_disagreement_mse": 5.444496682862088e-08,
+    "pure_normal_all_layer_disagreement_mse": 2128.8037187021987,
+    "pure_normal_maximum_absolute_difference": 489.56130981445307
+  },
+  "interpretation": {
+    "closed_claim": "Replacing every represented-invalid marginal tuple by the two-point boundary law is not a stable repair for the recursive Q24 closure.",
+    "why": "The intervention activates broadly, floating-point boundary evaluation does not preserve represented nonnegativity, introduces four finiteness regressions, and recovers no existing failure.",
+    "not_closed": "The broader need for a coherent joint or scale-aware high-order stability intervention remains open.",
+    "forbidden_successor": "Do not rescue this exact formula by tuning an epsilon or threshold against these results."
+  },
+  "access": {
+    "dataset_rows": 0,
+    "target_or_truth_values": 0,
+    "scores": 0,
+    "full_width_1024_runs": 0,
+    "packages": 0,
+    "submissions": 0,
+    "graph_edits": 0
+  }
+}

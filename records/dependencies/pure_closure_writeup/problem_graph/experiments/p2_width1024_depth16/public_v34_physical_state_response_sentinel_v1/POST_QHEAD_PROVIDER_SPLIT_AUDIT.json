@@ -1,0 +1,111 @@
+{
+  "access": {
+    "derived_feature_or_state_caches_opened": 0,
+    "estimator_calls": 0,
+    "model_training_or_scoring_runs": 0,
+    "observer_fit_target_values_opened_or_decoded": 0,
+    "observer_selection_or_board_values_opened": 0
+  },
+  "bindings": {
+    "d11_source_sha256": "ace56bf60b267666e4f2a6d8ae772a089f234ebc725f34a4798b2f9e8284cbc2",
+    "direct_start5_result_sha256": "e1ed27d0882dddb09698da78d167f7e34096ce44742b210b64792a3d20babd7f",
+    "four_field_terminal_result_sha256": "d84c5831d3392961d04fcf23323794ca75858190924672aa21c4e496731b98f5",
+    "parent82_result_sha256": "87624c36e90e3db7e5592ff8eb56acf5696a37d9ad0f2dd7ed656394301f98b4",
+    "perfect_state_ceiling_sha256": "4a476a61364476a3eb9d625c0831aeb580ae4575893a7abe8291aa2884de50e5",
+    "raw20_cross_gram_design_sha256": "26d6b3c21c46f639e8b20a5f45a4fec1a804599d106385f0366f07113e39b2c2",
+    "raw20_cross_gram_prior_art_sha256": "0bf9aa05b878487bb98699a937afaedb7d0c766c69df847a652fb1c2e45346bb",
+    "v34_design_freeze_sha256": "855629cbc27649394fe9ca9f4076e50719f5231a0a9d47da2e91075524b2cbe3",
+    "v34_design_sha256": "e6cae82977371d31e9e32a89d9eeaf59d30fcfd03494142f6772a5ac025a5aab"
+  },
+  "current_authority": {
+    "raw20_cross_gram_210": {
+      "artifacts_present": [
+        "public_q24_raw20_cross_gram_successor_v1/DESIGN.md",
+        "public_q24_raw20_cross_gram_successor_v1/PRIOR_ART_AUDIT.json"
+      ],
+      "builder_or_cache_present": false,
+      "preregistration_release_claim_or_result_present": false,
+      "status": "ARCHIVAL_PREDECLARED_ONLY__CONDITION_ELIGIBLE_AFTER_PARENT82_FAIL_BUT_NOT_EXECUTABLE",
+      "target_cache_training_execution_authority": false
+    },
+    "v34_three_split_design": {
+      "artifacts_present": [
+        "public_v34_physical_state_response_sentinel_v1/DESIGN.md",
+        "public_v34_physical_state_response_sentinel_v1/DESIGN_FREEZE.json"
+      ],
+      "builder_cache_runner_release_claim_or_result_present": false,
+      "frozen_branch_condition": "direct exact start-5 q oracle is not below 1e-8",
+      "measured_direct_exact_start5_q_oracle_mse": 4.698527945787826e-10,
+      "original_branch_condition_is_true": false,
+      "status": "STATIC_ARCHIVAL_HOLD__ORIGINAL_INTERLOCK_FALSE__REQUIRES_NEW_POST_QHEAD_FREEZE",
+      "target_cache_training_execution_authority": false
+    }
+  },
+  "date": "2026-08-31",
+  "d11_literal_lineage": {
+    "native20_boundary": {
+      "source": "public_d11_util_halving_v1/estimator_cap.py:1545",
+      "total_k3_standardized_is_exported": true,
+      "total_k4_standardized_is_exported": false,
+      "consequence": "A physical-state learning interface must export live total k4 in addition to the three provider split coordinates."
+    },
+    "u3_cp3_provider_split": {
+      "formula": "diag(cp_pre_k21)/sigma^3",
+      "source": "public_d11_util_halving_v1/estimator_cap.py:1801",
+      "literal_status": "cp_pre_k21 is materialized before it is summed with cubic_pre_k21; diagonal extraction adds no dense product"
+    },
+    "u4_cp4_provider_split": {
+      "formula": "cp4_pre_provider_planes[0]/sigma^4",
+      "source": "public_d11_util_halving_v1/estimator_cap.py:1813",
+      "literal_status": "the CP4 marginal provider is live before _assemble_quartic_provider; final-layer diagonal has an existing specialized read"
+    },
+    "uV_variance_consistency_split": {
+      "formula": "((W^2).T@(raw2_univariate-diag(M11_pair_before_overwrite)))/sigma_target^2",
+      "source": "public_d11_util_halving_v1/estimator_cap.py:1458",
+      "literal_status": "raw2 and the Q24 pair M11 coexist immediately before _copy_with_diagonal; exporting their diagonal defect is free, while its next-layer W^2 push is one skinny vector action"
+    }
+  },
+  "information_and_cost_comparison": {
+    "raw20_cross_gram_210": {
+      "new_channels_per_target_node": 210,
+      "six_layer_feature_dense_gemm_equivalents": 1.23046875,
+      "full688_unreceipted_cache_bytes": 3550740480,
+      "closest_learned_state_full_gram_prior": "measured OOF regression",
+      "identifies_true_minus_d11_v_k3_k4": false,
+      "verdict": "DO_NOT_SELECT_AS_THE_SMALLEST_PHYSICAL_PROVIDER"
+    },
+    "three_provider_splits": {
+      "new_provider_split_coordinates_per_node": 3,
+      "additional_live_state_export_per_node": 1,
+      "additional_live_state_export": "total k4/sigma^4, which is already computed but absent from native20",
+      "physical_supervision_outputs": [
+        "(truth_v-host_v)/sigma^2",
+        "(truth_k3-host_k3)/sigma^3",
+        "(truth_k4-host_k4)/sigma^4"
+      ],
+      "frozen_head_parameters": 899,
+      "full_fifteen_layer_response_route_upper_gemm_equivalents": 0.04297590605153884,
+      "generic_source_identifiability_guarantee": false,
+      "verdict": "SMALLEST_TYPED_PROVIDER_SPLIT_FOR_THE_EXISTING_PHYSICAL_V_K3_K4_ROUTE"
+    }
+  },
+  "minimality_boundary": {
+    "provider_decomposition": "Given each total state, a binary provider decomposition needs one additional coordinate: one each for variance consistency, CP3 versus cubic-star k3, and CP4 versus quartic-star/pairing k4.",
+    "route_not_universal": "This is minimal only for the frozen component-resolved v+k3+k4 supervision route; it is not a universal source-identifiability theorem.",
+    "state_ladder": {
+      "exact_v_mean_mse": 1.4655837809914389e-8,
+      "exact_v_plus_k3_mean_mse": 1.0286083864840677e-8,
+      "exact_v_plus_k3_plus_k4_mean_mse": 9.254687418209847e-9
+    },
+    "why_three_outputs": "Within this sequential physical-state route, variance alone and variance plus k3 remain above 1e-8; k4 is needed, and collapsing the three labels to a free q scalar would no longer test physical-state supervision."
+  },
+  "required_before_any_run": [
+    "Freeze a new post-q-head branch condition; the existing v34 freeze is unreachable because the direct exact-q oracle passed.",
+    "Implement and parity-test an in-memory or target-blind capture of total k4 plus uV, u3, and u4 at the literal D11 seams, including the final-layer specialized reads.",
+    "Bind a typed manifest for the ten-network truth and host v/k3/k4 state labels; the perfect-state ceiling receipt alone is capacity evidence, not a training-label manifest.",
+    "Preregister one rank-35 held sentinel, normalization, fixed epoch, source-zero replay, component alignment gates, resource bill, and one-shot claim before any target or cache access.",
+    "Do not inherit execution authority from the 210-channel design, the failed q heads, or the oracle ceiling."
+  ],
+  "schema": "v34-post-qhead-smallest-provider-split-audit-v1",
+  "status": "STATIC_RECONCILIATION__THREE_PROVIDER_SPLITS_PLUS_ONE_TOTAL_K4_EXPORT__NO_EXECUTION_AUTHORITY"
+}

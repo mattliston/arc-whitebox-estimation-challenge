@@ -1,0 +1,125 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_PHYSICAL_H2H3_ENDPOINT_ADJOINT",
+    "label": "H2/H3 endpoint adjoint (exact route)",
+    "kind": "phase2_g19b_subproblem",
+    "status": "open",
+    "priority": 1,
+    "summary": "The surviving exact route after the V34 falsification: extend SOL's H4 reverse-adjoint endpoint accumulation to the variance (H2) and skewness (H3) chains. The endpoint-mean functional of the cum3 tensor is computed WITHOUT carrying the tensor: a backward adjoint defines which exact projection-cumulants are needed; forward scalar ridge recursions (K3S-tracker class, validated +-2%) supply them. No learned parameters - the transfer disease structurally cannot apply. Measured stakes: the tensor-borne share is ~40% of the card's k3 error (engine k3u 0.036-0.068 vs card 0.060-0.105 on r35/r100); ladder rungs 1.47e-8 / 1.03e-8 / 9.25e-9.",
+    "terminal_criterion": "Preregistered gates C1-C4 in the lane doc: adjoint rank r(95%) <= 128 at t=0; t<=1 keeps >=90% value; trivariate tracker median error <=10%; end-to-end unfitted capture >=8% on both r35 and r100 through the certified consumption. Any gate fail -> record and close honestly.",
+    "evidence": [
+      {
+        "claim": "lane opened with preregistered gates; k3 tensor-share measured (engine 0.036-0.068 vs card 0.060-0.105)",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md"
+      },
+      {
+        "claim": "C1 borderline PASS (adjoint algebra confirmed: independent 15.7% linear-capture reproduction; value-rank r95 6-135/layer, median ~45). C3 PRE-GATE FAIL: mode-3 off/diag mass ratio median ~45 with sign-incoherent reads -> S~10^3-10^4 draws/read; randomized-read branch CLOSED. Lane narrows to exact common-scalar sub-chains (SOL's H4 + possible H2/H3 analogues under Jordan-quotient) - derivation only.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md + public_g19_attribution_v1/C1_ADJOINT_RANK_rank0035.json"
+      },
+      {
+        "claim": "C4v1 closed form NULL (corr ~0.00 all layers, scale right): the birth content cancels in dK21 = engine - host; the value = the births under the TRANSPORT DIFFERENCE operator (true distinct minus plane-projected). Lane's remaining question: the quotient-basis matrix elements of that difference operator - SOL's Jordan-quotient formalism, multi-day derivation.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/C4V1_CLOSED_FORM_rank0035.json"
+      },
+      {
+        "claim": "Screening structure MEASURED: dK21_kt-vs-host is 4-5x LARGER than dK21_full-vs-host (corr ~0.5) - the tensor memory cancels 75-85% of the plane-level map gap; dK21 is the screened residue. C4v2 (bare leakage accumulation) superseded before running. Lane's single open front: derive the screening kernel (memory-feedback resummation) in closed form; SOL's Jordan-quotient intertwining is the matched formalism.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md (this entry)"
+      },
+      {
+        "claim": "C4 FAIL at k=1/d8 truncation: expansion Frobenius-real (unit-beta, corr->0.45) but value-empty (pure supply 0.2%/0.1%, kt-glued inherits -63% transfer). Value-convergence far slower than Frobenius. Continuations: k>=2 derivation (weeks), SOL H4-exact chains, large-truth-set numerics.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/{C4V2_PHI1,C4V3_PHISUM}_rank0035*.json + rvec_phionly_rank00{35,100}.npz"
+      },
+      {
+        "claim": "TERMINAL MEASUREMENT: chain value = residue of +124 vs -102.5 cancellation (map-gap 5.8x, out-and-back -4.8x the total 21.5). Pair assembly needs +-3.5% each side; expansion at ~0 value-corr. Term-by-term program CLOSED BY MEASUREMENT. Successor question: residue-basis reformulation (diagonalize the screening) - SOL's Jordan-quotient ambition, now with its target constant.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/valdecomp.py + LANE_h2_h3_endpoint_adjoint.md terminal entry"
+      },
+      {
+        "claim": "STEP-LEVEL COMPLETE: exact identity instruments (idcheck 0.0); G_eff=T2+T3 generates 85% of value per-step; screening ~0.92 in value per step; T2 exactly closed-formable; T3's value-share from the k-expansion model = -0.33 (wrong sign) despite Frobenius 0.35-0.45 unit-beta. Viable supply must derive per-step G_eff directly as an analytic object. All grading instruments banked.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/residue_analysis.py + phi1_planes/phisum_pred npz"
+      },
+      {
+        "claim": "ATTRIBUTION RESOLVED: endpoint q_v measured 0.354 mean (8 nets) -> the recorded 0.78 is SOURCE alignment; steering target q_s->0.806 (hopeful branch). Co-adaptation theorem's q_v~0.97 prediction fails at 0.354 because the joint-retrain premise was never present in the bolt-on chain. Minimum stack confirmed: exact NCQC sources AND joint refit, both mandatory.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1 rvec_tensor_rank*.npz corr computation + DERIVATION_LEDGER.md sec 8-9"
+      },
+      {
+        "claim": "REST resolved by ladder replay: exact ALL-marginals (incl m) through the card GC map = 7.34e-10/7.28e-10 (r35/r100) ~ exact-q class ~ noise floor. The 9.25e-9 'capacity floor' = ~12.7x m-feedback amplification of near-floor per-step errors; the m-channel was never repaired in any ladder arm. GC map at cancellation optimum (g3g4 add worsens). Supply precision spec: per-step-equivalent ~8e-10 for <1e-8.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1 (ladder replay in-session; LANE entry 2026-09-01 REST)"
+      },
+      {
+        "claim": "M-CHANNEL LANDMARK: perfect-state ceiling extended with mean arms (10-net LOO): m alone 1.697e-8; m+v 7.483e-9 (BELOW GOAL with two channels); all-four 6.839e-9 replaces 9.25e-9. The m-channel holds 47% capacity and is VIRGIN - never attacked by any arm. Steering simplex to be re-derived over (m,v); required m+v recovery ~89.7%.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/PERFECT_STATE_CEILING_M.json"
+      },
+      {
+        "claim": "M-channel RESOLVED as exactly derivative: transport 75-88%/step at unfitted beta=1.00; fresh 100.0% explained by state-error push (c=0.96-0.997). The mean error is an exact linear integral of {dv,dk3,dk4} history; consumption was never the bottleneck (LOO betas price supply mis-scale); endpoint q_v=0.354 is pure supply fidelity. Campaign structure closed: everything reduces to exact analytic production of per-layer state errors at ~90% fidelity.",
+        "receipt": "in-session measurement chain 2026-09-01 (lane doc final synthesis entry)"
+      },
+      {
+        "claim": "DERIVATIONS I+II (fable): (I) factored-adjoint commutator/cubic endpoint sums cost 1.5-4.5 GEMM-eq/layer at measured adjoint rank - counting bound inapplicable to endpoint evaluation; no H4 state carried. (II) rotation-free identification: C=Gram(Xi) exactly; K21 linear in Jordan table given Xi; K22/K31 give Lie table; validated held-out 0.92 at r=16 closed-form. Q2 datum: commutator share 0.246 (ker-J sector real). OPEN: value alignment of the table-implied delta (aggregate share 1.91 but per-layer unstable - not yet a supply); next = value-weighted solve + Lie table + r100 gate.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md (Derivations I-II + validations)"
+      },
+      {
+        "claim": "Session-final convergence: chaos tail completion CLOSED (state-driven map error, 14th fence). All angles converge on the TABLE DYNAMICS recurrence (Xi,ghat,lambda causal evolution) = SOL's LIE_JORDAN lane as the singular remaining mathematics; pipeline (identification + endpoint sums + exact consumption) otherwise complete and costed.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md (convergence statement)"
+      },
+      {
+        "claim": "RECURRENCE VALIDATED (cells 1+4): word-basis exact (R2 0.998+ per unit, one step); depth-8 stable with deploy-computable coefficients (mean 5-8% vs Gaussian closure 37-44%). Fidelity gap localized to the H3/H4 birth sector = SOL's derived terms. The fused-stream dynamics exists as validated running code in its exact world.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md (cells 1,4)"
+      },
+      {
+        "claim": "Convention-bug pair found and certified fixed: the quadratic-chaos CF denominator is (1-it*lam) not (1-2it*lam) under the half-normalization (the recorded spec formula was wrong; it drove the fake mean-channel depth divergence), and the recorded kappa4 identity's 48/8 coefficients are the unhalved convention (16x; exact 3tr(Mi^2MjMk)+0.5tr([Mi,Mj][Mi,Mk])). Certificates: direct MC tests med 0.18% mean error corrected vs ~70% buggy.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md (2026-08-31 entries) + exact_recurrence_v3.py"
+      },
+      {
+        "claim": "Chaos-order ceiling ladder (sampled-emission recurrence, exact couplings at every carried order, two worlds): depth-8 K21 error k=2 54%/76%, k=3 27%/49%, k=4 12%/20% - the required chaos order is FOUR and truncation errors SATURATE with depth. One-step k=2 K21 loss 0.335-0.37 matches the 1024 card's measured supply q_v=0.354: the card's plane closure IS the degree-2 truncation.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md + public_g19_math_acceleration_v1/CHAOS_CEILING_seed9.json + ceiling_seed10.log"
+      },
+      {
+        "claim": "Word-closure NULL (fifteenth fence): carried H3/H4 tensors fit their own unit's (a,M)-word dictionaries at R^2 med 0.12-0.23 (birth 0.979) - W-mixing destroys unit-local word structure; compressed ~20-scalar/unit carry is dead. Shared-basis carry survives (exactly mixing-closed): carried sectors concentrate to shared rank r90 ~15->6 with depth; rank-R truncated recurrence prices the honest carry at R~n/2 (R=16 of 32: K21 at exact-arm level 19.3% vs 20.1%, C 24.8% vs 16.2% on the hard world).",
+        "receipt": "public_g19_math_acceleration_v1/WORD_CLOSURE_seed10.json + SHARED_RANK_seed10.json"
+      },
+      {
+        "claim": "Q2 CLOSED BY DERIVATION (was the decisive open question): kappa4(qA,qB,qC,qD) = <J_AB,J_CD>+<J_AC,J_BD>+<J_AD,J_BC> and kappa3 = <A,B∘C> with J the Jordan product - machine-exact (4e-17). ALL cumulant endpoint reads factor through Jordan-word Grams; ker J is annihilated identically; the commutator term was a basis artifact; the one-matrix Jordan stream is lawful for the H2 sector and the counting-bound escape stands.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md (Q2 CLOSED BY DERIVATION entry, MC + exact checks inline)"
+      },
+      {
+        "claim": "1024 mechanism validated on the real nets, identification-free through L2: chaos-frame C indistinguishable from banked MC truth within sampling floor (3.3% vs 3.2%); truncation ladder replicates on the real net (K21 loss k2 16-17%, k4 7-9%). ENGINE LAYER CERTIFIED on both nets (parameter-free, frozen-transfer): Emean ratio med 0.99995 (r35) / 1.0003 (r100), linear couplings corr 0.9995 beta 0.988, quad 0.998/0.979-0.984; k3 deviation is reference MC noise (|k3|/noise med 1.79). ReLU odd He coefs >=3 vanish: H3 has zero birth at mean-zero units.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/CHAOS1024_SHALLOW_rank0035.json + experiments/p2_width1024_depth16/public_g19_attribution_v1/ENGINE1024_PROBE_rank0035.json + experiments/p2_width1024_depth16/public_g19_attribution_v1/ENGINE1024_PROBE_rank0100.json"
+      },
+      {
+        "claim": "V-channel reframe + supervised target: exact v alone = -54% MSE and exact m+v = 7.483e-9 beats the goal; the card's C is 0.6-1.4% at all depths, so the fight is 0.05-0.26% on deep v. Banked R_l = truth-post-cov - closure-pair-map(card state) for both nets at 1e-5-grade shared-draw truth; pushed diagonal reproduces the card's v error at every layer. dv-hat grades corr 0.03->0.82 with depth against the exact target (shallow-mid unsupplied).",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/vresid_field_rank0035.npz + vresid_field_rank0100.npz + VRESID_FIELD jsons + experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md"
+      },
+      {
+        "claim": "FORM not supply: truth marginals+C into the closure remove only 0-25% of the deep pushed-v deficit - 75-100% is closure-form error. Coadaptation at field level: exact H3/H4-Gram PATCHES overshoot the total error many-fold (the closure's low-order errors cancel its high-order deficit) - fixes must replace the pair readout wholesale. The Frobenius-dominant rank-one deep residual mode (u ~0.7-corr with m,k3, both nets) is VALUE-EMPTY in the pushed-v metric; the v-value lives in the broad bulk.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md (2026-09-01 post-midnight entries)"
+      },
+      {
+        "claim": "FORK DECIDED - the deficit is 100% INFORMATION-LIMITED (19th fence, positive): exact 2D Gram-Charlier quadrature over the SAME carried information equals the closure's series (rms ratio 0.992-1.010, error corr 0.984-1.000, L5/8/11/13, 160 probe pairs each). No richer consumption series can close anything; the carried pair-state lacks the H3/H4 cross-structure. The build is uniquely determined: the 1024 fused-stream pair readout with grown chaos state, open question = the depth-transport representation between L2-exact-factored and the ~150-dim deep value frame. NULLs banked en route: so2/dM2, Mehler tmax, Gaussian 3-point k3-push (11x worse than card), rho-coupling Gram split (needs N~1e9).",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/PAIR_EXACT_PROBE_rank0035.json + run_pair_exact_probe.py"
+      },
+      {
+        "claim": "G3 supply FROZEN-TRANSFER POSITIVE (first mechanism since the certified chain): resolvent-exact post-state (alpha, B, T; no ladder) + certified Wick K21post assembly (1,1,1,1/2,1) minus the engine on matched implied stats; per-layer corr 0.16-0.26 = exact parity with the chain's own per-layer windows (0.15-0.18); 3-layer stack through the real consumption +1.1% raw in-sample (r35), +0.6% with r35-FROZEN gammas on r100; plane fidelity and the core recipe transfer (r100 L8 cores 0.967/0.954). Zero fitted parameters in the supply itself. Memory: g3-resolvent-supply-frozen-positive.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_attribution_v1/land_stack.sh + land_r100.sh outputs + G3_ENGINE_DELTA jsons + experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md"
+      },
+      {
+        "claim": "The VALUE-HUMP law: consumption solo values L4 +0.5 / L5 +0.3 / L8 +0.2 / L11 ~0 (any sign) / L2 null - early layers ride the mean-integral amplification, deep corrections cancel downstream, L2 has no target (card at its floor). Identification decoded: the (C,K21) fit has an a/M mass-split degeneracy and actively prefers the unphysical M-branch; certified K22/K31 formulas (integer Wick coefficients) provide the 4th-order pressure that steers it physical (a-share steerable 0.11<->0.65).",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md (2026-09-01 entries) + run_ncqc_corefit_joint.py"
+      },
+      {
+        "claim": "STRATEGY SPLIT (calibrated): the plane-identified route asymptotes at ~+4-6% raw (per-layer corr capped near parity; the pair-state is information-limited - proven), = the co-fire package track. The GOAL (raw <1e-8 ~ -66%) needs per-layer supply corr ~0.8+, obtainable only from the WEIGHTS (the identification-free frame, exact through L2, engines 0.1%-certified) - the streaming-tracker track. Decomposed into child nodes.",
+        "receipt": "experiments/p2_width1024_depth16/public_g19_math_acceleration_v1/LANE_h2_h3_endpoint_adjoint.md + HANDOFF_CURRENT.md"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_PHYSICAL_G3_COFIRE_PACKAGE",
+      "P2R0G19B_PHYSICAL_G3_TRACKER",
+      "P2R0G19B_G3_ENGINE_CERT",
+      "P2R0G19B_G3_INSTRUMENT_SUITE",
+      "P2R0G19B_G3_INFO_LIMIT_FORK",
+      "P2R0G19B_G3_MECHANISM_FROZEN"
+    ],
+    "goal_path_summary": "Matt's goal (<1e-8 raw, ideally ~6e-9) reduces to ingredient accuracy: the card's variance is 99.75%+ accurate and the last quarter-percent is worth 2x in final MSE; skewness carries 6-11% error. Every learned or compressed repair has been falsified with receipts - only exact computation survives. This node develops the one exact mechanism that fits the flop budget: reverse-mode accumulation of the endpoint effect of the full third-cumulant tensor (never materialized), supplied by exactly-trackable scalar ridge recursions. If its four preregistered gates pass, the ladder to 1.03e-8 and below opens at ~free billed cost; if any gate fails, the lane closes and the campaign's honest remaining option is large-scale exact numerics.\nTERMINAL 09-01: the value is the residue of a measured 5.8:-4.8:1 screened cancellation; only a formulation that tracks the residue directly can work. Blocked on the residue-basis derivation (SOL's formalism).\n09-01 LANDMARK: exact m+v = 7.48e-9 < goal. The mean channel (47% capacity, virgin) + variance = the whole game; k3/k4 are small crossers.\nREOPENED 08-31 (chaos-order campaign): the exact route is unblocked as the fused-stream chaos recurrence. Proven/measured tonight: required chaos order = 4 (errors saturate, not compound); unit-local word compression dead but shared-basis rank-R carry priced viable (R~n/2, thin-GEMM at 1024); Q2 answered by proof (cumulant endpoints = Jordan-word Grams, ker J annihilated); CF + kappa4 convention bugs fixed with certificates; the engine layer certified at real 1024 spectra on both nets with zero fitted parameters. Remaining build: the streaming shared-basis tracker past L2, then mid-depth supply grading against the card.\nFORK DECIDED 09-01: the pair deficit is 100% information-limited (exact consumption = series); richer series dead; the build is uniquely the grown-state chaos pair readout, wholesale per the coadaptation law. Supervised R-fields banked at 1e-5-grade truth for both nets; value metric = pushed-v.\nTWO-TRACK SPLIT 09-01: (1) co-fire package (hump-filled G3 stack + LOO-beta + k3-stack + f32; ~-9-11% adj class; fire decision at Matt's bar); (2) the weights-based streaming tracker - the only evidence-open path to 0.8-class per-layer supply and raw <1e-8. Children carry the tracks."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "public-full688-fullrank-roundtrip-residual-prelaunch-audit-v1",
+  "node": "P2R0F2P",
+  "status": "PASS_INDEPENDENT_PRELAUNCH_AUDIT",
+  "auditor": "independent-subagent-no-design-stake",
+  "audited_file_sha256": {
+    "preregistration": "30b5ab5ce1d9250f6636e8710e2402e802581e2092c85789ebdc2888833de664",
+    "run_manifest": "c15a25bfa8f27bcca9497fc4727a0f4e7d247f53f4935669f673b6a38bb1b4bd",
+    "program": "21c19d24c297e28a5bf5d220990279f12b12e8a47a1d7dc1de77d13162388bc0",
+    "static_receipt": "ff9c845ed4363d8be26850c6a64e19f7d8c72607dcc62dd51d961bee5a4eb7a6"
+  },
+  "checks": [
+    "1 leakage: training J predictions/states/energies come only from the inner-stacked OOF cache (each row served by the inner J whose inner-validation fold contains it; inner train asserted disjoint from that row and, by outer_train construction, from all outer-validation rows); outer scoring uses the seal-hash-verified outer J model loaded only after fit_observer; centers/scales/layer_rms are moments_for(outer training complement) only; the P forward consumes raw/sigma/weights/j_states/j_energies with truth used solely as the regression target in the loss; P has no truth or exposure argument anywhere in its own path; outer-validation rows are first loaded in score_outer after training; fixed final-epoch-8 checkpoint with no validation-metric feedback anywhere - PASS",
+    "2 split law: fold_of, inner_seed, inner_fold_of are byte-identical to P2R0F2N (AST source-hash match), and an independent reimplementation from the prose (blake2s digest_size=4 little-endian of '1753358438:mlp_id' mod 4; inner blake2s of 'inner_seed:mlp_id' mod 3 with inner_seed = 1753358438 XOR ((outer_fold+1)*0x9E3779B1) as the full untruncated product, values 4139080151/5719773956/7283690869/8864646818) agrees on all probes; sizes [147,172,171,198] asserted at load - PASS",
+    "3 convention: verified on synthetic tensors that torch.bmm(layer_weights, qhat.unsqueeze(-1)) equals qhat @ W_l^T and torch.bmm(t.unsqueeze(1), layer_weights) equals t @ W_l under the row convention J's message computation uses, and that the composite equals the receipt formula delta = R*a*W^T tanh(b*(W*qhat)/sqrt(width))/sqrt(width) with W read as the column-convention operator of the layer's own stored weight (adjoint-first, the unique reading keeping qhat and delta in layer-l space); the W_{l+1} alternative raises IndexError at final corrected layer 15 with DEPTH=16 - PASS",
+    "4 cost: independently recomputed dense=2096128, roundtrip=58691584, trunk=41728, head=255, nonlinear_reserve=16512, local=838584320, scaling=114688, output=14336, added=897404928=P_ADDED_FLOPS, correction=1949061120=CORRECTION_FLOPS, total=2133641198841=TOTAL_FLOPS < 2^41=2199023255552 with headroom 65382056711; parameters 21248+1806+14+14=23082 and 23082+25600=48682, all equal to asserted constants in program, prereg, manifest, static receipt - PASS",
+    "5 gates: aggregate computes finiteness, weighted OOF final MSE < 1e-8, every fold < 1.1e-8, and max per-network < 1e-7 from the fold records; observer_selection_targets_opened=0 is enforced on every fold record by verify_completed_fold_record (raises on mismatch) before the gate is written; conjuncts and thresholds match graph node P2R0F2P terminal_criterion exactly - PASS",
+    "6 firewalls: observer_selection appears only in firewall assertions and receipt constants, no file with observer_selection in its name is referenced; PublicResidualDataset() used with default role observer_fit at both call sites and the loader reads only observer_fit.parquet for that role; no public-name/alias/board joins; no network imports or calls - PASS",
+    "7 one-arm: CLI is a required mutually-exclusive group of exactly --static/--smoke/--fold/--aggregate; single architecture class, single fixed hyperparameter set, one fixed epoch-8 checkpoint per fold, write-once fold and CV artifacts; no sweep, second checkpoint, or alternative branch reachable - PASS",
+    "8 correctness: corrected layers range(2,16) with head/amplitude/gain indexed layer-2 over 14 entries; buffers centers/scales (16,19) and layer_rms (16,) indexed by absolute layer; broadcasting in local_features checked; cache ranks are ascending flatnonzero output so searchsorted is valid and an exact-match assertion guards lookup; torch.use_deterministic_algorithms(True), pinned threads and per-stage seeds; RSS and storage bounds enforced every epoch; verify_seal binds prereg, program self-hash, manifest, static receipt, audit receipt, loader, shared cache manifest/error/stats, J program/CV/verification, all four J fold models and results, N CV/verification/decomposition, exposure result, feature store manifest and finalization, target bundle manifest and observer_fit parquet; authority hashes in the preregistration match the on-disk files - PASS",
+    "9 static receipt: status PASS_STATIC_NO_DATA_NO_METRICS; architecture fields (parameters 23082, input 36, hidden 128, shapes [1,16,1024]/[1,14,1024]/[1,14,1024], zero-amplitude zero-delta, finite nonzero gradient, qhat bounded) and all 16 cost fields match the code payload and the recomputed constants - PASS"
+  ],
+  "material_defects_found": 0,
+  "minor_notes": [
+    "aggregate gate field observer_selection_targets_opened_zero is a literal True exactly as in the accepted N template; the conjunct is enforced by exception (any fold record with a nonzero count aborts aggregation) and no code path can open selection targets, so the literal is truthful by construction",
+    "the cost ledger convention counts dense products without explicit bias adds (~3.7e6 flops) while the 64-flop nonlinearity reserve overcounts real evaluations by roughly three orders of magnitude per unit; the conservative-upper-bound label stands with 6.5e10 headroom (same convention as accepted N and J)",
+    "with amplitude initialized to 0.0, all parameters except amplitude receive exactly zero gradient until amplitude moves off zero, while AdamW decoupled weight decay still shrinks them by about 1.6e-8 per step (~2e-5 cumulative over a fold); declared start-at-frozen-J design, negligible",
+    "maximum_parallel_fold_processes=2 and nice_level=10 are operational manifest constraints not enforced inside the program (launcher responsibility, as in N)",
+    "static_check prints its receipt to stdout; the on-disk STATIC_RECEIPT.json is a captured copy whose keys and values match the code payload",
+    "prereg authority values p2r0f2j_oof_final_mse and p2r0f2n_oof_final_mse match J and N CV_RESULTS.json exactly; the N decomposition receipt's replayed J value differs only in the 15th significant digit (replay aggregation), informational; teacher_forced_capacity_mse equals teacher_forced_ratio_to_host times validation_host_final_mse from the sealed exposure receipt exactly"
+  ],
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0
+}

@@ -1,0 +1,161 @@
+{
+  "schema": "fb-ec4-v4-certified-normalized-moment-diagnostic-v2-independent-audit-v1",
+  "status": "PASS_FINAL_BYTE_FROZEN__ONE_EXACT_TARGET_FREE_REPLAY_AUTHORIZED",
+  "audited_at_utc": "2026-08-24T09:33:51Z",
+  "final_byte_freeze": {
+    "declared_by_author": true,
+    "declaration": "FINAL BYTE FREEZE",
+    "declared_files_must_not_change": true,
+    "all_declared_files_rehashed_after_declaration": true,
+    "external_freeze_receipt_sha256": "faa670bbc52f6d61ad7eb8911387253711daed5a7df24546597f793b3d3d39fb"
+  },
+  "authority": {
+    "granted": [
+      "ONE_TARGET_FREE_WIDTH1024_DEPTH16_CERTIFIED_NORMALIZED_MOMENT_REPLAY_SEED20260824",
+      "READ_ONLY_RESULT_RECEIPT_AUDIT"
+    ],
+    "withheld": [
+      "SUBMISSION",
+      "BOARD_PROMOTION",
+      "TARGET_OR_DATASET_TRUTH_ACCESS",
+      "RAW_MSE_OR_ACCURACY_CLAIM",
+      "FIT_OR_SAMPLING",
+      "SCALAR_MOMENT_REPAIR_OR_CLOSURE_FEEDBACK",
+      "ESTIMATOR_MUTATION",
+      "PROBLEM_GRAPH_MUTATION"
+    ]
+  },
+  "exact_v2_bindings": {
+    "estimator": {
+      "path": "estimator.py",
+      "bytes": 75950,
+      "sha256": "ac81482d2ac28ea97cc963309401405260328cea86bfd1bdc1b9b7a396e041b8"
+    },
+    "deterministic_builder": {
+      "path": "build_v2_from_v1.py",
+      "bytes": 20910,
+      "sha256": "6a93008ace2aeb0f1771784565e30616755a243aa71bb886cdd3b9e98bebd12b"
+    },
+    "tiny_parity_price_gate": {
+      "path": "verify_parity_v2.py",
+      "bytes": 8887,
+      "sha256": "daa56992541bbe22a52456800f00d802ba8fd4eef1e9e324e289a0af7740fac6"
+    },
+    "static_provenance_gate": {
+      "path": "verify_static_v2.py",
+      "bytes": 9469,
+      "sha256": "ad10ab7db64458bc7e60f6decf05d64d28d6969a3cd44054c135f6a5bd0d3684"
+    },
+    "source_manifest": {
+      "path": "SOURCE_MANIFEST_V2.json",
+      "bytes": 6777,
+      "sha256": "439e7a2aeb43ac38841037ba73321110cdfd954e7b5958133b715749d838f722"
+    },
+    "runner": {
+      "path": "run_target_free_diagnostic_v2.py",
+      "bytes": 19756,
+      "sha256": "aa7818fc812968cd992c8d2b06ac3fe603ca913e9690a8e63758ccd33cbba29a"
+    },
+    "freeze_receipt": {
+      "path": "FREEZE_RECEIPT_V2.json",
+      "bytes": 5251,
+      "sha256": "faa670bbc52f6d61ad7eb8911387253711daed5a7df24546597f793b3d3d39fb",
+      "self_hash_policy": "The receipt cannot self-bind. This independent audit supplies its external SHA binding."
+    }
+  },
+  "parent_bindings_replayed": {
+    "frozen_v4_estimator_sha256": "3ddddd87facd110d4f9a4bccaa865d667b59d919f6df8d7217534483e197847c",
+    "frozen_v4_independent_audit_sha256": "c9553e1596e8e61b29c862256487586d38f66c92a8389cd1541c5b1e9ffa5a9d",
+    "frozen_v4_source_manifest_sha256": "0cad2cc4491fbb22de5dbf021612fac9d5dccd2c2dcb1f4e963314d0c90580bf",
+    "frozen_v4_freeze_receipt_sha256": "b730a3e21ba1d297de4b4be6c938cf842f955d951fd008518971cc0fafd8295e",
+    "frozen_v4_meter_receipt_sha256": "14d6eeb53d2f202241457ad32669f82ed6dc26107e572a061184aa2f8fec5017",
+    "v1_diagnostic_estimator_sha256": "3428b9e37641bcae9c7fcc867a55672f1160fecd225dc084f8a980d07ffe4256",
+    "v1_source_manifest_sha256": "ab774cb80025309913e2f2b25a0de3b59615073d72dfd25df4f7c80f50914c29",
+    "v1_freeze_receipt_sha256": "843d7f47a7348b95b3fa07f6e4c14bf318e60128c79930e72bfc27bff67461ce",
+    "v1_hold_result_sha256": "93124980ee134d2b0bad4e6f00b46ced6a7329fcc356945c12736443f4723ee8",
+    "v1_hold_status": "SCIENTIFIC_HOLD__SEE_GATES",
+    "cross_binding_status": "PASS_EXACT_PATH_SIZE_SHA_AND_PARENT_OBJECT_EQUALITY"
+  },
+  "source_and_phase2_audit": {
+    "status": "PASS",
+    "estimator_imports_exact": [
+      "flopscope",
+      "flopscope.numpy",
+      "whestbench",
+      "whestbench.domain"
+    ],
+    "forbidden_mechanisms_found": [],
+    "numerical_execution": "All estimator array-valued numerical work is expressed through the pinned FlopScope API. NumPy appears only in research harness files outside the estimator.",
+    "deterministic_transform": "PASS_EXACT_V1_HOLD_BOUND_NORMALIZED_V2_TRANSFORM",
+    "normal_estimator_tiny_output": "BITWISE_FROZEN_V4",
+    "diagnostic_shape": [4, 28],
+    "observation_precedes_covariance_repair": true,
+    "diagnostic_feedback_into_closure": false,
+    "scalar_clip_floor_or_repair": false,
+    "pycache_directories": 0,
+    "pyc_files": 0
+  },
+  "certified_interval_gate": {
+    "status": "PASS_EXACT_RATIONAL_OUTWARD_INTERVAL",
+    "scope": "Sign of A and B evaluated on the stored binary64 r1..r4 tuple; raw-input error is zero.",
+    "binary64_unit_roundoff": "2^-53",
+    "local_relative_error_bound": "2^-52",
+    "outward_operator": "fnp.nextafter(nonnegative, fnp.inf) after every primitive nonnegative bound multiply and add",
+    "classification": {
+      "CERT_NEG": "stored margin < -outward absolute error bound",
+      "CERT_POS": "stored margin > outward absolute error bound",
+      "ZERO_COMPATIBLE": "neither strict comparison holds"
+    },
+    "independent_exact_rational_cases": 512,
+    "case_families": [
+      "signed_zero",
+      "least_subnormal",
+      "near_cancellation",
+      "signed_wide_dynamic_range",
+      "deterministic_random_binary64"
+    ],
+    "A_exact_values_contained": true,
+    "B_exact_values_contained": true,
+    "all_certified_sign_implications_correct": true,
+    "zero_scale_mask_count_and_argmin_semantics": "PASS_ZERO_REPORTED_AND_EXCLUDED_FROM_POSITIVE_SCALE_REDUCTION",
+    "no_arbitrary_decimal_classification_tolerance": true
+  },
+  "exact_price": {
+    "formula": "depth * (360 * width + 252)",
+    "tiny_parent_flops": 1279337,
+    "tiny_diagnostic_flops": 1286105,
+    "tiny_measured_incremental_flops": 6768,
+    "tiny_standalone_incremental_flops": 6768,
+    "width1024_depth16_incremental_flops": 5902272,
+    "frozen_v4_literal_flops": 2179742954469,
+    "projected_v2_total_flops": 2179748856741,
+    "phase2_budget": 2199023255552,
+    "projected_headroom_flops": 19274398811,
+    "projected_below_budget": true
+  },
+  "runner_and_freeze_preflight": {
+    "status": "PASS_EXACT_BYTE_CROSS_BINDINGS_AND_PREFLIGHT",
+    "runner_embeds_exact_manifest_sha256": true,
+    "freeze_binds_manifest_runner_and_all_source_gate_files": true,
+    "freeze_parent_bindings_equal_manifest_parent_bindings": true,
+    "v4_meter_receipt_required_assertions_pass": true,
+    "v1_hold_receipt_hash_and_status_pass": true,
+    "files_stable_during_independent_audit": true,
+    "full_shape_replay_executed_by_independent_auditor": false
+  },
+  "required_result_interpretation": {
+    "technical_failure": "Any failed source, shape, finite, index, scale, count-partition, exact-price, wall, residual, or budget gate remains TECHNICAL_HOLD.",
+    "cert_negative_present": "Technical pass with any CERT_NEG remains a scientific hold: the represented stored tuple is infeasible at at least one observation point.",
+    "no_cert_negative": "A technical pass with no CERT_NEG clears only the V1 stored-tuple determinant-evaluation hold.",
+    "claim_boundary": "Neither outcome proves an upstream error bound, a joint law, closure accuracy, raw MSE, or leaderboard readiness."
+  },
+  "negative_controls": {
+    "audit_is_additive_only": true,
+    "frozen_files_modified_by_audit": false,
+    "official_dataset_or_target_values_accessed": 0,
+    "score_or_fit_calls": 0,
+    "sampling_estimator_calls": 0,
+    "submission_calls": 0,
+    "full_shape_replay_calls": 0
+  }
+}

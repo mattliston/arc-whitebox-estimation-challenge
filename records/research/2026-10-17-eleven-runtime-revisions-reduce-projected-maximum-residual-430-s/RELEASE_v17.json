@@ -1,0 +1,120 @@
+{
+  "status": "CONFIRMED",
+  "candidate": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/candidate_s2tr_peel_release_v17.py",
+  "source_sha256": "da7e6687cc7956ba7d2d5ba432129d7bc848885ecade6b2329301f51dc65e47a",
+  "archive": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_astra_runtime_v17_da7e6687/submission.tar.gz",
+  "archive_sha256": "352d56c56bcb2186aefebd1418aaa76d1b98c50d7bc602a0fda8d013d91f7a94",
+  "stage_a": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/release/runs/a_astra_runtime_v17_da7e6687/stage_a.json",
+  "boundary": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/boundary_v17_slow",
+  "projection": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/PROJECTION_v17_S2TR.json",
+  "setup_cpu_allowance": {
+    "candidate_sha256": "da7e6687cc7956ba7d2d5ba432129d7bc848885ecade6b2329301f51dc65e47a",
+    "rpc_modeled_setup_s": 4.974484210526317,
+    "extra_residual_instructions_vs_v16a": 68010296,
+    "assumed_cpu_instruction_rate": 5000000000.0,
+    "extra_cpu_allowance_s": 0.0136020592,
+    "adjusted_setup_s": 4.988086269726317,
+    "margin_to_5s": 0.01191373027368327,
+    "limitation": "Conservative explicit5GIPS allowance; counts all additional residual work including some already charged byRPC clock; not platform wall measurement."
+  },
+  "matched_rows": [
+    {
+      "rank": 35,
+      "requests": 49553,
+      "residual_instructions": 2269496295,
+      "ratio_residual_vs_s2tr": 1.057914862186257,
+      "ratio_residual_vs_v13_normal": 1.083213133906853,
+      "mapped_tail": 0.3998505592267799,
+      "remaining_instruction_gap": -848205.0939249992,
+      "prediction_exact_v13": true,
+      "flops": 244037948519,
+      "kernel_instructions": 436852997629,
+      "read_misses": {
+        "read._sm40_frames": 0,
+        "read._sm40_outer_cache": 28,
+        "read._sm40_cache": 53,
+        "read._sm40_io_cache": 62,
+        "read._sm40_group_cache": 8,
+        "read._sm40_padding_grid": 28,
+        "read._sm40_padding_cache": 41
+      },
+      "ipt_new_keys": {
+        "_IPT_B": 35,
+        "_IPT_C": 39,
+        "_IPT_A": 32
+      }
+    },
+    {
+      "rank": 100,
+      "requests": 43648,
+      "residual_instructions": 1949746322,
+      "ratio_residual_vs_s2tr": 0.9449706171016304,
+      "ratio_residual_vs_v13_normal": 0.9856931138175284,
+      "mapped_tail": 0.3988864931609687,
+      "remaining_instruction_gap": -5442791.1226542,
+      "prediction_exact_v13": true,
+      "flops": 243510883029,
+      "kernel_instructions": 442334511697,
+      "read_misses": {
+        "read._sm40_frames": 0,
+        "read._sm40_outer_cache": 1,
+        "read._sm40_cache": 2,
+        "read._sm40_io_cache": 2,
+        "read._sm40_group_cache": 10,
+        "read._sm40_padding_grid": 1,
+        "read._sm40_padding_cache": 3
+      },
+      "ipt_new_keys": {
+        "_IPT_B": 7,
+        "_IPT_C": 6,
+        "_IPT_A": 5
+      }
+    }
+  ],
+  "hardware_worst_hi_s": 113.73314586553732,
+  "guard": {
+    "guard_version": 3,
+    "pid": 53407,
+    "command": [
+      "/Users/matt/arc-white-box-estimation/.venv/bin/python",
+      "-B",
+      "lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/boundary_run_v17.py",
+      "lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/candidate_s2tr_peel_release_v17.py",
+      "35,100",
+      "lead/runs/astra_crunch_runtime_v1/s2tr_peel_v1/boundary_v17_slow",
+      "--setup-slowdown",
+      "1.3"
+    ],
+    "initial_swap_bytes": 4654230405.12,
+    "footprint_trigger_bytes": 7500000000,
+    "rss_backstop_bytes": 10000000000,
+    "poll_sleep_s": 1.0,
+    "max_rss_bytes": 7906525184,
+    "swap_rule": "retire if swap growth > 256 MiB and memory_pressure free < 35%, or swap growth > 1 GiB",
+    "pressure_samples": 17,
+    "min_pressure_free_pct": 76,
+    "max_footprint_bytes": 3234831056,
+    "max_swap_growth_bytes": 0,
+    "completed": true,
+    "error": null,
+    "samples": 82,
+    "maximum_sample_interval_s": 1.028338374570012,
+    "minimum_sample_interval_s": 1.0179160833358765,
+    "monitor_failure_rule": "5 consecutive failed readings spanning >= 30 s",
+    "failed_readings": 0,
+    "tolerated_failures": [],
+    "exit_code": 0,
+    "remaining_rows": [],
+    "elapsed_s": 83.76720687374473,
+    "whole_group_retired": true
+  },
+  "fire_command": "/Users/matt/arc-white-box-estimation/.venv/bin/python -B fire/fire_once.py astra_runtime_v17_da7e6687 release/runs/a_astra_runtime_v17_da7e6687/submission.tar.gz \"S2tr exact peel W3 ZB4 P40 runtime v17; slow-state boundary qualified\"",
+  "uploaded": false,
+  "limitations": [
+    "Residual gates use separately matched first-worker and warm S2tr ratios, not a new platform measurement. Coldfirst .377961 and warmtail .422115234 attribution supplied by root telemetry audit.",
+    "Cold residual margin0.000149441s and setup margin0.011913730s are narrow.",
+    "Original-mainread and generic caches retain bounded lazy misses on unprepared geometries; all fixed peel/P40 topology is prepared.",
+    "The combined unsplit residual maximum projection is0.423188505; correct worker-start mapping is necessary for the separate cold/warm gate.",
+    "No new accuracy sweep; exact prediction bytes on35/100 inherit prior frozen numerical science."
+  ]
+}

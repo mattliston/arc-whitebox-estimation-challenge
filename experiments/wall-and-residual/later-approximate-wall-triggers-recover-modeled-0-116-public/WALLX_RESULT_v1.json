@@ -1,0 +1,41 @@
+{
+ "lane": "opus-wallx",
+ "build": {
+  "release": "cand_pubmax_A_v4h_release.py 0bc7bd5d = A release 75ccf4d8 with _GOV_WALL_S 118 -> 122, _GOV_WALL2_S 123 -> 125 (constants only)",
+  "parity": "A parity 42c60af4 unchanged (thresholds 1e9), so its official120/boundary gates are A's: P(loss) 15.01%, mean/worst 108.0/116.6 s"
+ },
+ "code_fact": "EXACT already turns off _ASTRA_SM40_ON (A's 1,335 grid keys are _ASTRA_SM40_PLANS entries), _SMX_ON (pushSM), D7/D7SQ, QL, compute, cluster, ubown: the stronger tier is the existing EXACT set; the change is LEAN/SHED later + crediting EXACT with A's whole increment",
+ "measured": {
+  "pair": "warm_judge 7103248 -> 7103256 (no A grid hits on these two: A == swap byte for byte unforced)",
+  "forced_exact_L3_vs_normal": {
+   "first": {
+    "instructions_pct": -26.1,
+    "cycles_pct": -29.9,
+    "local_wall_pct": -31.6,
+    "flops_pct": 1.65,
+    "ops": -2394
+   },
+   "warm": {
+    "instructions_pct": -29.9,
+    "cycles_pct": -36.6,
+    "local_wall_pct": -39.7,
+    "flops_pct": 1.7,
+    "ops": -2855
+   },
+   "mse_pct": -0.12
+  },
+  "A_vs_swap_under_EXACT": "identical instructions / flops / ops (315.9 G / 330.0-330.5 G)"
+ },
+ "model": "designate_wallx_v1.py (u64 designate_v1 network model, 1,200 platform-record networks; EXACT relief rem*(W - 0.88 W_swap); sensitivity 0.12/0.14/0.16)",
+ "result_vs_swap_v4g": {
+  "net_pct": -0.116,
+  "net_range": "-0.146..-0.116 (one +3.0 SHED case at relief .16 post L6)",
+  "P_public_any": {
+   "L3": "0/0 (swap 0/0)",
+   "L6": "4.1-8.0/8.0-15.4 (swap 4.1/8.0)",
+   "L8": "11.8/22.1 (swap 8.0/15.4)"
+  },
+  "extra_risk": "the record's 132.6 s TIME_EXHAUSTED network: the swap survives it with LEAN at L3/L6, A (+4.85% wall) loses it at L6/L8"
+ },
+ "verdict": "MARGINAL: net <= -0.1% everywhere, P(public) <= 10% at L3/L6 detection but 11.8% at L8 (swap 8.0%); gain is public-only (~-0.12%) and does not beat oliver; private pair keeps v4g + no A"
+}

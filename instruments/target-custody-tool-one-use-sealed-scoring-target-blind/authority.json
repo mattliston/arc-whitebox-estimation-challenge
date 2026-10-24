@@ -1,0 +1,158 @@
+{
+  "schema": "whest-phase2-target-free-data-gate-v1",
+  "as_of_utc": "2026-08-23T23:00:00Z",
+  "repository": "aicrowd/arc-whestbench-public-2026",
+  "revision": "v2-phase2",
+  "pinned_commit_sha": "ce926b7d1ced65faa668c01b94a43f8c4f43783d",
+  "metadata": {
+    "path": "metadata.json",
+    "sha256": "aab61cf11271d20118e2109065c165a931dfacb493849f0d611f7a2d82a03790",
+    "expected_subset": {
+      "schema_version": "3.0",
+      "format": "hf-datasets-parquet",
+      "backend": "torch",
+      "seed_protocol": {
+        "name": "whestbench_explicit_per_mlp_seeds",
+        "version": "3.0"
+      },
+      "n_samples": 1000000000,
+      "width": 1024,
+      "depth": 16,
+      "default_split": "mini",
+      "partials_count": 1100,
+      "splits": {
+        "mini": {
+          "n_mlps": 100
+        },
+        "full": {
+          "n_mlps": 1000
+        }
+      }
+    }
+  },
+  "features": {
+    "mlp_id": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "mlp_name": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "mlp_seed": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "weights": {
+      "shape": [16, 1024, 1024],
+      "dtype": "float32",
+      "_type": "Array3D"
+    },
+    "all_layer_means": {
+      "shape": [16, 1024],
+      "dtype": "float32",
+      "_type": "Array2D"
+    },
+    "final_means": {
+      "feature": {
+        "dtype": "float32",
+        "_type": "Value"
+      },
+      "length": 1024,
+      "_type": "List"
+    },
+    "avg_variance": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "sampling_budget_breakdown": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "target_seal": {
+    "allowed_value_columns": [
+      "mlp_id",
+      "mlp_name",
+      "mlp_seed",
+      "weights"
+    ],
+    "forbidden_value_columns": [
+      "all_layer_means",
+      "final_means",
+      "avg_variance",
+      "sampling_budget_breakdown"
+    ],
+    "policy": "Schema metadata may describe every column. Geometry gates must never decode or expose values from forbidden columns. Training and scoring must unseal targets in a separate explicit stage."
+  },
+  "splits": {
+    "mini": {
+      "hub_config": "default",
+      "split": "mini",
+      "n_mlps": 100,
+      "shard_count": 7,
+      "download_bytes": 7025862410,
+      "download_gib": 6.543344268575311,
+      "arrow_bytes_reported": 7035114734,
+      "parquet_plus_arrow_bytes": 14060977144,
+      "parquet_plus_arrow_gib": 13.095305435359478,
+      "manifest_sha256": "0a7b45f85e7e44a705b6d5515abf12b4599be39311a703def58f2210f52c33b4",
+      "shards": [
+        {
+          "path": "data/mini-00000-of-00007.parquet",
+          "size": 1118937153,
+          "lfs_sha256": "7da858bc60616456e7b55a545a91288c1edba612b556be2e6eae3d86df48639c"
+        },
+        {
+          "path": "data/mini-00001-of-00007.parquet",
+          "size": 1118942389,
+          "lfs_sha256": "9c65a4c4c878623032d62ca3dbb1c88fc88e724f84fdbdc9d7b77904fa100e1d"
+        },
+        {
+          "path": "data/mini-00002-of-00007.parquet",
+          "size": 1118931514,
+          "lfs_sha256": "f0fe736bdfddf2ebbb9d0e0df7bf68d0938abaaadcc34eeff143bbb26123387c"
+        },
+        {
+          "path": "data/mini-00003-of-00007.parquet",
+          "size": 1118942644,
+          "lfs_sha256": "7c987422c2ad849ff9bce073483d8c10152635398e2c528899af6944d5e0d110"
+        },
+        {
+          "path": "data/mini-00004-of-00007.parquet",
+          "size": 1118931630,
+          "lfs_sha256": "fedf0d67479eb7b8743c0d7caa5a4e3c2359e18560c3834f5dbda3232f735541"
+        },
+        {
+          "path": "data/mini-00005-of-00007.parquet",
+          "size": 1118931513,
+          "lfs_sha256": "6eb84bd50068e8dcb0d8a6a609f2c4f90177d6228229ccb0793b656d7458fd59"
+        },
+        {
+          "path": "data/mini-00006-of-00007.parquet",
+          "size": 312245567,
+          "lfs_sha256": "481bf94b30d81c005181891c9f4dbe540a1eec00dc24ec2da5f5fb45c3973254"
+        }
+      ]
+    },
+    "full": {
+      "hub_config": "full",
+      "metadata_declared_config": "default",
+      "split": "full",
+      "n_mlps": 1000,
+      "shard_count": 63,
+      "download_bytes": 69955020892,
+      "download_gib": 65.15069016441703,
+      "arrow_bytes_reported": 70047640528,
+      "manifest_sha256": "51357aceca60f0a0365b26d7b25e136d1e4e713d44451a5f7c079e3ba9ea2794",
+      "loader_caveat": "The sidecar says config=default while the Hub card exposes config=full. Use the explicit raw-HF name='full' coordinate until whestbench.load_dataset(..., split='full') is integration-tested or fixed."
+    }
+  },
+  "software": {
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "flopscope": "0.12.0",
+    "flopscope-server": "0.12.0",
+    "whestbench": "0.16.0"
+  }
+}

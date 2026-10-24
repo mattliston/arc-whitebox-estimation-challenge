@@ -1,0 +1,38 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0G19B_QHEAD_FRONTIER",
+    "label": "Learned local-q provider branch",
+    "kind": "phase2_qhead_release_frontier",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "CLOSED. The exact start5 q state proves sub-1e-8 capacity, but the 82-input message head, direct-transpose source, and final frozen input-86 four-field provider all failed their material value gates. No local-q spelling reached refit, integration, metering, or package.",
+    "terminal_criterion": "Terminal for the frozen learned local-q provider family tested here.",
+    "evidence": [
+      {
+        "path": "experiments/p2_width1024_depth16/public_q24_abs_sq_message_qhead_oof_v1/RESULT.json",
+        "sha256": "87624c36e90e3db7e5592ff8eb56acf5696a37d9ad0f2dd7ed656394301f98b4",
+        "claim": "terminal 82-input provider"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_full688_d11_cubic_action_transpose_q_sentinel_v1/FOLD0_RESULT.json",
+        "sha256": "e1ed27d0882dddb09698da78d167f7e34096ce44742b210b64792a3d20babd7f",
+        "claim": "terminal direct provider and capacity oracle"
+      },
+      {
+        "path": "experiments/p2_width1024_depth16/public_full688_d11_owned_l3_l3square_q_sentinel_v1/FOLD0_RESULT.json",
+        "sha256": "d84c5831d3392961d04fcf23323794ca75858190924672aa21c4e496731b98f5",
+        "claim": "terminal input-86 provider"
+      }
+    ],
+    "decomposition_children": [
+      "P2R0G19B_QHEAD_82_OOF",
+      "P2R0G19B_QHEAD_START5_ORACLE",
+      "P2R0G19B_QHEAD_DIRECT_TRANSPOSE",
+      "P2R0G19B_QHEAD_PRODUCT26_DRAFT",
+      "P2R0G19B_QHEAD_PRODUCT86"
+    ]
+  }
+}

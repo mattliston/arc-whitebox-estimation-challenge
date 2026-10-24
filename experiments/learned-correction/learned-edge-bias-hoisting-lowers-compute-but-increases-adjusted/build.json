@@ -1,0 +1,35 @@
+{
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_edge_bias_hoist_v1/build.py",
+    "sha256": "b55cd749efba43702e14a7424b4817c25ff287d3c5db17d67a325c47e9ee3051",
+    "bytes": 7407
+  },
+  "candidate": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_edge_bias_hoist_v1/candidate.py",
+    "sha256": "24b3ac8f8d77a819a14f03614565d7cfe3e268cd1806e1e754acd880b072c3c5",
+    "bytes": 975980
+  },
+  "protocol": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_edge_bias_hoist_v1/protocol.json",
+    "sha256": "dfff0fbe740e6e04b9f651a5a14fd46a29851e49596131e001ae372251d07bbc",
+    "bytes": 2733
+  },
+  "source_inverse": {
+    "parent": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_prefix128_fusion_v1/candidate.py",
+      "sha256": "f9f4790b3c65f730404425e8923c767dc2f895fdcc1e14f14cc649286ad3b69f",
+      "bytes": 975980
+    },
+    "edits": [
+      {
+        "before": "def _g5_message_edge_base(layer,m,K21,aux,w,state,P,context):\n    _e2_H = _E2Hold()   # E2: temporaries of this call, released together (one hidden free trip)\n    _e2_hold = []   # E2: out= alias handles, released together at exit (one hidden free trip)\n    global _EDGE_PARAMETERS\n    if not 8<=layer<=14:\n        raise ValueError('Frozen covariance edge layer')\n    if _EDGE_PARAMETERS is None:\n        _EDGE_PARAMETERS={k:fnp.asarray(v,dtype=fnp.float32) for k,v in _EDGE_LITERAL.items()}\n    t=_EDGE_PARAMETERS\n    n = int(_e2_H(m.shape[0]))\n    k=_e2_edge_consts(t,n)\n    a=aux['alpha'];p=aux['pdf'];g=aux['gate'];s=aux['sigma']\n    sk=aux['pre_k3']/s**3;ku=aux['pre_k4']/s**4;ms=_e2_ms(m,s)\n    F = fnp.stack((g, p, _e2_H(a * p), _e2_H(_e2_H(_e2_H(a * a) - 1) * p), ms, _e2_H(a * g), _e2_H(sk * g), _e2_H(sk * p), _e2_H(_g5_chain(sk, a, p)), _e2_H(sk * ms), _e2_H(ku * g), _e2_H(ku * p), _e2_H(_g5_chain(ku, a, p)), _e2_H(ku * ms)), axis=1, dtype=fnp.float32)\n    R=k['R'];S=k['S']\n    pr=_E2_LAYER.get('pair')\n    _e2_hold.append(fnp.divide(_ps_pre32(aux['pre_cov']),pr['ss32'] if pr is not None and pr['aux'] is aux else fnp.outer(_ps32(s),_ps32(s)),out=R))\n    _e2_hold.append(fnp.divide(_ps_k2132(K21),fnp.outer(_ps32(s**2),_ps32(s)),out=S))\n    F=F/t['feature_scale'];_e2_hold.append(fnp.divide(R,t['rho_scale'],out=R));_e2_hold.append(fnp.divide(S,t['third_scale'],out=S))\n    # Draft: the previous layer's state is transported into current coordinates.\n    # Both new48x16 matrices must begin at positive zero. All old weights freeze.\n    cm = int(_e2_H(P['msg_w'].shape[0])) // 3\n    if cm != 16 or context['left'].shape != (48,16) or context['right'].shape != (48,16):\n        raise ValueError('Message covariance draft shape mismatch')\n    gk=_e2_gnn_consts(P,n)\n    _e2_hold.append(fnp.clip(_e2_messages(gk,w,state),-8,8,out=gk['MSG3']))\n    messages=gk['MSG']\n    left = _e2_H(F @ t['left']) + _e2_H(messages @ context['left'])\n    right = _e2_H(F @ t['right']) + _e2_H(messages @ context['right'])\n    h = _e2_H(_e2_H(left[:, None, :]) + right) + t['bias']\n    _e2_hold.append(fnp.add(h,k['R3']*k['e0'],out=h))\n    _e2_hold.append(fnp.add(h,k['S3']*k['e1'],out=h))\n    _e2_hold.append(fnp.add(h,k['ST3']*k['e2'],out=h))\n    sf=s.astype(fnp.float32);pf=p.astype(fnp.float32);gf=g.astype(fnp.float32)\n    _e2_hold.append(fnp.tanh(h,out=h))\n    raw = fnp.einsum('ij,i,j->ij', _e2_H(h @ t['output']), pf, gf, optimize=False)\n    return _e2_H(_e2_H(_e2_H(0.5 * _e2_H(raw + _e2_H(raw.T))) * _e2_H(fnp.outer(sf, sf))) * t['cov_factor'])",
+        "after": "def _g5_message_edge_base(layer,m,K21,aux,w,state,P,context):\n    _e2_H = _E2Hold()   # E2: temporaries of this call, released together (one hidden free trip)\n    _e2_hold = []   # E2: out= alias handles, released together at exit (one hidden free trip)\n    global _EDGE_PARAMETERS\n    if not 8<=layer<=14:\n        raise ValueError('Frozen covariance edge layer')\n    if _EDGE_PARAMETERS is None:\n        _EDGE_PARAMETERS={k:fnp.asarray(v,dtype=fnp.float32) for k,v in _EDGE_LITERAL.items()}\n    t=_EDGE_PARAMETERS\n    n = int(_e2_H(m.shape[0]))\n    k=_e2_edge_consts(t,n)\n    a=aux['alpha'];p=aux['pdf'];g=aux['gate'];s=aux['sigma']\n    sk=aux['pre_k3']/s**3;ku=aux['pre_k4']/s**4;ms=_e2_ms(m,s)\n    F = fnp.stack((g, p, _e2_H(a * p), _e2_H(_e2_H(_e2_H(a * a) - 1) * p), ms, _e2_H(a * g), _e2_H(sk * g), _e2_H(sk * p), _e2_H(_g5_chain(sk, a, p)), _e2_H(sk * ms), _e2_H(ku * g), _e2_H(ku * p), _e2_H(_g5_chain(ku, a, p)), _e2_H(ku * ms)), axis=1, dtype=fnp.float32)\n    R=k['R'];S=k['S']\n    pr=_E2_LAYER.get('pair')\n    _e2_hold.append(fnp.divide(_ps_pre32(aux['pre_cov']),pr['ss32'] if pr is not None and pr['aux'] is aux else fnp.outer(_ps32(s),_ps32(s)),out=R))\n    _e2_hold.append(fnp.divide(_ps_k2132(K21),fnp.outer(_ps32(s**2),_ps32(s)),out=S))\n    F=F/t['feature_scale'];_e2_hold.append(fnp.divide(R,t['rho_scale'],out=R));_e2_hold.append(fnp.divide(S,t['third_scale'],out=S))\n    # Draft: the previous layer's state is transported into current coordinates.\n    # Both new48x16 matrices must begin at positive zero. All old weights freeze.\n    cm = int(_e2_H(P['msg_w'].shape[0])) // 3\n    if cm != 16 or context['left'].shape != (48,16) or context['right'].shape != (48,16):\n        raise ValueError('Message covariance draft shape mismatch')\n    gk=_e2_gnn_consts(P,n)\n    _e2_hold.append(fnp.clip(_e2_messages(gk,w,state),-8,8,out=gk['MSG3']))\n    messages=gk['MSG']\n    left = _e2_H(F @ t['left']) + _e2_H(messages @ context['left'])\n    right = _e2_H(F @ t['right']) + _e2_H(messages @ context['right'])\n    h = _e2_H(left[:, None, :]) + _e2_H(right + t['bias'])\n    _e2_hold.append(fnp.add(h,k['R3']*k['e0'],out=h))\n    _e2_hold.append(fnp.add(h,k['S3']*k['e1'],out=h))\n    _e2_hold.append(fnp.add(h,k['ST3']*k['e2'],out=h))\n    sf=s.astype(fnp.float32);pf=p.astype(fnp.float32);gf=g.astype(fnp.float32)\n    _e2_hold.append(fnp.tanh(h,out=h))\n    raw = fnp.einsum('ij,i,j->ij', _e2_H(h @ t['output']), pf, gf, optimize=False)\n    return _e2_H(_e2_H(_e2_H(0.5 * _e2_H(raw + _e2_H(raw.T))) * _e2_H(fnp.outer(sf, sf))) * t['cov_factor'])"
+      }
+    ],
+    "exact_inverse": true
+  },
+  "only_changed_function": "_g5_message_edge_base",
+  "ast_parsed": true,
+  "active_target_occurrences": 1,
+  "untouched_other_same_expression": true
+}

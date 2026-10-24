@@ -1,0 +1,85 @@
+{
+  "schema": "public-full688-backward-adjoint-state-cv-verification-v1",
+  "status": "PASS",
+  "scope": "Independent artifact-level hash, release, split, coverage, aggregation, gate, architecture, resource, and cost verification",
+  "bindings": {
+    "preregistration_sha256": "4960dacfaa5b4818aa12a331dd98440399dfbf584ff6eb373877f4e21e940ddd",
+    "program_sha256": "f701c41733d3b58f765b65d0f7767602ed56baeb6f02362d6b2fdac76e7fe808",
+    "run_manifest_sha256": "e01360f99e4a2b92acd3d0432574ca9a18f47e279abcf05e6206f47989fca17a",
+    "seal_sha256": "9220689a0c4b6ff867d0fa4f35fa169a72c77c8380163a2c4aa11bb38f46581b",
+    "training_release_sha256": "2e878c3118bac66f60d22def5f3219329cbc465e9bda00dbb777db0679ae95b3",
+    "native_transfer_result_sha256": "7ecdc3438ddd4934853134ef0002b517e8111a2ecbf3a0e9abdafd0efb7e89a7",
+    "native_transfer_model_sha256": "76daf05e69022df67eb546b7099c47a3a1538c849fe3c8512c9c8dfe1ce0cdf9",
+    "k_vs_j_decomposition_sha256": "0a0089fa08839d123d64b291b11bee28e32eb09502ec30ab114bd0e26989541f",
+    "design_receipt_sha256": "c8f4f62665fb400fee9f9a51c665d3f9e1a800e9594b5a0493906e5badf911a3",
+    "cv_results_sha256": "1c8fc334b1ba20fba82a82ced63361c9ff42ad079bb9a7ec54a5b1c9d7e2ce7b",
+    "verifier_sha256": "9dac432197b4eef4908073346bbbdc5349122f6c90ffbf1a4920ed08fb3794df"
+  },
+  "fold_receipts": [
+    {
+      "fold": 0,
+      "result_sha256": "4bb272139c068a3a9c2909c01d1a5244ad9e80b7ef920c3efe6ba898e9b63363",
+      "model_sha256": "dbb52e426b0620332a9346694ceecea9bd90307c1c4066f9d382676b39bdce64"
+    },
+    {
+      "fold": 1,
+      "result_sha256": "925469783d4cd211f422bb0f1362810546f61d58aa303201f6845e1a80026891",
+      "model_sha256": "33d14be7549063ecec63be005ce5464b3a554b968fac54958ed3348d210b7885"
+    },
+    {
+      "fold": 2,
+      "result_sha256": "5af1fe076cb2407a523fbdb3550ab6fc3685ce4756bb4fca9f38b8b52f3c9d05",
+      "model_sha256": "d3f9bfe67864a2e8294fe3dcd578e96f649402f6a44b240669c967c4150710e7"
+    },
+    {
+      "fold": 3,
+      "result_sha256": "d6f6b11c892c45d2417896b8025b31906d6268b0bfc4ecd2dfdacd196afa1fc4",
+      "model_sha256": "3b96e5d6339a634da51e3e89d90869d4359eed0c2b6c807fe02b8473588e4297"
+    }
+  ],
+  "checks": {
+    "root_release_bound_after_terminal_native_transfer_pass": true,
+    "cp1792_capacity_only_firewall_bound": true,
+    "validation_networks_exactly_once": 688,
+    "fold_validation_sets_disjoint": true,
+    "each_training_set_is_validation_complement": true,
+    "all_fold_rollouts_finite": true,
+    "all_fold_training_traces_finite": true,
+    "all_11_data_derived_tails_repaired": true,
+    "exact_backward_adjoint_transport_bound": true,
+    "deployment_truth_inputs": 0,
+    "observer_selection_targets_opened": 0,
+    "weighted_layer_aggregation_recomputed": true,
+    "decision_gate_recomputed": true,
+    "cost_arithmetic_recomputed": true,
+    "maximum_observed_fold_rss_bytes": 1831124992,
+    "maximum_allowed_fold_rss_bytes": 8589934592,
+    "resource_bound_pass": true
+  },
+  "metrics": {
+    "oof_host_final_mse": 9.115992600417403e-8,
+    "oof_autonomous_final_mse": 3.233766009119748e-8,
+    "autonomous_ratio_to_host": 0.35473547981726977,
+    "regression_fraction_vs_p2r0f2j": 0.00008355853461519101,
+    "improvement_fraction_vs_p2r0f2d": 0.019164376432840073,
+    "miss_fraction_vs_mean_gate": 0.08981814745029106,
+    "stretch_ratio_to_1e_8": 3.233766009119748,
+    "maximum_per_network_final_mse": 3.3816765796841085e-7,
+    "maximum_ratio_to_gate": 3.3816765796841084
+  },
+  "decision_gate": {
+    "finite_all_autonomous_rollouts": true,
+    "mean_below_2_9672528546945005e_8": false,
+    "maximum_per_network_below_1e_7": false,
+    "stretch_mean_below_1e_8": false,
+    "conjunctive_pass": false
+  },
+  "cost": {
+    "correction_source_structure_upper_estimate": 1520603136,
+    "native_q24_host_tape_plus_correction_upper_estimate": 2133212740857,
+    "phase2_budget": 2200000000000,
+    "headroom_below_exact_2pow41_native_total": 65810514695,
+    "within_phase2_budget_by_upper_estimate": true,
+    "literal_meter_not_run_because_accuracy_gate_failed": true
+  }
+}

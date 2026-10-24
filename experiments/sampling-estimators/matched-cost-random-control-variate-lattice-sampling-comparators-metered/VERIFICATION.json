@@ -1,0 +1,129 @@
+{
+  "access": {
+    "dataset_rows_decoded": 0,
+    "fits": 0,
+    "one_use_executions": 0,
+    "public_target_values_decoded": 0,
+    "scores": 0,
+    "target_metrics_computed": 0
+  },
+  "common_meter_verifier_sha256": "91471a7d543020460359acf7db8548969182734e9469ec02194002e3008d37d8",
+  "control_math": {
+    "cp_constant_cancellation_max_abs_error": 8.881784197001252e-16,
+    "gaussian_relu_mean_max_abs_quadrature_error": 8.701273035427448e-11,
+    "identity": "A + mean(f - (A + q - E[q])) = E[q] + mean(f - q)",
+    "randomized_shift_law": "each un-clipped lattice point is marginal U(0,1)^1024; PPF then gives N(0,I)"
+  },
+  "cp1792_receipt_sha256": "71c4eedf2b04f3430bbca3ebf20882b0dc08daadf8895be14112f85fca240115",
+  "cp1792_source_sha256": "035e3bd2fd08d3358f5424fc67f10281e5559e65fa9c6d6dce97791108b176dc",
+  "derivation_sha256": "ec9343040a3b7132f2f65fe116c93e30240b0e9ad259165c692d19a37aa9c9da",
+  "hybrid_receipt_sha256": "6fb3b2807c4347d298f46c5c5ee8c762fc726739229940a87e388e9defe03e79",
+  "lattice": {
+    "blocks": [
+      {
+        "all_checked_columns_stratified": true,
+        "count": 32
+      },
+      {
+        "all_checked_columns_stratified": true,
+        "count": 128
+      }
+    ],
+    "checked_width": 17
+  },
+  "ppf_clipping_boundary": {
+    "classification": "exactly unbiased for the ideal un-clipped randomized-shift law; controlled numerical input-law perturbation in source",
+    "ppf_epsilon": 2.3283064365386963e-10,
+    "scope_warning": "this coordinate bound is not promoted to a deep-network output bound without a network-specific Lipschitz certificate",
+    "standard_normal_coordinate_mean_abs_clipping_perturbation": 7.131035538270696e-11,
+    "two_tail_probability": 4.656612873077393e-10
+  },
+  "resource_pointer_sha256": "be3b76ab235441c41d8ff6943c941abfc4ca118451afdd845af3932815b6babd",
+  "resources": {
+    "comparison_bill_margin_flops": -5748452000,
+    "cp1792_flops": 214122341378,
+    "hybrid_flops": 219870793378,
+    "hybrid_minus_cp1792_flops": 5748452000,
+    "memory_limit_bytes": 8589934592,
+    "minimum_one_sample_dense_forward_flops": 33538048,
+    "operation_flop_delta_from_cp1792": {
+      "add": 10551296,
+      "arange": 6464,
+      "asarray": 6553600,
+      "bitwise_and": 3328,
+      "bitwise_or": 2848,
+      "bitwise_xor": 6144,
+      "concatenate": 163840,
+      "equal": 2048,
+      "exp": 491520,
+      "greater": 30720,
+      "left_shift": 800,
+      "matmul": 5671418624,
+      "maximum": 7895040,
+      "mean": 5242880,
+      "minimum": 327680,
+      "multiply": 876544,
+      "ones": 2048,
+      "random.Generator.uniform": 12288,
+      "remainder": 5242880,
+      "right_shift": 6944,
+      "sqrt": 30720,
+      "stack": 8192,
+      "stats.norm.cdf": 1474560,
+      "stats.norm.ppf": 27197440,
+      "subtract": 10485760,
+      "sum": 92160,
+      "true_divide": 63488,
+      "where": 262144
+    },
+    "output_dtype": "float32",
+    "output_shape": [
+      16,
+      1024
+    ],
+    "residual_wall_time_limit_s": 0.4,
+    "residual_wall_time_s": 0.1050503752194345,
+    "sampled_descendant_peak_rss_bytes": 2256158720,
+    "score_floor_margin_flops": 31532177,
+    "score_floor_max_integer_flops_inclusive": 219902325555,
+    "unchanged_cp_plus_one_forward_exceeds_comparison_bill": true,
+    "unchanged_cp_plus_one_forward_flops": 214155879426
+  },
+  "schema": "phase2-cp1792-rqmc-nonlinear-residual-verification-v1",
+  "scientific_boundary": {
+    "added_four_ridge_response_supplies_the_random_control": true,
+    "cp_constant_cancels_from_unbiased_control": true,
+    "current_cp3_state_supplies_a_pathwise_surrogate": false,
+    "promotion": "HOLD",
+    "sealed_accuracy_or_variance_result": "NOT_RUN"
+  },
+  "source": {
+    "class": "Estimator",
+    "imports": [
+      "__future__",
+      "flopscope",
+      "flopscope.numpy",
+      "math",
+      "whestbench",
+      "whestbench.domain"
+    ],
+    "structural_constants": {
+      "_CP_CAP": 1792,
+      "_HERMITE_ORDER": 10,
+      "_RESPONSE_RANK": 4,
+      "_RQMC_BLOCKS": [
+        128,
+        32
+      ]
+    },
+    "target_or_dataset_imports": 0
+  },
+  "source_sha256": "adf3101b0f9e10f389bb055f71fe6a7e9c7f662864858ccfc6671908a268311b",
+  "status": "PASS_MATH_AND_0P1_RESOURCE_WITNESS__EXACT_CP_BILL_OBSTRUCTED__SCIENTIFIC_GAIN_UNTESTED",
+  "walsh_response": {
+    "input_subspace_fraction": 0.00390625,
+    "max_abs_gram_error": 0.0,
+    "rank": 4,
+    "width": 1024
+  }
+}

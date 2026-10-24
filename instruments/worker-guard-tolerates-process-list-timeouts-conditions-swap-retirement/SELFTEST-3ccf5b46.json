@@ -1,0 +1,114 @@
+{
+ "all_passed": true,
+ "python": "/Users/matt/anaconda3/bin/python",
+ "results": {
+  "T1_growth_300_free_76_survives": {
+   "passed": true,
+   "error": null,
+   "completed": true,
+   "exit_code": 0,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 16,
+   "failed_readings": 0,
+   "pressure_samples": 3,
+   "min_pressure_free_pct": 76,
+   "max_swap_growth_mib": 300,
+   "wall_s": 25.8,
+   "injected_calls": {
+    "sysctl": 17,
+    "pressure": 3
+   }
+  },
+  "T2_growth_300_free_30_retires": {
+   "passed": true,
+   "error": "RuntimeError('256 MiB additional system swap with memory_pressure free 30% < 35%')",
+   "completed": false,
+   "exit_code": -15,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 1,
+   "failed_readings": 0,
+   "pressure_samples": 1,
+   "min_pressure_free_pct": 30,
+   "max_swap_growth_mib": 300,
+   "wall_s": 2.1,
+   "injected_calls": {
+    "sysctl": 2,
+    "pressure": 1
+   }
+  },
+  "T3_growth_1200_free_76_retires": {
+   "passed": true,
+   "error": "RuntimeError('1 GiB additional system swap limit')",
+   "completed": false,
+   "exit_code": -15,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 1,
+   "failed_readings": 0,
+   "pressure_samples": 1,
+   "min_pressure_free_pct": 76,
+   "max_swap_growth_mib": 1200,
+   "wall_s": 1.0,
+   "injected_calls": {
+    "sysctl": 2,
+    "pressure": 1
+   }
+  },
+  "T4_pressure_reading_fails_twice_tolerated": {
+   "passed": true,
+   "error": null,
+   "completed": true,
+   "exit_code": 0,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 11,
+   "failed_readings": 2,
+   "pressure_samples": 2,
+   "min_pressure_free_pct": 76,
+   "max_swap_growth_mib": 300,
+   "wall_s": 16.4,
+   "injected_calls": {
+    "sysctl": 14,
+    "pressure": 4
+   }
+  },
+  "T5_control_no_growth": {
+   "passed": true,
+   "error": null,
+   "completed": true,
+   "exit_code": 0,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 4,
+   "failed_readings": 0,
+   "pressure_samples": 0,
+   "min_pressure_free_pct": null,
+   "max_swap_growth_mib": 0,
+   "wall_s": 6.2,
+   "injected_calls": {
+    "sysctl": 5,
+    "pressure": 0
+   }
+  },
+  "T6_real_footprint_breach_retires": {
+   "passed": true,
+   "error": "RuntimeError('footprint trigger')",
+   "completed": false,
+   "exit_code": -15,
+   "whole_group_retired": true,
+   "left_in_group": [],
+   "samples": 1,
+   "failed_readings": 0,
+   "pressure_samples": 0,
+   "min_pressure_free_pct": null,
+   "max_swap_growth_mib": 0,
+   "wall_s": 1.8,
+   "injected_calls": {
+    "sysctl": 2,
+    "pressure": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-21T08:20:42Z",
+  "status": "CLOSED_NO_NEW_CAPTURE_FIRST128_EXTENSION_OBSERVABILITY_GAP",
+  "proposal": "First128 complement after the fixed on-policy second hidden-complement step, using only the same six source-specific captures.",
+  "hook": {
+    "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/on_policy_head90_v1/capture_support_v1/full_state_onpolicy_hook_v1.py",
+    "sha256": "fad80fe6a0156fa49a81475599fd12e8622ae756666b84cac681808dedfafabc",
+    "serialized_feature_fields": [
+      "state64",
+      "hidden2_128",
+      "sigma",
+      "delta",
+      "gate_feature_H_column5"
+    ],
+    "not_serialized": [
+      "full_H78",
+      "first_hidden128",
+      "HC_HCF_dynamic_bias"
+    ]
+  },
+  "existing_certified_reconstruction": {
+    "path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_oct20_bill_v1/breakthrough_v1/first_hidden_readout_v1/reconstruct_first128_train90_v1.py",
+    "sha256": "a88658a907430f7a45fad64f1242023d9d4176714cc5091ad7f2a38857312c8e",
+    "requires": [
+      "source-specific full_H78",
+      "captured hidden2_128",
+      "source enc0/enc2 weights",
+      "HC/HCF span"
+    ],
+    "available_full_H_source_sha256": "777a73b6d13ef0e1e51d70d4c0dc61f21b4c7287813e336c82c37ec7188ba510",
+    "source_specific_onpolicy_H_or_bias_artifacts_identified": false
+  },
+  "mathematical_reason": "SiLU(z)=z*sigmoid(z) is non-injective over negative inputs. Unchangedenc2 weights and hidden2 alone do not identify the correct firsthidden activation. Existing777a H arrays belong to different model trajectories and cannot supply missing source-specific H.",
+  "root_decision": "Hold/close this no-new-capture extension unless alreadyowned source-specific H/bias prove reconstruction. Never reuse777a H, guess inverse branches, or transfer globalfirst128 coefficients. A new hooked capture would need its own frozen value/resource protocol and authorization.",
+  "unchanged_original_onpolicy_pipeline_and_fit": true,
+  "no_feature_or_truth_arrays_opened": true,
+  "no_reconstruction_or_fit_attempted": true,
+  "no_new_capture": true,
+  "no_grid": true,
+  "no_export_native_fire": true
+}

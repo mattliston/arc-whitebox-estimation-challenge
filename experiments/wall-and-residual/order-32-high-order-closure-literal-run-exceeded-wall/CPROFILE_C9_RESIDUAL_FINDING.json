@@ -1,0 +1,48 @@
+{
+  "schema": "phase2-fb-ec4-v4-c9-target-free-cprofile-finding-v1",
+  "status": "FAIL_RESIDUAL_ONLY__HOST_TEMPORARY_LIFETIME_LOCALIZED",
+  "created_date": "2026-08-24",
+  "candidate_sha256": "c9fcb9ffd4c412baa1422020179641b50fe6687078f06cea94fc63a9b2968293",
+  "preregister_sha256": "cf721f36a20452913c02898f3a05c46fa8ae3fe51ad5a1cddb5fe0c05ee94181",
+  "meter_receipt": {
+    "repository_relative_path": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/meter_protocol/runs/fb_ec4_v4_c9f_baseline_n1_s8_seed20260824/receipt.json",
+    "sha256": "ddb29af870631829da8f92983a63f93f9c602b7672ca0f8a8fb2e52047ee7f2c",
+    "flops_used": 2187178578919,
+    "residual_wall_time_s": 0.8138406770303845,
+    "wall_time_s": 37.91850704094395,
+    "flopscope_backend_time_s": 36.50151655636728,
+    "flopscope_overhead_time_s": 0.6031498075462878,
+    "peak_solution_descendant_rss_bytes": 5441667072,
+    "estimator_output_finite_before_residual_fallback": true
+  },
+  "profile": {
+    "driver_sha256": "2e5a7f37aaa8e2c1d5afab90d405870141468c3153132f3342e22e318359d461",
+    "ephemeral_profile_sha256": "b4b95e907a30fca57c7421d34b9ae9cde838f78b51a9d7c0feaebe0f0a7fd322",
+    "total_function_calls": 5347746,
+    "primitive_function_calls": 5297443,
+    "profiled_wall_time_s": 37.740,
+    "estimator_python_self_time_s": {
+      "_predict": 0.218,
+      "_four_pair_edgeworth": 0.142,
+      "_full_relu_reset": 0.054,
+      "_q32_context": 0.028,
+      "_connected_planes": 0.023,
+      "_edgeworth_weights": 0.021,
+      "_push_quartic": 0.020,
+      "_cp_read": 0.017
+    }
+  },
+  "inference": "The dominant admissibility gap is Python expression and large temporary lifetime/refcount work inside predict, especially the six-group four-pair loop and layer-state turnover. FlopScope wrapper overhead is separately exempt and call-count reduction alone is not sufficient.",
+  "next_fixed_experiments": [
+    "one 17-channel Q32 kernel allocation followed by the unchanged six V3 group slice multiply/sum/add sequence",
+    "reusable fnp.einsum out buffers for fixed-shape Q32 group results",
+    "association-preserving staged binary trees only when they also reduce Python temporary lifetime"
+  ],
+  "authorized_access": {
+    "dataset_rows": 0,
+    "target_values": 0,
+    "fits": 0,
+    "scores": 0,
+    "submissions": 0
+  }
+}

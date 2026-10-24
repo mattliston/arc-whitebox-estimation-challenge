@@ -1,0 +1,20 @@
+{
+  "source_origin": "pure_closure_writeup/problem_graph/graph.json",
+  "source_sha256": "dd2f5c6d1d7e855b6072611e3503676526bd4b688f2f9f2907f3fe09a23356a0",
+  "source_updated": "2026-08-31",
+  "record": {
+    "id": "P2R0C1D26",
+    "label": "D25 exact CSE residual audit (no full successor)",
+    "kind": "phase2_hybrid_dispatch_cse_capacity_audit",
+    "status": "closed_measured",
+    "priority": 1,
+    "summary": "The left-transform CSE is byte exact and projects 888,898,560 FLOPs and 825 wrapper calls saved, but its median residual saving is only 5.978 ms versus the frozen 15 ms credibility threshold. Unified-code dispatch saves only 0.470 ms. No full-estimator successor is licensed.",
+    "terminal_criterion": "Closed at HOLD_NO_FULL_SUCCESSOR: exact arithmetic savings do not establish enough physical residual margin to justify a full gate.",
+    "evidence": [
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d26_cp3_d5push_left_transform_cse_v1/audit_dispatch_cse_tiny.py",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d26_cp3_d5push_left_transform_cse_v1/D26_DISPATCH_CSE_TINY_RECEIPT.json",
+      "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d25_cp3_d5push_d4read_hybrid_v1/D25_HYBRID_CANDIDATE_RESULT.json"
+    ],
+    "decomposition_children": []
+  }
+}

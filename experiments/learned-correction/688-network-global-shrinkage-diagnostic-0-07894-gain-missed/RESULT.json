@@ -1,0 +1,134 @@
+{
+  "access_declarations": {
+    "board_opened": false,
+    "estimator_calls": 0,
+    "observer_fit_targets_reopened_under_existing_refit_authority": true,
+    "observer_selection_targets_opened": [],
+    "role": "observer_fit",
+    "submission": false,
+    "training": false
+  },
+  "bindings": {
+    "FINAL_FIT_RESULT.json_sha256": "e8261895c5d8f5f1feb1e15f257612d1d1b36a90e8bde1ab05e2844100a8ba08",
+    "FINAL_MODEL.pt_sha256": "21ad1dede3373c90d2694158b6599c4c172d7181c72634a6ec8e362449b7d1f8",
+    "FULL688_Q_SUFFIX_HEAD.pt_sha256": "d57407e0534e0be8b29a8b3f8bb80f617e83671584ddb32af757a3631e0fc58f",
+    "INTERPOLATED_MODEL.pt_sha256": "fc65528720c7e1378ed7011b7b201f4086217a544b092de208ea1064656d9ef5",
+    "RESULT.json_sha256": "87d22be8d48d7c73821c02bb3562b3e8ad67955022df0e2185c2f94838e87a25",
+    "preregistration_sha256": "57882c7f800a5dceed570662fdf86a9e0befc1fb7bfd4f3dbcf1ad30564ed9f6",
+    "program_sha256": "c8f68b26d3d9d3d06725e2988da789fd8c8b560a067d16e0ca66bc2059d61467",
+    "run_discriminator.py_sha256": "1e4c906936f4685bd800f922ded6c582af8213ecad1fbe41da651faff82be9c3",
+    "run_experiment.py_sha256": "1aedf41e6733ffb2a62a9881dc28945f97a4233372b272f6df6204cd525b8810",
+    "run_refit.py_sha256": "7ffaae1a3d03a7d1f3fcfe3e9026d1674892c52291f7899978ff379f8da78cd2"
+  },
+  "resource": {
+    "maximum_process_rss_bytes": 955727872
+  },
+  "same_688_endpoint_comparison": {
+    "delta_correction_mean_squared_energy": 1.1727330826462548e-09,
+    "delta_correction_network_mean_quantiles": {
+      "maximum": 1.1462834210617528e-05,
+      "median": 1.9424124148620294e-06,
+      "minimum": -4.550118749523102e-06
+    },
+    "delta_correction_network_rms_quantiles": {
+      "maximum": 4.4443600765466435e-05,
+      "median": 3.4022697282146804e-05,
+      "minimum": 2.6897579311166363e-05,
+      "q25": 3.230883384316198e-05,
+      "q75": 3.5821829126230206e-05
+    },
+    "delta_correction_rms": 3.4245190649874544e-05,
+    "full688_final_fit_network_win_fraction": 0.13372093023255813,
+    "full688_final_fit_qhead_mse": 3.057149342610143e-08,
+    "full688_final_fit_ratio_to_native": 1.0280696366479487,
+    "native_bank_final_mse": 2.9736792466491557e-08,
+    "networks": 688
+  },
+  "schema": "q24-full688-vs-native-bank-global-shrink-diagnostic-result-v1",
+  "score_projection": {
+    "bank_board_adjusted": 2.1258043062525995e-08,
+    "bank_board_raw": 2.9409214512554626e-08,
+    "d3_max_fixture_compute_ratio": 0.8839413768621204,
+    "deployability_caveat": "Exact native-to-qhead interpolation requires both distinct transport endpoints unless a separately proved fused spelling exists; no zero-added-FLOP source is established.",
+    "optimistic_assumption": "scalar blend has unchanged D3+qhead fixture compute; this is accounting-only and not deployment authority",
+    "optimistic_d3_adjusted_from_oof_ratio": 1.8985169604304786e-08
+  },
+  "semantic_provenance": {
+    "deployment_shaped_minus_receipt_mse": 9.206493747935596e-18,
+    "deployment_shaped_replay_native_mse": 2.9736792466491557e-08,
+    "endpoint_models_are_all688_fits": true,
+    "measured_native_all688_mse": 2.9736792457285063e-08,
+    "measured_native_all688_receipt": "public_q24_native_transport_energy_final_v1/FINAL_FIT_RESULT.json",
+    "only_beta_is_strictly_out_of_fold": true,
+    "qhead_oof_receipt_mse_for_context_only": 3.066199675740282e-08,
+    "stricter_threshold": 2.9672528546945005e-08,
+    "stricter_threshold_meaning": "frozen 10%-below-P2R0F2D OOF scientific gate, not a second native-bank measurement"
+  },
+  "status": "CLOSED_NO_BROAD_ABSOLUTE_GAIN",
+  "strict_oof_beta_diagnostic": {
+    "conjunctive_pass": false,
+    "final_beta_frozen_from_all_688": 0.14412150899402132,
+    "final_beta_in_sample_mse_diagnostic": 2.9712433616661328e-08,
+    "folds": [
+      {
+        "beta_selected_on_other_folds": 0.16133526943908394,
+        "fold": 0,
+        "held_networks": 172,
+        "held_relative_gain_vs_native": 0.00014477367665710617,
+        "held_shrunk_mse": 3.001593046592565e-08,
+        "native_mse": 3.0020276611745e-08,
+        "network_win_fraction_vs_native": 0.5406976744186046,
+        "train_networks": 516,
+        "unshrunk_full688_final_model_mse": 3.0972878527138345e-08
+      },
+      {
+        "beta_selected_on_other_folds": 0.14093762125619017,
+        "fold": 1,
+        "held_networks": 172,
+        "held_relative_gain_vs_native": 0.000944678406368249,
+        "held_shrunk_mse": 2.950545465252473e-08,
+        "native_mse": 2.9533354174480986e-08,
+        "network_win_fraction_vs_native": 0.5697674418604651,
+        "train_networks": 516,
+        "unshrunk_full688_final_model_mse": 3.0359936869228e-08
+      },
+      {
+        "beta_selected_on_other_folds": 0.13349889603509144,
+        "fold": 2,
+        "held_networks": 172,
+        "held_relative_gain_vs_native": 0.001151957679188853,
+        "held_shrunk_mse": 2.9606374162549468e-08,
+        "native_mse": 2.9640518785779888e-08,
+        "network_win_fraction_vs_native": 0.6511627906976745,
+        "train_networks": 516,
+        "unshrunk_full688_final_model_mse": 3.039799627351883e-08
+      },
+      {
+        "beta_selected_on_other_folds": 0.1406946316399519,
+        "fold": 3,
+        "held_networks": 172,
+        "held_relative_gain_vs_native": 0.0009244427991476067,
+        "held_shrunk_mse": 2.9725515328596703e-08,
+        "native_mse": 2.9753020293960347e-08,
+        "network_win_fraction_vs_native": 0.5930232558139535,
+        "train_networks": 516,
+        "unshrunk_full688_final_model_mse": 3.055516203452055e-08
+      }
+    ],
+    "gates": {
+      "every_fold_improves_native": true,
+      "network_win_fraction_above_half": true,
+      "oof_below_measured_native_all688": true,
+      "oof_below_stricter_scientific_threshold": false
+    },
+    "oof_beta_values": [
+      0.16133526943908394,
+      0.14093762125619017,
+      0.13349889603509144,
+      0.1406946316399519
+    ],
+    "oof_mse": 2.971331865239914e-08,
+    "oof_network_win_fraction_vs_native": 0.5886627906976745,
+    "oof_ratio_to_native": 0.9992106137836195
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "p2r0f2j-q24-native-transfer-pilot-run-manifest-v1",
+  "status": "authorized-after-200-row-native-generation-complete",
+  "approved_actions": [
+    "verify_all_200_target-free_native_rows",
+    "open_observer_fit_targets_for_exact_frozen_roster",
+    "fit_one_fixed_J_model_on_160_rows",
+    "score_once_on_fixed_40_rows",
+    "write_fixed_final_epoch_model_and_result"
+  ],
+  "forbidden_actions": [
+    "open_targets_before_native-row coverage",
+    "open_observer_selection",
+    "join_names_or_public_board_identity",
+    "retune_from_validation_metrics",
+    "fit_a_second_seed_or_architecture",
+    "select_a_checkpoint",
+    "submit_or_use_network"
+  ],
+  "launch_gate": {
+    "native_rows_complete": 200,
+    "generation_seal_sha256": "2310cfeacb3203a462492f0963568a8bfdff9fdaea3526658da9fd15ab226d4c"
+  }
+}

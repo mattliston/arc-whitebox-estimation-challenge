@@ -1,0 +1,78 @@
+{
+  "status": "SOURCE_AND_EXISTING_CENSUS_ONLY_NO_MODEL_NO_PROFILE",
+  "created_utc": "2026-10-15T17:54:28.624594+00:00",
+  "sources": {
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_rtt2_prefix_power_source_v1/candidate_prefix_power_QR_ON_HELD_v3.py": "4d7739a5ad4444be8c20bdd5c5bc86f1cee5536a2c21e956d86dd95e6c83d8d9",
+    "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/engineer/a62_modules/census_bill_s50tw.json": "6e65e1c8f5841a7a466f42a8500c07ff40499e70284b4e178d38983295765e5b"
+  },
+  "important_limit": "Dtype-resolved census is S50, NOT current e406/QR. Current-only changes are source-audited and virtual-priced; no fabricated current dtype profile. Current model main matrix contractions remain F32.",
+  "reference_whole_bill": 247000000000,
+  "historical_census": {
+    "seed": 7100136,
+    "whole_bill": 258782500820,
+    "f64_bill": 1447972886,
+    "f64_share_percent": 0.5595327664783482,
+    "all_f64_halving_ceiling_percent": 0.2797663832391741,
+    "already_fixed_current_halfzero_f64_bill": 164775828
+  },
+  "current_new_gop2_virtual_f64_bill": {
+    "gram_45_16x1024x16": 47162880,
+    "eigh_45_16x16": 3317760,
+    "qr_45_1024x2": 1473660,
+    "wide_input_45_1024x16": 1474560,
+    "wide_projected_45_1024x2": 184320,
+    "narrow_Q_45_1024x2": 184320,
+    "narrow_V_45_16x2": 2880
+  },
+  "current_new_gop2_total": 53800380,
+  "top_categories": [
+    {
+      "category": "Dense physical matrix-vector products",
+      "current_callsites": [
+        "17313 W64.T @ m64",
+        "17317/17342 W64.T @ b64",
+        "14501 cov64 @ mu64",
+        "223 rho32 @ alpha64"
+      ],
+      "shapes": "60 calls of1024x1024 by1024 on observed14-hidden+16-affine trajectory",
+      "billed_f64": 251535360,
+      "ideal_half_saving": 125767680,
+      "ideal_whole_percent": 0.05091808906882591,
+      "precise_optional_patch": "Keep W.T@m F64. For bpre use cachedw32 and b.astypeF32 then widen result; for cov@mu use _ps_pre32(cov) and muF32; for feature rho@alpha cast alphaF32. This preserves scalar diagonal formulas but changes propagated b/fit/features rounding.",
+      "mean_preserving_subset_ideal_saving": 92229632,
+      "mean_preserving_subset_percent": 0.03733993198380567
+    },
+    {
+      "category": "NP/K4L/F4C coefficient tables",
+      "historical_matched_function_f64": {
+        "_np_update": 109743292,
+        "_k4l_birth": 46508416,
+        "_f4c_birth": 28780740
+      },
+      "historical_total": 185032448,
+      "ideal_half_saving_percent": 0.037455961133603236,
+      "current_callsites": [
+        "15021-24 NP raw/T1 thenF32",
+        "15060-62 NP F/H thenbornF32",
+        "14903+ F4C birth",
+        "_k4l_birth"
+      ],
+      "precise_optional_patch": "Make only polynomial coefficient-table inputs and coefficient arrays F32; keep regression solves, scalar means/variances and diagonals F64. Uniform table change requires tiny cancellation checks; no candidate frozen."
+    },
+    {
+      "category": "Mixed-precision plane materialization/ownership",
+      "historical_ps32_debit": 189448264,
+      "current_callsites": [
+        "964-966 cov/post21/post22 widen",
+        "17395 K21 widen",
+        "17461 Cpost widen",
+        "12715 _ps32 cache"
+      ],
+      "possible_patch": "Keep owned F32 off-diagonal planes plus separate F64 diagonals/reductions; avoid full widen/narrow roundtrip. Requires every matrix/diag consumer to be rewired consistently, so not a small low-risk dtype switch.",
+      "no_exact_current_saving_claim": true
+    }
+  ],
+  "gop2_f32_ideal_saving_percent": 0.010890765182186235,
+  "history": "engineer/RESULT.md324-335 already implemented tailtrace/core/birth/feature F32 levers; later fixed typed half-zero fills and F32 denseK22. No coherent current >=0.15% low-risk single-category patch established. All-F64 ceiling is not a proposed candidate.",
+  "recommendation": "Do not launch blanket precision model. The strongest concrete narrow patch is the non-mean matrix-vector subset, with only~0.037% ideal credit before cast debt. Keep as optional stack microgain; exact consumer contraction may dominate."
+}

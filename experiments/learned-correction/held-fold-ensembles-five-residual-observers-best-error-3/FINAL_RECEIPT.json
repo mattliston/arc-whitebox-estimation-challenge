@@ -1,0 +1,44 @@
+{
+  "artifacts": {
+    "oof_predictions_metadata_sha256": "e4408021e7b10f107d085d13a861a4c7c59a1d36db6bf22978a6c19bbf18ef27",
+    "oof_predictions_sha256": "9fcbe05066994f4b11cc647cd55bda81cf429e85aff430f5f28142b27bcd86ad",
+    "readme_sha256": "faa80ea4c2efe910481637670540d3b1b6427860b038d7bda255386d973cb1b7",
+    "result_sha256": "0bb7770e7d497ad9cd86e9293958f0a46a55fa424410a83c97c2ba03407e4484",
+    "run_screen_sha256": "bde449e2aaca166e0d29ea55ff690e3ff104bcb457d3fd02895eae824d8d27b8",
+    "verify_result_sha256": "6651ac58c9d3ac10f8d4f0c2aa4f8a82380ab50ab115b3d13bd5d4c59c596304"
+  },
+  "causal_read": {
+    "conclusion": "The autonomous candidate errors are too collinear for output-space stacking to create a material accuracy gain.",
+    "evidence": [
+      "The best outer-fold-held convex stack improves J by only 0.365 percent and remains above the 3.107e-8 gate.",
+      "The typed-variance I candidate receives zero final-layer convex weight in every outer calibration fold.",
+      "The same-row unrestricted global span reaches only 3.21857e-8, while even 5,120 separately fit same-row per-unit coefficients reach only 3.17960e-8.",
+      "The worst OOF network remains rank 643 near 3.39e-7, so averaging does not remove the shared hard-row failure."
+    ],
+    "interpretation": "The limiting error is shared autonomous-state bias rather than independent candidate noise. A route toward 1e-8 needs new orthogonal state information or a changed autonomous transition, not another linear blend of D/J/I/K/M outputs."
+  },
+  "decision": {
+    "best_held_method": "nested_nonnegative_convex_global",
+    "best_held_raw_final_mse": 3.221703035370728e-08,
+    "family_status": "closed_measured",
+    "material_gate": 3.107e-08,
+    "promote": false
+  },
+  "no_successor": {
+    "immediate_successor": null,
+    "reason": "The bounded family missed the material gate, the gain was below 5 percent, and its optimistic same-row span ceiling is also far above 1e-8; further coefficient or subset sweeps are not justified."
+  },
+  "schema": "public-observer-fit-oof-ensemble-screen-final-receipt-v1",
+  "scope": {
+    "board_opened": 0,
+    "names_opened": 0,
+    "new_q24_targets_opened": 0,
+    "observer_selection_targets_opened": 0,
+    "observer_fit_networks": 688
+  },
+  "status": "terminal-verified-closed-measured",
+  "verification": {
+    "command": "/usr/bin/python3 verify_result.py",
+    "status": "pass"
+  }
+}

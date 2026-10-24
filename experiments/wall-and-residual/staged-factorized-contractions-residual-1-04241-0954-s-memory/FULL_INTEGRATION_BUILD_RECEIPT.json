@@ -1,0 +1,81 @@
+{
+  "schema": "p2r0c1d7r1-full-integration-build-receipt-v1",
+  "status": "PREPARED_NOT_EXECUTED",
+  "node": "P2R0C1D7R1",
+  "scope": "target-free established-fixture full-estimator gate",
+  "source": {
+    "accepted_parent": {
+      "path": "../p2r0c1d5_cp3_winograd_hybrid_v1/estimator.py",
+      "sha256": "69a46c68c18a30e4d4fa3e786a6c742a7183b2f3eef9bb58ec1328df149556d5"
+    },
+    "candidate": {
+      "path": "estimator.py",
+      "sha256": "f2be0dc11c49507cad8821c57d34e9dc9ae09798372c23f7d5b0e1b06bbafb2e"
+    },
+    "mechanical_diff": [
+      "replace only the CP3 depth-4 recursive stack/block Winograd kernel with the tiny-admitted staged factorized-bit 13-contraction kernel",
+      "bind the three immutable float32 coefficient tensors once per estimator call",
+      "execute the two CP3 push channels and two CP3 read channels sequentially",
+      "add one persistent 2x1024x1024 float32 CP3 read-output scratch",
+      "leave all non-CP3 estimator arithmetic and output serialization byte-for-byte inherited"
+    ]
+  },
+  "runner": {
+    "path": "run_full_estimator_gate.py",
+    "sha256": "b6ece9ef32052803798b7baa668c1ff6165d52da2d483894a89fe6479a733fda",
+    "result_path": "FULL_ESTIMATOR_GATE_RESULT.json",
+    "root_only_command_from_repository_root": "pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/data_gate/.venv/bin/python pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/p2r0c1d7r1_cp3_staged_factorized_einsum_recovery_v1/run_full_estimator_gate.py"
+  },
+  "authorities": {
+    "tiny_runtime_result_sha256": "24066dd50eb5fb00230cc6629b981cecf7593f7e459af50791b566455fb77427",
+    "recovered_reference_evidence_sha256": "cbf63a2c30cc2e1f8eca4f4506ad7510de10b72bd721d1bdf54640458f1fcfb6",
+    "fixture_weight_sha256": {
+      "35": "14563b956b4e326aee081263077c0dd1dcb86037a0b7870dc58a5e33865f47f2",
+      "279": "46b1e740e32de76c0b5d4d855ac307e8ba1509497303456f2dfc42ece2f34298"
+    },
+    "reference_output_sha256": [
+      "391219e5ba7527a2b3e6926cd85a651f76749e33908110573192fb1bc0d13812",
+      "f6970b298c3397b512635846c4fa75bb377ee6af0ca4ff0e6241db2dcd5015ba",
+      "391219e5ba7527a2b3e6926cd85a651f76749e33908110573192fb1bc0d13812"
+    ]
+  },
+  "call_order": [35, 279, 35],
+  "threads": 2,
+  "exact_accounting": {
+    "phase2_budget_per_call": 2199023255552,
+    "expected_candidate_flops": [1431110075935, 1469753252360, 1431106923008],
+    "established_incumbent_flops": [1692484904311, 1731128080904, 1692481751552],
+    "expected_incumbent_minus_candidate_flops": [261374828376, 261374828544, 261374828544]
+  },
+  "gates": {
+    "wall_seconds_strict": 120.0,
+    "residual_wall_seconds_strict": 0.4,
+    "deployment_residual_wall_seconds_maximum": 0.385,
+    "absolute_rss_bytes_strict": 7516192768,
+    "pooled_all_three_calls_final_layer_rms_delta_maximum": 1.714909904361275e-6,
+    "pooled_unique_fixture_final_layer_rms_delta_maximum": 1.714909904361275e-6,
+    "maximum_all_three_calls_final_layer_absolute_delta": 8.574549521806375e-6,
+    "repeat_rank35_byte_identical": true
+  },
+  "resource_projection": {
+    "d7r1_persistent_cp3_context_bytes": 545325056,
+    "incumbent_persistent_cp3_context_bytes": 402718720,
+    "persistent_increment_bytes": 142606336,
+    "corrected_tracked_projection_bytes": 5806375248,
+    "tracked_plus_512mib_contingency_bytes": 6343246160,
+    "static_projection_below_7gib": true,
+    "literal_rss_is_decisive": true
+  },
+  "access_declarations": {
+    "preparation_estimator_calls": 0,
+    "preparation_fixture_calls": 0,
+    "preparation_meter_calls": 0,
+    "targets_opened": [],
+    "scores_opened": [],
+    "names_opened": [],
+    "board_opened": false,
+    "submission": false,
+    "training": false,
+    "network": false
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "q24-cp3-quotient-nested-ht-rank0-target-score-v1",
+  "status": "FAIL_TERMINAL_TEACHER_CAPACITY_GATE",
+  "role": "observer_fit",
+  "role_rank": 0,
+  "score_gate": {
+    "combined_flops": 551371243519,
+    "leader_adjusted": 7.67408396767286e-09,
+    "raw_mse_at_most": 3.060640051205329e-08
+  },
+  "metrics": {
+    "captured_anchor": {
+      "native_j_raw_mse": 2.8567455693464064e-08,
+      "projected_adjusted": 7.1628499289905524e-09
+    },
+    "quotient_r128_k32": {
+      "native_j_raw_mse": 6.77351956876131e-08,
+      "projected_adjusted": 1.6983558032862694e-08,
+      "passes_raw_gate": false
+    },
+    "raw_control_r128_k32": {
+      "native_j_raw_mse": 6.66858015624021e-08,
+      "projected_adjusted": 1.6720438603680538e-08,
+      "passes_raw_gate": false
+    }
+  },
+  "bindings": {
+    "target_artifact_sha256": "2f274102eff16d274f02a7db09b19a1c52eabf787b14ecd80d96eb562be10ee7",
+    "source_manifest_sha256": "f35f951415e8c59df78967ed9d9f896ec7d06bf79d9c63f6b9b276b4b760bc09",
+    "native_replay_npz_sha256": "39954c0b3416e3ebf957839099804a0fdcec28fea74cb41858eccad68b0a3309",
+    "native_replay_receipt_sha256": "172db5ff61561a4bcb3fabd15cdbc99ec5a744ab860c5fa76a3b1520a5abf11a"
+  },
+  "access": {
+    "target_opened_only_after_source_and_native_replay_were_frozen": true,
+    "observer_selection": false,
+    "training": false,
+    "fitting": false,
+    "network": false,
+    "submission": false
+  },
+  "disposition": "The favorable full-source teacher projection fails by more than 2x raw MSE; do not implement or submit the autonomous r128/k32 nested-HT form."
+}

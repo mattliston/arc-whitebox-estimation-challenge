@@ -1,0 +1,97 @@
+{
+  "schema": "q24-cs3b-one-use-target-free-source-probe-release-v3",
+  "status": "AUTHORIZED_ONE_USE_TARGET_FREE_SMALLWIDTH_SOURCE_PROBE_V3__NO_FULLWIDTH_OR_METER",
+  "created_at_utc": "2026-08-24T15:13:08Z",
+  "bindings": {
+    "candidate_estimator_sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+    "candidate_source_hold_sha256": "ac29611a20280de259c7ab2f970d865b09ca1c417d1ac09d64aeab5a89d23bb5",
+    "parent_estimator_sha256": "4efb2c40d21d16c7b51ee87741323c3b99aded664fd75a2d5e00164f7b584779",
+    "fixture_helper_sha256": "2c37c363155ac2b709de00a0d7a949a33a43106592e0df88daa7509bf2468b2d",
+    "source_probe_preregister_sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3",
+    "source_probe_static_binding_sha256": "9858e4720fe24911c7ae4e83701efb8d281e094e484598c623b62146a4a3658e",
+    "source_probe_trace_clarification_sha256": "6bea490cc0cd745866111159ae9fb973cfd645e95925934464e7b8effc0dd09c",
+    "runner_v1_erratum_sha256": "d61c9805b3185465c47b5b420e60737b168e7b95422520045e72346273e60559",
+    "runner_v2_erratum_sha256": "3c5deeccd8b7b9b36a70b96b24c0b1751a9d3b2cc81e520eca8d7f0281e0ba35",
+    "independent_v2_terminal_hold_sha256": "a4375efde9b86cace58bf59ba4af294fc3b645eed7c0b49cf487b2e482403753",
+    "independent_static_source_audit_sha256": "27e5d66752520ebf287f7bc362330489849816b3d8cec0a1c7628aa931ca6c6c",
+    "runner_sha256": "e2a5b6b974dca8d4202e06241ce276d6d5079b92a21e1b17c523b1ba50bd2514",
+    "output_path": "runs/source_probe_v3/results.json",
+    "claim_path": "runs/source_probe_v3/O_EXCL_CLAIM.json"
+  },
+  "superseded_terminal_chains": {
+    "v1": {
+      "runner_sha256": "5e0f24829ed77cd6492721e58a15b78bdea0545b739a9b72af07b121604152c0",
+      "release_sha256": "a15aa506d6008e446c08faca6ef2bd7b6b385bd6323108a923b3dd891863c1e8",
+      "output_namespace": "runs/source_probe_v1",
+      "status": "TERMINAL_HOLD_UNEXECUTED"
+    },
+    "v2": {
+      "runner_sha256": "bbc0ab938b0d052704959bd98e216582845700fddd6612f25ada3634597fc24c",
+      "release_sha256": "756e51471b3078bfd675c54633c0281ef21266f30869144096c634d942c228c5",
+      "independent_hold_sha256": "a4375efde9b86cace58bf59ba4af294fc3b645eed7c0b49cf487b2e482403753",
+      "output_namespace": "runs/source_probe_v2",
+      "status": "TERMINAL_HOLD_UNEXECUTED"
+    }
+  },
+  "independent_activation_gate": {
+    "path": "INDEPENDENT_SOURCE_PROBE_RELEASE_AUDIT_CS3B_V3.json",
+    "required_status_exact": "PASS_INDEPENDENT_SOURCE_PROBE_RUNNER_AND_RELEASE_AUDIT_CS3B_V3__ONE_USE_EXECUTION_PERMITTED",
+    "required_bindings": {
+      "candidate_estimator_sha256": "49060ee223137d98fc2b43d94e4d5e5d99290c7289bccd3043e3e078775b0aaa",
+      "candidate_source_hold_sha256": "ac29611a20280de259c7ab2f970d865b09ca1c417d1ac09d64aeab5a89d23bb5",
+      "source_probe_preregister_sha256": "588b7a56721194947cd46924ac1dda81b72009c503545564361b0161b7dfeec3",
+      "source_probe_static_binding_sha256": "9858e4720fe24911c7ae4e83701efb8d281e094e484598c623b62146a4a3658e",
+      "source_probe_trace_clarification_sha256": "6bea490cc0cd745866111159ae9fb973cfd645e95925934464e7b8effc0dd09c",
+      "runner_v1_erratum_sha256": "d61c9805b3185465c47b5b420e60737b168e7b95422520045e72346273e60559",
+      "runner_v2_erratum_sha256": "3c5deeccd8b7b9b36a70b96b24c0b1751a9d3b2cc81e520eca8d7f0281e0ba35",
+      "independent_static_source_audit_sha256": "27e5d66752520ebf287f7bc362330489849816b3d8cec0a1c7628aa931ca6c6c",
+      "runner_sha256": "e2a5b6b974dca8d4202e06241ce276d6d5079b92a21e1b17c523b1ba50bd2514",
+      "author_release_sha256": "SELF_HASH_TO_BE_BOUND_BY_INDEPENDENT_AUDIT",
+      "output_path": "runs/source_probe_v3/results.json",
+      "claim_path": "runs/source_probe_v3/O_EXCL_CLAIM.json"
+    },
+    "effective_now": false,
+    "reason": "The frozen V3 runner refuses preflight until the independent V3 runner/release audit exists with the exact status and bindings, including this release's observed SHA."
+  },
+  "durable_one_use_protocol": {
+    "preclaim": "only standard-library hash/status checks; no third-party workspace candidate parent or fixture-helper import",
+    "first_possible_workspace_write": "create runs if absent and fsync HERE; create source_probe_v3 and fsync runs; write all O_EXCL claim bytes, fsync claim, then fsync leaf directory",
+    "postclaim_exception_boundary": "all deferred imports and controls are inside a terminal-REJECT result boundary",
+    "result": "strict JSON allow_nan=false, full write loop, fsync result and leaf directory, O_CREAT|O_EXCL",
+    "rerun_overwrite_retry_or_rescue": false
+  },
+  "frozen_dynamic_gates": {
+    "certificate": "actual helper and inline functions; observer-captured common named bytes, invalid-mask bytes, exact 154-call ledgers",
+    "algebra_and_resource": "all nonsymmetric widths4/5/6/8 ranks, finite elementwise bounds, corrected Lr_star/Dh exact FLOPs/calls, six crossover witnesses",
+    "fixtures": "exact ten frozen weight rosters with combined input hashes; parent and both candidate outcomes FINITE; complete 14-reset/15-push records; full semantic-record and output determinism",
+    "carriers": "both runs gate selected-state bytes, invalid-incident target/star/CP/aggregate zeros, finite push bounds, reconstruction, valid-valid K22 residual",
+    "controls": "forced width5 dense, signed-permutation mapped zeros, exact-null positive zero, exact ordinary/null operation dictionaries and K4/K31 reconstruction",
+    "strict_result": "all leaves JSON-native and no nonfinite numeric literal"
+  },
+  "limits": {
+    "candidate_estimator_entrypoint": "private frozen _predict only",
+    "direct_candidate_helper_invocations": 3,
+    "direct_parent_helper_invocations": 1,
+    "maximum_estimator_width": 128,
+    "width1024_estimator_runs": 0,
+    "literal_meter_runs": 0,
+    "dataset_rows_targets_teachers_scores_or_private_state": 0,
+    "network_credentials_packages_submissions_graph_edits": 0
+  },
+  "pass_authority": "immutable V3 author result and independent replay audit only",
+  "still_forbidden_after_pass": [
+    "fullwidth comparator",
+    "literal meter or residual timing",
+    "targets teachers scores public rows or private state",
+    "package submission board promotion or graph mutation"
+  ],
+  "execution_counters_at_release": {
+    "runner_v1_executions": 0,
+    "runner_v2_executions": 0,
+    "runner_v3_executions": 0,
+    "candidate_imports": 0,
+    "candidate_estimator_executions": 0,
+    "fullwidth_runs": 0,
+    "literal_meter_runs": 0
+  }
+}

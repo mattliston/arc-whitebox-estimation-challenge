@@ -1,0 +1,143 @@
+
+
+# BEGIN [opus-roster] REM1d (value-only, 2026-10-16; append LAST): EXACT response/births rosters + dense remainders at the tree-product entries.
+# select() keeps exactly the units at or above the floor (it rounded the count up to 32 and filled with the next units by score, which the
+# Winograd kernels need: every tree path wants dims divisible by 32, anything else ran dense at 2.2x the tree price). Products whose m, k or n
+# is not a multiple of 32 are split at the entry: the aligned part (dim - dim % 32) runs through today's kernels (same 32-multiple shape
+# universe, no new tree keys), the leftover rows / columns / inner indices run as ONE plain matmul and are joined to the exact-shape output;
+# when the leftover is larger than the break-even (dense = ~2.2 tree rows) the operand is zero-padded to the next multiple of 32 and the old
+# path runs, so no product costs more than today plus the pad copies. Dense remainders bind nothing.
+_REM_OLD_MM = _mm
+_REM_OLD_SHARED = _shared_old384_mm
+_REM_BREAK = 14            # rows / columns: split when the leftover is <= this, else pad
+_REM_BREAK_K = 10          # inner index: the split also pays an (m x n) add
+_REM_STATS = dict(plain=0, split_m=0, split_n=0, split_k=0, pad_m=0, pad_n=0, pad_k=0, dense_flops=0, exact_select=0, port_pad_n=0, sm40_synth=0, sm40_nokey=0)
+
+
+def _rem_product(old, a, b):
+    m, k, n = int(a.shape[0]), int(a.shape[1]), int(b.shape[1])
+    rm, rk, rn = m % 32, k % 32, n % 32
+    if not (rm or rk or rn):
+        _REM_STATS['plain'] += 1
+        return old(a, b)
+    if rm:
+        mm = m - rm
+        if rm <= _REM_BREAK:
+            _REM_STATS['split_m'] += 1; _REM_STATS['dense_flops'] += 2 * rm * k * n
+            return fnp.concatenate((_rem_product(old, a[:mm], b), fnp.matmul(a[mm:], b)), axis=0)
+        _REM_STATS['pad_m'] += 1
+        aa = fnp.zeros((mm + 32, k), dtype=fnp.float32)
+        fnp.copyto(aa[:m], a)
+        return _rem_product(old, aa, b)[:m]
+    if rn:
+        nn = n - rn
+        if rn <= _REM_BREAK:
+            _REM_STATS['split_n'] += 1; _REM_STATS['dense_flops'] += 2 * m * k * rn
+            return fnp.concatenate((_rem_product(old, a, b[:, :nn]), fnp.matmul(a, b[:, nn:])), axis=1)
+        _REM_STATS['pad_n'] += 1
+        bb = fnp.zeros((k, nn + 32), dtype=fnp.float32)
+        fnp.copyto(bb[:, :n], b)
+        return fnp.copy(_rem_product(old, a, bb)[:, :n])
+    kk = k - rk
+    if rk <= _REM_BREAK_K:
+        _REM_STATS['split_k'] += 1; _REM_STATS['dense_flops'] += 2 * m * rk * n
+        out = _rem_product(old, a[:, :kk], b[:kk])
+        fnp.add(out, fnp.matmul(a[:, kk:], b[kk:]), out=out)
+        return out
+    _REM_STATS['pad_k'] += 1
+    aa = fnp.zeros((m, kk + 32), dtype=fnp.float32)
+    fnp.copyto(aa[:, :k], a)
+    bb = fnp.zeros((kk + 32, n), dtype=fnp.float32)
+    fnp.copyto(bb[:k], b)
+    return _rem_product(old, aa, bb)
+
+
+def _rem_entry(old, a, b):
+    if (len(a.shape) == 2 and len(b.shape) == 2 and str(a.dtype) == 'float32' and str(b.dtype) == 'float32'
+            and int(a.shape[1]) == int(b.shape[0]) and int(b.shape[1]) > 0):
+        return _rem_product(old, a, b)
+    return old(a, b)
+
+
+def _mm(a, b):
+    return _rem_entry(_REM_OLD_MM, a, b)
+
+
+def _shared_old384_mm(left, right):
+    return _rem_entry(_REM_OLD_SHARED, left, right)
+
+
+import sys as _rem_sys
+_REM_OLD_SELECT = select
+_REM_OLD_W5CALL = _w5_port_call
+
+
+def select(score, floor):
+    # exact ONLY for the response / births selections (the caller's response_score or _e2_gate_min); the live roster (response_gate) keeps
+    # its 32-rounding: it is the W5 port's previous roster and the pushes' inner dimension.
+    fr = _rem_sys._getframe(1)
+    for _ in range(6):            # the layer loop's frame (wrappers between it and select() are skipped)
+        if fr is None or 'response_gate' in fr.f_locals:
+            break
+        fr = fr.f_back
+    if fr is None or not (score is fr.f_locals.get('response_score') or score is fr.f_locals.get('_e2_gate_min')):
+        return _REM_OLD_SELECT(score, floor)
+    keep = []
+    ge = score >= floor
+    nz = fnp.nonzero(ge)
+    keep.append((ge, nz))
+    count = min(len(score), int(nz[0].shape[0]))
+    neg = -score
+    order = fnp.argsort(neg, kind='stable')
+    keep.append((neg, order))
+    indices = order[:count]
+    mask = fnp.zeros(len(score), dtype=fnp.bool_)
+    fnp.put(mask, indices, True)
+    _REM_STATS['exact_select'] += 1
+    return (indices, mask)
+
+
+def _w5_port_call(scope, weight, previous, role, function, left, right):
+    # a port product whose right operand has unaligned columns (the newborn columns, 2 x births) runs on the zero-padded operand under
+    # the grant exactly as today, and the exact columns are sliced off the result
+    if scope is None or len(left.shape) != 2 or len(right.shape) != 2:
+        return _REM_OLD_W5CALL(scope, weight, previous, role, function, left, right)
+    k, n = int(right.shape[0]), int(right.shape[1])
+    rn = n % 32
+    if rn == 0 or k % 32 or str(right.dtype) != 'float32':
+        return _REM_OLD_W5CALL(scope, weight, previous, role, function, left, right)
+    bb = fnp.zeros((k, n - rn + 32), dtype=fnp.float32)
+    fnp.copyto(bb[:, :n], right)
+    out = _REM_OLD_W5CALL(scope, weight, previous, role, function, left, bb)
+    _REM_STATS['port_pad_n'] += 1
+    return fnp.copy(out[:, :n])
+_REM_OLD_SM40_READ = _astra_sm40_read
+_REM_SM40_KEYS = tuple(sorted(_ASTRA_SM40_PLANS))
+
+
+def _astra_sm40_read(left, young_right, lam, live_indices, state):
+    # exact shapes miss the Smirnov plan table (keyed by the rounded census shapes): a missing key gets the plan of the nearest table key
+    # that dominates it (same rank, m' >= m, k' >= k, n' >= n). The kernel zero-pads every operand to its own grid, so the read stays
+    # exact, and its frames and capacity are those of a shape that already ran.
+    if _ASTRA_SM40_ON:
+        old = int(state['columns'])
+        m, k, n = int(left.shape[0]), int(young_right.shape[1]), int(young_right.shape[0])
+        rank = int(state['pre_basis'].shape[1]) if old else 0
+        key = (m, k, n, rank)
+        if key not in _ASTRA_SM40_PLANS:
+            best = None
+            for km, kk, kn, kr in _REM_SM40_KEYS:
+                if kr == rank and km >= m and kk >= k and kn >= n:
+                    cost = (km - m) + (kn - n) + (kk - k) / 8.0
+                    if best is None or cost < best[0]:
+                        best = (cost, (km, kk, kn, kr))
+            if best is not None:
+                _ASTRA_SM40_PLANS[key] = _ASTRA_SM40_PLANS[best[1]]
+                _REM_STATS['sm40_synth'] += 1
+            else:
+                _REM_STATS['sm40_nokey'] += 1
+    return _REM_OLD_SM40_READ(left, young_right, lam, live_indices, state)
+
+
+_RTT_PARENT_READ = _astra_sm40_read
+# END [opus-roster] REM1d

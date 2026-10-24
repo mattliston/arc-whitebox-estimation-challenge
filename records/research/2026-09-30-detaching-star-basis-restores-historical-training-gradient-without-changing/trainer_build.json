@@ -1,0 +1,123 @@
+{
+  "schema": "rrpi-detached-star-trainer-source-v1",
+  "builder": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_detached_star_v1/build_trainer.py",
+    "sha256": "57dfa272b848207865f791aadccdaa1a320c50600a123f8aa6be0d61214cab1f",
+    "bytes": 4744
+  },
+  "parent": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_full80_v1/train_segment.py",
+    "sha256": "8e2dfd13cde4d01ca30ced255ac8737a9e900255177b4d1b07dae5a2cdfaccd7",
+    "bytes": 12584
+  },
+  "trainer": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_detached_star_v1/train_segment.py",
+    "sha256": "71ecbfbda25e138c9263e8ea1103c420c9f847db07ef81ee03af5cc6499b0cc1",
+    "bytes": 12670
+  },
+  "diff": {
+    "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_detached_star_v1/trainer.diff",
+    "sha256": "83691f03c3c2d20c84cedd2e129bda1f63765501d102bb33ccb65bd7f04c1f67",
+    "bytes": 3756
+  },
+  "source_inverse": {
+    "parent": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_full80_v1/train_segment.py",
+      "sha256": "8e2dfd13cde4d01ca30ced255ac8737a9e900255177b4d1b07dae5a2cdfaccd7",
+      "bytes": 12584
+    },
+    "edits": [
+      {
+        "before": "\"\"\"Fixed RRPI full80 continuation in four-update, optimizer-preserving segments.\"\"\"",
+        "after": "\"\"\"Fixed RRPI detached-star eight-update trial in two optimizer-preserving segments.\"\"\""
+      },
+      {
+        "before": "assert 0 <= SEGMENT < 20",
+        "after": "assert 0 <= SEGMENT < 2"
+      },
+      {
+        "before": "assert protocol['updates'] == 80 and protocol['batch'] == 4 and protocol['schedule_steps'] == 120",
+        "after": "assert protocol['updates'] == 8 and protocol['batch'] == 4 and protocol['schedule_steps'] == 120"
+      },
+      {
+        "before": "    # Same operations as the executed JQ proposal card; no detached basis.\n    def factor(A):\n        cn = (A.to(torch.float64) ** 2).sum(0)\n        cols = torch.sort(torch.argsort(-cn, stable=True)[:32]).values\n        Q = torch.linalg.qr(A[:, cols])[0]\n        Q = torch.linalg.qr(A @ torch.linalg.qr(A.T @ Q)[0])[0]\n        return Q, Q.T @ A",
+        "after": "    # Same forward operations; only the basis gradient follows Opus's detached rule.\n    def factor(A):\n        with torch.no_grad():\n            Ad = A.detach()\n            cn = (Ad.to(torch.float64) ** 2).sum(0)\n            cols = torch.sort(torch.argsort(-cn, stable=True)[:32]).values\n            Q = torch.linalg.qr(Ad[:, cols])[0]\n            Q = torch.linalg.qr(Ad @ torch.linalg.qr(Ad.T @ Q)[0])[0]\n        return Q, Q.T @ A"
+      },
+      {
+        "before": "trainer=pin(__file__), ranks=RANKS, updates=80, batch=4, schedule_steps=120, segment=SEGMENT, start=START, stop=STOP,",
+        "after": "trainer=pin(__file__), ranks=RANKS, updates=8, batch=4, schedule_steps=120, segment=SEGMENT, start=START, stop=STOP,"
+      },
+      {
+        "before": "if STOP == 80:",
+        "after": "if STOP == 8:"
+      },
+      {
+        "before": "endpoint_selected=(STOP == 80), native_gradient_certified=False))",
+        "after": "endpoint_selected=(STOP == 8), native_gradient_certified=False))"
+      },
+      {
+        "before": "final_endpoint=STOP==80)), flush=True)",
+        "after": "final_endpoint=STOP==8)), flush=True)"
+      }
+    ],
+    "exact_inverse": true
+  },
+  "copies": [
+    {
+      "parent": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_full80_v1/native_parameters.py",
+        "sha256": "792d5380ca525ff7daec77639e5650f9f8aa55cbdfb87cea1e815b406a943297",
+        "bytes": 6316
+      },
+      "copy": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_detached_star_v1/native_parameters.py",
+        "sha256": "792d5380ca525ff7daec77639e5650f9f8aa55cbdfb87cea1e815b406a943297",
+        "bytes": 6316
+      },
+      "byte_identical": true
+    },
+    {
+      "parent": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_full80_v1/data_roster.json",
+        "sha256": "da4b03bf4ee1ac88b1dbc831ba7f8bc586d19978e5744888417a8d8f49d20172",
+        "bytes": 121214
+      },
+      "copy": {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_detached_star_v1/data_roster.json",
+        "sha256": "da4b03bf4ee1ac88b1dbc831ba7f8bc586d19978e5744888417a8d8f49d20172",
+        "bytes": 121214
+      },
+      "byte_identical": true
+    }
+  ],
+  "ast_compiles": true,
+  "scope": "Only basis autograd is changed; eight-update/two-segment execution and endpoint metadata are explicit scope adaptations.",
+  "preserved": [
+    "RRPI initialization",
+    "forward rank32 star operations and order",
+    "j3cut",
+    "terminal identity hook",
+    "first eight batches of original seed0 order",
+    "Adam groups/loss/dials/120-step cosine schedule",
+    "optimizer and RNG checkpoint restoration"
+  ],
+  "first_update_forward_check": {
+    "reference_rows": {
+      "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/codex_resume_20260926_v2/hill_climb_rrpi_full80_v1/segment_00/steps.jsonl",
+      "sha256": "d68a29057ae3a3039cac0d831a9da279edc87db58e96910f3708349b7e68b0c3",
+      "bytes": 6002
+    },
+    "rule": "Root must compare the first four network losses before the first Adam update against these saved full80 rows.",
+    "performed": false
+  },
+  "prospective_resources": {
+    "segments": 2,
+    "updates_per_segment": 4,
+    "seconds_per_segment": 600,
+    "rss_bytes": 7500000000,
+    "added_swap_bytes": 0
+  },
+  "model_executed": false,
+  "numerical_imports": false,
+  "protocol_export_validation_owned_by_root": true
+}

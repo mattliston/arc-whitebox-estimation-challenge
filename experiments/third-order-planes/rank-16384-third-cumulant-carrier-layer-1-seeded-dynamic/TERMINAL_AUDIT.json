@@ -1,0 +1,84 @@
+{
+  "schema": "p2r0c1d4-protected160-40-terminal-audit-v1",
+  "status": "complete-fail-close-d4-spelling",
+  "node": "P2R0C1D4",
+  "bindings": {
+    "result_path": "runs/protected200_399_train160_eval40_v1/RESULT.json",
+    "result_sha256": "c46a87f5925d9e29f1795314abe8adb0d476cb8b4151751210913b83a58f25e6",
+    "model_sha256": "6f01e25cc63b8ea586718f108a8e0141c2f2eefdd0aa238b92cf6ba5516a838c",
+    "hosts_complete_sha256": "06d1d47aa442611ce179ceaadbb6f99165e56f622e6b9f53836120bc2c133d39",
+    "target_open_claim_sha256": "9dbb01067e99b5980ff3d1c27dbf3e794239772609c3b4091fc95d5632ea2d91",
+    "preregistration_sha256": "87e6e1fcbabbefb729c96d57bda89b597bfcf980b85302e730ecf721119d2e15",
+    "manifest_sha256": "2fb370cd1e267db0b21c7788d0378288ed18e2673ac11e2e6363f03e6cb5e4ab",
+    "program_sha256": "864003f211973be52848fbc1104067188f96d3f60af2af934e4aa8273d3eb57d",
+    "seal_sha256": "5a5b56c181f3b472ce4459fcc441157c5577897c1ce2313a2432aa0737771406",
+    "smoke_sha256": "23fefdf7bfb2cf0d95c97d139d877907ec72d70cbc5ced1b0519697f92b8e47a",
+    "release_sha256": "86a20ad84eb5b84242f502d0d16b0a05fb6ae71a14a9b142f49baf2a710c9e7c",
+    "d3_decomposition_sha256": "c9bf028abd9692707e2bd9f95056f0187a7c371182d0636243fcbefa5975a403"
+  },
+  "execution": {
+    "host_rows_complete": 200,
+    "host_role_ranks": [200, 399],
+    "host_failures": 0,
+    "train_role_ranks": [200, 359],
+    "eval_role_ranks": [360, 399],
+    "fits": 1,
+    "autonomous_evaluations": 1,
+    "retries": 0,
+    "observer_selection_targets_opened": 0,
+    "name_or_board_join": false
+  },
+  "decision": {
+    "finite_autonomous_rollout": true,
+    "raw_final_mse": 7.35166326177063e-7,
+    "raw_gate_strictly_below": 3.540263123117737e-8,
+    "raw_ratio_to_gate": 20.76586684691498,
+    "projected_adjusted_score": 2.0765866846914982e-7,
+    "adjusted_below_1e_8": false,
+    "promote_full_fourfold": false,
+    "terminal_action": "close only this D4 L1-seeded spelling"
+  },
+  "exact_same40_host_to_candidate": {
+    "host_final_mse": 9.120168018195811e-7,
+    "candidate_final_mse": 7.35166326177063e-7,
+    "final_gain_fraction": 0.19391142278265106,
+    "selected_layers": [0, 1, 2, 3, 4, 8, 12, 15],
+    "host_mse": [6.949453692194075e-10, 2.197700112235306e-8, 1.3589755314870146e-7, 2.5034206212174645e-7, 3.4046460890114205e-7, 6.193917163205407e-7, 7.935840001716045e-7, 9.120168018195811e-7],
+    "candidate_mse": [6.949453692194075e-10, 8.33552632571719e-10, 7.872514469999356e-8, 1.6262012565889956e-7, 2.338610768167457e-7, 4.7470592064547094e-7, 6.413061292065727e-7, 7.35166326177063e-7],
+    "gain_fraction": [0.0, 0.9620715934839762, 0.42070226522878496, 0.35040830022477776, 0.3131119338026407, 0.2335933656564978, 0.19188626652264062, 0.19391142278265106]
+  },
+  "protected40_distribution": {
+    "minimum": 6.046309705061441e-7,
+    "median": 7.333973440570125e-7,
+    "maximum": 9.16129803175648e-7,
+    "rows_at_or_above_1e_6": 0,
+    "all_rows_fail_mean_break_even_scale": true,
+    "interpretation": "finite population-wide miss, not a numerical tail blow-up"
+  },
+  "cross_roster_d3_comparison": {
+    "d3_final_mse_roles160_199": 7.429439793913384e-7,
+    "d4_final_mse_roles360_399": 7.35166326177063e-7,
+    "d4_over_d3": 0.9895313059530447,
+    "warning": "The apparent 1.047 percent improvement is cross-roster and is not a causal paired estimate."
+  },
+  "diagnosis_update": {
+    "l1_seed_defect_confirmed": true,
+    "evidence": "Making L1 correctable reduces L1 MSE by 96.207 percent on the exact protected panel.",
+    "l1_seed_sufficient_for_final_goal": false,
+    "evidence_final": "The gain decays to 42.070 percent at L2 and 19.391 percent at L15, leaving final raw MSE 20.766 times above break-even.",
+    "numerical_recurrence_instability": false,
+    "best_supported_cause": "The CP3 recursive host/tape lacks a sufficiently informative or sufficiently transported state for later-layer residual correction. The L1 causal interface was a real local defect but not the dominant final accuracy ceiling."
+  },
+  "additive_erratum": {
+    "field": "RESULT.json /autonomous/per_network/*/role_rank",
+    "stored_semantics": "local pilot index 160..199",
+    "truthful_role_rank": "stored value plus ROLE_START=200, hence observer_fit role ranks 360..399",
+    "metric_impact": "none; MLP IDs, squared errors, aggregate layer MSE, and declared scope ranges are correct"
+  },
+  "audit_scope": {
+    "target_reopened": false,
+    "model_rerun": false,
+    "graph_edited": false,
+    "submission_performed": false
+  }
+}

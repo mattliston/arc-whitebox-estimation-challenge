@@ -1,0 +1,224 @@
+{
+  "schema": "p2r0f2l-k-vs-j-oof-decomposition-and-one-successor-v1",
+  "status": "complete-read-only-decomposition-one-successor-frozen-unlaunched",
+  "node": "P2R0F2L",
+  "scope": {
+    "role": "observer_fit",
+    "networks": 688,
+    "observer_selection_targets_opened": 0,
+    "new_training_performed": false,
+    "saved_oof_checkpoints_replayed": true,
+    "canonical_graph_edited": false
+  },
+  "bindings": {
+    "p2r0f2j_cv_results_sha256": "70a0917258a2d656ab9593a67b3a04483af153d8ef59162be9570a6a62b9b5b4",
+    "p2r0f2j_verification_sha256": "c50a8a6a59b28ab11c1e2db8ce14ce24181e8a7c9d6ecfc1ff31019825f27dcb",
+    "p2r0f2k_cv_results_sha256": "2a8a569599f3d9b8d0efe373a659367447dc652a0e24e9785a8d72db52abcd44",
+    "p2r0f2k_verification_sha256": "31db12fca2583ca96a3b6d2b3bf459d1c28ab61985ae0d286f2ff7c08fd8bd1b",
+    "k_vs_j_analysis_program_sha256": "cdda5ef6dcf058b377818d203a8684131ccfe101fc7fd9e768ddaec29c76238e",
+    "adjoint_diagnostic_result_sha256": "92f25698a084ebac2e575e0f0a800cace0f5d408d3c9078ce6c8598dae2f962b",
+    "adjoint_diagnostic_reproducer_sha256": "b9bb78e40e5de4f70ca649b242a8b283a983b688b6d0eeae1d420aaa4bcd8681",
+    "p2r0f2m_design_receipt_sha256": "c8f4f62665fb400fee9f9a51c665d3f9e1a800e9594b5a0493906e5badf911a3"
+  },
+  "headline": {
+    "p2r0f2j_oof_final_mse": 3.2334958229470984e-8,
+    "p2r0f2k_oof_final_mse": 3.2444190155738505e-8,
+    "k_minus_j": 1.0923192626752136e-10,
+    "k_regression_fraction_vs_j": 0.0033781372313004265,
+    "k_better_networks": 293,
+    "k_worse_networks": 395,
+    "k_minus_j_median": 1.0036253919958695e-10,
+    "k_minus_j_p10": -5.466156469051722e-10,
+    "k_minus_j_p90": 7.640258878123742e-10
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "networks": 147,
+      "j_mean": 3.154306195654431e-8,
+      "k_mean": 3.146176427412174e-8,
+      "k_minus_j": -8.12976824225747e-11,
+      "k_wins": 86
+    },
+    {
+      "fold": 1,
+      "networks": 172,
+      "j_mean": 3.2693973151867154e-8,
+      "k_mean": 3.3004057924947085e-8,
+      "k_minus_j": 3.100847730799232e-10,
+      "k_wins": 48
+    },
+    {
+      "fold": 2,
+      "networks": 171,
+      "j_mean": 3.360473952357889e-8,
+      "k_mean": 3.364605422600075e-8,
+      "k_minus_j": 4.131470242185699e-11,
+      "k_wins": 84
+    },
+    {
+      "fold": 3,
+      "networks": 198,
+      "j_mean": 3.151438037177214e-8,
+      "k_mean": 3.164924365209681e-8,
+      "k_minus_j": 1.3486328032466324e-10,
+      "k_wins": 75
+    }
+  ],
+  "hard_vs_ordinary": {
+    "hard_role_ranks": [201, 310, 599, 643],
+    "hard": {
+      "networks": 4,
+      "j_mean": 2.7330554423437766e-7,
+      "k_mean": 2.720472702366161e-7,
+      "k_minus_j": -1.2582739977615418e-9,
+      "k_wins": 2
+    },
+    "ordinary": {
+      "networks": 684,
+      "j_mean": 3.0925773515992e-8,
+      "k_mean": 3.104300255292635e-8,
+      "k_minus_j": 1.172290369343499e-10,
+      "k_wins": 291
+    },
+    "hard_rows_fraction_of_total_k_regression": -0.06697260360215154,
+    "interpretation": "K modestly improves the four hard rows in aggregate, but the ordinary 684 regress enough to dominate. The hard rows offset 6.70% of K's total regression rather than causing it."
+  },
+  "layerwise_k_minus_j": [
+    0.0,
+    0.0,
+    9.28965627870779e-13,
+    3.8821290690177e-12,
+    4.904041168934066e-12,
+    1.0852217257241745e-11,
+    1.462908664946508e-11,
+    1.968940954850292e-11,
+    4.2843698558529184e-11,
+    4.313047992414061e-11,
+    5.851626658894792e-11,
+    7.030349075534255e-11,
+    7.137429564713042e-11,
+    8.537758581927056e-11,
+    1.2725025404975016e-10,
+    1.0923192626752136e-10
+  ],
+  "feature_use_and_discrimination": {
+    "same_checkpoint_ablation_warning": "Feature zeroing is distribution-shifted and measures functional reliance, not the causal benefit of a separately trained arm.",
+    "all_network_final_mse": {
+      "j": 3.2334958229470944e-8,
+      "k": 3.244419015573846e-8,
+      "k_no_context": 3.6992019868498616e-8,
+      "k_no_pairs": 3.780213919493689e-8,
+      "k_no_pairs_or_context": 3.4458991208661985e-8
+    },
+    "hard_network_final_mse": {
+      "j": 2.7330554423437766e-7,
+      "k": 2.7204727023661617e-7,
+      "k_no_context": 2.8446554334115177e-7,
+      "k_no_pairs": 2.7207265874822934e-7,
+      "k_no_pairs_or_context": 2.788237750134197e-7
+    },
+    "late_actual_pair_abs_hard_to_ordinary": 0.8460713715574769,
+    "late_actual_pair_abs_pearson_with_k_final_mse": -0.04021944014105726,
+    "late_context_hidden_rms_hard_to_ordinary": 1.014977773093601,
+    "late_context_hidden_rms_pearson_with_k_final_mse": 0.01125071806110698,
+    "late_source_context_to_local_rms_hard_to_ordinary": 1.0809879331252301,
+    "late_source_context_to_local_rms_pearson_with_k_final_mse": 0.030392185278879068,
+    "interpretation": "K learned to rely on both new branches, but their network aggregates do not identify the hard rows. The combined intervention changed ordinary-row optimization from L2 onward without earning a cross-fold gain."
+  },
+  "rejected_future_scalar_observables": {
+    "weights_only_cumulative_gain": {
+      "hard_to_ordinary": 1.0007317907971567,
+      "pearson_with_k_final_mse": 0.09034367619613647
+    },
+    "phi_weighted_cumulative_gain": {
+      "hard_to_ordinary": 0.993344629341622,
+      "pearson_with_k_final_mse": 0.10190196171043624
+    },
+    "phi_weighted_mean_path_concentration": {
+      "hard_to_ordinary": 1.002122719742004,
+      "pearson_with_k_final_mse": -0.037183769926608504
+    },
+    "conclusion": "A scalar W-power, tangent-gain, or concentration gate is rejected; the remaining residual is spatial rather than a network-scalar instability label."
+  },
+  "bounded_spatial_adjoint_diagnostic": {
+    "panel": "observer_fit ranks 0:63 plus previously declared hard ranks 201,310,599,643",
+    "status": "capacity-only-not-performance-estimate",
+    "ordinary_top8_endpoint_residual_fraction": 0.07089252709366987,
+    "ordinary_random8_fraction": 0.007522932334740611,
+    "ordinary_enrichment": 9.42352316081469,
+    "hard_top8_endpoint_residual_fraction": 0.02230591716737437,
+    "hard_random8_fraction": 0.0059161432346015175,
+    "hard_enrichment": 3.770347721960925,
+    "scalar_top_gain_hard_to_ordinary": 0.9870341158069202,
+    "scalar_top_gain_corr_log_j_mse": 0.033407053330044054,
+    "oracle_endpoint_pullback_norm_hard_to_ordinary": 1.5860372703697083,
+    "oracle_endpoint_pullback_norm_corr_log_j_mse": 0.7640547941053287,
+    "interpretation": "Fixed low-rank modes capture real ordinary residual structure but under-cover the hard rows. The full spatial adjoint pullback separates hard residuals; its oracle seed is diagnostic only and is never an input to the proposed model."
+  },
+  "diagnosis": [
+    "K's 0.3378% regression is broad ordinary-row coadaptation, not a failure caused by the four hard networks.",
+    "The off-diagonal Gram and pooled context are numerically used but do not supply a stable network discriminator; only one of four folds improves.",
+    "Scalar future amplification and fixed low-rank endpoint modes are insufficient, especially on the four hard rows.",
+    "The next child must learn a target-free full-width future-conditioned state and insert it before forward errors accumulate, while discarding K's generic Gram/context expansion."
+  ],
+  "capacity_firewall": {
+    "j_and_k_training_feature_store": "sealed CP1792 raw20/sigma tape",
+    "native_q24_transfer_proven": false,
+    "rule": "All J/K/M observer-fit OOF values using the old store are capacity-only until the separately frozen native-Q24 tape transfer is terminal and a native deployment fit/verification succeeds.",
+    "p2r0f2m_inputs_native_compatible": "weights plus the already metered native raw20/sigma/Phi contract",
+    "old_oof_mse_is_deployment_evidence": false
+  },
+  "one_frozen_successor": {
+    "node": "P2R0F2M",
+    "name": "full-width learned backward-adjoint state observer",
+    "status": "frozen-and-smoke-only-pending-native-transfer-terminal-root-release",
+    "base": "P2R0F2J, not regressed P2R0F2K",
+    "architecture": {
+      "backward_channels": 4,
+      "backward_scan": "Compute L15 down to L2 first. a_15=0; a_l=W_(l+1)@(Phi_(l+1)*b_(l+1)), the exact transpose transport.",
+      "backward_input": "fold-standardized native raw20 plus four a/R and four a/(sigma*R), 28 inputs",
+      "backward_cell": "shared 28->64->64 SiLU; layer-specific four-source/four-gain heads; 0.75..1.25 gain; identity+0.12*tanh mix",
+      "backward_update": "b_l=(gain*a_l)@mix + sigma_l*R_l*source_l",
+      "forward_intervention": "Concatenate four b/R and four b/(sigma*R) to J's 36 local inputs, giving a shared 44->96->96 forward cell. Backward state therefore changes forward sources/gains before L15 accumulation.",
+      "reported_correction": "forward channel zero; no output-only fusion",
+      "parameters": 39944,
+      "deployment_truth_inputs": 0
+    },
+    "training": {
+      "folds": 4,
+      "fold_seed": 1753358438,
+      "fold_sizes": [147, 172, 171, 198],
+      "batch_size_networks": 3,
+      "epochs": 6,
+      "optimizer": "AdamW",
+      "learning_rate": 0.0012,
+      "minimum_learning_rate": 0.0001,
+      "weight_decay": 0.00002,
+      "gradient_clip": 5.0,
+      "forward_primary_exposure_schedule": [0.0, 0.25, 0.5, 0.75, 1.0, 1.0],
+      "backward_exposure": 1.0,
+      "checkpoint": "fixed epoch 6; no metric-based selection or retuning"
+    },
+    "cost": {
+      "j_correction_upper": 1051656192,
+      "exact_backward_adjoint_transport": 108998656,
+      "backward_cell_reserve": 337928192,
+      "forward_input_expansion_reserve": 22020096,
+      "added_over_j": 468946944,
+      "m_correction_upper": 1520603136,
+      "old_q24_host_plus_m_upper": 2128498062269,
+      "native_q24_host_tape_plus_m_upper": 2133212740857,
+      "headroom_below_2^41_native_total": 65810514695
+    },
+    "conjunctive_gate": {
+      "all_688_rollouts_finite": true,
+      "oof_final_mse_strictly_below": 2.9672528546945005e-8,
+      "every_network_final_mse_strictly_below": 1.0e-7,
+      "observer_selection_targets_opened": 0,
+      "all_conditions_required": true,
+      "stretch_oof_below_1e_8_recorded_separately": true
+    },
+    "launch_authorization": "smoke only; fold training requires a root release receipt bound to a terminal native-Q24 transfer result"
+  }
+}

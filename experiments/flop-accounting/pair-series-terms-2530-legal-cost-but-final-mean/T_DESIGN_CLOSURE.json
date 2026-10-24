@@ -1,0 +1,53 @@
+{
+  "schema": "p2r0f2t-design-closure-v1",
+  "status": "PASS_CLOSED_AT_DESIGN",
+  "node": "P2R0F2T",
+  "scope": "Design-stage adjudication by exact measurement, entirely target-free; no preregistered data-bearing arm was ever launched.",
+  "bindings": {
+    "t30_source_sha256": "3dd5b11b19fc96f6fb958c0f9de0ebefda50ffcd7a90339bb7473e42cd3034d2",
+    "base_source_sha256": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d",
+    "ab_probe_sha256": "d1d411a9bd860a3db3048badbb13c638e9ea3b1646722eddc4aac0aa4f1f7906",
+    "synthetic_billing_sha256": "479a61b91f730d8964bd91692b8c52cbe144df96ebda35c2d529b4dc62b581e8",
+    "probe_program_sha256": "008b40836740d6753da1567731304b04fa5ffabb6ae7b588e1c0db48bc29157b"
+  },
+  "measurements": {
+    "cost": {
+      "live_added_flops_max": 36370219020,
+      "synthetic_fourteen_layer_marginal": 35948494848,
+      "headroom": 67331117831,
+      "admissible": true
+    },
+    "stability": {
+      "rows": [
+        0,
+        1,
+        2,
+        55,
+        100,
+        201,
+        400,
+        643
+      ],
+      "all_finite": true,
+      "includes_hard_rows_and_repaired_tail": [
+        55,
+        201,
+        643
+      ]
+    },
+    "effect": {
+      "median_delta_final_rms": 4.762780660131582e-09,
+      "max_delta_final_rms": 1.2565543022006673e-08,
+      "population_final_error_rms": 0.0003019270209904605,
+      "median_effect_to_error_ratio": 1.577460885914568e-05,
+      "aligned_mse_effect_upper_bound_fraction": 8.323563078777031e-05,
+      "admissible": false
+    }
+  },
+  "verdict": "The additive t=25..30 pair-series tail is cost-admissible (36.4e9 of 67.3e9) and numerically stable, but effect-capped at about 1.6e-5 of the final error scale (aligned MSE effect bound about 8e-5): the truncated Mehler tail is not where the host error lives, and the S receipt's t=24 born-error correlation was co-location through bond strength, not causation. The arm cannot move raw MSE measurably; the node closes at design with no data-bearing launch.",
+  "standing_evidence": "The quartic-star birth marker (+0.335) survives this closure and points at the Edgeworth weight expansion order (pair weights stop at 1 + L3 + L4 + L3^2/2); any successor must first measure its own marginal einsum billing and target-free effect size under this same protocol.",
+  "observer_selection_targets_opened": 0,
+  "public_name_joins": 0,
+  "network_access": 0,
+  "targets_read": 0
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "phase2-hermite10-math-verification-v1",
+  "status": "PASS_INDEPENDENT_COEFFICIENT_AND_COVARIANCE_CHECKS",
+  "estimator_sha256": "554bd1cbfa082fe43e9bd27cd6ad3481200aab21cdb6a7d6b5e27c7043da2402",
+  "offline_reference_sha256": "736f3be8d286fda7cbe6bfa7fd12c9fc184a6ce930b1ea6d84d5251d1957110b",
+  "verifier_sha256": "b2033a6db7e9b46bd43d430a6bc02b0b1ce7f3efd0de7822d82eb0854288808d",
+  "checks": {
+    "hermite_orders": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "alpha_values": [-2.0, -0.3, 0.0, 0.7, 2.0],
+    "coefficient_max_abs_error": 1.381e-7,
+    "bivariate_alpha_beta_cases": 4,
+    "rho_values": [-0.8, -0.4, 0.2, 0.6, 0.8],
+    "order10_covariance_max_abs_truncation_error": 3.763e-5,
+    "small_network_shape": [4, 24],
+    "small_network_finite": true,
+    "small_network_nonnegative": true
+  },
+  "interpretation": "The 1/sqrt(k!) normalized coefficients agree with direct Gaussian-Hermite integrals. The remaining bivariate difference is the declared order-10 truncation tail, not a coefficient normalization error."
+}

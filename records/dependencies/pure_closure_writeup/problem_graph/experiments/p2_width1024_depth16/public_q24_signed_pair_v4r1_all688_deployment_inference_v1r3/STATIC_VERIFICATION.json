@@ -1,0 +1,398 @@
+{
+  "J_state_exact_order": [
+    "source_weight",
+    "source_bias",
+    "gate_weight",
+    "gate_bias",
+    "transport_delta",
+    "mix_delta",
+    "centers",
+    "scales",
+    "layer_rms",
+    "trunk.0.weight",
+    "trunk.0.bias",
+    "trunk.2.weight",
+    "trunk.2.bias"
+  ],
+  "access_accounting": {
+    "MPS_executions": 0,
+    "live_banks_rows_weights_targets_models_scores_opened": 0,
+    "live_estimator_or_MLP_executions": 0,
+    "network_or_submission_actions": 0,
+    "synthetic_model_receipt_seal_review_and_tapes_only": true
+  },
+  "adapter_sources": {
+    "deployment_core.py": "35d1993bc5dbe8e3154644c8d97523fc61cbb02a6df9a48f50249cdac9c979b7",
+    "estimator_source_template.py": "2a1a254fe3b097924f73bfb13cecbbf9e6e3a74e6b4b9c74c82f7134655bf124",
+    "export_archive_builder.py": "579f2bdec738f54f070d588c4e263ed7333e4cd2e69d10dd2cdfe9d881337d57",
+    "live_output_contract.py": "a83d0b23abff0e1340b6bc6f97a9a7f81ca4ddc47c7cb956ead58d255da1c79b"
+  },
+  "adversarial_fixture_count": 104,
+  "adversarial_fixtures_rejected": [
+    "live export gate before all supplied path access",
+    "wrong model magic",
+    "trailing model byte",
+    "corrupt tensor payload",
+    "correctly hashed nonfinite",
+    "correctly hashed zero_scale",
+    "correctly hashed under_r_l",
+    "extra model header field",
+    "wrong architecture depth",
+    "float architecture depth alias",
+    "float architecture width alias",
+    "float virtual outer stream alias",
+    "float pair-layer alias",
+    "float action-layer alias",
+    "wrong J state order",
+    "wrong pair state order",
+    "MPS model lane",
+    "wrong runtime review source root",
+    "wrong selection map keys",
+    "float native weight byte count",
+    "wrong J batch-order digest",
+    "wrong pair batch-order digest",
+    "reordered inventory",
+    "float descriptor shape",
+    "boolean descriptor offset",
+    "float descriptor nbytes",
+    "extra descriptor field",
+    "duplicate descriptor name",
+    "noncanonical model header",
+    "boolean selected-H",
+    "fully rehashed four-artifact wrong batch-order digest bundle",
+    "wrong receipt schema",
+    "extra receipt field",
+    "wrong receipt model hash",
+    "wrong receipt inventory hash",
+    "short J trace",
+    "wrong pair trace label",
+    "resource telemetry accuracy veto",
+    "wrong native row root",
+    "wrong native weight bytes",
+    "float target-decode count alias",
+    "integer CPU boolean alias",
+    "negative-zero J objective",
+    "negative-zero preflight wall",
+    "duplicated telemetry epoch float alias",
+    "wrong runtime version",
+    "float CPython version alias",
+    "wrong execution stack root",
+    "wrong preauthentication status",
+    "float preauthentication node-count alias",
+    "wrong FD replay node count",
+    "float FD replay node-count alias",
+    "wrong runtime source inventory",
+    "native closure not armed",
+    "native closure integer boolean alias",
+    "native closure float generation alias",
+    "wrong loaded image count",
+    "float mapped-image vnode scalar alias",
+    "malformed mapped system UUID",
+    "unbound protected read",
+    "noncanonical training receipt",
+    "wrong seal schema",
+    "wrong seal model hash",
+    "wrong seal receipt hash",
+    "wrong seal selected-H",
+    "seal export authority",
+    "seal integer false-authority alias",
+    "noncanonical model seal",
+    "wrong model review schema",
+    "model review scaffold status",
+    "HOLD model-review status",
+    "REJECT model-review decision",
+    "arbitrary nonempty model-review status",
+    "arbitrary nonempty model-review decision",
+    "same-agent model review",
+    "integer different-agent boolean alias",
+    "wrong review model hash",
+    "wrong review runtime root",
+    "float mapped-image count alias",
+    "incomplete review finding",
+    "integer true review-finding alias",
+    "integer model-replay boolean alias",
+    "review inference access",
+    "integer review access false alias",
+    "review export authority",
+    "integer review authority false alias",
+    "noncanonical review timestamp",
+    "bound HOLD-REJECT model review cannot reach render",
+    "seal-review capability mismatch",
+    "wrong export selected-bank binding",
+    "wrong export model-review decision binding",
+    "live meter gate before nonexistent path access",
+    "invalid UTC timestamp Z",
+    "invalid UTC timestamp not-a-dateZ",
+    "invalid UTC timestamp 2026-99-99T99:99:99Z",
+    "reversed archive inventory",
+    "extra archive member",
+    "archive symlink",
+    "archive traversal",
+    "trailing gzip bytes",
+    "concatenated gzip stream",
+    "altered gzip XFL",
+    "altered gzip OS",
+    "GNU tar encoding"
+  ],
+  "archive_scaffold": {
+    "archive_bytes": 34365,
+    "archive_sha256": "8d3f92054f49e15264222d1e2e98d66118faeed6cdb76b6169659fed236a6c96",
+    "estimator_sha256": "08b36af0faf39a084fbf8375bb592b3161750a592476e5b4c6b6e334d93e586d",
+    "exact_members": [
+      "estimator.py",
+      "manifest.json"
+    ],
+    "manifest_sha256": "411885c087e23ba7c02630779c5679ba9dd1b40dac2ed58e8cb36ee6b27e9a9a",
+    "package_authorized": false,
+    "pinned_whestbench_validate_package_still_required": true,
+    "schema": "public-q24-signed-pair-all688-two-file-archive-validation-v1r3",
+    "status": "PASS_EXACT_CANONICAL_DETERMINISTIC_TWO_FILE_BYTES__NO_PACKAGE_AUTHORITY",
+    "submission_authorized": false
+  },
+  "authority": {
+    "accuracy": false,
+    "export": false,
+    "meter": false,
+    "model": false,
+    "network": false,
+    "package": false,
+    "submission": false
+  },
+  "future_export_bindings_all_null": true,
+  "future_model_bindings_all_null": true,
+  "future_package_gate_bindings_all_null": true,
+  "independent_exact_v1r3_22_tensor_gold_inventory": true,
+  "independently_recomputed_batch_order_int32_sha256": {
+    "J": "affbed56980f9243316a1f26e27e6c9fccab08747d2f6679d3c6eeab1579b3bf",
+    "pair_H16": "238ad030f3bc8077c2db6a78490c68e6afe800a450dd6cd97c719e795e175a2d",
+    "pair_H256": "4a257b6241f97c3ddaf5209bd310898705b2261fc65fa1f81891442cbfb8ccb1",
+    "pair_H64": "87445d97fb3228064acd43882a4407849818d2ec662299454753fc13802f504d"
+  },
+  "live_export_rejected_before_any_supplied_path_access": true,
+  "null_skeleton_public_import_rejected_before_payload_or_MLP_access": true,
+  "pair_state_aggregate_exact_order": [
+    "pair/state/U",
+    "pair/state/b",
+    "pair/state/V",
+    "pair/state/c",
+    "pair/state/d"
+  ],
+  "rendered_synthetic_import_exact_22_float32_C_arrays": true,
+  "resource_meter_scaffold": {
+    "live_meter_pre_path_access_hold": true,
+    "over_limit_fixture_valid_without_accuracy_rejection": true,
+    "over_limit_operational_package_admission": false,
+    "within_limit_fixture_valid": true
+  },
+  "resource_telemetry_changes_or_vetoes_accuracy": false,
+  "schema": "public-q24-signed-pair-all688-deployment-static-verification-v1r3",
+  "source_bindings": {
+    "fullbudget_k21_k4_closure_q24_manual_rho_hybrid_near_floor_min_v1/estimator.py": "26aca6ed1fb52ec431132f87739fe729ec6855cc2fa2c80642fadd1c4c786e5d",
+    "public_q24_native_transport_energy_pilot_v1/instrumented_estimator.py": "f539889324fb82cc1ded35a41c8b5a359014d9ddac52eab62949257e8e58a0ef",
+    "public_q24_signed_pair_three_bank_runtime_v5/parent_capture.py": "10ed893bbd50257f21b434fb90e95185026bdf73740b3b6590a001cc1fecc425",
+    "public_q24_signed_pair_three_bank_runtime_v5/signed_pair_literal.py": "20a50cc065c0a9fc3c22fe5b5e178771b2b1fefeacc4a8a68ea48748fb2d2a57"
+  },
+  "status": "PASS_EXACT_V1R3_STATIC_ADAPTER_AND_SYNTHETIC_BUNDLE__ALL_LIVE_GATES_HOLD",
+  "synthetic_live_bundle": {
+    "deterministic_render": true,
+    "model_seal_sha256": "7b93708ff8c5ba6771169d5fb40790d6fb1095a3b044718ba28a8b2b361c46a3",
+    "model_sha256": "e19e3d956be14b68c7d3c890835da7b9877f4bdedadc881af071c8b4ad745fc2",
+    "model_tensor_inventory_sha256": "e5a8829e1a676ddcd4b6ff628b5c2793a23ceb9b100d2658b988f8f8ab4fe36c",
+    "refit_model_review_sha256": "0118e41283695db1f37e86ec570f9d251a1d8c207a91f69b1fe0e1d592189ddf",
+    "refit_receipt_sha256": "c6e89179a5482f5deaa99dee5effb2753ddc1382972043c6d29a864d15d8f9a7",
+    "rendered_estimator_sha256": "08b36af0faf39a084fbf8375bb592b3161750a592476e5b4c6b6e334d93e586d",
+    "selected_H": 64,
+    "tensor_count": 22,
+    "unique_tensor_names": 22
+  },
+  "synthetic_parity": {
+    "absolute_tolerance": 3e-06,
+    "access_accounting": {
+      "MPS_used": false,
+      "banks_rows_weights_targets_models_scores_opened": 0,
+      "live_estimator_or_mlp_executions": 0,
+      "synthetic_arrays_only": true
+    },
+    "authority": {
+      "accuracy": false,
+      "export": false,
+      "package": false,
+      "refit": false,
+      "submission": false
+    },
+    "candidate_H": [
+      16,
+      64,
+      256
+    ],
+    "cases": 6,
+    "critical_floor": 9.313225746154785e-10,
+    "final_composition_zero_boundary_byte_exact": true,
+    "input_dtypes": [
+      "float32",
+      "float64"
+    ],
+    "max_abs_all_seams": 6.198883056640625e-06,
+    "max_rel_all_seams": 0.00014548823760139653,
+    "observations": [
+      {
+        "H": 16,
+        "critical_floor_values_present": true,
+        "input_dtype": "float32",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.1368683772161603e-13,
+            "max_rel": 1.2125998215962512e-05
+          },
+          "j32": {
+            "max_abs": 2.2737367544323206e-13,
+            "max_rel": 2.041818484378557e-06
+          },
+          "x36": {
+            "max_abs": 4.76837158203125e-07,
+            "max_rel": 0.00014548823760139653
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 16,
+        "critical_floor_values_present": true,
+        "input_dtype": "float64",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.4210854715202004e-13,
+            "max_rel": 1.1232815925868448e-05
+          },
+          "j32": {
+            "max_abs": 3.410605131648481e-13,
+            "max_rel": 6.011214521811892e-07
+          },
+          "x36": {
+            "max_abs": 4.76837158203125e-07,
+            "max_rel": 7.835406252827348e-05
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 64,
+        "critical_floor_values_present": true,
+        "input_dtype": "float32",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 7.460698725481052e-14,
+            "max_rel": 4.585382426104999e-06
+          },
+          "j32": {
+            "max_abs": 2.2737367544323206e-13,
+            "max_rel": 3.153146761639447e-07
+          },
+          "x36": {
+            "max_abs": 3.814697265625e-06,
+            "max_rel": 5.563879118717157e-06
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 64,
+        "critical_floor_values_present": true,
+        "input_dtype": "float64",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.1368683772161603e-13,
+            "max_rel": 7.920782427073966e-06
+          },
+          "j32": {
+            "max_abs": 4.547473508864641e-13,
+            "max_rel": 2.1669705722506994e-07
+          },
+          "x36": {
+            "max_abs": 2.7939677238464355e-09,
+            "max_rel": 0.00011256812053696462
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 256,
+        "critical_floor_values_present": true,
+        "input_dtype": "float32",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.1368683772161603e-13,
+            "max_rel": 3.7030976165999355e-05
+          },
+          "j32": {
+            "max_abs": 2.2737367544323206e-13,
+            "max_rel": 1.7798831818170693e-06
+          },
+          "x36": {
+            "max_abs": 1.7881393432617188e-07,
+            "max_rel": 0.00011283386184560445
+          }
+        },
+        "unit_permutation_checked": true
+      },
+      {
+        "H": 256,
+        "critical_floor_values_present": true,
+        "input_dtype": "float64",
+        "permutation_max_abs": 0.0,
+        "permutation_max_rel": 0.0,
+        "prediction_max_abs": 0.0,
+        "prediction_max_rel": 0.0,
+        "seams": {
+          "delta32": {
+            "max_abs": 1.1368683772161603e-13,
+            "max_rel": 3.17036143078124e-05
+          },
+          "j32": {
+            "max_abs": 4.547473508864641e-13,
+            "max_rel": 1.2415843858347638e-06
+          },
+          "x36": {
+            "max_abs": 6.198883056640625e-06,
+            "max_rel": 3.361488601612338e-06
+          }
+        },
+        "unit_permutation_checked": true
+      }
+    ],
+    "relative_tolerance": 2e-05,
+    "schema": "public-q24-signed-pair-all688-deployment-synthetic-parity-v1",
+    "status": "PASS_ISOLATED_SYNTHETIC_TORCH_CPU_VS_LITERAL__NO_EMPIRICAL_ACCESS",
+    "width": 9
+  },
+  "upstream_reviewed_static_bindings": {
+    "deployment_inference_v1_hold_review_sha256": "bf1690e2492b7000fe887cd52baba52b71bfb8721017f296b7b475626c3a6263",
+    "deployment_inference_v1r1_manifest_sha256": "4cc656d483a5c7d5331d03d4b91cc1ceb99594805c456e98a26180003760d89d",
+    "deployment_inference_v1r1_review_sha256": "7e765482718dcd90452be2744b102d056a2881dca80e0670af97bd9206185c22",
+    "deployment_inference_v1r2_hold_manifest_sha256": "c0b58414a19e40efe1551d3a62ba43e2e64155dadb5f93a64d91e4a9154b2b13",
+    "deployment_inference_v1r2_hold_review_sha256": "c936c47f5abf7d536876c5a37f9ed88f942c785806a59e243d0d86213b969408",
+    "exact_live_output_inventory_and_schemas_bound": true,
+    "refit_runtime_v1r3_manifest_sha256": "c370f9278e9f5ace7d1ad9e6905e12f0259a3594b737881abb8c125ff16c4df2",
+    "refit_runtime_v1r3_review_sha256": "2b6b72b8ade2f141f22bbd9dd5b4405b0cb1b35b6036f28ea914f55b03570f5f"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "corrected_result_sha256": "fe2f2f3c8cfa890d416b520f443fbbe475ea8fabafbd16956006a9154b100440",
+  "metrics_changed": false,
+  "original_program_generated_result_sha256": "394ec33e87bcdb7b453dbb723ae4b2826630ba05c2b2d17985c64da227b22f11",
+  "reason": "The generated split label incorrectly said ranks 160:199 were opened after training. The program actually materialized the preregistered 0:199 development prefix at startup and computed ranks 160:199 metrics only after epoch 16. RESULT.json was corrected to state that exact boundary; no metric or decision gate changed.",
+  "schema": "public-exposure-trained-residual-state-result-reconciliation-v1"
+}

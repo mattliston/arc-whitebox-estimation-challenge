@@ -1,0 +1,263 @@
+{
+  "utc": "2026-10-20T20:35:11Z",
+  "status": "Inherited live controller identified; permanent disable prepared in NEW immutable files only. No estimator rerun, release gate, or fire.",
+  "reporting_reference": {
+    "submission": 337393,
+    "source_sha256": "fd8739582ffdd04decc5fe6bbb2f99fb0b3dc02a2ee786d684bd21bbf52d974d",
+    "science": "science32_gram_pair_kclm_copy_astra_m15",
+    "note": "All NEW gain reports use this best valid reference. Historical v4a percentages retain their original label. No gain is claimed for this control-path fix."
+  },
+  "source_ancestry": {
+    "candidate_rel_v4a.py": {
+      "source_sha256": "b41627a6cc4d3c67280ab85fd7400ff07a0a167621326fcdb07690abe84ccac7",
+      "controller_block_sha256": "b7eaa0294c68b6dc310b8c8c3a3050920521deeb03aae4c8be46d2636ef5c520",
+      "controller_block_bytes": 5225
+    },
+    "candidate_rel_gram_pair_kclm_copy_astra.py": {
+      "source_sha256": "fd8739582ffdd04decc5fe6bbb2f99fb0b3dc02a2ee786d684bd21bbf52d974d",
+      "controller_block_sha256": "b7eaa0294c68b6dc310b8c8c3a3050920521deeb03aae4c8be46d2636ef5c520",
+      "controller_block_bytes": 5225
+    },
+    "candidate_rel_micro_kclm_copyall_astra.py": {
+      "source_sha256": "4a40feb6169ebc523f38e217e8d2727b9a4fb54ea5d7531ad2fc945df227544b",
+      "controller_block_sha256": "b7eaa0294c68b6dc310b8c8c3a3050920521deeb03aae4c8be46d2636ef5c520",
+      "controller_block_bytes": 5225
+    }
+  },
+  "control_path": {
+    "initial_false_is_not_disabled": true,
+    "final_false_is_not_proof_of_no_activation": "finally resets _FAST_RESCUE_ON and layer after every predict, including triggered predictions. Audit fast_rescue_stats calls and fast_rescue_control instead.",
+    "activation": "At each actual layer start L12/13/14, read valid public residual and activate if residual > .370 * fraction[L]. Latest reader fails soft to None; None never triggers.",
+    "threshold_seconds": {
+      "12": 0.25862999999999997,
+      "13": 0.28749,
+      "14": 0.32264
+    },
+    "latched_state": "Once true, remains true through subsequent layers until predict finally resets it. Dense emergency executor itself checks L12\u201314. Other shared/padding/fusion routes also avoid their ordinary fast branch while the flag is true.",
+    "dispatch_effect": "Paid direct float32 fnp.matmul for supported old-tier matrices replaces ordinary fast route. Algebraically same multiplication, not guaranteed bit-identical floating-point output; adds bill.",
+    "latest_source_lines": {
+      "executor": 22134,
+      "initial_cap_and_map": 22160,
+      "enable_check": 22182,
+      "predict_reset": 22192,
+      "latest_failsoft_reader": 22227,
+      "latest_required": 22240,
+      "shared_router_guard": 22972,
+      "padding_router_guard": 24075,
+      "fusion_router_guard": 24181
+    },
+    "dense_context_does_not_capture_map": true,
+    "map_has_no_later_restorer": "Source AST and literal context inventory contain only original assignment and direct runtime get/membership/index reads. New final empty-map assignment is not overwritten by a captured context."
+  },
+  "sync_diagnostic": {
+    "rank": 35,
+    "flops": 256933297110,
+    "wall_s": 48.92671849951148,
+    "residual_s": 0.4957085919999997,
+    "fast_rescue_stats": {
+      "calls": 32,
+      "elements": 36392960
+    },
+    "fast_rescue_control": {
+      "layer": 12,
+      "residual": 0.2914498860000023,
+      "projected": 0.41695262660944543
+    },
+    "fast_rescue_final_state": {
+      "on": false,
+      "layer": -1
+    }
+  },
+  "authorization_interpretation": {
+    "recorded_history": [
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4236,
+        "text": "[opus] 2026-10-16T14:32:33Z USER DIRECTIVE: drop dynamic routing (governor); statically optimize residual wall time like Astra clean builds (public residual mean .32-.35). [opus-lowres] (u64 build, release gates): S2tr + cheapest request cuts (identical-prediction flags QL/compute/cluster/ubown off first, then D7 off/two-strip), target warm <= ~43,500 / first <= ~45,000 requests; no governor/pushSM/read grid."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4238,
+        "text": "[opus-govlive] 2026-10-16T14:32:48Z STOPPED (user directive: no governor / dynamic routing). Left on disk, untested: residue canary fragment lead/runs/opus_govlive_v1/fragment_govcanary_v1.py.txt + test copies (plain 4390bed4, fx5 0a08ad94, ff4 6c84ddb3 on the no-pushSM final b6bfd421). Findings stand: the shim and client make the live read work; #336506's losses were late / back-loaded residual against a zero-margin FULL .40. Now [opus-lowres]."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4856,
+        "text": "[astra] 2026-10-17T08:35:26Z Root runtime repair v24b SEALED for authorized fire, sourceb663632d archiveddf68999. Release receipt and exact-source prefire accepted; 5/5 simultaneous startups4.667\u20134.683s. Normal35 byte/FLOP/RPC parity, residualinstructions+0.691%; forced late rescue35/100 \u22126.852/\u22126.757% residual, +8.633/+8.424% bill onlywhenactivated. Controlled fullGC aged20max18.982ms; controller reads live residual at actualL12\u201314, threshold.370s projection, flags reset. No platformpass guarantee/scoreclaim. UTC17attempt6/10 beforefire; noSAFE/carry/gainhunt."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4858,
+        "text": "[astra] 2026-10-17T08:36:01Z FIRE #336687 astra_runtime_v24b_b663632d (Astra): authorized residual repair of336678. Sourceb663632d/archiveddf68999. YoungGC automatic, fullgen2 chargedbeforepredictreturn; adaptive L12\u201314 paid directBLAS when live residual projection>.370s, parent otherwise. Forced35/100 residualinstructions\u22126.852/\u22126.757%, bill+8.633/+8.424%, normal35exactbytes/FLOPs/RPC and+0.691%residualinstructions. FiveconcurrentofficialstartsPASS4.667\u20134.683s; inheritedaged20scanmax18.982ms; guardsretired, peer23tiny/StageA/release/rootseal/prefireCLEAR0. Submitted08:35:41Z /Oct17 1:35AM PT. UTC17wrapperattempt7/10, sixthcreatedsubmission; no platformpassguarantee or scoreforecast. Gradingpending, gainhuntingpaused; noSAFE/carry/RADactivation."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4861,
+        "text": "[astra] 2026-10-17T09:17:33Z GRADED336687100/100zero failures butscore1.5984331261131061e-9, NOTnewbest. RootruntimecontrollerBUG: nativeSDKno_active_context=>None=>rescueALLcases; all100bill+7.77\u20139.35%, median8.55%. Nativeofficialtinyreproducesandverifiesdualcurrentcontextgetter. Public50 recostatv22b billsconditional1.471955365e-9 stillneeds.8122%moregainfor1.46. Userrequiresfixscore/resubmitoncefixed; lanesactivatedforboundednewgainsearch+actualnativeworkercheck. No newfire; UTC17attempt7/10, carry/RAD/SAFEunchanged."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4874,
+        "text": "[opus-lead] 2026-10-17T14:44:00Z RESUME (user): finish Astra's #336687 repair. v25f = v25a d5c94def + fail-soft meter fragment (unavailable/invalid meter -> NO rescue; v25a raised; v24b rescued all): lead/runs/opus_fix336687_v1/candidate_failsoft_v25f.py 41ddad10. Plan: stage A -> boundary normal+slow (pred_35 bytes = v23c baseline) -> 5 concurrent startups -> prefire -> fire (UTC17 attempts 7/10). Oliver now 1.452e-9; this build ~1.472-1.478 = valid best, not a pass."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4875,
+        "text": "[opus-lead] 2026-10-17T14:50:06Z v25f 41ddad10 QUALIFICATION: stage A PASS vs proven 336687 source (archive release/runs/opus_runtime_v25f2_41ddad10/submission.tar.gz 8b295d03f660, 23 einsum sigs, none new); meter probe PASS native SDK mode (the platform path) and remote-client harness; 5 concurrent official starts PASS (idle machine: setup 77 ms local; binding_requests 6,741 = v21a-v24b's, platform setup 4.07-4.22 s on #336657/678/687); boundary normal+slow done: 35/100 flops and requests IDENTICAL to v23c baseline (243,746,134,502 / 244,602,750,209; 45,090 / 43,194 req) = rescue inactive; pred bytes differ from Astra's files only by harness (different server build) -> same-harness parity run (boundary_run_policy_v1) in progress. count_gates_v4 request limits (42,700/41,200) are my clean standard; this lineage runs S2tr-class counts + the rescue controller by design."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4876,
+        "text": "[opus-lead] 2026-10-17T14:55:07Z FIRE #336741 opus_runtime_v25f_41ddad10 (repair of 336687; details in the ledger). Poll running (fire/opus_runtime_v25f_41ddad10/poll.out). NEW DEADLINES (organizer post 18251, read on the user's instruction): submissions close 2026-10-21 23:59Z; nominate up to TWO valid submissions by 10-22 23:59Z (default = two best valid public scores); flopscope 0.12.3 re-bills broadcast/truncated-SVD work and ALL submissions are being re-evaluated; final evals on 0.12.3. Local: Astra's client310/server310 envs are 0.12.3; the lead .venv is 0.10.0 (old) - price bills in the 0.12.3 envs from now on."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 4911,
+        "text": "[opus-lead] 2026-10-17T19:38:05Z JUDGE CONTAMINATION FOUND AND FIXED: the v34y store control (store_ctl_v34y, run while 3-4 other harness jobs loaded the box) shows ranks 293/300/310/312/316 with bill +8% and requests -2,500: the FAST RESCUE fired at L12 (fast_rescue_control projected .376-.448 > .370; local residuals .33-.42 under load). So the first 32-rank read of v40ua (bill -1.41%) is an artifact; on the 26 clean ranks v40ua's bill is about -0.15..-0.25% with requests -600 and raw U -0.004% (se .07). Re-running the five control ranks alone (store_ctl_v34y_redo). Rule: when judging, check each row's fast_rescue_control is null; never run a judge control alongside other heavy jobs. Side fact: the rescue costs +8% bill on the net it saves, and it fires only on overruns visible by L12 (uniform host slowness), not on late spikes."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 5905,
+        "text": "[fable-lead] 2026-10-19T04:36:45Z BASE JUDGED: fusion (eab36c88) + count-only own prebind refit = candidate_fusion_pbv1_v2 a7ffd713 (byte-identical to the fusion file on 35/100): 7 ranks vs 95c raw -0.112% (se .11), bill -0.247%, adjusted -0.358% (se .13) = -0.11% vs #337028 (~1.4419e-9: not a bank step); requests -667/net warm, -855 at rank 35; residual x0.979; max RSS 7.04 GB (bundle 7.46). New stacking base. Parallel science protocol from now on: variants carry _FAST_RESCUE_CAP_S = 1e9 so concurrent judges cannot trip the rescue; running: solve64 (f64 Nystrom core solve only) and eqsolve (row-equilibrated f32 solve)."
+      },
+      {
+        "path": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/TEAM_LOG.md",
+        "line": 6225,
+        "text": "Best valid #337259 unchanged (1.428440e-9); UTC20 fires2/10, no new fire-ready candidate. Target recorded J2W1.41601e-9 needs ~0.870% adjusted gain. Deadline2026-10-21 23:59UTC. Report true paired adjusted vs science32_rel_v4a_m15; fire only all32 <=-0.35% with held25negative and release_min gates through fire_once.py. No safe twins/governors."
+      }
+    ],
+    "historically_intentional": true,
+    "historical_authorization": "Oct17 runtime repair explicitly authorized controller and forced-trigger qualification. Later user resumed repair after rescue-all bug.",
+    "current_authorization": "Latest user message and Oct19/20 handoff explicitly prohibit governors/dynamic routing. No later grandfather exception found. Current prohibition controls; inherited/previously accepted does not mean presently authorized.",
+    "provenance_limit": "Historical authorizations are TEAM_LOG records of user directions, not reconstructed original chat transcripts. The current no-governors directive is present directly in this conversation."
+  },
+  "disabled_variant_receipt": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/FAST_RESCUE_DISABLED_VARIANTS_v1.json",
+  "future_builder_receipt": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/fable_oct19_kc_v1/agent_astra_joint_v1/MAKE_STACK_NOGOV_CHANGE_v1.json",
+  "equivalence_scope": "For the recorded no-rescue paths, the only skipped actions are three unbilled Python residual-meter checks. Every arithmetic function, dispatch route with _FAST_RESCUE_ON false, coefficient, cache and FNP call is unchanged. This is source/control-flow equivalence backed by all32 no-activation records, not a new rerun of the modified files.",
+  "no_rescue_science_counters": {
+    "science32_micro_kclm_copyall_astra_m15": {
+      "rows": 32,
+      "all_calls_zero": true,
+      "all_control_null": true,
+      "all_final_state_false": true,
+      "ranks": [
+        35,
+        150,
+        200,
+        250,
+        259,
+        277,
+        287,
+        16,
+        293,
+        300,
+        310,
+        312,
+        316,
+        320,
+        328,
+        333,
+        378,
+        390,
+        400,
+        424,
+        459,
+        473,
+        474,
+        500,
+        530,
+        548,
+        550,
+        557,
+        623,
+        641,
+        651,
+        672
+      ]
+    },
+    "science32_gram_pair_kclm_copy_astra_m15": {
+      "rows": 32,
+      "all_calls_zero": true,
+      "all_control_null": true,
+      "all_final_state_false": true,
+      "ranks": [
+        35,
+        150,
+        200,
+        250,
+        259,
+        277,
+        287,
+        16,
+        293,
+        300,
+        310,
+        312,
+        316,
+        320,
+        328,
+        333,
+        378,
+        390,
+        400,
+        424,
+        459,
+        473,
+        474,
+        500,
+        530,
+        548,
+        550,
+        557,
+        623,
+        641,
+        651,
+        672
+      ]
+    },
+    "science32_rel_v4a_m15": {
+      "rows": 32,
+      "all_calls_zero": true,
+      "all_control_null": true,
+      "all_final_state_false": true,
+      "ranks": [
+        35,
+        150,
+        200,
+        250,
+        259,
+        277,
+        287,
+        16,
+        293,
+        300,
+        310,
+        312,
+        316,
+        320,
+        328,
+        333,
+        378,
+        390,
+        400,
+        424,
+        459,
+        473,
+        474,
+        500,
+        530,
+        548,
+        550,
+        557,
+        623,
+        641,
+        651,
+        672
+      ]
+    }
+  },
+  "future_release_requirement": "Any selected new disabled release companion must pass original release_min gates before lead fire; no automatic re-fire or threshold waiver. Running frozen science hashes remain unchanged; confirm all their final32 rescue counters/control zero before using source equivalence.",
+  "old_files_changed": false,
+  "heavy_runs": 0,
+  "fires": 0
+}

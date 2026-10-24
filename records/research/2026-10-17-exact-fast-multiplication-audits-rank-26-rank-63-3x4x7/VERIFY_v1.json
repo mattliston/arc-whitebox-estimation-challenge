@@ -1,0 +1,104 @@
+{
+  "source": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/opus_reexam_20261001_v1/lead/runs/astra_rectangular_rank26_audit_v1/2x4x4_raw.mpl.bz2",
+  "compressed_source_sha256": "0729012b89afb6c2d11f6b082eb364e77650cec86e57cb1512df46e0801b7331",
+  "decompressed_source_sha256": "827fc22e55021443060de392d27774eb3e189817e85b8df85db3fece106f2018",
+  "primary_catalog": "https://fmm.univ-lille.fr/2x4x4.html",
+  "provenance": "Existing local published Hopcroft-Kerr evaluation scheme; no external coefficients fetched.",
+  "convention": "U: rank x (m*k), V: rank x (k*n), W: (m*n) x rank; matrices flattened row-major.",
+  "rotation": "(m,k,n)->(k,n,m), Unew=V, Vnew=W.T with C transpose, Wnew=U.T with A transpose.",
+  "orientations": {
+    "244": {
+      "m": 2,
+      "k": 4,
+      "n": 4,
+      "rank": 26,
+      "nonzero_U_V_W": [
+        63,
+        64,
+        63
+      ],
+      "literal_additions_U_V_W": [
+        37,
+        38,
+        55
+      ],
+      "coefficients": [
+        -1,
+        0,
+        1
+      ],
+      "basis_product_checks": 128,
+      "tensor_coefficient_checks": 1024,
+      "exact_max_error": 0,
+      "artifact_sha256": "763de4edd2d60de79c9ebd956ac66713fbb1e2306f0032186cec7d7a2b93eb39"
+    },
+    "442": {
+      "m": 4,
+      "k": 4,
+      "n": 2,
+      "rank": 26,
+      "nonzero_U_V_W": [
+        64,
+        63,
+        63
+      ],
+      "literal_additions_U_V_W": [
+        38,
+        37,
+        55
+      ],
+      "coefficients": [
+        -1,
+        0,
+        1
+      ],
+      "basis_product_checks": 128,
+      "tensor_coefficient_checks": 1024,
+      "exact_max_error": 0,
+      "artifact_sha256": "83e044c141a1d279bdeac9c56ea2b0739f806af85f300173a2e35d65e24cb19f"
+    },
+    "424": {
+      "m": 4,
+      "k": 2,
+      "n": 4,
+      "rank": 26,
+      "nonzero_U_V_W": [
+        63,
+        63,
+        64
+      ],
+      "literal_additions_U_V_W": [
+        37,
+        37,
+        48
+      ],
+      "coefficients": [
+        -1,
+        0,
+        1
+      ],
+      "basis_product_checks": 64,
+      "tensor_coefficient_checks": 1024,
+      "exact_max_error": 0,
+      "artifact_sha256": "d78ddf5e6171d44867a9d59b7abdb7effdd3ca61ebf31812ea9cd9a09f699920"
+    }
+  },
+  "addition_count_note": "Array counts are nnz minus one per nonempty linear form, excluding unary negation. The old 244 literal counts [38,44,55] additionally count its original expression-leading unary negatives [1,6,0]; its greedy CSE [26,34,39] is not re-certified here.",
+  "verified_catalog_family_cases": {
+    "3": {
+      "rank": 15,
+      "source": "https://fmm.univ-lille.fr/2x3x3.html"
+    },
+    "4": {
+      "rank": 26,
+      "source": "https://fmm.univ-lille.fr/2x4x4.html"
+    },
+    "5": {
+      "rank": 40,
+      "source": "https://fmm.univ-lille.fr/2x5x5.html"
+    }
+  },
+  "rank_family_note": "Primary coefficient catalog confirms n=3,4,5 ranks15,26,40 and Hopcroft-Kerr1971 attribution, agreeing with n(3n+1)/2. This script proves n=4 tensors only; it does not claim a generic-family theorem proof.",
+  "current_ceiling": "../astra_crunch_compute_v1/hk26_v1/CEILING_v1.json",
+  "decision": "CLOSED: current all-shape matched8 zero-outer bill ceiling 0.159731%, below requested 0.5% gain. No kernel or model warranted."
+}

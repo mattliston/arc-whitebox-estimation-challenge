@@ -1,0 +1,70 @@
+{
+  "authorization": {
+    "accuracy_result_authority": false,
+    "execution_retry_authority": false,
+    "model_or_target_access_authority": false,
+    "pause_authorized_by_user": true,
+    "resume_authorized_by_user": true,
+    "submission_authority": false
+  },
+  "continuity": {
+    "execution_restarted": false,
+    "failure_artifact_created_during_pause": false,
+    "model_or_optimizer_state_reinitialized": false,
+    "output_artifact_created_during_pause": false,
+    "pid_before_and_after": 50035,
+    "post_resume_progress_marker": "outer0:fit prepare_pair rows 32..512",
+    "pre_pause_progress_marker": "outer0:inner2 prepare_pair rows 32..512",
+    "same_process_resumed": true,
+    "same_single_use_capability_continued": true
+  },
+  "execution": {
+    "argv": [
+      "/Users/matt/anaconda3/bin/python3",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_nested_accuracy_oof_v4r2/nested_accuracy_runner.py",
+      "--execute",
+      "--release",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/SIGNED_PAIR_NESTED_ACCURACY_EXECUTION_RELEASE_V4R2.json",
+      "--capability",
+      "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_nested_accuracy_oof_v4r2_execution_authority_instance_v1/SINGLE_USE_TARGET_CAPABILITY_V4R2.json"
+    ],
+    "claim_sha256": "1af6353dc46b35b69fa9691a1882de554604577b9b1d9cac566ad3b8042feca6",
+    "command_sha256": "0184b77cfbef43523982fc7af3efc75c870b1f33a1b687bb3a5ee65cc35a1d60",
+    "full_preflight_sha256": "a423ddc5a8ad7dbb1772e63b890887e2bcdec95f0b6cc5af8a24701f0dd2e7c3",
+    "pid": 50035,
+    "temporary_output_directory": "/Users/matt/arc-white-box-estimation/pure_closure_writeup/problem_graph/experiments/p2_width1024_depth16/public_q24_signed_pair_nested_accuracy_oof_v4r2/.SIGNED_PAIR_NESTED_ACCURACY_OUTPUT_V3.50035.b137a7cae1d9e9a8.tmp"
+  },
+  "issued_by": "root_control_coordinator",
+  "issued_utc": "2026-08-28T17:43:54Z",
+  "pause": {
+    "approximate_duration": "2h15m",
+    "signal": "SIGSTOP",
+    "signal_target": 50035,
+    "stop_verification": {
+      "cpu_percent": 0.0,
+      "process_state": "Ts+",
+      "rss_kib": 11783072
+    },
+    "system_snapshot_utc": "2026-08-28T14:46:34Z"
+  },
+  "resume": {
+    "resume_verification": {
+      "cpu_percent_at_first_snapshot": 35.8,
+      "process_state": "Ss+",
+      "rss_kib": 9963024
+    },
+    "signal": "SIGCONT",
+    "signal_target": 50035,
+    "system_snapshot_utc": "2026-08-28T17:02:30Z"
+  },
+  "schema": "public-q24-signed-pair-oof-v4r2-execution-user-requested-pause-resume-receipt-v1",
+  "scientific_boundary": {
+    "accuracy_or_H_selection_uses_elapsed_time": false,
+    "elapsed_seconds_fields_are_observational_only": true,
+    "expected_trace_effect": "one or more elapsed_seconds_observational_only values include the user-requested pause interval",
+    "model_steps_or_random_stream_changed_by_pause": false,
+    "numerical_or_empirical_payload_opened_for_this_receipt": false,
+    "resource_observations_can_veto_accuracy": false
+  },
+  "status": "RESUMED_EXACT_ONE_SHOT_PROCESS_AFTER_USER_REQUESTED_PAUSE__WALL_CLOCK_OBSERVATIONS_DISCLOSED"
+}

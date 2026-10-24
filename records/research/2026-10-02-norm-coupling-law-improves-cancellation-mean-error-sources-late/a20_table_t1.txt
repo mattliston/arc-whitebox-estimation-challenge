@@ -1,0 +1,156 @@
+
+================ network 35: final-layer MSE 12.803e-9 before (candidate 3), 11.720e-9 after (with the pair law): -8.46%
+PART 1. Mean formula inputs made exact (learned correction on). Share of the squared final error, % of that card's own error | the same in 1e-9 of final-layer MSE
+ band  |  before: variance  skew  kurtosis   sum |  after: variance  skew  kurtosis   sum || 1e-9: before v / s / k  ->  after v / s / k   (change of the sum)
+   1-8 |           +3.5   +1.3    +1.2    +6.0 |          +3.4   +0.4    +0.8    +4.6 ||    +0.45  +0.16  +0.15  ->   +0.40  +0.05  +0.09   (-0.23)
+  9-11 |           +6.3   +3.4    +3.3   +13.0 |          +6.2   +3.2    +3.0   +12.4 ||    +0.81  +0.44  +0.43  ->   +0.72  +0.37  +0.36   (-0.22)
+    12 |           +4.5   -0.5    +4.0    +8.0 |          +4.8   -0.8    +3.5    +7.5 ||    +0.58  -0.06  +0.51  ->   +0.57  -0.09  +0.41   (-0.14)
+    13 |           +9.6   +4.0    +1.0   +14.5 |          +7.5   +3.8    +0.7   +12.0 ||    +1.22  +0.51  +0.12  ->   +0.88  +0.44  +0.08   (-0.46)
+    14 |           +6.0   +3.4    +4.6   +14.0 |          +6.6   +3.2    +5.0   +14.8 ||    +0.77  +0.43  +0.59  ->   +0.78  +0.37  +0.59   (-0.05)
+    15 |          +10.7   +5.4    +7.4   +23.5 |         +12.2   +5.3    +7.3   +24.7 ||    +1.37  +0.69  +0.95  ->   +1.43  +0.62  +0.86   (-0.11)
+   all |          +40.6  +17.0   +21.5   +79.1 |         +40.7  +15.1   +20.3   +76.1 ||    +5.20  +2.17  +2.75  ->   +4.77  +1.77  +2.38   (-1.21)
+ not in the three inputs (formula, learned correction, cross terms): before +20.9% = 2.68e-9, after +23.9% = 2.80e-9
+   final-layer MSE with variance exact at every layer   : before   8.387e-9 ( -34.5%)   after   8.420e-9 ( -28.2%)
+   final-layer MSE with skew exact at every layer       : before  12.879e-9 (  +0.6%)   after  12.564e-9 (  +7.2%)
+   final-layer MSE with kurtosis exact at every layer   : before  11.764e-9 (  -8.1%)   after  11.390e-9 (  -2.8%)
+   final-layer MSE with all three exact at every layer  : before   3.596e-9 ( -71.9%)   after   3.597e-9 ( -69.3%)
+   superposition (sum of the band arms against the every-layer arm): before cosine 0.895 size ratio 0.865; after 0.890 / 0.871
+   in sequence: the variance channel (base minus variance exact everywhere) before 4.42e-9, after 3.30e-9; skew and kurtosis once the variance is exact (variance exact minus all three exact) before 4.79e-9, after 4.82e-9; left with all three exact before 3.60e-9, after 3.60e-9
+   the law's change of the final prediction: size 9.5% of the squared error before, cosine with the error before -0.291; against the correction that exact variance at every layer makes: cosine +0.210, coefficient +0.078
+   the card's per-unit inputs against truth, layers 9-15. First-order MSE that the input's error puts into THAT layer's mean, 1e-9 (variance / skew / kurtosis), and the variance error: relative rms %, mean %
+     layer  9: before  1.12 /  0.58 /  0.70, variance 0.0692 rms -0.0084 mean    after  1.14 /  0.58 /  0.70, variance 0.0697 rms -0.0087 mean
+     layer 10: before  1.31 /  0.63 /  0.83, variance 0.0767 rms -0.0053 mean    after  1.22 /  0.63 /  0.83, variance 0.0763 rms -0.0059 mean
+     layer 11: before  1.42 /  0.80 /  0.95, variance 0.0924 rms -0.0007 mean    after  1.49 /  0.79 /  0.95, variance 0.0932 rms -0.0036 mean
+     layer 12: before  1.64 /  0.74 /  1.10, variance 0.1009 rms -0.0060 mean    after  1.72 /  0.74 /  1.10, variance 0.1026 rms -0.0060 mean
+     layer 13: before  1.98 /  0.89 /  1.12, variance 0.1204 rms -0.0057 mean    after  2.06 /  0.89 /  1.13, variance 0.1206 rms -0.0061 mean
+     layer 14: before  1.83 /  1.02 /  1.07, variance 0.1386 rms -0.0108 mean    after  1.84 /  1.02 /  1.07, variance 0.1397 rms -0.0104 mean
+     layer 15: before  1.81 /  1.01 /  1.18, variance 0.1595 rms -0.0031 mean    after  1.95 /  1.00 /  1.18, variance 0.1609 rms -0.0027 mean
+   the law's change of the per-unit variance (after minus before, relative): rms %, and the share of the squared variance error before that it removes (projection on the independent truth draw)
+     L9: 0.0220 / +4.7%   L10: 0.0250 / +5.8%   L11: 0.0297 / +4.3%   L12: 0.0340 / +3.8%   L13: 0.0396 / +5.4%   L14: 0.0455 / +4.9%   L15: 0.0530 / +4.7%
+PART 2. Pair map of layer l: ONE input made exact at that layer, the others the card's. 'variance error' = the error of the next layer's per-unit variance weighted by what it does to that layer's mean (pdf / 2 sigma).
+   First number: share of that squared error (%); second: share of the squared final-layer error (%), the change carried to the end in closed loop. [..] = that error as MSE of the next layer's mean, 1e-9
+ pair layer -> variance of layer | covariance | mean | K21 kink rows | K21 other rows | K31 | K22 | per-unit k3 | per-unit k4 | K21+K31+K22
+   11 -> 12 before [1.64] |  +68.6 / +12.19 |   +0.0 / -0.00 |  +17.4 / +3.45 |   +2.6 / -0.10 |  +10.1 / +3.00 |   +2.2 / +0.47 |   -0.3 / +0.01 |   +0.4 / +0.18 |  +32.3 / +6.78
+   11 -> 12 after  [1.72] |  +68.6 / +11.91 |   +0.1 / -0.02 |  +17.4 / +4.26 |   +2.9 / -0.27 |   +9.2 / +2.23 |   +2.3 / +0.53 |   -0.2 / +0.03 |   +0.5 / +0.19 |  +31.8 / +6.72
+   12 -> 13 before [1.98] |  +69.8 / +14.95 |   +0.1 / +0.08 |  +20.0 / +3.09 |   +0.5 / -0.31 |   +8.4 / +2.80 |   +1.0 / +0.18 |   -0.1 / +0.00 |   +0.2 / -0.07 |  +29.8 / +5.69
+   12 -> 13 after  [2.06] |  +69.3 / +14.16 |   +0.1 / +0.08 |  +20.2 / +3.71 |   +0.8 / -0.25 |   +7.8 / +2.16 |   +1.3 / +0.35 |   -0.1 / -0.02 |   +0.3 / -0.10 |  +30.1 / +5.90
+   13 -> 14 before [1.83] |  +70.3 / +9.54 |   +0.0 / +0.02 |  +18.3 / +1.45 |   +2.4 / +0.16 |   +8.1 / +3.00 |   +0.9 / +0.22 |   -0.1 / -0.06 |   +0.1 / +0.08 |  +29.8 / +4.85
+   13 -> 14 after  [1.84] |  +71.8 / +11.05 |   -0.0 / +0.01 |  +18.6 / +1.82 |   +2.6 / +0.34 |   +5.6 / +2.83 |   +1.0 / +0.15 |   -0.1 / -0.05 |   +0.3 / +0.11 |  +27.9 / +5.16
+   14 -> 15 before [1.81] |  +72.5 / +8.11 |   +0.1 / +0.01 |  +15.9 / +1.64 |   +0.8 / -0.38 |   +8.8 / +1.43 |   +0.4 / -0.03 |   +0.1 / -0.02 |   +0.0 / +0.01 |  +25.9 / +2.72
+   14 -> 15 after  [1.95] |  +72.5 / +9.08 |   +0.1 / +0.03 |  +16.4 / +1.97 |   +0.7 / -0.35 |   +8.2 / +1.53 |   +0.6 / +0.01 |   +0.2 / -0.00 |   +0.1 / +0.03 |  +25.9 / +3.22
+   the same in absolute terms: the part of that MSE (1e-9) carried by each input [share x the layer's error]
+   11 -> 12 before | total  1.64 | covariance +1.13 | mean +0.00 | K21 kink rows +0.29 | K21 other rows +0.04 | K31 +0.17 | K22 +0.04 | per-unit k3 -0.00 | per-unit k4 +0.01 | K21+K31+K22 +0.53
+   11 -> 12 after  | total  1.72 | covariance +1.18 | mean +0.00 | K21 kink rows +0.30 | K21 other rows +0.05 | K31 +0.16 | K22 +0.04 | per-unit k3 -0.00 | per-unit k4 +0.01 | K21+K31+K22 +0.55
+   12 -> 13 before | total  1.98 | covariance +1.38 | mean +0.00 | K21 kink rows +0.40 | K21 other rows +0.01 | K31 +0.17 | K22 +0.02 | per-unit k3 -0.00 | per-unit k4 +0.00 | K21+K31+K22 +0.59
+   12 -> 13 after  | total  2.06 | covariance +1.43 | mean +0.00 | K21 kink rows +0.42 | K21 other rows +0.02 | K31 +0.16 | K22 +0.03 | per-unit k3 -0.00 | per-unit k4 +0.01 | K21+K31+K22 +0.62
+   13 -> 14 before | total  1.83 | covariance +1.29 | mean +0.00 | K21 kink rows +0.34 | K21 other rows +0.04 | K31 +0.15 | K22 +0.02 | per-unit k3 -0.00 | per-unit k4 +0.00 | K21+K31+K22 +0.55
+   13 -> 14 after  | total  1.84 | covariance +1.32 | mean -0.00 | K21 kink rows +0.34 | K21 other rows +0.05 | K31 +0.10 | K22 +0.02 | per-unit k3 -0.00 | per-unit k4 +0.01 | K21+K31+K22 +0.51
+   14 -> 15 before | total  1.81 | covariance +1.31 | mean +0.00 | K21 kink rows +0.29 | K21 other rows +0.02 | K31 +0.16 | K22 +0.01 | per-unit k3 +0.00 | per-unit k4 +0.00 | K21+K31+K22 +0.47
+   14 -> 15 after  | total  1.95 | covariance +1.42 | mean +0.00 | K21 kink rows +0.32 | K21 other rows +0.01 | K31 +0.16 | K22 +0.01 | per-unit k3 +0.00 | per-unit k4 +0.00 | K21+K31+K22 +0.51
+   unweighted (every unit counts the same; relative variance error rms % in brackets): share of the next layer's squared variance error (%)
+   11 -> 12 before [0.1009] |  +67.6 |   +0.0 |  +14.7 |   +2.0 |   +8.3 |   +1.4 |   +0.1 |   -0.1 |  +26.4
+   11 -> 12 after  [0.1026] |  +68.6 |   +0.0 |  +14.8 |   +2.1 |   +6.9 |   +1.5 |   +0.1 |   -0.0 |  +25.4
+   12 -> 13 before [0.1204] |  +71.3 |   +0.1 |  +17.1 |   +2.4 |   +5.4 |   +1.2 |   -0.1 |   +0.0 |  +26.1
+   12 -> 13 after  [0.1206] |  +71.8 |   +0.1 |  +17.1 |   +2.7 |   +4.7 |   +1.3 |   -0.0 |   +0.1 |  +25.8
+   13 -> 14 before [0.1386] |  +73.6 |   +0.1 |  +12.6 |   +1.3 |   +6.3 |   +1.1 |   +0.0 |   -0.1 |  +21.3
+   13 -> 14 after  [0.1397] |  +74.5 |   +0.1 |  +13.7 |   +1.5 |   +4.7 |   +1.1 |   -0.0 |   -0.0 |  +21.1
+   14 -> 15 before [0.1595] |  +74.6 |   -0.0 |   +8.1 |   +0.9 |   +6.1 |   +0.5 |   +0.1 |   -0.1 |  +15.6
+   14 -> 15 after  [0.1609] |  +75.3 |   -0.0 |   +8.2 |   +1.1 |   +5.4 |   +0.5 |   +0.1 |   -0.0 |  +15.1
+PART 3. One plane exact at EVERY layer 2-14 (8M-sample planes: their noise enters at every layer, so the MSE is a pessimistic bound and the share is the cleaner number)
+   K21 all rows  : share of the squared final error before  +23.1% (MSE 13.676e-9), after  +26.4% (MSE 12.332e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +61 / +55 / +62 / +56   after +63 / +58 / +66 / +59
+   K21 kink rows : share of the squared final error before  +22.8% (MSE 12.532e-9), after  +26.4% (MSE 11.133e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +50 / +53 / +54 / +53   after +52 / +54 / +57 / +55
+   K21 other rows: share of the squared final error before   +0.3% (MSE 13.885e-9), after   -0.1% (MSE 12.878e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +10 / +3 / +8 / +4   after +11 / +4 / +9 / +4
+   K31           : share of the squared final error before  +22.7% (MSE 10.987e-9), after  +18.7% (MSE 10.966e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +30 / +34 / +29 / +35   after +28 / +32 / +25 / +34
+   K22           : share of the squared final error before   +2.9% (MSE 12.702e-9), after   +3.2% (MSE 11.595e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +6 / +6 / +5 / +6   after +6 / +5 / +5 / +5
+   K21+K31+K22   : share of the squared final error before  +48.6% (MSE 10.921e-9), after  +48.0% (MSE 10.945e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +96 / +95 / +97 / +97   after +97 / +95 / +96 / +98
+PART 4. One plane exact on a BAND of pair layers (closed loop, 8M planes): first-order share of the squared final error / realized change of the final MSE / squared size of the change, all in % of that card's squared error
+   before K31            layers 11-14: +10.2 /  -9.7 / 10.7 (variance error at 12-15: +10 +17 +16 +24)   layers 8-10:  +6.2 /  -1.8 / 10.5 (variance error at 12-15: +14 +11 +11 +7)   layers 2-7:  +6.3 /  -3.8 /  8.8 (variance error at 12-15: +6 +6 +2 +4)
+   before K21 kink rows  layers 11-14:  +9.6 /  -3.6 / 15.7 (variance error at 12-15: +17 +31 +39 +41)   layers 8-10:  +6.8 /  +2.3 / 15.9 (variance error at 12-15: +25 +15 +11 +9)   layers 2-7:  +6.3 /  +3.1 / 15.7 (variance error at 12-15: +8 +7 +4 +2)
+   before K21+K31+K22    layers 11-14: +20.0 / -11.7 / 28.4 (variance error at 12-15: +32 +51 +62 +72)   layers 8-10: +14.7 /  -3.7 / 25.7 (variance error at 12-15: +47 +30 +26 +18)   layers 2-7: +13.8 /  -0.3 / 27.3 (variance error at 12-15: +17 +13 +9 +8)
+   before, pair layer 12 alone with TWO independent 8M draws of the planes: share (mean of the two) / realized with one draw / realized free of plane noise (size from the product of the two draws) / the noise's part of the size
+      K31            +2.83 / -2.43 / -2.52 / 0.10
+      K21 kink rows  +2.77 / -0.58 / -1.09 / 0.51
+      K21 other rows -0.28 / +1.02 / +1.01 / 0.02
+      K22            +0.16 / +0.11 / +0.10 / 0.02
+      K21+K31+K22    +5.41 / -3.62 / -4.23 / 0.61
+   after  K31            layers 11-14:  +8.8 /  -7.2 / 10.3 (variance error at 12-15: +9 +15 +14 +24)   layers 8-10:  +4.7 /  +1.0 / 10.4 (variance error at 12-15: +13 +11 +9 +6)   layers 2-7:  +5.3 /  -2.6 /  8.0 (variance error at 12-15: +6 +6 +2 +4)
+   after  K21 kink rows  layers 11-14: +11.8 /  -6.4 / 17.1 (variance error at 12-15: +17 +32 +40 +41)   layers 8-10:  +8.5 /  +0.6 / 17.6 (variance error at 12-15: +25 +16 +14 +10)   layers 2-7:  +6.2 /  +4.8 / 17.2 (variance error at 12-15: +9 +7 +3 +3)
+   after  K21+K31+K22    layers 11-14: +21.0 / -11.0 / 31.0 (variance error at 12-15: +32 +51 +62 +72)   layers 8-10: +14.7 /  -1.8 / 27.6 (variance error at 12-15: +46 +31 +26 +18)   layers 2-7: +12.5 /  +3.7 / 28.7 (variance error at 12-15: +19 +13 +8 +8)
+   after , pair layer 12 alone with TWO independent 8M draws of the planes: share (mean of the two) / realized with one draw / realized free of plane noise (size from the product of the two draws) / the noise's part of the size
+      K31            +2.22 / -1.52 / -1.63 / 0.11
+      K21 kink rows  +3.35 / -1.27 / -1.82 / 0.55
+      K21 other rows -0.23 / +0.96 / +0.94 / 0.02
+      K22            +0.35 / -0.21 / -0.23 / 0.02
+      K21+K31+K22    +5.62 / -3.43 / -4.09 / 0.67
+
+================ network 100: final-layer MSE 14.521e-9 before (candidate 3), 13.756e-9 after (with the pair law): -5.27%
+PART 1. Mean formula inputs made exact (learned correction on). Share of the squared final error, % of that card's own error | the same in 1e-9 of final-layer MSE
+ band  |  before: variance  skew  kurtosis   sum |  after: variance  skew  kurtosis   sum || 1e-9: before v / s / k  ->  after v / s / k   (change of the sum)
+   1-8 |           +7.4   +1.0    +3.4   +11.8 |          +7.2   +0.7    +3.0   +10.9 ||    +1.08  +0.14  +0.49  ->   +1.00  +0.09  +0.41   (-0.21)
+  9-11 |           +6.5   +1.3    +5.0   +12.8 |          +5.3   +1.1    +4.2   +10.6 ||    +0.94  +0.19  +0.72  ->   +0.73  +0.15  +0.58   (-0.40)
+    12 |           +4.6   +1.4    +1.1    +7.1 |          +5.4   +1.2    +1.0    +7.7 ||    +0.67  +0.20  +0.16  ->   +0.75  +0.17  +0.14   (+0.04)
+    13 |           +6.8   +3.3    +3.2   +13.3 |          +8.3   +3.0    +2.7   +14.0 ||    +0.99  +0.48  +0.47  ->   +1.14  +0.41  +0.37   (-0.01)
+    14 |           +8.0   +4.2    +2.9   +15.1 |          +9.1   +4.3    +2.8   +16.1 ||    +1.17  +0.61  +0.42  ->   +1.25  +0.59  +0.38   (+0.02)
+    15 |          +13.2   +5.1    +6.7   +25.0 |         +13.1   +4.8    +6.4   +24.3 ||    +1.92  +0.73  +0.97  ->   +1.80  +0.65  +0.88   (-0.28)
+   all |          +46.5  +16.3   +22.3   +85.1 |         +48.5  +15.1   +20.1   +83.6 ||    +6.76  +2.36  +3.23  ->   +6.67  +2.07  +2.77   (-0.85)
+ not in the three inputs (formula, learned correction, cross terms): before +14.9% = 2.17e-9, after +16.4% = 2.25e-9
+   final-layer MSE with variance exact at every layer   : before   7.764e-9 ( -46.5%)   after   7.724e-9 ( -43.8%)
+   final-layer MSE with skew exact at every layer       : before  13.844e-9 (  -4.7%)   after  13.620e-9 (  -1.0%)
+   final-layer MSE with kurtosis exact at every layer   : before  12.496e-9 ( -13.9%)   after  12.637e-9 (  -8.1%)
+   final-layer MSE with all three exact at every layer  : before   3.028e-9 ( -79.1%)   after   3.019e-9 ( -78.1%)
+   superposition (sum of the band arms against the every-layer arm): before cosine 0.914 size ratio 0.891; after 0.917 / 0.903
+   in sequence: the variance channel (base minus variance exact everywhere) before 6.76e-9, after 6.03e-9; skew and kurtosis once the variance is exact (variance exact minus all three exact) before 4.74e-9, after 4.71e-9; left with all three exact before 3.03e-9, after 3.02e-9
+   the law's change of the final prediction: size 8.2% of the squared error before, cosine with the error before -0.235; against the correction that exact variance at every layer makes: cosine +0.137, coefficient +0.050
+   the card's per-unit inputs against truth, layers 9-15. First-order MSE that the input's error puts into THAT layer's mean, 1e-9 (variance / skew / kurtosis), and the variance error: relative rms %, mean %
+     layer  9: before  1.22 /  0.56 /  0.78, variance 0.0727 rms -0.0068 mean    after  1.17 /  0.56 /  0.78, variance 0.0720 rms -0.0057 mean
+     layer 10: before  1.40 /  0.61 /  0.74, variance 0.0843 rms -0.0043 mean    after  1.45 /  0.61 /  0.74, variance 0.0848 rms -0.0030 mean
+     layer 11: before  1.32 /  0.73 /  0.88, variance 0.0929 rms -0.0029 mean    after  1.39 /  0.72 /  0.88, variance 0.0949 rms -0.0019 mean
+     layer 12: before  1.59 /  0.79 /  0.80, variance 0.1134 rms +0.0064 mean    after  1.67 /  0.79 /  0.80, variance 0.1152 rms +0.0087 mean
+     layer 13: before  1.86 /  0.92 /  0.86, variance 0.1245 rms +0.0146 mean    after  1.98 /  0.91 /  0.86, variance 0.1258 rms +0.0140 mean
+     layer 14: before  1.65 /  1.00 /  0.92, variance 0.1301 rms +0.0060 mean    after  1.82 /  1.00 /  0.93, variance 0.1326 rms +0.0046 mean
+     layer 15: before  1.84 /  0.90 /  1.12, variance 0.1573 rms +0.0210 mean    after  1.87 /  0.89 /  1.11, variance 0.1587 rms +0.0169 mean
+   the law's change of the per-unit variance (after minus before, relative): rms %, and the share of the squared variance error before that it removes (projection on the independent truth draw)
+     L9: 0.0205 / +4.4%   L10: 0.0236 / +3.4%   L11: 0.0277 / +2.5%   L12: 0.0334 / +2.7%   L13: 0.0347 / +2.7%   L14: 0.0417 / +3.4%   L15: 0.0450 / +3.2%
+PART 2. Pair map of layer l: ONE input made exact at that layer, the others the card's. 'variance error' = the error of the next layer's per-unit variance weighted by what it does to that layer's mean (pdf / 2 sigma).
+   First number: share of that squared error (%); second: share of the squared final-layer error (%), the change carried to the end in closed loop. [..] = that error as MSE of the next layer's mean, 1e-9
+ pair layer -> variance of layer | covariance | mean | K21 kink rows | K21 other rows | K31 | K22 | per-unit k3 | per-unit k4 | K21+K31+K22
+   11 -> 12 before [1.59] |  +72.3 / +13.72 |   +0.3 / -0.03 |  +16.4 / +3.25 |   +1.7 / +0.47 |   +7.9 / +1.09 |   +0.8 / +0.73 |   -0.2 / -0.03 |   +0.3 / -0.27 |  +26.8 / +5.30
+   11 -> 12 after  [1.67] |  +72.1 / +15.67 |   +0.4 / -0.01 |  +16.1 / +3.67 |   +2.2 / +0.60 |   +8.3 / +1.52 |   +0.9 / +0.80 |   -0.2 / -0.03 |   +0.4 / -0.17 |  +27.5 / +6.26
+   12 -> 13 before [1.86] |  +71.3 / +14.03 |   -0.2 / -0.03 |  +16.0 / +2.83 |   +2.6 / -0.06 |   +6.5 / +2.83 |   +2.2 / +0.44 |   -0.2 / +0.20 |   +0.7 / -0.15 |  +27.2 / +6.06
+   12 -> 13 after  [1.98] |  +70.9 / +16.13 |   -0.1 / -0.01 |  +15.6 / +3.04 |   +2.6 / +0.03 |   +6.9 / +2.43 |   +2.4 / +0.44 |   -0.2 / +0.13 |   +0.9 / -0.08 |  +27.6 / +5.97
+   13 -> 14 before [1.65] |  +73.5 / +12.29 |   +0.1 / -0.11 |  +19.8 / +3.91 |   +1.4 / +0.54 |   +3.6 / +1.93 |   +0.6 / +0.03 |   -0.4 / +0.33 |   +0.1 / -0.04 |  +25.4 / +6.24
+   13 -> 14 after  [1.82] |  +70.4 / +12.68 |   +0.1 / -0.10 |  +20.9 / +4.44 |   +1.5 / +0.55 |   +6.1 / +2.12 |   +0.2 / +0.04 |   -0.4 / +0.31 |   +0.1 / -0.08 |  +28.7 / +7.04
+   14 -> 15 before [1.84] |  +70.5 / +9.42 |   +0.1 / +0.03 |  +17.8 / +1.94 |   +1.7 / -0.29 |  +10.1 / +2.32 |   +0.1 / -0.01 |   -0.4 / +0.03 |   +0.0 / -0.04 |  +29.7 / +4.00
+   14 -> 15 after  [1.87] |  +70.4 / +9.46 |   +0.1 / +0.03 |  +17.6 / +2.03 |   +2.0 / -0.27 |   +9.0 / +1.94 |   +0.4 / -0.01 |   -0.5 / -0.00 |   +0.2 / -0.03 |  +29.1 / +3.75
+   the same in absolute terms: the part of that MSE (1e-9) carried by each input [share x the layer's error]
+   11 -> 12 before | total  1.59 | covariance +1.15 | mean +0.00 | K21 kink rows +0.26 | K21 other rows +0.03 | K31 +0.13 | K22 +0.01 | per-unit k3 -0.00 | per-unit k4 +0.00 | K21+K31+K22 +0.43
+   11 -> 12 after  | total  1.67 | covariance +1.20 | mean +0.01 | K21 kink rows +0.27 | K21 other rows +0.04 | K31 +0.14 | K22 +0.01 | per-unit k3 -0.00 | per-unit k4 +0.01 | K21+K31+K22 +0.46
+   12 -> 13 before | total  1.86 | covariance +1.33 | mean -0.00 | K21 kink rows +0.30 | K21 other rows +0.05 | K31 +0.12 | K22 +0.04 | per-unit k3 -0.00 | per-unit k4 +0.01 | K21+K31+K22 +0.51
+   12 -> 13 after  | total  1.98 | covariance +1.40 | mean -0.00 | K21 kink rows +0.31 | K21 other rows +0.05 | K31 +0.14 | K22 +0.05 | per-unit k3 -0.00 | per-unit k4 +0.02 | K21+K31+K22 +0.55
+   13 -> 14 before | total  1.65 | covariance +1.21 | mean +0.00 | K21 kink rows +0.33 | K21 other rows +0.02 | K31 +0.06 | K22 +0.01 | per-unit k3 -0.01 | per-unit k4 +0.00 | K21+K31+K22 +0.42
+   13 -> 14 after  | total  1.82 | covariance +1.28 | mean +0.00 | K21 kink rows +0.38 | K21 other rows +0.03 | K31 +0.11 | K22 +0.00 | per-unit k3 -0.01 | per-unit k4 +0.00 | K21+K31+K22 +0.52
+   14 -> 15 before | total  1.84 | covariance +1.29 | mean +0.00 | K21 kink rows +0.33 | K21 other rows +0.03 | K31 +0.19 | K22 +0.00 | per-unit k3 -0.01 | per-unit k4 +0.00 | K21+K31+K22 +0.54
+   14 -> 15 after  | total  1.87 | covariance +1.31 | mean +0.00 | K21 kink rows +0.33 | K21 other rows +0.04 | K31 +0.17 | K22 +0.01 | per-unit k3 -0.01 | per-unit k4 +0.00 | K21+K31+K22 +0.54
+   unweighted (every unit counts the same; relative variance error rms % in brackets): share of the next layer's squared variance error (%)
+   11 -> 12 before [0.1134] |  +72.5 |   +0.1 |  +12.5 |   +2.1 |   +5.8 |   +1.0 |   -0.1 |   +0.0 |  +21.4
+   11 -> 12 after  [0.1152] |  +72.4 |   +0.1 |  +13.0 |   +2.4 |   +5.6 |   +1.0 |   -0.1 |   +0.1 |  +21.9
+   12 -> 13 before [0.1245] |  +73.5 |   +0.0 |  +13.0 |   +1.3 |   +5.5 |   +1.5 |   -0.1 |   +0.3 |  +21.2
+   12 -> 13 after  [0.1258] |  +73.1 |   +0.1 |  +13.2 |   +1.8 |   +5.6 |   +1.4 |   -0.0 |   +0.3 |  +22.0
+   13 -> 14 before [0.1301] |  +74.3 |   +0.0 |  +13.4 |   +1.3 |   +4.6 |   +0.6 |   -0.2 |   +0.1 |  +19.9
+   13 -> 14 after  [0.1326] |  +74.4 |   +0.0 |  +13.6 |   +1.6 |   +4.8 |   +0.5 |   -0.1 |   +0.1 |  +20.5
+   14 -> 15 before [0.1573] |  +73.0 |   +0.1 |   +9.1 |   +1.1 |   +6.6 |   +0.5 |   -0.2 |   +0.1 |  +17.3
+   14 -> 15 after  [0.1587] |  +73.8 |   +0.1 |   +9.4 |   +1.3 |   +6.1 |   +0.5 |   -0.2 |   +0.1 |  +17.4
+PART 3. One plane exact at EVERY layer 2-14 (8M-sample planes: their noise enters at every layer, so the MSE is a pessimistic bound and the share is the cleaner number)
+   K21 all rows  : share of the squared final error before  +29.7% (MSE 14.686e-9), after  +33.8% (MSE 13.220e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +57 / +64 / +69 / +58   after +61 / +63 / +70 / +60
+   K21 kink rows : share of the squared final error before  +28.7% (MSE 13.720e-9), after  +32.2% (MSE 12.418e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +50 / +53 / +64 / +51   after +52 / +52 / +63 / +53
+   K21 other rows: share of the squared final error before   +1.2% (MSE 15.398e-9), after   +1.6% (MSE 14.504e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +7 / +10 / +6 / +8   after +9 / +11 / +7 / +7
+   K31           : share of the squared final error before  +20.5% (MSE 13.121e-9), after  +17.7% (MSE 13.149e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +32 / +26 / +24 / +36   after +30 / +27 / +24 / +34
+   K22           : share of the squared final error before   +3.8% (MSE 14.043e-9), after   +3.8% (MSE 13.318e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +4 / +7 / +1 / +5   after +4 / +7 / +1 / +5
+   K21+K31+K22   : share of the squared final error before  +53.4% (MSE 11.260e-9), after  +55.0% (MSE 11.315e-9) | share of the squared variance error (weighted as in part 2) at layers 12 / 13 / 14 / 15: before +93 / +97 / +95 / +100   after +94 / +98 / +95 / +99
+PART 4. One plane exact on a BAND of pair layers (closed loop, 8M planes): first-order share of the squared final error / realized change of the final MSE / squared size of the change, all in % of that card's squared error
+   before K31            layers 11-14:  +8.2 /  -7.2 /  9.2 (variance error at 12-15: +8 +12 +13 +26)   layers 8-10:  +7.1 /  -5.8 /  8.5 (variance error at 12-15: +12 +8 +10 +6)   layers 2-7:  +5.4 /  -0.1 / 10.6 (variance error at 12-15: +12 +6 +0 +4)
+   before K21 kink rows  layers 11-14: +11.9 /  -7.7 / 16.0 (variance error at 12-15: +16 +30 +39 +43)   layers 8-10:  +7.3 /  -1.2 / 13.5 (variance error at 12-15: +24 +21 +18 +5)   layers 2-7:  +9.7 /  +6.9 / 26.4 (variance error at 12-15: +9 +3 +7 +2)
+   before K21+K31+K22    layers 11-14: +21.5 / -16.0 / 27.0 (variance error at 12-15: +27 +49 +60 +77)   layers 8-10: +16.0 / -13.2 / 18.8 (variance error at 12-15: +44 +34 +29 +16)   layers 2-7: +16.3 /  +4.7 / 37.3 (variance error at 12-15: +22 +14 +7 +7)
+   after  K31            layers 11-14:  +8.0 /  -7.1 /  8.9 (variance error at 12-15: +8 +13 +14 +23)   layers 8-10:  +5.0 /  -2.5 /  7.6 (variance error at 12-15: +13 +8 +10 +6)   layers 2-7:  +4.7 /  +0.8 / 10.3 (variance error at 12-15: +9 +7 +1 +5)
+   after  K21 kink rows  layers 11-14: +13.1 /  -9.3 / 16.9 (variance error at 12-15: +16 +27 +41 +44)   layers 8-10:  +8.9 /  -3.5 / 14.4 (variance error at 12-15: +26 +21 +17 +6)   layers 2-7: +10.3 /  +7.4 / 28.0 (variance error at 12-15: +10 +4 +5 +2)
+   after  K21+K31+K22    layers 11-14: +22.9 / -16.6 / 29.2 (variance error at 12-15: +27 +47 +61 +75)   layers 8-10: +16.0 / -11.7 / 20.3 (variance error at 12-15: +47 +36 +28 +16)   layers 2-7: +16.4 /  +8.6 / 41.4 (variance error at 12-15: +20 +15 +6 +7)
