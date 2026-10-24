@@ -6,7 +6,7 @@ Removing distinct third-order content broke subsequent plane transport and produ
 
 Recorded measurement:
 
-    Measured 2026-09-01 (receipts: LANE_g3_tracker.md T-12…T-18, FASTER_PATH_MEMO.md, optbeta_sweep_all_variants.log, CAP_SCREEN_*.json). CORRECTED the same night after Matt's pushback ("you are wrong that there is no path").
+    Measured 2026-09-01 (receipts: LANE_g3_tracker.md T-12…T-18, FASTER_PATH_MEMO.md, optbeta_sweep_all_variants.log, CAP_SCREEN_*.json). CORRECTED the same night after Matt's pushback ("[quote removed]").
     
     - Consumption betas were stale ~2×; on the deploy-frame supply β_v≈0.40. Deployed card #328622 carries only the learned F2J operator → the engine supply is additive: v-only −10.6 (r35) / −15.3 (r100) / −7.8 (r150) raw. k3/k4 arms flip sign between nets → v-only.
     - WRONG first reading (retracted): "value needs the full 1024³ carried tensor, 42× budget, flat spectrum, no path." The tensor-killed / aux / Tucker-256 collapses are a CASCADE artifact of the wedge (zeroing distinct content breaks the plane push; next pre-plane 4.5× off-scale), not a measurement of where the value is.

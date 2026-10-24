@@ -6,8 +6,7 @@ Concurrent full-tensor runs exhausted memory despite manageable individual runs.
 
 Recorded measurement:
 
-    **REVISED 2026-09-01 (Matt):** "you can use the machine just dont OOM
-    it" — full CPU/GPU utilization is authorized; the binding constraint
+    **REVISED 2026-09-01 (Matt):** "[quote removed]" — full CPU/GPU utilization is authorized; the binding constraint
     is MEMORY (no OOM: keep peak RSS well under the machine's RAM and
     MPS allocations bounded; chunk large batches). The earlier
     one-job/nice-15/4-thread caps were for the lag incident, not a
